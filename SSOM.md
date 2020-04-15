@@ -94,6 +94,7 @@ Note that there is disagreement whether the primary id should be a curie or an I
 | x_source | Version IRI of ontology source for the x term | http://purl.obolibrary.org/obo/hp/releases/2020-03-27/hp-base.owl |
 | y_source | Version IRI of ontology source for the y term | http://purl.obolibrary.org/obo/mp/releases/2020-04-14/mp-base.owl |
 | match_type | Tuple of IDs from  SSSOM Vocabulary | SSSOM:0000004, SSSOM:0000011 |
+| creator | IRI of person or group responsible for the mapping. | https://orcid.org/0000-0002-7356-1779 |
 
 ### Data Dictionary of Optional Elements (SSSOM Extended)
 
