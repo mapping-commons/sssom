@@ -45,21 +45,22 @@ Some opinions will probably not be reconciled, but we will do the best we can to
 
 The SSSOM Vocabulary is a Controlled Vocabulary (CV) for representing the method by which a mapping was produced.
 
-* *SSSOM:0000001* | Ontology Match | Root level term that groups all OMTs. |
-  * *SSSOM:0000002* | Equivalence Match | A mapping that fully or partially relies on matching lexical data such as labels or synonyms. |
-    * *SSSOM:0000021* | Label Exact Match | Exact match on the label of the terms. |
-		* *SSSOM:0000022* | Exact Synonym Exact Match | Exact match on the exact synonym property of a term. |
-		* *SSSOM:0000023* | Logical Equivalence Match | Exact match on the logical definition of a term. |
-		* *SSSOM:0000024* | Complex Equivalence Match | Exact match based on the use of a tool that combines multiple techniques for matching. |
-		* *SSSOM:0000025* | Human Curated Equivalence Match | Exact match based on human curation. |
-		* *SSSOM:0000026* | Complex Equivalence Match | Exact match based on the use of a tool that combines multiple techniques for matching. |
-  * *SSSOM:0000007* | Related Match | A mapping that fully or partially relies on matching lexical data such as labels or synonyms. |
-    * *SSSOM:0000008* | Logical Similarity Match | Related match on the semantic similarity between two terms. | 
-		* *SSSOM:0000009* | Complex Related Match | Related match based on the use of a tool that combines multiple techniques for matching. |
-	* *SSSOM:0000010* | Term Match 
-		* *SSSOM:0000011* | Class Match
-		* *SSSOM:0000012* | Object Property Match
-		* *SSSOM:0000013* | Individual Match
+| Term | Label | Description | Parent |
+| ---- | ----- | ----------- | ------ |
+| *SSSOM:0000001* | Ontology Match | Root level term that groups all OMTs. | |
+| *SSSOM:0000002* | Equivalence Match | A mapping that fully or partially relies on matching lexical data such as labels or synonyms. | SSSOM:0000001 |
+| *SSSOM:0000021* | Label Exact Match | Exact match on the label of the terms. | SSSOM:0000002 |
+| *SSSOM:0000022* | Exact Synonym Exact Match | Exact match on the exact synonym property of a term. | SSSOM:0000002 |
+| *SSSOM:0000023* | Logical Equivalence Match | Exact match on the logical definition of a term. | SSSOM:0000002 |
+| *SSSOM:0000025* | Human Curated Equivalence Match | Exact match based on human curation. |  SSSOM:0000002 |
+| *SSSOM:0000026* | Complex Equivalence Match | Exact match based on the use of a tool that combines multiple techniques for matching. | SSSOM:0000002 |
+| *SSSOM:0000007* | Related Match | A mapping that fully or partially relies on matching lexical data such as labels or synonyms. |  SSSOM:0000001 |
+| *SSSOM:0000008* | Logical Similarity Match | Related match on the semantic similarity between two terms. |  SSSOM:0000007 |
+| *SSSOM:0000009* | Complex Related Match | Related match based on the use of a tool that combines multiple techniques for matching. |   SSSOM:0000007 |
+| *SSSOM:0000010* | Term Match | | SSSOM:0000001 |
+| *SSSOM:0000011* | Class Match | | SSSOM:0000010 |
+| *SSSOM:0000012* | Object Property Match | | SSSOM:0000010 |
+| *SSSOM:0000013* | Individual Match | | SSSOM:0000010 |
 
 ## Common Mapping Predicates
 
