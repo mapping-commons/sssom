@@ -41,9 +41,9 @@ Some opinions will probably not be reconciled, but we will do the best we can to
   * CSV
 	* RDF
 
-## The SSSOM Method Vocabulary
+## The SSSOM Match Type Vocabulary
 
-The SSSOM Vocabulary is a Controlled Vocabulary (CV) for representing the method by which a mapping was produced.
+The SSSOM Vocabulary is a Controlled Vocabulary (CV) for representing the type of matches by which a mapping was produced.
 
 | Term | Label | Description | Parent |
 | ---- | ----- | ----------- | ------ |
