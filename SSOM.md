@@ -122,3 +122,4 @@ _Notes:_
 
 - No prescribed column order
 - ROBOT implementation: https://github.com/ontodev/robot/issues/312
+- Check http://alignapi.gforge.inria.fr/format.html
