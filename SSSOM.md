@@ -25,11 +25,11 @@ Apart from a catalog of metadata elements, we will provide two serialisations fo
 * A definition of the two primary serialisations of ontology mappings
 * A (non-exhaustive) selection recommended mapping predicates
 
-*Some notes on the standardisation process:*
+### Some notes on the standardisation process:
 
 Note this is a public copy of the editors’ draft. It is provided for discussion only and may change at any moment. Do not cite this document other than as work in progress.
 
-*Table of Content*
+### Table of Content
 
 * [SSSOM Metadata Elements](#meta)
 * [SSSOM Controlled Vocabulary](#vocab)
