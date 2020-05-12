@@ -16,9 +16,11 @@ Working Draft, Updated: 15 April 2020
 ### Abstract
 The goal of the Simple Standard for Sharing Ontology Mappings (SSSOM) is to provide a minimal and standard set of elements for the dissemination of 1:1 **_mappings between ontology terms_** to ensure a reliable interpretation of generated mappings and enable sharing between people and applications. 
 
-A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The subject is the term on the left side of the mapping, and the object is the term on the right side of the mapping. A “mapping set” is a set of mappings that can be shared using the SSSOM standard.
+A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.
 
-Apart from a catalog of metadata elements, we will provide two serialisations for ontology mappings, aimed at different communities: a TSV serialisation which is aimed at the wider bioinformatics community, and an RDF serialisation that is aimed at the Knowledge Graph/Semantic Web community. We will define an unambiguous translation between the two, which enables, for example, the use of shape validation also for the TSV format. Apart from the format, the main difference between the two serialisations is that we use [CURIE](https://www.w3.org/TR/curie/) syntax to denote entities in the TSV, and IRIs in the RDF based serialisation. Apart from the mappings themselves, we also provide a way to attach meta- and provenance data to **_a set_** of mappings. This document contains:
+Apart from a catalog of metadata elements, we will provide (at least) two serialisations for ontology mappings, aimed at different communities: a TSV serialisation which is aimed at the wider bioinformatics community, and an RDF/OWL serialisation that is aimed at the Knowledge Graph/Semantic Web community. Apart from the format, the main difference between the two serialisations is that we use [CURIE](https://www.w3.org/TR/curie/) syntax to denote entities in the TSV, and IRIs in the RDF based serialisation. Apart from the mappings themselves, we also provide a way to attach meta- and provenance data to **_a set_** of mappings. We will define an unambiguous translation between the TSV and RDF/OWL serialisations as part of this document. 
+
+This document contains:
 
 * A definition of the SSSOM metadata elements
 * A controlled vocabulary for the description of match types (SSSOM CV)
@@ -27,7 +29,7 @@ Apart from a catalog of metadata elements, we will provide two serialisations fo
 
 ### Some notes on the standardisation process:
 
-Note this is a public copy of the editors’ draft. It is provided for discussion only and may change at any moment. Do not cite this document other than as work in progress.
+Note this is a public copy of the editors’ draft. It is provided for discussion only and may change at any moment. Do not cite this document other than as work in progress. SSSOM is community-driven, so all feedback is welcome.
 
 ### Table of Content
 
@@ -314,31 +316,35 @@ The use of predicates is not restricted by SSSOM, but for maximum re-use, the fo
 
 ## RDF/XML serialised re-ified OWL axioms:
 
-The default RDFXML serialisation of the mappings will be realised as *reified OWL axioms*. This has the advantage that any mapping set  can be simply merged with an ontology in the usual way, for example using [ROBOT merge](http://robot.obolibrary.org/merge). We will deal with three types of reified OWL-axioms, and a few sub-types:
+The default RDFXML serialisation of the mappings will be realised as *reified OWL axioms*. This has the advantage that any mapping set can be simply merged with an ontology in the usual way, for example using [ROBOT merge](http://robot.obolibrary.org/merge). We will deal with three types of reified OWL-axioms, and a few sub-types:
 
 1. Predicate is an annotation property
-
 2. Predicate is an object property and
-
-    1. Object/Subject are classes
-
-    2. Object/Subject are individuals
-
+   1. Object/Subject are classes
+   2. Object/Subject are individuals
 3. Predicate is language relational construct of RDFS or OWL (rdfs:subClassOf, owl:equivalentClass)
 
 ### Predicate is an annotation property:
 
-If the predicate corresponds to an annotation property, the mapping <S,P,O> gets converted to an OWLAnnotationAssertion axiom: OWLAnnotationAssertion(S,P,O). All mapping level metadata gets converted into OWLAnnotation objects which are materialised as axiom annotations on the mapping annotation assertion, see [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations):
+If the predicate corresponds to an annotation property, the mapping <S,P,O> gets converted to an OWLAnnotationAssertion axiom: `OWLAnnotationAssertion(P,S,O)`. All mapping level metadata gets converted into OWLAnnotation objects which are materialised as axiom annotations on the mapping annotation assertion, see [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations):
 
 ```
-sssomMetadata: [Annotation]
+AnnotationAssertion(A1 A2 ... An P, S, O)
 ```
-	
-Annotation(Q,V), where Q is a SSSOM metadata element and V is an annotation value.
+
+Where `A1 ... An` are OWL Annotations objects like:
+
+```	
+Annotation(Q,V)
+```
+
+where Q is a SSSOM metadata element and V is an annotation value.
 
 Note that if a SSSOM metadata element value is a list L (i.e. can have multiple elements, such as creator and others), individual annotations are created for each of them:
 
+```
 Annotation(Q,V) for all V in L.
+```
 
 For example, sssomMeta could be:
 
