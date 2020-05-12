@@ -354,7 +354,10 @@ sssom:match_type: SSSOM:LexicalEquivalenceMapping
 ```
 
 Which would materialise as:
+
+```
 AnnotationAssertion(Annotation(sssom:creator,orcid:001) Annotation(sssom:match_type, SSSOM:LexicalEquivalenceMapping) P, S, O)
+```
 
 Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations).
 
