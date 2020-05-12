@@ -38,6 +38,7 @@ Note this is a public copy of the editors’ draft. It is provided for discussio
 * [SSSOM Use Cases](#usecase)
 
 <a name="meta"/>
+
 # SSSOM Metadata Elements
 
 The following table defines all the SSSOM metadata elements. Elements shaded in grey are required, i.e, should be present for every mapping. Apart from the elements, **_this tables defines the canonical order_** in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
@@ -227,7 +228,8 @@ The following table defines all the SSSOM metadata elements. Elements shaded in 
   </tr>
 </table>
 
-<a name="meta"/>
+<a name="vocab"/>
+
 # The SSSOM Controlled Vocabulary
 
 The SSSOM Vocabulary is a Controlled Vocabulary (CV) for representing the method by which a mapping was produced. **The following excerpt only gives a sense of the vocabulary (i.e. is incomplete and unstructured)** - the actual implementation will be done in the usual way as a linked data vocabulary in rdf. In the OWL/RDF serialisation, matches are connected to match types using dc:type.
@@ -308,6 +310,7 @@ The use of predicates is not restricted by SSSOM, but for maximum re-use, the fo
 </table>
 
 <a name="serialisation"/>
+
 # Serialisation
 
 ## RDF/XML serialised re-ified OWL axioms:
@@ -501,6 +504,7 @@ HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101</td>
 * Ernesto showed interest
 
 <a name="usecase"/>
+
 # Use Cases:
 
 * Consumers:
