@@ -326,19 +326,19 @@ The default RDFXML serialisation of the mappings will be realised as *reified OW
 
 ### Predicate is an annotation property:
 
-If the predicate corresponds to an annotation property, the mapping <S,P,O> gets converted to an OWLAnnotationAssertion axiom: `OWLAnnotationAssertion(P,S,O)`. All mapping level metadata gets converted into OWLAnnotation objects which are materialised as axiom annotations on the mapping annotation assertion, see [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations):
+If the predicate corresponds to an annotation property, the mapping <S,P,O, sssomMetadata> gets converted to an OWLAnnotationAssertion axiom: `OWLAnnotationAssertion(P,S,O)`. All mapping level metadata (`sssomMetadata`) gets converted into OWLAnnotation objects which are materialised as axiom annotations on the mapping annotation assertion, see [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations):
 
 ```
-AnnotationAssertion(A1 A2 ... An P, S, O)
+AnnotationAssertion(sssomMetadata P, S, O)
 ```
 
-Where `A1 ... An` are OWL Annotations objects like:
+Where `sssomMetadata` is a sequence of OWL Annotations objects like:
 
 ```	
-Annotation(Q,V)
+Annotation(Q1,V1) Annotation(Q2,V2) ... Annotation(Qn,Vn)
 ```
 
-where Q is a SSSOM metadata element and V is an annotation value.
+where Qi is a SSSOM metadata element and Vi is an annotation value.
 
 Note that if a SSSOM metadata element value is a list L (i.e. can have multiple elements, such as creator and others), individual annotations are created for each of them:
 
@@ -352,6 +352,9 @@ For example, sssomMeta could be:
 sssom:creator orcid:001
 sssom:match_type: SSSOM:LexicalEquivalenceMapping
 ```
+
+Which would materialise as:
+AnnotationAssertion(Annotation(sssom:creator,orcid:001) Annotation(sssom:match_type, SSSOM:LexicalEquivalenceMapping) P, S, O)
 
 Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations).
 
