@@ -12,8 +12,6 @@ Working Draft, Updated: 15 April 2020
 * David Osumi-Sutherland (EMBL-EBI)
 * Simon Jupp (SciBite)
 
-*Contributors:*
-
 
 ### Abstract
 The goal of the Simple Standard for Sharing Ontology Mappings (SSSOM) is to provide a minimal and standard set of elements for the dissemination of 1:1 **_mappings between ontology terms_** to ensure a reliable interpretation of generated mappings and enable sharing between people and applications. 
@@ -33,8 +31,13 @@ Note this is a public copy of the editors’ draft. It is provided for discussio
 
 *Table of Content*
 
-[[TOC]]
+* [SSSOM Metadata Elements](#meta)
+* [SSSOM Controlled Vocabulary](#vocab)
+* [SSSOM Common Predicates](#predicates)
+* [SSSOM Serialisation](#serialisation)
+* [SSSOM Use Cases](#usecase)
 
+<a name="meta"/>
 # SSSOM Metadata Elements
 
 The following table defines all the SSSOM metadata elements. Elements shaded in grey are required, i.e, should be present for every mapping. Apart from the elements, **_this tables defines the canonical order_** in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
@@ -224,7 +227,7 @@ The following table defines all the SSSOM metadata elements. Elements shaded in 
   </tr>
 </table>
 
-
+<a name="meta"/>
 # The SSSOM Controlled Vocabulary
 
 The SSSOM Vocabulary is a Controlled Vocabulary (CV) for representing the method by which a mapping was produced. **The following excerpt only gives a sense of the vocabulary (i.e. is incomplete and unstructured)** - the actual implementation will be done in the usual way as a linked data vocabulary in rdf. In the OWL/RDF serialisation, matches are connected to match types using dc:type.
@@ -234,7 +237,7 @@ The vocabulary is managed here:
 * Robot [template](sssom_vocab.tsv)
 * [Vocab](sssom_vocab.tsv) (OWL)
 
-
+<a name="predicates"/>
 # Common Mapping Predicates
 
 The use of predicates is not restricted by SSSOM, but for maximum re-use, the following predicates are strongly encouraged.
@@ -304,7 +307,7 @@ The use of predicates is not restricted by SSSOM, but for maximum re-use, the fo
   </tr>
 </table>
 
-
+<a name="serialisation"/>
 # Serialisation
 
 ## RDF/XML serialised re-ified OWL axioms:
@@ -497,7 +500,8 @@ HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101</td>
 
 * Ernesto showed interest
 
-## Use Cases:
+<a name="usecase"/>
+# Use Cases:
 
 * Consumers:
 
@@ -530,8 +534,11 @@ HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101</td>
         * [http://uberon.github.io/downloads.html#bridge](http://uberon.github.io/downloads.html#bridge)
 
     * OxO
+<hr>
 
-## Notes:
+Not part of spec, clean up.
+
+# Notes:
 
 * Mapping notes SNOMED-ORPHANET (codes)
 
