@@ -234,7 +234,7 @@ The following table defines all the SSSOM metadata elements. Elements shaded in 
 
 The SSSOM Vocabulary is a Controlled Vocabulary (CV) for representing the method by which a mapping was produced. **The following excerpt only gives a sense of the vocabulary (i.e. is incomplete and unstructured)** - the actual implementation will be done in the usual way as a linked data vocabulary in rdf. In the OWL/RDF serialisation, matches are connected to match types using dc:type.
 
-The vocabulary is managed here:
+The vocabulary (http://purl.org/sssom/sssom.owl) is managed here:
 
 * Robot [template](sssom_vocab.tsv)
 * [Vocab](sssom_vocab.tsv) (OWL)
@@ -248,8 +248,6 @@ The use of predicates is not restricted by SSSOM, but for maximum re-use, the fo
 *Sources:*
 
 * [https://www.bioontology.org/wiki/BioPortal_Mappings](https://www.bioontology.org/wiki/BioPortal_Mappings)
-
-* TBD
 
 <table>
   <tr>
@@ -332,8 +330,10 @@ The default RDFXML serialisation of the mappings will be realised as *reified OW
 
 If the predicate corresponds to an annotation property, the mapping <S,P,O> gets converted to an OWLAnnotationAssertion axiom: OWLAnnotationAssertion(S,P,O). All mapping level metadata gets converted into OWLAnnotation objects which are materialised as axiom annotations on the mapping annotation assertion, see [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations):
 
+```
 sssomMetadata: [Annotation]
-
+```
+	
 Annotation(Q,V), where Q is a SSSOM metadata element and V is an annotation value.
 
 Note that if a SSSOM metadata element value is a list L (i.e. can have multiple elements, such as creator and others), individual annotations are created for each of them:
@@ -342,9 +342,10 @@ Annotation(Q,V) for all V in L.
 
 For example, sssomMeta could be:
 
+```
 sssom:creator orcid:001
-
 sssom:match_type: SSSOM:LexicalEquivalenceMapping
+```
 
 Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations).
 
@@ -354,21 +355,29 @@ Mapping set level annotations are manifested as Ontology annotation in the usual
 
 The Mapping <S,P,O> gets translated into an existential restriction: 
 
+```
 SubclassOf(A, P some O)
+```
 
 All metadata elements are added as OWLAnnotation objects and added to SubclassOf axiom as axiom annotations:
 
+```
 SubclassOf(sssomMetadata, A, P some O)
+```
 
 Case 2: Object and Subject are individuals
 
 The Mapping <S,P,O> gets translated into an object property assertion: 
 
+```
 ObjectPropertyAssertion(P, A, O)
+```
 
 All metadata elements are added as OWLAnnotation objects and added to ObjectPropertyAssertion axiom as axiom annotations:
 
+```
 ObjectPropertyAssertion(sssomMetadata, P, A, O)
+```
 
 ### Predicate is language relational construct of RDFS or OWL
 
@@ -420,15 +429,13 @@ TBD: These mappings could be specified in the default JSON-LD context.
 
 All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the SSSOM metadata table. For example, the first four columns should always be, in that order: subject_id, predicate_id, object_id, match_type. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.
 
-Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple JSON LDyaml. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a curie_map: parameter in the JSON LD file. The value can be either a dictionary of CURIE->URLPREFIX pairs or a link to a valid curie map of the same shape.
+Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple JSON LD. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a curie_map: parameter in the JSON LD file. The value can be either a dictionary of CURIE->URLPREFIX pairs or a link to a valid curie map of the same shape.
 
 Note that only metadata elements permissible in a global context (G*) can be used in the metadatafile:
 
-<table>
-  <tr>
-    <td>SSSOMELEMENT: VALUE</td>
-  </tr>
-</table>
+```
+SSSOMELEMENT: VALUE
+```
 
 
 SSSOMELEMENT: any element from the SSSOM set of metadata elements.
@@ -437,46 +444,38 @@ VALUE: the literal value permissible according to the SSSOM set of metadata elem
 
 Example:
 
-<table>
-  <tr>
-    <td>"creator": “orcid:01”	
-“date”:	“2020-09-2020”	
-“source: https://www.ebi.ac.uk/ols/index”	
-“curie_map”: 
+```
+"creator": "orcid:01"	
+"date":	“2020-09-2020"	
+"source": https://www.ebi.ac.uk/ols/index"	
+"curie_map": 
  {
-  “BRO”: “http://bioontology.org/ontologies/BiomedicalResourceOntology.owl#”
-  “HP”: “http://purl.obolibrary.org/HP_”
-}</td>
-  </tr>
-</table>
-
+  “BRO”: “http://bioontology.org/ontologies/BiomedicalResourceOntology.owl#"
+  “HP”: “http://purl.obolibrary.org/HP_"
+}
+```
 
 ### External mode 
 
-In external mode, the mapping set metadata is supplied by a separate yaml file having the same base-name of the mapping file, with the extension -metadata.yml. The a resolvable link to the mapping file should be included in the form of a comment:
+In external mode, the mapping set metadata is supplied by a separate JSON LD file having the same base-name of the mapping file, with the extension -metadata.yml. The a resolvable link to the mapping file should be included in the form of a comment:
 
-<table>
-  <tr>
-    <td># "metadata": “http://example.org/mapping/hp-mp-mapping.json”
+```
+# "metadata": “http://example.org/mapping/hp-mp-mapping.json”
 subject	predicate	object	match_type
 HP:0009124	oio:database_cross_reference	MP:0000003	SSSOM:0000101
 HP:0008551	oio:database_cross_reference	MP:0000018	SSSOM:0000101
-HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101</td>
-  </tr>
-</table>
+HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101
+```
 
-
- 
 
 ### Embedded mode
 
-In the embedded mode, we allow the integration of mapping set level metadata as **_commented yaml_**. Apart from being commented, the yaml follows the exact same spec as the *yaml specified by the external mode*. Heavily used tools in bioinformatics such as pandas allow to [specify comment characters](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.
+In the embedded mode, we allow the integration of mapping set level metadata as **_commented JSON LD_**. Apart from being commented, the JSON LD follows the exact same spec as the *JSON LD specified by the external mode*. Heavily used tools in bioinformatics such as pandas allow to [specify comment characters](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.
 
 Example:
 
-<table>
-  <tr>
-    <td># "creator": “orcid:01”	
+```
+# "creator": “orcid:01”	
 # “date”: “2020-09-2020”	
 # “source: https://www.ebi.ac.uk/ols/index”	
 # “curie_map”: 
@@ -487,9 +486,8 @@ Example:
 subject	predicate	object	match_type
 HP:0009124	oio:database_cross_reference	MP:0000003	SSSOM:0000101
 HP:0008551	oio:database_cross_reference	MP:0000018	SSSOM:0000101
-HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101</td>
-  </tr>
-</table>
+HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101
+```
 
 
 *Notes:*
@@ -499,9 +497,7 @@ HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101</td>
 ## JSON:
 
 * TBD in the future
-
 * JSON-LD vs JSON
-
 * Ernesto showed interest
 
 <a name="usecase"/>
@@ -509,36 +505,25 @@ HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101</td>
 # Use Cases:
 
 * Consumers:
-
-    * OxO
-
-    * Analysis in R/Python using dataframes/pandas
-
-    * Visual inspection by curators to spot-check errors
-
-    * Machine Learning (e.g. predict predicate based on SSSOM columns)
+  * OxO
+  * Analysis in R/Python using dataframes/pandas
+  * Visual inspection by curators to spot-check errors
+  * Machine Learning (e.g. predict predicate based on SSSOM columns)
 
 * Maintainers:
-
-    * Maintain mappings in google sheets
-
-    * Is the format optimized for google refine?
-
-    * Maintain mappings in github/tsvs
-
-        * Rendering
-
-        * Drive-by PRs
+  * Maintain mappings in google sheets
+  * Is the format optimized for google refine?
+  * Maintain mappings in github/tsvs
+    * Rendering
+    * Drive-by PRs
 
 * Providers
+  * Autogenerate pages like 
+    * [http://geneontology.org/docs/download-mappings/](http://geneontology.org/docs/download-mappings/)
+    * [http://uberon.github.io/downloads.html#bridge](http://uberon.github.io/downloads.html#bridge)
+   * OxO
 
-    * Autogenerate pages like 
-
-        * [http://geneontology.org/docs/download-mappings/](http://geneontology.org/docs/download-mappings/)
-
-        * [http://uberon.github.io/downloads.html#bridge](http://uberon.github.io/downloads.html#bridge)
-
-    * OxO
+<hr>
 <hr>
 
 Not part of spec, clean up.
