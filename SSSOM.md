@@ -240,6 +240,7 @@ The vocabulary is managed here:
 * [Vocab](sssom_vocab.tsv) (OWL)
 
 <a name="predicates"/>
+
 # Common Mapping Predicates
 
 The use of predicates is not restricted by SSSOM, but for maximum re-use, the following predicates are strongly encouraged.
