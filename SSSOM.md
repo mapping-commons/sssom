@@ -11,6 +11,7 @@ Working Draft, Updated: 15 April 2020
 * William Duncan (LBL)
 * David Osumi-Sutherland (EMBL-EBI)
 * Simon Jupp (SciBite)
+* James McLaughlin (EMBL-EBI)
 
 
 ### Abstract
