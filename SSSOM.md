@@ -577,4 +577,8 @@ Not part of spec, clean up.
 * Many SSSOM metadata elements can be mapped to directly to standard properties
 
 * Check [http://alignapi.gforge.inria.fr/format.html](http://alignapi.gforge.inria.fr/format.html)
-
+* How to we determine the type of the predicate (annotation or object property) at conversion time? Is this extra information that needs to be provided? Lookup in some ontology?
+* Sometimes annotations reference IRIs. We may need to consider if we want to distinguish between a literal value and an IRI.
+* Can we have more complex logical mappings? A common use case is a taxon-specific anatomy ontology (taxon X). We want to map A to B, but say that B is not equivalent to A, rather it is equivalent to an OWL expression based on A (A and 'in taxon' some X). But there are plenty of arbitrary expressions that could be supported. A while back I looked at some SNOMED to Uberon mappings; it seemed like a lot of the SNOMED terms would better be ('part of' some UBERON:X) rather than directly equivalent to X.
+*  explicitly declare the metadata elements as equivalent to properties?
+* What about mapping to Literals in general? Is this in-spec?
