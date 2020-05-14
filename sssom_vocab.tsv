@@ -1,23 +1,17 @@
 Term	Label	Description	Classification
 ID	A rdfs:label	A IAO:0000115	SC %
-SSSOM:SSSOMCode	SSSOM Code	Root level term that groups all OMTs. Grouping class, should not be used in annotation.	
-SSSOM:MatchType	Match Type	The technique by which the match was made. Grouping class, should not be used in annotation	SSSOM:SSSOMCode
-SSSOM:EquivalenceMatch	Equivalence Match	An exact match between two terms. Grouping class, should not be used in annotation.	SSSOM:MatchType
-SSSOM:LexicalEquivalenceMatch	Lexical Equivalence Match	Exact match on any kind of lexical information provided by the two terms.	SSSOM:EquivalenceMatch
-SSSOM:LogicalEquivalenceMatch	Logical Equivalence Match	Exact match on the logical definition of a term (logical equivalence), as determined by a semantic reasoner.	SSSOM:EquivalenceMatch
-SSSOM:HumanCuratedEquivalenceMatch	Human Curated Equivalence Match	Exact match based on human curation.	SSSOM:EquivalenceMatch
-SSSOM:ComplexEquivalenceMatch	Complex Equivalence Match	Exact match based on the use of a tool that combines multiple techniques for matching. It is recommended that the tool used for the match is provided.	SSSOM:EquivalenceMatch
-SSSOM:UnspecifiedEquivalenceMatch	Unspecified Equivalence Match	The exact match was given by an external source (for example an ontology), but its method is unknown.	SSSOM:EquivalenceMatch
-SSSOM:RelatedMatch	Related Match	A match that is aimed at establishing an association between two terms that is not an exact match.	SSSOM:MatchType
-SSSOM:LogicalRelatedMatch	Logical related match		SSSOM:RelatedMatch
-SSSOM:LexicalRelatedMatch	Lexical related match		SSSOM:RelatedMatch
-SSSOM:FuzzyRelatedMatch	Fuzzy related match		SSSOM:RelatedMatch
-SSSOM:ComplexRelatedMatch	Complex related match	Related match based on the use of a tool that combines multiple techniques for matching. The tool should be given as part of the metadata.	SSSOM:RelatedMatch
-SSSOM:SemanticSimilarityMatch	Semantic Similarity Match	Related match based on the semantic similarity between two terms. The semantic similarity score should be provided. The algorithm should be given as part of the metadata (tool field).	SSSOM:RelatedMatch
+SSSOM:SSSOMCode	SSSOM Code	"Root level term that groups all OMTs. Grouping class, should not be used in annotation."	
+SSSOM:MatchType	Match Type	"The technique by which the match was made. Grouping class, should not be used in annotation"	SSSOM:SSSOMCode
+SSSOM:Lexical	Lexical  match	Match is based on any lexical information provided by the subject and the object.	SSSOM:MatchType
+SSSOM:Logical	Logical  match	"Match is based on the logical definition of the subject and the object (logical equivalence), as determined by a semantic reasoner."	SSSOM:MatchType
+SSSOM:HumanCurated	Human Curated  match	Match is based on human curation.	SSSOM:MatchType
+SSSOM:Complex	Complex  match	"Match is based on a combination of match types. It is recommended that the tool used for the match is provided, and more information given in a comment."	SSSOM:MatchType
+SSSOM:Unspecified	Unspecified  match	"The exact match was given by an external source (for example an ontology), but its method is unknown."	SSSOM:MatchType
+SSSOM:SemanticSimilarity	Semantic Similarity Match	The match is based on the semantic similarity between two terms. The semantic similarity score should be provided. The algorithm should be given as part of the metadata (tool field).	SSSOM:MatchType
 SSSOM:TermMatch	Term Match	A match between two terms. Should be used in curation.	SSSOM:SSSOMCode
 SSSOM:ClassMatch	Class Match	A match between two OWL/RDFS classes.	SSSOM:TermMatch
 SSSOM:ObjectPropertyMatch	Object Property Match	A match between two OWL object properties..	SSSOM:TermMatch
 SSSOM:IndividualMatch	Individual Match	A match between two OWL Individuals.	SSSOM:TermMatch
 SSSOM:PreprocessingMethod	Pre-processing method	Any preprocessing that was applied prior to the match.	SSSOM:SSSOMCode
 SSSOM:Stemming	Stemming		SSSOM:PreprocessingMethod
-SSSOM:TaxonRestrictionRemoval	Taxon restriction removal	For the match, it was assumed that the terms that originally applied to different taxa now have no taxon restriction.	SSSOM:PreprocessingMethod
+SSSOM:TaxonRestrictionRemoval	Taxon restriction removal	"For the match, it was assumed that the terms that originally applied to different taxa now have no taxon restriction."	SSSOM:PreprocessingMethod

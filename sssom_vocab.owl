@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://purl.org/sssom/sssom.owl#"
-     xml:base="http://purl.org/sssom/sssom.owl"
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://purl.org/sssom/sssom.owl"/>
+    <Ontology/>
     
 
 
@@ -24,7 +24,7 @@
 
     <!-- http://purl.obolibrary.org/obo/IAO_0000115 -->
 
-    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115"/>
+    <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115"/>
     
 
 
@@ -41,206 +41,149 @@
 
     <!-- http://purl.org/sssom/ClassMatch -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/ClassMatch">
+    <Class rdf:about="http://purl.org/sssom/ClassMatch">
         <rdfs:subClassOf rdf:resource="http://purl.org/sssom/TermMatch"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A match between two OWL/RDFS classes.</obo:IAO_0000115>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class Match</rdfs:label>
-    </owl:Class>
+    </Class>
     
 
 
-    <!-- http://purl.org/sssom/ComplexEquivalenceMatch -->
+    <!-- http://purl.org/sssom/Complex -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/ComplexEquivalenceMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/EquivalenceMatch"/>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exact match based on the use of a tool that combines multiple techniques for matching. It is recommended that the tool used for the match is provided.</obo:IAO_0000115>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complex Equivalence Match</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/sssom/ComplexRelatedMatch -->
-
-    <owl:Class rdf:about="http://purl.org/sssom/ComplexRelatedMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/RelatedMatch"/>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Related match based on the use of a tool that combines multiple techniques for matching. The tool should be given as part of the metadata.</obo:IAO_0000115>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complex related match</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/sssom/EquivalenceMatch -->
-
-    <owl:Class rdf:about="http://purl.org/sssom/EquivalenceMatch">
+    <Class rdf:about="http://purl.org/sssom/Complex">
         <rdfs:subClassOf rdf:resource="http://purl.org/sssom/MatchType"/>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An exact match between two terms. Grouping class, should not be used in annotation.</obo:IAO_0000115>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Equivalence Match</rdfs:label>
-    </owl:Class>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Match is based on a combination of match types. It is recommended that the tool used for the match is provided, and more information given in a comment.</obo:IAO_0000115>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complex  match</rdfs:label>
+    </Class>
     
 
 
-    <!-- http://purl.org/sssom/FuzzyRelatedMatch -->
+    <!-- http://purl.org/sssom/HumanCurated -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/FuzzyRelatedMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/RelatedMatch"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fuzzy related match</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/sssom/HumanCuratedEquivalenceMatch -->
-
-    <owl:Class rdf:about="http://purl.org/sssom/HumanCuratedEquivalenceMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/EquivalenceMatch"/>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exact match based on human curation.</obo:IAO_0000115>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Human Curated Equivalence Match</rdfs:label>
-    </owl:Class>
+    <Class rdf:about="http://purl.org/sssom/HumanCurated">
+        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/MatchType"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Match is based on human curation.</obo:IAO_0000115>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Human Curated  match</rdfs:label>
+    </Class>
     
 
 
     <!-- http://purl.org/sssom/IndividualMatch -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/IndividualMatch">
+    <Class rdf:about="http://purl.org/sssom/IndividualMatch">
         <rdfs:subClassOf rdf:resource="http://purl.org/sssom/TermMatch"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A match between two OWL Individuals.</obo:IAO_0000115>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Individual Match</rdfs:label>
-    </owl:Class>
+    </Class>
     
 
 
-    <!-- http://purl.org/sssom/LexicalEquivalenceMatch -->
+    <!-- http://purl.org/sssom/Lexical -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/LexicalEquivalenceMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/EquivalenceMatch"/>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exact match on any kind of lexical information provided by the two terms.</obo:IAO_0000115>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lexical Equivalence Match</rdfs:label>
-    </owl:Class>
+    <Class rdf:about="http://purl.org/sssom/Lexical">
+        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/MatchType"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Match is based on any lexical information provided by the subject and the object.</obo:IAO_0000115>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lexical  match</rdfs:label>
+    </Class>
     
 
 
-    <!-- http://purl.org/sssom/LexicalRelatedMatch -->
+    <!-- http://purl.org/sssom/Logical -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/LexicalRelatedMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/RelatedMatch"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lexical related match</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/sssom/LogicalEquivalenceMatch -->
-
-    <owl:Class rdf:about="http://purl.org/sssom/LogicalEquivalenceMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/EquivalenceMatch"/>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exact match on the logical definition of a term (logical equivalence), as determined by a semantic reasoner.</obo:IAO_0000115>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Logical Equivalence Match</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/sssom/LogicalRelatedMatch -->
-
-    <owl:Class rdf:about="http://purl.org/sssom/LogicalRelatedMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/RelatedMatch"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Logical related match</rdfs:label>
-    </owl:Class>
+    <Class rdf:about="http://purl.org/sssom/Logical">
+        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/MatchType"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Match is based on the logical definition of the subject and the object (logical equivalence), as determined by a semantic reasoner.</obo:IAO_0000115>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Logical  match</rdfs:label>
+    </Class>
     
 
 
     <!-- http://purl.org/sssom/MatchType -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/MatchType">
+    <Class rdf:about="http://purl.org/sssom/MatchType">
         <rdfs:subClassOf rdf:resource="http://purl.org/sssom/SSSOMCode"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The technique by which the match was made. Grouping class, should not be used in annotation</obo:IAO_0000115>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Match Type</rdfs:label>
-    </owl:Class>
+    </Class>
     
 
 
     <!-- http://purl.org/sssom/ObjectPropertyMatch -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/ObjectPropertyMatch">
+    <Class rdf:about="http://purl.org/sssom/ObjectPropertyMatch">
         <rdfs:subClassOf rdf:resource="http://purl.org/sssom/TermMatch"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A match between two OWL object properties..</obo:IAO_0000115>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Object Property Match</rdfs:label>
-    </owl:Class>
+    </Class>
     
 
 
     <!-- http://purl.org/sssom/PreprocessingMethod -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/PreprocessingMethod">
+    <Class rdf:about="http://purl.org/sssom/PreprocessingMethod">
         <rdfs:subClassOf rdf:resource="http://purl.org/sssom/SSSOMCode"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Any preprocessing that was applied prior to the match.</obo:IAO_0000115>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pre-processing method</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/sssom/RelatedMatch -->
-
-    <owl:Class rdf:about="http://purl.org/sssom/RelatedMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/MatchType"/>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A match that is aimed at establishing an association between two terms that is not an exact match.</obo:IAO_0000115>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Related Match</rdfs:label>
-    </owl:Class>
+    </Class>
     
 
 
     <!-- http://purl.org/sssom/SSSOMCode -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/SSSOMCode">
+    <Class rdf:about="http://purl.org/sssom/SSSOMCode">
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Root level term that groups all OMTs. Grouping class, should not be used in annotation.</obo:IAO_0000115>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SSSOM Code</rdfs:label>
-    </owl:Class>
+    </Class>
     
 
 
-    <!-- http://purl.org/sssom/SemanticSimilarityMatch -->
+    <!-- http://purl.org/sssom/SemanticSimilarity -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/SemanticSimilarityMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/RelatedMatch"/>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Related match based on the semantic similarity between two terms. The semantic similarity score should be provided. The algorithm should be given as part of the metadata (tool field).</obo:IAO_0000115>
+    <Class rdf:about="http://purl.org/sssom/SemanticSimilarity">
+        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/MatchType"/>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The match is based on the semantic similarity between two terms. The semantic similarity score should be provided. The algorithm should be given as part of the metadata (tool field).</obo:IAO_0000115>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Semantic Similarity Match</rdfs:label>
-    </owl:Class>
+    </Class>
     
 
 
     <!-- http://purl.org/sssom/Stemming -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/Stemming">
+    <Class rdf:about="http://purl.org/sssom/Stemming">
         <rdfs:subClassOf rdf:resource="http://purl.org/sssom/PreprocessingMethod"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stemming</rdfs:label>
-    </owl:Class>
+    </Class>
     
 
 
     <!-- http://purl.org/sssom/TaxonRestrictionRemoval -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/TaxonRestrictionRemoval">
+    <Class rdf:about="http://purl.org/sssom/TaxonRestrictionRemoval">
         <rdfs:subClassOf rdf:resource="http://purl.org/sssom/PreprocessingMethod"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">For the match, it was assumed that the terms that originally applied to different taxa now have no taxon restriction.</obo:IAO_0000115>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Taxon restriction removal</rdfs:label>
-    </owl:Class>
+    </Class>
     
 
 
     <!-- http://purl.org/sssom/TermMatch -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/TermMatch">
+    <Class rdf:about="http://purl.org/sssom/TermMatch">
         <rdfs:subClassOf rdf:resource="http://purl.org/sssom/SSSOMCode"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A match between two terms. Should be used in curation.</obo:IAO_0000115>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Term Match</rdfs:label>
-    </owl:Class>
+    </Class>
     
 
 
-    <!-- http://purl.org/sssom/UnspecifiedEquivalenceMatch -->
+    <!-- http://purl.org/sssom/Unspecified -->
 
-    <owl:Class rdf:about="http://purl.org/sssom/UnspecifiedEquivalenceMatch">
-        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/EquivalenceMatch"/>
+    <Class rdf:about="http://purl.org/sssom/Unspecified">
+        <rdfs:subClassOf rdf:resource="http://purl.org/sssom/MatchType"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The exact match was given by an external source (for example an ontology), but its method is unknown.</obo:IAO_0000115>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unspecified Equivalence Match</rdfs:label>
-    </owl:Class>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unspecified  match</rdfs:label>
+    </Class>
 </rdf:RDF>
 
 
