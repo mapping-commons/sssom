@@ -1,4 +1,5 @@
 {
+	"@vocab": "http://purl.org/sssom/meta/",
 	"curie_map": {
 		"MP": "http://purl.obolibrary.org/obo/MP_",
 		"HP": "http://purl.obolibrary.org/obo/HP_",
