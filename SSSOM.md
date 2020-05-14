@@ -11,39 +11,52 @@ Working Draft, Updated: 15 April 2020
 * William Duncan (LBL)
 * David Osumi-Sutherland (EMBL-EBI)
 * Simon Jupp (SciBite)
+* James McLaughlin (EMBL-EBI)
 
 
 ### Abstract
-The goal of the Simple Standard for Sharing Ontology Mappings (SSSOM) is to provide a minimal and standard set of elements for the dissemination of 1:1 **_mappings between ontology terms_** to ensure a reliable interpretation of generated mappings and enable sharing between people and applications. 
 
-A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.
+Mappings, or cross-references, are used to link terms across different ontologies. However, there is currently little to no standardisation in how such mappings are represented. While properties such as hasDbXref property are widely used in ontologies such as GO and MONDO, the meaning of such mappings is unclear, and cannot be further described with additional metadata or provenance.
 
-Apart from a catalog of metadata elements, we will provide (at least) two serialisations for ontology mappings, aimed at different communities: a TSV serialisation which is aimed at the wider bioinformatics community, and an RDF/OWL serialisation that is aimed at the Knowledge Graph/Semantic Web community. Apart from the format, the main difference between the two serialisations is that we use [CURIE](https://www.w3.org/TR/curie/) syntax to denote entities in the TSV, and IRIs in the RDF based serialisation. Apart from the mappings themselves, we also provide a way to attach meta- and provenance data to **_a set_** of mappings. We will define an unambiguous translation between the TSV and RDF/OWL serialisations as part of this document. 
+The Simple Standard for Sharing Ontology Mappings (SSSOM) is an initiative to provide a minimal and standard set of elements for the dissemination of 1:1 mappings between ontology terms, to ensure a reliable interpretation of generated mappings and to enable sharing and data integration between people and applications. 
 
-This document contains:
+This document introduces the SSSOM catalog of metadata elements, which can be used to attach meta- and provenance data to both mappings and sets of mappings; a controlled vocabulary for the description of match types (SSSOM CV); a definition of both RDF and TSV serialisations of ontology mappings; and a (non-exhaustive) selection of recommended mapping predicates.
 
-* A definition of the SSSOM metadata elements
-* A controlled vocabulary for the description of match types (SSSOM CV)
-* A definition of the two primary serialisations of ontology mappings
-* A (non-exhaustive) selection recommended mapping predicates
+### Table of Contents
 
-### Some notes on the standardisation process:
-
-Note this is a public copy of the editors’ draft. It is provided for discussion only and may change at any moment. Do not cite this document other than as work in progress. SSSOM is community-driven, so all feedback is welcome.
-
-### Table of Content
-
+* [Introduction](#intro)
 * [SSSOM Metadata Elements](#meta)
 * [SSSOM Controlled Vocabulary](#vocab)
 * [SSSOM Common Predicates](#predicates)
 * [SSSOM Serialisation](#serialisation)
 * [SSSOM Use Cases](#usecase)
 
-<a name="meta"/>
+
+
+<a name="intro"></a>
+
+### Introduction
+
+Currently, there are three methods typically used to express mappings in OWL: direct logical axioms using owl:equivalentClass; the oboInOwl hasDbXref property; and the SKOS vocabulary for mapping properties.  The first, owl:equivalentClass, is a strong logical equivalence assertion which is not appropriate for more nuanced mappings such as close matches.  The second, hasDbXref, does not assert formal logical equivalence but also has no clearly defined meaning.  Finally, the SKOS vocabulary provides a hierarchy of mapping properties which allow the unambigous specification of exact, close, broad, and narrow matches, but does not provide the means for mappings to be annotated with additional metadata such as confidence scores and provenance.
+
+The Simple Standard for Sharing Ontology Mappings (SSSOM) addresses these problems by defining a catalog of metadata terms to describe mappings.  Both individual mappings and **_sets of_** mappings can be described, enabling provenance and metadata to be captured on multiple levels.  SSSOM interoperates with existing methods for the specification of mappings, allowing any predicate to be used to describe the nature of each mapping including those from OWL and SKOS.
+
+The provenance of mappings - such as whether the mapping was created as the result of a human-curated equivalence match, or a semantic similarity match - is specified using a controlled vocabulary (CV), SSSOM CV.  Combined with the metadata properties provided by SSSOM such as confidence and semantic_similarity_score, this provenance information can be used to capture mapping descriptions in a manner that is explicit and amenable to curation.
+
+Two serialisations for SSSOM mappings are provided in this document, aimed at different communities: an RDF/OWL serialisation using IRIs that is aimed at the Knowledge Graph/Semantic Web community, and a TSV serialisation using [CURIE](https://www.w3.org/TR/curie/) syntax which is aimed at the wider bioinformatics community.  An unambiguous translation between these serialisations is provided.
+
+
+### Some notes on the standardisation process:
+
+Note this is a public copy of the editors’ draft. It is provided for discussion only and may change at any moment. Do not cite this document other than as work in progress. SSSOM is community-driven, so all feedback is welcome.
+
+<a name="meta"></a>
 
 # SSSOM Metadata Elements
 
 The following table defines all the SSSOM metadata elements. Elements shaded in grey are required, i.e, should be present for every mapping. Apart from the elements, **_this tables defines the canonical order_** in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
+
+A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.
 
 *G: The element is global, i.e. pertains to a set of mappings, or local, i.e. pertaining to a single mapping
 
@@ -230,7 +243,7 @@ The following table defines all the SSSOM metadata elements. Elements shaded in 
   </tr>
 </table>
 
-<a name="vocab"/>
+<a name="vocab"></a>
 
 # The SSSOM Controlled Vocabulary
 
@@ -241,7 +254,7 @@ The vocabulary (http://purl.org/sssom/sssom.owl) is managed here:
 * Robot [template](sssom_vocab.tsv)
 * [Vocab](sssom_vocab.tsv) (OWL)
 
-<a name="predicates"/>
+<a name="predicates"></a>
 
 # Common Mapping Predicates
 
@@ -310,7 +323,7 @@ The use of predicates is not restricted by SSSOM, but for maximum re-use, the fo
   </tr>
 </table>
 
-<a name="serialisation"/>
+<a name="serialisation"></a>
 
 # Serialisation
 
@@ -512,7 +525,7 @@ HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101
 * JSON-LD vs JSON
 * Ernesto showed interest
 
-<a name="usecase"/>
+<a name="usecase"></a>
 
 # Use Cases:
 
