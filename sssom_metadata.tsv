@@ -1,4 +1,4 @@
-Element ID	Description	Example	Example	Scope	Entity Type	Required	Datatype	Equivalent property	Sub Property
+Element ID	Description	TSV Example	RDF example	Scope	Entity Type	Required	Datatype	Equivalent property	Sub Property
 ID	A dc:description	A sssom:tsv_example	A sssom:rdf_example	A sssom:scope	TYPE	AT sssom:required^^xsd:boolean	RANGE	AI sssom:equivalent_property	SP %
 sssom:subject_id	The ID of the subject of the mapping.	HP:0009894	http://purl.obolibrary.org/obo/HP_0009894	L	owl:AnnotationProperty	1			sssom:metadata_element
 sssom:predicate_id	The ID of the predicate or relation that relates the subject and object of this match.	owl:equivalentClass	owl:equivalentClass	L	owl:AnnotationProperty	1			sssom:metadata_element
