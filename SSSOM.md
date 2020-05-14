@@ -13,7 +13,6 @@ Development Draft (under construction, do not use), Updated: 15 April 2020
 * Simon Jupp (SciBite)
 * James McLaughlin (EMBL-EBI)
 
-
 ### Abstract
 
 Mappings, or cross-references, are used to link terms across different ontologies. However, there is currently little to no standardisation in how such mappings are represented. While properties such as hasDbXref property are widely used in ontologies such as GO and MONDO, the meaning of such mappings is unclear, and cannot be further described with additional metadata or provenance.
@@ -30,8 +29,6 @@ This document introduces the SSSOM catalog of metadata elements, which can be us
 * [SSSOM Common Predicates](#predicates)
 * [SSSOM Serialisation](#serialisation)
 * [SSSOM Use Cases](#usecase)
-
-
 
 <a name="intro"></a>
 
@@ -54,7 +51,7 @@ Note this is a public copy of the editors’ draft. It is provided for discussio
 
 # SSSOM Metadata Elements
 
-The following table defines all the SSSOM metadata elements. Elements shaded in grey are required, i.e, should be present for every mapping. Apart from the elements, **_[this table](sssom_metadata.tsv) defines the canonical order_** in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
+The SSSOM specification defines a set of SSSOM metadata elements that are used to describe mappings. Apart from the elements themselves, some example usage and status like 'required', **_[the metadata element table](sssom_metadata.tsv) defines the canonical order_** in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
 
 A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.
 
