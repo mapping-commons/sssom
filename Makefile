@@ -6,6 +6,5 @@ ssom.owl: sssom_vocab.owl sssom_metadata.owl
 
 sssom_%.owl: sssom_%.tsv
 	robot template --template $< \
-  --prefix "SSSOM: http://purl.org/sssom/" \
-	--prefix "sssom: http://purl.org/sssom/meta/" \
+	--prefix "sssom: http://purl.org/sssom/meta/" --prefix "SSSOMC: http://purl.org/sssom/type/" \
   --output $@

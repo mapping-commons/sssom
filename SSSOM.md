@@ -58,190 +58,15 @@ The following table defines all the SSSOM metadata elements. Elements shaded in 
 
 A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.
 
-*G: The element is global, i.e. pertains to a set of mappings, or local, i.e. pertaining to a single mapping
+Some elements are global (annotated with "G" using `sssom:scope`), i.e. pertains to a set of mappings, or local (annotated with "L" using `sssom:scope`), i.e. pertaining to a single mapping. Most elements can be used both as global and local; global elements should be interpreted to applying to all mappings in the mapping set. 
 
-<table>
-  <tr>
-    <td>Element ID</td>
-    <td>Description</td>
-    <td>Example</td>
-    <td>G*</td>
-  </tr>
-  <tr>
-    <td>subject_id</td>
-    <td>The ID of the subject of the mapping.</td>
-    <td>HP:0009894, http://purl.obolibrary.org/obo/HP_0009894</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>predicate_id</td>
-    <td>The ID of the predicate or relation that relates the subject and object of this match.</td>
-    <td>owl:equivalentClass</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>object_id</td>
-    <td>The ID of the object of the mapping.</td>
-    <td>MP:0000019, http://purl.obolibrary.org/obo/MP_0000019</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>match_type</td>
-    <td>ID from Match type (SSSOM:MatchType) branch of the SSSSOM Vocabulary. In the case of multiple match types for a single subject, predicate, object triplet, two seperate mappings must be specified.</td>
-    <td>SSSOM:LexicalEquivalenceMatch</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>creator_id</td>
-    <td>Identifies the persons or groups responsible for the creation of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
-    <td>https://orcid.org/0000-0002-7356-1779</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>creator_label</td>
-    <td>A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.</td>
-    <td>Lebron James, LA Lakers</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>license</td>
-    <td>A url to the license of the mapping. In absence of a license we assume no license.</td>
-    <td>https://creativecommons.org/licenses/by/3.0/</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>subject_label</td>
-    <td>The label of subject of the mapping</td>
-    <td>Thickened ears</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>object_label</td>
-    <td>The label of object of the mapping</td>
-    <td>thick ears</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>predicate_label</td>
-    <td>The label of the predicate/relation of the mapping</td>
-    <td>equivalent to</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>subject_source</td>
-    <td>IRI of ontology source for the subject. Version IRI preferred.</td>
-    <td>http://purl.obolibrary.org/obo/hp.owl</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>object_source</td>
-    <td>IRI of ontology source for the object. Version IRI preferred.</td>
-    <td>http://purl.obolibrary.org/obo/mp.owl</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>subject_source_version</td>
-    <td>Version IRI of the source of the subject term.</td>
-    <td>http://purl.obolibrary.org/obo/hp/releases/2020-03-27/hp-base.owl</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>object_source_version</td>
-    <td>Version IRI of the source of the object term.</td>
-    <td>http://purl.obolibrary.org/obo/mp/releases/2020-04-14/mp-base.owl</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>mapping_provider</td>
-    <td>URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings.</td>
-    <td>http://www.ebi.ac.uk/efo/efo.owl</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>mapping_tool</td>
-    <td>A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.</td>
-    <td>https://github.com/ernestojimenezruiz/logmap-matcher</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>mapping_date</td>
-    <td>The date the mapping was computed</td>
-    <td>2020-02-29</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>confidence</td>
-    <td>A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.</td>
-    <td>0.3</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>subject_match_field</td>
-    <td>A tuple of fields (term annotations on the subject) that was used for the match. Should be used in conjunction with lexical and complexes matches, see SSSOM match types below.</td>
-    <td>oio:hasExactSynonym|rdfs:label</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>object_match_field</td>
-    <td>A tuple of fields (term annotations on the object) that was used for the match. Should be used in conjunction with lexical and complexes matches, see SSSOM match types below.</td>
-    <td>oio:hasExactSynonym|rdfs:label</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>match_string</td>
-    <td>String that is shared by subj/obj</td>
-    <td>Thick ear</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>subject_preprocessing</td>
-    <td>Method of preprocessing applied to the fields of the subject. Tuple of IDs from "Pre-processing method" (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.</td>
-    <td>SSSOM:Stemming</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>object_preprocessing</td>
-    <td>Method of preprocessing applied to the fields of the object. Tuple of IDs from “Pre-processing method” (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.</td>
-    <td>SSSOM:Stemming</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>match_term_type</td>
-    <td>Specifies what type of terms are being matched (class, property, or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch of the SSSSOM Vocabulary. </td>
-    <td>SSSOM:ClassMatch</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>semantic_similarity_score</td>
-    <td>A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence.</td>
-    <td>0.8</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>information_content_mica_score</td>
-    <td>A score between 0 and 1 to denote the information content of the most informative common ancestor, where 1 denotes the maximum level of informativeness.</td>
-    <td>0.3</td>
-    <td>L</td>
-  </tr>
-  <tr>
-    <td>see_also</td>
-    <td>A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment</td>
-    <td>https://user-images.githubusercontent.com/6722114/29056483-25e371e0-7bb8-11e7-8d27-5b4c3b1843fd.png</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>other</td>
-    <td>Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.</td>
-    <td>subject_information_content: 0.1|object_information_content: 0.3|github_issue: http://issue.org</td>
-    <td>G/L</td>
-  </tr>
-  <tr>
-    <td>comment</td>
-    <td>Free text field containing either curator notes or text generated by tool providing additional informative information. </td>
-    <td>“Match should be reviewed manually.”</td>
-    <td>G/L</td>
-  </tr>
-</table>
+Note that some SSSOM metadata elements have known equivalent properties which will be used in the OWL serialisation.
+These are declared as equivalent as part of the metadata vocabulary.
+
+The metadata vocabulary is managed here:
+
+* Robot [template](sssom_metadata.tsv)
+* [Vocab](sssom_metadata.owl) (OWL)
 
 <a name="vocab"></a>
 
@@ -252,7 +77,7 @@ The SSSOM Vocabulary is a Controlled Vocabulary (CV) for representing the method
 The vocabulary (http://purl.org/sssom/sssom.owl) is managed here:
 
 * Robot [template](sssom_vocab.tsv)
-* [Vocab](sssom_vocab.tsv) (OWL)
+* [Vocab](sssom_vocab.owl) (OWL)
 
 <a name="predicates"></a>
 
@@ -359,17 +184,10 @@ Note that if a SSSOM metadata element value is a list L (i.e. can have multiple 
 Annotation(Q,V) for all V in L.
 ```
 
-For example, sssomMeta could be:
+Example:
 
 ```
-sssom:creator orcid:001
-sssom:match_type: SSSOM:LexicalEquivalenceMapping
-```
-
-Which would materialise as:
-
-```
-AnnotationAssertion(Annotation(sssom:creator,orcid:001) Annotation(sssom:match_type, SSSOM:LexicalEquivalenceMapping) P, S, O)
+AnnotationAssertion(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:match_type SSSOMC:LexicalEquivalenceMapping) skos:exactMatch <http://purl.obolibrary.org/obo/HP_0009894> <http://purl.obolibrary.org/obo/MP_0000019>)
 ```
 
 Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations).
@@ -390,7 +208,13 @@ All metadata elements are added as OWLAnnotation objects and added to SubclassOf
 SubclassOf(sssomMetadata, A, P some O)
 ```
 
-Case 2: Object and Subject are individuals
+Example:
+
+```
+SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:match_type SSSOMC:LexicalEquivalenceMapping) <http://example.org/AA> ObjectSomeValuesFrom(<http://example.org/x> <http://example.org/BB>))
+```
+
+#### Case 2: Object and Subject are individuals
 
 The Mapping <S,P,O> gets translated into an object property assertion: 
 
@@ -402,6 +226,12 @@ All metadata elements are added as OWLAnnotation objects and added to ObjectProp
 
 ```
 ObjectPropertyAssertion(sssomMetadata, P, A, O)
+```
+
+Example:
+
+```
+ObjectPropertyAssertion(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:match_type SSSOMC:LexicalEquivalenceMapping) <http://www.example.org/x> <http://www.example.org/a> <http://www.example.org/b>)
 ```
 
 ### Predicate is language relational construct of RDFS or OWL
@@ -419,36 +249,11 @@ The mapping <S,P,O> gets translated into an annotated axiom that corresponds to 
   </tr>
 </table>
 
+Example:
 
-### SSSOM Metadata Element Mapping to common properties
-
-Some SSSOM metadata elements have known equivalent properties which will be used in the OWL serialisation. 
-
-TBD: These mappings could be specified in the default JSON-LD context.
-
-<table>
-  <tr>
-    <td>Element ID</td>
-    <td>Mapped to</td>
-  </tr>
-  <tr>
-    <td>creator</td>
-    <td>dc:creator</td>
-  </tr>
-  <tr>
-    <td>license</td>
-    <td>dce:license</td>
-  </tr>
-  <tr>
-    <td>date_mapping</td>
-    <td>dc:date</td>
-  </tr>
-  <tr>
-    <td>see_also</td>
-    <td>rdfs:seeAlso</td>
-  </tr>
-</table>
-
+```
+SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:match_type SSSOMC:LexicalEquivalenceMapping) <http://www.example.org/a> <http://www.example.org/b>)
+```
 
 ## TSV:
 
@@ -456,64 +261,61 @@ All SSSOM metadata elements labelled with L in the metadata table are permissibl
 
 Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple JSON LD. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a curie_map: parameter in the JSON LD file. The value can be either a dictionary of CURIE->URLPREFIX pairs or a link to a valid curie map of the same shape.
 
-Note that only metadata elements permissible in a global context (G*) can be used in the metadatafile:
+Note that only metadata elements permissible in a global context (G, or L/G) can be used in the external metadatafile.
+
+Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1-meta.jsonld)):
 
 ```
-SSSOMELEMENT: VALUE
-```
-
-
-SSSOMELEMENT: any element from the SSSOM set of metadata elements.
-
-VALUE: the literal value permissible according to the SSSOM set of metadata elements specification.
-
-Example:
-
-```
-"creator": "orcid:01"	
-"date":	“2020-09-2020"	
-"source": https://www.ebi.ac.uk/ols/index"	
-"curie_map": 
- {
-  “BRO”: “http://bioontology.org/ontologies/BiomedicalResourceOntology.owl#"
-  “HP”: “http://purl.obolibrary.org/HP_"
+{
+	"@context": "https://raw.githubusercontent.com/matentzn/SSSOM/master/context.jsonld",
+	"creator_id": "https://orcid.org/0000-0002-7356-1779",
+	"license": "https://creativecommons.org/publicdomain/zero/1.0/",
+	"mapping_provider": "http://purl.obolibrary.org/obo/upheno.owl",
+	"curie_map": {
+		"MP": "http://purl.obolibrary.org/obo/MP_",
+		"HP": "http://purl.obolibrary.org/obo/HP_",
+		"skos": "http://www.w3.org/2004/02/skos/core"
+	}
 }
 ```
 
 ### External mode 
 
-In external mode, the mapping set metadata is supplied by a separate JSON LD file having the same base-name of the mapping file, with the extension -metadata.yml. The a resolvable link to the mapping file should be included in the form of a comment:
+In external mode, the mapping set metadata is supplied by a separate JSON LD file having the same base-name of the mapping file, with the extension `-meta.jsonld`. The a resolvable link to the mapping file should be included in the form of a comment.
+
+Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.tsv)):
 
 ```
-# "metadata": “http://example.org/mapping/hp-mp-mapping.json”
-subject	predicate	object	match_type
-HP:0009124	oio:database_cross_reference	MP:0000003	SSSOM:0000101
-HP:0008551	oio:database_cross_reference	MP:0000018	SSSOM:0000101
-HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101
+#{ "metadata": "https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1-meta.jsonld" }
+subject_id	predicate_id	object_id	match_type	subject_label	object_label
+HP:0009124	skos:exactMatch	MP:0000003	Lexical	Abnormal adipose tissue morphology	abnormal adipose tissue morphology
+HP:0008551	skos:exactMatch	MP:0000018	Lexical	Microtia	small ears
+HP:0000411	skos:exactMatch	MP:0000021	Lexical	Protruding ear	prominent ears
 ```
-
 
 ### Embedded mode
 
 In the embedded mode, we allow the integration of mapping set level metadata as **_commented JSON LD_**. Apart from being commented, the JSON LD follows the exact same spec as the *JSON LD specified by the external mode*. Heavily used tools in bioinformatics such as pandas allow to [specify comment characters](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.
 
-Example:
+Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/embedded/mp-hp-exact-0.0.1.tsv)):
 
 ```
-# "creator": “orcid:01”	
-# “date”: “2020-09-2020”	
-# “source: https://www.ebi.ac.uk/ols/index”	
-# “curie_map”: 
-# {
-#  “BRO”: “http://bioontology.org/ontologies/BiomedicalResourceOntology.owl#”
-#  “HP”: “http://purl.obolibrary.org/HP_”
-# }
-subject	predicate	object	match_type
-HP:0009124	oio:database_cross_reference	MP:0000003	SSSOM:0000101
-HP:0008551	oio:database_cross_reference	MP:0000018	SSSOM:0000101
-HP:0000411	oio:database_cross_reference	MP:0000021	SSSOM:0000101
+#{
+#	"@context": "https://raw.githubusercontent.com/matentzn/SSSOM/master/context.jsonld",
+#	"creator_id": "https://orcid.org/0000-0002-7356-1779",
+#	"license": "https://creativecommons.org/publicdomain/zero/1.0/",
+#	"mapping_provider": "http://purl.obolibrary.org/obo/upheno.owl",
+#	"curie_map": {
+#		"MP": "http://purl.obolibrary.org/obo/MP_",
+#		"HP": "http://purl.obolibrary.org/obo/HP_",
+#		"skos": "http://www.w3.org/2004/02/skos/core"
+#	}
+#}
+subject_id	predicate_id	object_id	match_type	subject_label	object_label
+HP:0009124	skos:exactMatch	MP:0000003	Lexical	Abnormal adipose tissue morphology	abnormal adipose tissue morphology
+HP:0008551	skos:exactMatch	MP:0000018	Lexical	Microtia	small ears
+HP:0000411	skos:exactMatch	MP:0000021	Lexical	Protruding ear	prominent ears
 ```
-
 
 *Notes:*
 

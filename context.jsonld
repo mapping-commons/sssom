@@ -1,8 +1,6 @@
 {
 	"@vocab": "http://purl.org/sssom/meta/",
 	"curie_map": {
-		"MP": "http://purl.obolibrary.org/obo/MP_",
-		"HP": "http://purl.obolibrary.org/obo/HP_",
 		"skos": "http://www.w3.org/2004/02/skos/core#"
 	}
 }

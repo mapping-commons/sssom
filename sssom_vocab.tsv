@@ -1,17 +1,17 @@
 Term	Label	Description	Classification
-ID	A rdfs:label	A IAO:0000115	SC %
-SSSOM:SSSOMCode	SSSOM Code	"Root level term that groups all OMTs. Grouping class, should not be used in annotation."	
-SSSOM:MatchType	Match Type	"The technique by which the match was made. Grouping class, should not be used in annotation"	SSSOM:SSSOMCode
-SSSOM:Lexical	Lexical  match	Match is based on any lexical information provided by the subject and the object.	SSSOM:MatchType
-SSSOM:Logical	Logical  match	"Match is based on the logical definition of the subject and the object (logical equivalence), as determined by a semantic reasoner."	SSSOM:MatchType
-SSSOM:HumanCurated	Human Curated  match	Match is based on human curation.	SSSOM:MatchType
-SSSOM:Complex	Complex  match	"Match is based on a combination of match types. It is recommended that the tool used for the match is provided, and more information given in a comment."	SSSOM:MatchType
-SSSOM:Unspecified	Unspecified  match	"The exact match was given by an external source (for example an ontology), but its method is unknown."	SSSOM:MatchType
-SSSOM:SemanticSimilarity	Semantic Similarity Match	The match is based on the semantic similarity between two terms. The semantic similarity score should be provided. The algorithm should be given as part of the metadata (tool field).	SSSOM:MatchType
-SSSOM:TermMatch	Term Match	A match between two terms. Should be used in curation.	SSSOM:SSSOMCode
-SSSOM:ClassMatch	Class Match	A match between two OWL/RDFS classes.	SSSOM:TermMatch
-SSSOM:ObjectPropertyMatch	Object Property Match	A match between two OWL object properties..	SSSOM:TermMatch
-SSSOM:IndividualMatch	Individual Match	A match between two OWL Individuals.	SSSOM:TermMatch
-SSSOM:PreprocessingMethod	Pre-processing method	Any preprocessing that was applied prior to the match.	SSSOM:SSSOMCode
-SSSOM:Stemming	Stemming		SSSOM:PreprocessingMethod
-SSSOM:TaxonRestrictionRemoval	Taxon restriction removal	"For the match, it was assumed that the terms that originally applied to different taxa now have no taxon restriction."	SSSOM:PreprocessingMethod
+ID	A rdfs:label	A dc:description	SC %
+SSSOMC:SSSOMCode	SSSOM Code	"Root level term that groups all OMTs. Grouping class, should not be used in annotation."	
+SSSOMC:MatchType	Match Type	"The technique by which the match was made. Grouping class, should not be used in annotation"	SSSOMC:SSSOMCode
+SSSOMC:Lexical	Lexical  match	Match is based on any lexical information provided by the subject and the object.	SSSOMC:MatchType
+SSSOMC:Logical	Logical  match	"Match is based on the logical definition of the subject and the object (logical equivalence), as determined by a semantic reasoner."	SSSOMC:MatchType
+SSSOMC:HumanCurated	Human Curated  match	Match is based on human curation.	SSSOMC:MatchType
+SSSOMC:Complex	Complex  match	"Match is based on a combination of match types. It is recommended that the tool used for the match is provided, and more information given in a comment."	SSSOMC:MatchType
+SSSOMC:Unspecified	Unspecified  match	"The exact match was given by an external source (for example an ontology), but its method is unknown."	SSSOMC:MatchType
+SSSOMC:SemanticSimilarity	Semantic Similarity Match	The match is based on the semantic similarity between two terms. The semantic similarity score should be provided. The algorithm should be given as part of the metadata (tool field).	SSSOMC:MatchType
+SSSOMC:TermMatch	Term Match	A match between two terms. Should be used in curation.	SSSOMC:SSSOMCode
+SSSOMC:ClassMatch	Class Match	A match between two OWL/RDFS classes.	SSSOMC:TermMatch
+SSSOMC:ObjectPropertyMatch	Object Property Match	A match between two OWL object properties..	SSSOMC:TermMatch
+SSSOMC:IndividualMatch	Individual Match	A match between two OWL Individuals.	SSSOMC:TermMatch
+SSSOMC:PreprocessingMethod	Pre-processing method	Any preprocessing that was applied prior to the match.	SSSOMC:SSSOMCode
+SSSOMC:Stemming	Stemming		SSSOMC:PreprocessingMethod
+SSSOMC:TaxonRestrictionRemoval	Taxon restriction removal	"For the match, it was assumed that the terms that originally applied to different taxa now have no taxon restriction."	SSSOMC:PreprocessingMethod
