@@ -254,36 +254,31 @@ SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) 
 
 ## TSV:
 
-All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the SSSOM metadata table. For example, the first four columns should always be, in that order: subject_id, predicate_id, object_id, match_type. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.
+All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the SSSOM metadata [table](sssom_metadata.tsv). For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, match_type, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, match_type. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.
 
-Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple JSON LD. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a curie_map: parameter in the JSON LD file. The value can be either a dictionary of CURIE->URLPREFIX pairs or a link to a valid curie map of the same shape.
+Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a `curie_map:` parameter in the yaml file. The value can be either a dictionary of CURIE->URLPREFIX pairs or a link to a valid curie map of the same shape.
 
-Note that only metadata elements permissible in a global context (G, or L/G) can be used in the external metadatafile.
+Note that only metadata elements permissible in a global context (G, or L/G) can be used in the external metadata-file.
 
-Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1-meta.jsonld)):
+Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1-meta.yml)):
 
 ```
-{
-	"@context": "https://raw.githubusercontent.com/matentzn/SSSOM/master/context.jsonld",
-	"creator_id": "https://orcid.org/0000-0002-7356-1779",
-	"license": "https://creativecommons.org/publicdomain/zero/1.0/",
-	"mapping_provider": "http://purl.obolibrary.org/obo/upheno.owl",
-	"curie_map": {
-		"MP": "http://purl.obolibrary.org/obo/MP_",
-		"HP": "http://purl.obolibrary.org/obo/HP_",
-		"skos": "http://www.w3.org/2004/02/skos/core"
-	}
-}
+creator_id: "https://orcid.org/0000-0002-7356-1779"
+curie_map: 
+  HP: "http://purl.obolibrary.org/obo/HP_"
+  MP: "http://purl.obolibrary.org/obo/MP_"
+  skos: "http://www.w3.org/2004/02/skos/core"
+license: "https://creativecommons.org/publicdomain/zero/1.0/"
+mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
 ```
 
 ### External mode 
 
-In external mode, the mapping set metadata is supplied by a separate JSON LD file having the same base-name of the mapping file, with the extension `-meta.jsonld`. The a resolvable link to the mapping file should be included in the form of a comment.
+In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension `-meta.yml`. By default, tools will look for the file of that name in the same directory as the the mapping set table.
 
 Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.tsv)):
 
 ```
-#{ "metadata": "https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1-meta.jsonld" }
 subject_id	predicate_id	object_id	match_type	subject_label	object_label
 HP:0009124	skos:exactMatch	MP:0000003	Lexical	Abnormal adipose tissue morphology	abnormal adipose tissue morphology
 HP:0008551	skos:exactMatch	MP:0000018	Lexical	Microtia	small ears
@@ -292,22 +287,18 @@ HP:0000411	skos:exactMatch	MP:0000021	Lexical	Protruding ear	prominent ears
 
 ### Embedded mode
 
-In the embedded mode, we allow the integration of mapping set level metadata as **_commented JSON LD_**. Apart from being commented, the JSON LD follows the exact same spec as the *JSON LD specified by the external mode*. Heavily used tools in bioinformatics such as pandas allow to [specify comment characters](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.
+In the embedded mode, we allow the integration of mapping set level metadata as **_commented YAML_**. Apart from being commented, the YAML follows the exact same spec as the *YAML specified by the external mode*. Heavily used tools in bioinformatics such as pandas allow to [specify comment characters](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.
 
 Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/embedded/mp-hp-exact-0.0.1.tsv)):
 
 ```
-#{
-#	"@context": "https://raw.githubusercontent.com/matentzn/SSSOM/master/context.jsonld",
-#	"creator_id": "https://orcid.org/0000-0002-7356-1779",
-#	"license": "https://creativecommons.org/publicdomain/zero/1.0/",
-#	"mapping_provider": "http://purl.obolibrary.org/obo/upheno.owl",
-#	"curie_map": {
-#		"MP": "http://purl.obolibrary.org/obo/MP_",
-#		"HP": "http://purl.obolibrary.org/obo/HP_",
-#		"skos": "http://www.w3.org/2004/02/skos/core"
-#	}
-#}
+#creator_id: "https://orcid.org/0000-0002-7356-1779"
+#curie_map: 
+#  HP: "http://purl.obolibrary.org/obo/HP_"
+#  MP: "http://purl.obolibrary.org/obo/MP_"
+#  skos: "http://www.w3.org/2004/02/skos/core"
+#license: "https://creativecommons.org/publicdomain/zero/1.0/"
+#mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
 subject_id	predicate_id	object_id	match_type	subject_label	object_label
 HP:0009124	skos:exactMatch	MP:0000003	Lexical	Abnormal adipose tissue morphology	abnormal adipose tissue morphology
 HP:0008551	skos:exactMatch	MP:0000018	Lexical	Microtia	small ears

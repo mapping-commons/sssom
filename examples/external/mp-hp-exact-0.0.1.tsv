@@ -1,4 +1,3 @@
-#{ "metadata": "https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/mp-hp-exact-meta.jsonld" }
 subject_id	predicate_id	object_id	match_type	subject_label	object_label
 HP:0009124	skos:exactMatch	MP:0000003	Lexical	Abnormal adipose tissue morphology	abnormal adipose tissue morphology
 HP:0008551	skos:exactMatch	MP:0000018	Lexical	Microtia	small ears
