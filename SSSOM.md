@@ -12,6 +12,7 @@ Development Draft (under construction, do not use), Updated: 15 April 2020
 * David Osumi-Sutherland (EMBL-EBI)
 * Simon Jupp (SciBite)
 * James McLaughlin (EMBL-EBI)
+* Henriette Harmse (EMBL-EBI)
 
 ### Abstract
 
