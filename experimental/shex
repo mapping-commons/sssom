@@ -1,0 +1,61 @@
+PREFIX sssom:<http://sssom/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+sssom:mapping{
+   sssom:mapping_set_id xsd:string;
+   sssom:mapping_set_version xsd:string; 
+   sssom:creator_id xsd:string;
+   sssom:creator_label xsd:string;
+   sssom:license xsd:string;
+   sssom:subject_source xsd:string;
+   sssom:subject_source_version xsd:string;
+   sssom:object_source xsd:string;
+   sssom:object_source_version xsd:string;
+   sssom:mapping_provider xsd:string;
+   sssom:mapping_tool xsd:string;
+   sssom:mapping_date xsd:string;
+   sssom:subject_match_field xsd:string;
+   sssom:object_match_field xsd:string;
+   sssom:subject_preprocessing xsd:string;
+   sssom:object_preprocessing xsd:string;
+   sssom:match_term_type xsd:string;
+   sssom:see_also xsd:string;
+   sssom:other xsd:string;
+   sssom:comment xsd:string;
+   sssom:contains @sssom:alignment+
+}
+
+sssom:alignment{
+	sssom:subject_id IRI;
+  	sssom:subject_label xsd:string;
+    sssom:predicate_id xsd:string;
+    sssom:predicate_label xsd:string;
+    sssom:object_id xsd:string;
+    sssom:object_label xsd:string;
+    sssom:match_type IRI ;
+    sssom:confidence xsd:double;
+    sssom:match_string xsd:string;
+    sssom:semantic_similarity_score xsd:double;
+    sssom:information_content_mica_score xsd:double;
+  	
+  sssom:creator_id xsd:string;
+  sssom:creator_label xsd:string;
+  sssom:license xsd:string;
+  sssom:subject_source xsd:string;
+  sssom:subject_source_version  xsd:string;
+  sssom:object_source xsd:string;
+  sssom:object_source_version xsd:string;
+  sssom:mapping_provider xsd:string;
+  sssom:mapping_tool xsd:string;
+  sssom:mapping_date xsd:string;
+  sssom:subject_match_field xsd:string;
+  sssom:object_match_field xsd:string;
+  sssom:subject_preprocessing xsd:string;
+  sssom:object_preprocessing xsd:string;
+  sssom:match_term_type xsd:string;
+  sssom:see_also xsd:string;
+  sssom:other xsd:string;
+  sssom:comment xsd:string;
+  
+}
+
