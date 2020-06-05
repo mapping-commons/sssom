@@ -72,10 +72,12 @@ Element ID | Description | TSV Example | RDF example | scope | req.
 -- | -- | -- | -- | -- | --
 subject_id | The ID of the subject of the mapping. | HP:0009894 | http://purl.obolibrary.org/obo/HP_0009894 | L | 1
 subject_label | The label of subject of the mapping | Thickened ears | Thickened ears | L | 0
+subject_category | The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. | COB:0000022 | http://purl.obolibrary.org/obo/COB_0000022 | L | 0
 predicate_id | The ID of the predicate or relation that relates the subject and object of this match. | owl:equivalentClass | owl:equivalentClass | L | 1
 predicate_label | The label of the predicate/relation of the mapping | equivalent to | equivalent to | L | 0
 object_id | The ID of the object of the mapping. | MP:0000019 | http://purl.obolibrary.org/obo/MP_0000019 | L | 1
 object_label | The label of object of the mapping | thick ears | thick ears | L | 0
+object_category | The conceptual category to which the object belongs to. This can be a string denoting the category or a term from a controlled vocabulary. | COB:0000022 | http://purl.obolibrary.org/obo/COB_0000022 | L | 0
 match_type | ID from Match type (SSSOM:MatchType) branch of the SSSSOM Vocabulary. In the case of multiple match types for a single subject, predicate, object triplet, two seperate mappings must be specified. | SSSOM:LexicalEquivalenceMatch | http://purl.org/sssom/type/LexicalEquivalenceMatch | L | 1
 mapping_set_id | A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable. | http://purl.obolibrary.org/obo/upheno/mapping/mp-hp | http://purl.obolibrary.org/obo/upheno/mapping/mp-hp | G | 0
 mapping_set_version | A version string for the mapping. | 2.3 | 2.3 | G | 0
