@@ -1,0 +1,21 @@
+catalog:
+  - title: "Cross-Species Mappings of Phenotypes"
+    creator_id: "https://orcid.org/0000-0002-7356-1779"
+    curie_map: 
+      HP: "http://purl.obolibrary.org/obo/HP_"
+      MP: "http://purl.obolibrary.org/obo/MP_"
+      skos: "http://www.w3.org/2004/02/skos/core"
+    license: "https://creativecommons.org/publicdomain/zero/1.0/"
+    mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
+    data:
+      - http://purl.obolibrary.org/obo/upheno/mappings/mp-hp.csv
+  - title: "Disease Mappings"
+    creator_id: "https://orcid.org/0000-0002-7356-1779"
+    curie_map: 
+      DO: "http://purl.obolibrary.org/obo/DO_"
+      MONDO: "http://purl.obolibrary.org/obo/MONDO_"
+      skos: "http://www.w3.org/2004/02/skos/core"
+    license: "https://creativecommons.org/publicdomain/zero/1.0/"
+    mapping_provider: "http://purl.obolibrary.org/obo/mondo.owl"
+    data:
+      - http://purl.obolibrary.org/obo/mondo/mappings/mondo-all.csv
