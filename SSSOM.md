@@ -164,11 +164,11 @@ The use of predicates is not restricted by SSSOM, but for maximum re-use, the fo
   </tr>
   <tr>
     <td>skos:narrowMatch</td>
-    <td>The subject is taxonomically narrower than the object.</td>
+    <td>From the SKOS primer: A triple <A> skos:narrower (and skos:narrowMatch) <B> asserts that <B>, the object of the triple, is a narrower concept than <A>, the subject of the triple.</td>
   </tr>
   <tr>
     <td>skos:broadMatch</td>
-    <td>The subject is taxonomically broader than the object.</td>
+    <td>From the SKOS primer: A triple <A> skos:broader (and skos:broadMatch) <B> asserts that <B>, the object of the triple, is a broader concept than <A>, the subject of the triple.</td>
   </tr>
   <tr>
     <td>oio:database_cross_reference</td>
