@@ -328,6 +328,45 @@ HP:0000411	skos:exactMatch	MP:0000021	Lexical	Protruding ear	prominent ears
 
 In the embedded mode, we allow the integration of mapping set level metadata as **_commented YAML_**. Apart from being commented, the YAML follows the exact same spec as the *YAML specified by the external mode*. Heavily used tools in bioinformatics such as pandas allow to [specify comment characters](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.
 
+Note: the mapping set level metadata _must be included as a continuous block at the beginning of the file_. This means in particular: 
+- No comments can be included that are not part of the metadata data. For example, this is not allowed:
+
+Illegal case 1:
+```
+#creator_id: "https://orcid.org/0000-0002-7356-1779"
+# This is a comment that does not belong here
+#curie_map: 
+#  HP: "http://purl.obolibrary.org/obo/HP_"
+#  MP: "http://purl.obolibrary.org/obo/MP_"
+```
+
+Illegal case 2:
+```
+# This is a comment that does not belong here
+#creator_id: "https://orcid.org/0000-0002-7356-1779"
+#curie_map: 
+#  HP: "http://purl.obolibrary.org/obo/HP_"
+#  MP: "http://purl.obolibrary.org/obo/MP_"
+```
+
+- There should be no empty rows: the commented yaml files _must_ be directly followed by the column headers. For example, this is not allowed:
+
+Illegal case 3:
+```
+
+#creator_id: "https://orcid.org/0000-0002-7356-1779"
+
+#curie_map: 
+#  HP: "http://purl.obolibrary.org/obo/HP_"
+#  MP: "http://purl.obolibrary.org/obo/MP_"
+```
+
+- The can be only a single # in the beginning of each row, followed immediately by the yaml.
+- When the leading hash-symbol is stripped from the header block, the resulting string is:
+  1. a valid yaml file
+  2. conforms to SSSOM mapping set specification (only `curie_map` or a metadata elements that are allowed on `mapping_set` level, i.e. `global`).
+- After the table header, no further row should be commented out.
+
 Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/embedded/mp-hp-exact-0.0.1.tsv)):
 
 ```
