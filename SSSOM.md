@@ -300,7 +300,12 @@ Metadata about a set of mappings can be supplied as part of the mappings (embedd
 
 Note that only metadata elements permissible in a global context (G, or L/G) can be used in the metadata-file.
 
-Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1-meta.yml)):
+We recommend to use the following *filename conventions* for SSSOM metadatafiles:
+
+- TSV files should have the extension `.sssom.tsv`, for example: `mp-hp-exact-0.0.1.sssom.tsv`.
+- External yaml metadata files should have the extension `.sssom.yml`, for example `mp-hp-exact-0.0.1.sssom.tsv`
+
+Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.yml)):
 
 ```
 creator_id: "https://orcid.org/0000-0002-7356-1779"
@@ -316,7 +321,7 @@ mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
 
 In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension `-meta.yml`. By default, tools will look for the file of that name in the same directory as the the mapping set table.
 
-Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.tsv)):
+Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv)):
 
 ```
 subject_id	predicate_id	object_id	match_type	subject_label	object_label
@@ -325,7 +330,7 @@ HP:0008551	skos:exactMatch	MP:0000018	Lexical	Microtia	small ears
 HP:0000411	skos:exactMatch	MP:0000021	Lexical	Protruding ear	prominent ears
 ```
 
-### Embedded mode
+### Embedded mode (default)
 
 In the embedded mode, we allow the integration of mapping set level metadata as **_commented YAML_**. Apart from being commented, the YAML follows the exact same spec as the *YAML specified by the external mode*. Heavily used tools in bioinformatics such as pandas allow to [specify comment characters](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.
 
@@ -368,7 +373,7 @@ Illegal case 3:
   2. conforms to SSSOM mapping set specification (only `curie_map` or a metadata elements that are allowed on `mapping_set` level, i.e. `global`).
 - After the table header, no further row should be commented out.
 
-Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/embedded/mp-hp-exact-0.0.1.tsv)):
+Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/embedded/mp-hp-exact-0.0.1.sssom.tsv)):
 
 ```
 #creator_id: "https://orcid.org/0000-0002-7356-1779"
