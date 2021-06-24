@@ -13,6 +13,9 @@ Development Draft (under construction, do not use), Updated: 15 April 2020
 * Simon Jupp (SciBite)
 * James McLaughlin (EMBL-EBI)
 * Henriette Harmse (EMBL-EBI)
+* Tiffany Callahan (@callahantiff)
+* Charlie Hoyt (@choyt)
+* Thomas Liener (Pistoia Alliance)
 
 ### Abstract
 
