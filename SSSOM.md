@@ -16,6 +16,23 @@ Development Draft (under construction, do not use), Updated: 15 April 2020
 * Tiffany Callahan (@callahantiff)
 * Charlie Hoyt (@choyt)
 * Thomas Liener (Pistoia Alliance)
+* Harshad Hegde (LBL)
+
+Contributors:
+* Balhoff, James P.
+* Chute, Christopher
+* Dahzi, Jiao
+* Gabriel, Davera
+* Haendel, Melissa
+* Harold, Solbrig
+* Harris, Nomi
+* Kim, Hyeongsik
+* Koehler, Sebastian
+* Munoz-Torres, Monica
+* Overton, James
+* Thessen, Anne
+* Vasilevsky, Nicole
+
 
 ### Abstract
 
