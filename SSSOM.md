@@ -28,6 +28,7 @@ Contributors:
 * Harris, Nomi
 * Kim, Hyeongsik
 * Koehler, Sebastian
+* Malone, James
 * Munoz-Torres, Monica
 * Overton, James
 * Thessen, Anne
