@@ -14,7 +14,7 @@ Development Draft (under construction: some metadata fields may be subject to ch
 * James McLaughlin (EMBL-EBI)
 * Henriette Harmse (EMBL-EBI)
 * Tiffany Callahan (@callahantiff)
-* Charlie Hoyt (@choyt)
+* Charlie Hoyt (Harvard Medical School; [@cthoyt](https://github.com/cthoyt))
 * Thomas Liener (Pistoia Alliance)
 * Harshad Hegde (LBL)
 
