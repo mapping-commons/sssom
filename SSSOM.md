@@ -1,6 +1,6 @@
 # Simple Standard for Sharing Ontology Mappings (SSSOM)
 
-Development Draft (under construction, do not use), Updated: 15 April 2020
+Development Draft (under construction: some metadata fields may be subject to change)
 
 *Editors:*
 
