@@ -51,6 +51,7 @@ This document introduces the SSSOM catalog of metadata elements, which can be us
 * [SSSOM Common Predicates](#predicates)
 * [SSSOM Serialisation](#serialisation)
 * [SSSOM Use Cases](#usecase)
+* [Minimum Metadata Recommendation](#minimum)
 
 <a name="intro"></a>
 
@@ -491,3 +492,77 @@ Not part of spec, clean up.
 * Can we have more complex logical mappings? A common use case is a taxon-specific anatomy ontology (taxon X). We want to map A to B, but say that B is not equivalent to A, rather it is equivalent to an OWL expression based on A (A and 'in taxon' some X). But there are plenty of arbitrary expressions that could be supported. A while back I looked at some SNOMED to Uberon mappings; it seemed like a lot of the SNOMED terms would better be ('part of' some UBERON:X) rather than directly equivalent to X.
 *  explicitly declare the metadata elements as equivalent to properties?
 * What about mapping to Literals in general? Is this in-spec?
+
+<a name="minimum"></a>
+
+### Minimum Metadata Recommendation
+
+Current mappings are extremely hard to use for data integration, because they are:
+
+- non-transparently imprecise
+- non-transparently incomplete
+- inaccurate
+- unFAIR
+
+In principle, to reach full integration through mappings, you will have to cross-map all ontologies, or semantic
+spaces, which means if you have N "spaces", you have N x N (-1) mappings. To mitigate the explosion
+of mappings, we have to be able to cross-walk:
+- multi-hop forward walks `{ O1:A->O2:A, O2:A->O3:A } --> {O1:A->O3:A}`
+- walk-backs `{ O1:A->O2:A } --> {O2:A->O1:A}`
+- combinations `{ O1:A->O2:A, O2:A->O3:A, O4:A->O3:A } --> {O1:A->O4:A}`
+
+To enable cross-walking, we propose the following 5 star system for mapping metadata. 
+
+1. _1-star mappings_ fulfil the following criteria:
+   - record subject id, object id and mapping precision
+   - using qualified names (either URIs or CURIEs + curie maps) for subject id and object id
+   - using a standard file format (JSON, XML, CSV, TSV)
+   - made available in a public space
+   - _optional_: record the subject and object labels to make it easier for humans to read the file
+2. _2-star mappings_ fulfil all the criteria for 1-star mappings and furthermore
+   - made available in a public version control system with an issue tracker
+   - record the semantic predicate explicitly
+   - using qualified names for the semantic predicate (i.e. owl:equivalentClass, skos:exactMatch)
+   - record a confidence value for the mapping between 0 and 1.
+   - record an open license for the use of the mapping set
+3. _3-star mappings_ fulfil all the criteria for 2-star mappings and furthermore 
+   - are stored in SSSOM format
+   - record the following additional metadata: 
+     - `match_type`(s) (Lexical, Logical match, HumanCurated etc)
+     - `date` of the mapping
+     - `creator_id`
+     - `subject_source`
+     - `object_source`
+     - `subject_source_version`
+     - `object_source_version`
+     - `mapping_tool` if the mapping was automatically computed using a tool
+4. _4-star mappings_ fulfil all the criteria for 3-star mappings and furthermore
+   - Register there mapping at a mapping commons
+   - record the following additional metadata:
+     - `mapping_set_id`
+     - `mapping_set_description`
+     - `mapping_set_version`
+     - `mapping_provider` (if the mapping is not original, i.e. it is not derived from another source)
+   - provide a completely executable curation_rule:
+     - if the mapping is `Lexical`, provide:
+       - `subject_preprocessing`, `object_preprocessing`
+       - `subject_match_field`, `object_match_field`
+       - `match_string`
+     - if the mapping is `Logical`, the mapping should be derivable by a reasoner from
+      a combination of the `object_source` and `subject_source`. If more is needed then please 
+      leave a `comment` with details.
+     - if the mapping is `HumanCurated`.. (this needs to be [fleshed out](https://github.com/mapping-commons/SSSOM/issues/57). 
+       For now, leave a `comment` indicating what you did to arrive at your conclusion, i.e. wether you compared the definitions, 
+       looked up the "labels" in a database, ran a tool and decided to trust it etc.)
+     - if the mapping is `SemanticSimilarity` (graph similarity, neighbourhood, cosine similarity), you should provide:
+       - `semantic_similarity_score`
+       - `semantic_similarity_measure`
+     - For now, if there are _multiple pieces of evidence_ (lexical, logical etc), please emit one row per evidence. 
+       If your tool combines multiple pieces of evidence in a complex way, emit yet another row at the end with
+       `match_type` `Complex` and emit ensure you provide the `mapping_tool`.
+5. _5-star mappings_ fulfil all the criteria for 4-star mappings and furthermore
+   - Are being up-to-date with the `subject_source` and `object_source`
+   - Have no issue on their issue tracker open for more than 3 months without an interaction
+   - Use a _standard_ open license, such as CC-0 or CC-BY.
+
+      
