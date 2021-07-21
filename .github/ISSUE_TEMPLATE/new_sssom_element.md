@@ -1,4 +1,5 @@
 ---
+title: "[New metadata element]: "
 name: Add new SSSOM metadata element
 about: New metadata element suggestion for SSSOM
 assignees: matentzn 
