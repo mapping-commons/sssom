@@ -505,7 +505,7 @@ Current mappings are extremely hard to use for data integration, because they ar
 - unFAIR
 
 In principle, to reach full integration through mappings, you will have to cross-map all ontologies, or semantic
-spaces, which means if you have N "spaces", you have N x N (-1) mappings. To mitigate the explosion
+spaces (e.g. controlled vocabularies, semantic databases), which means if you have N "spaces", you have `N x (N - 1)` mappings (because A-->B is often different from B-->A). To mitigate the explosion
 of mappings, we have to be able to cross-walk:
 - multi-hop forward walks `{ O1:A->O2:A, O2:A->O3:A } --> {O1:A->O3:A}`
 - walk-backs `{ O1:A->O2:A } --> {O2:A->O1:A}`
