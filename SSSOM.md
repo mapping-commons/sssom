@@ -511,21 +511,21 @@ spaces (e.g. controlled vocabularies, semantic databases), which means if you ha
 - walk-backs `{ PR:000050277 -> ncbiprotein:YP_009725304 } --> {ncbiprotein:YP_009725304 -> PR:000050277}`
 - combinations `{ PR:000050277 -> ncbiprotein:YP_009725304, ncbiprotein:YP_009725304-> uniprot.chain:PRO_0000449627, MY:NSP8-> uniprot.chain:PRO_0000449627 } --> { PR:000050277 -> MY:NSP8 }`
 
-To enable cross-walking, we propose the following 5-tier system for mapping metadata. 
+To enable cross-walking, we propose the following **5-tier system** for mapping metadata. 
 
-1. _1st-tier mappings_ fulfill the following criteria:
+1. _tier 1 mappings_ fulfill the following criteria:
    - record subject id, object id and mapping precision
    - using qualified names (either URIs or CURIEs + curie maps) for subject id and object id
    - using a standard file format (JSON, XML, CSV, TSV)
    - made available in a public space
    - _optional_: record the subject and object labels to make it easier for humans to read the file
-2. _2nd-tier mappings_ fulfill all the criteria for 1-star mappings and furthermore
+2. _tier 2 mappings_ fulfill all the criteria for 1-star mappings and furthermore
    - made available in a public version control system with an issue tracker
    - record the semantic predicate explicitly
    - using qualified names for the semantic predicate (i.e. owl:equivalentClass, skos:exactMatch)
-   - record a confidence value for the mapping between 0 and 1.
+   - record a confidence value for the mapping between 0 and 1 (0 no confidence, 1 100% confidence).
    - record an open license for the use of the mapping set
-3. _3rd-tier mappings_ fulfill all the criteria for 2-star mappings and furthermore 
+3. _tier 3 mappings_ fulfill all the criteria for 2-star mappings and furthermore 
    - are stored in SSSOM format
    - record the following additional metadata: 
      - `match_type`(s) (Lexical, Logical match, HumanCurated etc)
@@ -536,7 +536,7 @@ To enable cross-walking, we propose the following 5-tier system for mapping meta
      - `subject_source_version`
      - `object_source_version`
      - `mapping_tool` if the mapping was automatically computed using a tool
-4. _4th-tier mappings_ fulfill all the criteria for 3-star mappings and furthermore
+4. _tier 4 mappings_ fulfill all the criteria for 3-star mappings and furthermore
    - Register the mapping at a mapping commons
    - record the following additional metadata:
      - `mapping_set_id`
@@ -560,7 +560,7 @@ To enable cross-walking, we propose the following 5-tier system for mapping meta
      - For now, if there are _multiple pieces of evidence_ (lexical, logical etc), please emit one row per evidence. 
        If your tool combines multiple pieces of evidence in a complex way, emit yet another row at the end with
        `match_type` `Complex` and emit ensure you provide the `mapping_tool`.
-5. _5th-tier mappings_ fulfill all the criteria for 4-star mappings and furthermore
+5. _tier 5 mappings_ fulfill all the criteria for 4-star mappings and furthermore
    - Are up-to-date with the `subject_source` and `object_source`
    - Have no issue on their issue tracker open for more than 3 months without an interaction
    - Use a _standard_ open license, such as [CC Zero 1.0](https://creativecommons.org/publicdomain/zero/1.0/) or [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
