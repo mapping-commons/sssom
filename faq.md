@@ -15,7 +15,7 @@ The reason for this is that ideally, we would want mappings to be reviewable and
 offering issue trackers and an active community incorporating changes.
 
 That said, it is unlikely that all existing mappings will be maintained by the source directly. For example, we expect to maintain the SSSOM mappings
-derived from the vast majority of OBO ontology xrefs as a downstream task ([example](https://github.com/mapping-commons/ols-mapping-commons).
+derived from the vast majority of OBO ontology xrefs as a downstream task ([example](https://github.com/mapping-commons/ols-mapping-commons)).
 
 # How dependent are we on the sssom-py toolkit?
 SSSOM follows the core design principle that mapping tables should be (a) self-contained, i.e. including its prefix maps similar to a turtle file, 
