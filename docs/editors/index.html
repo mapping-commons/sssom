@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Slot: subject_preprocessing - SSSOM</title>
+  <title><span style="color:red">Still under development -- not yet ready for prime time</span> - SSSOM</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Slot: subject_preprocessing";
-    var mkdocs_page_input_path = "subject_preprocessing.md";
+    var mkdocs_page_name = "<span style=\"color:red\">Still under development -- not yet ready for prime time</span>";
+    var mkdocs_page_input_path = "editors.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -87,7 +87,7 @@
     
       
     
-    <li>Slot: subject_preprocessing</li>
+    <li><span style="color:red">Still under development -- not yet ready for prime time</span></li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -99,18 +99,67 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="slot-subject_preprocessing">Slot: subject_preprocessing</h1>
-<p>Method of preprocessing applied to the fields of the subject. Tuple of IDs from "Pre-processing method" (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.</p>
-<p>URI: <a href="http://w3id.org/sssom/subject_preprocessing">sssom:subject_preprocessing</a></p>
-<h2 id="domain-and-range">Domain and Range</h2>
-<p>None &#8594;  <sub>0..1</sub> <a href="../String/">String</a></p>
-<h2 id="parents">Parents</h2>
-<h2 id="children">Children</h2>
-<h2 id="used-by">Used by</h2>
+                <h1 id="still-under-development-not-yet-ready-for-prime-time"><span style="color:red">Still under development -- not yet ready for prime time</span></h1>
+<h1 id="template-for-linkml-based-schemas">Template for LinkML based schemas</h1>
+<h2 id="requirements">Requirements</h2>
 <ul>
-<li><a href="../Mapping/">Mapping</a></li>
-<li><a href="../MappingSet/">MappingSet</a></li>
+<li><strong>Python &gt;= 3.7.1</strong></li>
+<li><strong>GNU make</strong> - A command line gnu make process (Windows users can use <a href="https://www.cygwin.com/">cygwin</a> - make comes built in on a Mac)</li>
+<li><strong>pip</strong> - comes with most python distros - you should be ok</li>
+<li><strong>virtualenv</strong> - can be added via <code>pip install virtualenv</code></li>
+<li><strong>pipenv</strong> - can be added via <code>pip install pipenv</code></li>
+<li></li>
 </ul>
+<h2 id="what-is-this">What is this?</h2>
+<p>This is a GitHub template for a <a href="https://github.com/linkml/">LinkML</a> based projects.</p>
+<p>It allows you to create a project for your schema as quickly as
+possible. It takes care of generating a beautiful readthedocs themed
+site, as well as downstream artefacts, including:</p>
+<ul>
+<li>JSON-Schema</li>
+<li>ShEx</li>
+<li>OWL</li>
+<li>RDF (direct mapping)</li>
+<li>JSON-LD Contexts</li>
+<li>SQL DDL (TODO)</li>
+<li>Python classes to represent model elements</li>
+<li>TSV/CSV reports (TODO)</li>
+</ul>
+<h2 id="quickstart">Quickstart</h2>
+<ol>
+<li>Click the big green <span style="color:green">"Use this template"</span> button on this page</li>
+<li>Name your repo according to your schema, e.g. my-awsome-project-model, and clone it</li>
+<li>Edit <code>model/CONFIG.yaml</code> to set your specific parameters. The details on the parameters can be found in
+the <a href="https://linkml.github.io/template-config-model/">LinkML Template Configuration Model</a> directory. 
+    (<em>Note that the Template Configuration Model was built using this very template.</em>)</li>
+<li>
+<p>Configure the repository:</p>
+<ul>
+<li><code>make -f MakeConfig reset</code></li>
+</ul>
+<p>This will generate a number of files that can be used to make, test, and distribute your final model.  Note
+that the template-configurator only needs to be run once as a rule.  You can, however, re-generate allof
+the target artifacts with <code>make -f MakeConfig reset</code>.  You can also selectively remove artifacts and get them
+regenerated with <code>make -f MakeConfig update</code>
+ 5. Rename the schema file in <a href="model/schema">model/schema</a> to match the <code>root_schema</code> named in the CONFIG.yaml file.<br />
+Note: <code>root_schema</code> does not have the <code>.yaml</code> suffix, the file does.  As an example, if you specified <code>root_schema: my-schema</code>,
+the schema would be named <a href="model/schema/my-schema.yaml">model/schema/my-schema.yaml</a>
+ 6. Edit the root_schema to add your own types, classes and slots.
+ 7. Type <code>make</code> to build your downstream artefacts (jsonschema, owl, etc)
+ 8. Once satisfied, commit your new project to github, which will rerun the make process.
+ 9. The package can also be installed in <code>pypi</code> - this is an advanced topic, see <a href="">PYPI_SETUP</a> for details
+10. This file (ABOUT.md) and the <code>images</code> directory can be removed once you are satisfied</p>
+</li>
+</ol>
+<h2 id="how-it-works">How it works</h2>
+<p>This repo is a GitHub "template" repo. When you "Use this template" it will make a copy for your project.</p>
+<p>Everything is orchestrated by a generic single <a href="Makefile">Makefile</a>. For this to work you should follow certain conventions:</p>
+<ul>
+<li>Keep your schema in src/schema</li>
+<li>Use the <code>.yaml</code> suffix for all schema files</li>
+<li>Use the suggested directory layout here.</li>
+</ul>
+<p>To run the Makefile you will need Python (&gt;=3.7):</p>
               
             </div>
           </div>

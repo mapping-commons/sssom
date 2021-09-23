@@ -257,5 +257,3 @@ target/sqlddl/%.sql: $(SCHEMA_DIR)/%.yaml tdir-sqlddl install
 # test docs locally.
 docserve: gen-docs
 	$(RUN) mkdocs serve
-
-include sssom.Makefile
