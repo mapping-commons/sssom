@@ -1,8 +1,5 @@
 {
-   "$id": "http://w3id.org/sssom/schema/",
-   "$schema": "http://json-schema.org/draft-07/schema#",
-   "additionalProperties": true,
-   "definitions": {
+   "$defs": {
       "Entity": {
          "additionalProperties": false,
          "description": "Represents any entity that can be mapped, such as an OWL class or SKOS concept",
@@ -59,7 +56,7 @@
                "type": "string"
             },
             "mapping_cardinality": {
-               "$ref": "#/definitions/MappingCardinalityEnum",
+               "$ref": "#/$defs/MappingCardinalityEnum",
                "description": "A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set."
             },
             "mapping_date": {
@@ -227,7 +224,7 @@
             "mappings": {
                "description": "Contains a list of mapping objects",
                "items": {
-                  "$ref": "#/definitions/Mapping"
+                  "$ref": "#/$defs/Mapping"
                },
                "type": "array"
             },
@@ -281,6 +278,9 @@
          "type": "object"
       }
    },
+   "$id": "http://w3id.org/sssom/schema/",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "additionalProperties": true,
    "properties": {},
    "title": "sssom",
    "type": "object"
