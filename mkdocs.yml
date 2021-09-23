@@ -4,6 +4,6 @@ docs_dir: target/docs
 site_dir: docs
 nav:
   - Home: home.md
-  - SSSOM Specification: SSSOM.md
+  - SSSOM Specification: spec.md
   - Index: index.md
   - Credits: credits.md
