@@ -45,7 +45,7 @@ the [LinkML Template Configuration Model](https://linkml.github.io/template-conf
     regenerated with `make -f MakeConfig update`
  5. Rename the schema file in [model/schema](model/schema) to match the `root_schema` named in the CONFIG.yaml file.  
     Note: `root_schema` does not have the `.yaml` suffix, the file does.  As an example, if you specified `root_schema: my-schema`,
-    the schema would be named [model/schema/my-schema.yaml](model/schema/my-schema.yaml)
+    the schema would be named model/schema/my-schema.yaml
  6. Edit the root_schema to add your own types, classes and slots.
  7. Type `make` to build your downstream artefacts (jsonschema, owl, etc)
  8. Once satisfied, commit your new project to github, which will rerun the make process.

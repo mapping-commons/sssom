@@ -150,11 +150,10 @@
 <ul>
 <li><a href="#intro">Introduction</a></li>
 <li><a href="#meta">SSSOM Metadata Elements</a></li>
-<li><a href="#vocab">SSSOM Controlled Vocabulary</a></li>
 <li><a href="#predicates">SSSOM Common Predicates</a></li>
 <li><a href="#serialisation">SSSOM Serialisation</a></li>
 <li><a href="#usecase">SSSOM Use Cases</a></li>
-<li><a href="#minimum">Minimum Metadata Recommendation</a></li>
+<li><a href="#minimum">SSSOM 5-Star recommendation for mappings</a></li>
 </ul>
 <p><a name="intro"></a></p>
 <h3 id="introduction">Introduction</h3>
@@ -177,6 +176,11 @@
 <p>Note that some SSSOM metadata elements have known equivalent properties which will be used in the RDF serialisation, for example <code>see_also</code> is mapped to <code>rdfs:seeAlso</code>.</p>
 <p>All metadata elements and their mappings are declared and managed in the <a href="https://github.com/mapping-commons/sssom/blob/master/model/schema/sssom.yaml">SSSOM schema</a>.</p>
 <h2 id="metadata-element-table">Metadata Element Table</h2>
+<p>Note: this table may be a bit out of date. The latest version of the metadata elements are:</p>
+<ul>
+<li><a href="https://mapping-commons.github.io/sssom/Mapping/">Mapping</a></li>
+<li><a href="https://mapping-commons.github.io/sssom/MappingSet/">MappingSet</a></li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -471,14 +475,6 @@
 </tr>
 </tbody>
 </table>
-<p><a name="vocab"></a></p>
-<h1 id="the-sssom-controlled-vocabulary">The SSSOM Controlled Vocabulary</h1>
-<p>The SSSOM Vocabulary is a Controlled Vocabulary (CV) for representing the method by which a mapping was produced. <strong>The following excerpt only gives a sense of the vocabulary (i.e. is incomplete and unstructured)</strong> - the actual implementation will be done in the usual way as a linked data vocabulary in rdf. In the OWL/RDF serialisation, matches are connected to match types using dc:type.</p>
-<p>The vocabulary (http://purl.org/sssom/sssom.owl) is managed here:</p>
-<ul>
-<li>Robot <a href="sssom_vocab.tsv">template</a></li>
-<li><a href="sssom_vocab.owl">Vocab</a> (OWL)</li>
-</ul>
 <p><a name="predicates"></a></p>
 <h1 id="common-mapping-predicates">Common Mapping Predicates</h1>
 <p>The use of predicates is not restricted by SSSOM, but for maximum re-use, the following predicates are strongly encouraged.</p>
@@ -568,7 +564,7 @@
 <pre><code>Annotation(Q,V) for all V in L.
 </code></pre>
 <p>Example:</p>
-<pre><code>AnnotationAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type SSSOMC:LexicalEquivalenceMapping) skos:exactMatch &lt;http://purl.obolibrary.org/obo/HP_0009894&gt; &lt;http://purl.obolibrary.org/obo/MP_0000019&gt;)
+<pre><code>AnnotationAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) skos:exactMatch &lt;http://purl.obolibrary.org/obo/HP_0009894&gt; &lt;http://purl.obolibrary.org/obo/MP_0000019&gt;)
 </code></pre>
 <p>Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the <a href="https://www.w3.org/TR/owl2-syntax/#Annotations">OWL 2 Structural Specification</a>.</p>
 <h3 id="predicate-is-an-object-property">Predicate is an object property</h3>
@@ -580,7 +576,7 @@
 <pre><code>SubclassOf(sssomMetadata, A, P some O)
 </code></pre>
 <p>Example:</p>
-<pre><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type SSSOMC:LexicalEquivalenceMapping) &lt;http://example.org/AA&gt; ObjectSomeValuesFrom(&lt;http://example.org/x&gt; &lt;http://example.org/BB&gt;))
+<pre><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) &lt;http://example.org/AA&gt; ObjectSomeValuesFrom(&lt;http://example.org/x&gt; &lt;http://example.org/BB&gt;))
 </code></pre>
 <h4 id="case-2-object-and-subject-are-individuals">Case 2: Object and Subject are individuals</h4>
 <p>The Mapping <S,P,O> gets translated into an object property assertion: </p>
@@ -590,7 +586,7 @@
 <pre><code>ObjectPropertyAssertion(sssomMetadata, P, A, O)
 </code></pre>
 <p>Example:</p>
-<pre><code>ObjectPropertyAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type SSSOMC:LexicalEquivalenceMapping) &lt;http://www.example.org/x&gt; &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
+<pre><code>ObjectPropertyAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) &lt;http://www.example.org/x&gt; &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
 </code></pre>
 <h3 id="predicate-is-language-relational-construct-of-rdfs-or-owl">Predicate is language relational construct of RDFS or OWL</h3>
 <p>The mapping <S,P,O> gets translated into an annotated axiom that corresponds to the construct used. By default, SSSOM will support:</p>
@@ -606,10 +602,10 @@
 </table>
 
 <p>Example:</p>
-<pre><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type SSSOMC:LexicalEquivalenceMapping) &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
+<pre><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
 </code></pre>
 <h2 id="tsv">TSV:</h2>
-<p>All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the SSSOM metadata <a href="sssom_metadata.tsv">table</a>. For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, match_type, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, match_type. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.</p>
+<p>All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the <a href="https://mapping-commons.github.io/sssom/Mapping/">SSSOM metadata</a>. For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, match_type, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, match_type. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.</p>
 <p>Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a <code>curie_map:</code> parameter in the yaml file. The value can be either a dictionary of CURIE-&gt;URLPREFIX pairs or a link to a valid curie map of the same shape.</p>
 <p>Note that only metadata elements permissible in a global context (G, or L/G) can be used in the metadata-file.</p>
 <p>We recommend to use the following <em>filename conventions</em> for SSSOM metadatafiles:</p>
@@ -688,11 +684,7 @@ HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
 <li>ROBOT implementation: <a href="https://github.com/ontodev/robot/issues/312">https://github.com/ontodev/robot/issues/312</a></li>
 </ul>
 <h2 id="json">JSON:</h2>
-<ul>
-<li>TBD in the future</li>
-<li>JSON-LD vs JSON</li>
-<li>Ernesto showed interest</li>
-</ul>
+<p>JSON translation is fully managed by <a href="https://linkml.io/linkml/code.html#loaders-and-dumpers">LinkML dumper classes</a>.</p>
 <p><a name="usecase"></a></p>
 <h1 id="use-cases">Use Cases:</h1>
 <ul>
@@ -725,78 +717,8 @@ HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
 </li>
 <li>OxO</li>
 </ul>
-<hr>
-<hr>
-
-<p>Not part of spec, clean up.</p>
-<h1 id="notes">Notes:</h1>
-<ul>
-<li>
-<p>Mapping notes SNOMED-ORPHANET (codes)</p>
-<ul>
-<li>
-<p><a href="https://confluence.ihtsdotools.org/download/attachments/14746117/IHTSDO%20INSERM%20SNOMED%20CT%20EXPO%202015%201.0.pdf?version=1&amp;modificationDate=1446570840000&amp;api=v2">https://confluence.ihtsdotools.org/download/attachments/14746117/IHTSDO%20INSERM%20SNOMED%20CT%20EXPO%202015%201.0.pdf?version=1&amp;modificationDate=1446570840000&amp;api=v2</a></p>
-</li>
-<li>
-<p>Codes:</p>
-<ul>
-<li>
-<p>E exact mapping (the terms and the concepts are equivalent)</p>
-</li>
-<li>
-<p>NTBT narrower term maps to a broader term</p>
-</li>
-<li>
-<p>BTNT broader term maps to a narrower term</p>
-</li>
-<li>
-<p>W incorrect mapping (two different concepts)</p>
-</li>
-<li>
-<p>NTBT/E narrower term maps to a broader term because of an exact mapping with a synonym in the target terminology</p>
-</li>
-<li>
-<p>BTNT/E broader term maps to a narrower term because of an exact mapping with a synonym</p>
-</li>
-<li>
-<p>in the target terminology</p>
-</li>
-<li>
-<p>W/E incorrect mapping (two different concepts) but syntactically exact mapping to a synonym or a preferred term in the target terminology</p>
-</li>
-<li>
-<p>ND not yet decided/unable to decide</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>SNOMED mapping categories:</p>
-<ul>
-<li><a href="https://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=447634004&amp;edition=MAIN/2020-03-09&amp;release=&amp;languages=en">https://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=447634004&amp;edition=MAIN/2020-03-09&amp;release=&amp;languages=en</a></li>
-</ul>
-</li>
-<li>
-<p>Possibility of complex mappings (mappings between tuples of terms, connected by patterns)</p>
-</li>
-<li>
-<p>Ernesto: In the Ontology Matching community we use RDF alignment format (http://alignapi.gforge.inria.fr/format.html). It is very limited but also simple for the OAEI evaluation. We could think in some sort of extension of this format.</p>
-</li>
-<li>
-<p>Many SSSOM metadata elements can be mapped to directly to standard properties</p>
-</li>
-<li>
-<p>Check <a href="http://alignapi.gforge.inria.fr/format.html">http://alignapi.gforge.inria.fr/format.html</a></p>
-</li>
-<li>How to we determine the type of the predicate (annotation or object property) at conversion time? Is this extra information that needs to be provided? Lookup in some ontology?</li>
-<li>Sometimes annotations reference IRIs. We may need to consider if we want to distinguish between a literal value and an IRI.</li>
-<li>Can we have more complex logical mappings? A common use case is a taxon-specific anatomy ontology (taxon X). We want to map A to B, but say that B is not equivalent to A, rather it is equivalent to an OWL expression based on A (A and 'in taxon' some X). But there are plenty of arbitrary expressions that could be supported. A while back I looked at some SNOMED to Uberon mappings; it seemed like a lot of the SNOMED terms would better be ('part of' some UBERON:X) rather than directly equivalent to X.</li>
-<li>explicitly declare the metadata elements as equivalent to properties?</li>
-<li>What about mapping to Literals in general? Is this in-spec?</li>
-</ul>
 <p><a name="minimum"></a></p>
-<h3 id="minimum-metadata-recommendation">Minimum Metadata Recommendation</h3>
+<h3 id="the-sssom-5-star-system-for-mappings">The SSSOM 5-Star System For Mappings</h3>
 <p>Current mappings are extremely hard to use for data integration, because they are:</p>
 <ul>
 <li><em>non-transparently imprecise</em>: we do not know whether they are between equivalent terms, or wether one term is broader than the other.</li>

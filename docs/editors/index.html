@@ -143,7 +143,7 @@ the target artifacts with <code>make -f MakeConfig reset</code>.  You can also s
 regenerated with <code>make -f MakeConfig update</code>
  5. Rename the schema file in <a href="model/schema">model/schema</a> to match the <code>root_schema</code> named in the CONFIG.yaml file.<br />
 Note: <code>root_schema</code> does not have the <code>.yaml</code> suffix, the file does.  As an example, if you specified <code>root_schema: my-schema</code>,
-the schema would be named <a href="model/schema/my-schema.yaml">model/schema/my-schema.yaml</a>
+the schema would be named model/schema/my-schema.yaml
  6. Edit the root_schema to add your own types, classes and slots.
  7. Type <code>make</code> to build your downstream artefacts (jsonschema, owl, etc)
  8. Once satisfied, commit your new project to github, which will rerun the make process.
