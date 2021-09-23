@@ -22,57 +22,57 @@ default_prefix: sssom
 enums:
   mapping_cardinality_enum:
     permissible_values:
-      "1:1":
-      "1:n":
-      "n:1":
-      "1:0":
-      "0:1":
-      "n:n":
+      "1:1": One-to-one mapping
+      "1:n": One-to-many mapping
+      "n:1": Many-to-one mapping
+      "1:0": One-to-none mapping
+      "0:1": None-to-one mapping
+      "n:n": Many-to-many mapping
+  match_type_enum:
+    permissible_values:
+      Lexical: Lexical match
+      Logical: Logical match
+      HumanCurated: Match based on human expert opinion
+      Complex: Match based on a variety of different strategies
+      Unspecified: Unknown match type
+      SemanticSimilarity: Match based on close semantic similarity
+  match_term_type_enum:
+    permissible_values:
+      TermMatch: A match between two terms
+      ConceptMatch: A match between two SKOS concepts
+      ClassMatch: A match between two OWL/RDFS classes
+      ObjectPropertyMatch: A match between two OWL object properties
+      IndividualMatch: A match between two OWL Individuals
+      DataPropertyMatch: A match between two OWL object properties
+  preprocessing_method_enum:
+    permissible_values:
+      Stemming:
+      TaxonRestrictionRemoval:
+  match_field_enum:
+    permissible_values:
+      ExactSynonym:
+      Label:
+      RelatedSynonym:
+      CloseSyonym:
+      BroadSynonym:
+      NarrowSynonm:
+      Definition:
 
 slots:
-  entity_field:
-    abstract: true
-    description: grouping for normalized fields for entities
-  subject_field:
-    abstract: true
-    mixin: true
-    description: denormalized field representing aspect of a subject
-  object_field:
-    abstract: true
-    mixin: true
-    description: denormalized field representing aspect of a object
-  label:
-    is_a: entity_field
-    description: label of an entity
-  source:
-    is_a: entity_field
-    description: the database or ontology prefix of the entity
-  category:
-    is_a: entity_field
-    description: category of the entity. Could be biolink, COB, etc
   mappings:
     description: Contains a list of mapping objects
     range: mapping
     multivalued: true
-  id:
-    description: CURIE or IRI identifier
-    identifier: true
   subject_id:
-    mixins:
-      - subject_field
     description: The ID of the subject of the mapping.
+    range: uriorcurie
     mappings:
     - owl:annotatedSource
-    range: entity
     slot_uri: owl:annotatedSource
   subject_label:
-    mixins:
-      - subject_field
     description: The label of subject of the mapping
     range: string
   subject_category:
-    mixins:
-      - subject_field
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
     range: string
@@ -81,27 +81,21 @@ slots:
       object of this match.
     mappings:
     - owl:annotatedProperty
-    range: entity
+    range: uriorcurie
     slot_uri: owl:annotatedProperty
   predicate_label:
     description: The label of the predicate/relation of the mapping
     range: string
   object_id:
-    mixins:
-      - object_field
     description: The ID of the object of the mapping.
     mappings:
     - owl:annotatedTarget
-    range: entity
+    range: uriorcurie
     slot_uri: owl:annotatedTarget
   object_label:
-    mixins:
-      - object_field
     description: The label of object of the mapping
     range: string
   object_category:
-    mixins:
-      - object_field
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
     range: string
@@ -109,54 +103,54 @@ slots:
     description: ID from Match type (SSSOM:MatchType) branch of the SSSSOM Vocabulary.
       In the case of multiple match types for a single subject, predicate, object
       triplet, two seperate mappings must be specified.
-    range: string
-    #multivalued: true #consider linkml runtime csvreader
+    range: match_term_type_enum
+    multivalued: true
   mapping_set_id:
     description: A globally unique identifier for the mapping set (not each individual
       mapping). Should be IRI, ideally resolvable.
-    range: entity
+    range: uriorcurie
   mapping_set_version:
     description: A version string for the mapping.
-    mappings:
-    - owl:versionInfo
     range: string
+    slot_uri: owl:versionInfo
   mapping_set_description:
     description: A description of the mapping set.
     range: string
+    slot_uri: dc:description
   creator_id:
     description: Identifies the persons or groups responsible for the creation of
       the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise
       identifying URLs, but any identifying string (such as name and affiliation)
       is permissible.
-    mappings:
-    - dc:creator
-    range: entity
+    slot_uri: dc:creator
+    range: uriorcurie
+    multivalued: true
   creator_label:
     description: A string identifying the creator of this mapping. In the spirit of
       provenance, consider to use creator_id instead.
     range: string
+    multivalued: true
   license:
     description: A url to the license of the mapping. In absence of a license we assume
       no license.
-    mappings:
-    - dcterms:license
-    range: string
+    range: uriorcurie
+    slot_uri: dcterms:license
   subject_source:
     description: IRI of ontology source for the subject. Version IRI preferred.
-    range: string
+    range: uriorcurie
   subject_source_version:
-    description: Version IRI of the source of the subject term.
+    description: Version IRI or version string of the source of the subject term.
     range: string
   object_source:
     description: IRI of ontology source for the object. Version IRI preferred.
-    range: string
+    range: uriorcurie
   object_source_version:
-    description: Version IRI of the source of the object term.
+    description: Version IRI or version string of the source of the object term.
     range: string
   mapping_provider:
     description: URL pointing to the source that provided the mapping, for example
       an ontology that already contains the mappings.
-    range: string
+    range: uriorcurie
   mapping_cardinality:
     description: A string indicating whether this mapping is from a 1:1 (the subject_id
       maps to a single object_id), 1:n (the subject maps to more than one object_id), 
@@ -168,42 +162,39 @@ slots:
       mapping. Should be a URL pointing to more info about it, but can be free text.
     range: string
   mapping_date:
-    description: The date the mapping was computed
-    mappings:
-    - dc:date
-    range: string
+    description: The date the mapping was created
+    slot_uri: dc:created
+    range: date
   confidence:
     description: A score between 0 and 1 to denote the confidence or probability that
       the match is correct, where 1 denotes total confidence.
     range: double
   subject_match_field:
     description: A tuple of fields (term annotations on the subject) that was used
-      for the match. Should be used in conjunction with lexical and complexes matches,
-      see SSSOM match types below.
-    range: entity
+      for the match.
+    range: match_field_enum
+    multivalued: true
   object_match_field:
     description: A tuple of fields (term annotations on the object) that was used
-      for the match. Should be used in conjunction with lexical and complexes matches,
-      see SSSOM match types below.
-    range: entity
+      for the match.
+    range: match_field_enum
+    multivalued: true
   match_string:
     description: String that is shared by subj/obj
     range: string
   subject_preprocessing:
-    description: Method of preprocessing applied to the fields of the subject. Tuple
-      of IDs from "Pre-processing method" (SSSOM:PreprocessingMethod) branch of the
-      SSSSOM Vocabulary.
-    range: string
+    description: Method of preprocessing applied to the fields of the subject.
+    range: preprocessing_method_enum
+    multivalued: true
   object_preprocessing:
-    description: "Method of preprocessing applied to the fields of the object. Tuple\
-      \ of IDs from \u201CPre-processing method\u201D (SSSOM:PreprocessingMethod)\
-      \ branch of the SSSSOM Vocabulary."
-    range: string
+    description: "Method of preprocessing applied to the fields of the object."
+    range: preprocessing_method_enum
+    multivalued: true
   match_term_type:
     description: Specifies what type of terms are being matched (class, property,
       or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch
       of the SSSSOM Vocabulary.
-    range: string
+    range: match_term_type_enum
   semantic_similarity_score:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
@@ -308,13 +299,3 @@ classes:
     - other
     - comment
     class_uri: owl:Axiom
-  entity:
-    description: Represents any entity that can be mapped, such as an OWL class or
-      SKOS concept
-    mappings:
-    - rdf:Resource
-    slots:
-    - id
-    - label
-    - category
-    - source

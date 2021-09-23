@@ -1,32 +1,5 @@
 {
    "$defs": {
-      "Entity": {
-         "additionalProperties": false,
-         "description": "Represents any entity that can be mapped, such as an OWL class or SKOS concept",
-         "properties": {
-            "category": {
-               "description": "category of the entity. Could be biolink, COB, etc",
-               "type": "string"
-            },
-            "id": {
-               "description": "CURIE or IRI identifier",
-               "type": "string"
-            },
-            "label": {
-               "description": "label of an entity",
-               "type": "string"
-            },
-            "source": {
-               "description": "the database or ontology prefix of the entity",
-               "type": "string"
-            }
-         },
-         "required": [
-            "id"
-         ],
-         "title": "Entity",
-         "type": "object"
-      },
       "Mapping": {
          "additionalProperties": false,
          "description": "Represents an individual mapping between a pair of entities",
@@ -41,11 +14,17 @@
             },
             "creator_id": {
                "description": "Identifies the persons or groups responsible for the creation of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "creator_label": {
                "description": "A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "information_content_mica_score": {
                "description": "A score between 0 and 1 to denote the information content of the most informative common ancestor, where 1 denotes the maximum level of informativeness.",
@@ -60,7 +39,8 @@
                "description": "A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set."
             },
             "mapping_date": {
-               "description": "The date the mapping was computed",
+               "description": "The date the mapping was created",
+               "format": "date",
                "type": "string"
             },
             "mapping_provider": {
@@ -76,12 +56,15 @@
                "type": "string"
             },
             "match_term_type": {
-               "description": "Specifies what type of terms are being matched (class, property, or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch of the SSSSOM Vocabulary.",
-               "type": "string"
+               "$ref": "#/$defs/MatchTermTypeEnum",
+               "description": "Specifies what type of terms are being matched (class, property, or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch of the SSSSOM Vocabulary."
             },
             "match_type": {
                "description": "ID from Match type (SSSOM:MatchType) branch of the SSSSOM Vocabulary. In the case of multiple match types for a single subject, predicate, object triplet, two seperate mappings must be specified.",
-               "type": "string"
+               "items": {
+                  "$ref": "#/$defs/MatchTermTypeEnum"
+               },
+               "type": "array"
             },
             "object_category": {
                "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.",
@@ -96,19 +79,25 @@
                "type": "string"
             },
             "object_match_field": {
-               "description": "A tuple of fields (term annotations on the object) that was used for the match. Should be used in conjunction with lexical and complexes matches, see SSSOM match types below.",
-               "type": "string"
+               "description": "A tuple of fields (term annotations on the object) that was used for the match.",
+               "items": {
+                  "$ref": "#/$defs/MatchFieldEnum"
+               },
+               "type": "array"
             },
             "object_preprocessing": {
-               "description": "Method of preprocessing applied to the fields of the object. Tuple of IDs from \u201cPre-processing method\u201d (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.",
-               "type": "string"
+               "description": "Method of preprocessing applied to the fields of the object.",
+               "items": {
+                  "$ref": "#/$defs/PreprocessingMethodEnum"
+               },
+               "type": "array"
             },
             "object_source": {
                "description": "IRI of ontology source for the object. Version IRI preferred.",
                "type": "string"
             },
             "object_source_version": {
-               "description": "Version IRI of the source of the object term.",
+               "description": "Version IRI or version string of the source of the object term.",
                "type": "string"
             },
             "other": {
@@ -144,19 +133,25 @@
                "type": "string"
             },
             "subject_match_field": {
-               "description": "A tuple of fields (term annotations on the subject) that was used for the match. Should be used in conjunction with lexical and complexes matches, see SSSOM match types below.",
-               "type": "string"
+               "description": "A tuple of fields (term annotations on the subject) that was used for the match.",
+               "items": {
+                  "$ref": "#/$defs/MatchFieldEnum"
+               },
+               "type": "array"
             },
             "subject_preprocessing": {
-               "description": "Method of preprocessing applied to the fields of the subject. Tuple of IDs from \"Pre-processing method\" (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.",
-               "type": "string"
+               "description": "Method of preprocessing applied to the fields of the subject.",
+               "items": {
+                  "$ref": "#/$defs/PreprocessingMethodEnum"
+               },
+               "type": "array"
             },
             "subject_source": {
                "description": "IRI of ontology source for the subject. Version IRI preferred.",
                "type": "string"
             },
             "subject_source_version": {
-               "description": "Version IRI of the source of the subject term.",
+               "description": "Version IRI or version string of the source of the subject term.",
                "type": "string"
             }
          },
@@ -187,18 +182,25 @@
             },
             "creator_id": {
                "description": "Identifies the persons or groups responsible for the creation of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "creator_label": {
                "description": "A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "license": {
                "description": "A url to the license of the mapping. In absence of a license we assume no license.",
                "type": "string"
             },
             "mapping_date": {
-               "description": "The date the mapping was computed",
+               "description": "The date the mapping was created",
+               "format": "date",
                "type": "string"
             },
             "mapping_provider": {
@@ -229,23 +231,29 @@
                "type": "array"
             },
             "match_term_type": {
-               "description": "Specifies what type of terms are being matched (class, property, or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch of the SSSSOM Vocabulary.",
-               "type": "string"
+               "$ref": "#/$defs/MatchTermTypeEnum",
+               "description": "Specifies what type of terms are being matched (class, property, or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch of the SSSSOM Vocabulary."
             },
             "object_match_field": {
-               "description": "A tuple of fields (term annotations on the object) that was used for the match. Should be used in conjunction with lexical and complexes matches, see SSSOM match types below.",
-               "type": "string"
+               "description": "A tuple of fields (term annotations on the object) that was used for the match.",
+               "items": {
+                  "$ref": "#/$defs/MatchFieldEnum"
+               },
+               "type": "array"
             },
             "object_preprocessing": {
-               "description": "Method of preprocessing applied to the fields of the object. Tuple of IDs from \u201cPre-processing method\u201d (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.",
-               "type": "string"
+               "description": "Method of preprocessing applied to the fields of the object.",
+               "items": {
+                  "$ref": "#/$defs/PreprocessingMethodEnum"
+               },
+               "type": "array"
             },
             "object_source": {
                "description": "IRI of ontology source for the object. Version IRI preferred.",
                "type": "string"
             },
             "object_source_version": {
-               "description": "Version IRI of the source of the object term.",
+               "description": "Version IRI or version string of the source of the object term.",
                "type": "string"
             },
             "other": {
@@ -257,25 +265,80 @@
                "type": "string"
             },
             "subject_match_field": {
-               "description": "A tuple of fields (term annotations on the subject) that was used for the match. Should be used in conjunction with lexical and complexes matches, see SSSOM match types below.",
-               "type": "string"
+               "description": "A tuple of fields (term annotations on the subject) that was used for the match.",
+               "items": {
+                  "$ref": "#/$defs/MatchFieldEnum"
+               },
+               "type": "array"
             },
             "subject_preprocessing": {
-               "description": "Method of preprocessing applied to the fields of the subject. Tuple of IDs from \"Pre-processing method\" (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.",
-               "type": "string"
+               "description": "Method of preprocessing applied to the fields of the subject.",
+               "items": {
+                  "$ref": "#/$defs/PreprocessingMethodEnum"
+               },
+               "type": "array"
             },
             "subject_source": {
                "description": "IRI of ontology source for the subject. Version IRI preferred.",
                "type": "string"
             },
             "subject_source_version": {
-               "description": "Version IRI of the source of the subject term.",
+               "description": "Version IRI or version string of the source of the subject term.",
                "type": "string"
             }
          },
          "required": [],
          "title": "MappingSet",
          "type": "object"
+      },
+      "MatchFieldEnum": {
+         "description": "",
+         "enum": [
+            "ExactSynonym",
+            "Label",
+            "RelatedSynonym",
+            "CloseSyonym",
+            "BroadSynonym",
+            "NarrowSynonm",
+            "Definition"
+         ],
+         "title": "MatchFieldEnum",
+         "type": "string"
+      },
+      "MatchTermTypeEnum": {
+         "description": "",
+         "enum": [
+            "TermMatch",
+            "ConceptMatch",
+            "ClassMatch",
+            "ObjectPropertyMatch",
+            "IndividualMatch",
+            "DataPropertyMatch"
+         ],
+         "title": "MatchTermTypeEnum",
+         "type": "string"
+      },
+      "MatchTypeEnum": {
+         "description": "",
+         "enum": [
+            "Lexical",
+            "Logical",
+            "HumanCurated",
+            "Complex",
+            "Unspecified",
+            "SemanticSimilarity"
+         ],
+         "title": "MatchTypeEnum",
+         "type": "string"
+      },
+      "PreprocessingMethodEnum": {
+         "description": "",
+         "enum": [
+            "Stemming",
+            "TaxonRestrictionRemoval"
+         ],
+         "title": "PreprocessingMethodEnum",
+         "type": "string"
       }
    },
    "$id": "http://w3id.org/sssom/schema/",

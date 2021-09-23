@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from sssom.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-09-23 15:08\n    Schema: sssom\n    \n    id: http://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "_comments": "Auto generated from sssom.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-09-23 23:32\n    Schema: sssom\n    \n    id: http://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
       "Orphanet": {
          "@id": "http://www.orpha.net/ORDO/Orphanet_",
@@ -16,7 +16,6 @@
       "oboInOwl": "http://www.geneontology.org/formats/oboInOwl#",
       "oio": "http://www.geneontology.org/formats/oboInOwl#",
       "owl": "http://www.w3.org/2002/07/owl#",
-      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "sssom": "http://w3id.org/sssom/",
@@ -28,11 +27,15 @@
          "@type": "xsd:double"
       },
       "creator_id": {
-         "@type": "@id"
+         "@type": "@id",
+         "@id": "dc:creator"
       },
-      "id": "@id",
       "information_content_mica_score": {
          "@type": "xsd:double"
+      },
+      "license": {
+         "@type": "@id",
+         "@id": "dcterms:license"
       },
       "mapping_cardinality": {
          "@context": {
@@ -42,17 +45,62 @@
             "meaning": "@id"
          }
       },
+      "mapping_date": {
+         "@type": "xsd:date",
+         "@id": "dc:created"
+      },
+      "mapping_provider": {
+         "@type": "@id"
+      },
+      "mapping_set_description": {
+         "@id": "dc:description"
+      },
       "mapping_set_id": {
          "@type": "@id"
       },
+      "mapping_set_version": {
+         "@id": "owl:versionInfo"
+      },
       "mappings": {
          "@type": "@id"
+      },
+      "match_term_type": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "match_type": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
       },
       "object_id": {
          "@type": "@id",
          "@id": "owl:annotatedTarget"
       },
       "object_match_field": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "object_preprocessing": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "object_source": {
          "@type": "@id"
       },
       "predicate_id": {
@@ -70,6 +118,22 @@
          "@id": "owl:annotatedSource"
       },
       "subject_match_field": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "subject_preprocessing": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "subject_source": {
          "@type": "@id"
       },
       "Mapping": {

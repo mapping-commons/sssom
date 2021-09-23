@@ -102,7 +102,7 @@
                 <h1 id="class-mapping-set">Class: mapping set</h1>
 <p>Represents a set of mappings</p>
 <p>URI: <a href="http://w3id.org/sssom/MappingSet">sssom:MappingSet</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity]&lt;object_match_field%200..1-%20[MappingSet&#124;mapping_set_version:string%20%3F;mapping_set_description:string%20%3F;creator_label:string%20%3F;license:string%20%3F;subject_source:string%20%3F;subject_source_version:string%20%3F;object_source:string%20%3F;object_source_version:string%20%3F;mapping_provider:string%20%3F;mapping_tool:string%20%3F;mapping_date:string%20%3F;subject_preprocessing:string%20%3F;object_preprocessing:string%20%3F;match_term_type:string%20%3F;see_also:string%20%3F;other:string%20%3F;comment:string%20%3F],[Entity]&lt;subject_match_field%200..1-%20[MappingSet],[Entity]&lt;creator_id%200..1-%20[MappingSet],[Entity]&lt;mapping_set_id%200..1-%20[MappingSet],[Mapping]&lt;mappings%200..*-++[MappingSet],[Mapping],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity]&lt;object_match_field%200..1-%20[MappingSet&#124;mapping_set_version:string%20%3F;mapping_set_description:string%20%3F;creator_label:string%20%3F;license:string%20%3F;subject_source:string%20%3F;subject_source_version:string%20%3F;object_source:string%20%3F;object_source_version:string%20%3F;mapping_provider:string%20%3F;mapping_tool:string%20%3F;mapping_date:string%20%3F;subject_preprocessing:string%20%3F;object_preprocessing:string%20%3F;match_term_type:string%20%3F;see_also:string%20%3F;other:string%20%3F;comment:string%20%3F],[Entity]&lt;subject_match_field%200..1-%20[MappingSet],[Entity]&lt;creator_id%200..1-%20[MappingSet],[Entity]&lt;mapping_set_id%200..1-%20[MappingSet],[Mapping]&lt;mappings%200..*-++[MappingSet],[Mapping],[Entity]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]&lt;mappings%200..*-++[MappingSet&#124;mapping_set_id:uriorcurie%20%3F;mapping_set_version:string%20%3F;mapping_set_description:string%20%3F;creator_id:uriorcurie%20*;creator_label:string%20*;license:uriorcurie%20%3F;subject_source:uriorcurie%20%3F;subject_source_version:string%20%3F;object_source:uriorcurie%20%3F;object_source_version:string%20%3F;mapping_provider:uriorcurie%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:match_field_enum%20*;object_match_field:match_field_enum%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;match_term_type:match_term_type_enum%20%3F;see_also:string%20%3F;other:string%20%3F;comment:string%20%3F],[Mapping]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]&lt;mappings%200..*-++[MappingSet&#124;mapping_set_id:uriorcurie%20%3F;mapping_set_version:string%20%3F;mapping_set_description:string%20%3F;creator_id:uriorcurie%20*;creator_label:string%20*;license:uriorcurie%20%3F;subject_source:uriorcurie%20%3F;subject_source_version:string%20%3F;object_source:uriorcurie%20%3F;object_source_version:string%20%3F;mapping_provider:uriorcurie%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:match_field_enum%20*;object_match_field:match_field_enum%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;match_term_type:match_term_type_enum%20%3F;see_also:string%20%3F;other:string%20%3F;comment:string%20%3F],[Mapping]" /></a></p>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
@@ -113,7 +113,7 @@
 </li>
 <li><a href="../mapping_set_id/">mapping_set_id</a>  <sub>0..1</sub><ul>
 <li>Description: A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
 </ul>
 </li>
 <li><a href="../mapping_set_version/">mapping_set_version</a>  <sub>0..1</sub><ul>
@@ -126,44 +126,44 @@
 <li>Range: <a href="../String/">String</a></li>
 </ul>
 </li>
-<li><a href="../creator_id/">creator_id</a>  <sub>0..1</sub><ul>
+<li><a href="../creator_id/">creator_id</a>  <sub>0..*</sub><ul>
 <li>Description: Identifies the persons or groups responsible for the creation of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
 </ul>
 </li>
-<li><a href="../creator_label/">creator_label</a>  <sub>0..1</sub><ul>
+<li><a href="../creator_label/">creator_label</a>  <sub>0..*</sub><ul>
 <li>Description: A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.</li>
 <li>Range: <a href="../String/">String</a></li>
 </ul>
 </li>
 <li><a href="../license/">license</a>  <sub>0..1</sub><ul>
 <li>Description: A url to the license of the mapping. In absence of a license we assume no license.</li>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
 </ul>
 </li>
 <li><a href="../subject_source/">subject_source</a>  <sub>0..1</sub><ul>
 <li>Description: IRI of ontology source for the subject. Version IRI preferred.</li>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
 </ul>
 </li>
 <li><a href="../subject_source_version/">subject_source_version</a>  <sub>0..1</sub><ul>
-<li>Description: Version IRI of the source of the subject term.</li>
+<li>Description: Version IRI or version string of the source of the subject term.</li>
 <li>Range: <a href="../String/">String</a></li>
 </ul>
 </li>
 <li><a href="../object_source/">object_source</a>  <sub>0..1</sub><ul>
 <li>Description: IRI of ontology source for the object. Version IRI preferred.</li>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
 </ul>
 </li>
 <li><a href="../object_source_version/">object_source_version</a>  <sub>0..1</sub><ul>
-<li>Description: Version IRI of the source of the object term.</li>
+<li>Description: Version IRI or version string of the source of the object term.</li>
 <li>Range: <a href="../String/">String</a></li>
 </ul>
 </li>
 <li><a href="../mapping_provider/">mapping_provider</a>  <sub>0..1</sub><ul>
 <li>Description: URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings.</li>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
 </ul>
 </li>
 <li><a href="../mapping_tool/">mapping_tool</a>  <sub>0..1</sub><ul>
@@ -172,33 +172,33 @@
 </ul>
 </li>
 <li><a href="../mapping_date/">mapping_date</a>  <sub>0..1</sub><ul>
-<li>Description: The date the mapping was computed</li>
-<li>Range: <a href="../String/">String</a></li>
+<li>Description: The date the mapping was created</li>
+<li>Range: <a href="../Date/">Date</a></li>
 </ul>
 </li>
-<li><a href="../subject_match_field/">subject_match_field</a>  <sub>0..1</sub><ul>
-<li>Description: A tuple of fields (term annotations on the subject) that was used for the match. Should be used in conjunction with lexical and complexes matches, see SSSOM match types below.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li><a href="../subject_match_field/">subject_match_field</a>  <sub>0..*</sub><ul>
+<li>Description: A tuple of fields (term annotations on the subject) that was used for the match.</li>
+<li>Range: <a href="../match_field_enum/">match_field_enum</a></li>
 </ul>
 </li>
-<li><a href="../object_match_field/">object_match_field</a>  <sub>0..1</sub><ul>
-<li>Description: A tuple of fields (term annotations on the object) that was used for the match. Should be used in conjunction with lexical and complexes matches, see SSSOM match types below.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li><a href="../object_match_field/">object_match_field</a>  <sub>0..*</sub><ul>
+<li>Description: A tuple of fields (term annotations on the object) that was used for the match.</li>
+<li>Range: <a href="../match_field_enum/">match_field_enum</a></li>
 </ul>
 </li>
-<li><a href="../subject_preprocessing/">subject_preprocessing</a>  <sub>0..1</sub><ul>
-<li>Description: Method of preprocessing applied to the fields of the subject. Tuple of IDs from "Pre-processing method" (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.</li>
-<li>Range: <a href="../String/">String</a></li>
+<li><a href="../subject_preprocessing/">subject_preprocessing</a>  <sub>0..*</sub><ul>
+<li>Description: Method of preprocessing applied to the fields of the subject.</li>
+<li>Range: <a href="../preprocessing_method_enum/">preprocessing_method_enum</a></li>
 </ul>
 </li>
-<li><a href="../object_preprocessing/">object_preprocessing</a>  <sub>0..1</sub><ul>
-<li>Description: Method of preprocessing applied to the fields of the object. Tuple of IDs from “Pre-processing method” (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.</li>
-<li>Range: <a href="../String/">String</a></li>
+<li><a href="../object_preprocessing/">object_preprocessing</a>  <sub>0..*</sub><ul>
+<li>Description: Method of preprocessing applied to the fields of the object.</li>
+<li>Range: <a href="../preprocessing_method_enum/">preprocessing_method_enum</a></li>
 </ul>
 </li>
 <li><a href="../match_term_type/">match_term_type</a>  <sub>0..1</sub><ul>
 <li>Description: Specifies what type of terms are being matched (class, property, or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch of the SSSSOM Vocabulary.</li>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="../match_term_type_enum/">match_term_type_enum</a></li>
 </ul>
 </li>
 <li><a href="../see_also/">see_also</a>  <sub>0..1</sub><ul>
