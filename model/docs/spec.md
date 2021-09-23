@@ -78,7 +78,12 @@ The SSSOM specification defines a set of SSSOM metadata elements that are used t
 
 A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.
 
-The conceptual model of SSSOM has two main elements: a [Mapping](https://mapping-commons.github.io/sssom/Mapping/) and a [MappingSet](https://mapping-commons.github.io/sssom/MappingSet/). Some SSSOM metadata elements apply only to one element or the other, but many can be applied to both.
+The conceptual model of SSSOM has two main elements: 
+
+- a [Mapping](https://mapping-commons.github.io/sssom/Mapping/) and
+- a [MappingSet](https://mapping-commons.github.io/sssom/MappingSet/).
+
+Some SSSOM metadata elements apply only to one element or the other, but many can be applied to both.
 
 Note that some SSSOM metadata elements have known equivalent properties which will be used in the RDF serialisation, for example `see_also` is mapped to `rdfs:seeAlso`.
 

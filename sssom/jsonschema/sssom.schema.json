@@ -60,7 +60,7 @@
                "description": "Specifies what type of terms are being matched (class, property, or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch of the SSSSOM Vocabulary."
             },
             "match_type": {
-               "description": "ID from Match type (SSSOM:MatchType) branch of the SSSSOM Vocabulary. In the case of multiple match types for a single subject, predicate, object triplet, two seperate mappings must be specified.",
+               "description": "The kind of match that led to the mapping, e.g. Logical or Lexical.",
                "items": {
                   "$ref": "#/$defs/MatchTermTypeEnum"
                },
@@ -155,7 +155,12 @@
                "type": "string"
             }
          },
-         "required": [],
+         "required": [
+            "subject_id",
+            "predicate_id",
+            "object_id",
+            "match_type"
+         ],
          "title": "Mapping",
          "type": "object"
       },
@@ -195,7 +200,6 @@
                "type": "array"
             },
             "license": {
-               "description": "A url to the license of the mapping. In absence of a license we assume no license.",
                "type": "string"
             },
             "mapping_date": {
@@ -287,7 +291,10 @@
                "type": "string"
             }
          },
-         "required": [],
+         "required": [
+            "mapping_set_id",
+            "license"
+         ],
          "title": "MappingSet",
          "type": "object"
       },

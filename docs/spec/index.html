@@ -168,7 +168,12 @@
 <h1 id="sssom-metadata-elements">SSSOM Metadata Elements</h1>
 <p>The SSSOM specification defines a set of SSSOM metadata elements that are used to describe mappings. Apart from the elements themselves, some example usage and a description, <strong><em><a href="https://mapping-commons.github.io/sssom/Mapping/">the SSSOM spec</a> defines the canonical order for the metadatdata</em></strong> in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. </p>
 <p>A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.</p>
-<p>The conceptual model of SSSOM has two main elements: a <a href="https://mapping-commons.github.io/sssom/Mapping/">Mapping</a> and a <a href="https://mapping-commons.github.io/sssom/MappingSet/">MappingSet</a>. Some SSSOM metadata elements apply only to one element or the other, but many can be applied to both.</p>
+<p>The conceptual model of SSSOM has two main elements: </p>
+<ul>
+<li>a <a href="https://mapping-commons.github.io/sssom/Mapping/">Mapping</a> and</li>
+<li>a <a href="https://mapping-commons.github.io/sssom/MappingSet/">MappingSet</a>.</li>
+</ul>
+<p>Some SSSOM metadata elements apply only to one element or the other, but many can be applied to both.</p>
 <p>Note that some SSSOM metadata elements have known equivalent properties which will be used in the RDF serialisation, for example <code>see_also</code> is mapped to <code>rdfs:seeAlso</code>.</p>
 <p>All metadata elements and their mappings are declared and managed in the <a href="https://github.com/mapping-commons/sssom/blob/master/model/schema/sssom.yaml">SSSOM schema</a>.</p>
 <h2 id="metadata-element-table">Metadata Element Table</h2>

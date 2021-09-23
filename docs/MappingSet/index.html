@@ -102,7 +102,8 @@
                 <h1 id="class-mapping-set">Class: mapping set</h1>
 <p>Represents a set of mappings</p>
 <p>URI: <a href="http://w3id.org/sssom/MappingSet">sssom:MappingSet</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]&lt;mappings%200..*-++[MappingSet&#124;mapping_set_id:uriorcurie%20%3F;mapping_set_version:string%20%3F;mapping_set_description:string%20%3F;creator_id:uriorcurie%20*;creator_label:string%20*;license:uriorcurie%20%3F;subject_source:uriorcurie%20%3F;subject_source_version:string%20%3F;object_source:uriorcurie%20%3F;object_source_version:string%20%3F;mapping_provider:uriorcurie%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:match_field_enum%20*;object_match_field:match_field_enum%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;match_term_type:match_term_type_enum%20%3F;see_also:string%20%3F;other:string%20%3F;comment:string%20%3F],[Mapping]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]&lt;mappings%200..*-++[MappingSet&#124;mapping_set_id:uriorcurie%20%3F;mapping_set_version:string%20%3F;mapping_set_description:string%20%3F;creator_id:uriorcurie%20*;creator_label:string%20*;license:uriorcurie%20%3F;subject_source:uriorcurie%20%3F;subject_source_version:string%20%3F;object_source:uriorcurie%20%3F;object_source_version:string%20%3F;mapping_provider:uriorcurie%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:match_field_enum%20*;object_match_field:match_field_enum%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;match_term_type:match_term_type_enum%20%3F;see_also:string%20%3F;other:string%20%3F;comment:string%20%3F],[Mapping]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]&lt;mappings%200..*-++[MappingSet&#124;mapping_set_id:uriorcurie;mapping_set_version:string%20%3F;mapping_set_description:string%20%3F;creator_id:uriorcurie%20*;creator_label:string%20*;license:uriorcurie;subject_source:uriorcurie%20%3F;subject_source_version:string%20%3F;object_source:uriorcurie%20%3F;object_source_version:string%20%3F;mapping_provider:uriorcurie%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:match_field_enum%20*;object_match_field:match_field_enum%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;match_term_type:match_term_type_enum%20%3F;see_also:string%20%3F;other:string%20%3F;comment:string%20%3F],[Mapping]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]&lt;mappings%200..*-++[MappingSet&#124;mapping_set_id:uriorcurie;mapping_set_version:string%20%3F;mapping_set_description:string%20%3F;creator_id:uriorcurie%20*;creator_label:string%20*;license:uriorcurie;subject_source:uriorcurie%20%3F;subject_source_version:string%20%3F;object_source:uriorcurie%20%3F;object_source_version:string%20%3F;mapping_provider:uriorcurie%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:match_field_enum%20*;object_match_field:match_field_enum%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;match_term_type:match_term_type_enum%20%3F;see_also:string%20%3F;other:string%20%3F;comment:string%20%3F],[Mapping]" /></a></p>
+<h2 id="referenced-by-class">Referenced by Class</h2>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
@@ -111,7 +112,7 @@
 <li>Range: <a href="../Mapping/">Mapping</a></li>
 </ul>
 </li>
-<li><a href="../mapping_set_id/">mapping_set_id</a>  <sub>0..1</sub><ul>
+<li><a href="../mapping_set_id/">mapping_set_id</a>  <sub>1..1</sub><ul>
 <li>Description: A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.</li>
 <li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
 </ul>
@@ -136,8 +137,7 @@
 <li>Range: <a href="../String/">String</a></li>
 </ul>
 </li>
-<li><a href="../license/">license</a>  <sub>0..1</sub><ul>
-<li>Description: A url to the license of the mapping. In absence of a license we assume no license.</li>
+<li><a href="../mapping_set_license/">mapping set➞license</a>  <sub>1..1</sub><ul>
 <li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
 </ul>
 </li>

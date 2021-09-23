@@ -1,5 +1,5 @@
 # Auto generated from sssom.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-09-23 23:58
+# Generation date: 2021-09-24 00:31
 # Schema: sssom
 #
 # id: http://w3id.org/sssom/schema/
@@ -63,13 +63,13 @@ class MappingSet(YAMLRoot):
     class_name: ClassVar[str] = "mapping set"
     class_model_uri: ClassVar[URIRef] = SSSOM.MappingSet
 
+    mapping_set_id: Union[str, URIorCURIE] = None
+    license: Union[str, URIorCURIE] = None
     mappings: Optional[Union[Union[dict, "Mapping"], List[Union[dict, "Mapping"]]]] = empty_list()
-    mapping_set_id: Optional[Union[str, URIorCURIE]] = None
     mapping_set_version: Optional[str] = None
     mapping_set_description: Optional[str] = None
     creator_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
     creator_label: Optional[Union[str, List[str]]] = empty_list()
-    license: Optional[Union[str, URIorCURIE]] = None
     subject_source: Optional[Union[str, URIorCURIE]] = None
     subject_source_version: Optional[str] = None
     object_source: Optional[Union[str, URIorCURIE]] = None
@@ -87,12 +87,17 @@ class MappingSet(YAMLRoot):
     comment: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.mappings, list):
-            self.mappings = [self.mappings] if self.mappings is not None else []
-        self.mappings = [v if isinstance(v, Mapping) else Mapping(**as_dict(v)) for v in self.mappings]
-
-        if self.mapping_set_id is not None and not isinstance(self.mapping_set_id, URIorCURIE):
+        if self._is_empty(self.mapping_set_id):
+            self.MissingRequiredField("mapping_set_id")
+        if not isinstance(self.mapping_set_id, URIorCURIE):
             self.mapping_set_id = URIorCURIE(self.mapping_set_id)
+
+        if self._is_empty(self.license):
+            self.MissingRequiredField("license")
+        if not isinstance(self.license, URIorCURIE):
+            self.license = URIorCURIE(self.license)
+
+        self._normalize_inlined_as_dict(slot_name="mappings", slot_type=Mapping, key_name="subject_id", keyed=False)
 
         if self.mapping_set_version is not None and not isinstance(self.mapping_set_version, str):
             self.mapping_set_version = str(self.mapping_set_version)
@@ -107,9 +112,6 @@ class MappingSet(YAMLRoot):
         if not isinstance(self.creator_label, list):
             self.creator_label = [self.creator_label] if self.creator_label is not None else []
         self.creator_label = [v if isinstance(v, str) else str(v) for v in self.creator_label]
-
-        if self.license is not None and not isinstance(self.license, URIorCURIE):
-            self.license = URIorCURIE(self.license)
 
         if self.subject_source is not None and not isinstance(self.subject_source, URIorCURIE):
             self.subject_source = URIorCURIE(self.subject_source)
@@ -175,15 +177,15 @@ class Mapping(YAMLRoot):
     class_name: ClassVar[str] = "mapping"
     class_model_uri: ClassVar[URIRef] = SSSOM.Mapping
 
-    subject_id: Optional[Union[str, URIorCURIE]] = None
+    subject_id: Union[str, URIorCURIE] = None
+    predicate_id: Union[str, URIorCURIE] = None
+    object_id: Union[str, URIorCURIE] = None
+    match_type: Union[Union[str, "MatchTermTypeEnum"], List[Union[str, "MatchTermTypeEnum"]]] = None
     subject_label: Optional[str] = None
     subject_category: Optional[str] = None
-    predicate_id: Optional[Union[str, URIorCURIE]] = None
     predicate_label: Optional[str] = None
-    object_id: Optional[Union[str, URIorCURIE]] = None
     object_label: Optional[str] = None
     object_category: Optional[str] = None
-    match_type: Optional[Union[Union[str, "MatchTermTypeEnum"], List[Union[str, "MatchTermTypeEnum"]]]] = empty_list()
     creator_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
     creator_label: Optional[Union[str, List[str]]] = empty_list()
     license: Optional[Union[str, URIorCURIE]] = None
@@ -209,8 +211,26 @@ class Mapping(YAMLRoot):
     comment: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.subject_id is not None and not isinstance(self.subject_id, URIorCURIE):
+        if self._is_empty(self.subject_id):
+            self.MissingRequiredField("subject_id")
+        if not isinstance(self.subject_id, URIorCURIE):
             self.subject_id = URIorCURIE(self.subject_id)
+
+        if self._is_empty(self.predicate_id):
+            self.MissingRequiredField("predicate_id")
+        if not isinstance(self.predicate_id, URIorCURIE):
+            self.predicate_id = URIorCURIE(self.predicate_id)
+
+        if self._is_empty(self.object_id):
+            self.MissingRequiredField("object_id")
+        if not isinstance(self.object_id, URIorCURIE):
+            self.object_id = URIorCURIE(self.object_id)
+
+        if self._is_empty(self.match_type):
+            self.MissingRequiredField("match_type")
+        if not isinstance(self.match_type, list):
+            self.match_type = [self.match_type] if self.match_type is not None else []
+        self.match_type = [v if isinstance(v, MatchTermTypeEnum) else MatchTermTypeEnum(v) for v in self.match_type]
 
         if self.subject_label is not None and not isinstance(self.subject_label, str):
             self.subject_label = str(self.subject_label)
@@ -218,24 +238,14 @@ class Mapping(YAMLRoot):
         if self.subject_category is not None and not isinstance(self.subject_category, str):
             self.subject_category = str(self.subject_category)
 
-        if self.predicate_id is not None and not isinstance(self.predicate_id, URIorCURIE):
-            self.predicate_id = URIorCURIE(self.predicate_id)
-
         if self.predicate_label is not None and not isinstance(self.predicate_label, str):
             self.predicate_label = str(self.predicate_label)
-
-        if self.object_id is not None and not isinstance(self.object_id, URIorCURIE):
-            self.object_id = URIorCURIE(self.object_id)
 
         if self.object_label is not None and not isinstance(self.object_label, str):
             self.object_label = str(self.object_label)
 
         if self.object_category is not None and not isinstance(self.object_category, str):
             self.object_category = str(self.object_category)
-
-        if not isinstance(self.match_type, list):
-            self.match_type = [self.match_type] if self.match_type is not None else []
-        self.match_type = [v if isinstance(v, MatchTermTypeEnum) else MatchTermTypeEnum(v) for v in self.match_type]
 
         if not isinstance(self.creator_id, list):
             self.creator_id = [self.creator_id] if self.creator_id is not None else []

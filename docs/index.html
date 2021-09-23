@@ -135,7 +135,10 @@
 <li><a href="creator_label/">creator_label</a> - A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.</li>
 <li><a href="equivalent_property/">equivalent_property</a> - SSSOM property should be mapped to:</li>
 <li><a href="information_content_mica_score/">information_content_mica_score</a> - A score between 0 and 1 to denote the information content of the most informative common ancestor, where 1 denotes the maximum level of informativeness.</li>
-<li><a href="license/">license</a> - A url to the license of the mapping. In absence of a license we assume no license.</li>
+<li><a href="license/">license</a> - A url to the license of the mapping. In absence of a license we assume no license.<ul>
+<li><a href="mapping_set_license/">mapping set➞license</a></li>
+</ul>
+</li>
 <li><a href="mapping_cardinality/">mapping_cardinality</a> - A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.</li>
 <li><a href="mapping_date/">mapping_date</a> - The date the mapping was created</li>
 <li><a href="mapping_provider/">mapping_provider</a> - URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings.</li>
@@ -146,7 +149,7 @@
 <li><a href="mappings/">mappings</a> - Contains a list of mapping objects</li>
 <li><a href="match_string/">match_string</a> - String that is shared by subj/obj</li>
 <li><a href="match_term_type/">match_term_type</a> - Specifies what type of terms are being matched (class, property, or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch of the SSSSOM Vocabulary.</li>
-<li><a href="match_type/">match_type</a> - ID from Match type (SSSOM:MatchType) branch of the SSSSOM Vocabulary. In the case of multiple match types for a single subject, predicate, object triplet, two seperate mappings must be specified.</li>
+<li><a href="match_type/">match_type</a> - The kind of match that led to the mapping, e.g. Logical or Lexical.</li>
 <li><a href="metadata_element/">metadata_element</a> - All legal SSSOM metadata elements are subproperties of this.</li>
 <li><a href="object_category/">object_category</a> - The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.</li>
 <li><a href="object_id/">object_id</a> - The ID of the object of the mapping.</li>
@@ -273,5 +276,5 @@
 
 <!--
 MkDocs version : 1.2.2
-Build Date UTC : 2021-09-23 20:58:21.198616+00:00
+Build Date UTC : 2021-09-23 21:30:54.819026+00:00
 -->
