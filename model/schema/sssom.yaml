@@ -1,0 +1,320 @@
+id: http://w3id.org/sssom/schema/
+name: sssom
+description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  sssom: http://w3id.org/sssom/
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  oboInOwl: http://www.geneontology.org/formats/oboInOwl#
+  neuroname: http://braininfo.rprc.washington.edu/centraldirectory.aspx?ID=
+  dce: http://purl.org/dc/elements/1.1/
+  Orphanet: http://www.orpha.net/ORDO/Orphanet_
+  oio: http://www.geneontology.org/formats/oboInOwl#
+see_also:
+- https://github.com/OBOFoundry/SSSOM
+default_curi_maps:
+- semweb_context
+- obo_context
+default_prefix: sssom
+
+enums:
+  mapping_cardinality_enum:
+    permissible_values:
+      "1:1":
+      "1:n":
+      "n:1":
+      "1:0":
+      "0:1":
+      "n:n":
+
+slots:
+  entity_field:
+    abstract: true
+    description: grouping for normalized fields for entities
+  subject_field:
+    abstract: true
+    mixin: true
+    description: denormalized field representing aspect of a subject
+  object_field:
+    abstract: true
+    mixin: true
+    description: denormalized field representing aspect of a object
+  label:
+    is_a: entity_field
+    description: label of an entity
+  source:
+    is_a: entity_field
+    description: the database or ontology prefix of the entity
+  category:
+    is_a: entity_field
+    description: category of the entity. Could be biolink, COB, etc
+  mappings:
+    description: Contains a list of mapping objects
+    range: mapping
+    multivalued: true
+  id:
+    description: CURIE or IRI identifier
+    identifier: true
+  subject_id:
+    mixins:
+      - subject_field
+    description: The ID of the subject of the mapping.
+    mappings:
+    - owl:annotatedSource
+    range: entity
+    slot_uri: owl:annotatedSource
+  subject_label:
+    mixins:
+      - subject_field
+    description: The label of subject of the mapping
+    range: string
+  subject_category:
+    mixins:
+      - subject_field
+    description: The conceptual category to which the subject belongs to. This can
+      be a string denoting the category or a term from a controlled vocabulary.
+    range: string
+  predicate_id:
+    description: The ID of the predicate or relation that relates the subject and
+      object of this match.
+    mappings:
+    - owl:annotatedProperty
+    range: entity
+    slot_uri: owl:annotatedProperty
+  predicate_label:
+    description: The label of the predicate/relation of the mapping
+    range: string
+  object_id:
+    mixins:
+      - object_field
+    description: The ID of the object of the mapping.
+    mappings:
+    - owl:annotatedTarget
+    range: entity
+    slot_uri: owl:annotatedTarget
+  object_label:
+    mixins:
+      - object_field
+    description: The label of object of the mapping
+    range: string
+  object_category:
+    mixins:
+      - object_field
+    description: The conceptual category to which the subject belongs to. This can
+      be a string denoting the category or a term from a controlled vocabulary.
+    range: string
+  match_type:
+    description: ID from Match type (SSSOM:MatchType) branch of the SSSSOM Vocabulary.
+      In the case of multiple match types for a single subject, predicate, object
+      triplet, two seperate mappings must be specified.
+    range: string
+    #multivalued: true #consider linkml runtime csvreader
+  mapping_set_id:
+    description: A globally unique identifier for the mapping set (not each individual
+      mapping). Should be IRI, ideally resolvable.
+    range: entity
+  mapping_set_version:
+    description: A version string for the mapping.
+    mappings:
+    - owl:versionInfo
+    range: string
+  mapping_set_description:
+    description: A description of the mapping set.
+    range: string
+  creator_id:
+    description: Identifies the persons or groups responsible for the creation of
+      the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise
+      identifying URLs, but any identifying string (such as name and affiliation)
+      is permissible.
+    mappings:
+    - dc:creator
+    range: entity
+  creator_label:
+    description: A string identifying the creator of this mapping. In the spirit of
+      provenance, consider to use creator_id instead.
+    range: string
+  license:
+    description: A url to the license of the mapping. In absence of a license we assume
+      no license.
+    mappings:
+    - dcterms:license
+    range: string
+  subject_source:
+    description: IRI of ontology source for the subject. Version IRI preferred.
+    range: string
+  subject_source_version:
+    description: Version IRI of the source of the subject term.
+    range: string
+  object_source:
+    description: IRI of ontology source for the object. Version IRI preferred.
+    range: string
+  object_source_version:
+    description: Version IRI of the source of the object term.
+    range: string
+  mapping_provider:
+    description: URL pointing to the source that provided the mapping, for example
+      an ontology that already contains the mappings.
+    range: string
+  mapping_cardinality:
+    description: A string indicating whether this mapping is from a 1:1 (the subject_id
+      maps to a single object_id), 1:n (the subject maps to more than one object_id), 
+      n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable 
+      from the mapping set.
+    range: mapping_cardinality_enum
+  mapping_tool:
+    description: A reference to the tool or algorithm that was used to generate the
+      mapping. Should be a URL pointing to more info about it, but can be free text.
+    range: string
+  mapping_date:
+    description: The date the mapping was computed
+    mappings:
+    - dc:date
+    range: string
+  confidence:
+    description: A score between 0 and 1 to denote the confidence or probability that
+      the match is correct, where 1 denotes total confidence.
+    range: double
+  subject_match_field:
+    description: A tuple of fields (term annotations on the subject) that was used
+      for the match. Should be used in conjunction with lexical and complexes matches,
+      see SSSOM match types below.
+    range: entity
+  object_match_field:
+    description: A tuple of fields (term annotations on the object) that was used
+      for the match. Should be used in conjunction with lexical and complexes matches,
+      see SSSOM match types below.
+    range: entity
+  match_string:
+    description: String that is shared by subj/obj
+    range: string
+  subject_preprocessing:
+    description: Method of preprocessing applied to the fields of the subject. Tuple
+      of IDs from "Pre-processing method" (SSSOM:PreprocessingMethod) branch of the
+      SSSSOM Vocabulary.
+    range: string
+  object_preprocessing:
+    description: "Method of preprocessing applied to the fields of the object. Tuple\
+      \ of IDs from \u201CPre-processing method\u201D (SSSOM:PreprocessingMethod)\
+      \ branch of the SSSSOM Vocabulary."
+    range: string
+  match_term_type:
+    description: Specifies what type of terms are being matched (class, property,
+      or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch
+      of the SSSSOM Vocabulary.
+    range: string
+  semantic_similarity_score:
+    description: A score between 0 and 1 to denote the semantic similarity, where
+      1 denotes equivalence.
+    range: double
+  information_content_mica_score:
+    description: A score between 0 and 1 to denote the information content of the
+      most informative common ancestor, where 1 denotes the maximum level of informativeness.
+    range: double
+  see_also:
+    description: A URL specific for the mapping instance. E.g. for kboom we have a
+      per-mapping image that shows surrounding axioms that drive probability. Could
+      also be a github issue URL that discussed a complicated alignment
+    slot_uri: rdfs:seeAlso
+    range: string
+  other:
+    description: Pipe separated list of key value pairs for properties not part of
+      the SSSOM spec. Can be used to encode additional provenance data.
+    range: string
+  comment:
+    description: Free text field containing either curator notes or text generated
+      by tool providing additional informative information.
+    slot_uri: rdfs:comment
+    range: string
+  required:
+    description: Indicates wether the SSSOM metadata element is required
+    range: string
+  metadata_element:
+    description: All legal SSSOM metadata elements are subproperties of this.
+    range: string
+  scope:
+    description: Indicates whether the metadata element has local, global or local-global
+      scope.
+    range: string
+  rdf_example:
+    description: An example value of the a SSSOM element in the TSV file.
+    range: string
+  tsv_example:
+    description: An example value of the a SSSOM element in RDF.
+    range: string
+  equivalent_property:
+    description: 'SSSOM property should be mapped to:'
+    range: string
+classes:
+  mapping set:
+    description: Represents a set of mappings
+    slots:
+    - mappings
+    - mapping_set_id
+    - mapping_set_version
+    - mapping_set_description
+    - creator_id
+    - creator_label
+    - license
+    - subject_source
+    - subject_source_version
+    - object_source
+    - object_source_version
+    - mapping_provider
+    - mapping_tool
+    - mapping_date
+    - subject_match_field
+    - object_match_field
+    - subject_preprocessing
+    - object_preprocessing
+    - match_term_type
+    - see_also
+    - other
+    - comment
+  mapping:
+    description: Represents an individual mapping between a pair of entities
+    slots:
+    - subject_id
+    - subject_label
+    - subject_category
+    - predicate_id
+    - predicate_label
+    - object_id
+    - object_label
+    - object_category
+    - match_type
+    - creator_id
+    - creator_label
+    - license
+    - subject_source
+    - subject_source_version
+    - object_source
+    - object_source_version
+    - mapping_provider
+    - mapping_cardinality
+    - mapping_tool
+    - mapping_date
+    - confidence
+    - subject_match_field
+    - object_match_field
+    - match_string
+    - subject_preprocessing
+    - object_preprocessing
+    - match_term_type
+    - semantic_similarity_score
+    - information_content_mica_score
+    - see_also
+    - other
+    - comment
+    class_uri: owl:Axiom
+  entity:
+    description: Represents any entity that can be mapped, such as an OWL class or
+      SKOS concept
+    mappings:
+    - rdf:Resource
+    slots:
+    - id
+    - label
+    - category
+    - source

@@ -1,0 +1,80 @@
+{
+   "_comments": "Auto generated from sssom.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-09-02 10:38\n    Schema: sssom\n    \n    id: http://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "@context": {
+      "Orphanet": {
+         "@id": "http://www.orpha.net/ORDO/Orphanet_",
+         "@prefix": true
+      },
+      "dc": "http://purl.org/dc/terms/",
+      "dce": "http://purl.org/dc/elements/1.1/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "linkml": "https://w3id.org/linkml/",
+      "neuroname": {
+         "@id": "http://braininfo.rprc.washington.edu/centraldirectory.aspx?ID=",
+         "@prefix": true
+      },
+      "oboInOwl": "http://www.geneontology.org/formats/oboInOwl#",
+      "oio": "http://www.geneontology.org/formats/oboInOwl#",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "sssom": "http://w3id.org/sssom/",
+      "@vocab": "http://w3id.org/sssom/",
+      "comment": {
+         "@id": "rdfs:comment"
+      },
+      "confidence": {
+         "@type": "xsd:double"
+      },
+      "creator_id": {
+         "@type": "@id"
+      },
+      "id": "@id",
+      "information_content_mica_score": {
+         "@type": "xsd:double"
+      },
+      "mapping_cardinality": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "mapping_set_id": {
+         "@type": "@id"
+      },
+      "mappings": {
+         "@type": "@id"
+      },
+      "object_id": {
+         "@type": "@id",
+         "@id": "owl:annotatedTarget"
+      },
+      "object_match_field": {
+         "@type": "@id"
+      },
+      "predicate_id": {
+         "@type": "@id",
+         "@id": "owl:annotatedProperty"
+      },
+      "see_also": {
+         "@id": "rdfs:seeAlso"
+      },
+      "semantic_similarity_score": {
+         "@type": "xsd:double"
+      },
+      "subject_id": {
+         "@type": "@id",
+         "@id": "owl:annotatedSource"
+      },
+      "subject_match_field": {
+         "@type": "@id"
+      },
+      "Mapping": {
+         "@id": "owl:Axiom"
+      }
+   }
+}
+

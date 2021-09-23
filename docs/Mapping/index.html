@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: mapping - SSSOM</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: mapping";
+    var mkdocs_page_input_path = "Mapping.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SSSOM</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SSSOM</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: mapping</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-mapping">Class: mapping</h1>
+<p>Represents an individual mapping between a pair of entities</p>
+<p>URI: <a href="http://w3id.org/sssom/Mapping">sssom:Mapping</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity]&lt;object_match_field%200..1-%20[Mapping&#124;subject_label:string%20%3F;subject_category:string%20%3F;predicate_label:string%20%3F;object_label:string%20%3F;object_category:string%20%3F;match_type:string%20%3F;creator_label:string%20%3F;license:string%20%3F;subject_source:string%20%3F;subject_source_version:string%20%3F;object_source:string%20%3F;object_source_version:string%20%3F;mapping_provider:string%20%3F;mapping_cardinality:mapping_cardinality_enum%20%3F;mapping_tool:string%20%3F;mapping_date:string%20%3F;confidence:double%20%3F;match_string:string%20%3F;subject_preprocessing:string%20%3F;object_preprocessing:string%20%3F;match_term_type:string%20%3F;semantic_similarity_score:double%20%3F;information_content_mica_score:double%20%3F;see_also:string%20%3F;other:string%20%3F;comment:string%20%3F],[Entity]&lt;subject_match_field%200..1-%20[Mapping],[Entity]&lt;creator_id%200..1-%20[Mapping],[Entity]&lt;object_id%200..1-%20[Mapping],[Entity]&lt;predicate_id%200..1-%20[Mapping],[Entity]&lt;subject_id%200..1-%20[Mapping],[MappingSet]++-%20mappings%200..*&gt;[Mapping],[MappingSet],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity]&lt;object_match_field%200..1-%20[Mapping&#124;subject_label:string%20%3F;subject_category:string%20%3F;predicate_label:string%20%3F;object_label:string%20%3F;object_category:string%20%3F;match_type:string%20%3F;creator_label:string%20%3F;license:string%20%3F;subject_source:string%20%3F;subject_source_version:string%20%3F;object_source:string%20%3F;object_source_version:string%20%3F;mapping_provider:string%20%3F;mapping_cardinality:mapping_cardinality_enum%20%3F;mapping_tool:string%20%3F;mapping_date:string%20%3F;confidence:double%20%3F;match_string:string%20%3F;subject_preprocessing:string%20%3F;object_preprocessing:string%20%3F;match_term_type:string%20%3F;semantic_similarity_score:double%20%3F;information_content_mica_score:double%20%3F;see_also:string%20%3F;other:string%20%3F;comment:string%20%3F],[Entity]&lt;subject_match_field%200..1-%20[Mapping],[Entity]&lt;creator_id%200..1-%20[Mapping],[Entity]&lt;object_id%200..1-%20[Mapping],[Entity]&lt;predicate_id%200..1-%20[Mapping],[Entity]&lt;subject_id%200..1-%20[Mapping],[MappingSet]++-%20mappings%200..*&gt;[Mapping],[MappingSet],[Entity]" /></a></p>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../mappings/">mappings</a></em>  <sub>0..*</sub>  <strong><a href="./">Mapping</a></strong></li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../subject_id/">subject_id</a>  <sub>0..1</sub><ul>
+<li>Description: The ID of the subject of the mapping.</li>
+<li>Range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../subject_label/">subject_label</a>  <sub>0..1</sub><ul>
+<li>Description: The label of subject of the mapping</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../subject_category/">subject_category</a>  <sub>0..1</sub><ul>
+<li>Description: The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../predicate_id/">predicate_id</a>  <sub>0..1</sub><ul>
+<li>Description: The ID of the predicate or relation that relates the subject and object of this match.</li>
+<li>Range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../predicate_label/">predicate_label</a>  <sub>0..1</sub><ul>
+<li>Description: The label of the predicate/relation of the mapping</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../object_id/">object_id</a>  <sub>0..1</sub><ul>
+<li>Description: The ID of the object of the mapping.</li>
+<li>Range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../object_label/">object_label</a>  <sub>0..1</sub><ul>
+<li>Description: The label of object of the mapping</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../object_category/">object_category</a>  <sub>0..1</sub><ul>
+<li>Description: The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../match_type/">match_type</a>  <sub>0..1</sub><ul>
+<li>Description: ID from Match type (SSSOM:MatchType) branch of the SSSSOM Vocabulary. In the case of multiple match types for a single subject, predicate, object triplet, two seperate mappings must be specified.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../creator_id/">creator_id</a>  <sub>0..1</sub><ul>
+<li>Description: Identifies the persons or groups responsible for the creation of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</li>
+<li>Range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../creator_label/">creator_label</a>  <sub>0..1</sub><ul>
+<li>Description: A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../license/">license</a>  <sub>0..1</sub><ul>
+<li>Description: A url to the license of the mapping. In absence of a license we assume no license.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../subject_source/">subject_source</a>  <sub>0..1</sub><ul>
+<li>Description: IRI of ontology source for the subject. Version IRI preferred.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../subject_source_version/">subject_source_version</a>  <sub>0..1</sub><ul>
+<li>Description: Version IRI of the source of the subject term.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../object_source/">object_source</a>  <sub>0..1</sub><ul>
+<li>Description: IRI of ontology source for the object. Version IRI preferred.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../object_source_version/">object_source_version</a>  <sub>0..1</sub><ul>
+<li>Description: Version IRI of the source of the object term.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../mapping_provider/">mapping_provider</a>  <sub>0..1</sub><ul>
+<li>Description: URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../mapping_cardinality/">mapping_cardinality</a>  <sub>0..1</sub><ul>
+<li>Description: A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.</li>
+<li>Range: <a href="../mapping_cardinality_enum/">mapping_cardinality_enum</a></li>
+</ul>
+</li>
+<li><a href="../mapping_tool/">mapping_tool</a>  <sub>0..1</sub><ul>
+<li>Description: A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../mapping_date/">mapping_date</a>  <sub>0..1</sub><ul>
+<li>Description: The date the mapping was computed</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../confidence/">confidence</a>  <sub>0..1</sub><ul>
+<li>Description: A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.</li>
+<li>Range: <a href="../Double/">Double</a></li>
+</ul>
+</li>
+<li><a href="../subject_match_field/">subject_match_field</a>  <sub>0..1</sub><ul>
+<li>Description: A tuple of fields (term annotations on the subject) that was used for the match. Should be used in conjunction with lexical and complexes matches, see SSSOM match types below.</li>
+<li>Range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../object_match_field/">object_match_field</a>  <sub>0..1</sub><ul>
+<li>Description: A tuple of fields (term annotations on the object) that was used for the match. Should be used in conjunction with lexical and complexes matches, see SSSOM match types below.</li>
+<li>Range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../match_string/">match_string</a>  <sub>0..1</sub><ul>
+<li>Description: String that is shared by subj/obj</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../subject_preprocessing/">subject_preprocessing</a>  <sub>0..1</sub><ul>
+<li>Description: Method of preprocessing applied to the fields of the subject. Tuple of IDs from "Pre-processing method" (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../object_preprocessing/">object_preprocessing</a>  <sub>0..1</sub><ul>
+<li>Description: Method of preprocessing applied to the fields of the object. Tuple of IDs from “Pre-processing method” (SSSOM:PreprocessingMethod) branch of the SSSSOM Vocabulary.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../match_term_type/">match_term_type</a>  <sub>0..1</sub><ul>
+<li>Description: Specifies what type of terms are being matched (class, property, or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch of the SSSSOM Vocabulary.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../semantic_similarity_score/">semantic_similarity_score</a>  <sub>0..1</sub><ul>
+<li>Description: A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence.</li>
+<li>Range: <a href="../Double/">Double</a></li>
+</ul>
+</li>
+<li><a href="../information_content_mica_score/">information_content_mica_score</a>  <sub>0..1</sub><ul>
+<li>Description: A score between 0 and 1 to denote the information content of the most informative common ancestor, where 1 denotes the maximum level of informativeness.</li>
+<li>Range: <a href="../Double/">Double</a></li>
+</ul>
+</li>
+<li><a href="../see_also/">see_also</a>  <sub>0..1</sub><ul>
+<li>Description: A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../other/">other</a>  <sub>0..1</sub><ul>
+<li>Description: Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+<li><a href="../comment/">comment</a>  <sub>0..1</sub><ul>
+<li>Description: Free text field containing either curator notes or text generated by tool providing additional informative information.</li>
+<li>Range: <a href="../String/">String</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mappings:</strong></td>
+<td></td>
+<td>owl:Axiom</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
