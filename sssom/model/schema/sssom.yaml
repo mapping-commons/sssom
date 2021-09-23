@@ -76,6 +76,11 @@ slots:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
     range: string
+    examples:
+      - value: UBERON:0001062
+        description: The CURIE of the Uberon term for "anatomical entity".
+      - value: biolink:Gene
+        description: The CURIE of the biolink class for genes.
   predicate_id:
     description: The ID of the predicate or relation that relates the subject and
       object of this match.

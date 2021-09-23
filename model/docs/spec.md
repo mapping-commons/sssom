@@ -74,19 +74,15 @@ Note this is a public copy of the editors’ draft. It is provided for discussio
 
 # SSSOM Metadata Elements
 
-The SSSOM specification defines a set of SSSOM metadata elements that are used to describe mappings. Apart from the elements themselves, some example usage and status like 'required', **_[the metadata element table](sssom_metadata.tsv) defines the canonical order_** in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
+The SSSOM specification defines a set of SSSOM metadata elements that are used to describe mappings. Apart from the elements themselves, some example usage and a description, **_[the SSSOM spec](https://mapping-commons.github.io/sssom/Mapping/) defines the canonical order for the metadatdata_** in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
 
 A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.
 
-Some elements are global (annotated with "G" using `sssom:scope`), i.e. pertains to a set of mappings, or local (annotated with "L" using `sssom:scope`), i.e. pertaining to a single mapping. Most elements can be used both as global and local; global elements should be interpreted to applying to all mappings in the mapping set. 
+The conceptual model of SSSOM has two main elements: a [Mapping](https://mapping-commons.github.io/sssom/Mapping/) and a [MappingSet](https://mapping-commons.github.io/sssom/MappingSet/). Some SSSOM metadata elements apply only to one element or the other, but many can be applied to both.
 
-Note that some SSSOM metadata elements have known equivalent properties which will be used in the OWL serialisation.
-These are declared as equivalent as part of the metadata vocabulary.
+Note that some SSSOM metadata elements have known equivalent properties which will be used in the RDF serialisation, for example `see_also` is mapped to `rdfs:seeAlso`.
 
-The metadata vocabulary is managed here:
-
-* Robot [template](sssom_metadata.tsv)
-* [Vocab](sssom_metadata.owl) (OWL)
+All metadata elements and their mappings are declared and managed in the [SSSOM schema](https://github.com/mapping-commons/sssom/blob/master/model/schema/sssom.yaml).
 
 ## Metadata Element Table
 
