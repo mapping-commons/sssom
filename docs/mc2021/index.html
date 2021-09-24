@@ -55,7 +55,11 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mc/">Workshops</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../usecases/">Use cases</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../workshops/">Workshops</a>
                     </li>
                 </ul>
                 <ul>
@@ -133,9 +137,176 @@
 </li>
 <li>Defining the path to a SSSOM beta release (stable) and the rallying for the paper</li>
 </ul>
-<p>Resources:
-- <a href="https://docs.google.com/presentation/d/1T75TRkpKRGHk5FSeFS7mQe8vmo8rt7bE69kgPX6PZMs/edit?usp=sharing">Overview presentation</a></p>
-<p>Outcomes:</p>
+<p><em>Resources</em>:</p>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1T75TRkpKRGHk5FSeFS7mQe8vmo8rt7bE69kgPX6PZMs/edit?usp=sharing">Overview presentation</a></li>
+</ul>
+<h2 id="outcomes">Outcomes</h2>
+<ul>
+<li>Members of the SSSOM core team are organised as as github team: https://github.com/orgs/mapping-commons/teams/sssom-core</li>
+<li>If you want to become a member, please make an issue here: https://github.com/mapping-commons/SSSOM/issues</li>
+<li>We added some of the questions asked to the new SSSOM FAQ: https://mapping-commons.github.io/sssom/faq/</li>
+<li>Governance proposal (comments welcome): https://github.com/mapping-commons/SSSOM/issues/82<ul>
+<li>Governance will evolve over time. Standard and governance will evolve together.</li>
+<li>We will versioning (like SemVer) and should denote when backwards incompatible changes happen</li>
+</ul>
+</li>
+<li>The <a href="https://mapping-commons.github.io/sssom/spec/#minimum">5-Star system</a> for open FAIR mappings is now in its first official version.</li>
+</ul>
+<h3 id="discussion-summary">Discussion summary</h3>
+<ul>
+<li>Ben Gyori: would be interesting to discuss beyond the format whether there's a central repository, or whether primary developers will make it as a primary export hosted along with their other artifact. Would there be a process to pull those?<ul>
+<li>Nico: takes a long time for uptake of new publication systems, so this could take a long time -&gt; maybe better to promote on an ontology level. Could also have the side benefit of providing a point of introspection</li>
+<li>John G: I totally would want BioPortal to be capable of managing the RDF produced from SSSOM resources, and for Bioportal to be a mapping resource and not simply an ontology resource. I suspect the RDF patterns that SSSOM is defining are the gold we'll need for that gold standard for exchanging mappings. Uploading the RDF files can trivially be done in a naive way of course, but integrating that RDF knowledge into Bioportal to make them maximally useful as a separate kind of resource is obviously 'real work' (and so schedules are unknowable).</li>
+</ul>
+</li>
+<li>John: how dependent is the library on the software itself? Is it an exchange principle?<ul>
+<li>Nico: LinkML has the advantage that it gets JSON and TTL outputs for free if we use it. Would also be advantageous if more people used this standard for metamodeling to create similar outputs for different modeling</li>
+</ul>
+</li>
+<li>Charlie: using "frontmatter" format for SSSOM TSV files, like how github is using frontmatter in Jekyll (ref: https://blog.datacite.org/using-yaml-frontmatter-with-csv/) (http://csvy.org/) </li>
+<li>John G: Analogous to frontmatter format, I keep being drawn to the SKOS Play format as an alternate (but I <em>think</em> TTL-compatible) format for the SSSOM content. How bad would that be? (I can create a ticket)</li>
+<li>Charlie: Requirements for a default JSON-LD context (e.g., prefix -&gt; URL prefix mapping)<ul>
+<li>How should it be maintained? Should it continue to be manually curated, or is an automated export from something like the Bioregistry a good idea? If it's automatically exported from the Bioregistry, what kinds of interactions might users want to have via the Bioregistry issue tracker to propose improvements? Similarly, we can make tutorials for directly creating PRs.</li>
+</ul>
+</li>
+<li>Charlie: How prefixes should be stylized/what is the business logic/decision tree for using OBO Library PURLs, Identifiers.org URLs, Bioregistry URLs, first-party provider URLs, etc. based on what's available and mapped between various first-party providers, third-party providers (e.g., ChemSpider InChI resolver), and meta-providers (e.g., Identifiers.org, OntoBee)? This is both a concern for "best practices" in SSSOM defining a custom context and also when using or extending the default context.</li>
+<li>Charlie: How to represent mappings where the curator is unsure if the relation is correct or not? This happens often when curating equivalences, e.g., in Biomappings https://github.com/biomappings/biomappings/blob/master/src/biomappings/resources/unsure.tsv  </li>
+<li>Tiffany: Is it important to know why someone feels more or less confident about a mapping? If so, is there also a way to include that in the measure of “confidence”?<ul>
+<li>Sue: In practice I’ve tended to add comments when I am uncertain and have questions. Possibly this could be formalized?</li>
+</ul>
+</li>
+<li>Davera clinical use case discussion: Overall issue: mapping sets of things to a term is a goal for clinical mappings<ul>
+<li>mapping recommendations/rational exercise</li>
+<li>staging and diagnosis information (like stage 1 or stage 2 of a given cancer)</li>
+<li>Select a set of stages - this is challenging wrt mappings</li>
+<li>Different kinds of scales describing the same thing are hard/sometimes not "kosher" to mix</li>
+<li>Phenotypes rely on capturing human-readable data on the decision logic of how mappings are applied by standards implementation team</li>
+<li>Proposed to look at the HL7 Implementation profiles as a way to incorporate an approach to this complex mapping challenge</li>
+</ul>
+</li>
+<li>Melissa: rename SSSOM to Slytherin Standard.<ul>
+<li>Charlie 100% supports this (Tiffany: +1; Alex +1)</li>
+<li>Kristin also likes this.</li>
+<li>John used it.</li>
+</ul>
+</li>
+<li>John G: Ontology repositories are mappings-motivated, to both provide to users good mappings, and to provide good ways for users or managers to ingest, manage, apply, and create mapping knowledge. Ontology repositories are presumably also capable of storing mappings in their semantic (RDF-equivalent) format. With this in mind, is the concept of a "mapping server" equivalent, complementary, or antagonistic to the existing ontology repositories? </li>
+<li>John G: Need to consider identification and versioning of the mapping artifacts. It's one thing to say "We have all the mapping artifacts and we are giving those out", but (just like ontologies) citing a mapping artifact requires that you have a unique identifier for that artifact, and that the identifier incorporates the fact the artifact may have multiple versions. Ideally the SSSOM artifacts (like ontologies) would (a) be accessible in a defined format at the identifier IRI, (b) include their identifiers within the SSMOC artifact. I am thinking that an SSMOC is inherently a semantic artifact, and therefore it should follow semantic namespace declaration principles in this regard. </li>
+<li>Julie: W3id supports regex based redirects (for purls)</li>
+</ul>
+<h3 id="breakout-sessions">Breakout sessions</h3>
+<h4 id="curation-rules-documenting-the-decision-rules-on-how-a-mapping-was-determined">Curation rules: documenting the decision rules on how a mapping was determined</h4>
+<ul>
+<li>
+<p>Effective definition of inclusion criteria/exclusion criteria:</p>
+<ul>
+<li>Inclusion example: Two ontologies saying I created exact mappings that they have a string match or a string match to a synonym + an xref</li>
+<li>Exclusion example: Only matched on an acronym</li>
+</ul>
+</li>
+<li>
+<p>Match types</p>
+<ul>
+<li>Cover partial string matches</li>
+</ul>
+</li>
+<li>
+<p>Other</p>
+<ul>
+<li>documentation<ul>
+<li>criteria to distinguish exact from narrow/broad - how exact is exact</li>
+<li>Line between close/narrow/broad</li>
+<li>Direction of narrow and broad</li>
+</ul>
+</li>
+<li>DOS: I'd favor manual mapping be done on definitions + context in ontology, leaving lexical mappings to machines.</li>
+<li>What metadata could we add to the header to make clear criteria used?  One thing it might be useful to record is whether ontology context (relationships &amp; location in classification) of mapped terms was used (Some ontologies/taxonomies have poor quality graphs but high quality term definitions.)</li>
+<li>Source string match to target (lexical exact, stem, word [synonym and type]) - need for both source and target, how to synonyms fit in</li>
+</ul>
+</li>
+<li>Needs:<ul>
+<li>Generalized patterns that relate file header information to row-level information</li>
+<li>Need more expressivity in the match type</li>
+<li>Inclusion and exclusion criteria </li>
+<li>Best practices guide</li>
+<li>Algorithm/tool/similarity measure for computationally derived mappings</li>
+<li>Specificity with respect to the parent concept or portion of the hierarchy that the concept is from</li>
+</ul>
+</li>
+</ul>
+<h4 id="mapping-provenance-and-alignment-with-external-provenance-standards">Mapping provenance and alignment with external provenance standards</h4>
+<ul>
+<li>Problems:</li>
+<li>We need to distinguish original and derived mappings</li>
+<li>
+<p>We need to somehow “encode” how a derived mapping was created (for example through a walk</p>
+</li>
+<li>
+<p>USeful to capture as part of the PROV activity</p>
+<ul>
+<li>agents (wasAssociatedWith some)</li>
+<li>mapping tool</li>
+<li>creator</li>
+<li>algorithms</li>
+<li>semantic similarity etc</li>
+</ul>
+</li>
+<li>Why provenance: “i dont trust mappings from source x..”<ul>
+<li>Who did it? What tools were used? - are the most important</li>
+<li>When completed, how often updated</li>
+<li>Which version of the ontology was the mapping generated from? (20-30 provenance related properties that could be relevant) <a href="https://hal.archives-ouvertes.fr/lirmm-01605783">list</a></li>
+<li>list of most-recommended terms as a template: https://github.com/sifrproject/MOD-Ontology/blob/master/mod-v1.4_properties_template.ttl </li>
+</ul>
+</li>
+<li>Activity manual mapping -&gt; Activity reconciliation <ul>
+<li>Inputs and outputs of activities?</li>
+<li>Mapping set activities vs mapping activities</li>
+</ul>
+</li>
+<li>Shahim: Generic tagging mechanism<ul>
+<li>users add tags k:v </li>
+<li>Suggestion: we open the “other” field to arbitrary json, then if we see people use something a lot, we allow promoting stuff to the top level (look at fhir as an example)</li>
+<li>James counter suggestion: open the column space and allow Qnames in there? its like Shahims suggestion just on the top level;</li>
+<li>John says look at SKOS Play convert tool it implements arbitrary triples as <current row - left column> <top row - column n>  <current row - column n> so you add whatever properties you want in the top row top row is actually the first row <em>after</em> the Column Header row, which begins with "Identifier" cell</li>
+<li>Thomas: While it’s nice to have the ability to express complex prov (and we should think about it), the important prov files are not that complex. Minimum should be something like: Creator, creation date, algorithm,... see below “list of critical (minimum) prov information”<ul>
+<li>John: World is changing we can assume a bit more complexity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>All: A short list of the critical provenance information is  needed, but there should also be a mechanism to add other ecosystem-specific provenance.</li>
+<li>Versioning:<ul>
+<li>We need to carefully think through versioning of mapping sets. Versioning should be similar to ontology artefacts, with version IRIs and PURLs</li>
+<li>W3id supports regex based redirects</li>
+<li>We need to introduce versioning for the SSSOM standard itself. Someway to indicate whether breaking changes were introduced</li>
+</ul>
+</li>
+</ul>
+<h4 id="representing-predicate-modification-negation-inverse-direct-indirect-etc">Representing predicate modification: negation, inverse, direct, indirect etc</h4>
+<p>https://github.com/mapping-commons/sssom/issues/40</p>
+<ul>
+<li>Negative mappings (e.g., not equivalent to, not related to) have a clear use case in supporting semi-automated curation of mappings to avoid zombie mappings.</li>
+<li>We agreed adding additional syntax to SSSOM would make it less simple and likely less accessible.</li>
+<li>Two candidate solutions for including negative mappings remain: curating a controlled vocabulary of negative relationships (e.g., sssom:notEquivalentTo) OR adding a predicated modifier column. We considered parallel discussions in the LinkML community and examined the use of predicate modifiers in the Gene Ontology Annotation database. Both solutions could work, but we were hesitant to commit to one during the meeting.</li>
+</ul>
+<h4 id="mapping-clinical-etc-data-model-elements-and-values">Mapping (clinical etc) data model elements and values</h4>
+<p>https://github.com/mapping-commons/sssom/issues/43</p>
+<h4 id="use-cases-for-complex-mappings">Use cases for complex mappings</h4>
+<ul>
+<li>https://github.com/mapping-commons/sssom/issues/61</li>
+<li>The main outcome for this discussion was that the particpant urged to keep the <code>Simple</code> in SSSOM, and that any decision to capture more complex mapping cases should be driven by a veruy strong use case</li>
+<li>For the first release of the SSSOM standard, we will not worry about complex mappings</li>
+</ul>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li>Declare stable first version for SSSOM spec (September 2021)</li>
+<li>Write manuscript (September/October 2021)</li>
+<li>Dockerise all mapping related tooling, for example for generation, reconciliation, transformation etc. (December 2021)</li>
+<li>Work with OAEI to publish automated mappings more systematically in SSSOM, including better mapping justifications/curation rules (Early 2022)</li>
+<li>Work with @cmungall &amp; @balhoff to integrate mapping reconciliation as a first-class citizen into mapping pipelines (February 2022)</li>
+<li>Extend OxO to fully support SSSOM data model (prototype SSSOM browser April 2022).</li>
+</ul>
               
             </div>
           </div>

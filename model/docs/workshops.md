@@ -1,4 +1,6 @@
-# Mapping Commons Workshop Series
+# Workshops
+
+## Mapping Commons Workshop Series
 
 Wikidata: https://www.wikidata.org/wiki/Q108394475
 

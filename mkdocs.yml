@@ -5,7 +5,8 @@ site_dir: docs
 nav:
   - Home: home.md
   - SSSOM Specification: spec.md
-  - Workshops: mc.md
+  - Use cases: usecases.md
+  - Workshops: workshops.md
   - Presentations: presentations.md
   - Index: index.md
   - Credits: credits.md

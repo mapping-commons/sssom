@@ -58,14 +58,56 @@
     <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#some-notes-on-the-standardisation-process">Some notes on the standardisation process:</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#some-notes-on-the-standardisation-process">Some notes on the standardisation process:</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sssom-metadata-elements">SSSOM Metadata Elements</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#metadata-element-table">Metadata Element Table</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-mapping-predicates">Common Mapping Predicates</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#serialisation">Serialisation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#rdfxml-serialised-re-ified-owl-axioms">RDF/XML serialised re-ified OWL axioms:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#predicate-is-an-annotation-property">Predicate is an annotation property:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#predicate-is-an-object-property">Predicate is an object property</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#predicate-is-language-relational-construct-of-rdfs-or-owl">Predicate is language relational construct of RDFS or OWL</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tsv">TSV:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#external-mode">External mode</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#embedded-mode-default">Embedded mode (default)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#json">JSON:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-cases">Use Cases:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-sssom-5-star-system-for-mappings">The SSSOM 5-Star System For Mappings</a>
     </li>
     </ul>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mc/">Workshops</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../usecases/">Use cases</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../workshops/">Workshops</a>
                     </li>
                 </ul>
                 <ul>
@@ -175,11 +217,11 @@
 <li><a href="https://mapping-commons.github.io/sssom-py">SSSOM Python toolkit: Official Documentation</a></li>
 <li><a href="../presentations/">Presentations</a></li>
 </ul>
-<h3 id="abstract">Abstract</h3>
+<h2 id="abstract">Abstract</h2>
 <p>Mappings, or cross-references, are used to link terms across different ontologies. However, there is currently little to no standardisation in how such mappings are represented. While properties such as hasDbXref property are widely used in ontologies such as GO and MONDO, the meaning of such mappings is unclear, and cannot be further described with additional metadata or provenance.</p>
 <p>The Simple Standard for Sharing Ontology Mappings (SSSOM) is an initiative to provide a minimal and standard set of elements for the dissemination of mappings between ontology terms, to ensure a reliable interpretation of generated mappings and to enable sharing and data integration between people and applications. </p>
 <p>This document introduces the SSSOM catalog of metadata elements, which can be used to attach meta- and provenance data to both mappings and sets of mappings; a controlled vocabulary for the description of match types (SSSOM CV); a definition of both RDF and TSV serialisations of ontology mappings; and a (non-exhaustive) selection of recommended mapping predicates.</p>
-<h3 id="table-of-contents">Table of Contents</h3>
+<h2 id="table-of-contents">Table of Contents</h2>
 <ul>
 <li><a href="#intro">Introduction</a></li>
 <li><a href="#meta">SSSOM Metadata Elements</a></li>
@@ -189,15 +231,15 @@
 <li><a href="#minimum">SSSOM 5-Star recommendation for mappings</a></li>
 </ul>
 <p><a name="intro"></a></p>
-<h3 id="introduction">Introduction</h3>
+<h2 id="introduction">Introduction</h2>
 <p>Currently, there are three methods typically used to express mappings in OWL: direct logical axioms using owl:equivalentClass; the oboInOwl hasDbXref property; and the SKOS vocabulary for mapping properties.  The first, owl:equivalentClass, is a strong logical equivalence assertion which is not appropriate for more nuanced mappings such as close matches.  The second, hasDbXref, does not assert formal logical equivalence but also has no clearly defined meaning.  Finally, the SKOS vocabulary provides a hierarchy of mapping properties which allow the unambigous specification of exact, close, broad, and narrow matches, but does not provide the means for mappings to be annotated with additional metadata such as confidence scores and provenance.</p>
 <p>The Simple Standard for Sharing Ontology Mappings (SSSOM) addresses these problems by defining a catalog of metadata terms to describe mappings.  Both individual mappings and <strong><em>sets of</em></strong> mappings can be described, enabling provenance and metadata to be captured on multiple levels.  SSSOM interoperates with existing methods for the specification of mappings, allowing any predicate to be used to describe the nature of each mapping including those from OWL and SKOS.</p>
 <p>The provenance of mappings - such as whether the mapping was created as the result of a human-curated equivalence match, or a semantic similarity match - is specified using a controlled vocabulary (CV), SSSOM CV.  Combined with the metadata properties provided by SSSOM such as confidence and semantic_similarity_score, this provenance information can be used to capture mapping descriptions in a manner that is explicit and amenable to curation.</p>
 <p>Two serialisations for SSSOM mappings are provided in this document, aimed at different communities: an RDF/OWL serialisation using IRIs that is aimed at the Knowledge Graph/Semantic Web community, and a TSV serialisation using <a href="https://www.w3.org/TR/curie/">CURIE</a> syntax which is aimed at the wider bioinformatics community.  An unambiguous translation between these serialisations is provided.</p>
-<h3 id="some-notes-on-the-standardisation-process">Some notes on the standardisation process:</h3>
+<h4 id="some-notes-on-the-standardisation-process">Some notes on the standardisation process:</h4>
 <p>Note this is a public copy of the editors’ draft. It is provided for discussion only and may change at any moment. Do not cite this document other than as work in progress. SSSOM is community-driven, so all feedback is welcome.</p>
 <p><a name="meta"></a></p>
-<h1 id="sssom-metadata-elements">SSSOM Metadata Elements</h1>
+<h2 id="sssom-metadata-elements">SSSOM Metadata Elements</h2>
 <p>The SSSOM specification defines a set of SSSOM metadata elements that are used to describe mappings. Apart from the elements themselves, some example usage and a description, <strong><em><a href="https://mapping-commons.github.io/sssom/Mapping/">the SSSOM spec</a> defines the canonical order for the metadatdata</em></strong> in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. </p>
 <p>A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.</p>
 <p>The conceptual model of SSSOM has two main elements: </p>
@@ -208,7 +250,7 @@
 <p>Some SSSOM metadata elements apply only to one element or the other, but many can be applied to both.</p>
 <p>Note that some SSSOM metadata elements have known equivalent properties which will be used in the RDF serialisation, for example <code>see_also</code> is mapped to <code>rdfs:seeAlso</code>.</p>
 <p>All metadata elements and their mappings are declared and managed in the <a href="https://github.com/mapping-commons/sssom/blob/master/model/schema/sssom.yaml">SSSOM schema</a>.</p>
-<h2 id="metadata-element-table">Metadata Element Table</h2>
+<h3 id="metadata-element-table">Metadata Element Table</h3>
 <p>Note: this table may be a bit out of date. The latest version of the metadata elements are:</p>
 <ul>
 <li><a href="https://mapping-commons.github.io/sssom/Mapping/">Mapping</a></li>
@@ -509,7 +551,7 @@
 </tbody>
 </table>
 <p><a name="predicates"></a></p>
-<h1 id="common-mapping-predicates">Common Mapping Predicates</h1>
+<h2 id="common-mapping-predicates">Common Mapping Predicates</h2>
 <p>The use of predicates is not restricted by SSSOM, but for maximum re-use, the following predicates are strongly encouraged.</p>
 <p><em>Sources:</em></p>
 <ul>
@@ -575,8 +617,8 @@
 </table>
 
 <p><a name="serialisation"></a></p>
-<h1 id="serialisation">Serialisation</h1>
-<h2 id="rdfxml-serialised-re-ified-owl-axioms">RDF/XML serialised re-ified OWL axioms:</h2>
+<h2 id="serialisation">Serialisation</h2>
+<h3 id="rdfxml-serialised-re-ified-owl-axioms">RDF/XML serialised re-ified OWL axioms:</h3>
 <p>The default RDFXML serialisation of the mappings will be realised as <em>reified OWL axioms</em>. This has the advantage that any mapping set can be simply merged with an ontology in the usual way, for example using <a href="http://robot.obolibrary.org/merge">ROBOT merge</a>. We will deal with three types of reified OWL-axioms, and a few sub-types:</p>
 <ol>
 <li>Predicate is an annotation property</li>
@@ -585,7 +627,7 @@
 <li>Object/Subject are individuals</li>
 <li>Predicate is language relational construct of RDFS or OWL (rdfs:subClassOf, owl:equivalentClass)</li>
 </ol>
-<h3 id="predicate-is-an-annotation-property">Predicate is an annotation property:</h3>
+<h4 id="predicate-is-an-annotation-property">Predicate is an annotation property:</h4>
 <p>If the predicate corresponds to an annotation property, the mapping <S,P,O, sssomMetadata> gets converted to an OWLAnnotationAssertion axiom: <code>OWLAnnotationAssertion(P,S,O)</code>. All mapping level metadata (<code>sssomMetadata</code>) gets converted into OWLAnnotation objects which are materialised as axiom annotations on the mapping annotation assertion, see <a href="https://www.w3.org/TR/owl2-syntax/#Annotations">OWL 2 Structural Specification</a>:</p>
 <pre><code>AnnotationAssertion(sssomMetadata P, S, O)
 </code></pre>
@@ -600,8 +642,8 @@
 <pre><code>AnnotationAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) skos:exactMatch &lt;http://purl.obolibrary.org/obo/HP_0009894&gt; &lt;http://purl.obolibrary.org/obo/MP_0000019&gt;)
 </code></pre>
 <p>Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the <a href="https://www.w3.org/TR/owl2-syntax/#Annotations">OWL 2 Structural Specification</a>.</p>
-<h3 id="predicate-is-an-object-property">Predicate is an object property</h3>
-<h4 id="case-1-object-and-subject-are-classes">Case 1: Object and Subject are classes.</h4>
+<h4 id="predicate-is-an-object-property">Predicate is an object property</h4>
+<h5 id="case-1-object-and-subject-are-classes">Case 1: Object and Subject are classes.</h5>
 <p>The Mapping <S,P,O> gets translated into an existential restriction: </p>
 <pre><code>SubclassOf(A, P some O)
 </code></pre>
@@ -611,7 +653,7 @@
 <p>Example:</p>
 <pre><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) &lt;http://example.org/AA&gt; ObjectSomeValuesFrom(&lt;http://example.org/x&gt; &lt;http://example.org/BB&gt;))
 </code></pre>
-<h4 id="case-2-object-and-subject-are-individuals">Case 2: Object and Subject are individuals</h4>
+<h5 id="case-2-object-and-subject-are-individuals">Case 2: Object and Subject are individuals</h5>
 <p>The Mapping <S,P,O> gets translated into an object property assertion: </p>
 <pre><code>ObjectPropertyAssertion(P, A, O)
 </code></pre>
@@ -621,7 +663,7 @@
 <p>Example:</p>
 <pre><code>ObjectPropertyAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) &lt;http://www.example.org/x&gt; &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
 </code></pre>
-<h3 id="predicate-is-language-relational-construct-of-rdfs-or-owl">Predicate is language relational construct of RDFS or OWL</h3>
+<h4 id="predicate-is-language-relational-construct-of-rdfs-or-owl">Predicate is language relational construct of RDFS or OWL</h4>
 <p>The mapping <S,P,O> gets translated into an annotated axiom that corresponds to the construct used. By default, SSSOM will support:</p>
 <table>
   <tr>
@@ -637,7 +679,7 @@
 <p>Example:</p>
 <pre><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
 </code></pre>
-<h2 id="tsv">TSV:</h2>
+<h3 id="tsv">TSV:</h3>
 <p>All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the <a href="https://mapping-commons.github.io/sssom/Mapping/">SSSOM metadata</a>. For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, match_type, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, match_type. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.</p>
 <p>Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a <code>curie_map:</code> parameter in the yaml file. The value can be either a dictionary of CURIE-&gt;URLPREFIX pairs or a link to a valid curie map of the same shape.</p>
 <p>Note that only metadata elements permissible in a global context (G, or L/G) can be used in the metadata-file.</p>
@@ -655,7 +697,7 @@ curie_map:
 license: &quot;https://creativecommons.org/publicdomain/zero/1.0/&quot;
 mapping_provider: &quot;http://purl.obolibrary.org/obo/upheno.owl&quot;
 </code></pre>
-<h3 id="external-mode">External mode</h3>
+<h4 id="external-mode">External mode</h4>
 <p>In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension <code>-meta.yml</code>. By default, tools will look for the file of that name in the same directory as the the mapping set table.</p>
 <p>Example (<a href="https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
 <pre><code>subject_id  predicate_id    object_id   match_type  subject_label   object_label
@@ -663,7 +705,7 @@ HP:0009124  skos:exactMatch MP:0000003  Lexical Abnormal adipose tissue morpholo
 HP:0008551  skos:exactMatch MP:0000018  Lexical Microtia    small ears
 HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
 </code></pre>
-<h3 id="embedded-mode-default">Embedded mode (default)</h3>
+<h4 id="embedded-mode-default">Embedded mode (default)</h4>
 <p>In the embedded mode, we allow the integration of mapping set level metadata as <strong><em>commented YAML</em></strong>. Apart from being commented, the YAML follows the exact same spec as the <em>YAML specified by the external mode</em>. Heavily used tools in bioinformatics such as pandas allow to <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">specify comment characters</a> when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.</p>
 <p>Note: the mapping set level metadata <em>must be included as a continuous block at the beginning of the file</em>. This means in particular: 
 - No comments can be included that are not part of the metadata data. For example, this is not allowed:</p>
@@ -716,10 +758,10 @@ HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
 <ul>
 <li>ROBOT implementation: <a href="https://github.com/ontodev/robot/issues/312">https://github.com/ontodev/robot/issues/312</a></li>
 </ul>
-<h2 id="json">JSON:</h2>
+<h3 id="json">JSON:</h3>
 <p>JSON translation is fully managed by <a href="https://linkml.io/linkml/code.html#loaders-and-dumpers">LinkML dumper classes</a>.</p>
 <p><a name="usecase"></a></p>
-<h1 id="use-cases">Use Cases:</h1>
+<h2 id="use-cases">Use Cases:</h2>
 <ul>
 <li>Consumers:</li>
 <li>OxO</li>
@@ -751,7 +793,7 @@ HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
 <li>OxO</li>
 </ul>
 <p><a name="minimum"></a></p>
-<h3 id="the-sssom-5-star-system-for-mappings">The SSSOM 5-Star System For Mappings</h3>
+<h2 id="the-sssom-5-star-system-for-mappings">The SSSOM 5-Star System For Mappings</h2>
 <p>Current mappings are extremely hard to use for data integration, because they are:</p>
 <ul>
 <li><em>non-transparently imprecise</em>: we do not know whether they are between equivalent terms, or wether one term is broader than the other.</li>
@@ -839,7 +881,7 @@ spaces (e.g. controlled vocabularies, semantic databases), which means if you ha
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../mc/" class="btn btn-neutral float-right" title="Workshops">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../usecases/" class="btn btn-neutral float-right" title="Use cases">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../home/" class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -871,7 +913,7 @@ spaces (e.g. controlled vocabularies, semantic databases), which means if you ha
       <span><a href="../home/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../mc/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../usecases/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
