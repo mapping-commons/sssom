@@ -752,18 +752,22 @@ spaces (e.g. controlled vocabularies, semantic databases), which means if you ha
 - combinations <code>{ PR:000050277 -&gt; ncbiprotein:YP_009725304, ncbiprotein:YP_009725304-&gt; uniprot.chain:PRO_0000449627, MY:NSP8-&gt; uniprot.chain:PRO_0000449627 } --&gt; { PR:000050277 -&gt; MY:NSP8 }</code></p>
 <p>To enable cross-walking, we propose the following <strong>Five-Star system</strong> for mapping sets. </p>
 <ul>
-<li><em>1-Star mappings</em> fulfill the following criteria:</li>
+<li><em>1-Star mappings</em> fulfill the following criteria:<ul>
 <li>record subject id, object id and mapping precision (exact, broad, narrow, close, related)</li>
 <li>using qualified names (either URIs or CURIEs + curie maps) for subject id and object id</li>
 <li>using a standard file format (JSON, XML, CSV, TSV)</li>
 <li>made available in a public space</li>
 <li><em>optional</em>: record the subject and object labels to make it easier for humans to read the file</li>
-<li><em>2-Star mappings</em> fulfill all the criteria for 1-star mappings and furthermore</li>
+</ul>
+</li>
+<li><em>2-Star mappings</em> fulfill all the criteria for 1-star mappings and furthermore<ul>
 <li>made available in a public version control system with an issue tracker</li>
 <li>record the semantic predicate explicitly and using qualified names for the semantic predicate (i.e. owl:equivalentClass, skos:exactMatch)</li>
 <li>record a confidence value for the mapping between 0 and 1 (0 no confidence, 1 100% confidence).</li>
 <li>record an open license for the use of the mapping set</li>
-<li><em>3-Star mappings</em> fulfill all the criteria for 2-star mappings and furthermore </li>
+</ul>
+</li>
+<li><em>3-Star mappings</em> fulfill all the criteria for 2-star mappings and furthermore <ul>
 <li>are exported in SSSOM format</li>
 <li>record the following additional metadata: <ul>
 <li><code>match_type</code>(s) (Lexical, Logical match, HumanCurated etc)</li>
@@ -776,7 +780,9 @@ spaces (e.g. controlled vocabularies, semantic databases), which means if you ha
 <li><code>mapping_tool</code> if the mapping was automatically computed using a tool</li>
 </ul>
 </li>
-<li><em>4-Star mappings</em> fulfill all the criteria for 3-star mappings and furthermore</li>
+</ul>
+</li>
+<li><em>4-Star mappings</em> fulfill all the criteria for 3-star mappings and furthermore<ul>
 <li>register the mapping at a mapping commons</li>
 <li>record the following additional metadata:<ul>
 <li><code>mapping_set_id</code></li>
@@ -786,22 +792,30 @@ spaces (e.g. controlled vocabularies, semantic databases), which means if you ha
 </ul>
 </li>
 <li>provide a completely executable curation_rule:<ul>
-<li>if the mapping is <code>Lexical</code>, provide:</li>
+<li>if the mapping is <code>Lexical</code>, provide:<ul>
 <li><code>subject_preprocessing</code>, <code>object_preprocessing</code></li>
 <li><code>subject_match_field</code>, <code>object_match_field</code></li>
 <li><code>match_string</code></li>
+</ul>
+</li>
 <li>if the mapping is <code>Logical</code>, the mapping should be derivable by a reasoner from a combination of the <code>object_source</code> and <code>subject_source</code>. If more is needed then please leave a <code>comment</code> with details.</li>
 <li>if the mapping is <code>HumanCurated</code>.. (this needs to be <a href="https://github.com/mapping-commons/SSSOM/issues/57">fleshed out</a>. For now, leave a <code>comment</code> indicating what you did to arrive at your conclusion, i.e. wether you compared the definitions, looked up the "labels" in a database, ran a tool and decided to trust it etc.)</li>
-<li>if the mapping is <code>SemanticSimilarity</code> (graph similarity, neighbourhood, cosine similarity), you should provide:</li>
+<li>if the mapping is <code>SemanticSimilarity</code> (graph similarity, neighbourhood, cosine similarity), you should provide:<ul>
 <li><code>semantic_similarity_score</code></li>
 <li><code>semantic_similarity_measure</code></li>
+</ul>
+</li>
 <li>For now, if there are <em>multiple pieces of evidence</em> (lexical, logical etc), please emit one row per evidence. If your tool combines multiple pieces of evidence in a complex way, emit yet another row at the end with <code>match_type</code> <code>Complex</code> and emit ensure you provide the <code>mapping_tool</code>.</li>
 </ul>
 </li>
-<li><em>5-Star mappings</em> fulfill all the criteria for 4-star mappings and furthermore</li>
+</ul>
+</li>
+<li><em>5-Star mappings</em> fulfill all the criteria for 4-star mappings and furthermore<ul>
 <li>Are up-to-date with the <code>subject_source</code> and <code>object_source</code></li>
 <li>Have no issue on their issue tracker open for more than 3 months without an interaction</li>
 <li>Use a <em>standard</em> open license, such as <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC Zero 1.0</a> or <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.</li>
+</ul>
+</li>
 </ul>
               
             </div>
