@@ -4,35 +4,52 @@ Development Draft (under construction: some metadata fields may be subject to ch
 
 *Editors:*
 
-* Nicolas Matentzoglu (EMBL-EBI)
-* Chris Mungall (LBL)
-* Ernesto Jimenez-Ruiz (City, University of London)
-* John Graybeal (Stanford)
-* William Duncan (LBL)
-* David Osumi-Sutherland (EMBL-EBI)
-* Simon Jupp (SciBite)
-* James McLaughlin (EMBL-EBI)
-* Henriette Harmse (EMBL-EBI)
-* Tiffany Callahan (@callahantiff)
-* Charlie Hoyt (Harvard Medical School; [@cthoyt](https://github.com/cthoyt))
-* Thomas Liener (Pistoia Alliance)
-* Harshad Hegde (LBL)
+* [Nicolas Matentzoglu](https://orcid.org/0000-0002-7356-1779) (Semanticly Ltd; [@matentzn](https://github.com/matentzn))
+* [Chris Mungall](https://orcid.org/0000-0002-6601-2165) (LBL)
+* [Ernesto Jimenez-Ruiz](https://orcid.org/0000-0002-9083-4599) (City, University of London)
+* [John Graybeal](https://orcid.org/0000-0001-6875-5360) (Stanford)
+* [William Duncan](https://orcid.org/0000-0001-9625-1899) (LBL)
+* [David Osumi-Sutherland](https://orcid.org/0000-0002-7073-9172) (EMBL-EBI)
+* [Simon Jupp](https://orcid.org/0000-0002-0643-3144) (SciBite)
+* [James McLaughlin](https://orcid.org/0000-0002-8361-2795) (EMBL-EBI)
+* [Henriette Harmse](https://orcid.org/0000-0001-7251-9504) (EMBL-EBI)
+* [Tiffany Callahan](https://orcid.org/0000-0002-8169-9049) ([@callahantiff](https://github.com/callahantiff))
+* [Charlie Hoyt](https://orcid.org/0000-0003-4423-4370) (Harvard Medical School; [@cthoyt](https://github.com/cthoyt))
+* [Thomas Liener](https://orcid.org/0000-0003-3257-9937) (Pistoia Alliance)
+* [Harshad Hegde](https://orcid.org/0000-0002-2411-565X) (LBL)
 
-Contributors:
-* Balhoff, James P.
-* Chute, Christopher
-* Dahzi, Jiao
-* Gabriel, Davera
-* Haendel, Melissa
-* Harold, Solbrig
-* Harris, Nomi
-* Kim, Hyeongsik
-* Koehler, Sebastian
-* Malone, James
-* Munoz-Torres, Monica
-* Overton, James
-* Thessen, Anne
-* Vasilevsky, Nicole
+*Contributors:*
+
+* [Andrew Williams](https://orcid.org/0000-0002-0692-412X)
+* [Anne Thessen](https://orcid.org/0000-0002-2908-3327)
+* [Benjamin M. Gyori](https://orcid.org/0000-0001-9439-5346)
+* [Bill Baumgartner](https://orcid.org/0000-0001-6717-5313)
+* [Christopher Chute](https://orcid.org/0000-0001-5437-2545)
+* [Damion Dooley](https://orcid.org/0000-0002-8844-9165)
+* [Davera Gabriel](https://orcid.org/0000-0001-9041-4597)
+* [Harold Solbrig](https://www.wikidata.org/wiki/Q44607574)
+* [HyeongSik Kim](https://orcid.org/0000-0002-3002-9838)
+* [James Malone](https://orcid.org/0000-0002-1615-2899)
+* [James Overton](https://orcid.org/0000-0001-5139-5557)
+* [James P. Balhoff](https://orcid.org/0000-0002-8688-6599)
+* [James Stevenson](https://orcid.org/0000-0002-2568-6163)
+* [Jiao Dahzi](https://orcid.org/0000-0001-5052-3836)
+* [Joe Flack](https://orcid.org/0000-0002-2906-7319)
+* [Jooho Lee](https://orcid.org/0000-0002-2955-3405)
+* [Julie McMurry](https://orcid.org/0000-0002-9353-5498)
+* [Kori Kuzma](https://orcid.org/0000-0002-9954-7449)
+* [Kristin Kostka](https://orcid.org/0000-0003-2595-8736)
+* [Lauren Chan](https://orcid.org/0000-0002-7463-6306)
+* [Melissa Haendel](https://orcid.org/0000-0001-9114-8737)
+* [Monica Munoz-Torres](https://orcid.org/0000-0001-8430-6039)
+* [Monica Munoz-Torres](https://orcid.org/0000-0001-8430-6039)
+* [Nicole Vasilevsky](https://orcid.org/0000-0001-5208-3432)
+* [Nomi Harris](https://orcid.org/0000-0001-6315-3707)
+* [Sabrina Toro](https://orcid.org/0000-0002-4142-7153)
+* [Sebastian Koehler](https://orcid.org/0000-0002-5316-1399)
+* [Shahim Essaid](https://orcid.org/0000-0003-2338-2550)
+* [Sierra Moxon](https://orcid.org/0000-0002-8719-7760)
+* [Sue Bello](https://orcid.org/0000-0003-4606-0597)
 
 
 ### Abstract
@@ -457,55 +474,47 @@ spaces (e.g. controlled vocabularies, semantic databases), which means if you ha
 
 To enable cross-walking, we propose the following **Five-Star system** for mapping sets. 
 
-* _1-Star mappings_ fulfill the following criteria:
-   - record subject id, object id and mapping precision (exact, broad, narrow, close, related)
-   - using qualified names (either URIs or CURIEs + curie maps) for subject id and object id
-   - using a standard file format (JSON, XML, CSV, TSV)
-   - made available in a public space
-   - _optional_: record the subject and object labels to make it easier for humans to read the file
-* _2-Star mappings_ fulfill all the criteria for 1-star mappings and furthermore
-   - made available in a public version control system with an issue tracker
-   - record the semantic predicate explicitly and using qualified names for the semantic predicate (i.e. owl:equivalentClass, skos:exactMatch)
-   - record a confidence value for the mapping between 0 and 1 (0 no confidence, 1 100% confidence).
-   - record an open license for the use of the mapping set
-* _3-Star mappings_ fulfill all the criteria for 2-star mappings and furthermore 
-   - are exported in SSSOM format
-   - record the following additional metadata: 
-     - `match_type`(s) (Lexical, Logical match, HumanCurated etc)
-     - `date` of the mapping
-     - `creator_id`
-     - `subject_source`
-     - `object_source`
-     - `subject_source_version`
-     - `object_source_version`
-     - `mapping_tool` if the mapping was automatically computed using a tool
-* _4-Star mappings_ fulfill all the criteria for 3-star mappings and furthermore
-   - Register the mapping at a mapping commons
-   - record the following additional metadata:
+- _1-Star mappings_ fulfill the following criteria:
+  - record subject id, object id and mapping precision (exact, broad, narrow, close, related)
+  - using qualified names (either URIs or CURIEs + curie maps) for subject id and object id
+  - using a standard file format (JSON, XML, CSV, TSV)
+  - made available in a public space
+  - _optional_: record the subject and object labels to make it easier for humans to read the file
+- _2-Star mappings_ fulfill all the criteria for 1-star mappings and furthermore
+  - made available in a public version control system with an issue tracker
+  - record the semantic predicate explicitly and using qualified names for the semantic predicate (i.e. owl:equivalentClass, skos:exactMatch)
+  - record a confidence value for the mapping between 0 and 1 (0 no confidence, 1 100% confidence).
+  - record an open license for the use of the mapping set
+- _3-Star mappings_ fulfill all the criteria for 2-star mappings and furthermore 
+  - are exported in SSSOM format
+  - record the following additional metadata: 
+    - `match_type`(s) (Lexical, Logical match, HumanCurated etc)
+    - `date` of the mapping
+    - `creator_id`
+    - `subject_source`
+    - `object_source`
+    - `subject_source_version`
+    - `object_source_version`
+    - `mapping_tool` if the mapping was automatically computed using a tool
+- _4-Star mappings_ fulfill all the criteria for 3-star mappings and furthermore
+  - register the mapping at a mapping commons
+  - record the following additional metadata:
      - `mapping_set_id`
      - `mapping_set_description`
      - `mapping_set_version`
      - `mapping_provider` (if the mapping is not original, i.e. it is not derived from another source)
-   - provide a completely executable curation_rule:
-     - if the mapping is `Lexical`, provide:
-       - `subject_preprocessing`, `object_preprocessing`
-       - `subject_match_field`, `object_match_field`
-       - `match_string`
-     - if the mapping is `Logical`, the mapping should be derivable by a reasoner from
-      a combination of the `object_source` and `subject_source`. If more is needed then please 
-      leave a `comment` with details.
-     - if the mapping is `HumanCurated`.. (this needs to be [fleshed out](https://github.com/mapping-commons/SSSOM/issues/57). 
-       For now, leave a `comment` indicating what you did to arrive at your conclusion, i.e. wether you compared the definitions, 
-       looked up the "labels" in a database, ran a tool and decided to trust it etc.)
-     - if the mapping is `SemanticSimilarity` (graph similarity, neighbourhood, cosine similarity), you should provide:
-       - `semantic_similarity_score`
-       - `semantic_similarity_measure`
-     - For now, if there are _multiple pieces of evidence_ (lexical, logical etc), please emit one row per evidence. 
-       If your tool combines multiple pieces of evidence in a complex way, emit yet another row at the end with
-       `match_type` `Complex` and emit ensure you provide the `mapping_tool`.
-* _5-Star mappings_ fulfill all the criteria for 4-star mappings and furthermore
-   - Are up-to-date with the `subject_source` and `object_source`
-   - Have no issue on their issue tracker open for more than 3 months without an interaction
-   - Use a _standard_ open license, such as [CC Zero 1.0](https://creativecommons.org/publicdomain/zero/1.0/) or [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
-
-      
+  - provide a completely executable curation_rule:
+    - if the mapping is `Lexical`, provide:
+      - `subject_preprocessing`, `object_preprocessing`
+      - `subject_match_field`, `object_match_field`
+      - `match_string`
+    - if the mapping is `Logical`, the mapping should be derivable by a reasoner from a combination of the `object_source` and `subject_source`. If more is needed then please leave a `comment` with details.
+    - if the mapping is `HumanCurated`.. (this needs to be [fleshed out](https://github.com/mapping-commons/SSSOM/issues/57). For now, leave a `comment` indicating what you did to arrive at your conclusion, i.e. wether you compared the definitions, looked up the "labels" in a database, ran a tool and decided to trust it etc.)
+    - if the mapping is `SemanticSimilarity` (graph similarity, neighbourhood, cosine similarity), you should provide:
+      - `semantic_similarity_score`
+      - `semantic_similarity_measure`
+    - For now, if there are _multiple pieces of evidence_ (lexical, logical etc), please emit one row per evidence. If your tool combines multiple pieces of evidence in a complex way, emit yet another row at the end with `match_type` `Complex` and emit ensure you provide the `mapping_tool`.
+- _5-Star mappings_ fulfill all the criteria for 4-star mappings and furthermore
+  - Are up-to-date with the `subject_source` and `object_source`
+  - Have no issue on their issue tracker open for more than 3 months without an interaction
+  - Use a _standard_ open license, such as [CC Zero 1.0](https://creativecommons.org/publicdomain/zero/1.0/) or [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
