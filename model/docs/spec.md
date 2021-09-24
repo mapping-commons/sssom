@@ -51,6 +51,12 @@ Development Draft (under construction: some metadata fields may be subject to ch
 * [Sierra Moxon](https://orcid.org/0000-0002-8719-7760)
 * [Sue Bello](https://orcid.org/0000-0003-4606-0597)
 
+*Quick links*: 
+
+- [SSSOM on Wikidata](https://www.wikidata.org/wiki/Q108394480)
+- [SSSOM Python toolkit on Wikidata](https://www.wikidata.org/wiki/Q108394654)
+- [SSSOM Python toolkit: Official Documentation](https://mapping-commons.github.io/sssom-py)
+- [Presentations](presentations.md)
 
 ### Abstract
 
