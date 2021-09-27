@@ -1,5 +1,5 @@
 # Auto generated from sssom.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-09-24 00:31
+# Generation date: 2021-09-27 20:15
 # Schema: sssom
 #
 # id: http://w3id.org/sssom/schema/
@@ -40,6 +40,7 @@ NEURONAME = CurieNamespace('neuroname', 'http://braininfo.rprc.washington.edu/ce
 OBOINOWL = CurieNamespace('oboInOwl', 'http://www.geneontology.org/formats/oboInOwl#')
 OIO = CurieNamespace('oio', 'http://www.geneontology.org/formats/oboInOwl#')
 OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
+PAV = CurieNamespace('pav', 'http://purl.org/pav/')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SSSOM = CurieNamespace('sssom', 'http://w3id.org/sssom/')
 DEFAULT_ = SSSOM
@@ -71,7 +72,7 @@ class MappingSet(YAMLRoot):
     creator_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
     creator_label: Optional[Union[str, List[str]]] = empty_list()
     subject_source: Optional[Union[str, URIorCURIE]] = None
-    subject_source_version: Optional[str] = None
+    subject_source_version: Optional[Union[str, URIorCURIE]] = None
     object_source: Optional[Union[str, URIorCURIE]] = None
     object_source_version: Optional[str] = None
     mapping_provider: Optional[Union[str, URIorCURIE]] = None
@@ -80,9 +81,9 @@ class MappingSet(YAMLRoot):
     subject_match_field: Optional[Union[Union[str, "MatchFieldEnum"], List[Union[str, "MatchFieldEnum"]]]] = empty_list()
     object_match_field: Optional[Union[Union[str, "MatchFieldEnum"], List[Union[str, "MatchFieldEnum"]]]] = empty_list()
     subject_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
-    object_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
+    object_preprocessing: Optional[Union[str, List[str]]] = empty_list()
     match_term_type: Optional[Union[str, "MatchTermTypeEnum"]] = None
-    see_also: Optional[str] = None
+    see_also: Optional[Union[str, List[str]]] = empty_list()
     other: Optional[str] = None
     comment: Optional[str] = None
 
@@ -116,8 +117,8 @@ class MappingSet(YAMLRoot):
         if self.subject_source is not None and not isinstance(self.subject_source, URIorCURIE):
             self.subject_source = URIorCURIE(self.subject_source)
 
-        if self.subject_source_version is not None and not isinstance(self.subject_source_version, str):
-            self.subject_source_version = str(self.subject_source_version)
+        if self.subject_source_version is not None and not isinstance(self.subject_source_version, URIorCURIE):
+            self.subject_source_version = URIorCURIE(self.subject_source_version)
 
         if self.object_source is not None and not isinstance(self.object_source, URIorCURIE):
             self.object_source = URIorCURIE(self.object_source)
@@ -148,13 +149,14 @@ class MappingSet(YAMLRoot):
 
         if not isinstance(self.object_preprocessing, list):
             self.object_preprocessing = [self.object_preprocessing] if self.object_preprocessing is not None else []
-        self.object_preprocessing = [v if isinstance(v, PreprocessingMethodEnum) else PreprocessingMethodEnum(v) for v in self.object_preprocessing]
+        self.object_preprocessing = [v if isinstance(v, str) else str(v) for v in self.object_preprocessing]
 
         if self.match_term_type is not None and not isinstance(self.match_term_type, MatchTermTypeEnum):
             self.match_term_type = MatchTermTypeEnum(self.match_term_type)
 
-        if self.see_also is not None and not isinstance(self.see_also, str):
-            self.see_also = str(self.see_also)
+        if not isinstance(self.see_also, list):
+            self.see_also = [self.see_also] if self.see_also is not None else []
+        self.see_also = [v if isinstance(v, str) else str(v) for v in self.see_also]
 
         if self.other is not None and not isinstance(self.other, str):
             self.other = str(self.other)
@@ -180,33 +182,38 @@ class Mapping(YAMLRoot):
     subject_id: Union[str, URIorCURIE] = None
     predicate_id: Union[str, URIorCURIE] = None
     object_id: Union[str, URIorCURIE] = None
-    match_type: Union[Union[str, "MatchTermTypeEnum"], List[Union[str, "MatchTermTypeEnum"]]] = None
+    match_type: Union[Union[str, "MatchTypeEnum"], List[Union[str, "MatchTypeEnum"]]] = None
     subject_label: Optional[str] = None
     subject_category: Optional[str] = None
     predicate_label: Optional[str] = None
     object_label: Optional[str] = None
     object_category: Optional[str] = None
+    author_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
+    author_label: Optional[Union[str, List[str]]] = empty_list()
+    reviewer_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
+    reviewer_label: Optional[Union[str, List[str]]] = empty_list()
     creator_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
     creator_label: Optional[Union[str, List[str]]] = empty_list()
     license: Optional[Union[str, URIorCURIE]] = None
     subject_source: Optional[Union[str, URIorCURIE]] = None
-    subject_source_version: Optional[str] = None
+    subject_source_version: Optional[Union[str, URIorCURIE]] = None
     object_source: Optional[Union[str, URIorCURIE]] = None
     object_source_version: Optional[str] = None
     mapping_provider: Optional[Union[str, URIorCURIE]] = None
     mapping_cardinality: Optional[Union[str, "MappingCardinalityEnum"]] = None
     mapping_tool: Optional[str] = None
+    mapping_tool_version: Optional[str] = None
     mapping_date: Optional[Union[str, XSDDate]] = None
     confidence: Optional[float] = None
     subject_match_field: Optional[Union[Union[str, "MatchFieldEnum"], List[Union[str, "MatchFieldEnum"]]]] = empty_list()
     object_match_field: Optional[Union[Union[str, "MatchFieldEnum"], List[Union[str, "MatchFieldEnum"]]]] = empty_list()
-    match_string: Optional[str] = None
+    match_string: Optional[Union[str, List[str]]] = empty_list()
     subject_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
-    object_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
+    object_preprocessing: Optional[Union[str, List[str]]] = empty_list()
     match_term_type: Optional[Union[str, "MatchTermTypeEnum"]] = None
     semantic_similarity_score: Optional[float] = None
-    information_content_mica_score: Optional[float] = None
-    see_also: Optional[str] = None
+    semantic_similarity_measure: Optional[Union[str, URIorCURIE]] = None
+    see_also: Optional[Union[str, List[str]]] = empty_list()
     other: Optional[str] = None
     comment: Optional[str] = None
 
@@ -230,7 +237,7 @@ class Mapping(YAMLRoot):
             self.MissingRequiredField("match_type")
         if not isinstance(self.match_type, list):
             self.match_type = [self.match_type] if self.match_type is not None else []
-        self.match_type = [v if isinstance(v, MatchTermTypeEnum) else MatchTermTypeEnum(v) for v in self.match_type]
+        self.match_type = [v if isinstance(v, MatchTypeEnum) else MatchTypeEnum(v) for v in self.match_type]
 
         if self.subject_label is not None and not isinstance(self.subject_label, str):
             self.subject_label = str(self.subject_label)
@@ -247,6 +254,22 @@ class Mapping(YAMLRoot):
         if self.object_category is not None and not isinstance(self.object_category, str):
             self.object_category = str(self.object_category)
 
+        if not isinstance(self.author_id, list):
+            self.author_id = [self.author_id] if self.author_id is not None else []
+        self.author_id = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.author_id]
+
+        if not isinstance(self.author_label, list):
+            self.author_label = [self.author_label] if self.author_label is not None else []
+        self.author_label = [v if isinstance(v, str) else str(v) for v in self.author_label]
+
+        if not isinstance(self.reviewer_id, list):
+            self.reviewer_id = [self.reviewer_id] if self.reviewer_id is not None else []
+        self.reviewer_id = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.reviewer_id]
+
+        if not isinstance(self.reviewer_label, list):
+            self.reviewer_label = [self.reviewer_label] if self.reviewer_label is not None else []
+        self.reviewer_label = [v if isinstance(v, str) else str(v) for v in self.reviewer_label]
+
         if not isinstance(self.creator_id, list):
             self.creator_id = [self.creator_id] if self.creator_id is not None else []
         self.creator_id = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.creator_id]
@@ -261,8 +284,8 @@ class Mapping(YAMLRoot):
         if self.subject_source is not None and not isinstance(self.subject_source, URIorCURIE):
             self.subject_source = URIorCURIE(self.subject_source)
 
-        if self.subject_source_version is not None and not isinstance(self.subject_source_version, str):
-            self.subject_source_version = str(self.subject_source_version)
+        if self.subject_source_version is not None and not isinstance(self.subject_source_version, URIorCURIE):
+            self.subject_source_version = URIorCURIE(self.subject_source_version)
 
         if self.object_source is not None and not isinstance(self.object_source, URIorCURIE):
             self.object_source = URIorCURIE(self.object_source)
@@ -279,6 +302,9 @@ class Mapping(YAMLRoot):
         if self.mapping_tool is not None and not isinstance(self.mapping_tool, str):
             self.mapping_tool = str(self.mapping_tool)
 
+        if self.mapping_tool_version is not None and not isinstance(self.mapping_tool_version, str):
+            self.mapping_tool_version = str(self.mapping_tool_version)
+
         if self.mapping_date is not None and not isinstance(self.mapping_date, XSDDate):
             self.mapping_date = XSDDate(self.mapping_date)
 
@@ -293,8 +319,9 @@ class Mapping(YAMLRoot):
             self.object_match_field = [self.object_match_field] if self.object_match_field is not None else []
         self.object_match_field = [v if isinstance(v, MatchFieldEnum) else MatchFieldEnum(v) for v in self.object_match_field]
 
-        if self.match_string is not None and not isinstance(self.match_string, str):
-            self.match_string = str(self.match_string)
+        if not isinstance(self.match_string, list):
+            self.match_string = [self.match_string] if self.match_string is not None else []
+        self.match_string = [v if isinstance(v, str) else str(v) for v in self.match_string]
 
         if not isinstance(self.subject_preprocessing, list):
             self.subject_preprocessing = [self.subject_preprocessing] if self.subject_preprocessing is not None else []
@@ -302,7 +329,7 @@ class Mapping(YAMLRoot):
 
         if not isinstance(self.object_preprocessing, list):
             self.object_preprocessing = [self.object_preprocessing] if self.object_preprocessing is not None else []
-        self.object_preprocessing = [v if isinstance(v, PreprocessingMethodEnum) else PreprocessingMethodEnum(v) for v in self.object_preprocessing]
+        self.object_preprocessing = [v if isinstance(v, str) else str(v) for v in self.object_preprocessing]
 
         if self.match_term_type is not None and not isinstance(self.match_term_type, MatchTermTypeEnum):
             self.match_term_type = MatchTermTypeEnum(self.match_term_type)
@@ -310,11 +337,12 @@ class Mapping(YAMLRoot):
         if self.semantic_similarity_score is not None and not isinstance(self.semantic_similarity_score, float):
             self.semantic_similarity_score = float(self.semantic_similarity_score)
 
-        if self.information_content_mica_score is not None and not isinstance(self.information_content_mica_score, float):
-            self.information_content_mica_score = float(self.information_content_mica_score)
+        if self.semantic_similarity_measure is not None and not isinstance(self.semantic_similarity_measure, URIorCURIE):
+            self.semantic_similarity_measure = URIorCURIE(self.semantic_similarity_measure)
 
-        if self.see_also is not None and not isinstance(self.see_also, str):
-            self.see_also = str(self.see_also)
+        if not isinstance(self.see_also, list):
+            self.see_also = [self.see_also] if self.see_also is not None else []
+        self.see_also = [v if isinstance(v, str) else str(v) for v in self.see_also]
 
         if self.other is not None and not isinstance(self.other, str):
             self.other = str(self.other)

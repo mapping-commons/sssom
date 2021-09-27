@@ -12,6 +12,7 @@ prefixes:
   dce: http://purl.org/dc/elements/1.1/
   Orphanet: http://www.orpha.net/ORDO/Orphanet_
   oio: http://www.geneontology.org/formats/oboInOwl#
+  pav: http://purl.org/pav/
 see_also:
 - https://github.com/OBOFoundry/SSSOM
 default_curi_maps:
@@ -72,11 +73,12 @@ slots:
     slot_uri: owl:annotatedSource
     examples:
       - value: HP:0009894
+        description: The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'
   subject_label:
     description: The label of subject of the mapping
     range: string
     examples:
-      - value: HP:0009894
+      - value: Thickened ears
   subject_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
@@ -100,7 +102,30 @@ slots:
     description: The label of the predicate/relation of the mapping
     range: string
     examples:
-      - value: exact match
+      - value: owl:sameAs
+        description: The subject and the object are instances (owl individuals), and the two instances are the same.
+      - value: owl:equivalentClass
+        description: The subject and the object are classes (owl class), and the two classes are the same.
+      - value: owl:equivalentProperty
+        description: The subject and the object are properties (owl object, data, annotation properties), and the two properties are the same.
+      - value: rdfs:subClassOf
+        description: The subject and the object are classes (owl class), and the subject is a subclass of the object.
+      - value: rdfs:subPropertyOf
+        description: The subject and the object are properties (owl object, data, annotation properties), and the subject is a subproperty of the object.
+      - value: skos:relatedMatch
+        description: The subject and the object are associated in some unspecified way.
+      - value: skos:closeMatch
+        description: The subject and the object are sufficiently similar that they can be used interchangeably in some information retrieval applications.
+      - value: skos:exactMatch
+        description: The subject and the object can, with a high degree of confidence, be used interchangeably across a wide range of information retrieval applications.
+      - value: skos:narrowMatch
+        description: "From the SKOS primer: A triple skos:narrower (and skos:narrowMatch) asserts that , the object of the triple, is a narrower concept than , the subject of the triple."
+      - value: skos:broadMatch
+        description: "From the SKOS primer: A triple skos:broader (and skos:broadMatch) asserts that , the object of the triple, is a broader concept than , the subject of the triple."
+      - value: oio:database_cross_reference
+        description: Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)
+      - value: rdfs:seeAlso
+        description: The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.
   object_id:
     description: The ID of the object of the mapping.
     mappings:
@@ -110,6 +135,7 @@ slots:
     slot_uri: owl:annotatedTarget
     examples:
       - value: HP:0009894
+        description: The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'
   object_label:
     description: The label of object of the mapping
     range: string
@@ -126,25 +152,43 @@ slots:
         description: (The CURIE of the biolink class for genes.)
   match_type:
     description: The kind of match that led to the mapping, e.g. Logical or Lexical.
-    range: match_term_type_enum
+    range: match_type_enum
     required: true
     multivalued: true
+    examples:
+      - value: Lexical
+        description: (The type of match that led to the mapping is Lexical, i.e. based on comparing the string representation of an aspect of the subject with the string representation of an aspect of the subject.)
+      - value: HumanCurated
+        description: (The type of match that led to the mapping was by human expert judgement.)
   mapping_set_id:
     description: A globally unique identifier for the mapping set (not each individual
       mapping). Should be IRI, ideally resolvable.
     required: true
     range: uriorcurie
+    examples:
+      - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
+        description: (A persistent URI pointing to the latest version of the Mondo - NCIT mapping in the Mondo namespace.)
   mapping_set_version:
     description: A version string for the mapping.
     range: string
     slot_uri: owl:versionInfo
+    examples:
+      - value: "2020-01-01"
+        description: (A date-based version that indicates that the mapping was published on the 1st January in 2021.)
+      - value: "1.2.1"
+        description: "(A semantic version tag that indicates that this is the 1st major, 2nd minor version, patch 1 (https://semver.org/).)"
   mapping_set_description:
     description: A description of the mapping set.
     range: string
     slot_uri: dc:description
+    examples:
+      - value: "This mapping set was produced to integrate human and mouse phenotype data at the IMPC. It is primarily used for making mouse phenotypes searchable by human synonyms at https://mousephenotype.org/."
   creator_id:
     description: Identifies the persons or groups responsible for the creation of
-      the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise
+      the mapping. The creator is the agent that put the mapping in its published form, 
+      which may be different from the author, which is a person that was actively involved
+      in the assertion of the mapping.
+      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
       identifying URLs, but any identifying string (such as name and affiliation)
       is permissible.
     slot_uri: dc:creator
@@ -155,23 +199,60 @@ slots:
       provenance, consider to use creator_id instead.
     range: string
     multivalued: true
+  author_id:
+    description: Identifies the persons or groups responsible for asserting the mappings.
+      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
+      identifying URLs, but any identifying string (such as name and affiliation)
+      is permissible.
+    slot_uri: pav:authoredBy
+    range: uriorcurie
+    multivalued: true
+  author_label:
+    description: A string identifying the author of this mapping. In the spirit of
+      provenance, consider to use author_id instead.
+    range: string
+    multivalued: true
+  reviewer_id:
+    description: Identifies the persons or groups that reviewed and confirmed the mapping.
+      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
+      identifying URLs, but any identifying string (such as name and affiliation)
+      is permissible.
+    range: uriorcurie
+    multivalued: true
+  reviewer_label:
+    description: A string identifying the reviewer of this mapping. In the spirit of
+      provenance, consider to use author_id instead.
+    range: string
+    multivalued: true
   license:
     description: A url to the license of the mapping. In absence of a license we assume
       no license.
     range: uriorcurie
     slot_uri: dcterms:license
   subject_source:
-    description: IRI of ontology source for the subject. Version IRI preferred.
+    description: URI of ontology source for the subject.
     range: uriorcurie
+    examples:
+      - value: http://purl.obolibrary.org/obo/mondo.owl
+        description: (A persistent IRI pointing to the latest version of the Mondo ontology.)
   subject_source_version:
     description: Version IRI or version string of the source of the subject term.
-    range: string
+    range: uriorcurie
+    examples:
+      - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
+        description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   object_source:
     description: IRI of ontology source for the object. Version IRI preferred.
     range: uriorcurie
+    examples:
+      - value: http://purl.obolibrary.org/obo/mondo.owl
+        description: (A persistent IRI pointing to the latest version of the Mondo ontology.)
   object_source_version:
     description: Version IRI or version string of the source of the object term.
     range: string
+    examples:
+      - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
+        description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   mapping_provider:
     description: URL pointing to the source that provided the mapping, for example
       an ontology that already contains the mappings.
@@ -186,8 +267,19 @@ slots:
     description: A reference to the tool or algorithm that was used to generate the
       mapping. Should be a URL pointing to more info about it, but can be free text.
     range: string
+    examples:
+      - value: https://github.com/AgreementMakerLight/AML-Project
+  mapping_tool_version:
+    description: Version string that denotes the version of the mapping tool used.
+    range: string
+    examples:
+      - value: v3.2
   mapping_date:
-    description: The date the mapping was created
+    description: The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
+    slot_uri: pav:authoredOn
+    range: date
+  publication_date:
+    description: The date the mapping was published. This is different from the date the mapping was asserted.
     slot_uri: dc:created
     range: date
   confidence:
@@ -205,35 +297,47 @@ slots:
     range: match_field_enum
     multivalued: true
   match_string:
-    description: String that is shared by subj/obj
+    description: Strings that are shared by subj/obj. It is recommended to indicate the 
+      fields for the match using the object and subject_match_field slots.
     range: string
+    multivalued: true
   subject_preprocessing:
-    description: Method of preprocessing applied to the fields of the subject.
+    description: Method of preprocessing applied to the fields of the subject. 
+      If different preprocessing steps were performed on different fields, it is
+      recommended to store the match in separate rows.
     range: preprocessing_method_enum
     multivalued: true
   object_preprocessing:
-    description: "Method of preprocessing applied to the fields of the object."
+    description: Method of preprocessing applied to the fields of the object. 
+      If different preprocessing steps were performed on different fields, it is
+      recommended to store the match in separate rows.
     range: preprocessing_method_enum
     multivalued: true
   match_term_type:
     description: Specifies what type of terms are being matched (class, property,
-      or individual). Value should be ID from Term Match (SSSOM:TermMatch) branch
-      of the SSSSOM Vocabulary.
+      or individual).
     range: match_term_type_enum
+    examples:
+      - value: ClassMatch
   semantic_similarity_score:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
     range: double
-  information_content_mica_score:
-    description: A score between 0 and 1 to denote the information content of the
-      most informative common ancestor, where 1 denotes the maximum level of informativeness.
-    range: double
+  semantic_similarity_measure:
+    description: The measure used for computing the the semantic similarity score.
+      To make processing this field as unambiguous as possible, we recommend using 
+      wikidata identifiers, but wikipedia pages could also be acceptable.
+    range: uriorcurie
+    examples:
+      - value: https://www.wikidata.org/wiki/Q865360
+        description: (the Wikidata identifier for the Jaccard index measure).
   see_also:
     description: A URL specific for the mapping instance. E.g. for kboom we have a
       per-mapping image that shows surrounding axioms that drive probability. Could
       also be a github issue URL that discussed a complicated alignment
     slot_uri: rdfs:seeAlso
     range: string
+    multivalued: true
   other:
     description: Pipe separated list of key value pairs for properties not part of
       the SSSOM spec. Can be used to encode additional provenance data.
@@ -303,6 +407,10 @@ classes:
     - object_label
     - object_category
     - match_type
+    - author_id
+    - author_label
+    - reviewer_id
+    - reviewer_label
     - creator_id
     - creator_label
     - license
@@ -313,6 +421,7 @@ classes:
     - mapping_provider
     - mapping_cardinality
     - mapping_tool
+    - mapping_tool_version
     - mapping_date
     - confidence
     - subject_match_field
@@ -322,7 +431,7 @@ classes:
     - object_preprocessing
     - match_term_type
     - semantic_similarity_score
-    - information_content_mica_score
+    - semantic_similarity_measure
     - see_also
     - other
     - comment
