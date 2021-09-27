@@ -260,6 +260,7 @@ slots:
     range: uriorcurie
   mapping_set_source:
     description: A mapping set or set of mapping set that was used to derive the mapping set.
+      Note: by convention, the value of the slot should point only to valid SSSOM mapping files.
     slot_uri: prov:wasDerivedFrom
     range: uriorcurie
     multivalued: true
