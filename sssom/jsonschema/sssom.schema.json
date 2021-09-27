@@ -105,7 +105,7 @@
             "object_preprocessing": {
                "description": "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.",
                "items": {
-                  "type": "string"
+                  "$ref": "#/$defs/PreprocessingMethodEnum"
                },
                "type": "array"
             },
@@ -286,7 +286,7 @@
             "object_preprocessing": {
                "description": "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.",
                "items": {
-                  "type": "string"
+                  "$ref": "#/$defs/PreprocessingMethodEnum"
                },
                "type": "array"
             },

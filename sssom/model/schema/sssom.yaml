@@ -199,6 +199,31 @@ slots:
       provenance, consider to use creator_id instead.
     range: string
     multivalued: true
+  author_id:
+    description: Identifies the persons or groups responsible for asserting the mappings.
+      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
+      identifying URLs, but any identifying string (such as name and affiliation)
+      is permissible.
+    slot_uri: pav:authoredBy
+    range: uriorcurie
+    multivalued: true
+  author_label:
+    description: A string identifying the author of this mapping. In the spirit of
+      provenance, consider to use author_id instead.
+    range: string
+    multivalued: true
+  reviewer_id:
+    description: Identifies the persons or groups that reviewed and confirmed the mapping.
+      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
+      identifying URLs, but any identifying string (such as name and affiliation)
+      is permissible.
+    range: uriorcurie
+    multivalued: true
+  reviewer_label:
+    description: A string identifying the reviewer of this mapping. In the spirit of
+      provenance, consider to use author_id instead.
+    range: string
+    multivalued: true
   license:
     description: A url to the license of the mapping. In absence of a license we assume
       no license.
@@ -244,10 +269,17 @@ slots:
     range: string
     examples:
       - value: https://github.com/AgreementMakerLight/AML-Project
+  mapping_tool_version:
+    description: Version string that denotes the version of the mapping tool used.
+    range: string
+    examples:
+      - value: v3.2
   mapping_date:
     description: The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
     slot_uri: pav:authoredOn
     range: date
+  publication_date:
+    description: The date the mapping was published. This is different from the date the mapping was asserted.
     slot_uri: dc:created
     range: date
   confidence:
@@ -279,6 +311,7 @@ slots:
     description: Method of preprocessing applied to the fields of the object. 
       If different preprocessing steps were performed on different fields, it is
       recommended to store the match in separate rows.
+    range: preprocessing_method_enum
     multivalued: true
   match_term_type:
     description: Specifies what type of terms are being matched (class, property,
@@ -290,10 +323,14 @@ slots:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
     range: double
-  information_content_mica_score:
-    description: A score between 0 and 1 to denote the information content of the
-      most informative common ancestor, where 1 denotes the maximum level of informativeness.
-    range: double
+  semantic_similarity_measure:
+    description: The measure used for computing the the semantic similarity score.
+      To make processing this field as unambiguous as possible, we recommend using 
+      wikidata identifiers, but wikipedia pages could also be acceptable.
+    range: uriorcurie
+    examples:
+      - value: https://www.wikidata.org/wiki/Q865360
+        description: (the Wikidata identifier for the Jaccard index measure).
   see_also:
     description: A URL specific for the mapping instance. E.g. for kboom we have a
       per-mapping image that shows surrounding axioms that drive probability. Could
@@ -370,6 +407,10 @@ classes:
     - object_label
     - object_category
     - match_type
+    - author_id
+    - author_label
+    - reviewer_id
+    - reviewer_label
     - creator_id
     - creator_label
     - license
@@ -380,6 +421,7 @@ classes:
     - mapping_provider
     - mapping_cardinality
     - mapping_tool
+    - mapping_tool_version
     - mapping_date
     - confidence
     - subject_match_field
@@ -389,7 +431,7 @@ classes:
     - object_preprocessing
     - match_term_type
     - semantic_similarity_score
-    - information_content_mica_score
+    - semantic_similarity_measure
     - see_also
     - other
     - comment

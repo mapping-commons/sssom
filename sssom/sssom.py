@@ -1,5 +1,5 @@
 # Auto generated from sssom.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-09-27 20:15
+# Generation date: 2021-09-27 20:26
 # Schema: sssom
 #
 # id: http://w3id.org/sssom/schema/
@@ -81,7 +81,7 @@ class MappingSet(YAMLRoot):
     subject_match_field: Optional[Union[Union[str, "MatchFieldEnum"], List[Union[str, "MatchFieldEnum"]]]] = empty_list()
     object_match_field: Optional[Union[Union[str, "MatchFieldEnum"], List[Union[str, "MatchFieldEnum"]]]] = empty_list()
     subject_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
-    object_preprocessing: Optional[Union[str, List[str]]] = empty_list()
+    object_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
     match_term_type: Optional[Union[str, "MatchTermTypeEnum"]] = None
     see_also: Optional[Union[str, List[str]]] = empty_list()
     other: Optional[str] = None
@@ -149,7 +149,7 @@ class MappingSet(YAMLRoot):
 
         if not isinstance(self.object_preprocessing, list):
             self.object_preprocessing = [self.object_preprocessing] if self.object_preprocessing is not None else []
-        self.object_preprocessing = [v if isinstance(v, str) else str(v) for v in self.object_preprocessing]
+        self.object_preprocessing = [v if isinstance(v, PreprocessingMethodEnum) else PreprocessingMethodEnum(v) for v in self.object_preprocessing]
 
         if self.match_term_type is not None and not isinstance(self.match_term_type, MatchTermTypeEnum):
             self.match_term_type = MatchTermTypeEnum(self.match_term_type)
@@ -209,7 +209,7 @@ class Mapping(YAMLRoot):
     object_match_field: Optional[Union[Union[str, "MatchFieldEnum"], List[Union[str, "MatchFieldEnum"]]]] = empty_list()
     match_string: Optional[Union[str, List[str]]] = empty_list()
     subject_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
-    object_preprocessing: Optional[Union[str, List[str]]] = empty_list()
+    object_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
     match_term_type: Optional[Union[str, "MatchTermTypeEnum"]] = None
     semantic_similarity_score: Optional[float] = None
     semantic_similarity_measure: Optional[Union[str, URIorCURIE]] = None
@@ -329,7 +329,7 @@ class Mapping(YAMLRoot):
 
         if not isinstance(self.object_preprocessing, list):
             self.object_preprocessing = [self.object_preprocessing] if self.object_preprocessing is not None else []
-        self.object_preprocessing = [v if isinstance(v, str) else str(v) for v in self.object_preprocessing]
+        self.object_preprocessing = [v if isinstance(v, PreprocessingMethodEnum) else PreprocessingMethodEnum(v) for v in self.object_preprocessing]
 
         if self.match_term_type is not None and not isinstance(self.match_term_type, MatchTermTypeEnum):
             self.match_term_type = MatchTermTypeEnum(self.match_term_type)

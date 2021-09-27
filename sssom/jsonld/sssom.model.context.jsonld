@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from sssom.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-09-27 20:14\n    Schema: sssom\n    \n    id: http://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "_comments": "Auto generated from sssom.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-09-27 20:26\n    Schema: sssom\n    \n    id: http://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
       "Orphanet": {
          "@id": "http://www.orpha.net/ORDO/Orphanet_",
@@ -87,6 +87,14 @@
          "@id": "owl:annotatedTarget"
       },
       "object_match_field": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "object_preprocessing": {
          "@context": {
             "@vocab": "@null",
             "text": "skos:notation",
