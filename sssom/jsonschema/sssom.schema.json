@@ -54,7 +54,7 @@
                "type": "string"
             },
             "mapping_provider": {
-               "description": "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings.",
+               "description": "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.",
                "type": "string"
             },
             "mapping_tool": {
@@ -246,7 +246,7 @@
                "type": "string"
             },
             "mapping_provider": {
-               "description": "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings.",
+               "description": "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.",
                "type": "string"
             },
             "mapping_set_description": {
@@ -256,6 +256,13 @@
             "mapping_set_id": {
                "description": "A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.",
                "type": "string"
+            },
+            "mapping_set_source": {
+               "description": "A mapping set or set of mapping set that was used to derive the mapping set.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "mapping_set_version": {
                "description": "A version string for the mapping.",

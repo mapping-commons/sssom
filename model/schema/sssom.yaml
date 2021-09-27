@@ -13,6 +13,7 @@ prefixes:
   Orphanet: http://www.orpha.net/ORDO/Orphanet_
   oio: http://www.geneontology.org/formats/oboInOwl#
   pav: http://purl.org/pav/
+  prov: http://www.w3.org/ns/prov#
 see_also:
 - https://github.com/OBOFoundry/SSSOM
 default_curi_maps:
@@ -255,8 +256,17 @@ slots:
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   mapping_provider:
     description: URL pointing to the source that provided the mapping, for example
-      an ontology that already contains the mappings.
+      an ontology that already contains the mappings, or a database from which it was derived.
     range: uriorcurie
+  mapping_set_source:
+    description: A mapping set or set of mapping set that was used to derive the mapping set.
+    slot_uri: prov:wasDerivedFrom
+    range: uriorcurie
+    multivalued: true
+    examples:
+      - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
+      - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv|MONDO_MAPPINGS:mondo_exactmatch_omim.sssom.tsv
+        description: (multivalued example in TSV)
   mapping_cardinality:
     description: A string indicating whether this mapping is from a 1:1 (the subject_id
       maps to a single object_id), 1:n (the subject maps to more than one object_id), 
@@ -376,6 +386,7 @@ classes:
     - mappings
     - mapping_set_id
     - mapping_set_version
+    - mapping_set_source
     - mapping_set_description
     - creator_id
     - creator_label

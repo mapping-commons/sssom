@@ -1,5 +1,5 @@
 # Auto generated from sssom.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-09-27 20:26
+# Generation date: 2021-09-27 20:38
 # Schema: sssom
 #
 # id: http://w3id.org/sssom/schema/
@@ -41,6 +41,7 @@ OBOINOWL = CurieNamespace('oboInOwl', 'http://www.geneontology.org/formats/oboIn
 OIO = CurieNamespace('oio', 'http://www.geneontology.org/formats/oboInOwl#')
 OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
 PAV = CurieNamespace('pav', 'http://purl.org/pav/')
+PROV = CurieNamespace('prov', 'http://www.w3.org/ns/prov#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SSSOM = CurieNamespace('sssom', 'http://w3id.org/sssom/')
 DEFAULT_ = SSSOM
@@ -68,6 +69,7 @@ class MappingSet(YAMLRoot):
     license: Union[str, URIorCURIE] = None
     mappings: Optional[Union[Union[dict, "Mapping"], List[Union[dict, "Mapping"]]]] = empty_list()
     mapping_set_version: Optional[str] = None
+    mapping_set_source: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
     mapping_set_description: Optional[str] = None
     creator_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
     creator_label: Optional[Union[str, List[str]]] = empty_list()
@@ -102,6 +104,10 @@ class MappingSet(YAMLRoot):
 
         if self.mapping_set_version is not None and not isinstance(self.mapping_set_version, str):
             self.mapping_set_version = str(self.mapping_set_version)
+
+        if not isinstance(self.mapping_set_source, list):
+            self.mapping_set_source = [self.mapping_set_source] if self.mapping_set_source is not None else []
+        self.mapping_set_source = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.mapping_set_source]
 
         if self.mapping_set_description is not None and not isinstance(self.mapping_set_description, str):
             self.mapping_set_description = str(self.mapping_set_description)
