@@ -16,7 +16,9 @@ jobs:
         with:
           python-version: 3.9
       - name: Create local changes
-        run: make
+        run: |
+          pip install pipenv
+          make
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
