@@ -1,5 +1,5 @@
 # Auto generated from sssom.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-09-27 20:38
+# Generation date: 2021-10-11 20:26
 # Schema: sssom
 #
 # id: http://w3id.org/sssom/schema/
@@ -449,4 +449,155 @@ class MatchFieldEnum(EnumDefinitionImpl):
     )
 
 # Slots
+class slots:
+    pass
 
+slots.mappings = Slot(uri=SSSOM.mappings, name="mappings", curie=SSSOM.curie('mappings'),
+                   model_uri=SSSOM.mappings, domain=None, range=Optional[Union[Union[dict, Mapping], List[Union[dict, Mapping]]]])
+
+slots.subject_id = Slot(uri=OWL.annotatedSource, name="subject_id", curie=OWL.curie('annotatedSource'),
+                   model_uri=SSSOM.subject_id, domain=None, range=Union[str, URIorCURIE])
+
+slots.subject_label = Slot(uri=SSSOM.subject_label, name="subject_label", curie=SSSOM.curie('subject_label'),
+                   model_uri=SSSOM.subject_label, domain=None, range=Optional[str])
+
+slots.subject_category = Slot(uri=SSSOM.subject_category, name="subject_category", curie=SSSOM.curie('subject_category'),
+                   model_uri=SSSOM.subject_category, domain=None, range=Optional[str])
+
+slots.predicate_id = Slot(uri=OWL.annotatedProperty, name="predicate_id", curie=OWL.curie('annotatedProperty'),
+                   model_uri=SSSOM.predicate_id, domain=None, range=Union[str, URIorCURIE])
+
+slots.predicate_label = Slot(uri=SSSOM.predicate_label, name="predicate_label", curie=SSSOM.curie('predicate_label'),
+                   model_uri=SSSOM.predicate_label, domain=None, range=Optional[str])
+
+slots.object_id = Slot(uri=OWL.annotatedTarget, name="object_id", curie=OWL.curie('annotatedTarget'),
+                   model_uri=SSSOM.object_id, domain=None, range=Union[str, URIorCURIE])
+
+slots.object_label = Slot(uri=SSSOM.object_label, name="object_label", curie=SSSOM.curie('object_label'),
+                   model_uri=SSSOM.object_label, domain=None, range=Optional[str])
+
+slots.object_category = Slot(uri=SSSOM.object_category, name="object_category", curie=SSSOM.curie('object_category'),
+                   model_uri=SSSOM.object_category, domain=None, range=Optional[str])
+
+slots.match_type = Slot(uri=SSSOM.match_type, name="match_type", curie=SSSOM.curie('match_type'),
+                   model_uri=SSSOM.match_type, domain=None, range=Union[Union[str, "MatchTypeEnum"], List[Union[str, "MatchTypeEnum"]]])
+
+slots.mapping_set_id = Slot(uri=SSSOM.mapping_set_id, name="mapping_set_id", curie=SSSOM.curie('mapping_set_id'),
+                   model_uri=SSSOM.mapping_set_id, domain=None, range=Union[str, URIorCURIE])
+
+slots.mapping_set_version = Slot(uri=OWL.versionInfo, name="mapping_set_version", curie=OWL.curie('versionInfo'),
+                   model_uri=SSSOM.mapping_set_version, domain=None, range=Optional[str])
+
+slots.mapping_set_description = Slot(uri=DC.description, name="mapping_set_description", curie=DC.curie('description'),
+                   model_uri=SSSOM.mapping_set_description, domain=None, range=Optional[str])
+
+slots.creator_id = Slot(uri=DC.creator, name="creator_id", curie=DC.curie('creator'),
+                   model_uri=SSSOM.creator_id, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
+
+slots.creator_label = Slot(uri=SSSOM.creator_label, name="creator_label", curie=SSSOM.curie('creator_label'),
+                   model_uri=SSSOM.creator_label, domain=None, range=Optional[Union[str, List[str]]])
+
+slots.author_id = Slot(uri=PAV.authoredBy, name="author_id", curie=PAV.curie('authoredBy'),
+                   model_uri=SSSOM.author_id, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
+
+slots.author_label = Slot(uri=SSSOM.author_label, name="author_label", curie=SSSOM.curie('author_label'),
+                   model_uri=SSSOM.author_label, domain=None, range=Optional[Union[str, List[str]]])
+
+slots.reviewer_id = Slot(uri=SSSOM.reviewer_id, name="reviewer_id", curie=SSSOM.curie('reviewer_id'),
+                   model_uri=SSSOM.reviewer_id, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
+
+slots.reviewer_label = Slot(uri=SSSOM.reviewer_label, name="reviewer_label", curie=SSSOM.curie('reviewer_label'),
+                   model_uri=SSSOM.reviewer_label, domain=None, range=Optional[Union[str, List[str]]])
+
+slots.license = Slot(uri=DCTERMS.license, name="license", curie=DCTERMS.curie('license'),
+                   model_uri=SSSOM.license, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.subject_source = Slot(uri=SSSOM.subject_source, name="subject_source", curie=SSSOM.curie('subject_source'),
+                   model_uri=SSSOM.subject_source, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.subject_source_version = Slot(uri=SSSOM.subject_source_version, name="subject_source_version", curie=SSSOM.curie('subject_source_version'),
+                   model_uri=SSSOM.subject_source_version, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.object_source = Slot(uri=SSSOM.object_source, name="object_source", curie=SSSOM.curie('object_source'),
+                   model_uri=SSSOM.object_source, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.object_source_version = Slot(uri=SSSOM.object_source_version, name="object_source_version", curie=SSSOM.curie('object_source_version'),
+                   model_uri=SSSOM.object_source_version, domain=None, range=Optional[str])
+
+slots.mapping_provider = Slot(uri=SSSOM.mapping_provider, name="mapping_provider", curie=SSSOM.curie('mapping_provider'),
+                   model_uri=SSSOM.mapping_provider, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.mapping_set_source = Slot(uri=PROV.wasDerivedFrom, name="mapping_set_source", curie=PROV.curie('wasDerivedFrom'),
+                   model_uri=SSSOM.mapping_set_source, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
+
+slots.mapping_cardinality = Slot(uri=SSSOM.mapping_cardinality, name="mapping_cardinality", curie=SSSOM.curie('mapping_cardinality'),
+                   model_uri=SSSOM.mapping_cardinality, domain=None, range=Optional[Union[str, "MappingCardinalityEnum"]])
+
+slots.mapping_tool = Slot(uri=SSSOM.mapping_tool, name="mapping_tool", curie=SSSOM.curie('mapping_tool'),
+                   model_uri=SSSOM.mapping_tool, domain=None, range=Optional[str])
+
+slots.mapping_tool_version = Slot(uri=SSSOM.mapping_tool_version, name="mapping_tool_version", curie=SSSOM.curie('mapping_tool_version'),
+                   model_uri=SSSOM.mapping_tool_version, domain=None, range=Optional[str])
+
+slots.mapping_date = Slot(uri=PAV.authoredOn, name="mapping_date", curie=PAV.curie('authoredOn'),
+                   model_uri=SSSOM.mapping_date, domain=None, range=Optional[Union[str, XSDDate]])
+
+slots.publication_date = Slot(uri=DC.created, name="publication_date", curie=DC.curie('created'),
+                   model_uri=SSSOM.publication_date, domain=None, range=Optional[Union[str, XSDDate]])
+
+slots.confidence = Slot(uri=SSSOM.confidence, name="confidence", curie=SSSOM.curie('confidence'),
+                   model_uri=SSSOM.confidence, domain=None, range=Optional[float])
+
+slots.subject_match_field = Slot(uri=SSSOM.subject_match_field, name="subject_match_field", curie=SSSOM.curie('subject_match_field'),
+                   model_uri=SSSOM.subject_match_field, domain=None, range=Optional[Union[Union[str, "MatchFieldEnum"], List[Union[str, "MatchFieldEnum"]]]])
+
+slots.object_match_field = Slot(uri=SSSOM.object_match_field, name="object_match_field", curie=SSSOM.curie('object_match_field'),
+                   model_uri=SSSOM.object_match_field, domain=None, range=Optional[Union[Union[str, "MatchFieldEnum"], List[Union[str, "MatchFieldEnum"]]]])
+
+slots.match_string = Slot(uri=SSSOM.match_string, name="match_string", curie=SSSOM.curie('match_string'),
+                   model_uri=SSSOM.match_string, domain=None, range=Optional[Union[str, List[str]]])
+
+slots.subject_preprocessing = Slot(uri=SSSOM.subject_preprocessing, name="subject_preprocessing", curie=SSSOM.curie('subject_preprocessing'),
+                   model_uri=SSSOM.subject_preprocessing, domain=None, range=Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]])
+
+slots.object_preprocessing = Slot(uri=SSSOM.object_preprocessing, name="object_preprocessing", curie=SSSOM.curie('object_preprocessing'),
+                   model_uri=SSSOM.object_preprocessing, domain=None, range=Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]])
+
+slots.match_term_type = Slot(uri=SSSOM.match_term_type, name="match_term_type", curie=SSSOM.curie('match_term_type'),
+                   model_uri=SSSOM.match_term_type, domain=None, range=Optional[Union[str, "MatchTermTypeEnum"]])
+
+slots.semantic_similarity_score = Slot(uri=SSSOM.semantic_similarity_score, name="semantic_similarity_score", curie=SSSOM.curie('semantic_similarity_score'),
+                   model_uri=SSSOM.semantic_similarity_score, domain=None, range=Optional[float])
+
+slots.semantic_similarity_measure = Slot(uri=SSSOM.semantic_similarity_measure, name="semantic_similarity_measure", curie=SSSOM.curie('semantic_similarity_measure'),
+                   model_uri=SSSOM.semantic_similarity_measure, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.see_also = Slot(uri=RDFS.seeAlso, name="see_also", curie=RDFS.curie('seeAlso'),
+                   model_uri=SSSOM.see_also, domain=None, range=Optional[Union[str, List[str]]])
+
+slots.other = Slot(uri=SSSOM.other, name="other", curie=SSSOM.curie('other'),
+                   model_uri=SSSOM.other, domain=None, range=Optional[str])
+
+slots.comment = Slot(uri=RDFS.comment, name="comment", curie=RDFS.curie('comment'),
+                   model_uri=SSSOM.comment, domain=None, range=Optional[str])
+
+slots.required = Slot(uri=SSSOM.required, name="required", curie=SSSOM.curie('required'),
+                   model_uri=SSSOM.required, domain=None, range=Optional[str])
+
+slots.metadata_element = Slot(uri=SSSOM.metadata_element, name="metadata_element", curie=SSSOM.curie('metadata_element'),
+                   model_uri=SSSOM.metadata_element, domain=None, range=Optional[str])
+
+slots.scope = Slot(uri=SSSOM.scope, name="scope", curie=SSSOM.curie('scope'),
+                   model_uri=SSSOM.scope, domain=None, range=Optional[str])
+
+slots.rdf_example = Slot(uri=SSSOM.rdf_example, name="rdf_example", curie=SSSOM.curie('rdf_example'),
+                   model_uri=SSSOM.rdf_example, domain=None, range=Optional[str])
+
+slots.tsv_example = Slot(uri=SSSOM.tsv_example, name="tsv_example", curie=SSSOM.curie('tsv_example'),
+                   model_uri=SSSOM.tsv_example, domain=None, range=Optional[str])
+
+slots.equivalent_property = Slot(uri=SSSOM.equivalent_property, name="equivalent_property", curie=SSSOM.curie('equivalent_property'),
+                   model_uri=SSSOM.equivalent_property, domain=None, range=Optional[str])
+
+slots.mapping_set_license = Slot(uri=DCTERMS.license, name="mapping set_license", curie=DCTERMS.curie('license'),
+                   model_uri=SSSOM.mapping_set_license, domain=MappingSet, range=Union[str, URIorCURIE])

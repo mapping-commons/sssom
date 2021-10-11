@@ -238,6 +238,7 @@
                "type": "array"
             },
             "license": {
+               "description": "A url to the license of the mapping. In absence of a license we assume no license.",
                "type": "string"
             },
             "mapping_date": {
