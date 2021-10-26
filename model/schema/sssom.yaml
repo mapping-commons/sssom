@@ -99,6 +99,10 @@ slots:
     slot_uri: owl:annotatedProperty
     examples:
       - value: skos:exactMatch
+  predicate_modifier:
+    description: A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
+    required: false
+    ...
   predicate_label:
     description: The label of the predicate/relation of the mapping
     range: string
