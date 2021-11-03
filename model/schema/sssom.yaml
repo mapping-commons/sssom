@@ -65,9 +65,12 @@ slots:
     description: Contains a list of mapping objects
     range: mapping
     multivalued: true
+  id:
+    description: CURIE or IRI identifier
+    identifier: true
   subject_id:
     description: The ID of the subject of the mapping.
-    range: uriorcurie
+    range: entity
     required: true
     mappings:
     - owl:annotatedSource
@@ -94,7 +97,7 @@ slots:
       object of this match.
     mappings:
     - owl:annotatedProperty
-    range: uriorcurie
+    range: entity
     required: true
     slot_uri: owl:annotatedProperty
     examples:
@@ -131,7 +134,7 @@ slots:
     description: The ID of the object of the mapping.
     mappings:
     - owl:annotatedTarget
-    range: uriorcurie
+    range: entity
     required: true
     slot_uri: owl:annotatedTarget
     examples:
@@ -377,6 +380,13 @@ slots:
     description: 'SSSOM property should be mapped to:'
     range: string
 classes:
+  entity:
+    description: Represents any entity that can be mapped, such as an OWL class or
+      SKOS concept
+    mappings:
+    - rdf:Resource
+    slots:
+    - id
   mapping set:
     description: Represents a set of mappings
     slot_usage:
