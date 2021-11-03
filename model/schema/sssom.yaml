@@ -22,6 +22,11 @@ default_curi_maps:
 default_prefix: sssom
 
 enums:
+  predicate_modifier_enum:
+    permissible_values:
+      Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
+      Direct: States that the mapping predicate directly relates two entities connected by a transitive predicate like rdfs:subClassOf, i.e. there is no other entities in between.
+      Inverse: Inverting the predicate. The meaning of the triple becomes subject_id is inverse-related with predicate_id match to object_id (effectively turning the direction around).
   mapping_cardinality_enum:
     permissible_values:
       "1:1": One-to-one mapping
@@ -101,8 +106,10 @@ slots:
       - value: skos:exactMatch
   predicate_modifier:
     description: A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
-    required: false
-    ...
+    range: predicate_modifier_enum
+    examples:
+      - value: Not
+        description: Negates the predicate, see documentation of predicate_modifier_enum
   predicate_label:
     description: The label of the predicate/relation of the mapping
     range: string
