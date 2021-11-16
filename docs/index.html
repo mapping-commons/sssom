@@ -176,6 +176,7 @@
 <li><a href="other/">other</a> - Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.</li>
 <li><a href="predicate_id/">predicate_id</a> - The ID of the predicate or relation that relates the subject and object of this match.</li>
 <li><a href="predicate_label/">predicate_label</a> - The label of the predicate/relation of the mapping</li>
+<li><a href="predicate_modifier/">predicate_modifier</a> - A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion</li>
 <li><a href="publication_date/">publication_date</a> - The date the mapping was published. This is different from the date the mapping was asserted.</li>
 <li><a href="rdf_example/">rdf_example</a> - An example value of the a SSSOM element in the TSV file.</li>
 <li><a href="required/">required</a> - Indicates wether the SSSOM metadata element is required</li>
@@ -197,9 +198,9 @@
 <h3 id="enums">Enums</h3>
 <ul>
 <li><a href="mapping_cardinality_enum/">mapping_cardinality_enum</a></li>
-<li><a href="match_field_enum/">match_field_enum</a></li>
 <li><a href="match_term_type_enum/">match_term_type_enum</a></li>
 <li><a href="match_type_enum/">match_type_enum</a></li>
+<li><a href="predicate_modifier_enum/">predicate_modifier_enum</a></li>
 <li><a href="preprocessing_method_enum/">preprocessing_method_enum</a></li>
 </ul>
 <h3 id="subsets">Subsets</h3>
@@ -222,6 +223,7 @@
 </ul>
 <h4 id="defined">Defined</h4>
 <ul>
+<li><a href="EntityReference/">EntityReference</a>  (<a href="Uriorcurie/">Uriorcurie</a>)  - A reference to a mapped entity. This is represented internally as a string, and as a resource in RDF</li>
 <li><a href="Boolean/">Boolean</a>  (<strong>Bool</strong>)  - A binary (true or false) value</li>
 <li><a href="Date/">Date</a>  (<strong>XSDDate</strong>)  - a date (year, month and day) in an idealized calendar</li>
 <li><a href="Datetime/">Datetime</a>  (<strong>XSDDateTime</strong>)  - The combination of a date and time</li>
@@ -295,5 +297,5 @@
 
 <!--
 MkDocs version : 1.2.2
-Build Date UTC : 2021-09-27 17:40:46.990651+00:00
+Build Date UTC : 2021-11-16 09:36:46.757747+00:00
 -->

@@ -98,7 +98,7 @@
             "object_match_field": {
                "description": "A tuple of fields (term annotations on the object) that was used for the match.",
                "items": {
-                  "$ref": "#/$defs/MatchFieldEnum"
+                  "type": "string"
                },
                "type": "array"
             },
@@ -128,6 +128,10 @@
             "predicate_label": {
                "description": "The label of the predicate/relation of the mapping",
                "type": "string"
+            },
+            "predicate_modifier": {
+               "$ref": "#/$defs/PredicateModifierEnum",
+               "description": "A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion"
             },
             "reviewer_id": {
                "description": "Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.",
@@ -173,7 +177,7 @@
             "subject_match_field": {
                "description": "A tuple of fields (term annotations on the subject) that was used for the match.",
                "items": {
-                  "$ref": "#/$defs/MatchFieldEnum"
+                  "type": "string"
                },
                "type": "array"
             },
@@ -238,7 +242,6 @@
                "type": "array"
             },
             "license": {
-               "description": "A url to the license of the mapping. In absence of a license we assume no license.",
                "type": "string"
             },
             "mapping_date": {
@@ -287,7 +290,7 @@
             "object_match_field": {
                "description": "A tuple of fields (term annotations on the object) that was used for the match.",
                "items": {
-                  "$ref": "#/$defs/MatchFieldEnum"
+                  "type": "string"
                },
                "type": "array"
             },
@@ -320,7 +323,7 @@
             "subject_match_field": {
                "description": "A tuple of fields (term annotations on the subject) that was used for the match.",
                "items": {
-                  "$ref": "#/$defs/MatchFieldEnum"
+                  "type": "string"
                },
                "type": "array"
             },
@@ -347,20 +350,6 @@
          "title": "MappingSet",
          "type": "object"
       },
-      "MatchFieldEnum": {
-         "description": "",
-         "enum": [
-            "ExactSynonym",
-            "Label",
-            "RelatedSynonym",
-            "CloseSyonym",
-            "BroadSynonym",
-            "NarrowSynonm",
-            "Definition"
-         ],
-         "title": "MatchFieldEnum",
-         "type": "string"
-      },
       "MatchTermTypeEnum": {
          "description": "",
          "enum": [
@@ -385,6 +374,14 @@
             "SemanticSimilarity"
          ],
          "title": "MatchTypeEnum",
+         "type": "string"
+      },
+      "PredicateModifierEnum": {
+         "description": "",
+         "enum": [
+            "Not"
+         ],
+         "title": "PredicateModifierEnum",
          "type": "string"
       },
       "PreprocessingMethodEnum": {
