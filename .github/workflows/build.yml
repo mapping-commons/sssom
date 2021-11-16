@@ -18,12 +18,12 @@ jobs:
       - name: Create local changes
         run: |
           pip install pipenv
-          make
+          make all
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -m "Update" -a
+          git commit -m "Rebuilding documentation and generated files with Github Action" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
