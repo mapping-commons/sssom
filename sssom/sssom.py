@@ -1,5 +1,5 @@
 # Auto generated from sssom.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-11-16 11:37
+# Generation date: 2021-11-16T09:47:22
 # Schema: sssom
 #
 # id: http://w3id.org/sssom/schema/
@@ -608,5 +608,5 @@ slots.tsv_example = Slot(uri=SSSOM.tsv_example, name="tsv_example", curie=SSSOM.
 slots.equivalent_property = Slot(uri=SSSOM.equivalent_property, name="equivalent_property", curie=SSSOM.curie('equivalent_property'),
                    model_uri=SSSOM.equivalent_property, domain=None, range=Optional[str])
 
-slots.mapping_set_license = Slot(uri=SSSOM.license, name="mapping set_license", curie=SSSOM.curie('license'),
+slots.mapping_set_license = Slot(uri=DCTERMS.license, name="mapping set_license", curie=DCTERMS.curie('license'),
                    model_uri=SSSOM.mapping_set_license, domain=MappingSet, range=Union[str, URI])
