@@ -20,15 +20,20 @@ Development Draft (under construction: some metadata fields may be subject to ch
 
 *Contributors:*
 
+* [Alasdair Gray](https://orcid.org/0000-0002-5711-4872)
+* [Alex Wagner](https://orcid.org/0000-0002-2502-8961)
+* [Amelia L. Hoyt](https://orcid.org/0000-0003-1307-2508)
 * [Andrew Williams](https://orcid.org/0000-0002-0692-412X)
 * [Anne Thessen](https://orcid.org/0000-0002-2908-3327)
 * [Benjamin M. Gyori](https://orcid.org/0000-0001-9439-5346)
 * [Bill Baumgartner](https://orcid.org/0000-0001-6717-5313)
 * [Christopher Chute](https://orcid.org/0000-0001-5437-2545)
+* [Chris T. Evelo](https://orcid.org/0000-0002-5301-3142)
 * [Damion Dooley](https://orcid.org/0000-0002-8844-9165)
 * [Davera Gabriel](https://orcid.org/0000-0001-9041-4597)
 * [Harold Solbrig](https://www.wikidata.org/wiki/Q44607574)
 * [HyeongSik Kim](https://orcid.org/0000-0002-3002-9838)
+* [Ian Harrow](https://orcid.org/0000-0003-0109-0522)
 * [James Malone](https://orcid.org/0000-0002-1615-2899)
 * [James Overton](https://orcid.org/0000-0001-5139-5557)
 * [James P. Balhoff](https://orcid.org/0000-0002-8688-6599)
@@ -42,14 +47,15 @@ Development Draft (under construction: some metadata fields may be subject to ch
 * [Lauren Chan](https://orcid.org/0000-0002-7463-6306)
 * [Melissa Haendel](https://orcid.org/0000-0001-9114-8737)
 * [Monica Munoz-Torres](https://orcid.org/0000-0001-8430-6039)
-* [Monica Munoz-Torres](https://orcid.org/0000-0001-8430-6039)
 * [Nicole Vasilevsky](https://orcid.org/0000-0001-5208-3432)
 * [Nomi Harris](https://orcid.org/0000-0001-6315-3707)
+* [Núria Queralt-Rosinach](https://orcid.org/0000-0003-0169-8159)
 * [Sabrina Toro](https://orcid.org/0000-0002-4142-7153)
 * [Sebastian Koehler](https://orcid.org/0000-0002-5316-1399)
 * [Shahim Essaid](https://orcid.org/0000-0003-2338-2550)
 * [Sierra Moxon](https://orcid.org/0000-0002-8719-7760)
 * [Sue Bello](https://orcid.org/0000-0003-4606-0597)
+* [Tim Putman](https://orcid.org/0000-0002-4291-0737)
 
 *Quick links*: 
 
