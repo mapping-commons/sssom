@@ -66,6 +66,7 @@ slots:
     description: Contains a list of mapping objects
     range: mapping
     multivalued: true
+    inlined_as_list: true
   subject_id:
     description: The ID of the subject of the mapping.
     range: EntityReference
