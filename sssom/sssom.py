@@ -1,5 +1,5 @@
 # Auto generated from sssom.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-11-16T09:47:22
+# Generation date: 2021-12-01T08:15:02
 # Schema: sssom
 #
 # id: http://w3id.org/sssom/schema/
@@ -107,7 +107,7 @@ class MappingSet(YAMLRoot):
         if not isinstance(self.license, URI):
             self.license = URI(self.license)
 
-        self._normalize_inlined_as_dict(slot_name="mappings", slot_type=Mapping, key_name="subject_id", keyed=False)
+        self._normalize_inlined_as_list(slot_name="mappings", slot_type=Mapping, key_name="subject_id", keyed=False)
 
         if self.mapping_set_version is not None and not isinstance(self.mapping_set_version, str):
             self.mapping_set_version = str(self.mapping_set_version)

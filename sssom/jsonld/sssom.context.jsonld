@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from sssom.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-11-16T09:47:13\n    Schema: sssom\n    \n    id: http://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "_comments": "Auto generated from sssom.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-12-01T08:14:54\n    Schema: sssom\n    \n    id: http://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
       "Orphanet": {
          "@id": "http://www.orpha.net/ORDO/Orphanet_",
