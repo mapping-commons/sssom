@@ -365,9 +365,6 @@ slots:
       by tool providing additional informative information.
     slot_uri: rdfs:comment
     range: string
-  required:
-    description: Indicates wether the SSSOM metadata element is required
-    range: string
   metadata_element:
     description: All legal SSSOM metadata elements are subproperties of this.
     range: string
