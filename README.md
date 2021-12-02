@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/13996/mapping-commons/sssom.svg)](https://zenodo.org/badge/latestdoi/13996/mapping-commons/sssom)
+
 # A Simple Standard for Sharing Ontology Mappings (SSSOM)
 
 SSSOM is a Simple Standard for Sharing Ontology Mappings, providing 
