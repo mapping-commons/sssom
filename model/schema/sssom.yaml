@@ -67,6 +67,7 @@ slots:
     range: mapping
     multivalued: true
     inlined_as_list: true
+    recommended: true
   subject_id:
     description: The ID of the subject of the mapping.
     range: EntityReference
@@ -82,6 +83,7 @@ slots:
     range: string
     examples:
       - value: Thickened ears
+    recommended: true
   subject_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
@@ -150,6 +152,7 @@ slots:
     range: string
     examples:
       - value: Thickened ears
+    recommended: true
   object_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
