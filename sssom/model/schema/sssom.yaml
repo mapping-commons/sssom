@@ -162,7 +162,6 @@ slots:
   match_type:
     description: The kind of match that led to the mapping, e.g. Logical or Lexical.
     range: match_type_enum
-    required: true
     multivalued: true
     examples:
       - value: Lexical
