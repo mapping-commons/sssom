@@ -1,5 +1,5 @@
 # Auto generated from sssom.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-12-01T21:09:30
+# Generation date: 2021-12-03T11:02:23
 # Schema: sssom
 #
 # id: http://w3id.org/sssom/schema/
@@ -589,9 +589,6 @@ slots.other = Slot(uri=SSSOM.other, name="other", curie=SSSOM.curie('other'),
 
 slots.comment = Slot(uri=RDFS.comment, name="comment", curie=RDFS.curie('comment'),
                    model_uri=SSSOM.comment, domain=None, range=Optional[str])
-
-slots.required = Slot(uri=SSSOM.required, name="required", curie=SSSOM.curie('required'),
-                   model_uri=SSSOM.required, domain=None, range=Optional[str])
 
 slots.metadata_element = Slot(uri=SSSOM.metadata_element, name="metadata_element", curie=SSSOM.curie('metadata_element'),
                    model_uri=SSSOM.metadata_element, domain=None, range=Optional[str])
