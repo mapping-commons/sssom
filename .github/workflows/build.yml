@@ -31,4 +31,4 @@ jobs:
           branch: ${{ github.ref }}
       - name: Run unit tests
         run: |
-        make test
+          make test
