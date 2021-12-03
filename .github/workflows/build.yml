@@ -4,7 +4,7 @@ on:
     paths:
       - 'sssom/model/schema/sssom.yaml'
   pull_request:
-        branches: [master, next]
+        branches: [master]
 
 jobs:
   build:
