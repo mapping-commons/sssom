@@ -21,6 +21,7 @@ jobs:
         run: |
           pip install pipenv
           make all
+          make test
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
