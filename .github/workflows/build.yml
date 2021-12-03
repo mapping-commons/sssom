@@ -3,8 +3,6 @@ on:
   push:
     paths:
       - 'sssom/model/schema/sssom.yaml'
-  pull_request:
-        branches: [master]
 
 jobs:
   build:
@@ -26,11 +24,8 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Rebuilding documentation and generated files with Github Action" -a
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     # branch: ${{ github.ref }}
-      - name: Run unit tests
-        run: |
-          make test
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
