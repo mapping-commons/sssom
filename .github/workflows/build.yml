@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - 'sssom/model/schema/sssom.yaml'
+  pull_request:
+        branches: [master, next]
 
 jobs:
   build:
