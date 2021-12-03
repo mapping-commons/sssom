@@ -33,4 +33,6 @@ jobs:
           branch: ${{ github.ref }}
       - name: Run unit tests
         run: |
+          echo "${{github.ref}}"
           make test
+          
