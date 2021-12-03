@@ -1,7 +1,6 @@
 name: Build
 on:
   push:
-    branches: [ master ]
     paths:
       - 'sssom/model/schema/sssom.yaml'
   pull_request:
@@ -31,6 +30,8 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo $github.ref
       #     branch: ${{ github.ref }}
       - name: Run unit tests
         run: |
