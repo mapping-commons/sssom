@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+linkml = ">=0.1.1.dev1"
+linkml-model = ">=0.1.1.dev1"
+jsonasobj2 = "~=1.0, >=1.0.3"
+pyldmod = "*"
+mkdocs = "*"
+
+[dev-packages]
+
+[pipenv]
+allow_prereleases = true
