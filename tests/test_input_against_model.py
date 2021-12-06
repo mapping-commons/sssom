@@ -3,7 +3,7 @@ import unittest
 
 from linkml_runtime.loaders import yaml_loader, json_loader, rdf_loader
 
-from sssom.sssom import Person
+from sssom.sssom import MappingSet
 
 CWD = os.path.abspath(os.path.dirname(__file__))
 INPUT_DIR = os.path.join(CWD, 'input')
@@ -27,21 +27,22 @@ class InputFileTestCase(unittest.TestCase):
                 try:
                     if fname.endswith('.yaml'):
                         nyaml += 1
-                        o: Person = yaml_loader.load(full_fname, Person)
+                        o: MappingSet = yaml_loader.load(full_fname, MappingSet)
                         pyaml += 1
                     elif fname.endswith('.json'):
                         njson += 1
-                        o: Person = json_loader.load(full_fname, Person)
+                        o: MappingSet = json_loader.load(full_fname, MappingSet)
                         pjson += 1
                     elif fname.endswith('.ttl'):
                         nttl += 1
-                        o: Person = rdf_loader.load(full_fname, Person)
+                        o: MappingSet = rdf_loader.load(full_fname, MappingSet)
                         pttl += 1
                     elif fname.endswith('.md'):
                         pass
                     else:
                         nunk += 1
-                except Exception as _:
+                except Exception as e:
+                    print(e)
                     nfailures += 1
 
         print(f"{nread} files tested")
