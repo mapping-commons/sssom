@@ -114,7 +114,7 @@
                 <h1 id="class-mapping-set">Class: mapping set</h1>
 <p>Represents a set of mappings</p>
 <p>URI: <a href="http://w3id.org/sssom/MappingSet">sssom:MappingSet</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]&lt;mappings%200..*-++[MappingSet&#124;mapping_set_id:uriorcurie;mapping_set_version:string%20%3F;mapping_set_source:uriorcurie%20*;mapping_set_description:string%20%3F;creator_id:uriorcurie%20*;creator_label:string%20*;license:uriorcurie;subject_source:uriorcurie%20%3F;subject_source_version:uriorcurie%20%3F;object_source:uriorcurie%20%3F;object_source_version:string%20%3F;mapping_provider:uriorcurie%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:match_field_enum%20*;object_match_field:match_field_enum%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;match_term_type:match_term_type_enum%20%3F;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[Mapping]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]&lt;mappings%200..*-++[MappingSet&#124;mapping_set_id:uriorcurie;mapping_set_version:string%20%3F;mapping_set_source:uriorcurie%20*;mapping_set_description:string%20%3F;creator_id:uriorcurie%20*;creator_label:string%20*;license:uriorcurie;subject_source:uriorcurie%20%3F;subject_source_version:uriorcurie%20%3F;object_source:uriorcurie%20%3F;object_source_version:string%20%3F;mapping_provider:uriorcurie%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:match_field_enum%20*;object_match_field:match_field_enum%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;match_term_type:match_term_type_enum%20%3F;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[Mapping]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]&lt;mappings%200..*-++[MappingSet&#124;mapping_set_id:uri;mapping_set_version:string%20%3F;mapping_set_source:EntityReference%20*;mapping_set_description:string%20%3F;creator_id:EntityReference%20*;creator_label:string%20*;license:uri;subject_source:uri%20%3F;subject_source_version:string%20%3F;object_source:uri%20%3F;object_source_version:string%20%3F;mapping_provider:uri%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:EntityReference%20*;object_match_field:EntityReference%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;match_term_type:match_term_type_enum%20%3F;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[Mapping]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]&lt;mappings%200..*-++[MappingSet&#124;mapping_set_id:uri;mapping_set_version:string%20%3F;mapping_set_source:EntityReference%20*;mapping_set_description:string%20%3F;creator_id:EntityReference%20*;creator_label:string%20*;license:uri;subject_source:uri%20%3F;subject_source_version:string%20%3F;object_source:uri%20%3F;object_source_version:string%20%3F;mapping_provider:uri%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:EntityReference%20*;object_match_field:EntityReference%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;match_term_type:match_term_type_enum%20%3F;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[Mapping]" /></a></p>
 <h2 id="referenced-by-class">Referenced by Class</h2>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
@@ -126,7 +126,7 @@
 </li>
 <li><a href="../mapping_set_id/">mapping_set_id</a>  <sub>1..1</sub><ul>
 <li>Description: A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.</li>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>Range: <a href="../Uri/">Uri</a></li>
 <li>Example: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv (A persistent URI pointing to the latest version of the Mondo - NCIT mapping in the Mondo namespace.)</li>
 </ul>
 </li>
@@ -139,7 +139,7 @@
 </li>
 <li><a href="../mapping_set_source/">mapping_set_source</a>  <sub>0..*</sub><ul>
 <li>Description: A mapping set or set of mapping set that was used to derive the mapping set.</li>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>Range: <a href="../EntityReference/">EntityReference</a></li>
 <li>Example: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv None</li>
 <li>Example: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv|MONDO_MAPPINGS:mondo_exactmatch_omim.sssom.tsv (multivalued example in TSV)</li>
 </ul>
@@ -152,7 +152,7 @@
 </li>
 <li><a href="../creator_id/">creator_id</a>  <sub>0..*</sub><ul>
 <li>Description: Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</li>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>Range: <a href="../EntityReference/">EntityReference</a></li>
 </ul>
 </li>
 <li><a href="../creator_label/">creator_label</a>  <sub>0..*</sub><ul>
@@ -161,24 +161,25 @@
 </ul>
 </li>
 <li><a href="../mapping_set_license/">mapping set➞license</a>  <sub>1..1</sub><ul>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>Description: A url to the license of the mapping. In absence of a license we assume no license.</li>
+<li>Range: <a href="../Uri/">Uri</a></li>
 </ul>
 </li>
 <li><a href="../subject_source/">subject_source</a>  <sub>0..1</sub><ul>
 <li>Description: URI of ontology source for the subject.</li>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>Range: <a href="../Uri/">Uri</a></li>
 <li>Example: http://purl.obolibrary.org/obo/mondo.owl (A persistent IRI pointing to the latest version of the Mondo ontology.)</li>
 </ul>
 </li>
 <li><a href="../subject_source_version/">subject_source_version</a>  <sub>0..1</sub><ul>
 <li>Description: Version IRI or version string of the source of the subject term.</li>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>Range: <a href="../String/">String</a></li>
 <li>Example: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl (A persistent Version IRI pointing to the Mondo version '2021-01-30')</li>
 </ul>
 </li>
 <li><a href="../object_source/">object_source</a>  <sub>0..1</sub><ul>
 <li>Description: IRI of ontology source for the object. Version IRI preferred.</li>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>Range: <a href="../Uri/">Uri</a></li>
 <li>Example: http://purl.obolibrary.org/obo/mondo.owl (A persistent IRI pointing to the latest version of the Mondo ontology.)</li>
 </ul>
 </li>
@@ -190,7 +191,7 @@
 </li>
 <li><a href="../mapping_provider/">mapping_provider</a>  <sub>0..1</sub><ul>
 <li>Description: URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.</li>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>Range: <a href="../Uri/">Uri</a></li>
 </ul>
 </li>
 <li><a href="../mapping_tool/">mapping_tool</a>  <sub>0..1</sub><ul>
@@ -206,12 +207,12 @@
 </li>
 <li><a href="../subject_match_field/">subject_match_field</a>  <sub>0..*</sub><ul>
 <li>Description: A tuple of fields (term annotations on the subject) that was used for the match.</li>
-<li>Range: <a href="../match_field_enum/">match_field_enum</a></li>
+<li>Range: <a href="../EntityReference/">EntityReference</a></li>
 </ul>
 </li>
 <li><a href="../object_match_field/">object_match_field</a>  <sub>0..*</sub><ul>
 <li>Description: A tuple of fields (term annotations on the object) that was used for the match.</li>
-<li>Range: <a href="../match_field_enum/">match_field_enum</a></li>
+<li>Range: <a href="../EntityReference/">EntityReference</a></li>
 </ul>
 </li>
 <li><a href="../subject_preprocessing/">subject_preprocessing</a>  <sub>0..*</sub><ul>

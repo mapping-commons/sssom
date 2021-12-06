@@ -22,6 +22,9 @@ default_curi_maps:
 default_prefix: sssom
 
 enums:
+  predicate_modifier_enum:
+    permissible_values:
+      Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
   mapping_cardinality_enum:
     permissible_values:
       "1:1": One-to-one mapping
@@ -50,24 +53,24 @@ enums:
     permissible_values:
       Stemming:
       TaxonRestrictionRemoval:
-  match_field_enum:
-    permissible_values:
-      ExactSynonym:
-      Label:
-      RelatedSynonym:
-      CloseSyonym:
-      BroadSynonym:
-      NarrowSynonm:
-      Definition:
+
+types:
+ EntityReference:
+    typeof: uriorcurie
+    description: A reference to a mapped entity. This is represented internally as a string, and as a resource in RDF
+    base: str
+    uri: rdfs:Resource
 
 slots:
   mappings:
     description: Contains a list of mapping objects
     range: mapping
     multivalued: true
+    inlined_as_list: true
+    recommended: true
   subject_id:
     description: The ID of the subject of the mapping.
-    range: uriorcurie
+    range: EntityReference
     required: true
     mappings:
     - owl:annotatedSource
@@ -80,6 +83,7 @@ slots:
     range: string
     examples:
       - value: Thickened ears
+    recommended: true
   subject_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
@@ -94,11 +98,17 @@ slots:
       object of this match.
     mappings:
     - owl:annotatedProperty
-    range: uriorcurie
+    range: EntityReference
     required: true
     slot_uri: owl:annotatedProperty
     examples:
       - value: skos:exactMatch
+  predicate_modifier:
+    description: A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
+    range: predicate_modifier_enum
+    examples:
+      - value: Not
+        description: Negates the predicate, see documentation of predicate_modifier_enum
   predicate_label:
     description: The label of the predicate/relation of the mapping
     range: string
@@ -131,7 +141,7 @@ slots:
     description: The ID of the object of the mapping.
     mappings:
     - owl:annotatedTarget
-    range: uriorcurie
+    range: EntityReference
     required: true
     slot_uri: owl:annotatedTarget
     examples:
@@ -142,6 +152,7 @@ slots:
     range: string
     examples:
       - value: Thickened ears
+    recommended: true
   object_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
@@ -165,7 +176,7 @@ slots:
     description: A globally unique identifier for the mapping set (not each individual
       mapping). Should be IRI, ideally resolvable.
     required: true
-    range: uriorcurie
+    range: uri
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
         description: (A persistent URI pointing to the latest version of the Mondo - NCIT mapping in the Mondo namespace.)
@@ -193,7 +204,7 @@ slots:
       identifying URLs, but any identifying string (such as name and affiliation)
       is permissible.
     slot_uri: dc:creator
-    range: uriorcurie
+    range: EntityReference
     multivalued: true
   creator_label:
     description: A string identifying the creator of this mapping. In the spirit of
@@ -206,7 +217,7 @@ slots:
       identifying URLs, but any identifying string (such as name and affiliation)
       is permissible.
     slot_uri: pav:authoredBy
-    range: uriorcurie
+    range: EntityReference
     multivalued: true
   author_label:
     description: A string identifying the author of this mapping. In the spirit of
@@ -218,7 +229,7 @@ slots:
       Recommended to be a (pipe-separated) list of ORCIDs or otherwise
       identifying URLs, but any identifying string (such as name and affiliation)
       is permissible.
-    range: uriorcurie
+    range: EntityReference
     multivalued: true
   reviewer_label:
     description: A string identifying the reviewer of this mapping. In the spirit of
@@ -228,23 +239,23 @@ slots:
   license:
     description: A url to the license of the mapping. In absence of a license we assume
       no license.
-    range: uriorcurie
+    range: uri
     slot_uri: dcterms:license
   subject_source:
     description: URI of ontology source for the subject.
-    range: uriorcurie
+    range: uri
     examples:
       - value: http://purl.obolibrary.org/obo/mondo.owl
         description: (A persistent IRI pointing to the latest version of the Mondo ontology.)
   subject_source_version:
     description: Version IRI or version string of the source of the subject term.
-    range: uriorcurie
+    range: string
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   object_source:
     description: IRI of ontology source for the object. Version IRI preferred.
-    range: uriorcurie
+    range: uri
     examples:
       - value: http://purl.obolibrary.org/obo/mondo.owl
         description: (A persistent IRI pointing to the latest version of the Mondo ontology.)
@@ -257,11 +268,11 @@ slots:
   mapping_provider:
     description: URL pointing to the source that provided the mapping, for example
       an ontology that already contains the mappings, or a database from which it was derived.
-    range: uriorcurie
+    range: uri
   mapping_set_source:
     description: A mapping set or set of mapping set that was used to derive the mapping set.
     slot_uri: prov:wasDerivedFrom
-    range: uriorcurie
+    range: EntityReference
     multivalued: true
     examples:
       - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
@@ -299,12 +310,12 @@ slots:
   subject_match_field:
     description: A tuple of fields (term annotations on the subject) that was used
       for the match.
-    range: match_field_enum
+    range: EntityReference
     multivalued: true
   object_match_field:
     description: A tuple of fields (term annotations on the object) that was used
       for the match.
-    range: match_field_enum
+    range: EntityReference
     multivalued: true
   match_string:
     description: Strings that are shared by subj/obj. It is recommended to indicate the 
@@ -337,7 +348,7 @@ slots:
     description: The measure used for computing the the semantic similarity score.
       To make processing this field as unambiguous as possible, we recommend using 
       wikidata identifiers, but wikipedia pages could also be acceptable.
-    range: uriorcurie
+    range: string
     examples:
       - value: https://www.wikidata.org/wiki/Q865360
         description: (the Wikidata identifier for the Jaccard index measure).
@@ -356,9 +367,6 @@ slots:
     description: Free text field containing either curator notes or text generated
       by tool providing additional informative information.
     slot_uri: rdfs:comment
-    range: string
-  required:
-    description: Indicates wether the SSSOM metadata element is required
     range: string
   metadata_element:
     description: All legal SSSOM metadata elements are subproperties of this.
@@ -414,6 +422,7 @@ classes:
     - subject_category
     - predicate_id
     - predicate_label
+    - predicate_modifier
     - object_id
     - object_label
     - object_category

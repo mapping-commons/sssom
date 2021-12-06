@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/13996/mapping-commons/sssom.svg)](https://zenodo.org/badge/latestdoi/13996/mapping-commons/sssom)
+
 # A Simple Standard for Sharing Ontology Mappings (SSSOM)
 
 SSSOM is a Simple Standard for Sharing Ontology Mappings, providing 
@@ -29,5 +31,5 @@ SSSOM further provides a standard way to
 - augment the TSV file with mapping set - level metadata, such as creator_id, mapping_date or license and
 - translate a SSSOM compliant TSV files into _OWL reified axioms_. This will allow the easy loading, and merging of SSSOM mapping tables into existing ontologies using standard tools such as ROBOT (under development).
 
-Note that SSSOM is currently under development and subject to change. Please leave us a comment on the [issue tracker](https://github.com/OBOFoundry/SSSOM/issues) if you want to be involved. The full specification can be found [here](SSSOM.md).
+Note that SSSOM is currently under development and subject to change. Please leave us a comment on the [issue tracker](https://github.com/OBOFoundry/SSSOM/issues) if you want to be involved. The full specification can be found [here](https://w3id.org/sssom/spec).
 

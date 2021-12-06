@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Slot: subject_id - SSSOM</title>
+  <title>Slot: predicate_modifier - SSSOM</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Slot: subject_id";
-    var mkdocs_page_input_path = "subject_id.md";
+    var mkdocs_page_name = "Slot: predicate_modifier";
+    var mkdocs_page_input_path = "predicate_modifier.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -99,7 +99,7 @@
     
       
     
-    <li>Slot: subject_id</li>
+    <li>Slot: predicate_modifier</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -111,11 +111,11 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="slot-subject_id">Slot: subject_id</h1>
-<p>The ID of the subject of the mapping.</p>
-<p>URI: <a href="http://w3id.org/sssom/subject_id">sssom:subject_id</a></p>
+                <h1 id="slot-predicate_modifier">Slot: predicate_modifier</h1>
+<p>A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion</p>
+<p>URI: <a href="http://w3id.org/sssom/predicate_modifier">sssom:predicate_modifier</a></p>
 <h2 id="domain-and-range">Domain and Range</h2>
-<p>None &#8594;  <sub>1..1</sub> <a href="../EntityReference/">EntityReference</a></p>
+<p>None &#8594;  <sub>0..1</sub> <a href="../predicate_modifier_enum/">predicate_modifier_enum</a></p>
 <h2 id="parents">Parents</h2>
 <h2 id="children">Children</h2>
 <h2 id="used-by">Used by</h2>
@@ -133,19 +133,9 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Mappings:</strong></td>
-<td></td>
-<td>owl:annotatedSource</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>owl:annotatedSource</td>
-</tr>
-<tr>
 <td><strong>Examples:</strong></td>
 <td></td>
-<td>Example(value='HP:0009894', description="The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'")</td>
+<td>Example(value='Not', description='Negates the predicate, see documentation of predicate_modifier_enum')</td>
 </tr>
 </tbody>
 </table>
