@@ -149,7 +149,7 @@ Note this is a public copy of the editors’ draft. It is provided for discussio
 
 ## SSSOM Metadata Elements
 
-The SSSOM specification defines a set of SSSOM metadata elements that are used to describe mappings. Apart from the elements themselves, some example usage and a description, **_[the SSSOM spec](https://mapping-commons.github.io/sssom/Mapping/) defines the canonical order for the metadatdata_** in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
+The SSSOM specification defines a set of SSSOM metadata elements that are used to describe mappings. Apart from the elements themselves, some example usage and a description, **_[the SSSOM spec](https://mapping-commons.github.io/sssom/Mapping/) defines the canonical order for the metadata_** in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
 
 A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.
 
