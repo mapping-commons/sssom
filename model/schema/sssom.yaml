@@ -278,6 +278,12 @@ slots:
       - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
       - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv|MONDO_MAPPINGS:mondo_exactmatch_omim.sssom.tsv
         description: (multivalued example in TSV)
+  mapping_source:
+    description: The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple
+      mapping sets or deriving one mapping set from another.
+    range: EntityReference
+    examples:
+      - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
   mapping_cardinality:
     description: A string indicating whether this mapping is from a 1:1 (the subject_id
       maps to a single object_id), 1:n (the subject maps to more than one object_id), 
