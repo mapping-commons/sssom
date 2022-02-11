@@ -1,0 +1,624 @@
+@prefix IAO: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sssom: <http://w3id.org/sssom/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:created a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "publication_date" ;
+    rdfs:range linkml:Date ;
+    skos:definition "The date the mapping was published. This is different from the date the mapping was asserted." .
+
+sssom:equivalent_property a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "equivalent_property" ;
+    rdfs:range linkml:String ;
+    skos:definition "SSSOM property should be mapped to:" .
+
+sssom:mapping_source a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mapping_source" ;
+    rdfs:range sssom:EntityReference ;
+    skos:definition "The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another." ;
+    linkml:examples "Example(value='MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv', description=None)" .
+
+sssom:metadata_element a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "metadata_element" ;
+    rdfs:range linkml:String ;
+    skos:definition "All legal SSSOM metadata elements are subproperties of this." .
+
+sssom:rdf_example a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "rdf_example" ;
+    rdfs:range linkml:String ;
+    skos:definition "An example value of the a SSSOM element in the TSV file." .
+
+<http://w3id.org/sssom/schema/> a owl:Ontology ;
+    rdfs:label "sssom" ;
+    IAO:0000700 sssom:Mapping,
+        sssom:MappingSet ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    rdfs:seeAlso "https://github.com/OBOFoundry/SSSOM" ;
+    skos:definition "Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)" ;
+    linkml:generation_date "2022-02-11T12:48:37" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "sssom.yaml" ;
+    linkml:source_file_date "2022-02-11T12:47:18" ;
+    linkml:source_file_size 19079 .
+
+sssom:scope a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "scope" ;
+    rdfs:range linkml:String ;
+    skos:definition "Indicates whether the metadata element has local, global or local-global scope." .
+
+sssom:tsv_example a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "tsv_example" ;
+    rdfs:range linkml:String ;
+    skos:definition "An example value of the a SSSOM element in RDF." .
+
+linkml:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" ;
+    skos:definition "the name and description of a subset" .
+
+linkml:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+dcterms:description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mapping_set_description" ;
+    rdfs:range linkml:String ;
+    skos:definition "A description of the mapping set." ;
+    linkml:examples "Example(value='This mapping set was produced to integrate human and mouse phenotype data at the IMPC. It is primarily used for making mouse phenotypes searchable by human synonyms at https://mousephenotype.org/.', description=None)" .
+
+pav:authoredBy a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "author_id" ;
+    rdfs:range sssom:EntityReference ;
+    skos:definition "Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible." .
+
+sssom:MappingSet a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "mapping set" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom sssom:EntityReference ;
+            owl:onProperty dcterms:creator ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rdfs:comment ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sssom:EntityReference ;
+            owl:onProperty sssom:object_match_field ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sssom:EntityReference ;
+            owl:onProperty sssom:subject_match_field ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uri ;
+            owl:onProperty sssom:mapping_provider ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:other ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uri ;
+            owl:onProperty sssom:object_source ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:object_source_version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uri ;
+            owl:onProperty sssom:subject_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sssom:Mapping ;
+            owl:onProperty sssom:mappings ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:Uri ;
+            owl:onProperty dcterms:license ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/preprocessing_method_enum> ;
+            owl:onProperty sssom:subject_preprocessing ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty rdfs:seeAlso ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:mapping_tool ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:Uri ;
+            owl:onProperty sssom:mapping_set_id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sssom:EntityReference ;
+            owl:onProperty prov:wasDerivedFrom ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:subject_source_version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty owl:versionInfo ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/match_term_type_enum> ;
+            owl:onProperty sssom:match_term_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty dcterms:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sssom:creator_label ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Date ;
+            owl:onProperty pav:authoredOn ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/preprocessing_method_enum> ;
+            owl:onProperty sssom:object_preprocessing ] ;
+    skos:definition "Represents a set of mappings" .
+
+sssom:author_label a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "author_label" ;
+    rdfs:range linkml:String ;
+    skos:definition "A string identifying the author of this mapping. In the spirit of provenance, consider to use author_id instead." .
+
+sssom:confidence a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "confidence" ;
+    rdfs:range linkml:Double ;
+    skos:definition "A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence." .
+
+sssom:mapping_cardinality a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mapping_cardinality" ;
+    rdfs:range <http://UNKNOWN.org/mapping_cardinality_enum> ;
+    skos:definition "A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set." .
+
+sssom:mapping_set_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mapping_set_id" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable." ;
+    linkml:examples "Example(value='http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv', description='(A persistent URI pointing to the latest version of the Mondo - NCIT mapping in the Mondo namespace.)')" .
+
+sssom:mapping_tool_version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mapping_tool_version" ;
+    rdfs:range linkml:String ;
+    skos:definition "Version string that denotes the version of the mapping tool used." ;
+    linkml:examples "Example(value='v3.2', description=None)" .
+
+sssom:mappings a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mappings" ;
+    rdfs:range sssom:Mapping ;
+    skos:definition "Contains a list of mapping objects" .
+
+sssom:match_string a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "match_string" ;
+    rdfs:range linkml:String ;
+    skos:definition "Strings that are shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots." .
+
+sssom:object_category a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "object_category" ;
+    rdfs:range linkml:String ;
+    skos:definition "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary." ;
+    linkml:examples "Example(value='UBERON:0001062', description='(The CURIE of the Uberon term for \"anatomical entity\".)')",
+        "Example(value='biolink:Gene', description='(The CURIE of the biolink class for genes.)')" .
+
+sssom:object_label a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "object_label" ;
+    rdfs:range linkml:String ;
+    skos:definition "The label of object of the mapping" ;
+    linkml:examples "Example(value='Thickened ears', description=None)" .
+
+sssom:predicate_label a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "predicate_label" ;
+    rdfs:range linkml:String ;
+    skos:definition "The label of the predicate/relation of the mapping" ;
+    linkml:examples "Example(value='oio:database_cross_reference', description='Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)')",
+        "Example(value='owl:equivalentClass', description='The subject and the object are classes (owl class), and the two classes are the same.')",
+        "Example(value='owl:equivalentProperty', description='The subject and the object are properties (owl object, data, annotation properties), and the two properties are the same.')",
+        "Example(value='owl:sameAs', description='The subject and the object are instances (owl individuals), and the two instances are the same.')",
+        "Example(value='rdfs:seeAlso', description='The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.')",
+        "Example(value='rdfs:subClassOf', description='The subject and the object are classes (owl class), and the subject is a subclass of the object.')",
+        "Example(value='rdfs:subPropertyOf', description='The subject and the object are properties (owl object, data, annotation properties), and the subject is a subproperty of the object.')",
+        "Example(value='skos:broadMatch', description='From the SKOS primer: A triple skos:broader (and skos:broadMatch) asserts that , the object of the triple, is a broader concept than , the subject of the triple.')",
+        "Example(value='skos:closeMatch', description='The subject and the object are sufficiently similar that they can be used interchangeably in some information retrieval applications.')",
+        "Example(value='skos:exactMatch', description='The subject and the object can, with a high degree of confidence, be used interchangeably across a wide range of information retrieval applications.')",
+        "Example(value='skos:narrowMatch', description='From the SKOS primer: A triple skos:narrower (and skos:narrowMatch) asserts that , the object of the triple, is a narrower concept than , the subject of the triple.')",
+        "Example(value='skos:relatedMatch', description='The subject and the object are associated in some unspecified way.')" .
+
+sssom:predicate_modifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "predicate_modifier" ;
+    rdfs:range <http://UNKNOWN.org/predicate_modifier_enum> ;
+    skos:definition "A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion" ;
+    linkml:examples "Example(value='Not', description='Negates the predicate, see documentation of predicate_modifier_enum')" .
+
+sssom:reviewer_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "reviewer_id" ;
+    rdfs:range sssom:EntityReference ;
+    skos:definition "Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible." .
+
+sssom:reviewer_label a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "reviewer_label" ;
+    rdfs:range linkml:String ;
+    skos:definition "A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use author_id instead." .
+
+sssom:semantic_similarity_measure a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "semantic_similarity_measure" ;
+    rdfs:range linkml:String ;
+    skos:definition "The measure used for computing the the semantic similarity score. To make processing this field as unambiguous as possible, we recommend using wikidata identifiers, but wikipedia pages could also be acceptable." ;
+    linkml:examples "Example(value='https://www.wikidata.org/wiki/Q865360', description='(the Wikidata identifier for the Jaccard index measure).')" .
+
+sssom:semantic_similarity_score a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "semantic_similarity_score" ;
+    rdfs:range linkml:Double ;
+    skos:definition "A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence." .
+
+sssom:subject_category a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject_category" ;
+    rdfs:range linkml:String ;
+    skos:definition "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary." ;
+    linkml:examples "Example(value='UBERON:0001062', description='(The CURIE of the Uberon term for \"anatomical entity\".)')",
+        "Example(value='biolink:Gene', description='(The CURIE of the biolink class for genes.)')" .
+
+sssom:subject_label a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject_label" ;
+    rdfs:range linkml:String ;
+    skos:definition "The label of subject of the mapping" ;
+    linkml:examples "Example(value='Thickened ears', description=None)" .
+
+owl:annotatedProperty a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "predicate_id" ;
+    rdfs:range sssom:EntityReference ;
+    skos:definition "The ID of the predicate or relation that relates the subject and object of this match." ;
+    linkml:examples "Example(value='skos:exactMatch', description=None)" .
+
+owl:annotatedSource a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject_id" ;
+    rdfs:range sssom:EntityReference ;
+    skos:definition "The ID of the subject of the mapping." ;
+    linkml:examples "Example(value='HP:0009894', description=\"The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'\")" .
+
+owl:annotatedTarget a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "object_id" ;
+    rdfs:range sssom:EntityReference ;
+    skos:definition "The ID of the object of the mapping." ;
+    linkml:examples "Example(value='HP:0009894', description=\"The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'\")" .
+
+owl:versionInfo a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mapping_set_version" ;
+    rdfs:range linkml:String ;
+    skos:definition "A version string for the mapping." ;
+    linkml:examples "Example(value='1.2.1', description='(A semantic version tag that indicates that this is the 1st major, 2nd minor version, patch 1 (https://semver.org/).)')",
+        "Example(value='2020-01-01', description='(A date-based version that indicates that the mapping was published on the 1st January in 2021.)')" .
+
+prov:wasDerivedFrom a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mapping_set_source" ;
+    rdfs:range sssom:EntityReference ;
+    skos:definition "A mapping set or set of mapping set that was used to derive the mapping set." ;
+    linkml:examples "Example(value='MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv', description=None)",
+        "Example(value='MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv|MONDO_MAPPINGS:mondo_exactmatch_omim.sssom.tsv', description='(multivalued example in TSV)')" .
+
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+dcterms:creator a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "creator_id" ;
+    rdfs:range sssom:EntityReference ;
+    skos:definition "Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible." .
+
+dcterms:license a owl:ObjectProperty,
+        linkml:SlotDefinition .
+
+pav:authoredOn a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mapping_date" ;
+    rdfs:range linkml:Date ;
+    skos:definition "The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file." .
+
+sssom:creator_label a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "creator_label" ;
+    rdfs:range linkml:String ;
+    skos:definition "A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead." .
+
+sssom:mapping_provider a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mapping_provider" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived." .
+
+sssom:mapping_tool a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "mapping_tool" ;
+    rdfs:range linkml:String ;
+    skos:definition "A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text." ;
+    linkml:examples "Example(value='https://github.com/AgreementMakerLight/AML-Project', description=None)" .
+
+sssom:match_term_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "match_term_type" ;
+    rdfs:range <http://UNKNOWN.org/match_term_type_enum> ;
+    skos:definition "Specifies what type of terms are being matched (class, property, or individual)." ;
+    linkml:examples "Example(value='ClassMatch', description=None)" .
+
+sssom:match_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "match_type" ;
+    rdfs:range <http://UNKNOWN.org/match_type_enum> ;
+    skos:definition "The kind of match that led to the mapping, e.g. Logical or Lexical." ;
+    linkml:examples "Example(value='HumanCurated', description='(The type of match that led to the mapping was by human expert judgement.)')",
+        "Example(value='Lexical', description='(The type of match that led to the mapping is Lexical, i.e. based on comparing the string representation of an aspect of the subject with the string representation of an aspect of the subject.)')" .
+
+sssom:object_match_field a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "object_match_field" ;
+    rdfs:range sssom:EntityReference ;
+    skos:definition "A tuple of fields (term annotations on the object) that was used for the match." .
+
+sssom:object_preprocessing a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "object_preprocessing" ;
+    rdfs:range <http://UNKNOWN.org/preprocessing_method_enum> ;
+    skos:definition "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." .
+
+sssom:object_source a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "object_source" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "IRI of ontology source for the object. Version IRI preferred." ;
+    linkml:examples "Example(value='http://purl.obolibrary.org/obo/mondo.owl', description='(A persistent IRI pointing to the latest version of the Mondo ontology.)')" .
+
+sssom:object_source_version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "object_source_version" ;
+    rdfs:range linkml:String ;
+    skos:definition "Version IRI or version string of the source of the object term." ;
+    linkml:examples "Example(value='http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl', description=\"(A persistent Version IRI pointing to the Mondo version '2021-01-30')\")" .
+
+sssom:other a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "other" ;
+    rdfs:range linkml:String ;
+    skos:definition "Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data." .
+
+sssom:subject_match_field a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject_match_field" ;
+    rdfs:range sssom:EntityReference ;
+    skos:definition "A tuple of fields (term annotations on the subject) that was used for the match." .
+
+sssom:subject_preprocessing a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject_preprocessing" ;
+    rdfs:range <http://UNKNOWN.org/preprocessing_method_enum> ;
+    skos:definition "Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." .
+
+sssom:subject_source a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject_source" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "URI of ontology source for the subject." ;
+    linkml:examples "Example(value='http://purl.obolibrary.org/obo/mondo.owl', description='(A persistent IRI pointing to the latest version of the Mondo ontology.)')" .
+
+sssom:subject_source_version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject_source_version" ;
+    rdfs:range linkml:String ;
+    skos:definition "Version IRI or version string of the source of the subject term." ;
+    linkml:examples "Example(value='http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl', description=\"(A persistent Version IRI pointing to the Mondo version '2021-01-30')\")" .
+
+rdfs:comment a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "comment" ;
+    rdfs:range linkml:String ;
+    skos:definition "Free text field containing either curator notes or text generated by tool providing additional informative information." .
+
+rdfs:seeAlso a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "see_also" ;
+    rdfs:range linkml:String ;
+    skos:definition "A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment" .
+
+linkml:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
+
+sssom:Mapping a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "mapping" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom sssom:EntityReference ;
+            owl:onProperty pav:authoredBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sssom:EntityReference ;
+            owl:onProperty sssom:subject_match_field ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sssom:creator_label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sssom:match_string ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uri ;
+            owl:onProperty sssom:subject_source ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:subject_label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/preprocessing_method_enum> ;
+            owl:onProperty sssom:subject_preprocessing ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/match_term_type_enum> ;
+            owl:onProperty sssom:match_term_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uri ;
+            owl:onProperty sssom:mapping_provider ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:mapping_tool_version ],
+        [ a owl:Restriction ;
+            owl:onClass sssom:EntityReference ;
+            owl:onProperty owl:annotatedTarget ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/mapping_cardinality_enum> ;
+            owl:onProperty sssom:mapping_cardinality ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/preprocessing_method_enum> ;
+            owl:onProperty sssom:object_preprocessing ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:predicate_label ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/predicate_modifier_enum> ;
+            owl:onProperty sssom:predicate_modifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Double ;
+            owl:onProperty sssom:semantic_similarity_score ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:subject_category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sssom:EntityReference ;
+            owl:onProperty sssom:reviewer_id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:semantic_similarity_measure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Date ;
+            owl:onProperty pav:authoredOn ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty rdfs:seeAlso ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sssom:EntityReference ;
+            owl:onProperty sssom:object_match_field ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:subject_source_version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty rdfs:comment ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:mapping_tool ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sssom:author_label ],
+        [ a owl:Restriction ;
+            owl:onClass sssom:EntityReference ;
+            owl:onProperty owl:annotatedProperty ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:other ],
+        [ a owl:Restriction ;
+            owl:onClass sssom:EntityReference ;
+            owl:onProperty owl:annotatedSource ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:object_label ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Double ;
+            owl:onProperty sssom:confidence ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:object_source_version ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sssom:reviewer_label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sssom:EntityReference ;
+            owl:onProperty dcterms:creator ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uri ;
+            owl:onProperty dcterms:license ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uri ;
+            owl:onProperty sssom:object_source ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom <http://UNKNOWN.org/match_type_enum> ;
+                        owl:onProperty sssom:match_type ] [ a owl:Restriction ;
+                        owl:onProperty sssom:match_type ;
+                        owl:someValuesFrom <http://UNKNOWN.org/match_type_enum> ] ) ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:object_category ] ;
+    skos:definition "Represents an individual mapping between a pair of entities" ;
+    skos:exactMatch owl:Axiom .
+
+sssom:EntityReference a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "EntityReference" ;
+    rdfs:subClassOf linkml:Uriorcurie ;
+    skos:definition "A reference to a mapped entity. This is represented internally as a string, and as a resource in RDF" .
+
+linkml:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
+
+
+
