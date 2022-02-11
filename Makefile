@@ -190,7 +190,7 @@ $(PKG_T_OWL)/%.owl.ttl: target/owl/%.owl.ttl
 	mkdir -p $(PKG_T_OWL)
 	cp $< $@
 target/owl/%.owl.ttl: $(SCHEMA_DIR)/%.yaml tdir-owl install
-	$(RUN) gen-owl $(GEN_OPTS) $< > $@
+	$(RUN) gen-owl --no-metaclasses --no-type-objects $(GEN_OPTS) $< > $@
 
 # ---------------------------------------
 # JSON-LD Context
