@@ -398,9 +398,11 @@
    "$id": "http://w3id.org/sssom/schema/",
    "$schema": "http://json-schema.org/draft-07/schema#",
    "additionalProperties": true,
+   "metamodel_version": "1.7.0",
    "properties": {},
    "required": [],
    "title": "sssom",
-   "type": "object"
+   "type": "object",
+   "version": null
 }
 

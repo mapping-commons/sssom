@@ -131,7 +131,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="sssom-schema">sssom schema</h1>
+                <h1 id="sssom">sssom</h1>
+<p><strong>metamodel version:</strong> 1.7.0</p>
+<p><strong>version:</strong> None</p>
 <p>Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)</p>
 <h3 id="classes">Classes</h3>
 <ul>
@@ -159,6 +161,7 @@
 <li><a href="mapping_set_id/">mapping_set_id</a> - A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.</li>
 <li><a href="mapping_set_source/">mapping_set_source</a> - A mapping set or set of mapping set that was used to derive the mapping set.</li>
 <li><a href="mapping_set_version/">mapping_set_version</a> - A version string for the mapping.</li>
+<li><a href="mapping_source/">mapping_source</a> - The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another.</li>
 <li><a href="mapping_tool/">mapping_tool</a> - A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.</li>
 <li><a href="mapping_tool_version/">mapping_tool_version</a> - Version string that denotes the version of the mapping tool used.</li>
 <li><a href="mappings/">mappings</a> - Contains a list of mapping objects</li>
@@ -296,5 +299,5 @@
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2021-12-03 22:18:20.634738+00:00
+Build Date UTC : 2022-02-14 15:33:35.860722+00:00
 -->
