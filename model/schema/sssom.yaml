@@ -423,6 +423,7 @@ classes:
     - object_id
     - object_label
     - object_category
+    - mapping_justification
     - author_id
     - author_label
     - reviewer_id
