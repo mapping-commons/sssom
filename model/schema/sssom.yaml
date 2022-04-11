@@ -413,7 +413,6 @@ classes:
     - object_source
     - object_source_version
     - mapping_provider
-    - mapping_cardinality
     - mapping_tool
     - mapping_date
     - subject_match_field
@@ -449,6 +448,7 @@ classes:
     - object_source
     - object_source_version
     - mapping_provider
+    - mapping_cardinality
     - mapping_tool
     - mapping_tool_version
     - mapping_date
