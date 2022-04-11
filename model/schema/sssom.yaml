@@ -33,14 +33,6 @@ enums:
       "1:0": One-to-none mapping
       "0:1": None-to-one mapping
       "n:n": Many-to-many mapping
-  match_type_enum:
-    permissible_values:
-      Lexical: Lexical match
-      Logical: Logical match
-      HumanCurated: Match based on human expert opinion
-      Complex: Match based on a variety of different strategies
-      Unspecified: Unknown match type
-      SemanticSimilarity: Match based on close semantic similarity
   match_term_type_enum:
     permissible_values:
       TermMatch: A match between two terms
@@ -162,15 +154,14 @@ slots:
         description: (The CURIE of the Uberon term for "anatomical entity".)
       - value: biolink:Gene
         description: (The CURIE of the biolink class for genes.)
-  match_type:
-    description: The kind of match that led to the mapping, e.g. Logical or Lexical.
-    range: match_type_enum
+  mapping_justification:
+    description: A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
+    range: EntityReference
     required: true
-    multivalued: true
     examples:
-      - value: Lexical
+      - value: SSSOMV:Lexical
         description: (The type of match that led to the mapping is Lexical, i.e. based on comparing the string representation of an aspect of the subject with the string representation of an aspect of the subject.)
-      - value: HumanCurated
+      - value: SSSOMV:HumanCurated
         description: (The type of match that led to the mapping was by human expert judgement.)
   mapping_set_id:
     description: A globally unique identifier for the mapping set (not each individual
@@ -432,7 +423,6 @@ classes:
     - object_id
     - object_label
     - object_category
-    - match_type
     - author_id
     - author_label
     - reviewer_id
