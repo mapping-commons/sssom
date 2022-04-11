@@ -393,8 +393,6 @@ slots:
     description: 'SSSOM property should be mapped to:'
     range: string
 classes:
-      - last_updated
-      - local_name
   mapping set:
     description: Represents a set of mappings
     slot_usage:
