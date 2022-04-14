@@ -22,6 +22,30 @@ default_curi_maps:
 default_prefix: sssom
 
 enums:
+  entity_type_enum:
+    permissible_values:
+      owl class:
+        meaning: owl:Class
+      owl object property:
+        meaning: owl:ObjectProperty
+      owl data property:
+        meaning: owl:DataProperty
+      owl annotation property:
+        meaning: owl:AnnotationProperty
+      owl named individual:
+        meaning: owl:NamedIndividual
+      skos concept:
+        meaning: skos:Concept
+      rdf resource:
+        meaning: rdf:Resource
+      rdf class:
+        meaning: rdfs:Class
+      rdf literal:
+        meaning: rdfs:Literal
+      rdf datatype:
+        meaning: rdfs:Datatype
+      rdf property:
+        meaning: rdf:Property
   predicate_modifier_enum:
     permissible_values:
       Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
@@ -41,14 +65,6 @@ enums:
       Complex: Match based on a variety of different strategies
       Unspecified: Unknown match type
       SemanticSimilarity: Match based on close semantic similarity
-  match_term_type_enum:
-    permissible_values:
-      TermMatch: A match between two terms
-      ConceptMatch: A match between two SKOS concepts
-      ClassMatch: A match between two OWL/RDFS classes
-      ObjectPropertyMatch: A match between two OWL object properties
-      IndividualMatch: A match between two OWL Individuals
-      DataPropertyMatch: A match between two OWL object properties
   preprocessing_method_enum:
     permissible_values:
       Stemming:
@@ -93,6 +109,11 @@ slots:
         description: (The CURIE of the Uberon term for "anatomical entity".)
       - value: biolink:Gene
         description: (The CURIE of the biolink class for genes.)
+  subject_type:
+    description: The type of entity that is being mapped.
+    range: entity_type_enum
+    examples:
+      - value: owl:Class
   predicate_id:
     description: The ID of the predicate or relation that relates the subject and
       object of this match.
@@ -137,6 +158,12 @@ slots:
         description: Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)
       - value: rdfs:seeAlso
         description: The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.
+  predicate_type:
+    description: The type of entity that is being mapped.
+    range: entity_type_enum
+    examples:
+      - value: owl:AnnotationProperty
+      - value: owl:ObjectProperty
   object_id:
     description: The ID of the object of the mapping.
     mappings:
@@ -165,6 +192,11 @@ slots:
   match_type:
     description: The kind of match that led to the mapping, e.g. Logical or Lexical.
     range: match_type_enum
+  object_type:
+    description: The type of entity that is being mapped.
+    range: entity_type_enum
+    examples:
+      - value: owl:Class
     required: true
     multivalued: true
     examples:
@@ -340,12 +372,6 @@ slots:
       recommended to store the match in separate rows.
     range: preprocessing_method_enum
     multivalued: true
-  match_term_type:
-    description: Specifies what type of terms are being matched (class, property,
-      or individual).
-    range: match_term_type_enum
-    examples:
-      - value: ClassMatch
   semantic_similarity_score:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
@@ -407,6 +433,7 @@ classes:
     - license
     - subject_source
     - subject_source_version
+    - object_type
     - object_source
     - object_source_version
     - mapping_provider
