@@ -159,10 +159,8 @@ slots:
     range: EntityReference
     required: true
     examples:
-      - value: SSSOMV:Lexical
-        description: (The type of match that led to the mapping is Lexical, i.e. based on comparing the string representation of an aspect of the subject with the string representation of an aspect of the subject.)
-      - value: SSSOMV:HumanCurated
-        description: (The type of match that led to the mapping was by human expert judgement.)
+      - value: OMAPV:Lexical
+      - value: OMAPV:HumanCurated
   mapping_set_id:
     description: A globally unique identifier for the mapping set (not each individual
       mapping). Should be IRI, ideally resolvable.
