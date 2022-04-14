@@ -57,14 +57,6 @@ enums:
       "1:0": One-to-none mapping
       "0:1": None-to-one mapping
       "n:n": Many-to-many mapping
-  match_term_type_enum:
-    permissible_values:
-      TermMatch: A match between two terms
-      ConceptMatch: A match between two SKOS concepts
-      ClassMatch: A match between two OWL/RDFS classes
-      ObjectPropertyMatch: A match between two OWL object properties
-      IndividualMatch: A match between two OWL Individuals
-      DataPropertyMatch: A match between two OWL object properties
   preprocessing_method_enum:
     permissible_values:
       Stemming:
@@ -196,6 +188,11 @@ slots:
     examples:
       - value: OMAPV:Lexical
       - value: OMAPV:HumanCurated
+  object_type:
+    description: The type of entity that is being mapped.
+    range: entity_type_enum
+    examples:
+      - value: owl:Class
   mapping_set_id:
     description: A globally unique identifier for the mapping set (not each individual
       mapping). Should be IRI, ideally resolvable.
