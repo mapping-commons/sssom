@@ -22,6 +22,30 @@ default_curi_maps:
 default_prefix: sssom
 
 enums:
+  entity_type_enum:
+    permissible_values:
+      owl class:
+        meaning: owl:Class
+      owl object property:
+        meaning: owl:ObjectProperty
+      owl data property:
+        meaning: owl:DataProperty
+      owl annotation property:
+        meaning: owl:AnnotationProperty
+      owl named individual:
+        meaning: owl:NamedIndividual
+      skos concept:
+        meaning: skos:Concept
+      rdf resource:
+        meaning: rdf:Resource
+      rdf class:
+        meaning: rdfs:Class
+      rdf literal:
+        meaning: rdfs:Literal
+      rdf datatype:
+        meaning: rdfs:Datatype
+      rdf property:
+        meaning: rdf:Property
   predicate_modifier_enum:
     permissible_values:
       Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
@@ -87,7 +111,7 @@ slots:
         description: (The CURIE of the biolink class for genes.)
   subject_type:
     description: The type of entity that is being mapped.
-    range: EntityReference
+    range: entity_type_enum
     examples:
       - value: owl:Class
   predicate_id:
@@ -136,7 +160,7 @@ slots:
         description: The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.
   predicate_type:
     description: The type of entity that is being mapped.
-    range: EntityReference
+    range: entity_type_enum
     examples:
       - value: owl:AnnotationProperty
       - value: owl:ObjectProperty
@@ -170,7 +194,7 @@ slots:
     range: match_type_enum
   object_type:
     description: The type of entity that is being mapped.
-    range: EntityReference
+    range: entity_type_enum
     examples:
       - value: owl:Class
     required: true
