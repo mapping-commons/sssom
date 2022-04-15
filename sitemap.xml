@@ -151,7 +151,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://my-org.github.io/my-datamodel/credits/</loc>
+         <lastmod>2022-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://my-org.github.io/my-datamodel/editors/</loc>
+         <lastmod>2022-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://my-org.github.io/my-datamodel/equivalent_property/</loc>
+         <lastmod>2022-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://my-org.github.io/my-datamodel/faq/</loc>
+         <lastmod>2022-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://my-org.github.io/my-datamodel/home/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -226,6 +246,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://my-org.github.io/my-datamodel/mc2021/</loc>
+         <lastmod>2022-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://my-org.github.io/my-datamodel/metadata_element/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
@@ -286,6 +311,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://my-org.github.io/my-datamodel/presentations/</loc>
+         <lastmod>2022-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://my-org.github.io/my-datamodel/publication_date/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
@@ -327,6 +357,11 @@
     </url>
     <url>
          <loc>https://my-org.github.io/my-datamodel/semantic_similarity_score/</loc>
+         <lastmod>2022-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://my-org.github.io/my-datamodel/spec/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -377,6 +412,16 @@
     </url>
     <url>
          <loc>https://my-org.github.io/my-datamodel/types/</loc>
+         <lastmod>2022-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://my-org.github.io/my-datamodel/usecases/</loc>
+         <lastmod>2022-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://my-org.github.io/my-datamodel/workshops/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
