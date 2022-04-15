@@ -14,14 +14,34 @@ prefixes:
   oio: http://www.geneontology.org/formats/oboInOwl#
   pav: http://purl.org/pav/
   prov: http://www.w3.org/ns/prov#
+  omapv: http://w3id.org/omapv/
 see_also:
 - https://github.com/OBOFoundry/SSSOM
 default_curi_maps:
 - semweb_context
 - obo_context
 default_prefix: sssom
-
 enums:
+  mapping_justification_enum:
+    permissible values:
+      lexical matching:
+        meaning: omapv:LexicalMatching
+      logical matching:
+        meaning: omapv:LogicalReasoning
+      complex matching:
+        meaning: omapv:ComplexMatching
+      unspecified matching:
+        meaning: omapv:UnspecifiedMapping
+      semantic similarity threshold-based matching:
+        meaning: omapv:SemanticSimilarityThresholdMatching
+      lexical similarity threshold-based matching:
+        meaning: omapv:LexicalSimilarityThresholdMatching
+      cross-walk based matching:
+        meaning: omapv:CrossWalkMatching
+      peer review:
+        meaning: omapv:PeerReview
+      human curation:
+        meaning: omapv:HumanCuration
   entity_type_enum:
     permissible_values:
       owl class:
