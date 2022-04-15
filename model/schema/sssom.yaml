@@ -70,12 +70,40 @@ types:
     uri: rdfs:Resource
 
 slots:
+  mirror_from:
+    description: A list of mapping set references.
+    range: uri
+  registry_confidence:
+    description: This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
+    range: double
+  mapping_set_group:
+    description: Mapping sets in a registry can be organised into groups.
+    range: string
+  last_updated:
+    description: The date this reference was last updated.
+    range: date
+  local_name:
+    description: The local name assigned to file that corresponds to the downloaded mapping set.
+    range: string
   mapping_set_references:
     description: A list of mapping set references.
     range: mapping set reference
     multivalued: true
-    inlined_as_list: true
     recommended: true
+  mapping_registry_id:
+    description: The unique identifier of a mapping registry.
+    range: EntityReference
+    required: true
+  imports:
+    description: A list of registries that should be imported into this one.
+    multivalued: true
+    range: uri
+  documentation:
+    description: A URL to the documentation of this mapping commons.
+    range: uri
+  homepage:
+    description: A URL to a homepage of this mapping commons.
+    range: uri
   mappings:
     description: Contains a list of mapping objects
     range: mapping
@@ -376,8 +404,6 @@ slots:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
     range: double
-  registry_confidence:
-    description: This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
   semantic_similarity_measure:
     description: The measure used for computing the the semantic similarity score.
       To make processing this field as unambiguous as possible, we recommend using 
@@ -491,3 +517,20 @@ classes:
     - other
     - comment
     class_uri: owl:Axiom
+  mapping registry:
+    description: A registry for managing mapping sets. It holds a set of mapping set references.
+    slots:
+      - mapping_registry_id
+      - imports
+      - mapping_set_references
+      - documentation
+      - homepage
+  mapping set reference:
+    description: A registry for managing mapping sets.
+    slots:
+      - mapping_set_id
+      - mirror_from
+      - registry_confidence
+      - mapping_set_group
+      - last_updated
+      - local_name
