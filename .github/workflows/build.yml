@@ -2,23 +2,62 @@ name: Build
 on:
   workflow_dispatch:
   push:
+    branches: [ master ]
     paths:
-      - 'sssom/model/schema/sssom.yaml'
+      - 'src/linkml/sssom.yaml'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      #----------------------------------------------
+      #       check-out repo and set-up python
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v2
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-      - uses: actions/setup-python@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
           python-version: 3.9
+
+      #----------------------------------------------
+      #          install & configure poetry
+      #----------------------------------------------
+      - name: Install Poetry
+        uses: snok/install-poetry@v1.3
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      #----------------------------------------------
+      #       load cached venv if cache exists      
+      #----------------------------------------------
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+
+      #----------------------------------------------
+      # install dependencies if cache does not exist 
+      #----------------------------------------------
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --no-root
+
+      #----------------------------------------------
+      #    install your root project, if required 
+      #----------------------------------------------      
+      - name: Install library
+        run: poetry install --no-interaction
+
       - name: Create local changes
         run: |
-          pip install pipenv
           make all
       - name: Commit files
         run: |
