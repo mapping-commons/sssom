@@ -30,6 +30,5 @@ nav:
   - Presentations: presentations.md
   - Index: index.md
   - Credits: credits.md
-  - FAQ: faq.md
-site_url: https://my-org.github.io/my-datamodel/
-repo_url: https://github.com/my-org/my-datamodel/
+site_url: https://mapping-commons.github.io/sssom/
+repo_url: https://github.com/mapping-commons/sssom/
