@@ -76,9 +76,6 @@ slots:
   registry_confidence:
     description: This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
     range: double
-  mapping_set_group:
-    description: Mapping sets in a registry can be organised into groups.
-    range: string
   last_updated:
     description: The date this reference was last updated.
     range: date
