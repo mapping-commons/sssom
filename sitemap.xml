@@ -1,427 +1,427 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://my-org.github.io/my-datamodel/</loc>
+         <loc>https://mapping-commons.github.io/sssom/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Boolean/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Boolean/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Date/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Date/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Datetime/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Datetime/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Decimal/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Decimal/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Double/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Double/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/EntityReference/</loc>
+         <loc>https://mapping-commons.github.io/sssom/EntityReference/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Float/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Float/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Integer/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Integer/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Mapping/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Mapping/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/MappingCardinalityEnum/</loc>
+         <loc>https://mapping-commons.github.io/sssom/MappingCardinalityEnum/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/MappingSet/</loc>
+         <loc>https://mapping-commons.github.io/sssom/MappingSet/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/MatchTermTypeEnum/</loc>
+         <loc>https://mapping-commons.github.io/sssom/MatchTermTypeEnum/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/MatchTypeEnum/</loc>
+         <loc>https://mapping-commons.github.io/sssom/MatchTypeEnum/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Ncname/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Ncname/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Nodeidentifier/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Nodeidentifier/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Objectidentifier/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Objectidentifier/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/PredicateModifierEnum/</loc>
+         <loc>https://mapping-commons.github.io/sssom/PredicateModifierEnum/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/PreprocessingMethodEnum/</loc>
+         <loc>https://mapping-commons.github.io/sssom/PreprocessingMethodEnum/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/String/</loc>
+         <loc>https://mapping-commons.github.io/sssom/String/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Time/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Time/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Uri/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Uri/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/Uriorcurie/</loc>
+         <loc>https://mapping-commons.github.io/sssom/Uriorcurie/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/about/</loc>
+         <loc>https://mapping-commons.github.io/sssom/about/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/author_id/</loc>
+         <loc>https://mapping-commons.github.io/sssom/author_id/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/author_label/</loc>
+         <loc>https://mapping-commons.github.io/sssom/author_label/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/comment/</loc>
+         <loc>https://mapping-commons.github.io/sssom/comment/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/confidence/</loc>
+         <loc>https://mapping-commons.github.io/sssom/confidence/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/creator_id/</loc>
+         <loc>https://mapping-commons.github.io/sssom/creator_id/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/creator_label/</loc>
+         <loc>https://mapping-commons.github.io/sssom/creator_label/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/credits/</loc>
+         <loc>https://mapping-commons.github.io/sssom/credits/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/editors/</loc>
+         <loc>https://mapping-commons.github.io/sssom/editors/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/equivalent_property/</loc>
+         <loc>https://mapping-commons.github.io/sssom/equivalent_property/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/faq/</loc>
+         <loc>https://mapping-commons.github.io/sssom/faq/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/home/</loc>
+         <loc>https://mapping-commons.github.io/sssom/home/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/license/</loc>
+         <loc>https://mapping-commons.github.io/sssom/license/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mapping_cardinality/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mapping_cardinality/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mapping_date/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mapping_date/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mapping_provider/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mapping_provider/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mapping_set_description/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mapping_set_description/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mapping_set_id/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mapping_set_id/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mapping_set_source/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mapping_set_source/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mapping_set_version/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mapping_set_version/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mapping_tool/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mapping_tool/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mapping_tool_version/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mapping_tool_version/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mappings/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mappings/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/match_string/</loc>
+         <loc>https://mapping-commons.github.io/sssom/match_string/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/match_term_type/</loc>
+         <loc>https://mapping-commons.github.io/sssom/match_term_type/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/match_type/</loc>
+         <loc>https://mapping-commons.github.io/sssom/match_type/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/mc2021/</loc>
+         <loc>https://mapping-commons.github.io/sssom/mc2021/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/metadata_element/</loc>
+         <loc>https://mapping-commons.github.io/sssom/metadata_element/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/object_category/</loc>
+         <loc>https://mapping-commons.github.io/sssom/object_category/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/object_id/</loc>
+         <loc>https://mapping-commons.github.io/sssom/object_id/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/object_label/</loc>
+         <loc>https://mapping-commons.github.io/sssom/object_label/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/object_match_field/</loc>
+         <loc>https://mapping-commons.github.io/sssom/object_match_field/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/object_preprocessing/</loc>
+         <loc>https://mapping-commons.github.io/sssom/object_preprocessing/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/object_source/</loc>
+         <loc>https://mapping-commons.github.io/sssom/object_source/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/object_source_version/</loc>
+         <loc>https://mapping-commons.github.io/sssom/object_source_version/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/other/</loc>
+         <loc>https://mapping-commons.github.io/sssom/other/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/predicate_id/</loc>
+         <loc>https://mapping-commons.github.io/sssom/predicate_id/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/predicate_label/</loc>
+         <loc>https://mapping-commons.github.io/sssom/predicate_label/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/predicate_modifier/</loc>
+         <loc>https://mapping-commons.github.io/sssom/predicate_modifier/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/presentations/</loc>
+         <loc>https://mapping-commons.github.io/sssom/presentations/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/publication_date/</loc>
+         <loc>https://mapping-commons.github.io/sssom/publication_date/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/rdf_example/</loc>
+         <loc>https://mapping-commons.github.io/sssom/rdf_example/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/required/</loc>
+         <loc>https://mapping-commons.github.io/sssom/required/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/reviewer_id/</loc>
+         <loc>https://mapping-commons.github.io/sssom/reviewer_id/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/reviewer_label/</loc>
+         <loc>https://mapping-commons.github.io/sssom/reviewer_label/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/scope/</loc>
+         <loc>https://mapping-commons.github.io/sssom/scope/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/see_also/</loc>
+         <loc>https://mapping-commons.github.io/sssom/see_also/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/semantic_similarity_measure/</loc>
+         <loc>https://mapping-commons.github.io/sssom/semantic_similarity_measure/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/semantic_similarity_score/</loc>
+         <loc>https://mapping-commons.github.io/sssom/semantic_similarity_score/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/spec/</loc>
+         <loc>https://mapping-commons.github.io/sssom/spec/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/sssom/</loc>
+         <loc>https://mapping-commons.github.io/sssom/sssom/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/subject_category/</loc>
+         <loc>https://mapping-commons.github.io/sssom/subject_category/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/subject_id/</loc>
+         <loc>https://mapping-commons.github.io/sssom/subject_id/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/subject_label/</loc>
+         <loc>https://mapping-commons.github.io/sssom/subject_label/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/subject_match_field/</loc>
+         <loc>https://mapping-commons.github.io/sssom/subject_match_field/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/subject_preprocessing/</loc>
+         <loc>https://mapping-commons.github.io/sssom/subject_preprocessing/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/subject_source/</loc>
+         <loc>https://mapping-commons.github.io/sssom/subject_source/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/subject_source_version/</loc>
+         <loc>https://mapping-commons.github.io/sssom/subject_source_version/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/tsv_example/</loc>
+         <loc>https://mapping-commons.github.io/sssom/tsv_example/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/types/</loc>
+         <loc>https://mapping-commons.github.io/sssom/types/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/usecases/</loc>
+         <loc>https://mapping-commons.github.io/sssom/usecases/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://my-org.github.io/my-datamodel/workshops/</loc>
+         <loc>https://mapping-commons.github.io/sssom/workshops/</loc>
          <lastmod>2022-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
