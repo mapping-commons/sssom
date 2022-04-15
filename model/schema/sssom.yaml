@@ -203,11 +203,18 @@ slots:
         description: (The CURIE of the biolink class for genes.)
   mapping_justification:
     description: A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
-    range: EntityReference
+    range: mapping_justification_enum
     required: true
     examples:
-      - value: OMAPV:Lexical
-      - value: OMAPV:HumanCurated
+      - value: omapv:LexicalMatching
+      - value: omapv:LogicalReasoning
+      - value: omapv:ComplexMatching
+      - value: omapv:UnspecifiedMapping
+      - value: omapv:SemanticSimilarityThresholdMatching
+      - value: omapv:LexicalSimilarityThresholdMatching
+      - value: omapv:CrossWalkMatching
+      - value: omapv:PeerReview
+      - value: omapv:HumanCuration
   object_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
