@@ -1,0 +1,671 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://my-org.github.io/my-datamodel/">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>My Datamodel</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sssom" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="My Datamodel" class="md-header__button md-logo" aria-label="My Datamodel" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Datamodel
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Index
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/my-org/my-datamodel/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="My Datamodel" class="md-nav__button md-logo" aria-label="My Datamodel" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    My Datamodel
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/my-org/my-datamodel/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Index
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Index
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    Slots
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    Enums
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    Slots
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    Enums
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/my-org/my-datamodel/edit/master/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="sssom">sssom</h1>
+<p>Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)</p>
+<p>URI: http://w3id.org/sssom/schema/</p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="MappingSet/">MappingSet</a></td>
+<td>Represents a set of mappings</td>
+</tr>
+<tr>
+<td><a href="Mapping/">Mapping</a></td>
+<td>Represents an individual mapping between a pair of entities</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="mappings/">mappings</a></td>
+<td>Contains a list of mapping objects</td>
+</tr>
+<tr>
+<td><a href="subject_id/">subject_id</a></td>
+<td>The ID of the subject of the mapping.</td>
+</tr>
+<tr>
+<td><a href="subject_label/">subject_label</a></td>
+<td>The label of subject of the mapping</td>
+</tr>
+<tr>
+<td><a href="subject_category/">subject_category</a></td>
+<td>The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.</td>
+</tr>
+<tr>
+<td><a href="predicate_id/">predicate_id</a></td>
+<td>The ID of the predicate or relation that relates the subject and object of this match.</td>
+</tr>
+<tr>
+<td><a href="predicate_modifier/">predicate_modifier</a></td>
+<td>A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion</td>
+</tr>
+<tr>
+<td><a href="predicate_label/">predicate_label</a></td>
+<td>The label of the predicate/relation of the mapping</td>
+</tr>
+<tr>
+<td><a href="object_id/">object_id</a></td>
+<td>The ID of the object of the mapping.</td>
+</tr>
+<tr>
+<td><a href="object_label/">object_label</a></td>
+<td>The label of object of the mapping</td>
+</tr>
+<tr>
+<td><a href="object_category/">object_category</a></td>
+<td>The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.</td>
+</tr>
+<tr>
+<td><a href="match_type/">match_type</a></td>
+<td>The kind of match that led to the mapping, e.g. Logical or Lexical.</td>
+</tr>
+<tr>
+<td><a href="mapping_set_id/">mapping_set_id</a></td>
+<td>A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.</td>
+</tr>
+<tr>
+<td><a href="mapping_set_version/">mapping_set_version</a></td>
+<td>A version string for the mapping.</td>
+</tr>
+<tr>
+<td><a href="mapping_set_description/">mapping_set_description</a></td>
+<td>A description of the mapping set.</td>
+</tr>
+<tr>
+<td><a href="creator_id/">creator_id</a></td>
+<td>Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
+</tr>
+<tr>
+<td><a href="creator_label/">creator_label</a></td>
+<td>A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.</td>
+</tr>
+<tr>
+<td><a href="author_id/">author_id</a></td>
+<td>Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
+</tr>
+<tr>
+<td><a href="author_label/">author_label</a></td>
+<td>A string identifying the author of this mapping. In the spirit of provenance, consider to use author_id instead.</td>
+</tr>
+<tr>
+<td><a href="reviewer_id/">reviewer_id</a></td>
+<td>Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
+</tr>
+<tr>
+<td><a href="reviewer_label/">reviewer_label</a></td>
+<td>A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use author_id instead.</td>
+</tr>
+<tr>
+<td><a href="license/">license</a></td>
+<td>A url to the license of the mapping. In absence of a license we assume no license.</td>
+</tr>
+<tr>
+<td><a href="subject_source/">subject_source</a></td>
+<td>URI of ontology source for the subject.</td>
+</tr>
+<tr>
+<td><a href="subject_source_version/">subject_source_version</a></td>
+<td>Version IRI or version string of the source of the subject term.</td>
+</tr>
+<tr>
+<td><a href="object_source/">object_source</a></td>
+<td>IRI of ontology source for the object. Version IRI preferred.</td>
+</tr>
+<tr>
+<td><a href="object_source_version/">object_source_version</a></td>
+<td>Version IRI or version string of the source of the object term.</td>
+</tr>
+<tr>
+<td><a href="mapping_provider/">mapping_provider</a></td>
+<td>URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.</td>
+</tr>
+<tr>
+<td><a href="mapping_set_source/">mapping_set_source</a></td>
+<td>A mapping set or set of mapping set that was used to derive the mapping set.</td>
+</tr>
+<tr>
+<td><a href="mapping_cardinality/">mapping_cardinality</a></td>
+<td>A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.</td>
+</tr>
+<tr>
+<td><a href="mapping_tool/">mapping_tool</a></td>
+<td>A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.</td>
+</tr>
+<tr>
+<td><a href="mapping_tool_version/">mapping_tool_version</a></td>
+<td>Version string that denotes the version of the mapping tool used.</td>
+</tr>
+<tr>
+<td><a href="mapping_date/">mapping_date</a></td>
+<td>The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.</td>
+</tr>
+<tr>
+<td><a href="publication_date/">publication_date</a></td>
+<td>The date the mapping was published. This is different from the date the mapping was asserted.</td>
+</tr>
+<tr>
+<td><a href="confidence/">confidence</a></td>
+<td>A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.</td>
+</tr>
+<tr>
+<td><a href="subject_match_field/">subject_match_field</a></td>
+<td>A tuple of fields (term annotations on the subject) that was used for the match.</td>
+</tr>
+<tr>
+<td><a href="object_match_field/">object_match_field</a></td>
+<td>A tuple of fields (term annotations on the object) that was used for the match.</td>
+</tr>
+<tr>
+<td><a href="match_string/">match_string</a></td>
+<td>Strings that are shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots.</td>
+</tr>
+<tr>
+<td><a href="subject_preprocessing/">subject_preprocessing</a></td>
+<td>Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.</td>
+</tr>
+<tr>
+<td><a href="object_preprocessing/">object_preprocessing</a></td>
+<td>Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.</td>
+</tr>
+<tr>
+<td><a href="match_term_type/">match_term_type</a></td>
+<td>Specifies what type of terms are being matched (class, property, or individual).</td>
+</tr>
+<tr>
+<td><a href="semantic_similarity_score/">semantic_similarity_score</a></td>
+<td>A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence.</td>
+</tr>
+<tr>
+<td><a href="semantic_similarity_measure/">semantic_similarity_measure</a></td>
+<td>The measure used for computing the the semantic similarity score. To make processing this field as unambiguous as possible, we recommend using wikidata identifiers, but wikipedia pages could also be acceptable.</td>
+</tr>
+<tr>
+<td><a href="see_also/">see_also</a></td>
+<td>A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment</td>
+</tr>
+<tr>
+<td><a href="other/">other</a></td>
+<td>Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.</td>
+</tr>
+<tr>
+<td><a href="comment/">comment</a></td>
+<td>Free text field containing either curator notes or text generated by tool providing additional informative information.</td>
+</tr>
+<tr>
+<td><a href="required/">required</a></td>
+<td>Indicates wether the SSSOM metadata element is required</td>
+</tr>
+<tr>
+<td><a href="metadata_element/">metadata_element</a></td>
+<td>All legal SSSOM metadata elements are subproperties of this.</td>
+</tr>
+<tr>
+<td><a href="scope/">scope</a></td>
+<td>Indicates whether the metadata element has local, global or local-global scope.</td>
+</tr>
+<tr>
+<td><a href="rdf_example/">rdf_example</a></td>
+<td>An example value of the a SSSOM element in the TSV file.</td>
+</tr>
+<tr>
+<td><a href="tsv_example/">tsv_example</a></td>
+<td>An example value of the a SSSOM element in RDF.</td>
+</tr>
+<tr>
+<td><a href="equivalent_property/">equivalent_property</a></td>
+<td>SSSOM property should be mapped to:</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enums">Enums</h2>
+<table>
+<thead>
+<tr>
+<th>Enums</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="PredicateModifierEnum/">PredicateModifierEnum</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="MappingCardinalityEnum/">MappingCardinalityEnum</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="MatchTypeEnum/">MatchTypeEnum</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="MatchTermTypeEnum/">MatchTermTypeEnum</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="PreprocessingMethodEnum/">PreprocessingMethodEnum</a></td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        
+        <a href="about/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              About
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["content.tabs.link"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>
