@@ -1,7 +1,4 @@
-# Make artifacts
-make-venv/.venv
-make-venv/env.lock
-target/
+docs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -25,6 +22,7 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
@@ -54,7 +52,6 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
-cover/
 
 # Translations
 *.mo
@@ -77,7 +74,6 @@ instance/
 docs/_build/
 
 # PyBuilder
-.pybuilder/
 target/
 
 # Jupyter Notebook
@@ -88,8 +84,6 @@ profile_default/
 ipython_config.py
 
 # pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
 .python-version
 
 # pipenv
@@ -97,7 +91,7 @@ ipython_config.py
 #   However, in case of collaboration, if having platform-specific dependencies or dependencies
 #   having no cross-platform support, pipenv may install dependencies that don't work, or not
 #   install all needed dependencies.
-Pipfile.lock
+#Pipfile.lock
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
@@ -135,20 +129,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
-# Editors
-.idea/
-.project
-.classpath
-
-# make artifacts
-*-PREV
-
-# Apple stuff
 .DS_Store

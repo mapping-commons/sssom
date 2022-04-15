@@ -1,13 +1,31 @@
-site_name: "SSSOM"
-theme: readthedocs
-docs_dir: target/docs
-site_dir: docs
+site_name: "My Datamodel"
+theme:
+  name: material
+  analytics:
+    gtag: G-2SYBSJVZ23
+#  palette:
+#    scheme: slate
+#    primary: cyan
+  features:
+    - content.tabs.link
+plugins:
+  - search
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
 nav:
-  - Home: home.md
-  - SSSOM Specification: spec.md
-  - Use cases: usecases.md
-  - Workshops: workshops.md
-  - Presentations: presentations.md
+#  - Home: home.md
   - Index: index.md
-  - Credits: credits.md
-  - FAQ: faq.md
+  - About: about.md
+site_url: https://my-org.github.io/my-datamodel/
+repo_url: https://github.com/my-org/my-datamodel/
