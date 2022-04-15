@@ -70,6 +70,12 @@ types:
     uri: rdfs:Resource
 
 slots:
+  mapping_set_references:
+    description: A list of mapping set references.
+    range: mapping set reference
+    multivalued: true
+    inlined_as_list: true
+    recommended: true
   mappings:
     description: Contains a list of mapping objects
     range: mapping
@@ -210,6 +216,9 @@ slots:
         description: (A date-based version that indicates that the mapping was published on the 1st January in 2021.)
       - value: "1.2.1"
         description: "(A semantic version tag that indicates that this is the 1st major, 2nd minor version, patch 1 (https://semver.org/).)"
+  mapping_set_group:
+    description: Set by the owners of the mapping registry. A way to group .
+    range: string
   mapping_set_description:
     description: A description of the mapping set.
     range: string
@@ -326,6 +335,8 @@ slots:
     description: The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
     slot_uri: pav:authoredOn
     range: date
+    mapping:
+      - prov:generatedAtTime
   publication_date:
     description: The date the mapping was published. This is different from the date the mapping was asserted.
     slot_uri: dc:created
@@ -365,6 +376,8 @@ slots:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
     range: double
+  registry_confidence:
+    description: This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
   semantic_similarity_measure:
     description: The measure used for computing the the semantic similarity score.
       To make processing this field as unambiguous as possible, we recommend using 
