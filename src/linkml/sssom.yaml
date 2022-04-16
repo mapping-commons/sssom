@@ -185,9 +185,20 @@ slots:
     description: A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
     range: EntityReference
     required: true
-    examples:
-      - value: OMAPV:Lexical
-      - value: OMAPV:HumanCurated
+    any_of:
+      - equals_string: omapv:AutomatedMatching
+      - equals_string: omapv:LexicalMatching
+      - equals_string: omapv:LogicalReasoning
+      - equals_string: omapv:ComplexMatching
+      - equals_string: omapv:UnspecifiedMapping
+      - equals_string: omapv:SemanticSimilarityThresholdMatching
+      - equals_string: omapv:LexicalSimilarityThresholdMatching
+      - equals_string: omapv:CrossWalkMatching
+      - equals_string: omapv:MappingReview
+      - equals_string: omapv:ManualMappingCuration
+      - equals_string: omapv:MappingActivity
+      - equals_string: omapv:MappingDerivation
+      - equals_string: omapv:MappingAggregation
   object_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
