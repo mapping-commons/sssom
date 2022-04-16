@@ -1391,9 +1391,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom.yaml",
-  "source_file_date": "2022-04-15T23:34:11",
+  "source_file_date": "2022-04-16T07:33:48",
   "source_file_size": 18803,
-  "generation_date": "2022-04-15T23:44:53",
+  "generation_date": "2022-04-16T07:35:31",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom.context.jsonld",
