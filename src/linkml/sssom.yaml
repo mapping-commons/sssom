@@ -8,12 +8,12 @@ prefixes:
   sssom: http://w3id.org/sssom/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   oboInOwl: http://www.geneontology.org/formats/oboInOwl#
-  neuroname: http://braininfo.rprc.washington.edu/centraldirectory.aspx?ID=
   dce: http://purl.org/dc/elements/1.1/
   Orphanet: http://www.orpha.net/ORDO/Orphanet_
   oio: http://www.geneontology.org/formats/oboInOwl#
   pav: http://purl.org/pav/
   prov: http://www.w3.org/ns/prov#
+  skos: http://www.w3.org/2004/02/skos/core#
 see_also:
 - https://github.com/OBOFoundry/SSSOM
 default_curi_maps:
