@@ -1,5 +1,5 @@
 # Auto generated from sssom.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-04-15T23:45:20
+# Generation date: 2022-04-16T07:53:06
 # Schema: sssom
 #
 # id: http://w3id.org/sssom/schema/
@@ -37,13 +37,13 @@ DC = CurieNamespace('dc', 'http://purl.org/dc/terms/')
 DCE = CurieNamespace('dce', 'http://purl.org/dc/elements/1.1/')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-NEURONAME = CurieNamespace('neuroname', 'http://braininfo.rprc.washington.edu/centraldirectory.aspx?ID=')
 OBOINOWL = CurieNamespace('oboInOwl', 'http://www.geneontology.org/formats/oboInOwl#')
 OIO = CurieNamespace('oio', 'http://www.geneontology.org/formats/oboInOwl#')
 OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
 PAV = CurieNamespace('pav', 'http://purl.org/pav/')
 PROV = CurieNamespace('prov', 'http://www.w3.org/ns/prov#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
+SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
 SSSOM = CurieNamespace('sssom', 'http://w3id.org/sssom/')
 DEFAULT_ = SSSOM
 
@@ -81,8 +81,10 @@ class MappingSet(YAMLRoot):
     mapping_set_description: Optional[str] = None
     creator_id: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     creator_label: Optional[Union[str, List[str]]] = empty_list()
+    subject_type: Optional[Union[str, "EntityTypeEnum"]] = None
     subject_source: Optional[Union[str, URI]] = None
     subject_source_version: Optional[str] = None
+    object_type: Optional[Union[str, "EntityTypeEnum"]] = None
     object_source: Optional[Union[str, URI]] = None
     object_source_version: Optional[str] = None
     mapping_provider: Optional[Union[str, URI]] = None
@@ -92,7 +94,6 @@ class MappingSet(YAMLRoot):
     object_match_field: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     subject_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
     object_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
-    match_term_type: Optional[Union[str, "MatchTermTypeEnum"]] = None
     see_also: Optional[Union[str, List[str]]] = empty_list()
     other: Optional[str] = None
     comment: Optional[str] = None
@@ -130,11 +131,17 @@ class MappingSet(YAMLRoot):
             self.creator_label = [self.creator_label] if self.creator_label is not None else []
         self.creator_label = [v if isinstance(v, str) else str(v) for v in self.creator_label]
 
+        if self.subject_type is not None and not isinstance(self.subject_type, EntityTypeEnum):
+            self.subject_type = EntityTypeEnum(self.subject_type)
+
         if self.subject_source is not None and not isinstance(self.subject_source, URI):
             self.subject_source = URI(self.subject_source)
 
         if self.subject_source_version is not None and not isinstance(self.subject_source_version, str):
             self.subject_source_version = str(self.subject_source_version)
+
+        if self.object_type is not None and not isinstance(self.object_type, EntityTypeEnum):
+            self.object_type = EntityTypeEnum(self.object_type)
 
         if self.object_source is not None and not isinstance(self.object_source, URI):
             self.object_source = URI(self.object_source)
@@ -167,9 +174,6 @@ class MappingSet(YAMLRoot):
             self.object_preprocessing = [self.object_preprocessing] if self.object_preprocessing is not None else []
         self.object_preprocessing = [v if isinstance(v, PreprocessingMethodEnum) else PreprocessingMethodEnum(v) for v in self.object_preprocessing]
 
-        if self.match_term_type is not None and not isinstance(self.match_term_type, MatchTermTypeEnum):
-            self.match_term_type = MatchTermTypeEnum(self.match_term_type)
-
         if not isinstance(self.see_also, list):
             self.see_also = [self.see_also] if self.see_also is not None else []
         self.see_also = [v if isinstance(v, str) else str(v) for v in self.see_also]
@@ -198,7 +202,7 @@ class Mapping(YAMLRoot):
     subject_id: Union[str, EntityReference] = None
     predicate_id: Union[str, EntityReference] = None
     object_id: Union[str, EntityReference] = None
-    match_type: Union[Union[str, "MatchTypeEnum"], List[Union[str, "MatchTypeEnum"]]] = None
+    mapping_justification: Union[str, EntityReference] = None
     subject_label: Optional[str] = None
     subject_category: Optional[str] = None
     predicate_label: Optional[str] = None
@@ -212,8 +216,10 @@ class Mapping(YAMLRoot):
     creator_id: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     creator_label: Optional[Union[str, List[str]]] = empty_list()
     license: Optional[Union[str, URI]] = None
+    subject_type: Optional[Union[str, "EntityTypeEnum"]] = None
     subject_source: Optional[Union[str, URI]] = None
     subject_source_version: Optional[str] = None
+    object_type: Optional[Union[str, "EntityTypeEnum"]] = None
     object_source: Optional[Union[str, URI]] = None
     object_source_version: Optional[str] = None
     mapping_provider: Optional[Union[str, URI]] = None
@@ -227,7 +233,6 @@ class Mapping(YAMLRoot):
     match_string: Optional[Union[str, List[str]]] = empty_list()
     subject_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
     object_preprocessing: Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]] = empty_list()
-    match_term_type: Optional[Union[str, "MatchTermTypeEnum"]] = None
     semantic_similarity_score: Optional[float] = None
     semantic_similarity_measure: Optional[str] = None
     see_also: Optional[Union[str, List[str]]] = empty_list()
@@ -250,11 +255,10 @@ class Mapping(YAMLRoot):
         if not isinstance(self.object_id, EntityReference):
             self.object_id = EntityReference(self.object_id)
 
-        if self._is_empty(self.match_type):
-            self.MissingRequiredField("match_type")
-        if not isinstance(self.match_type, list):
-            self.match_type = [self.match_type] if self.match_type is not None else []
-        self.match_type = [v if isinstance(v, MatchTypeEnum) else MatchTypeEnum(v) for v in self.match_type]
+        if self._is_empty(self.mapping_justification):
+            self.MissingRequiredField("mapping_justification")
+        if not isinstance(self.mapping_justification, EntityReference):
+            self.mapping_justification = EntityReference(self.mapping_justification)
 
         if self.subject_label is not None and not isinstance(self.subject_label, str):
             self.subject_label = str(self.subject_label)
@@ -301,11 +305,17 @@ class Mapping(YAMLRoot):
         if self.license is not None and not isinstance(self.license, URI):
             self.license = URI(self.license)
 
+        if self.subject_type is not None and not isinstance(self.subject_type, EntityTypeEnum):
+            self.subject_type = EntityTypeEnum(self.subject_type)
+
         if self.subject_source is not None and not isinstance(self.subject_source, URI):
             self.subject_source = URI(self.subject_source)
 
         if self.subject_source_version is not None and not isinstance(self.subject_source_version, str):
             self.subject_source_version = str(self.subject_source_version)
+
+        if self.object_type is not None and not isinstance(self.object_type, EntityTypeEnum):
+            self.object_type = EntityTypeEnum(self.object_type)
 
         if self.object_source is not None and not isinstance(self.object_source, URI):
             self.object_source = URI(self.object_source)
@@ -351,9 +361,6 @@ class Mapping(YAMLRoot):
             self.object_preprocessing = [self.object_preprocessing] if self.object_preprocessing is not None else []
         self.object_preprocessing = [v if isinstance(v, PreprocessingMethodEnum) else PreprocessingMethodEnum(v) for v in self.object_preprocessing]
 
-        if self.match_term_type is not None and not isinstance(self.match_term_type, MatchTermTypeEnum):
-            self.match_term_type = MatchTermTypeEnum(self.match_term_type)
-
         if self.semantic_similarity_score is not None and not isinstance(self.semantic_similarity_score, float):
             self.semantic_similarity_score = float(self.semantic_similarity_score)
 
@@ -374,6 +381,48 @@ class Mapping(YAMLRoot):
 
 
 # Enumerations
+class EntityTypeEnum(EnumDefinitionImpl):
+
+    _defn = EnumDefinition(
+        name="EntityTypeEnum",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "owl class",
+                PermissibleValue(text="owl class",
+                                 meaning=OWL.Class) )
+        setattr(cls, "owl object property",
+                PermissibleValue(text="owl object property",
+                                 meaning=OWL.ObjectProperty) )
+        setattr(cls, "owl data property",
+                PermissibleValue(text="owl data property",
+                                 meaning=OWL.DataProperty) )
+        setattr(cls, "owl annotation property",
+                PermissibleValue(text="owl annotation property",
+                                 meaning=OWL.AnnotationProperty) )
+        setattr(cls, "owl named individual",
+                PermissibleValue(text="owl named individual",
+                                 meaning=OWL.NamedIndividual) )
+        setattr(cls, "skos concept",
+                PermissibleValue(text="skos concept",
+                                 meaning=SKOS.Concept) )
+        setattr(cls, "rdf resource",
+                PermissibleValue(text="rdf resource",
+                                 meaning=RDF.Resource) )
+        setattr(cls, "rdf class",
+                PermissibleValue(text="rdf class",
+                                 meaning=RDFS.Class) )
+        setattr(cls, "rdf literal",
+                PermissibleValue(text="rdf literal",
+                                 meaning=RDFS.Literal) )
+        setattr(cls, "rdf datatype",
+                PermissibleValue(text="rdf datatype",
+                                 meaning=RDFS.Datatype) )
+        setattr(cls, "rdf property",
+                PermissibleValue(text="rdf property",
+                                 meaning=RDF.Property) )
+
 class PredicateModifierEnum(EnumDefinitionImpl):
 
     Not = PermissibleValue(text="Not",
@@ -410,44 +459,6 @@ class MappingCardinalityEnum(EnumDefinitionImpl):
                 PermissibleValue(text="n:n",
                                  description="Many-to-many mapping") )
 
-class MatchTypeEnum(EnumDefinitionImpl):
-
-    Lexical = PermissibleValue(text="Lexical",
-                                     description="Lexical match")
-    Logical = PermissibleValue(text="Logical",
-                                     description="Logical match")
-    HumanCurated = PermissibleValue(text="HumanCurated",
-                                               description="Match based on human expert opinion")
-    Complex = PermissibleValue(text="Complex",
-                                     description="Match based on a variety of different strategies")
-    Unspecified = PermissibleValue(text="Unspecified",
-                                             description="Unknown match type")
-    SemanticSimilarity = PermissibleValue(text="SemanticSimilarity",
-                                                           description="Match based on close semantic similarity")
-
-    _defn = EnumDefinition(
-        name="MatchTypeEnum",
-    )
-
-class MatchTermTypeEnum(EnumDefinitionImpl):
-
-    TermMatch = PermissibleValue(text="TermMatch",
-                                         description="A match between two terms")
-    ConceptMatch = PermissibleValue(text="ConceptMatch",
-                                               description="A match between two SKOS concepts")
-    ClassMatch = PermissibleValue(text="ClassMatch",
-                                           description="A match between two OWL/RDFS classes")
-    ObjectPropertyMatch = PermissibleValue(text="ObjectPropertyMatch",
-                                                             description="A match between two OWL object properties")
-    IndividualMatch = PermissibleValue(text="IndividualMatch",
-                                                     description="A match between two OWL Individuals")
-    DataPropertyMatch = PermissibleValue(text="DataPropertyMatch",
-                                                         description="A match between two OWL object properties")
-
-    _defn = EnumDefinition(
-        name="MatchTermTypeEnum",
-    )
-
 class PreprocessingMethodEnum(EnumDefinitionImpl):
 
     Stemming = PermissibleValue(text="Stemming")
@@ -473,6 +484,9 @@ slots.subject_label = Slot(uri=SSSOM.subject_label, name="subject_label", curie=
 slots.subject_category = Slot(uri=SSSOM.subject_category, name="subject_category", curie=SSSOM.curie('subject_category'),
                    model_uri=SSSOM.subject_category, domain=None, range=Optional[str])
 
+slots.subject_type = Slot(uri=SSSOM.subject_type, name="subject_type", curie=SSSOM.curie('subject_type'),
+                   model_uri=SSSOM.subject_type, domain=None, range=Optional[Union[str, "EntityTypeEnum"]])
+
 slots.predicate_id = Slot(uri=OWL.annotatedProperty, name="predicate_id", curie=OWL.curie('annotatedProperty'),
                    model_uri=SSSOM.predicate_id, domain=None, range=Union[str, EntityReference])
 
@@ -481,6 +495,9 @@ slots.predicate_modifier = Slot(uri=SSSOM.predicate_modifier, name="predicate_mo
 
 slots.predicate_label = Slot(uri=SSSOM.predicate_label, name="predicate_label", curie=SSSOM.curie('predicate_label'),
                    model_uri=SSSOM.predicate_label, domain=None, range=Optional[str])
+
+slots.predicate_type = Slot(uri=SSSOM.predicate_type, name="predicate_type", curie=SSSOM.curie('predicate_type'),
+                   model_uri=SSSOM.predicate_type, domain=None, range=Optional[Union[str, "EntityTypeEnum"]])
 
 slots.object_id = Slot(uri=OWL.annotatedTarget, name="object_id", curie=OWL.curie('annotatedTarget'),
                    model_uri=SSSOM.object_id, domain=None, range=Union[str, EntityReference])
@@ -491,8 +508,11 @@ slots.object_label = Slot(uri=SSSOM.object_label, name="object_label", curie=SSS
 slots.object_category = Slot(uri=SSSOM.object_category, name="object_category", curie=SSSOM.curie('object_category'),
                    model_uri=SSSOM.object_category, domain=None, range=Optional[str])
 
-slots.match_type = Slot(uri=SSSOM.match_type, name="match_type", curie=SSSOM.curie('match_type'),
-                   model_uri=SSSOM.match_type, domain=None, range=Union[Union[str, "MatchTypeEnum"], List[Union[str, "MatchTypeEnum"]]])
+slots.mapping_justification = Slot(uri=SSSOM.mapping_justification, name="mapping_justification", curie=SSSOM.curie('mapping_justification'),
+                   model_uri=SSSOM.mapping_justification, domain=None, range=Union[str, EntityReference])
+
+slots.object_type = Slot(uri=SSSOM.object_type, name="object_type", curie=SSSOM.curie('object_type'),
+                   model_uri=SSSOM.object_type, domain=None, range=Optional[Union[str, "EntityTypeEnum"]])
 
 slots.mapping_set_id = Slot(uri=SSSOM.mapping_set_id, name="mapping_set_id", curie=SSSOM.curie('mapping_set_id'),
                    model_uri=SSSOM.mapping_set_id, domain=None, range=Union[str, URI])
@@ -542,6 +562,9 @@ slots.mapping_provider = Slot(uri=SSSOM.mapping_provider, name="mapping_provider
 slots.mapping_set_source = Slot(uri=PROV.wasDerivedFrom, name="mapping_set_source", curie=PROV.curie('wasDerivedFrom'),
                    model_uri=SSSOM.mapping_set_source, domain=None, range=Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]])
 
+slots.mapping_source = Slot(uri=SSSOM.mapping_source, name="mapping_source", curie=SSSOM.curie('mapping_source'),
+                   model_uri=SSSOM.mapping_source, domain=None, range=Optional[Union[str, EntityReference]])
+
 slots.mapping_cardinality = Slot(uri=SSSOM.mapping_cardinality, name="mapping_cardinality", curie=SSSOM.curie('mapping_cardinality'),
                    model_uri=SSSOM.mapping_cardinality, domain=None, range=Optional[Union[str, "MappingCardinalityEnum"]])
 
@@ -575,9 +598,6 @@ slots.subject_preprocessing = Slot(uri=SSSOM.subject_preprocessing, name="subjec
 slots.object_preprocessing = Slot(uri=SSSOM.object_preprocessing, name="object_preprocessing", curie=SSSOM.curie('object_preprocessing'),
                    model_uri=SSSOM.object_preprocessing, domain=None, range=Optional[Union[Union[str, "PreprocessingMethodEnum"], List[Union[str, "PreprocessingMethodEnum"]]]])
 
-slots.match_term_type = Slot(uri=SSSOM.match_term_type, name="match_term_type", curie=SSSOM.curie('match_term_type'),
-                   model_uri=SSSOM.match_term_type, domain=None, range=Optional[Union[str, "MatchTermTypeEnum"]])
-
 slots.semantic_similarity_score = Slot(uri=SSSOM.semantic_similarity_score, name="semantic_similarity_score", curie=SSSOM.curie('semantic_similarity_score'),
                    model_uri=SSSOM.semantic_similarity_score, domain=None, range=Optional[float])
 
@@ -592,9 +612,6 @@ slots.other = Slot(uri=SSSOM.other, name="other", curie=SSSOM.curie('other'),
 
 slots.comment = Slot(uri=RDFS.comment, name="comment", curie=RDFS.curie('comment'),
                    model_uri=SSSOM.comment, domain=None, range=Optional[str])
-
-slots.required = Slot(uri=SSSOM.required, name="required", curie=SSSOM.curie('required'),
-                   model_uri=SSSOM.required, domain=None, range=Optional[str])
 
 slots.metadata_element = Slot(uri=SSSOM.metadata_element, name="metadata_element", curie=SSSOM.curie('metadata_element'),
                    model_uri=SSSOM.metadata_element, domain=None, range=Optional[str])

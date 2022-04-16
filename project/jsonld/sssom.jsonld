@@ -27,10 +27,6 @@
       "prefix_reference": "http://www.geneontology.org/formats/oboInOwl#"
     },
     {
-      "prefix_prefix": "neuroname",
-      "prefix_reference": "http://braininfo.rprc.washington.edu/centraldirectory.aspx?ID="
-    },
-    {
       "prefix_prefix": "dce",
       "prefix_reference": "http://purl.org/dc/elements/1.1/"
     },
@@ -49,6 +45,10 @@
     {
       "prefix_prefix": "prov",
       "prefix_reference": "http://www.w3.org/ns/prov#"
+    },
+    {
+      "prefix_prefix": "skos",
+      "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
     }
   ],
   "default_curi_maps": [
@@ -230,6 +230,57 @@
   ],
   "enums": [
     {
+      "name": "entity_type_enum",
+      "definition_uri": "http://w3id.org/sssom/EntityTypeEnum",
+      "from_schema": "http://w3id.org/sssom/schema/",
+      "permissible_values": [
+        {
+          "text": "owl class",
+          "meaning": "owl:Class"
+        },
+        {
+          "text": "owl object property",
+          "meaning": "owl:ObjectProperty"
+        },
+        {
+          "text": "owl data property",
+          "meaning": "owl:DataProperty"
+        },
+        {
+          "text": "owl annotation property",
+          "meaning": "owl:AnnotationProperty"
+        },
+        {
+          "text": "owl named individual",
+          "meaning": "owl:NamedIndividual"
+        },
+        {
+          "text": "skos concept",
+          "meaning": "skos:Concept"
+        },
+        {
+          "text": "rdf resource",
+          "meaning": "rdf:Resource"
+        },
+        {
+          "text": "rdf class",
+          "meaning": "rdfs:Class"
+        },
+        {
+          "text": "rdf literal",
+          "meaning": "rdfs:Literal"
+        },
+        {
+          "text": "rdf datatype",
+          "meaning": "rdfs:Datatype"
+        },
+        {
+          "text": "rdf property",
+          "meaning": "rdf:Property"
+        }
+      ]
+    },
+    {
       "name": "predicate_modifier_enum",
       "definition_uri": "http://w3id.org/sssom/PredicateModifierEnum",
       "from_schema": "http://w3id.org/sssom/schema/",
@@ -272,68 +323,6 @@
       ]
     },
     {
-      "name": "match_type_enum",
-      "definition_uri": "http://w3id.org/sssom/MatchTypeEnum",
-      "from_schema": "http://w3id.org/sssom/schema/",
-      "permissible_values": [
-        {
-          "text": "Lexical",
-          "description": "Lexical match"
-        },
-        {
-          "text": "Logical",
-          "description": "Logical match"
-        },
-        {
-          "text": "HumanCurated",
-          "description": "Match based on human expert opinion"
-        },
-        {
-          "text": "Complex",
-          "description": "Match based on a variety of different strategies"
-        },
-        {
-          "text": "Unspecified",
-          "description": "Unknown match type"
-        },
-        {
-          "text": "SemanticSimilarity",
-          "description": "Match based on close semantic similarity"
-        }
-      ]
-    },
-    {
-      "name": "match_term_type_enum",
-      "definition_uri": "http://w3id.org/sssom/MatchTermTypeEnum",
-      "from_schema": "http://w3id.org/sssom/schema/",
-      "permissible_values": [
-        {
-          "text": "TermMatch",
-          "description": "A match between two terms"
-        },
-        {
-          "text": "ConceptMatch",
-          "description": "A match between two SKOS concepts"
-        },
-        {
-          "text": "ClassMatch",
-          "description": "A match between two OWL/RDFS classes"
-        },
-        {
-          "text": "ObjectPropertyMatch",
-          "description": "A match between two OWL object properties"
-        },
-        {
-          "text": "IndividualMatch",
-          "description": "A match between two OWL Individuals"
-        },
-        {
-          "text": "DataPropertyMatch",
-          "description": "A match between two OWL object properties"
-        }
-      ]
-    },
-    {
       "name": "preprocessing_method_enum",
       "definition_uri": "http://w3id.org/sssom/PreprocessingMethodEnum",
       "from_schema": "http://w3id.org/sssom/schema/",
@@ -362,6 +351,7 @@
         "MappingSet"
       ],
       "range": "Mapping",
+      "recommended": true,
       "@type": "SlotDefinition"
     },
     {
@@ -406,6 +396,7 @@
         "Mapping"
       ],
       "range": "string",
+      "recommended": true,
       "@type": "SlotDefinition"
     },
     {
@@ -431,6 +422,26 @@
         "Mapping"
       ],
       "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_type",
+      "definition_uri": "http://w3id.org/sssom/subject_type",
+      "description": "The type of entity that is being mapped.",
+      "examples": [
+        {
+          "value": "owl:Class",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "http://w3id.org/sssom/schema/",
+      "slot_uri": "http://w3id.org/sssom/subject_type",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "entity_type_enum",
       "@type": "SlotDefinition"
     },
     {
@@ -553,6 +564,25 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "predicate_type",
+      "definition_uri": "http://w3id.org/sssom/predicate_type",
+      "description": "The type of entity that is being mapped.",
+      "examples": [
+        {
+          "value": "owl:AnnotationProperty",
+          "@type": "Example"
+        },
+        {
+          "value": "owl:ObjectProperty",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "http://w3id.org/sssom/schema/",
+      "slot_uri": "http://w3id.org/sssom/predicate_type",
+      "range": "entity_type_enum",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "object_id",
       "definition_uri": "http://w3id.org/sssom/object_id",
       "mappings": [
@@ -594,6 +624,7 @@
         "Mapping"
       ],
       "range": "string",
+      "recommended": true,
       "@type": "SlotDefinition"
     },
     {
@@ -622,30 +653,47 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "match_type",
-      "definition_uri": "http://w3id.org/sssom/match_type",
-      "description": "The kind of match that led to the mapping, e.g. Logical or Lexical.",
+      "name": "mapping_justification",
+      "definition_uri": "http://w3id.org/sssom/mapping_justification",
+      "description": "A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.",
       "examples": [
         {
-          "value": "Lexical",
-          "description": "(The type of match that led to the mapping is Lexical, i.e. based on comparing the string representation of an aspect of the subject with the string representation of an aspect of the subject.)",
+          "value": "OMAPV:Lexical",
           "@type": "Example"
         },
         {
-          "value": "HumanCurated",
-          "description": "(The type of match that led to the mapping was by human expert judgement.)",
+          "value": "OMAPV:HumanCurated",
           "@type": "Example"
         }
       ],
       "from_schema": "http://w3id.org/sssom/schema/",
-      "slot_uri": "http://w3id.org/sssom/match_type",
-      "multivalued": true,
+      "slot_uri": "http://w3id.org/sssom/mapping_justification",
       "owner": "Mapping",
       "domain_of": [
         "Mapping"
       ],
-      "range": "match_type_enum",
+      "range": "EntityReference",
       "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_type",
+      "definition_uri": "http://w3id.org/sssom/object_type",
+      "description": "The type of entity that is being mapped.",
+      "examples": [
+        {
+          "value": "owl:Class",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "http://w3id.org/sssom/schema/",
+      "slot_uri": "http://w3id.org/sssom/object_type",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "entity_type_enum",
       "@type": "SlotDefinition"
     },
     {
@@ -955,6 +1003,21 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "mapping_source",
+      "definition_uri": "http://w3id.org/sssom/mapping_source",
+      "description": "The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another.",
+      "examples": [
+        {
+          "value": "MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "http://w3id.org/sssom/schema/",
+      "slot_uri": "http://w3id.org/sssom/mapping_source",
+      "range": "EntityReference",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "mapping_cardinality",
       "definition_uri": "http://w3id.org/sssom/mapping_cardinality",
       "description": "A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.",
@@ -1123,26 +1186,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "match_term_type",
-      "definition_uri": "http://w3id.org/sssom/match_term_type",
-      "description": "Specifies what type of terms are being matched (class, property, or individual).",
-      "examples": [
-        {
-          "value": "ClassMatch",
-          "@type": "Example"
-        }
-      ],
-      "from_schema": "http://w3id.org/sssom/schema/",
-      "slot_uri": "http://w3id.org/sssom/match_term_type",
-      "owner": "Mapping",
-      "domain_of": [
-        "MappingSet",
-        "Mapping"
-      ],
-      "range": "match_term_type_enum",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "semantic_similarity_score",
       "definition_uri": "http://w3id.org/sssom/semantic_similarity_score",
       "description": "A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence.",
@@ -1221,15 +1264,6 @@
         "MappingSet",
         "Mapping"
       ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "required",
-      "definition_uri": "http://w3id.org/sssom/required",
-      "description": "Indicates wether the SSSOM metadata element is required",
-      "from_schema": "http://w3id.org/sssom/schema/",
-      "slot_uri": "http://w3id.org/sssom/required",
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -1316,8 +1350,10 @@
         "creator_id",
         "creator_label",
         "mapping_set_license",
+        "subject_type",
         "subject_source",
         "subject_source_version",
+        "object_type",
         "object_source",
         "object_source_version",
         "mapping_provider",
@@ -1327,7 +1363,6 @@
         "object_match_field",
         "subject_preprocessing",
         "object_preprocessing",
-        "match_term_type",
         "see_also",
         "other",
         "comment"
@@ -1354,7 +1389,7 @@
         "object_id",
         "object_label",
         "object_category",
-        "match_type",
+        "mapping_justification",
         "author_id",
         "author_label",
         "reviewer_id",
@@ -1362,8 +1397,10 @@
         "creator_id",
         "creator_label",
         "license",
+        "subject_type",
         "subject_source",
         "subject_source_version",
+        "object_type",
         "object_source",
         "object_source_version",
         "mapping_provider",
@@ -1377,7 +1414,6 @@
         "match_string",
         "subject_preprocessing",
         "object_preprocessing",
-        "match_term_type",
         "semantic_similarity_score",
         "semantic_similarity_measure",
         "see_also",
@@ -1391,9 +1427,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom.yaml",
-  "source_file_date": "2022-04-15T23:34:11",
-  "source_file_size": 18803,
-  "generation_date": "2022-04-15T23:44:53",
+  "source_file_date": "2022-04-16T07:52:42",
+  "source_file_size": 19039,
+  "generation_date": "2022-04-16T07:53:03",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom.context.jsonld",
