@@ -1,14 +1,34 @@
-name: Build
-on:
-  workflow_dispatch:
-  push:
-    branches: [ master ]
-    paths:
-      - 'src/linkml/sssom.yaml'
+name: Deploy Documentation
 
+# Controls when the action will run. Triggers the workflow on push
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - 'src/docs/*'
+    - 'project/jsonschema/sssom.schema.json'
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  #synchronize:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - name: Merge master to gh-pages branch
+  #      uses: devmasx/merge-branch@v1.1.0
+  #      with:
+  #        type: now
+  #        target_branch: gh-pages
+  #      env:
+  #        GITHUB_TOKEN: ${{ github.token }}
+
   build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       #----------------------------------------------
       #       check-out repo and set-up python
@@ -59,14 +79,12 @@ jobs:
       - name: Create local changes
         run: |
           make all
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "Rebuilding documentation and generated files with Github Action" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          
+          GITHUB_TOKEN: ${{ github.token }}
+          REPOSITORY_NAME: mapping-commons/sssom # The repository the action should deploy to
+          BRANCH: gh-pages # The branch the action should deploy to.
+          COMMIT_MESSAGE: 'Update documentation'
+          FOLDER: . # The folder the action should deploy.
