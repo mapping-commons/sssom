@@ -420,6 +420,7 @@ classes:
     - creator_id
     - creator_label
     - license
+    - subject_type
     - subject_source
     - subject_source_version
     - object_type
@@ -432,7 +433,6 @@ classes:
     - object_match_field
     - subject_preprocessing
     - object_preprocessing
-    - match_term_type
     - see_also
     - other
     - comment
@@ -456,8 +456,10 @@ classes:
     - creator_id
     - creator_label
     - license
+    - subject_type
     - subject_source
     - subject_source_version
+    - object_type
     - object_source
     - object_source_version
     - mapping_provider
@@ -471,7 +473,6 @@ classes:
     - match_string
     - subject_preprocessing
     - object_preprocessing
-    - match_term_type
     - semantic_similarity_score
     - semantic_similarity_measure
     - see_also
