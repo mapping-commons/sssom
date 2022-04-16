@@ -14,6 +14,7 @@ prefixes:
   pav: http://purl.org/pav/
   prov: http://www.w3.org/ns/prov#
   skos: http://www.w3.org/2004/02/skos/core#
+  semapv: http://w3id.org/semapv/
 see_also:
 - https://github.com/OBOFoundry/SSSOM
 default_curi_maps:
@@ -186,19 +187,19 @@ slots:
     range: EntityReference
     required: true
     any_of:
-      - equals_string: omapv:AutomatedMatching
-      - equals_string: omapv:LexicalMatching
-      - equals_string: omapv:LogicalReasoning
-      - equals_string: omapv:ComplexMatching
-      - equals_string: omapv:UnspecifiedMapping
-      - equals_string: omapv:SemanticSimilarityThresholdMatching
-      - equals_string: omapv:LexicalSimilarityThresholdMatching
-      - equals_string: omapv:CrossWalkMatching
-      - equals_string: omapv:MappingReview
-      - equals_string: omapv:ManualMappingCuration
-      - equals_string: omapv:MappingActivity
-      - equals_string: omapv:MappingDerivation
-      - equals_string: omapv:MappingAggregation
+      - equals_string: semapv:AutomatedMatching
+      - equals_string: semapv:LexicalMatching
+      - equals_string: semapv:LogicalReasoning
+      - equals_string: semapv:ComplexMatching
+      - equals_string: semapv:UnspecifiedMapping
+      - equals_string: semapv:SemanticSimilarityThresholdMatching
+      - equals_string: semapv:LexicalSimilarityThresholdMatching
+      - equals_string: semapv:CrossWalkMatching
+      - equals_string: semapv:MappingReview
+      - equals_string: semapv:ManualMappingCuration
+      - equals_string: semapv:MappingActivity
+      - equals_string: semapv:MappingDerivation
+      - equals_string: semapv:MappingAggregation
   object_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
