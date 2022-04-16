@@ -8,12 +8,12 @@ prefixes:
   sssom: http://w3id.org/sssom/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   oboInOwl: http://www.geneontology.org/formats/oboInOwl#
-  neuroname: http://braininfo.rprc.washington.edu/centraldirectory.aspx?ID=
   dce: http://purl.org/dc/elements/1.1/
   Orphanet: http://www.orpha.net/ORDO/Orphanet_
   oio: http://www.geneontology.org/formats/oboInOwl#
   pav: http://purl.org/pav/
   prov: http://www.w3.org/ns/prov#
+  skos: http://www.w3.org/2004/02/skos/core#
 see_also:
 - https://github.com/OBOFoundry/SSSOM
 default_curi_maps:
@@ -22,6 +22,30 @@ default_curi_maps:
 default_prefix: sssom
 
 enums:
+  entity_type_enum:
+    permissible_values:
+      owl class:
+        meaning: owl:Class
+      owl object property:
+        meaning: owl:ObjectProperty
+      owl data property:
+        meaning: owl:DataProperty
+      owl annotation property:
+        meaning: owl:AnnotationProperty
+      owl named individual:
+        meaning: owl:NamedIndividual
+      skos concept:
+        meaning: skos:Concept
+      rdf resource:
+        meaning: rdf:Resource
+      rdf class:
+        meaning: rdfs:Class
+      rdf literal:
+        meaning: rdfs:Literal
+      rdf datatype:
+        meaning: rdfs:Datatype
+      rdf property:
+        meaning: rdf:Property
   predicate_modifier_enum:
     permissible_values:
       Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
@@ -33,22 +57,6 @@ enums:
       "1:0": One-to-none mapping
       "0:1": None-to-one mapping
       "n:n": Many-to-many mapping
-  match_type_enum:
-    permissible_values:
-      Lexical: Lexical match
-      Logical: Logical match
-      HumanCurated: Match based on human expert opinion
-      Complex: Match based on a variety of different strategies
-      Unspecified: Unknown match type
-      SemanticSimilarity: Match based on close semantic similarity
-  match_term_type_enum:
-    permissible_values:
-      TermMatch: A match between two terms
-      ConceptMatch: A match between two SKOS concepts
-      ClassMatch: A match between two OWL/RDFS classes
-      ObjectPropertyMatch: A match between two OWL object properties
-      IndividualMatch: A match between two OWL Individuals
-      DataPropertyMatch: A match between two OWL object properties
   preprocessing_method_enum:
     permissible_values:
       Stemming:
@@ -67,6 +75,7 @@ slots:
     range: mapping
     multivalued: true
     inlined_as_list: true
+    recommended: true
   subject_id:
     description: The ID of the subject of the mapping.
     range: EntityReference
@@ -82,6 +91,7 @@ slots:
     range: string
     examples:
       - value: Thickened ears
+    recommended: true
   subject_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
@@ -91,6 +101,11 @@ slots:
         description: (The CURIE of the Uberon term for "anatomical entity".)
       - value: biolink:Gene
         description: (The CURIE of the biolink class for genes.)
+  subject_type:
+    description: The type of entity that is being mapped.
+    range: entity_type_enum
+    examples:
+      - value: owl:Class
   predicate_id:
     description: The ID of the predicate or relation that relates the subject and
       object of this match.
@@ -135,6 +150,12 @@ slots:
         description: Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)
       - value: rdfs:seeAlso
         description: The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.
+  predicate_type:
+    description: The type of entity that is being mapped.
+    range: entity_type_enum
+    examples:
+      - value: owl:AnnotationProperty
+      - value: owl:ObjectProperty
   object_id:
     description: The ID of the object of the mapping.
     mappings:
@@ -150,6 +171,7 @@ slots:
     range: string
     examples:
       - value: Thickened ears
+    recommended: true
   object_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
@@ -159,16 +181,18 @@ slots:
         description: (The CURIE of the Uberon term for "anatomical entity".)
       - value: biolink:Gene
         description: (The CURIE of the biolink class for genes.)
-  match_type:
-    description: The kind of match that led to the mapping, e.g. Logical or Lexical.
-    range: match_type_enum
+  mapping_justification:
+    description: A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
+    range: EntityReference
     required: true
-    multivalued: true
     examples:
-      - value: Lexical
-        description: (The type of match that led to the mapping is Lexical, i.e. based on comparing the string representation of an aspect of the subject with the string representation of an aspect of the subject.)
-      - value: HumanCurated
-        description: (The type of match that led to the mapping was by human expert judgement.)
+      - value: OMAPV:Lexical
+      - value: OMAPV:HumanCurated
+  object_type:
+    description: The type of entity that is being mapped.
+    range: entity_type_enum
+    examples:
+      - value: owl:Class
   mapping_set_id:
     description: A globally unique identifier for the mapping set (not each individual
       mapping). Should be IRI, ideally resolvable.
@@ -275,6 +299,12 @@ slots:
       - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
       - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv|MONDO_MAPPINGS:mondo_exactmatch_omim.sssom.tsv
         description: (multivalued example in TSV)
+  mapping_source:
+    description: The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple
+      mapping sets or deriving one mapping set from another.
+    range: EntityReference
+    examples:
+      - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
   mapping_cardinality:
     description: A string indicating whether this mapping is from a 1:1 (the subject_id
       maps to a single object_id), 1:n (the subject maps to more than one object_id), 
@@ -331,12 +361,6 @@ slots:
       recommended to store the match in separate rows.
     range: preprocessing_method_enum
     multivalued: true
-  match_term_type:
-    description: Specifies what type of terms are being matched (class, property,
-      or individual).
-    range: match_term_type_enum
-    examples:
-      - value: ClassMatch
   semantic_similarity_score:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
@@ -364,9 +388,6 @@ slots:
     description: Free text field containing either curator notes or text generated
       by tool providing additional informative information.
     slot_uri: rdfs:comment
-    range: string
-  required:
-    description: Indicates wether the SSSOM metadata element is required
     range: string
   metadata_element:
     description: All legal SSSOM metadata elements are subproperties of this.
@@ -399,8 +420,10 @@ classes:
     - creator_id
     - creator_label
     - license
+    - subject_type
     - subject_source
     - subject_source_version
+    - object_type
     - object_source
     - object_source_version
     - mapping_provider
@@ -410,7 +433,6 @@ classes:
     - object_match_field
     - subject_preprocessing
     - object_preprocessing
-    - match_term_type
     - see_also
     - other
     - comment
@@ -426,7 +448,7 @@ classes:
     - object_id
     - object_label
     - object_category
-    - match_type
+    - mapping_justification
     - author_id
     - author_label
     - reviewer_id
@@ -434,8 +456,10 @@ classes:
     - creator_id
     - creator_label
     - license
+    - subject_type
     - subject_source
     - subject_source_version
+    - object_type
     - object_source
     - object_source_version
     - mapping_provider
@@ -449,7 +473,6 @@ classes:
     - match_string
     - subject_preprocessing
     - object_preprocessing
-    - match_term_type
     - semantic_similarity_score
     - semantic_similarity_measure
     - see_also
