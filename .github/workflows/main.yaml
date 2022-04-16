@@ -1,28 +1,31 @@
-name: Build
-on:
-  workflow_dispatch:
-  push:
-    branches: [ master ]
-    paths:
-      - 'src/linkml/sssom.yaml'
+# Built from:
+# https://docs.github.com/en/actions/guides/building-and-testing-python
+# https://github.com/snok/install-poetry#workflows-and-tips
+
+name: Build and test linkml-runtime
+
+on: [pull_request]
 
 jobs:
-  build:
+  test:
+
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10"]
+
     steps:
+
       #----------------------------------------------
       #       check-out repo and set-up python
       #----------------------------------------------
       - name: Check out repository
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: ${{ matrix.python-version }}
 
       #----------------------------------------------
       #          install & configure poetry
@@ -56,17 +59,9 @@ jobs:
       - name: Install library
         run: poetry install --no-interaction
 
-      - name: Create local changes
-        run: |
-          make all
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "Rebuilding documentation and generated files with Github Action" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          
+      #----------------------------------------------
+      #              run test suite   
+      #----------------------------------------------
+      - name: Run tests
+        run: make test
+
