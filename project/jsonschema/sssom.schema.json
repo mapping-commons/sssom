@@ -1,5 +1,23 @@
 {
    "$defs": {
+      "EntityTypeEnum": {
+         "description": "",
+         "enum": [
+            "owl class",
+            "owl object property",
+            "owl data property",
+            "owl annotation property",
+            "owl named individual",
+            "skos concept",
+            "rdf resource",
+            "rdf class",
+            "rdf literal",
+            "rdf datatype",
+            "rdf property"
+         ],
+         "title": "EntityTypeEnum",
+         "type": "string"
+      },
       "Mapping": {
          "additionalProperties": false,
          "description": "Represents an individual mapping between a pair of entities",
@@ -53,6 +71,10 @@
                "format": "date",
                "type": "string"
             },
+            "mapping_justification": {
+               "description": "A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.",
+               "type": "string"
+            },
             "mapping_provider": {
                "description": "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.",
                "type": "string"
@@ -69,17 +91,6 @@
                "description": "Strings that are shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots.",
                "items": {
                   "type": "string"
-               },
-               "type": "array"
-            },
-            "match_term_type": {
-               "$ref": "#/$defs/MatchTermTypeEnum",
-               "description": "Specifies what type of terms are being matched (class, property, or individual)."
-            },
-            "match_type": {
-               "description": "The kind of match that led to the mapping, e.g. Logical or Lexical.",
-               "items": {
-                  "$ref": "#/$defs/MatchTypeEnum"
                },
                "type": "array"
             },
@@ -116,6 +127,10 @@
             "object_source_version": {
                "description": "Version IRI or version string of the source of the object term.",
                "type": "string"
+            },
+            "object_type": {
+               "$ref": "#/$defs/EntityTypeEnum",
+               "description": "The type of entity that is being mapped."
             },
             "other": {
                "description": "Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.",
@@ -195,13 +210,17 @@
             "subject_source_version": {
                "description": "Version IRI or version string of the source of the subject term.",
                "type": "string"
+            },
+            "subject_type": {
+               "$ref": "#/$defs/EntityTypeEnum",
+               "description": "The type of entity that is being mapped."
             }
          },
          "required": [
             "subject_id",
             "predicate_id",
             "object_id",
-            "match_type"
+            "mapping_justification"
          ],
          "title": "Mapping",
          "type": "object"
@@ -284,10 +303,6 @@
                },
                "type": "array"
             },
-            "match_term_type": {
-               "$ref": "#/$defs/MatchTermTypeEnum",
-               "description": "Specifies what type of terms are being matched (class, property, or individual)."
-            },
             "object_match_field": {
                "description": "A tuple of fields (term annotations on the object) that was used for the match.",
                "items": {
@@ -309,6 +324,10 @@
             "object_source_version": {
                "description": "Version IRI or version string of the source of the object term.",
                "type": "string"
+            },
+            "object_type": {
+               "$ref": "#/$defs/EntityTypeEnum",
+               "description": "The type of entity that is being mapped."
             },
             "other": {
                "description": "Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.",
@@ -342,6 +361,10 @@
             "subject_source_version": {
                "description": "Version IRI or version string of the source of the subject term.",
                "type": "string"
+            },
+            "subject_type": {
+               "$ref": "#/$defs/EntityTypeEnum",
+               "description": "The type of entity that is being mapped."
             }
          },
          "required": [
@@ -350,32 +373,6 @@
          ],
          "title": "MappingSet",
          "type": "object"
-      },
-      "MatchTermTypeEnum": {
-         "description": "",
-         "enum": [
-            "TermMatch",
-            "ConceptMatch",
-            "ClassMatch",
-            "ObjectPropertyMatch",
-            "IndividualMatch",
-            "DataPropertyMatch"
-         ],
-         "title": "MatchTermTypeEnum",
-         "type": "string"
-      },
-      "MatchTypeEnum": {
-         "description": "",
-         "enum": [
-            "Lexical",
-            "Logical",
-            "HumanCurated",
-            "Complex",
-            "Unspecified",
-            "SemanticSimilarity"
-         ],
-         "title": "MatchTypeEnum",
-         "type": "string"
       },
       "PredicateModifierEnum": {
          "description": "",
