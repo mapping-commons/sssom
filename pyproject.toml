@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "linkml-project-template"
+version = "0.1.0"
+description = "Enter description of your project here"
+authors = ["Mark A. Miller <mamillerpa@gmail.com>"]
+license = "MIT"
+include = ["README.md", "src/linkml", "project"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+linkml-runtime = "^1.1.24"
+
+[tool.poetry.dev-dependencies]
+linkml = "^1.2.6"
+mkdocs-material = "^8.2.8"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
