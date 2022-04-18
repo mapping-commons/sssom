@@ -185,6 +185,7 @@ slots:
   mapping_justification:
     description: A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
     range: EntityReference
+    pattern: "^semapv:(AutomatedMatching|MappingReview|ManualMappingCuration|MappingActivity|MappingDerivation|MappingAggregation|LogicalReasoning|LexicalMatching|ComplexMatching|UnspecifiedMapping|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|CrossWalkMatching)$"
     required: true
     any_of:
       - equals_string: semapv:AutomatedMatching
