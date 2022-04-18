@@ -71,7 +71,7 @@ types:
 
 slots:
   mirror_from:
-    description: A list of mapping set references.
+    description: A URL location from which to obtain a resource, such as a mapping set.
     range: uri
   registry_confidence:
     description: This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
