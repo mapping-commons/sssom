@@ -1,0 +1,71 @@
+// Represents an individual mapping between a pair of entities
+message Mapping
+ {
+  subjectId EntityReference = 1
+  optional subjectLabel String = 2
+  optional subjectCategory String = 3
+  predicateId EntityReference = 4
+  optional predicateLabel String = 5
+  optional predicateModifier PredicateModifierEnum = 6
+  objectId EntityReference = 7
+  optional objectLabel String = 8
+  optional objectCategory String = 9
+  mappingJustification EntityReference = 10
+  repeated authorId EntityReference = 11
+  repeated authorLabel String = 12
+  repeated reviewerId EntityReference = 13
+  repeated reviewerLabel String = 14
+  repeated creatorId EntityReference = 15
+  repeated creatorLabel String = 16
+  optional license Uri = 17
+  optional subjectType EntityTypeEnum = 18
+  optional subjectSource Uri = 19
+  optional subjectSourceVersion String = 20
+  optional objectType EntityTypeEnum = 21
+  optional objectSource Uri = 22
+  optional objectSourceVersion String = 23
+  optional mappingProvider Uri = 24
+  optional mappingCardinality MappingCardinalityEnum = 25
+  optional mappingTool String = 26
+  optional mappingToolVersion String = 27
+  optional mappingDate Date = 28
+  optional confidence Double = 29
+  repeated subjectMatchField EntityReference = 30
+  repeated objectMatchField EntityReference = 31
+  repeated matchString String = 32
+  repeated subjectPreprocessing PreprocessingMethodEnum = 33
+  repeated objectPreprocessing PreprocessingMethodEnum = 34
+  optional semanticSimilarityScore Double = 35
+  optional semanticSimilarityMeasure String = 36
+  repeated seeAlso String = 37
+  optional other String = 38
+  optional comment String = 39
+ }
+// Represents a set of mappings
+message MappingSet
+ {
+  repeated mappings Mapping = 1
+  mappingSetId Uri = 2
+  optional mappingSetVersion String = 3
+  repeated mappingSetSource EntityReference = 4
+  optional mappingSetDescription String = 5
+  repeated creatorId EntityReference = 6
+  repeated creatorLabel String = 7
+  license Uri = 8
+  optional subjectType EntityTypeEnum = 9
+  optional subjectSource Uri = 10
+  optional subjectSourceVersion String = 11
+  optional objectType EntityTypeEnum = 12
+  optional objectSource Uri = 13
+  optional objectSourceVersion String = 14
+  optional mappingProvider Uri = 15
+  optional mappingTool String = 16
+  optional mappingDate Date = 17
+  repeated subjectMatchField EntityReference = 18
+  repeated objectMatchField EntityReference = 19
+  repeated subjectPreprocessing PreprocessingMethodEnum = 20
+  repeated objectPreprocessing PreprocessingMethodEnum = 21
+  repeated seeAlso String = 22
+  optional other String = 23
+  optional comment String = 24
+ }

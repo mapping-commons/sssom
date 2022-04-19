@@ -1,0 +1,34 @@
+site_name: "A Simple Standard for Sharing Ontology Mappings (SSSOM)"
+theme:
+  name: material
+  analytics:
+    gtag: G-2SYBSJVZ23
+#  palette:
+#    scheme: slate
+#    primary: cyan
+  features:
+    - content.tabs.link
+plugins:
+  - search
+markdown_extensions:
+  - pymdownx.highlight:
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+nav:
+  - Home: home.md
+  - About SSSOM: about.md
+  - SSSOM Specification: spec.md
+  - Use cases: usecases.md
+  - Workshops: workshops.md
+  - Presentations: presentations.md
+  - Index: index.md
+  - Credits: credits.md
+site_url: https://mapping-commons.github.io/sssom/
+repo_url: https://github.com/mapping-commons/sssom/
