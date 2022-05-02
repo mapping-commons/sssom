@@ -222,12 +222,12 @@ Again, there is no great recipe to solve this dilemma. We chose our default reci
 1. prefer consistent mapping rules over occasionally increased precision (not always a good idea)
 2. document design decision
 
-| subject_id   | subject_label | predicate_id    | object_id       | object_label       | confidence | comment                                                                                                                                                   | mapping_justification |
-|--------------|---------------|-----------------|-----------------|--------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| KF_FOOD:F001 | apple         | skos:exactMatch | FOODON:00002473 | apple (whole)      |       0.95 | We could map to FOODON:03310788 instead to cover sliced apples, but only "whole" apple types exist.                                                       | sempav:HumanCuration  |
-| KF_FOOD:F002 | gala          | skos:exactMatch | FOODON:00003348 | Gala apple (whole) |          1 |                                                                                                                                                           | sempav:HumanCuration  |
-| KF_FOOD:F003 | pink          | skos:exactMatch | FOODON:00004186 | Pink apple (whole) |        0.9 | We could map to FOODON:00004187 instead which more specifically refers to "raw" Pink apples. Decided against to be consistent with other mapping choices. | sempav:HumanCuration  |
-| KF_FOOD:F004 | braeburn      |                 |                 |                    |            |                                                                                                                                                           | sempav:HumanCuration  |
+| subject_id   | subject_label | predicate_id    | object_id       | object_label       | confidence | comment                                                                                                                                                   |
+|--------------|---------------|-----------------|-----------------|--------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| KF_FOOD:F001 | apple         | skos:exactMatch | FOODON:00002473 | apple (whole)      |       0.95 | We could map to FOODON:03310788 instead to cover sliced apples, but only "whole" apple types exist.                                                       |
+| KF_FOOD:F002 | gala          | skos:exactMatch | FOODON:00003348 | Gala apple (whole) |          1 |                                                                                                                                                           |
+| KF_FOOD:F003 | pink          | skos:exactMatch | FOODON:00004186 | Pink apple (whole) |        0.9 | We could map to FOODON:00004187 instead which more specifically refers to "raw" Pink apples. Decided against to be consistent with other mapping choices. |
+| KF_FOOD:F004 | braeburn      |                 |                 |                    |            |                                                                                                                                                           |
 
 ##### Mapping "braeburn"
 
