@@ -88,6 +88,7 @@ This may strike some users as verbose - but the concept of unique identifiers fo
 
 SSSOM mapping sets can be created as part of automated processes, like ontology matchers, or manually by ontology curators. While there is overlap, it makes sense to look at both cases separately. To remind yourself why you should build SSSOM mapping sets in the first place, please refer to [the FAQ](faq.md#why).
 
+<a id="scratchstart"></a>
 ### Manually curating mapping sets
 
 To gradually improve terminological mapping practices we are proposing a [5-star system for mappings](spec.md#minimum). For the sake of this tutorial, we will focus on producing a [solid 3-Star mapping set](spec.md#minimum) with the following metadata:
@@ -107,6 +108,7 @@ To gradually improve terminological mapping practices we are proposing a [5-star
 - `mapping_date`: The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
 - `author_id`: Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.
 - `mapping_set_description`: A description of the mapping set, providing context and motivation.
+- `mapping_set_id`: A unique identifier of the mapping set.
 - `subject_source`: URI of source the subject.
 - `subject_source_version`: The version of the source of the subject.
 - `object_source`: URI of source the subject.
@@ -257,6 +259,36 @@ The second question is whether to include a _less precise_ mapping. This depends
 | KF_FOOD:F004 | braeburn      | skos:broadMatch | FOODON:00002473 | apple (whole)      |          1 |                                                                                                                                                           |
 
 #### Adding rich metadata
+
+We are done curating the basic mappings. Next, we will add some richer metadata for the mapping set. For this tutorial we will add the metadata introduce [here](#scratchstart).
+
+**Mapping justification metadata**:
+
+`mapping_justification`: the process or activity that led us to believe the mapping to be correct or reasonable.
+
+This is the most important piece of metadata and a pivotal concept for SSSOM curation in general. Let us think about all the various ways that can lead us to believe a mapping to be correct.
+
+The most crude thing would be to document is: "a Human determined this mapping". We do that by documenting the mapping justification `sempav:HumanCuration`. This justification is a vague placeholder, but it instills some confidence in the mapping consumer (the user) that someone with at least some domain expertise determined the mapping to be ok. We will discuss `mapping_justification`s in more detailed in a later tutorial on automated matching, where we have many more fine-grained distinctions, like "the justification for asserting this mapping is that the label of the subject matches to an exact synonym of the object after applying 'stemming' during preprocessing". Nevertheless, modelling human curation better is one of the future goals of SSSOM. The key is to document "curation rules", which contain the conditions and assumptions made by the (human) mapping author when asserting the mapping. In the absence of a [formal element](https://github.com/mapping-commons/sssom/issues/166) (at least at the time of this writing, May 2022), you should try and document such curation rules in the `comment` field.
+
+**Basic provenance metadata**:
+
+`mapping_date`: The date the mapping was asserted. 
+
+Why is this important? Time of an assertions is essential provenance. it allows us to prefer assertions (mapping decisions) that were done later, but it also gives us a hint how old a mapping is, in particular if the source versions are not, or cannot, be documented. It is a very easy element to document, and we should try to do that at all times.
+
+`author_id`: Identifies the persons or groups responsible for asserting the mappings.
+
+The author is a crucial bit of metadata, in particular in conjunction with the mapping justification `human curation`. A mapping consumer can look up the author of a mapping through their unique identifier (e.g. an orcid, which we use in the biomedical domain, but might be anything).
+
+`mapping_set_id`: A unique identifier of the mapping set. This is a pivotal concept in FAIR data and data management in general: every unit of data that is shared around within an organisation (or the whole world) [should have a unique identifier](https://www.go-fair.org/fair-principles/f1-meta-data-assigned-globally-unique-persistent-identifiers/). As per Semantic Web conventions, we recommend using persistent URLs, or PURLs, to identify your mappings set. For example: 
+
+`mapping_set_description`: A description of the mapping set, providing context and motivation.
+- `subject_source`: URI of source the subject.
+- `subject_source_version`: The version of the source of the subject.
+- `object_source`: URI of source the subject.
+- `object_source_version`: The version of the source of the object.
+
+
 
 | subject_id   | subject_label | predicate_id    | object_id       | object_label       | confidence | comment                                                                                                                                                   | mapping_justification | mapping_date | author_id                 | subject_source | subject_source_version | object_source | object_source_version                                                |
 |--------------|---------------|-----------------|-----------------|--------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|--------------|---------------------------|----------------|------------------------|---------------|----------------------------------------------------------------------|
