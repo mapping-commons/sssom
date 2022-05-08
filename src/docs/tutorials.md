@@ -108,6 +108,7 @@ To gradually improve terminological mapping practices we are proposing a [5-star
 - `mapping_date`: The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
 - `author_id`: Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.
 - `mapping_set_description`: A description of the mapping set, providing context and motivation.
+- `license`: An identifier for a license description.
 - `mapping_set_id`: A unique identifier of the mapping set.
 - `mapping_set_version`: The version of a mapping set.
 - `subject_source`: URI of source the subject.
@@ -291,6 +292,8 @@ The author is a crucial bit of metadata, in particular in conjunction with the m
 - describes the purpose for the creation of the mapping set
 - is reasonably short, but not too short (3-4 sentences)
 
+`license`: An identifier for a license description. One of the most serious impediments to re-use on the web is the absence of clear and **standardised** licenses. We recommend the creative commons licenses for open data, either CC-0 (public domain, no license) or CC-BY 4.0. (Some people prefer CC-BY 4.0, because it ensures that attribution is taken more seriously.) Even when using a proprietary license, it is good to be transparent here, so that an "accidentally leaked" data file is not mistakenly assumed to be "open".
+
 `subject_source`: URI of source the subject. This is one of the most important pieces of metadata: an unambiguous reference to a source. It is notoriously hard to standardise source reference, and we are [currently debating](https://github.com/mapping-commons/sssom/issues/126) whether we should require URIs in the strict sense (e.g. a URL to a source, or a PURL to an ontology) or whether we can refer to a source simply by a PREFIX (as long as it can be dereferenced by bioregistry.io).
 
 `subject_source_version`: The version of the source of the subject. In order to interpret a mapping, it is not enough to know the source. Sources changes all the time, whether they are database and/or ontology: classes are obsoleted, database records are deleted. What counts for an exact mapping may change through the evolution of a source. _Always_ document the source version, if you can. This can be very difficult for database systems that do not have a real notion of versioning.
@@ -314,11 +317,12 @@ SSSOM distinguishes between `mapping` and `mapping_set` metadata, i.e. metadata 
 | KF_FOOD:F004 | braeburn      | skos:exactMatch | sssom:NoMapping |                    |          1 |                                                                                                                                                           | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 |                        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
 | KF_FOOD:F004 | braeburn      | skos:broadMatch | FOODON:00002473 | apple (whole)      |          1 |                                                                                                                                                           | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 |                        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
 
-**Mapping set metadata**. In this tutorial, only `mapping_set_id`, `mapping_set_version` and `mapping_set_description` are purely `mapping_set` metadata. Everything else is considered `mapping` metadata.
+**Mapping set metadata**. In this tutorial, only `mapping_set_id`, `mapping_set_version`, `license` and `mapping_set_description` are purely `mapping_set` metadata. Everything else is considered `mapping` metadata.
 Mapping set metadata is captured in [YAML](https://yaml.org/) format. For this tutorial, we will capture the following:
 
 ```
 mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+license: https://creativecommons.org/licenses/by/4.0/
 mapping_set_version: "2022-06-01"
 mapping_set_description: "Manually curated alignment of KEWL FOODIE INC internal food and nutrition database with Food Ontology (FOODON). Intended to be used for ontological analysis and grouping of KEWL FOODIE INC related data."
 object_source: wikidata:Q55118395
@@ -340,11 +344,11 @@ The `curie_map` (better known as "prefix map") is another key concept in SSSOM (
 2. Expanding and resolving identifiers. Some identifier schemes like the one in the OBO Foundry, Wikidata and many others, resolve identifiers to a page on the web. This allows people (and sometimes machines) to look up additional information about an entity on the web. For example, when we expand FOODON:00002473 to http://purl.obolibrary.org/obo/FOODON_00002473, we can look this URI up in a browser.
 3. Providing a recipe for creating RDF resources from CURIEs. RDF requires an entity to be represented by a full URI, e.g. <http://purl.obolibrary.org/obo/FOODON_00002473>. In this case, you can think of the `curie_map` in essence as a set of RDF [prefix declarations](https://www.w3.org/TR/1999/REC-xml-names-19990114/#NT-Prefix). This is only important if your use case requires serialisation into RDF.
 
-This concludes the manual curation tutorial. Next, we will process the two mapping sets using "SSSOM python utilities" (aka sssom-py).
+This concludes the manual curation tutorial. Next, we will process the two mapping sets using "SSSOM python toolkit" (aka sssom-py).
 
 ### Automated processing 1: Creating an embedded SSSOM file
 
-*Important note May 8 2022**: The SSSOM utilities have not yet been updated to the most recent changes of the SSSOM data model. If you get an error `ValueError: match_type must be supplied`, you have to change your SSSOM table to follow this part of the tutorial:
+*Important note May 8 2022**: The SSSOM toolkit have not yet been updated to the most recent changes of the SSSOM data model. If you get an error `ValueError: match_type must be supplied`, you have to change your SSSOM table to follow this part of the tutorial:
 
 1. Rename the `mapping_justification` column to `match_type`.
 2. Change the `semapv:HumanCuration` value in that column to just `HumanCurated` (sic, without semapv).
@@ -365,5 +369,15 @@ In SSSOM, we opted for option 2 as the default, which we call "embedded mode" (t
 
 If you do not have the SSSOM toolkit installed, [do so now](https://mapping-commons.github.io/sssom-py/installation.html).
 
+Download the food mappings created before. If you feel confident with your own mappings, feel free to use these instead.
 
-Now you can 
+- [Mappings](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/example1.sssom.tsv)
+- [Metadata](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/example1.sssom.yml)
+
+Now you let's use SSSOM toolkit to merge these two:
+
+```
+sssom parse example1.sssom.tsv -m example1.sssom.yml -o foodieinc-food.sssom.tsv
+```
+
+
