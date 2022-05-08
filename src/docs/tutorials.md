@@ -109,6 +109,7 @@ To gradually improve terminological mapping practices we are proposing a [5-star
 - `author_id`: Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.
 - `mapping_set_description`: A description of the mapping set, providing context and motivation.
 - `mapping_set_id`: A unique identifier of the mapping set.
+- `mapping_set_version`: The version of a mapping set.
 - `subject_source`: URI of source the subject.
 - `subject_source_version`: The version of the source of the subject.
 - `object_source`: URI of source the subject.
@@ -274,26 +275,95 @@ The most crude thing would be to document is: "a Human determined this mapping".
 
 `mapping_date`: The date the mapping was asserted. 
 
-Why is this important? Time of an assertions is essential provenance. it allows us to prefer assertions (mapping decisions) that were done later, but it also gives us a hint how old a mapping is, in particular if the source versions are not, or cannot, be documented. It is a very easy element to document, and we should try to do that at all times.
+Why is this important? Time of an assertion is essential provenance. It allows us to prefer assertions (mapping decisions) that were done later, but it also gives us a hint how old a mapping is, in particular if the source versions are not, or cannot, be documented. It is a very easy element to document, and we should try to do that at all times.
 
 `author_id`: Identifies the persons or groups responsible for asserting the mappings.
 
-The author is a crucial bit of metadata, in particular in conjunction with the mapping justification `human curation`. A mapping consumer can look up the author of a mapping through their unique identifier (e.g. an orcid, which we use in the biomedical domain, but might be anything).
+The author is a crucial bit of metadata, in particular in conjunction with the mapping justification `human curation`. A mapping consumer can look up the author of a mapping through their unique identifier (e.g. an [ORCiD](https://orcid.org/), which we use in the biomedical domain, but might be anything, including a unique database identifier). Again, we prefer PURLs here, that resolve to some useful information when you look them up.
 
-`mapping_set_id`: A unique identifier of the mapping set. This is a pivotal concept in FAIR data and data management in general: every unit of data that is shared around within an organisation (or the whole world) [should have a unique identifier](https://www.go-fair.org/fair-principles/f1-meta-data-assigned-globally-unique-persistent-identifiers/). As per Semantic Web conventions, we recommend using persistent URLs, or PURLs, to identify your mappings set. For example: 
+`mapping_set_id`: A unique identifier of the mapping set. This is a pivotal concept in FAIR data and data management in general: every unit of data that is shared around within an organisation (or the whole world) [should have a unique identifier](https://www.go-fair.org/fair-principles/f1-meta-data-assigned-globally-unique-persistent-identifiers/). As per Semantic Web conventions, we recommend using persistent URLs, or PURLs, to identify your mappings set. For example: http://purl.obolibrary.org/obo/mondo.owl is a unique identifier to an ontology and http://purl.obolibrary.org/obo/mondo/mapping/mondo.sssom.tsv refers to the "Mondo disease mappings".
 
-`mapping_set_description`: A description of the mapping set, providing context and motivation.
-- `subject_source`: URI of source the subject.
-- `subject_source_version`: The version of the source of the subject.
-- `object_source`: URI of source the subject.
-- `object_source_version`: The version of the source of the object.
+`mapping_set_version`: The version of a mapping set. Versioning is absolutely crucial for mapping sets, much the same way as it is for ontologies. We recommend to use [semantic versioning](https://semver.org/) or simple ISO Date versioning, like "2022-05-01". The latter is recommended by some organisations like the [OBO foundry](https://obofoundry.org/principles/fp-004-versioning.html) (it is easier to see how new a mapping set is, and it is easier to sort as a string), but semantic versioning is much more widely used. We use date based versioning in the tutorial.
+
+`mapping_set_description`: A description of the mapping set, providing context and motivation. This is another underrated piece of metadata that allows humans to understand and build trust towards a mapping set. A good description of a mapping set
+
+- describes the scope and content of a mapping set
+- describes the purpose for the creation of the mapping set
+- is reasonably short, but not too short (3-4 sentences)
+
+`subject_source`: URI of source the subject. This is one of the most important pieces of metadata: an unambiguous reference to a source. It is notoriously hard to standardise source reference, and we are [currently debating](https://github.com/mapping-commons/sssom/issues/126) whether we should require URIs in the strict sense (e.g. a URL to a source, or a PURL to an ontology) or whether we can refer to a source simply by a PREFIX (as long as it can be dereferenced by bioregistry.io).
+
+`subject_source_version`: The version of the source of the subject. In order to interpret a mapping, it is not enough to know the source. Sources changes all the time, whether they are database and/or ontology: classes are obsoleted, database records are deleted. What counts for an exact mapping may change through the evolution of a source. _Always_ document the source version, if you can. This can be very difficult for database systems that do not have a real notion of versioning.
+
+`object_source`: URI of source the object. See `subject_source`.
+
+`object_source_version`: The version of the source of the object. See `subject_source_version`.
+
+#### Mapping vs Mapping set metadata - where should it go?
+
+SSSOM distinguishes between `mapping` and `mapping_set` metadata, i.e. metadata that pertains to each individual mapping and metadata that pertains to the whole mapping set. To understand which is which, you can browse [the specification](https://mapping-commons.github.io/sssom/spec/).
 
 
+**Mapping metadata** is usually captured in the rows of the SSSOM mapping table. We have done this a lot so far during this tutorial: documenting our confidence in our mapping decision, and specifying the source of our subject id. However, in SSSOM we have the option to document some `mapping` metadata on the level of the `mapping_set`, which means that the `metadata` item applies to **all mappings in the mapping set**. We will capture `subject` and `object_source` this way, see a bit further below. We capture `mapping` level metadata in the usual way using our table:
 
-| subject_id   | subject_label | predicate_id    | object_id       | object_label       | confidence | comment                                                                                                                                                   | mapping_justification | mapping_date | author_id                 | subject_source | subject_source_version | object_source | object_source_version                                                |
-|--------------|---------------|-----------------|-----------------|--------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|--------------|---------------------------|----------------|------------------------|---------------|----------------------------------------------------------------------|
-| KF_FOOD:F001 | apple         | skos:exactMatch | FOODON:00002473 | apple (whole)      |       0.95 | We could map to FOODON:03310788 instead to cover sliced apples, but only "whole" apple types exist.                                                       | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 | KF_FOOD        |                        | FOODON        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
-| KF_FOOD:F002 | gala          | skos:exactMatch | FOODON:00003348 | Gala apple (whole) |          1 |                                                                                                                                                           | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 | KF_FOOD        |                        | FOODON        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
-| KF_FOOD:F003 | pink          | skos:exactMatch | FOODON:00004186 | Pink apple (whole) |        0.9 | We could map to FOODON:00004187 instead which more specifically refers to "raw" Pink apples. Decided against to be consistent with other mapping choices. | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 | KF_FOOD        |                        | FOODON        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
-| KF_FOOD:F004 | braeburn      | skos:exactMatch | sssom:NoMapping |                    |          1 |                                                                                                                                                           | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 | KF_FOOD        |                        | FOODON        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
-| KF_FOOD:F004 | braeburn      | skos:broadMatch | FOODON:00002473 | apple (whole)      |          1 |                                                                                                                                                           | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 | KF_FOOD        |                        | FOODON        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
+| subject_id   | subject_label | predicate_id    | object_id       | object_label       | confidence | comment                                                                                                                                                   | mapping_justification | mapping_date | author_id                 | subject_source_version | object_source_version                                                |
+|--------------|---------------|-----------------|-----------------|--------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|--------------|---------------------------|------------------------|----------------------------------------------------------------------|
+| KF_FOOD:F001 | apple         | skos:exactMatch | FOODON:00002473 | apple (whole)      |       0.95 | We could map to FOODON:03310788 instead to cover sliced apples, but only "whole" apple types exist.                                                       | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 |                        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
+| KF_FOOD:F002 | gala          | skos:exactMatch | FOODON:00003348 | Gala apple (whole) |          1 |                                                                                                                                                           | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 |                        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
+| KF_FOOD:F003 | pink          | skos:exactMatch | FOODON:00004186 | Pink apple (whole) |        0.9 | We could map to FOODON:00004187 instead which more specifically refers to "raw" Pink apples. Decided against to be consistent with other mapping choices. | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 |                        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
+| KF_FOOD:F004 | braeburn      | skos:exactMatch | sssom:NoMapping |                    |          1 |                                                                                                                                                           | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 |                        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
+| KF_FOOD:F004 | braeburn      | skos:broadMatch | FOODON:00002473 | apple (whole)      |          1 |                                                                                                                                                           | sempav:HumanCuration  |   2022-05-02 | orcid:0000-0002-7356-1779 |                        | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl |
+
+**Mapping set metadata**. In this tutorial, only `mapping_set_id`, `mapping_set_version` and `mapping_set_description` are purely `mapping_set` metadata. Everything else is considered `mapping` metadata.
+Mapping set metadata is captured in [YAML](https://yaml.org/) format. For this tutorial, we will capture the following:
+
+```
+mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+mapping_set_version: "2022-06-01"
+mapping_set_description: "Manually curated alignment of KEWL FOODIE INC internal food and nutrition database with Food Ontology (FOODON). Intended to be used for ontological analysis and grouping of KEWL FOODIE INC related data."
+object_source: wikidata:Q55118395
+subject_source: KF_FOOD:DB
+curie_map:
+  KF_FOOD: https://kewl-foodie.inc/food/
+  wikidata: http://www.wikidata.org/entity/
+  FOODON: http://purl.obolibrary.org/obo/FOODON_
+  sempav: https://w3id.org/semapv/
+  skos: "http://www.w3.org/2004/02/skos/core#"
+  sssom: https://w3id.org/sssom/
+```
+
+Despite `object_source` and `subject_source` being _mapping_ metadata, we decided to capture them at mapping set level, as they are not likely to change throughout versions of the mapping set. Note that while the `object_source` resolves to an actual page on the web ([FOODON](https://www.wikidata.org/wiki/Q55118395)), `KF_FOOD:DB` does not. SSSOM requires a source to correspond to an IRI (see ongoing [debate](https://github.com/mapping-commons/sssom/issues/126)). This helps to ensure that it is unambiguously clear what the source was. Imagine someone documenting the string `INTERNAL_DB` or just `DB` - even in large organisations, but certainly on the web, this can cause clashes.
+
+The `curie_map` (better known as "prefix map") is another key concept in SSSOM (and most Semantic Web standards). It maps prefixes to URI expansions. This serves three main purposes.
+
+1. Unambiguously identify the namespace of a prefix. The prefix `FOODON:`, all by itself, can be used by many different sources. `http://purl.obolibrary.org/obo/FOODON_` uniquely identifies the namespace of `FOODON`. This is important when merging different mapping sets together.
+2. Expanding and resolving identifiers. Some identifier schemes like the one in the OBO Foundry, Wikidata and many others, resolve identifiers to a page on the web. This allows people (and sometimes machines) to look up additional information about an entity on the web. For example, when we expand FOODON:00002473 to http://purl.obolibrary.org/obo/FOODON_00002473, we can look this URI up in a browser.
+3. Providing a recipe for creating RDF resources from CURIEs. RDF requires an entity to be represented by a full URI, e.g. <http://purl.obolibrary.org/obo/FOODON_00002473>. In this case, you can think of the `curie_map` in essence as a set of RDF [prefix declarations](https://www.w3.org/TR/1999/REC-xml-names-19990114/#NT-Prefix). This is only important if your use case requires serialisation into RDF.
+
+This concludes the manual curation tutorial. Next, we will process the two mapping sets using "SSSOM python utilities" (aka sssom-py).
+
+### Automated processing 1: Creating an embedded SSSOM file
+
+*Important note May 8 2022**: The SSSOM utilities have not yet been updated to the most recent changes of the SSSOM data model. If you get an error `ValueError: match_type must be supplied`, you have to change your SSSOM table to follow this part of the tutorial:
+
+1. Rename the `mapping_justification` column to `match_type`.
+2. Change the `semapv:HumanCuration` value in that column to just `HumanCurated` (sic, without semapv).
+
+#### Embedded vs external mode for SSSOM metadata
+
+One problem with table formats like TSV or CSV, in contrast to more flexible tree shaped formats like JSON or XML, is that it is notoriously hard to include metadata about the whole table (for example, mapping **set** metadata) in them. There are essentially three options:
+
+1. All metadata is stored as values in columns. While this is definitely possible, it is not ideal for a few reasons:
+   1. It is highly redundant. If we have to store the `mapping_set_id`, for example, as a value in a mapping table with 1000 mappings, it is repeated 1000 times.
+   2. It is less immediately clear whether a piece of metadata pertains to the `mapping_set` or a `mapping` (you have to study the specification to understand that `author_id` pertains to an individual mapping rather than the whole mapping set).
+2. Metadata about the mapping set is stored within the TSV file header. Basically, we introduce a number of rows at the top of the TSV file that we reserve for metadata. The disadvantage is that many parsers for such flat files do not know how to deal with a header like this.
+3. We keep metadata about tables and mapping sets separate, i.e. we keep one TSV file that contains the data and one YAML file that contains the mapping set metadata. This is often a good option, but keeping the two separate may cause a problem: in environments where the data is shared around (emailed, copied) the connection can get lost.
+
+In SSSOM, we opted for option 2 as the default, which we call "embedded mode" (the metadata is embedded). Most commands in the [SSSOM toolkit](https://github.com/mapping-commons/sssom-py) expect SSSOM files to be in embedded mode. However, we support option 3 (external mode) indirectly by providing operations to simply merge the two before other processing steps.
+
+#### Converting an SSSOM file from from external to embedded mode
+
+If you do not have the SSSOM toolkit installed, [do so now](https://mapping-commons.github.io/sssom-py/installation.html).
+
+
+Now you can 
