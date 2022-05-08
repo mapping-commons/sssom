@@ -1,11 +1,11 @@
-id: http://w3id.org/sssom/schema/
+id: https://w3id.org/sssom/schema/
 name: sssom
 description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)
 imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
-  sssom: http://w3id.org/sssom/
+  sssom: https://w3id.org/sssom/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   oboInOwl: http://www.geneontology.org/formats/oboInOwl#
   dce: http://purl.org/dc/elements/1.1/
