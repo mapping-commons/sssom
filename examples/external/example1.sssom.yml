@@ -1,4 +1,5 @@
 mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+license: https://creativecommons.org/licenses/by/4.0/
 mapping_set_version: "2022-06-01"
 mapping_set_description: "Manually curated alignment of KEWL FOODIE INC internal food and nutrition database with Food Ontology (FOODON). Intended to be used for ontological analysis and grouping of KEWL FOODIE INC related data."
 object_source: wikidata:Q55118395
