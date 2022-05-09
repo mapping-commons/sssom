@@ -420,4 +420,21 @@ While the JSON format is [not yet stable](https://github.com/mapping-commons/sss
 
 #### Diff between two versions
 
-The last part of this tutorial concerns one of the main motivations of using a controlled metadata model for mappings: versioning. 
+The last part of this tutorial concerns one of the main motivations of using a controlled metadata model for mappings: versioning. One key concern for data management, and mapping management in particular, is to be able under understand the evolution of mappings over time. While this command is not stable yet, we can use it to understand the difference between two mappings sets: `sssom diff`. Let us try to look at the difference between an old version of our foodie-inc mapping set and our new one:
+
+```
+sssom diff foodieinc-food.sssom.tsv ../embedded/foodie-inc-2022-05-01.sssom.tsv -o diff.sssom.tsv
+```
+
+The outcome gives us the following information:
+
+| subject_id   | subject_label | predicate_id    | object_id       | object_label            | match_type   | author_id                 | object_source_version                                                | mapping_date | confidence | comment        |
+|--------------|---------------|-----------------|-----------------|-------------------------|--------------|---------------------------|----------------------------------------------------------------------|--------------|------------|----------------|
+| KF_FOOD:F003 | pink          | skos:exactMatch | FOODON:00004186 | Pink apple (whole)      | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 0.9        | UNIQUE_1       |
+| KF_FOOD:F003 | pink          | skos:exactMatch | FOODON:00004187 | Pink apple (whole, raw) | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 0.9        | UNIQUE_2       |
+| KF_FOOD:F002 | gala          | skos:exactMatch | FOODON:00003348 | Gala apple (whole)      | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 1.0        | COMMON_TO_BOTH |
+| KF_FOOD:F004 | braeburn      | skos:broadMatch | FOODON:00002473 | apple (whole)           | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 1.0        | COMMON_TO_BOTH |
+| KF_FOOD:F001 | apple         | skos:exactMatch | FOODON:00002473 | apple (whole)           | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 0.95       | COMMON_TO_BOTH |
+| KF_FOOD:F004 | braeburn      | skos:exactMatch | sssom:NoMapping |                         | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 1.0        | COMMON_TO_BOTH |
+
+This can be used to understand that the first mapping is only present in the new mapping set, while the second mapping was present in the old mapping set - all the other ones are in common between the two.
