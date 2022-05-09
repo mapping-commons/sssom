@@ -380,4 +380,44 @@ Now you let's use SSSOM toolkit to merge these two:
 sssom parse example1.sssom.tsv -m example1.sssom.yml -o foodieinc-food.sssom.tsv
 ```
 
+If you open `foodieinc-food.sssom.tsv`, you will see:
 
+```
+# comment: We could map to FOODON:00004187 instead which more specifically refers to
+#   "raw" Pink apples. Decided against to be consistent with other mapping choices.
+# curie_map:
+#   FOODON: http://purl.obolibrary.org/obo/FOODON_
+#   KF_FOOD: https://kewl-foodie.inc/food/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   sssom: https://w3id.org/sssom/
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_date: '2022-05-02'
+# mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food
+#   and nutrition database with Food Ontology (FOODON). Intended to be used for ontological
+#   analysis and grouping of KEWL FOODIE INC related data.
+# mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+# mapping_set_version: '2022-06-01'
+# object_source: wikidata:Q55118395
+# object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
+# subject_source: KF_FOOD:DB
+subject_id	subject_label	predicate_id	object_id	object_label	match_type	author_id	object_source_version	mapping_date	confidence	comment
+KF_FOOD:F001	apple	skos:exactMatch	FOODON:00002473	apple (whole)	HumanCurated	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	0.95	"We could map to FOODON:03310788 instead to cover sliced apples, but only ""whole"" apple types exist."
+KF_FOOD:F002	gala	skos:exactMatch	FOODON:00003348	Gala apple (whole)	HumanCurated	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	1.0	
+KF_FOOD:F003	pink	skos:exactMatch	FOODON:00004186	Pink apple (whole)	HumanCurated	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	0.9	"We could map to FOODON:00004187 instead which more specifically refers to ""raw"" Pink apples. Decided against to be consistent with other mapping choices."
+KF_FOOD:F004	braeburn	skos:exactMatch	sssom:NoMapping		HumanCurated	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	1.0	
+KF_FOOD:F004	braeburn	skos:broadMatch	FOODON:00002473	apple (whole)	HumanCurated	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	1.0	
+```
+
+#### Converting an SSSOM file to JSON
+
+We will now convert the embedded SSSOM file we created before into JSON:
+
+```
+sssom convert foodieinc-food.sssom.tsv --output-format json -o foodieinc-food.sssom.json
+```
+
+While the JSON format is [not yet stable](https://github.com/mapping-commons/sssom/issues/102), it is close to completion.
+
+#### Diff between two versions
+
+The last part of this tutorial concerns one of the main motivations of using a controlled metadata model for mappings: versioning. 
