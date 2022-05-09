@@ -1,0 +1,6 @@
+subject_id	subject_label	predicate_id	object_id	object_label	confidence	comment	match_type	mapping_date	author_id	subject_source_version	object_source_version
+KF_FOOD:F001	apple	skos:exactMatch	FOODON:00002473	apple (whole)	0.95	We could map to FOODON:03310788 instead to cover sliced apples, but only "whole" apple types exist.	HumanCurated	2022-05-02	orcid:0000-0002-7356-1779		http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
+KF_FOOD:F002	gala	skos:exactMatch	FOODON:00003348	Gala apple (whole)	1		HumanCurated	2022-05-02	orcid:0000-0002-7356-1779		http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
+KF_FOOD:F003	pink	skos:exactMatch	FOODON:00004186	Pink apple (whole)	0.9	We could map to FOODON:00004187 instead which more specifically refers to "raw" Pink apples. Decided against to be consistent with other mapping choices.	HumanCurated	2022-05-02	orcid:0000-0002-7356-1779		http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
+KF_FOOD:F004	braeburn	skos:exactMatch	sssom:NoMapping		1		HumanCurated	2022-05-02	orcid:0000-0002-7356-1779		http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
+KF_FOOD:F004	braeburn	skos:broadMatch	FOODON:00002473	apple (whole)	1		HumanCurated	2022-05-02	orcid:0000-0002-7356-1779		http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl

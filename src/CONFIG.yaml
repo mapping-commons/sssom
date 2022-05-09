@@ -1,0 +1,40 @@
+model_organization: mapping-commons    # Name of github individual organization where this cone exists (e.g. linkml / mygithub
+model_name: sssom # Name of target repository (e.g. my-wonderful-model)
+root_schema: sssom  # the name of the base schema file (w/o .yaml) 
+model_root_class: MappingSet   # <name of the base class in the schema for testing
+
+model_author: ABC  # Your name
+model_author_email: abc@xyz # Your email
+model_synopsis:  SSSOM     # One liner about the model
+model_description: |-      # Longer description of the model
+  SSSOM
+
+# Trove Classifiers (https://pypi.org/classifiers/) -- these can be omitted if the elemens below are sufficient
+classifiers:
+    - "Development Status :: 4 - Beta"
+    - "Environment :: Console"
+    - "Intended Audience :: Developers"
+    - "Intended Audience :: Science/Research"
+    - "Intended Audience :: Information Technology"
+    - "License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication"
+    - "Programming Language :: Python :: 3 :: Only"
+    - "Programming Language :: Python :: 3.7"
+    - "Programming Language :: Python :: 3.8"
+    - "Programming Language :: Python :: 3.9"
+
+# Keywords -- these can also be omitted from this file if the below is ok
+keywords: [linkml, LOD, Modeling, Linked open data, model]
+
+# Elements to be generated
+# See: https://github.com/linkml/linkml/generators/README.md for what the outputs look like
+# Possible values: graphql -- graphql schema for the model
+#                  json -- LinkML model definition in JSON syntax
+#                  jsonld_context -- JSON-LD context definitions for model
+#                  json_schema -- Model schema in json schema
+#                  owl -- OWL representation of model schema
+#                  rdf -- LinkML Model definition in RDF
+#                  shex -- LinkML model definition in ShEx
+#                  sqlddl -- SQL ddl of the model
+#                  model -- copy model/schema to distribution directory
+generate: [jsonld_context, json_schema, model]
+

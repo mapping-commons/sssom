@@ -1,0 +1,71 @@
+type Mapping
+  {
+    subjectId: EntityReference!
+    subjectLabel: String
+    subjectCategory: String
+    predicateId: EntityReference!
+    predicateLabel: String
+    predicateModifier: PredicateModifierEnum
+    objectId: EntityReference!
+    objectLabel: String
+    objectCategory: String
+    mappingJustification: EntityReference!
+    authorId: [EntityReference]
+    authorLabel: [String]
+    reviewerId: [EntityReference]
+    reviewerLabel: [String]
+    creatorId: [EntityReference]
+    creatorLabel: [String]
+    license: Uri
+    subjectType: EntityTypeEnum
+    subjectSource: Uri
+    subjectSourceVersion: String
+    objectType: EntityTypeEnum
+    objectSource: Uri
+    objectSourceVersion: String
+    mappingProvider: Uri
+    mappingCardinality: MappingCardinalityEnum
+    mappingTool: String
+    mappingToolVersion: String
+    mappingDate: Date
+    confidence: Double
+    subjectMatchField: [EntityReference]
+    objectMatchField: [EntityReference]
+    matchString: [String]
+    subjectPreprocessing: [PreprocessingMethodEnum]
+    objectPreprocessing: [PreprocessingMethodEnum]
+    semanticSimilarityScore: Double
+    semanticSimilarityMeasure: String
+    seeAlso: [String]
+    other: String
+    comment: String
+  }
+
+type MappingSet
+  {
+    mappings: [Mapping]
+    mappingSetId: Uri!
+    mappingSetVersion: String
+    mappingSetSource: [EntityReference]
+    mappingSetDescription: String
+    creatorId: [EntityReference]
+    creatorLabel: [String]
+    license: Uri!
+    subjectType: EntityTypeEnum
+    subjectSource: Uri
+    subjectSourceVersion: String
+    objectType: EntityTypeEnum
+    objectSource: Uri
+    objectSourceVersion: String
+    mappingProvider: Uri
+    mappingTool: String
+    mappingDate: Date
+    subjectMatchField: [EntityReference]
+    objectMatchField: [EntityReference]
+    subjectPreprocessing: [PreprocessingMethodEnum]
+    objectPreprocessing: [PreprocessingMethodEnum]
+    seeAlso: [String]
+    other: String
+    comment: String
+  }
+
