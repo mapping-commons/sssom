@@ -416,6 +416,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/tutorial/</loc>
+         <lastmod>2022-05-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/tutorials/</loc>
          <lastmod>2022-05-09</lastmod>
          <changefreq>daily</changefreq>
