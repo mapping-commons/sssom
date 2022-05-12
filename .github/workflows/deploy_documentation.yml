@@ -69,7 +69,7 @@ jobs:
       run: |
         mkdir gh-pages
         touch gh-pages/.nojekyll
-        cp -r src/docs/ gh-pages
+        cp -r src/docs/* gh-pages
         poetry run gen-doc -d gh-pages src/linkml/sssom.yaml
     
     - name: Deploy to gh-pages branch
