@@ -2,7 +2,7 @@ name: Deploy Documentation
 
 # Controls when the action will run. Triggers the workflow on push
 on:
-  push:
+  pull_request:
     branches:
     - master
     paths:
@@ -24,7 +24,7 @@ jobs:
   #      env:
   #        GITHUB_TOKEN: ${{ github.token }}
 
-  build:
+  build-docs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -34,13 +34,13 @@ jobs:
       #       check-out repo and set-up python
       #----------------------------------------------
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@main
         with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          # persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Set up Python3
+        uses: actions/setup-python@v3
         with:
           python-version: 3.9
 
@@ -68,23 +68,29 @@ jobs:
       #----------------------------------------------
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        # run: poetry install --no-interaction --no-root
+        run: poetry install -E docs
 
       #----------------------------------------------
       #    install your root project, if required 
       #----------------------------------------------      
-      - name: Install library
-        run: poetry install --no-interaction
+      # - name: Install library
+      #   run: poetry install --no-interaction
 
       - name: Create local changes
         run: |
-          make all
+          mkdir gh-pages
+          poetry run gen-doc -d gh-pages src/linkml/sssom.yaml
       
       - name: Deploy to gh-pages branch
+        if: ${{ github.event_name == 'pull_request' }}
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          GITHUB_TOKEN: ${{ github.token }}
-          REPOSITORY_NAME: mapping-commons/sssom # The repository the action should deploy to
-          BRANCH: gh-pages # The branch the action should deploy to.
-          COMMIT_MESSAGE: 'Update documentation'
-          FOLDER: . # The folder the action should deploy.
+          branch: gh-pages
+          force: true
+          folder: gh-pages
+          # GITHUB_TOKEN: ${{ github.token }}
+          # REPOSITORY_NAME: mapping-commons/sssom # The repository the action should deploy to
+          # BRANCH: gh-pages # The branch the action should deploy to.
+          # COMMIT_MESSAGE: 'Update documentation'
+          # FOLDER: . # The folder the action should deploy.
