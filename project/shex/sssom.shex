@@ -49,7 +49,7 @@ linkml:Nodeidentifier NONLITERAL
           owl:annotatedTarget @<EntityReference> ;
           <object_label> @linkml:String ? ;
           <object_category> @linkml:String ? ;
-          <match_type> @<MatchTypeEnum> + ;
+          <mapping_justification> @<EntityReference> ;
           pav:authoredBy @<EntityReference> * ;
           <author_label> @linkml:String * ;
           <reviewer_id> @<EntityReference> * ;
@@ -57,8 +57,10 @@ linkml:Nodeidentifier NONLITERAL
           dcterms:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
           dcterms:license @linkml:Uri ? ;
+          <subject_type> @<EntityTypeEnum> ? ;
           <subject_source> @linkml:Uri ? ;
           <subject_source_version> @linkml:String ? ;
+          <object_type> @<EntityTypeEnum> ? ;
           <object_source> @linkml:Uri ? ;
           <object_source_version> @linkml:String ? ;
           <mapping_provider> @linkml:Uri ? ;
@@ -72,7 +74,6 @@ linkml:Nodeidentifier NONLITERAL
           <match_string> @linkml:String * ;
           <subject_preprocessing> @<PreprocessingMethodEnum> * ;
           <object_preprocessing> @<PreprocessingMethodEnum> * ;
-          <match_term_type> @<MatchTermTypeEnum> ? ;
           <semantic_similarity_score> @linkml:Double ? ;
           <semantic_similarity_measure> @linkml:String ? ;
           rdfs:seeAlso @linkml:String * ;
@@ -92,8 +93,10 @@ linkml:Nodeidentifier NONLITERAL
           dcterms:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
           dcterms:license @linkml:Uri ;
+          <subject_type> @<EntityTypeEnum> ? ;
           <subject_source> @linkml:Uri ? ;
           <subject_source_version> @linkml:String ? ;
+          <object_type> @<EntityTypeEnum> ? ;
           <object_source> @linkml:Uri ? ;
           <object_source_version> @linkml:String ? ;
           <mapping_provider> @linkml:Uri ? ;
@@ -103,7 +106,6 @@ linkml:Nodeidentifier NONLITERAL
           <object_match_field> @<EntityReference> * ;
           <subject_preprocessing> @<PreprocessingMethodEnum> * ;
           <object_preprocessing> @<PreprocessingMethodEnum> * ;
-          <match_term_type> @<MatchTermTypeEnum> ? ;
           rdfs:seeAlso @linkml:String * ;
           <other> @linkml:String ? ;
           rdfs:comment @linkml:String ?

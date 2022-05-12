@@ -1,9 +1,17 @@
 ## Introduction
 
-SSSOM is a Simple Standard for Sharing Ontology Mappings, providing 
+SSSOM is a Simple Standard for Sharing Ontological Mappings: 
 
-1. a TSV-based representation for ontology term mappings
-1. a comprehensive set of standard metadata elements to describe mappings and 
-1. a standard translation between the TSV and the Web Ontology Language (OWL). 
+1. Introducing a machine-readable and extensible vocabulary to describe metadata of mappings.
+2. Defining an easy to use table-based format that can be integrated into existing data science pipelines without the need to parse or query ontologies, and that integrates seamlessly with Linked Data standards. 
+3. Implementing open and community-driven collaborative workflows designed to evolve the standard continuously to address changing requirements and mapping practices. 
+4. Providing reference tools and software libraries for working with the standard.
 
-For more information please visit our [GitHub page](https://github.com/mapping-commons/SSSOM)
+**Quick links:**
+
+- [GitHub page](https://github.com/mapping-commons/sssom)
+- [Detailed description](spec.md)
+- [A Simple Standard for Sharing Ontological Mappings (SSSOM)](https://arxiv.org/abs/2112.07051) (publication)
+- [Specification](index.md)
+- [Presentations](presentations.md)
+- [SSSOM Toolkit](https://mapping-commons.github.io/sssom-py)

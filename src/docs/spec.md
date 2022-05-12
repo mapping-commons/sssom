@@ -279,7 +279,7 @@ Annotation(Q,V) for all V in L.
 Example:
 
 ```
-AnnotationAssertion(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) skos:exactMatch <http://purl.obolibrary.org/obo/HP_0009894> <http://purl.obolibrary.org/obo/MP_0000019>)
+AnnotationAssertion(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) skos:exactMatch <http://purl.obolibrary.org/obo/HP_0009894> <http://purl.obolibrary.org/obo/MP_0000019>)
 ```
 
 Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations).
@@ -303,7 +303,7 @@ SubclassOf(sssomMetadata, A, P some O)
 Example:
 
 ```
-SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) <http://example.org/AA> ObjectSomeValuesFrom(<http://example.org/x> <http://example.org/BB>))
+SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) <http://example.org/AA> ObjectSomeValuesFrom(<http://example.org/x> <http://example.org/BB>))
 ```
 
 ##### Case 2: Object and Subject are individuals
@@ -323,7 +323,7 @@ ObjectPropertyAssertion(sssomMetadata, P, A, O)
 Example:
 
 ```
-ObjectPropertyAssertion(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) <http://www.example.org/x> <http://www.example.org/a> <http://www.example.org/b>)
+ObjectPropertyAssertion(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) <http://www.example.org/x> <http://www.example.org/a> <http://www.example.org/b>)
 ```
 
 #### Predicate is language relational construct of RDFS or OWL
@@ -344,12 +344,12 @@ The mapping <S,P,O> gets translated into an annotated axiom that corresponds to 
 Example:
 
 ```
-SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:match_type sssom:LexicalEquivalenceMapping) <http://www.example.org/a> <http://www.example.org/b>)
+SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) <http://www.example.org/a> <http://www.example.org/b>)
 ```
 
 ### TSV:
 
-All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the [SSSOM metadata](https://mapping-commons.github.io/sssom/Mapping/). For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, match_type, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, match_type. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.
+All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the [SSSOM metadata](https://mapping-commons.github.io/sssom/Mapping/). For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, mapping_justification, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, mapping_justification. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.
 
 Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a `curie_map:` parameter in the yaml file. The value can be either a dictionary of CURIE->URLPREFIX pairs or a link to a valid curie map of the same shape.
 
@@ -379,7 +379,7 @@ In external mode, the mapping set metadata is supplied by a separate YAML file h
 Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv)):
 
 ```
-subject_id	predicate_id	object_id	match_type	subject_label	object_label
+subject_id	predicate_id	object_id	mapping_justification	subject_label	object_label
 HP:0009124	skos:exactMatch	MP:0000003	Lexical	Abnormal adipose tissue morphology	abnormal adipose tissue morphology
 HP:0008551	skos:exactMatch	MP:0000018	Lexical	Microtia	small ears
 HP:0000411	skos:exactMatch	MP:0000021	Lexical	Protruding ear	prominent ears
@@ -438,7 +438,7 @@ Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/exam
 #  skos: "http://www.w3.org/2004/02/skos/core"
 #license: "https://creativecommons.org/publicdomain/zero/1.0/"
 #mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
-subject_id	predicate_id	object_id	match_type	subject_label	object_label
+subject_id	predicate_id	object_id	mapping_justification	subject_label	object_label
 HP:0009124	skos:exactMatch	MP:0000003	Lexical	Abnormal adipose tissue morphology	abnormal adipose tissue morphology
 HP:0008551	skos:exactMatch	MP:0000018	Lexical	Microtia	small ears
 HP:0000411	skos:exactMatch	MP:0000021	Lexical	Protruding ear	prominent ears
@@ -509,7 +509,7 @@ To enable cross-walking, we propose the following **Five-Star system** for mappi
 - _3-Star mappings_ fulfill all the criteria for 2-star mappings and furthermore 
     - are exported in SSSOM format
     - record the following additional metadata: 
-        - `match_type`(s) (Lexical, Logical match, HumanCurated etc)
+        - `mapping_justification`(s) (Lexical, Logical match, HumanCurated etc)
         - `date` of the mapping
         - `creator_id`
         - `subject_source`
@@ -534,7 +534,7 @@ To enable cross-walking, we propose the following **Five-Star system** for mappi
         - if the mapping is `SemanticSimilarity` (graph similarity, neighbourhood, cosine similarity), you should provide:
             - `semantic_similarity_score`
             - `semantic_similarity_measure`
-        - For now, if there are _multiple pieces of evidence_ (lexical, logical etc), please emit one row per evidence. If your tool combines multiple pieces of evidence in a complex way, emit yet another row at the end with `match_type` `Complex` and emit ensure you provide the `mapping_tool`.
+        - For now, if there are _multiple pieces of evidence_ (lexical, logical etc), please emit one row per evidence. If your tool combines multiple pieces of evidence in a complex way, emit yet another row at the end with `mapping_justification` `Complex` and emit ensure you provide the `mapping_tool`.
 - _5-Star mappings_ fulfill all the criteria for 4-star mappings and furthermore
     - Are up-to-date with the `subject_source` and `object_source`
     - Have no issue on their issue tracker open for more than 3 months without an interaction

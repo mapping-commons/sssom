@@ -10,7 +10,7 @@ CREATE TABLE mapping (
 	object_id TEXT NOT NULL, 
 	object_label TEXT, 
 	object_category TEXT, 
-	match_type VARCHAR(18) NOT NULL, 
+	mapping_justification TEXT NOT NULL, 
 	author_id TEXT, 
 	author_label TEXT, 
 	reviewer_id TEXT, 
@@ -18,8 +18,10 @@ CREATE TABLE mapping (
 	creator_id TEXT, 
 	creator_label TEXT, 
 	license TEXT, 
+	subject_type VARCHAR(23), 
 	subject_source TEXT, 
 	subject_source_version TEXT, 
+	object_type VARCHAR(23), 
 	object_source TEXT, 
 	object_source_version TEXT, 
 	mapping_provider TEXT, 
@@ -33,13 +35,12 @@ CREATE TABLE mapping (
 	match_string TEXT, 
 	subject_preprocessing VARCHAR(23), 
 	object_preprocessing VARCHAR(23), 
-	match_term_type VARCHAR(19), 
 	semantic_similarity_score FLOAT, 
 	semantic_similarity_measure TEXT, 
 	see_also TEXT, 
 	other TEXT, 
 	comment TEXT, 
-	PRIMARY KEY (subject_id, subject_label, subject_category, predicate_id, predicate_label, predicate_modifier, object_id, object_label, object_category, match_type, author_id, author_label, reviewer_id, reviewer_label, creator_id, creator_label, license, subject_source, subject_source_version, object_source, object_source_version, mapping_provider, mapping_cardinality, mapping_tool, mapping_tool_version, mapping_date, confidence, subject_match_field, object_match_field, match_string, subject_preprocessing, object_preprocessing, match_term_type, semantic_similarity_score, semantic_similarity_measure, see_also, other, comment)
+	PRIMARY KEY (subject_id, subject_label, subject_category, predicate_id, predicate_label, predicate_modifier, object_id, object_label, object_category, mapping_justification, author_id, author_label, reviewer_id, reviewer_label, creator_id, creator_label, license, subject_type, subject_source, subject_source_version, object_type, object_source, object_source_version, mapping_provider, mapping_cardinality, mapping_tool, mapping_tool_version, mapping_date, confidence, subject_match_field, object_match_field, match_string, subject_preprocessing, object_preprocessing, semantic_similarity_score, semantic_similarity_measure, see_also, other, comment)
 );
 
 CREATE TABLE mapping_set (
@@ -51,8 +52,10 @@ CREATE TABLE mapping_set (
 	creator_id TEXT, 
 	creator_label TEXT, 
 	license TEXT NOT NULL, 
+	subject_type VARCHAR(23), 
 	subject_source TEXT, 
 	subject_source_version TEXT, 
+	object_type VARCHAR(23), 
 	object_source TEXT, 
 	object_source_version TEXT, 
 	mapping_provider TEXT, 
@@ -62,9 +65,8 @@ CREATE TABLE mapping_set (
 	object_match_field TEXT, 
 	subject_preprocessing VARCHAR(23), 
 	object_preprocessing VARCHAR(23), 
-	match_term_type VARCHAR(19), 
 	see_also TEXT, 
 	other TEXT, 
 	comment TEXT, 
-	PRIMARY KEY (mappings, mapping_set_id, mapping_set_version, mapping_set_source, mapping_set_description, creator_id, creator_label, license, subject_source, subject_source_version, object_source, object_source_version, mapping_provider, mapping_tool, mapping_date, subject_match_field, object_match_field, subject_preprocessing, object_preprocessing, match_term_type, see_also, other, comment)
+	PRIMARY KEY (mappings, mapping_set_id, mapping_set_version, mapping_set_source, mapping_set_description, creator_id, creator_label, license, subject_type, subject_source, subject_source_version, object_type, object_source, object_source_version, mapping_provider, mapping_tool, mapping_date, subject_match_field, object_match_field, subject_preprocessing, object_preprocessing, see_also, other, comment)
 );
