@@ -1,0 +1,1331 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/spec/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>SSSOM Specification - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simple-standard-for-sharing-ontology-mappings-sssom" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-header__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A Simple Standard for Sharing Ontology Mappings (SSSOM)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SSSOM Specification
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-nav__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    A Simple Standard for Sharing Ontology Mappings (SSSOM)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../home/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        About SSSOM
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SSSOM Specification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        SSSOM Specification
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    Abstract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenges-for-exchange-and-use-of-mappings" class="md-nav__link">
+    Challenges for exchange and use of mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-about-mappings" class="md-nav__link">
+    Background about mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-notes-on-the-standardisation-process" class="md-nav__link">
+    Some notes on the standardisation process:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sssom-metadata-elements" class="md-nav__link">
+    SSSOM Metadata Elements
+  </a>
+  
+    <nav class="md-nav" aria-label="SSSOM Metadata Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-elements" class="md-nav__link">
+    Metadata Elements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mapping-predicates" class="md-nav__link">
+    Common Mapping Predicates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialisation" class="md-nav__link">
+    Serialisation
+  </a>
+  
+    <nav class="md-nav" aria-label="Serialisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdfxml-serialised-re-ified-owl-axioms" class="md-nav__link">
+    RDF/XML serialised re-ified OWL axioms:
+  </a>
+  
+    <nav class="md-nav" aria-label="RDF/XML serialised re-ified OWL axioms:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#predicate-is-an-annotation-property" class="md-nav__link">
+    Predicate is an annotation property:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicate-is-an-object-property" class="md-nav__link">
+    Predicate is an object property
+  </a>
+  
+    <nav class="md-nav" aria-label="Predicate is an object property">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-1-object-and-subject-are-classes" class="md-nav__link">
+    Case 1: Object and Subject are classes.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-2-object-and-subject-are-individuals" class="md-nav__link">
+    Case 2: Object and Subject are individuals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicate-is-language-relational-construct-of-rdfs-or-owl" class="md-nav__link">
+    Predicate is language relational construct of RDFS or OWL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tsv" class="md-nav__link">
+    TSV:
+  </a>
+  
+    <nav class="md-nav" aria-label="TSV:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-mode" class="md-nav__link">
+    External mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedded-mode-default" class="md-nav__link">
+    Embedded mode (default)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    JSON:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    Use Cases:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sssom-5-star-system-for-mappings" class="md-nav__link">
+    The SSSOM 5-Star System For Mappings
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/" class="md-nav__link">
+        Use cases
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshops/" class="md-nav__link">
+        Workshops
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../presentations/" class="md-nav__link">
+        Presentations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../credits/" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    Abstract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenges-for-exchange-and-use-of-mappings" class="md-nav__link">
+    Challenges for exchange and use of mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-about-mappings" class="md-nav__link">
+    Background about mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-notes-on-the-standardisation-process" class="md-nav__link">
+    Some notes on the standardisation process:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sssom-metadata-elements" class="md-nav__link">
+    SSSOM Metadata Elements
+  </a>
+  
+    <nav class="md-nav" aria-label="SSSOM Metadata Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-elements" class="md-nav__link">
+    Metadata Elements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mapping-predicates" class="md-nav__link">
+    Common Mapping Predicates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialisation" class="md-nav__link">
+    Serialisation
+  </a>
+  
+    <nav class="md-nav" aria-label="Serialisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdfxml-serialised-re-ified-owl-axioms" class="md-nav__link">
+    RDF/XML serialised re-ified OWL axioms:
+  </a>
+  
+    <nav class="md-nav" aria-label="RDF/XML serialised re-ified OWL axioms:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#predicate-is-an-annotation-property" class="md-nav__link">
+    Predicate is an annotation property:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicate-is-an-object-property" class="md-nav__link">
+    Predicate is an object property
+  </a>
+  
+    <nav class="md-nav" aria-label="Predicate is an object property">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-1-object-and-subject-are-classes" class="md-nav__link">
+    Case 1: Object and Subject are classes.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-2-object-and-subject-are-individuals" class="md-nav__link">
+    Case 2: Object and Subject are individuals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicate-is-language-relational-construct-of-rdfs-or-owl" class="md-nav__link">
+    Predicate is language relational construct of RDFS or OWL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tsv" class="md-nav__link">
+    TSV:
+  </a>
+  
+    <nav class="md-nav" aria-label="TSV:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-mode" class="md-nav__link">
+    External mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedded-mode-default" class="md-nav__link">
+    Embedded mode (default)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    JSON:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    Use Cases:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sssom-5-star-system-for-mappings" class="md-nav__link">
+    The SSSOM 5-Star System For Mappings
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/mapping-commons/sssom/edit/master/docs/spec.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="simple-standard-for-sharing-ontology-mappings-sssom">Simple Standard for Sharing Ontology Mappings (SSSOM)</h1>
+<p>Development Draft (under construction: some metadata fields may be subject to change)</p>
+<p><em>Editors:</em></p>
+<ul>
+<li><a href="https://orcid.org/0000-0002-7356-1779">Nicolas Matentzoglu</a> (Semanticly Ltd; <a href="https://github.com/matentzn">@matentzn</a>)</li>
+<li><a href="https://orcid.org/0000-0002-6601-2165">Chris Mungall</a> (LBL)</li>
+<li><a href="https://orcid.org/0000-0002-9083-4599">Ernesto Jimenez-Ruiz</a> (City, University of London)</li>
+<li><a href="https://orcid.org/0000-0001-6875-5360">John Graybeal</a> (Stanford)</li>
+<li><a href="https://orcid.org/0000-0001-9625-1899">William Duncan</a> (LBL)</li>
+<li><a href="https://orcid.org/0000-0002-7073-9172">David Osumi-Sutherland</a> (EMBL-EBI)</li>
+<li><a href="https://orcid.org/0000-0002-0643-3144">Simon Jupp</a> (SciBite)</li>
+<li><a href="https://orcid.org/0000-0002-8361-2795">James McLaughlin</a> (EMBL-EBI)</li>
+<li><a href="https://orcid.org/0000-0001-7251-9504">Henriette Harmse</a> (EMBL-EBI)</li>
+<li><a href="https://orcid.org/0000-0002-8169-9049">Tiffany Callahan</a> (<a href="https://github.com/callahantiff">@callahantiff</a>)</li>
+<li><a href="https://orcid.org/0000-0003-4423-4370">Charlie Hoyt</a> (Harvard Medical School; <a href="https://github.com/cthoyt">@cthoyt</a>)</li>
+<li><a href="https://orcid.org/0000-0003-3257-9937">Thomas Liener</a> (Pistoia Alliance)</li>
+<li><a href="https://orcid.org/0000-0002-2411-565X">Harshad Hegde</a> (LBL)</li>
+</ul>
+<p><em>Contributors:</em></p>
+<ul>
+<li><a href="https://orcid.org/0000-0002-5711-4872">Alasdair Gray</a></li>
+<li><a href="https://orcid.org/0000-0002-2502-8961">Alex Wagner</a></li>
+<li><a href="https://orcid.org/0000-0003-1307-2508">Amelia L. Hoyt</a></li>
+<li><a href="https://orcid.org/0000-0002-0692-412X">Andrew Williams</a></li>
+<li><a href="https://orcid.org/0000-0002-2908-3327">Anne Thessen</a></li>
+<li><a href="https://orcid.org/0000-0001-9439-5346">Benjamin M. Gyori</a></li>
+<li><a href="https://orcid.org/0000-0001-6717-5313">Bill Baumgartner</a></li>
+<li><a href="https://orcid.org/0000-0001-5437-2545">Christopher Chute</a></li>
+<li><a href="https://orcid.org/0000-0002-5301-3142">Chris T. Evelo</a></li>
+<li><a href="https://orcid.org/0000-0002-8844-9165">Damion Dooley</a></li>
+<li><a href="https://orcid.org/0000-0001-9041-4597">Davera Gabriel</a></li>
+<li><a href="https://www.wikidata.org/wiki/Q44607574">Harold Solbrig</a></li>
+<li><a href="https://orcid.org/0000-0002-3002-9838">HyeongSik Kim</a></li>
+<li><a href="https://orcid.org/0000-0003-0109-0522">Ian Harrow</a></li>
+<li><a href="https://orcid.org/0000-0002-1615-2899">James Malone</a></li>
+<li><a href="https://orcid.org/0000-0001-5139-5557">James Overton</a></li>
+<li><a href="https://orcid.org/0000-0002-8688-6599">James P. Balhoff</a></li>
+<li><a href="https://orcid.org/0000-0002-2568-6163">James Stevenson</a></li>
+<li><a href="https://orcid.org/0000-0001-5052-3836">Jiao Dahzi</a></li>
+<li><a href="https://orcid.org/0000-0002-2906-7319">Joe Flack</a></li>
+<li><a href="https://orcid.org/0000-0002-2955-3405">Jooho Lee</a></li>
+<li><a href="https://orcid.org/0000-0002-9353-5498">Julie McMurry</a></li>
+<li><a href="https://orcid.org/0000-0002-9954-7449">Kori Kuzma</a></li>
+<li><a href="https://orcid.org/0000-0003-2595-8736">Kristin Kostka</a></li>
+<li><a href="https://orcid.org/0000-0002-7463-6306">Lauren Chan</a></li>
+<li><a href="https://orcid.org/0000-0001-9114-8737">Melissa Haendel</a></li>
+<li><a href="https://orcid.org/0000-0001-8430-6039">Monica Munoz-Torres</a></li>
+<li><a href="https://orcid.org/0000-0001-5208-3432">Nicole Vasilevsky</a></li>
+<li><a href="https://orcid.org/0000-0001-6315-3707">Nomi Harris</a></li>
+<li><a href="https://orcid.org/0000-0003-0169-8159">Núria Queralt-Rosinach</a></li>
+<li><a href="https://orcid.org/0000-0002-4142-7153">Sabrina Toro</a></li>
+<li><a href="https://orcid.org/0000-0002-5316-1399">Sebastian Koehler</a></li>
+<li><a href="https://orcid.org/0000-0003-2338-2550">Shahim Essaid</a></li>
+<li><a href="https://orcid.org/0000-0002-8719-7760">Sierra Moxon</a></li>
+<li><a href="https://orcid.org/0000-0003-4606-0597">Sue Bello</a></li>
+<li><a href="https://orcid.org/0000-0002-4291-0737">Tim Putman</a></li>
+</ul>
+<p><em>Quick links</em>: </p>
+<ul>
+<li><a href="https://www.wikidata.org/wiki/Q108394480">SSSOM on Wikidata</a></li>
+<li><a href="https://www.wikidata.org/wiki/Q108394654">SSSOM Python toolkit on Wikidata</a></li>
+<li><a href="https://mapping-commons.github.io/sssom-py">SSSOM Python toolkit: Official Documentation</a></li>
+<li><a href="../presentations/">Presentations</a></li>
+</ul>
+<h2 id="abstract">Abstract</h2>
+<p>Mappings, or cross-references, are used to link terms across different ontologies. However, there is currently little to no standardisation in how such mappings are represented. While properties such as hasDbXref property are widely used in ontologies such as GO and MONDO, the meaning of such mappings is unclear, and cannot be further described with additional metadata or provenance.</p>
+<p>The Simple Standard for Sharing Ontology Mappings (SSSOM) is an initiative to provide a minimal and standard set of elements for the dissemination of mappings between ontology terms, to ensure a reliable interpretation of generated mappings and to enable sharing and data integration between people and applications. </p>
+<p>This document introduces the SSSOM catalog of metadata elements, which can be used to attach meta- and provenance data to both mappings and sets of mappings; a controlled vocabulary for the description of match types (SSSOM CV); a definition of both RDF and TSV serialisations of ontology mappings; and a (non-exhaustive) selection of recommended mapping predicates.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#meta">SSSOM Metadata Elements</a></li>
+<li><a href="#predicates">SSSOM Common Predicates</a></li>
+<li><a href="#serialisation">SSSOM Serialisation</a></li>
+<li><a href="#usecase">SSSOM Use Cases</a></li>
+<li><a href="#minimum">SSSOM 5-Star recommendation for mappings</a></li>
+</ul>
+<p><a name="intro"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Currently, there are three methods typically used to express mappings in OWL: direct logical axioms using owl:equivalentClass; the oboInOwl hasDbXref property; and the SKOS vocabulary for mapping properties.  The first, owl:equivalentClass, is a strong logical equivalence assertion which is not appropriate for more nuanced mappings such as close matches.  The second, hasDbXref, does not assert formal logical equivalence but also has no clearly defined meaning.  Finally, the SKOS vocabulary provides a hierarchy of mapping properties which allow the unambigous specification of exact, close, broad, and narrow matches, but does not provide the means for mappings to be annotated with additional metadata such as confidence scores and provenance.</p>
+<p>The Simple Standard for Sharing Ontology Mappings (SSSOM) addresses these problems by defining a catalog of metadata terms to describe mappings.  Both individual mappings and <strong><em>sets of</em></strong> mappings can be described, enabling provenance and metadata to be captured on multiple levels.  SSSOM interoperates with existing methods for the specification of mappings, allowing any predicate to be used to describe the nature of each mapping including those from OWL and SKOS.</p>
+<p>The provenance of mappings - such as whether the mapping was created as the result of a human-curated equivalence match, or a semantic similarity match - is specified using a controlled vocabulary (CV), SSSOM CV.  Combined with the metadata properties provided by SSSOM such as confidence and semantic_similarity_score, this provenance information can be used to capture mapping descriptions in a manner that is explicit and amenable to curation.</p>
+<p>Two serialisations for SSSOM mappings are provided in this document, aimed at different communities: an RDF/OWL serialisation using IRIs that is aimed at the Knowledge Graph/Semantic Web community, and a TSV serialisation using <a href="https://www.w3.org/TR/curie/">CURIE</a> syntax which is aimed at the wider bioinformatics community.  An unambiguous translation between these serialisations is provided.</p>
+<h3 id="challenges-for-exchange-and-use-of-mappings">Challenges for exchange and use of mappings</h3>
+<p>Despite their importance for data integration, term mappings are typically neglected as data artefacts (57). A mapping in this context is a correspondence between two terms, referred to here as "subject" and "object" terms. A "predicate" defines the type of relationship between the subject and the object, such as skos:exactMatch, or owl:equivalentClass. A mapping, or "match", does not have to be exact: it can be broad, e.g. between a conceptually narrow term such as "Red Delicious" and a conceptually broader term such as "Apple". To our knowledge, no formal review has been published that analyzes the representation and formats used for collections of term mappings (mapping sets, or alignments), but in our experience, most mapping sets are represented as tables using an ad-hoc "schema", often merely a simple two-column format that lists matching terms in two naming schemes. An example of such a table can be seen in the following Table.</p>
+<table>
+<thead>
+<tr>
+<th>Subject</th>
+<th>Object</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UBERON:0002101</td>
+<td>FMA:24875</td>
+</tr>
+<tr>
+<td>UBERON:0000019</td>
+<td>FMA:54448</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>Table 1: An example of a typical mapping table one might find on the web.
+</code></pre></div>
+<p>This type of table lacks clear semantics and is therefore very difficult to use and re-use either by humans or by machines. We will discuss a few of the most critical problems in the sections that follow.</p>
+<p><em>Non-transparent imprecision</em>. Mapping precision describes, usually qualitatively, whether a mapping between a subject and an object is exact, broad, narrow, close or related. An exact mapping means that the subject term can be replaced with the object term and vice versa, i.e. they refer to the exact same real-world entity. A broad mapping links a subject term to a more general term, for example, the term "leg" to the term "hindlimb" (if the ontology defines leg as the parts of the hindlimb that exclude the foot). A narrow mapping links a subject term to a more specific term. For example, "long QT syndrome" in the Mondo Disease Ontology is a narrow match to "Romano-Ward long QT syndrome" in Orphanet. A close mapping relates two terms that are neither exact, broad or narrow, but belong to the same category of things and are semantically similar, such as "apple" to "pear", or "paw" to "hand". Due to its subjective nature ("what is close?"), this is a problematic category of mapping, but it is widely used, for example for relating similar anatomical terms across species. Related mappings are mappings across categories of things, such as the mapping between a phenotype "enlarged liver" and the anatomical entity "liver". In practice, it is rare that mapping tables such as the one presented in Table 1 constitute a set of purely "exact" matches. </p>
+<p>Different use cases may require different levels of mapping precision. For example, for entity merging (defined as the process of merging two entities from different sources into one) or data translation (defined as the process of moving annotations from using one ontology to another), exact mappings may be required, while for data grouping broad matches are often sufficient (ensuring that the subject is classified under the object term). For many machine learning use cases, close and related matches will be extremely useful regardless of their lack of semantic precision (though semantic precision is likely to improve predictive power). In practice, many mappings are to varying degrees imprecise but do not specify the mapping precision. This makes it impossible to reliably apply them to use cases such as entity merging or data translation.</p>
+<p><em>Non-transparent accuracy, confidence, and provenance</em>. To scale to real-world use cases, automated tools are critical for matching terms across databases, terminologies and ontologies. Such tools typically implement mapping rules that determine whether a given pair of terms constitutes a match. For example, label matching rules might include "match if subject and object labels match", "match if subject label matches with an exact synonym of the object" and "match if subject and object exhibit a very high degree of semantic similarity". Depending on the rules, tools will have more or less confidence that a match constitutes a mapping. Even human curators often have different levels of confidence about the accuracy of any given mapping, especially if the process of determining whether a mapping is accurate involves the review of (often complex) descriptions and term definitions. </p>
+<p>Different use cases will profit from different degrees of accuracy. For example, if we seek to integrate data from various medical terminologies to inform medical diagnosis, we may require not only a very high degree of confidence about the mapping but also ensure that the mapping is "explainable" to users. To ensure that diagnostic decisions that require bridging of data silos through mappings are explainable, we furthermore need provenance (documentation of where a piece of data comes from and how it was produced), such as an explicit statement of the mapping rules by which the match was originally determined (for example, the labels of both terms could have been the same). Thanks to efforts by initiatives such as the Ontology Alignment Evaluation Initiative (OAEI), many mapping tables on the web include at least a confidence score. However, in our experience, mapping rules are rarely stated explicitly as part of the mappings or mapping set metadata. Many mappings in the wild are to varying degrees inaccurate, but without a confidence score and explicit mapping rules, this inaccuracy will not be transparent.</p>
+<p><em>Non-transparent incompleteness</em>. Mapping sets can be incomplete for (at least) three major reasons: (1) they are out of date, i.e. a term in one ontology was removed (deprecated) in a later version of the ontology or a term with a more precise mapping was introduced; (2) they are deliberately partial, i.e. covering only a subset of terms, which were mapped for a specific purpose (for example a manual effort to map all COVID-19-relevant  phenotypes from the Human Phenotype Ontology to the Mammalian Phenotype Ontology); or (3) they accidentally omit certain correct mappings, as the automated approaches that were used did not detect them (false negatives). We cannot determine whether a mapping set such as the one given in Table X1 is up-to-date, deliberately partial or accidentally incomplete without sufficient metadata about the purpose of the mappings, the tools used and the version of the source data used for the matching process.</p>
+<p><em>UnFAIRness</em>. The FAIR principles are a set of community-developed guidelines to ensure that data or any digital object are Findable, Accessible, Interoperable and Reusable. Unlike many of the widely used controlled vocabularies, ontologies and data schemas, mappings are rarely published using standard formats and metadata vocabularies and can therefore be considered second class citizens in the world of FAIR semantics. 
+While some tools exist to browse mappings (the F and A in FAIR, findable and accessible), such as OxO and BioPortal, they lack access to at least some of the metadata required to determine their applicability for a use case: Are mappings likely to be correct? Are they precise enough? Have they been updated recently? Can I trust the authority that generated the mappings? While some minimum level of interoperability (the I in FAIR) is achieved simply by publishing the mappings as RDF triples (which rarely happens in practice), most mappings are best captured in the form of simple tables (in our experience the preferred format for both mapping curators and data engineers). Furthermore, the predicates or relations used in the mappings are far from standardized. Different relations have different semantics, ranging from strong logical relations such as owl:sameAs or owl:equivalentClass to predicates with no formally specified semantics such as oboInOwl:hasDbXref. </p>
+<p>In our experience, reusability (the R in FAIR) is a significant obstacle to FAIRness. It is infeasible to simply reuse existing mappings without the metadata required to make imprecision, inaccuracy and incompleteness explicit. Repositories such as OxO and BioPortal cannot make mappings more accessible, because the metadata required to do so simply does not exist. In order to gradually improve our mappings and make them FAIRer, we need to be able to share, review, fix and maintain our mappings in much the same way as our ontologies themselves - using standard formats and rich metadata.
+FAIRifying data is an effort that aims to supply practical solutions for the use of the FAIR guiding principles throughout the research data life cycle. It recommends technologies that support semantic interoperability in a sustainable way, and practices that support FAIRness. The FAIRSemantics effort is currently discussing how to incorporate semantic mappings, and we reached out to them to consider SSSOM for this purpose.</p>
+<h3 id="background-about-mappings">Background about mappings</h3>
+<p>A mapping can be defined as a triple <s, p, o>, where s is the subject of the mapping, p is the mapping predicate (or relation) and o is the object. There are many different mapping predicates used in practice, but they are not always standardized. The Semantic Web community uses a number of standard mapping predicates, such as owl:sameAs or owl:equivalentClass (logical mapping predicates) and skos:exactMatch or skos:broadMatch (terminological mapping predicates). We refer to mapping subjects and objects as "terms", which we will loosely define here as a set of symbols that define some entity in the real world. Usually, a term can be referred to by an identifier that uniquely identifies some entity in a certain context. For example, UBERON:0002101 is the identifier for a term that refers to the anatomical entity "limb". 
+Putting it all together, the mapping <UBERON:0002101, skos:exactMatch, FMA:24875> describes a correspondence in which the term with the id UBERON:0002101 constitutes a terminological exact match to the term with the identifier FMA:24875. Mappings between data model elements, databases and other representations can be described similarly. Note that we generally use the terms "matching" and "mapping" interchangeably. Occasionally we refer to "matching" as the process to determine a mapping candidate (lexical matching, logical matching etc), a "match" as the result of the matching process, and a "mapping" the process and result of the process that deduces a true correspondence from a (set of) matches. For SSSOM, this distinction is a bit academic, but useful to keep in mind when talking about the interplay of automated approaches (which result in "matches") and manual approaches (which typically result in the final mappings). Ontology alignment is the task of determining corresponding terms shared between two or more ontologies, i.e. mappings. Sometimes "ontology alignment" refers to the output of the alignment process.</p>
+<p>Mapping sets can be "partial", i.e. covering only a subset of terms in the subject or object source (ontology, database, etc), "derived", i.e. one mapping set can be obtained from one or more others (for example, a XAO to MeSH mapping can be obtained by combining a XAO-Uberon mapping with a Uberon-MeSH mapping), or "complete". We refer to a "complete" mapping, i.e. the set of all correspondences between two resources (ontologies, databases), as an "alignment".</p>
+<p>The identifier of a term has three parts: a namespace that describes in which database or ontology the identifier is defined, a local identifier that unambiguously identifies an entity within that namespace, and optionally a separator that can be used to separate the namespace from the local identifier to make them easier to process. UBERON:0002101, for example, comprises the namespace "UBERON", the separator ":" and the local identifier "0002101". There are various syntaxes for denoting identifiers; the UBERON:0002101 notation is called compact URI (CURIE) syntax, which is used widely across the database and ontology worlds. The problem with this syntax is that UBERON may not be a globally unique prefix, so files making use of such CURIEs must come with a prefix map that ensures that UBERON (in the CURIE syntax referred to as "prefix") is globally unique by mapping it to the persistent International Resource Identifier (IRI) prefix http://purl.obolibrary.org/obo/UBERON_. This may not be a major problem for a fairly unique prefix such as "UBERON", but it is for prefixes such as "ICD", which can refer to many different name spaces, such as ICD9, ICD10, ICD11 and more, all of which correspond to entirely different terminologies.</p>
+<p><em>Approaches to mapping</em>. There are many different techniques that can be employed to generate term mappings. Automated matching techniques include ontology matching, entity resolution (the task of determining whether two database records correspond to the same entity), semantic similarity or automated reasoning. Recent approaches based on machine learning and graph embeddings show promise for working with messier inputs. No single tool will perform equally well on all inputs: some of the semantics-aware tools like LogMap and Agreement Maker Light (AML) can exploit the ontology structure to determine high-quality matches but will have problems with the large-scale data linking tasks required by modern big-data applications. </p>
+<p>Purely automated approaches to mapping are often insufficient for real world use cases that require a high degree of accuracy, such as medical diagnostics. They often need to be refined by hand or using sophisticated mapping reconciliation approaches independent of the actual matching. Determining a mapping is often complex, due to the high degree of terminological variability: different communities may use very different names for the same real world entities . For example, for example, the condition referred to in the Human Phenotype Ontology (HPO) as "Hyperchloriduria" is called "increased urine chloride ion level" in the Mammalian Phenotype Ontology (MP), which is used by the model organism community.</p>
+<p><em>Mapping rules - capturing the conditions under which a match is established</em>.
+Mapping rules define the conditions under which we determine a match between two terms. For example, the condition for a mapping rule could be "if the subject label and object label match exactly". In practice, mapping rules can be very simple (e.g., "exact match of term labels"),  more complex ("exact match between label of subject and exact synonym of object after they are pre-processed using stemming"), or even more exacting ("complex match determined by a human curator that carefully reviewed the descriptions and definitions of both terms and concluded they mean the same thing"). One problem for both manually curated mappings and automated approaches is that these mapping rules are often hidden deeply in the code or are not documented at all. Exposing mapping rules along with confidence scores would be very valuable for reviewing mappings and explaining them to users. Our reference implementation for SSSOM is rdf-matcher, which makes these mapping rules explicit, but other approaches such as OMOP2OBO also capture mapping rules as part of the mapping metadata.</p>
+<h3 id="some-notes-on-the-standardisation-process">Some notes on the standardisation process:</h3>
+<p>Note this is a public copy of the editors’ draft. It is provided for discussion only and may change at any moment. Do not cite this document other than as work in progress. SSSOM is community-driven, so all feedback is welcome.</p>
+<p><a name="meta"></a></p>
+<h2 id="sssom-metadata-elements">SSSOM Metadata Elements</h2>
+<p>The SSSOM specification defines a set of SSSOM metadata elements that are used to describe mappings. Apart from the elements themselves, some example usage and a description, <strong><em><a href="https://mapping-commons.github.io/sssom/Mapping/">the SSSOM spec</a> defines the canonical order for the metadata</em></strong> in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. </p>
+<p>A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.</p>
+<p>The conceptual model of SSSOM has two main elements: </p>
+<ul>
+<li>a <a href="https://mapping-commons.github.io/sssom/Mapping/">Mapping</a> and</li>
+<li>a <a href="https://mapping-commons.github.io/sssom/MappingSet/">MappingSet</a>.</li>
+</ul>
+<p>Some SSSOM metadata elements apply only to one element or the other, but many can be applied to both.</p>
+<p>Note that some SSSOM metadata elements have known equivalent properties which will be used in the RDF serialisation, for example <code>see_also</code> is mapped to <code>rdfs:seeAlso</code>.</p>
+<p>All metadata elements and their mappings are declared and managed in the <a href="https://github.com/mapping-commons/sssom/blob/master/model/schema/sssom.yaml">SSSOM schema</a>.</p>
+<h3 id="metadata-elements">Metadata Elements</h3>
+<p>The latest version of the metadata elements are:</p>
+<ul>
+<li><a href="https://mapping-commons.github.io/sssom/Mapping/">Mapping</a></li>
+<li><a href="https://mapping-commons.github.io/sssom/MappingSet/">MappingSet</a> </li>
+</ul>
+<p><a name="predicates"></a></p>
+<h2 id="common-mapping-predicates">Common Mapping Predicates</h2>
+<p>The use of predicates is not restricted by SSSOM, but for maximum re-use, the following predicates are strongly encouraged.</p>
+<p><em>Sources:</em></p>
+<ul>
+<li><a href="https://www.bioontology.org/wiki/BioPortal_Mappings">https://www.bioontology.org/wiki/BioPortal_Mappings</a></li>
+</ul>
+<table>
+  <tr>
+    <td>Predicate</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>owl:sameAs</td>
+    <td>The subject and the object are instances (owl individuals), and the two instances are the same.</td>
+  </tr>
+  <tr>
+    <td>owl:equivalentClass</td>
+    <td>The subject and the object are classes (owl class), and the two classes are the same.</td>
+  </tr>
+  <tr>
+    <td>owl:equivalentProperty</td>
+    <td>The subject and the object are properties (owl object, data, annotation properties), and the two properties are the same.</td>
+  </tr>
+  <tr>
+    <td> rdfs:subClassOf</td>
+    <td>The subject and the object are classes (owl class), and the subject is a subclass of the object.</td>
+  </tr>
+  <tr>
+    <td>rdfs:subPropertyOf</td>
+    <td>The subject and the object are properties (owl object, data, annotation properties), and the subject is a subproperty of the object.</td>
+  </tr>
+  <tr>
+    <td>skos:relatedMatch</td>
+    <td>The subject and the object are associated in some unspecified way.</td>
+  </tr>
+  <tr>
+    <td>skos:closeMatch</td>
+    <td>The subject and the object are sufficiently similar that they can be used interchangeably in some information retrieval applications.</td>
+  </tr>
+  <tr>
+    <td>skos:exactMatch</td>
+    <td>The subject and the object can, with a high degree of confidence, be used interchangeably across a wide range of information retrieval applications.</td>
+  </tr>
+  <tr>
+    <td>skos:narrowMatch</td>
+    <td>From the SKOS primer: A triple <A> skos:narrower (and skos:narrowMatch) <B> asserts that <B>, the object of the triple, is a narrower concept than <A>, the subject of the triple.</td>
+  </tr>
+  <tr>
+    <td>skos:broadMatch</td>
+    <td>From the SKOS primer: A triple <A> skos:broader (and skos:broadMatch) <B> asserts that <B>, the object of the triple, is a broader concept than <A>, the subject of the triple.</td>
+  </tr>
+  <tr>
+    <td>oio:database_cross_reference</td>
+    <td>Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)</td>
+  </tr>
+  <tr>
+    <td>rdfs:seeAlso</td>
+    <td>The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.</td>
+  </tr>
+  <tr>
+    <td>RO:?</td>
+    <td>Any Relation in the Relation Ontology (RO).</td>
+  </tr>
+</table>
+
+<p><a name="serialisation"></a></p>
+<h2 id="serialisation">Serialisation</h2>
+<h3 id="rdfxml-serialised-re-ified-owl-axioms">RDF/XML serialised re-ified OWL axioms:</h3>
+<p>The default RDFXML serialisation of the mappings will be realised as <em>reified OWL axioms</em>. This has the advantage that any mapping set can be simply merged with an ontology in the usual way, for example using <a href="http://robot.obolibrary.org/merge">ROBOT merge</a>. We will deal with three types of reified OWL-axioms, and a few sub-types:</p>
+<ol>
+<li>Predicate is an annotation property</li>
+<li>Predicate is an object property and</li>
+<li>Object/Subject are classes</li>
+<li>Object/Subject are individuals</li>
+<li>Predicate is language relational construct of RDFS or OWL (rdfs:subClassOf, owl:equivalentClass)</li>
+</ol>
+<h4 id="predicate-is-an-annotation-property">Predicate is an annotation property:</h4>
+<p>If the predicate corresponds to an annotation property, the mapping <S,P,O, sssomMetadata> gets converted to an OWLAnnotationAssertion axiom: <code>OWLAnnotationAssertion(P,S,O)</code>. All mapping level metadata (<code>sssomMetadata</code>) gets converted into OWLAnnotation objects which are materialised as axiom annotations on the mapping annotation assertion, see <a href="https://www.w3.org/TR/owl2-syntax/#Annotations">OWL 2 Structural Specification</a>:</p>
+<div class="highlight"><pre><span></span><code>AnnotationAssertion(sssomMetadata P, S, O)
+</code></pre></div>
+<p>Where <code>sssomMetadata</code> is a sequence of OWL Annotations objects like:</p>
+<div class="highlight"><pre><span></span><code>Annotation(Q1,V1) Annotation(Q2,V2) ... Annotation(Qn,Vn)
+</code></pre></div>
+<p>where Qi is a SSSOM metadata element and Vi is an annotation value.</p>
+<p>Note that if a SSSOM metadata element value is a list L (i.e. can have multiple elements, such as creator and others), individual annotations are created for each of them:</p>
+<div class="highlight"><pre><span></span><code>Annotation(Q,V) for all V in L.
+</code></pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>AnnotationAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) skos:exactMatch &lt;http://purl.obolibrary.org/obo/HP_0009894&gt; &lt;http://purl.obolibrary.org/obo/MP_0000019&gt;)
+</code></pre></div>
+<p>Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the <a href="https://www.w3.org/TR/owl2-syntax/#Annotations">OWL 2 Structural Specification</a>.</p>
+<h4 id="predicate-is-an-object-property">Predicate is an object property</h4>
+<h5 id="case-1-object-and-subject-are-classes">Case 1: Object and Subject are classes.</h5>
+<p>The Mapping <S,P,O> gets translated into an existential restriction: </p>
+<div class="highlight"><pre><span></span><code>SubclassOf(A, P some O)
+</code></pre></div>
+<p>All metadata elements are added as OWLAnnotation objects and added to SubclassOf axiom as axiom annotations:</p>
+<div class="highlight"><pre><span></span><code>SubclassOf(sssomMetadata, A, P some O)
+</code></pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) &lt;http://example.org/AA&gt; ObjectSomeValuesFrom(&lt;http://example.org/x&gt; &lt;http://example.org/BB&gt;))
+</code></pre></div>
+<h5 id="case-2-object-and-subject-are-individuals">Case 2: Object and Subject are individuals</h5>
+<p>The Mapping <S,P,O> gets translated into an object property assertion: </p>
+<div class="highlight"><pre><span></span><code>ObjectPropertyAssertion(P, A, O)
+</code></pre></div>
+<p>All metadata elements are added as OWLAnnotation objects and added to ObjectPropertyAssertion axiom as axiom annotations:</p>
+<div class="highlight"><pre><span></span><code>ObjectPropertyAssertion(sssomMetadata, P, A, O)
+</code></pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>ObjectPropertyAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) &lt;http://www.example.org/x&gt; &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
+</code></pre></div>
+<h4 id="predicate-is-language-relational-construct-of-rdfs-or-owl">Predicate is language relational construct of RDFS or OWL</h4>
+<p>The mapping <S,P,O> gets translated into an annotated axiom that corresponds to the construct used. By default, SSSOM will support:</p>
+<table>
+  <tr>
+    <td>owl:EquivalentClass</td>
+    <td>EquivalentClass(sssomMetadata,A,O)</td>
+  </tr>
+  <tr>
+    <td>rdfs:subClassOf</td>
+    <td>SubClassOf(sssomMetadata, A,O)</td>
+  </tr>
+</table>
+
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
+</code></pre></div>
+<h3 id="tsv">TSV:</h3>
+<p>All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the <a href="https://mapping-commons.github.io/sssom/Mapping/">SSSOM metadata</a>. For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, mapping_justification, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, mapping_justification. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.</p>
+<p>Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a <code>curie_map:</code> parameter in the yaml file. The value can be either a dictionary of CURIE-&gt;URLPREFIX pairs or a link to a valid curie map of the same shape.</p>
+<p>Note that only metadata elements permissible in a global context (G, or L/G) can be used in the metadata-file.</p>
+<p>We recommend to use the following <em>filename conventions</em> for SSSOM metadatafiles:</p>
+<ul>
+<li>TSV files should have the extension <code>.sssom.tsv</code>, for example: <code>mp-hp-exact-0.0.1.sssom.tsv</code>.</li>
+<li>External yaml metadata files should have the extension <code>.sssom.yml</code>, for example <code>mp-hp-exact-0.0.1.sssom.tsv</code></li>
+</ul>
+<p>Example (<a href="https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.yml">download</a>):</p>
+<div class="highlight"><pre><span></span><code>creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
+curie_map: 
+  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
+  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
+  skos: &quot;http://www.w3.org/2004/02/skos/core&quot;
+license: &quot;https://creativecommons.org/publicdomain/zero/1.0/&quot;
+mapping_provider: &quot;http://purl.obolibrary.org/obo/upheno.owl&quot;
+</code></pre></div>
+<h4 id="external-mode">External mode</h4>
+<p>In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension <code>-meta.yml</code>. By default, tools will look for the file of that name in the same directory as the the mapping set table.</p>
+<p>Example (<a href="https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
+<div class="highlight"><pre><span></span><code>subject_id  predicate_id    object_id   mapping_justification   subject_label   object_label
+HP:0009124  skos:exactMatch MP:0000003  Lexical Abnormal adipose tissue morphology  abnormal adipose tissue morphology
+HP:0008551  skos:exactMatch MP:0000018  Lexical Microtia    small ears
+HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
+</code></pre></div>
+<h4 id="embedded-mode-default">Embedded mode (default)</h4>
+<p>In the embedded mode, we allow the integration of mapping set level metadata as <strong><em>commented YAML</em></strong>. Apart from being commented, the YAML follows the exact same spec as the <em>YAML specified by the external mode</em>. Heavily used tools in bioinformatics such as pandas allow to <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">specify comment characters</a> when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.</p>
+<p>Note: the mapping set level metadata <em>must be included as a continuous block at the beginning of the file</em>. This means in particular: 
+- No comments can be included that are not part of the metadata data. For example, this is not allowed:</p>
+<p>Illegal case 1:
+<div class="highlight"><pre><span></span><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
+# This is a comment that does not belong here
+#curie_map: 
+#  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
+#  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
+</code></pre></div></p>
+<p>Illegal case 2:
+<div class="highlight"><pre><span></span><code># This is a comment that does not belong here
+#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
+#curie_map: 
+#  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
+#  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
+</code></pre></div></p>
+<ul>
+<li>There should be no empty rows: the commented yaml files <em>must</em> be directly followed by the column headers. For example, this is not allowed:</li>
+</ul>
+<p>Illegal case 3:
+<div class="highlight"><pre><span></span><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
+
+#curie_map: 
+#  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
+#  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
+</code></pre></div></p>
+<ul>
+<li>The can be only a single # in the beginning of each row, followed immediately by the yaml.</li>
+<li>When the leading hash-symbol is stripped from the header block, the resulting string is:</li>
+<li>a valid yaml file</li>
+<li>conforms to SSSOM mapping set specification (only <code>curie_map</code> or a metadata elements that are allowed on <code>mapping_set</code> level, i.e. <code>global</code>).</li>
+<li>After the table header, no further row should be commented out.</li>
+</ul>
+<p>Example (<a href="https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/embedded/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
+<div class="highlight"><pre><span></span><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
+#curie_map: 
+#  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
+#  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
+#  skos: &quot;http://www.w3.org/2004/02/skos/core&quot;
+#license: &quot;https://creativecommons.org/publicdomain/zero/1.0/&quot;
+#mapping_provider: &quot;http://purl.obolibrary.org/obo/upheno.owl&quot;
+subject_id  predicate_id    object_id   mapping_justification   subject_label   object_label
+HP:0009124  skos:exactMatch MP:0000003  Lexical Abnormal adipose tissue morphology  abnormal adipose tissue morphology
+HP:0008551  skos:exactMatch MP:0000018  Lexical Microtia    small ears
+HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
+</code></pre></div>
+<p><em>Notes:</em></p>
+<ul>
+<li>ROBOT implementation: <a href="https://github.com/ontodev/robot/issues/312">https://github.com/ontodev/robot/issues/312</a></li>
+</ul>
+<h3 id="json">JSON:</h3>
+<p>JSON translation is fully managed by <a href="https://linkml.io/linkml/code.html#loaders-and-dumpers">LinkML dumper classes</a>.</p>
+<p><a name="usecase"></a></p>
+<h2 id="use-cases">Use Cases:</h2>
+<ul>
+<li>Consumers:</li>
+<li>OxO</li>
+<li>Analysis in R/Python using dataframes/pandas</li>
+<li>Visual inspection by curators to spot-check errors</li>
+<li>
+<p>Machine Learning (e.g. predict predicate based on SSSOM columns)</p>
+</li>
+<li>
+<p>Maintainers:</p>
+</li>
+<li>Maintain mappings in google sheets</li>
+<li>Is the format optimized for google refine?</li>
+<li>
+<p>Maintain mappings in github/tsvs</p>
+<ul>
+<li>Rendering</li>
+<li>Drive-by PRs</li>
+</ul>
+</li>
+<li>
+<p>Providers</p>
+</li>
+<li>Autogenerate pages like <ul>
+<li><a href="http://geneontology.org/docs/download-mappings/">http://geneontology.org/docs/download-mappings/</a></li>
+<li><a href="http://uberon.github.io/downloads.html#bridge">http://uberon.github.io/downloads.html#bridge</a></li>
+</ul>
+</li>
+<li>OxO</li>
+</ul>
+<p><a name="minimum"></a></p>
+<h2 id="the-sssom-5-star-system-for-mappings">The SSSOM 5-Star System For Mappings</h2>
+<p>Current mappings are extremely hard to use for data integration, because they are:</p>
+<ul>
+<li><em>non-transparently imprecise</em>: we do not know whether they are between equivalent terms, or wether one term is broader than the other.</li>
+<li><em>non-transparently incomplete</em>: we do not know whether the absence of a mapping means there is none.</li>
+<li><em>inaccurate</em>: there are many mappings generated by automated tools that have a low mapping confidence - but still included in mapping sets.</li>
+<li><em>unFAIR</em>: there is insufficient metadata attached to mappings and mapping sets to trace their provenance, attribute trust or combine them to exploit cross-walks.</li>
+</ul>
+<p>In principle, to reach full integration through mappings, you will have to cross-map all ontologies, or semantic
+spaces (e.g. controlled vocabularies, semantic databases), which means if you have N "spaces", you have <code>N x (N - 1)</code> mappings (because A -&gt; B is often different from B -&gt; A). It makes sense to consider mappings as a directed graph from which you can infer other mappings using graph walking or <a href="https://en.wikipedia.org/wiki/Graph_traversal">graph traversals</a>. To mitigate the explosion of mappings, we have to be able to cross-walk. While some typical mapping predicates such as owl:equivalentClass or skos:exactMatch are symetric (which means that if A -&gt; B then you can infer B -&gt; A, which we will call a "walk-back"), other are not (skos:narrowMatch), but maybe have <code>inverse</code> predicates (A --[skos:narrowMatch]--&gt; B implies B --[skos:broadMatch]--&gt; A). Apart from walk backs, you can infer additional mappings through a chain of subsequent mappings (multi-hop forward walks), for example:
+- multi-hop forward walks <code>{ PR:000050277 -&gt; ncbiprotein:YP_009725304, ncbiprotein:YP_009725304-&gt; uniprot.chain:PRO_0000449627 } --&gt; {PR:000050277 -&gt; uniprot.chain:PRO_0000449627}</code>
+) 
+- walk-backs <code>{ PR:000050277 -&gt; ncbiprotein:YP_009725304 } --&gt; {ncbiprotein:YP_009725304 -&gt; PR:000050277}</code>
+- combinations <code>{ PR:000050277 -&gt; ncbiprotein:YP_009725304, ncbiprotein:YP_009725304-&gt; uniprot.chain:PRO_0000449627, MY:NSP8-&gt; uniprot.chain:PRO_0000449627 } --&gt; { PR:000050277 -&gt; MY:NSP8 }</code></p>
+<p>To enable cross-walking, we propose the following <strong>Five-Star system</strong> for mapping sets. </p>
+<ul>
+<li><em>1-Star mappings</em> fulfill the following criteria:<ul>
+<li>record subject id, object id and mapping precision (exact, broad, narrow, close, related)</li>
+<li>using qualified names (either URIs or CURIEs + curie maps) for subject id and object id</li>
+<li>using a standard file format (JSON, XML, CSV, TSV)</li>
+<li>made available in a public space</li>
+<li><em>optional</em>: record the subject and object labels to make it easier for humans to read the file</li>
+</ul>
+</li>
+<li><em>2-Star mappings</em> fulfill all the criteria for 1-star mappings and furthermore<ul>
+<li>made available in a public version control system with an issue tracker</li>
+<li>record the semantic predicate explicitly and using qualified names for the semantic predicate (i.e. owl:equivalentClass, skos:exactMatch)</li>
+<li>record a confidence value for the mapping between 0 and 1 (0 no confidence, 1 100% confidence).</li>
+<li>record an open license for the use of the mapping set</li>
+</ul>
+</li>
+<li><em>3-Star mappings</em> fulfill all the criteria for 2-star mappings and furthermore <ul>
+<li>are exported in SSSOM format</li>
+<li>record the following additional metadata: <ul>
+<li><code>mapping_justification</code>(s) (Lexical, Logical match, HumanCurated etc)</li>
+<li><code>date</code> of the mapping</li>
+<li><code>creator_id</code></li>
+<li><code>subject_source</code></li>
+<li><code>object_source</code></li>
+<li><code>subject_source_version</code></li>
+<li><code>object_source_version</code></li>
+<li><code>mapping_tool</code> if the mapping was automatically computed using a tool</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>4-Star mappings</em> fulfill all the criteria for 3-star mappings and furthermore<ul>
+<li>register the mapping at a mapping commons</li>
+<li>record the following additional metadata:<ul>
+<li><code>mapping_set_id</code></li>
+<li><code>mapping_set_description</code></li>
+<li><code>mapping_set_version</code></li>
+<li><code>mapping_provider</code> (if the mapping is not original, i.e. it is not derived from another source)</li>
+</ul>
+</li>
+<li>provide a completely executable curation_rule:<ul>
+<li>if the mapping is <code>Lexical</code>, provide:<ul>
+<li><code>subject_preprocessing</code>, <code>object_preprocessing</code></li>
+<li><code>subject_match_field</code>, <code>object_match_field</code></li>
+<li><code>match_string</code></li>
+</ul>
+</li>
+<li>if the mapping is <code>Logical</code>, the mapping should be derivable by a reasoner from a combination of the <code>object_source</code> and <code>subject_source</code>. If more is needed then please leave a <code>comment</code> with details.</li>
+<li>if the mapping is <code>HumanCurated</code>.. (this needs to be <a href="https://github.com/mapping-commons/SSSOM/issues/57">fleshed out</a>. For now, leave a <code>comment</code> indicating what you did to arrive at your conclusion, i.e. wether you compared the definitions, looked up the "labels" in a database, ran a tool and decided to trust it etc.)</li>
+<li>if the mapping is <code>SemanticSimilarity</code> (graph similarity, neighbourhood, cosine similarity), you should provide:<ul>
+<li><code>semantic_similarity_score</code></li>
+<li><code>semantic_similarity_measure</code></li>
+</ul>
+</li>
+<li>For now, if there are <em>multiple pieces of evidence</em> (lexical, logical etc), please emit one row per evidence. If your tool combines multiple pieces of evidence in a complex way, emit yet another row at the end with <code>mapping_justification</code> <code>Complex</code> and emit ensure you provide the <code>mapping_tool</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>5-Star mappings</em> fulfill all the criteria for 4-star mappings and furthermore<ul>
+<li>Are up-to-date with the <code>subject_source</code> and <code>object_source</code></li>
+<li>Have no issue on their issue tracker open for more than 3 months without an interaction</li>
+<li>Use a <em>standard</em> open license, such as <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC Zero 1.0</a> or <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.</li>
+</ul>
+</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../about/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About SSSOM" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              About SSSOM
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../usecases/" class="md-footer__link md-footer__link--next" aria-label="Next: Use cases" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Use cases
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+    
+  </body>
+</html>
