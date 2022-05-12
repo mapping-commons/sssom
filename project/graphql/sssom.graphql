@@ -9,7 +9,7 @@ type Mapping
     objectId: EntityReference!
     objectLabel: String
     objectCategory: String
-    matchType: [MatchTypeEnum]!
+    mappingJustification: EntityReference!
     authorId: [EntityReference]
     authorLabel: [String]
     reviewerId: [EntityReference]
@@ -17,8 +17,10 @@ type Mapping
     creatorId: [EntityReference]
     creatorLabel: [String]
     license: Uri
+    subjectType: EntityTypeEnum
     subjectSource: Uri
     subjectSourceVersion: String
+    objectType: EntityTypeEnum
     objectSource: Uri
     objectSourceVersion: String
     mappingProvider: Uri
@@ -32,7 +34,6 @@ type Mapping
     matchString: [String]
     subjectPreprocessing: [PreprocessingMethodEnum]
     objectPreprocessing: [PreprocessingMethodEnum]
-    matchTermType: MatchTermTypeEnum
     semanticSimilarityScore: Double
     semanticSimilarityMeasure: String
     seeAlso: [String]
@@ -50,8 +51,10 @@ type MappingSet
     creatorId: [EntityReference]
     creatorLabel: [String]
     license: Uri!
+    subjectType: EntityTypeEnum
     subjectSource: Uri
     subjectSourceVersion: String
+    objectType: EntityTypeEnum
     objectSource: Uri
     objectSourceVersion: String
     mappingProvider: Uri
@@ -61,7 +64,6 @@ type MappingSet
     objectMatchField: [EntityReference]
     subjectPreprocessing: [PreprocessingMethodEnum]
     objectPreprocessing: [PreprocessingMethodEnum]
-    matchTermType: MatchTermTypeEnum
     seeAlso: [String]
     other: String
     comment: String
