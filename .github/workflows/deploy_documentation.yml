@@ -2,7 +2,7 @@ name: Deploy Documentation
 
 # Controls when the action will run. Triggers the workflow on push
 on:
-  pull_request:
+  push:
     branches: [ master ]
 
     # paths:
@@ -44,12 +44,12 @@ jobs:
     #----------------------------------------------
     #       load cached venv if cache exists      
     #----------------------------------------------
-    # - name: Load cached venv
-    #   id: cached-poetry-dependencies
-    #   uses: actions/cache@v2
-    #   with:
-    #     path: .venv
-    #     key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+    - name: Load cached venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v2
+      with:
+        path: .venv
+        key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
 
     #----------------------------------------------
     # install dependencies if cache does not exist 
@@ -71,7 +71,7 @@ jobs:
         poetry run gen-doc -d gh-pages src/linkml/sssom.yaml
     
     - name: Deploy to gh-pages branch
-      if: ${{ github.event_name == 'pull_request' }}
+      if: ${{ github.event_name == 'push' }}
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         branch: gh-pages
