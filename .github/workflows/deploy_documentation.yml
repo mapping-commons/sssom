@@ -68,8 +68,8 @@ jobs:
 
     - name: Create local docs
       run: |
-        mkdir gh-pages
-        touch gh-pages/.nojekyll
-        cp -r src/docs/* gh-pages/
-        poetry run gen-doc -d gh-pages src/linkml/sssom.yaml
+        mkdir docs
+        touch docs/.nojekyll
+        cp -r src/docs/* docs/
+        poetry run gen-doc -d docs src/linkml/sssom.yaml
         poetry run mkdocs gh-deploy
