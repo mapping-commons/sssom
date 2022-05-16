@@ -42,7 +42,7 @@ jobs:
       #   virtualenvs-in-project: true
 
     #----------------------------------------------
-    #       load cached venv if cache exists      
+    #       load cached venv if cache exists
     #----------------------------------------------
     - name: Load cached venv
       id: cached-poetry-dependencies
@@ -52,7 +52,7 @@ jobs:
         key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
 
     #----------------------------------------------
-    # install dependencies if cache does not exist 
+    # install dependencies if cache does not exist
     #----------------------------------------------
     - name: Install dependencies
       # if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
@@ -60,8 +60,8 @@ jobs:
       run: poetry install -E docs
 
     #----------------------------------------------
-    #    install your root project, if required 
-    #----------------------------------------------      
+    #    install your root project, if required
+    #----------------------------------------------
     # - name: Install library
     #   run: poetry install --no-interaction
 
@@ -71,7 +71,7 @@ jobs:
         touch gh-pages/.nojekyll
         cp -r src/docs/* gh-pages/
         poetry run gen-doc -d gh-pages src/linkml/sssom.yaml
-    
+
     - name: Deploy to gh-pages branch
       if: ${{ github.event_name == 'push' }}
       uses: JamesIves/github-pages-deploy-action@releases/v3
