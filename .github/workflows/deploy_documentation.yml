@@ -71,16 +71,4 @@ jobs:
         touch gh-pages/.nojekyll
         cp -r src/docs/* gh-pages/
         poetry run gen-doc -d gh-pages src/linkml/sssom.yaml
-
-    - name: Deploy to gh-pages branch
-      if: ${{ github.event_name == 'push' }}
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        branch: gh-pages
-        force: true
-        folder: gh-pages
-        # GITHUB_TOKEN: ${{ github.token }}
-        # REPOSITORY_NAME: mapping-commons/sssom # The repository the action should deploy to
-        # BRANCH: gh-pages # The branch the action should deploy to.
-        # COMMIT_MESSAGE: 'Update documentation'
-        # FOLDER: . # The folder the action should deploy.
+        poetry run mkdocs gh-deploy
