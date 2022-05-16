@@ -14,4 +14,4 @@ SSSOM is a Simple Standard for Sharing Ontological Mappings:
 - [A Simple Standard for Sharing Ontological Mappings (SSSOM)](https://arxiv.org/abs/2112.07051) (publication)
 - [Specification](index.md)
 - [Presentations](presentations.md)
-- [SSSOM Toolkit](https://mapping-commons.github.io/sssom-py)
+- [SSSOM Toolkit](https://mapping-commons.github.io/sssom-py/)
