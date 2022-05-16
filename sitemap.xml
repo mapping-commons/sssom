@@ -435,4 +435,9 @@
          <lastmod>2022-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/explanation/mappings/</loc>
+         <lastmod>2022-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>
