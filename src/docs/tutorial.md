@@ -1,4 +1,27 @@
-# Tutorials
+# Introduction to mapping curation with SSSOM
+
+Mappings between entities from ontologies, terminologies and databases are created for many reasons (data integration, knowledge graphs) and maintained in many different ways (automated matching, manual curation). In the following tutorial, we will learn how to curate semantic mappings manually using SSSOM. Knowledge about manual mapping curation is important even in scenarios where most, if not all, of the mapping curation is performed automatically - the basic principles are still the same.
+
+## Pre-requisites
+
+We expect the reader of this tutorial to have a basic understanding of the following:
+
+- What are ontology classes? How do they relate to database entities?
+- Why do we need to map across ontologies and between databases and ontologies?
+
+We do provide a few materials in the [Background](#background) section below to brush up on the above concepts, but a detailed discussion is out of scope.
+
+## Table of contents
+
+- [Background](#background)
+   - [Ontology alignment](#align)
+   - [What are we mapping?](#what)
+   - [CURIEs, URIs and databases](#curie)
+- [How to create an SSSOM mapping set from scratch](#scratch)
+   - [Manually curating mapping sets](#scratchstart)
+   - [Automated processing 1: Creating an embedded SSSOM file](#automated1)
+
+## Background
 
 As a reminder, a SSSOM mapping comprises three major components:
 
@@ -6,17 +29,7 @@ As a reminder, a SSSOM mapping comprises three major components:
 2. A **mapping justification**, the process or activity that led us to consider the mapping to be correct or reasonable (typical examples: labels match exactly; two classes are logically equivalent; a domain expert determined that two terms reflect the same real world concept).
 3. **Provenance metadata**, including information about `author` and `mapping_tool`.
 
-In the following, we will describe how SSSOM mappings are created.
-
-Table of contents:
-
-- [Background](#background)
-   - [Ontology alignment](#align)
-   - [What are we mapping?](#what)
-   - [CURIEs, URIs and databases](#curie)
-- [How to create an SSSOM mapping set from scratch](#scratch)
-
-## Background
+In the following, we will give pointers to some useful background materials before we describe how SSSOM mappings are created.
 
 <a id="align"></a>
 
@@ -346,6 +359,7 @@ The `curie_map` (better known as "prefix map") is another key concept in SSSOM (
 
 This concludes the manual curation tutorial. Next, we will process the two mapping sets using "SSSOM python toolkit" (aka sssom-py).
 
+<a id="automated1"></a>
 ### Automated processing 1: Creating an embedded SSSOM file
 
 *Important note May 8 2022**: The SSSOM toolkit have not yet been updated to the most recent changes of the SSSOM data model. If you get an error `ValueError: match_type must be supplied`, you have to change your SSSOM table to follow this part of the tutorial:
