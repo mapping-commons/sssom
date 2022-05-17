@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tutorials" class="md-skip">
+        <a href="#introduction-to-mapping-curation-with-sssom" class="md-skip">
           Skip to content
         </a>
       
@@ -358,6 +358,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    Pre-requisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#background" class="md-nav__link">
     Background
   </a>
@@ -569,6 +583,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    Pre-requisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#background" class="md-nav__link">
     Background
   </a>
@@ -763,23 +791,33 @@
 
 
 
-<h1 id="tutorials">Tutorials</h1>
-<p>As a reminder, a SSSOM mapping comprises three major components:</p>
-<ol>
-<li>The <strong>mapping</strong> itself, that is, a triple <code>&lt;subject, predicate, object&gt;</code> that reflects a correspondence of a <code>subject</code> entity, for example a class in an ontology, to an <code>object</code> entity, for example an identifier in some database, via a semantic mapping <code>predicate</code>, such as <code>skos:exactMatch</code>.</li>
-<li>A <strong>mapping justification</strong>, the process or activity that led us to consider the mapping to be correct or reasonable (typical examples: labels match exactly; two classes are logically equivalent; a domain expert determined that two terms reflect the same real world concept).</li>
-<li><strong>Provenance metadata</strong>, including information about <code>author</code> and <code>mapping_tool</code>.</li>
-</ol>
-<p>In the following, we will describe how SSSOM mappings are created.</p>
-<p>Table of contents:</p>
+<h1 id="introduction-to-mapping-curation-with-sssom">Introduction to mapping curation with SSSOM</h1>
+<p>Mappings between entities from ontologies, terminologies and databases are created for many reasons (data integration, knowledge graphs) and maintained in many different ways (automated matching, manual curation). In the following tutorial, we will learn how to curate semantic mappings manually using SSSOM. Knowledge about manual mapping curation is important even in scenarios where most, if not all, of the mapping curation is performed automatically - the basic principles are still the same.</p>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<p>We expect the reader of this tutorial to have a basic understanding of the following:</p>
+<ul>
+<li>What are ontology classes? How do they relate to database entities?</li>
+<li>Why do we need to map across ontologies and between databases and ontologies?</li>
+</ul>
+<p>We do provide a few materials in the <a href="#background">Background</a> section below to brush up on the above concepts, but a detailed discussion is out of scope.</p>
+<h2 id="table-of-contents">Table of contents</h2>
 <ul>
 <li><a href="#background">Background</a></li>
 <li><a href="#align">Ontology alignment</a></li>
 <li><a href="#what">What are we mapping?</a></li>
 <li><a href="#curie">CURIEs, URIs and databases</a></li>
 <li><a href="#scratch">How to create an SSSOM mapping set from scratch</a></li>
+<li><a href="#scratchstart">Manually curating mapping sets</a></li>
+<li><a href="#automated1">Automated processing 1: Creating an embedded SSSOM file</a></li>
 </ul>
 <h2 id="background">Background</h2>
+<p>As a reminder, a SSSOM mapping comprises three major components:</p>
+<ol>
+<li>The <strong>mapping</strong> itself, that is, a triple <code>&lt;subject, predicate, object&gt;</code> that reflects a correspondence of a <code>subject</code> entity, for example a class in an ontology, to an <code>object</code> entity, for example an identifier in some database, via a semantic mapping <code>predicate</code>, such as <code>skos:exactMatch</code>.</li>
+<li>A <strong>mapping justification</strong>, the process or activity that led us to consider the mapping to be correct or reasonable (typical examples: labels match exactly; two classes are logically equivalent; a domain expert determined that two terms reflect the same real world concept).</li>
+<li><strong>Provenance metadata</strong>, including information about <code>author</code> and <code>mapping_tool</code>.</li>
+</ol>
+<p>In the following, we will give pointers to some useful background materials before we describe how SSSOM mappings are created.</p>
 <p><a id="align"></a></p>
 <h3 id="ontology-alignmentmatching">Ontology alignment/matching</h3>
 <p>Ontology alignment is the process of determining correspondences between ontological concepts. The usage of "alignment", "matching" and "mapping" is fuzzy in practice. From the perspective of SSSOM, alignment usually involves determining <em>all</em> (or a more or less complete set of) correspondences between ontological concepts of two or more source ontologies. The most important resource on the subject is <a href="https://link.springer.com/book/10.1007/978-3-642-38721-0">"Ontology Matching"</a> by Jérôme Euzenat and Pavel Shvaiko. If you are interested in really diving into the subject, there is no avoiding this book!</p>
@@ -1390,6 +1428,7 @@ curie_map:
 <li>Providing a recipe for creating RDF resources from CURIEs. RDF requires an entity to be represented by a full URI, e.g. <a href="http://purl.obolibrary.org/obo/FOODON_00002473">http://purl.obolibrary.org/obo/FOODON_00002473</a>. In this case, you can think of the <code>curie_map</code> in essence as a set of RDF <a href="https://www.w3.org/TR/1999/REC-xml-names-19990114/#NT-Prefix">prefix declarations</a>. This is only important if your use case requires serialisation into RDF.</li>
 </ol>
 <p>This concludes the manual curation tutorial. Next, we will process the two mapping sets using "SSSOM python toolkit" (aka sssom-py).</p>
+<p><a id="automated1"></a></p>
 <h3 id="automated-processing-1-creating-an-embedded-sssom-file">Automated processing 1: Creating an embedded SSSOM file</h3>
 <p><em>Important note May 8 2022</em>*: The SSSOM toolkit have not yet been updated to the most recent changes of the SSSOM data model. If you get an error <code>ValueError: match_type must be supplied</code>, you have to change your SSSOM table to follow this part of the tutorial:</p>
 <ol>
