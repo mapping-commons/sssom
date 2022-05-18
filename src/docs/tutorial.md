@@ -6,10 +6,11 @@ Mappings between entities from ontologies, terminologies and databases are creat
 
 We expect the reader of this tutorial to have a basic understanding of the following:
 
-- What are ontology classes? How do they relate to database entities?
+- What are ontology classes? What is a database?
+- What is an (ontology) mapping?
 - Why do we need to map across ontologies and between databases and ontologies?
 
-We do provide a few materials in the [Background](#background) section below to brush up on the above concepts, but a detailed discussion is out of scope.
+We do provide a few materials in the [Background](#background) section below that touch on the above concepts, but a detailed discussion is out of scope.
 
 ## Table of contents
 
@@ -66,15 +67,27 @@ In SSSOM we are concerned with mapping _information entities_, i.e. representati
 
 Information entities represent _real world objects_ such as diseases (e.g. Alzheimer's, Diabetes), kinds of vegetables (Asparagus, Broccoli), concrete instances of vegetables (a specific broccoli that was sold in your local supermarket yesterday).
 
+#### What kind of entities can we _not_ map with SSSOM?
+
+Some of the limitations of SSSOM are discussed in our [paper](https://arxiv.org/abs/2112.07051). A selection of the most important things that cannot be mapped at the moment:
+
+- Compound/complex entities, i.e. entities that are defined by more than one term. For example, we cannot currently map "Raw apple" (subject) to "Apple" and "Raw" (two objects).
+- Anything that is not an entity, e.g. unit conversion rules (1000mg maps to 1g * 1000) or functions.
+- Highly contextual entities like "PERSON:1" as they enter the hospital.
+
+As a rule of thumb, we can map any entity for which (1) we can provide a single identifier and (2) whose identifier establishes its context (i.e. no further information is needed to understand the meaning of the identifier).
+
+Note that _literal values_ are a special case - SSSOM is not designed for mapping literals to entity identifiers, but there are some discussions on how to do this anyways [here](https://github.com/mapping-commons/sssom/issues/81).
+
 <a id="curie"></a>
 
 ### CURIEs, URIs and databases
 
-A mapping involves three information entities: 
+A mapping involves three entities: 
 
-1. A subject
-1. An object (the entity the subject is mapped to)
-1. A semantic "mapping predicate", such as "skos:exactMatch" which defines how the subject entity is mapped to the object entity.
+1. A `subject` (the entity which is mapped to some other entity)
+1. An `object` (the entity the subject is mapped to)
+1. A semantic `mapping predicate`, such as "skos:exactMatch" which defines how the subject entity is mapped to the object entity.
 
 All three _must_ be referred to by an **identifier in CURIE syntax** ([Compact URI](https://www.w3.org/TR/2010/NOTE-curie-20101216/)) when using the SSSOM table format or JSON, or an IRI (Internationalized Resource Identifier) when you are using the RDF representation of SSSOM. This is necessary to ensure that entities are globally unique and mapping sets are fully interoperable across an organisation and beyond. While these concepts are common practice in the Semantic Web world, they may be less well understood in the database world. In fact, they can be quite awkward: 
 - Your database my use `p9787869` to identify a specific person in a "Person" table of a relational database.
@@ -94,7 +107,9 @@ curie_map:
 
 * Now we can refer to our entities in the SSSOM mapping table like this: (1) `embl.ebi.person:p9787869` and (2) `demographics-survey-datamodel.demographics.highest_education:UNIVERSITY`.
 
-This may strike some users as verbose - but the concept of unique identifiers for all information entities is _at the heart of SSSOM_. There is an initial cost to carefully defining namespaces for the various vocabularies and contexts (data model enums, value sets), but the ability to unambiguously refer to an entity will pay of as the organisation grows and data needs to be integrated from a wide variety of sources. See [here](https://hl7.org/fhir/conceptmap-example.ttl.html) for an example how FHIR deals with this: Rather than using a lot of prefixes, FHIR chooses to have one small namespace for `fhir`, and then having the path to the data model element all the way to its value as the local identifier.
+This may strike some users as verbose - but the concept of unique identifiers for all information entities is _at the heart of SSSOM_. There is an initial cost to carefully defining namespaces for the various vocabularies and contexts (data model enums, value sets), but the ability to unambiguously refer to an entity will pay of as the organisation grows and data needs to be integrated from a wide variety of sources. 
+
+_Tangent:_ See [here](https://hl7.org/fhir/conceptmap-example.ttl.html) for an example how [FHIR](http://hl7.org/fhir/), a standard for health care data exchange, published by HL7, deals with this: Rather than using a lot of prefixes, FHIR chooses to have one small namespace for `fhir`, and then having the path to the data model element all the way to its value as the local identifier.
 
 <a id="scratch"></a>
 ## How to create an SSSOM mapping set from scratch
@@ -137,7 +152,7 @@ To gradually improve terminological mapping practices we are proposing a [5-star
 
 #### The tutorial scenario
 
-You are charged with aligning your organisations (KEWL FOODIE INC) internal database about food and nutrition with Food Ontology (FOODON). In your database, you have a table with food items:
+You are charged with aligning your organisations (KEWL FOODIE INC) internal database about food and nutrition with [Food Ontology (FOODON)](https://foodon.org/). In your database, you have a table with food items:
 
 | ID | LABEL |
 | --- | ---- |
