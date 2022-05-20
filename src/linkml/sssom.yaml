@@ -210,6 +210,14 @@ slots:
         description: (A date-based version that indicates that the mapping was published on the 1st January in 2021.)
       - value: "1.2.1"
         description: "(A semantic version tag that indicates that this is the 1st major, 2nd minor version, patch 1 (https://semver.org/).)"
+  mapping_set_source:
+    description:  The mapping set(s), ideally versioned purls, from which this mapping set is derived. For example, the mapping set could be a merge and reconciliation of three other mapping sets.
+    range: uri
+    multivalued: true
+    slot_uri: prov:derivedFrom
+    examples:
+      - value: http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv
+        description: A persistent, ideally versioned, link to the mapping set from which the current mapping set is derived.
   mapping_set_description:
     description: A description of the mapping set.
     range: string
