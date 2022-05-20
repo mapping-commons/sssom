@@ -1,11 +1,11 @@
-id: http://w3id.org/sssom/schema/
+id: https://w3id.org/sssom/schema/
 name: sssom
 description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)
 imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
-  sssom: http://w3id.org/sssom/
+  sssom: https://w3id.org/sssom/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   oboInOwl: http://www.geneontology.org/formats/oboInOwl#
   dce: http://purl.org/dc/elements/1.1/
@@ -388,22 +388,6 @@ slots:
     description: Free text field containing either curator notes or text generated
       by tool providing additional informative information.
     slot_uri: rdfs:comment
-    range: string
-  metadata_element:
-    description: All legal SSSOM metadata elements are subproperties of this.
-    range: string
-  scope:
-    description: Indicates whether the metadata element has local, global or local-global
-      scope.
-    range: string
-  rdf_example:
-    description: An example value of the a SSSOM element in the TSV file.
-    range: string
-  tsv_example:
-    description: An example value of the a SSSOM element in RDF.
-    range: string
-  equivalent_property:
-    description: 'SSSOM property should be mapped to:'
     range: string
 classes:
   mapping set:
