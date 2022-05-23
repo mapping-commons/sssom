@@ -41,7 +41,7 @@ install:
 .PHONY: install
 
 all: gen-project gendoc
-%.yaml: gen-project
+%.yaml: gen-project move-yaml
 deploy: all mkd-gh-deploy
 
 # generates all project files
@@ -87,6 +87,9 @@ testdoc: gendoc serve
 MKDOCS = $(RUN) mkdocs
 mkd-%:
 	$(MKDOCS) $*
+
+move-yaml:
+	cp $(SOURCE_SCHEMA_PATH) $(PYMODEL)
 
 PROJECT_FOLDERS = sqlschema shex shacl protobuf prefixmap owl jsonschema jsonld graphql excel
 git-init-add: git-init git-add git-commit git-status
