@@ -11,5 +11,12 @@ gen-excel:
 	mkdir -p $(EXCEL_DIR)
 	$(RUN) gen-excel --output $(EXCEL_DIR)/sssom_schema.xlsx $(SOURCE_SCHEMA_PATH)
 
-clean::
+clean-yaml:
 	rm -rf $(SRC)/$(SCHEMA_NAME)/src
+
+build:
+	poetry build
+	make clean-yaml
+
+deploy:
+	poetry publish

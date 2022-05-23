@@ -100,7 +100,7 @@ git-commit:
 git-status:
 	git status
 
-clean::
+clean:
 	rm -rf $(DEST)
 	rm -rf tmp
 
