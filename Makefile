@@ -14,7 +14,6 @@ SRC = src
 DEST = project
 PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
 DOCDIR = docs
-DUP_SCHEMA_DIR = $(SRC)/linkml
 
 # basename of a YAML file in model/
 .PHONY: all clean
@@ -88,12 +87,6 @@ testdoc: gendoc serve
 MKDOCS = $(RUN) mkdocs
 mkd-%:
 	$(MKDOCS) $*
-
-move-yaml:
-	mkdir -p $(SRC)/$(SCHEMA_NAME)/$(DUP_SCHEMA_DIR)
-	cp $(SOURCE_SCHEMA_PATH) $(SRC)/$(SCHEMA_NAME)/$(DUP_SCHEMA_DIR)/$(SCHEMA_NAME).yaml
-
-	
 
 PROJECT_FOLDERS = sqlschema shex shacl protobuf prefixmap owl jsonschema jsonld graphql excel
 git-init-add: git-init git-add git-commit git-status
