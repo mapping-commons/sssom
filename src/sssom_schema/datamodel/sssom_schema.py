@@ -1,8 +1,8 @@
-# Auto generated from sssom.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-05-12T14:03:46
+# Auto generated from sssom_schema.yaml by pythongen.py version: 0.9.0
+# Generation date: 2022-05-23T14:38:19
 # Schema: sssom
 #
-# id: http://w3id.org/sssom/schema/
+# id: https://w3id.org/sssom/schema/
 # description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -44,7 +44,7 @@ PAV = CurieNamespace('pav', 'http://purl.org/pav/')
 PROV = CurieNamespace('prov', 'http://www.w3.org/ns/prov#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
-SSSOM = CurieNamespace('sssom', 'http://w3id.org/sssom/')
+SSSOM = CurieNamespace('sssom', 'https://w3id.org/sssom/')
 DEFAULT_ = SSSOM
 
 
@@ -612,21 +612,6 @@ slots.other = Slot(uri=SSSOM.other, name="other", curie=SSSOM.curie('other'),
 
 slots.comment = Slot(uri=RDFS.comment, name="comment", curie=RDFS.curie('comment'),
                    model_uri=SSSOM.comment, domain=None, range=Optional[str])
-
-slots.metadata_element = Slot(uri=SSSOM.metadata_element, name="metadata_element", curie=SSSOM.curie('metadata_element'),
-                   model_uri=SSSOM.metadata_element, domain=None, range=Optional[str])
-
-slots.scope = Slot(uri=SSSOM.scope, name="scope", curie=SSSOM.curie('scope'),
-                   model_uri=SSSOM.scope, domain=None, range=Optional[str])
-
-slots.rdf_example = Slot(uri=SSSOM.rdf_example, name="rdf_example", curie=SSSOM.curie('rdf_example'),
-                   model_uri=SSSOM.rdf_example, domain=None, range=Optional[str])
-
-slots.tsv_example = Slot(uri=SSSOM.tsv_example, name="tsv_example", curie=SSSOM.curie('tsv_example'),
-                   model_uri=SSSOM.tsv_example, domain=None, range=Optional[str])
-
-slots.equivalent_property = Slot(uri=SSSOM.equivalent_property, name="equivalent_property", curie=SSSOM.curie('equivalent_property'),
-                   model_uri=SSSOM.equivalent_property, domain=None, range=Optional[str])
 
 slots.mapping_set_license = Slot(uri=DCTERMS.license, name="mapping set_license", curie=DCTERMS.curie('license'),
                    model_uri=SSSOM.mapping_set_license, domain=MappingSet, range=Union[str, URI])

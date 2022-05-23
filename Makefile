@@ -40,8 +40,8 @@ install:
 	poetry install
 .PHONY: install
 
-all: gen-project gendoc
-%.yaml: gen-project move-yaml
+all: gen-project gendoc gen-excel move-yaml
+%.yaml: gen-project
 deploy: all mkd-gh-deploy
 
 # generates all project files
@@ -100,7 +100,7 @@ git-commit:
 git-status:
 	git status
 
-clean:
+clean::
 	rm -rf $(DEST)
 	rm -rf tmp
 

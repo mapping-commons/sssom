@@ -132,4 +132,3 @@ dmypy.json
 .pyre/
 .DS_Store
 tmp/
-src/sssom/datamodel/sssom.yaml

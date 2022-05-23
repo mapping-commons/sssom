@@ -1,4 +1,4 @@
-BASE <http://w3id.org/sssom/>
+BASE <https://w3id.org/sssom/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
