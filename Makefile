@@ -10,8 +10,8 @@ RUN = poetry run
 # get values from about.yaml file
 SCHEMA_NAME = $(shell sh ./utils/get-value.sh name)
 SOURCE_SCHEMA_PATH = $(shell sh ./utils/get-value.sh source_schema_path)
-SRC = src
-DEST = project
+SRC = sssom_schema/src
+DEST = sssom_schema/project
 PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
 DOCDIR = docs
 
@@ -40,7 +40,7 @@ install:
 	poetry install
 .PHONY: install
 
-all: gen-project gendoc gen-excel move-yaml
+all: gen-project gendoc gen-excel
 %.yaml: gen-project
 deploy: all mkd-gh-deploy
 

@@ -1384,10 +1384,10 @@
   "source_file": "sssom_schema.yaml",
   "source_file_date": "2022-05-23T09:51:23",
   "source_file_size": 18494,
-  "generation_date": "2022-05-23T14:38:14",
+  "generation_date": "2022-05-23T19:47:31",
   "@type": "SchemaDefinition",
   "@context": [
-    "project/jsonld/sssom_schema.context.jsonld",
+    "sssom_schema/project/jsonld/sssom_schema.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     {
       "@base": "https://w3id.org/sssom/"

@@ -1,5 +1,5 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-05-23T14:38:19
+# Generation date: 2022-05-23T19:47:40
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
