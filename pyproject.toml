@@ -7,7 +7,9 @@ authors = [
     "Harshad Hegde <hhegde@lbl.gov>"
     ]
 license = "MIT"
-include = ["README.md", "src/linkml", "project"]
+packages = [
+    { include = "sssom_schema" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"

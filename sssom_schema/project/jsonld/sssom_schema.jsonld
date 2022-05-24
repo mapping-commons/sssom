@@ -1384,7 +1384,7 @@
   "source_file": "sssom_schema.yaml",
   "source_file_date": "2022-05-23T09:51:23",
   "source_file_size": 18494,
-  "generation_date": "2022-05-23T19:47:31",
+  "generation_date": "2022-05-23T20:00:17",
   "@type": "SchemaDefinition",
   "@context": [
     "sssom_schema/project/jsonld/sssom_schema.context.jsonld",
