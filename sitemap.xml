@@ -156,6 +156,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/equivalent_property/</loc>
+         <lastmod>2022-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/faq/</loc>
          <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
@@ -241,6 +246,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/metadata_element/</loc>
+         <lastmod>2022-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/object_category/</loc>
          <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
@@ -316,12 +326,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/rdf_example/</loc>
+         <lastmod>2022-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/reviewer_id/</loc>
          <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/reviewer_label/</loc>
+         <lastmod>2022-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/scope/</loc>
          <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -391,6 +411,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/tsv_example/</loc>
+         <lastmod>2022-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/tutorial/</loc>
          <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
@@ -407,11 +432,6 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/workshops/</loc>
-         <lastmod>2022-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/explanation/mappings/</loc>
          <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
