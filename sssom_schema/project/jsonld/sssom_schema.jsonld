@@ -1,0 +1,1396 @@
+{
+  "name": "sssom",
+  "description": "Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)",
+  "see_also": [
+    "https://github.com/OBOFoundry/SSSOM"
+  ],
+  "id": "https://w3id.org/sssom/schema/",
+  "imports": [
+    "linkml:types"
+  ],
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "prefixes": [
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "sssom",
+      "prefix_reference": "https://w3id.org/sssom/"
+    },
+    {
+      "prefix_prefix": "rdfs",
+      "prefix_reference": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    {
+      "prefix_prefix": "oboInOwl",
+      "prefix_reference": "http://www.geneontology.org/formats/oboInOwl#"
+    },
+    {
+      "prefix_prefix": "dce",
+      "prefix_reference": "http://purl.org/dc/elements/1.1/"
+    },
+    {
+      "prefix_prefix": "Orphanet",
+      "prefix_reference": "http://www.orpha.net/ORDO/Orphanet_"
+    },
+    {
+      "prefix_prefix": "oio",
+      "prefix_reference": "http://www.geneontology.org/formats/oboInOwl#"
+    },
+    {
+      "prefix_prefix": "pav",
+      "prefix_reference": "http://purl.org/pav/"
+    },
+    {
+      "prefix_prefix": "prov",
+      "prefix_reference": "http://www.w3.org/ns/prov#"
+    },
+    {
+      "prefix_prefix": "skos",
+      "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
+    }
+  ],
+  "default_curi_maps": [
+    "semweb_context",
+    "obo_context"
+  ],
+  "default_prefix": "sssom",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "EntityReference",
+      "definition_uri": "https://w3id.org/sssom/EntityReference",
+      "description": "A reference to a mapped entity. This is represented internally as a string, and as a resource in RDF",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "typeof": "uriorcurie",
+      "base": "str",
+      "uri": "http://www.w3.org/2000/01/rdf-schema#Resource",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "description": "a complete URI",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "enums": [
+    {
+      "name": "entity_type_enum",
+      "definition_uri": "https://w3id.org/sssom/EntityTypeEnum",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "permissible_values": [
+        {
+          "text": "owl class",
+          "meaning": "owl:Class"
+        },
+        {
+          "text": "owl object property",
+          "meaning": "owl:ObjectProperty"
+        },
+        {
+          "text": "owl data property",
+          "meaning": "owl:DataProperty"
+        },
+        {
+          "text": "owl annotation property",
+          "meaning": "owl:AnnotationProperty"
+        },
+        {
+          "text": "owl named individual",
+          "meaning": "owl:NamedIndividual"
+        },
+        {
+          "text": "skos concept",
+          "meaning": "skos:Concept"
+        },
+        {
+          "text": "rdf resource",
+          "meaning": "rdf:Resource"
+        },
+        {
+          "text": "rdf class",
+          "meaning": "rdfs:Class"
+        },
+        {
+          "text": "rdf literal",
+          "meaning": "rdfs:Literal"
+        },
+        {
+          "text": "rdf datatype",
+          "meaning": "rdfs:Datatype"
+        },
+        {
+          "text": "rdf property",
+          "meaning": "rdf:Property"
+        }
+      ]
+    },
+    {
+      "name": "predicate_modifier_enum",
+      "definition_uri": "https://w3id.org/sssom/PredicateModifierEnum",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "permissible_values": [
+        {
+          "text": "Not",
+          "description": "Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id."
+        }
+      ]
+    },
+    {
+      "name": "mapping_cardinality_enum",
+      "definition_uri": "https://w3id.org/sssom/MappingCardinalityEnum",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "permissible_values": [
+        {
+          "text": "1:1",
+          "description": "One-to-one mapping"
+        },
+        {
+          "text": "1:n",
+          "description": "One-to-many mapping"
+        },
+        {
+          "text": "n:1",
+          "description": "Many-to-one mapping"
+        },
+        {
+          "text": "1:0",
+          "description": "One-to-none mapping"
+        },
+        {
+          "text": "0:1",
+          "description": "None-to-one mapping"
+        },
+        {
+          "text": "n:n",
+          "description": "Many-to-many mapping"
+        }
+      ]
+    },
+    {
+      "name": "preprocessing_method_enum",
+      "definition_uri": "https://w3id.org/sssom/PreprocessingMethodEnum",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "permissible_values": [
+        {
+          "text": "Stemming"
+        },
+        {
+          "text": "TaxonRestrictionRemoval"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "mappings",
+      "definition_uri": "https://w3id.org/sssom/mappings",
+      "description": "Contains a list of mapping objects",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mappings",
+      "multivalued": true,
+      "owner": "MappingSet",
+      "domain_of": [
+        "MappingSet"
+      ],
+      "range": "Mapping",
+      "recommended": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_id",
+      "definition_uri": "https://w3id.org/sssom/subject_id",
+      "description": "The ID of the subject of the mapping.",
+      "examples": [
+        {
+          "value": "HP:0009894",
+          "description": "The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://www.w3.org/2002/07/owl#annotatedSource",
+        "http://www.w3.org/2002/07/owl#annotatedSource"
+      ],
+      "slot_uri": "http://www.w3.org/2002/07/owl#annotatedSource",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_label",
+      "definition_uri": "https://w3id.org/sssom/subject_label",
+      "description": "The label of subject of the mapping",
+      "examples": [
+        {
+          "value": "Thickened ears",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/subject_label",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_category",
+      "definition_uri": "https://w3id.org/sssom/subject_category",
+      "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.",
+      "examples": [
+        {
+          "value": "UBERON:0001062",
+          "description": "(The CURIE of the Uberon term for \"anatomical entity\".)",
+          "@type": "Example"
+        },
+        {
+          "value": "biolink:Gene",
+          "description": "(The CURIE of the biolink class for genes.)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/subject_category",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_type",
+      "definition_uri": "https://w3id.org/sssom/subject_type",
+      "description": "The type of entity that is being mapped.",
+      "examples": [
+        {
+          "value": "owl:Class",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/subject_type",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "entity_type_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "predicate_id",
+      "definition_uri": "https://w3id.org/sssom/predicate_id",
+      "description": "The ID of the predicate or relation that relates the subject and object of this match.",
+      "examples": [
+        {
+          "value": "skos:exactMatch",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://www.w3.org/2002/07/owl#annotatedProperty",
+        "http://www.w3.org/2002/07/owl#annotatedProperty"
+      ],
+      "slot_uri": "http://www.w3.org/2002/07/owl#annotatedProperty",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "predicate_modifier",
+      "definition_uri": "https://w3id.org/sssom/predicate_modifier",
+      "description": "A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion",
+      "examples": [
+        {
+          "value": "Not",
+          "description": "Negates the predicate, see documentation of predicate_modifier_enum",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/predicate_modifier",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "predicate_modifier_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "predicate_label",
+      "definition_uri": "https://w3id.org/sssom/predicate_label",
+      "description": "The label of the predicate/relation of the mapping",
+      "examples": [
+        {
+          "value": "owl:sameAs",
+          "description": "The subject and the object are instances (owl individuals), and the two instances are the same.",
+          "@type": "Example"
+        },
+        {
+          "value": "owl:equivalentClass",
+          "description": "The subject and the object are classes (owl class), and the two classes are the same.",
+          "@type": "Example"
+        },
+        {
+          "value": "owl:equivalentProperty",
+          "description": "The subject and the object are properties (owl object, data, annotation properties), and the two properties are the same.",
+          "@type": "Example"
+        },
+        {
+          "value": "rdfs:subClassOf",
+          "description": "The subject and the object are classes (owl class), and the subject is a subclass of the object.",
+          "@type": "Example"
+        },
+        {
+          "value": "rdfs:subPropertyOf",
+          "description": "The subject and the object are properties (owl object, data, annotation properties), and the subject is a subproperty of the object.",
+          "@type": "Example"
+        },
+        {
+          "value": "skos:relatedMatch",
+          "description": "The subject and the object are associated in some unspecified way.",
+          "@type": "Example"
+        },
+        {
+          "value": "skos:closeMatch",
+          "description": "The subject and the object are sufficiently similar that they can be used interchangeably in some information retrieval applications.",
+          "@type": "Example"
+        },
+        {
+          "value": "skos:exactMatch",
+          "description": "The subject and the object can, with a high degree of confidence, be used interchangeably across a wide range of information retrieval applications.",
+          "@type": "Example"
+        },
+        {
+          "value": "skos:narrowMatch",
+          "description": "From the SKOS primer: A triple skos:narrower (and skos:narrowMatch) asserts that , the object of the triple, is a narrower concept than , the subject of the triple.",
+          "@type": "Example"
+        },
+        {
+          "value": "skos:broadMatch",
+          "description": "From the SKOS primer: A triple skos:broader (and skos:broadMatch) asserts that , the object of the triple, is a broader concept than , the subject of the triple.",
+          "@type": "Example"
+        },
+        {
+          "value": "oio:database_cross_reference",
+          "description": "Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)",
+          "@type": "Example"
+        },
+        {
+          "value": "rdfs:seeAlso",
+          "description": "The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/predicate_label",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "predicate_type",
+      "definition_uri": "https://w3id.org/sssom/predicate_type",
+      "description": "The type of entity that is being mapped.",
+      "examples": [
+        {
+          "value": "owl:AnnotationProperty",
+          "@type": "Example"
+        },
+        {
+          "value": "owl:ObjectProperty",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/predicate_type",
+      "range": "entity_type_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_id",
+      "definition_uri": "https://w3id.org/sssom/object_id",
+      "description": "The ID of the object of the mapping.",
+      "examples": [
+        {
+          "value": "HP:0009894",
+          "description": "The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://www.w3.org/2002/07/owl#annotatedTarget",
+        "http://www.w3.org/2002/07/owl#annotatedTarget"
+      ],
+      "slot_uri": "http://www.w3.org/2002/07/owl#annotatedTarget",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_label",
+      "definition_uri": "https://w3id.org/sssom/object_label",
+      "description": "The label of object of the mapping",
+      "examples": [
+        {
+          "value": "Thickened ears",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/object_label",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "recommended": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_category",
+      "definition_uri": "https://w3id.org/sssom/object_category",
+      "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.",
+      "examples": [
+        {
+          "value": "UBERON:0001062",
+          "description": "(The CURIE of the Uberon term for \"anatomical entity\".)",
+          "@type": "Example"
+        },
+        {
+          "value": "biolink:Gene",
+          "description": "(The CURIE of the biolink class for genes.)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/object_category",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_justification",
+      "definition_uri": "https://w3id.org/sssom/mapping_justification",
+      "description": "A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.",
+      "examples": [
+        {
+          "value": "OMAPV:Lexical",
+          "@type": "Example"
+        },
+        {
+          "value": "OMAPV:HumanCurated",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_justification",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_type",
+      "definition_uri": "https://w3id.org/sssom/object_type",
+      "description": "The type of entity that is being mapped.",
+      "examples": [
+        {
+          "value": "owl:Class",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/object_type",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "entity_type_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_set_id",
+      "definition_uri": "https://w3id.org/sssom/mapping_set_id",
+      "description": "A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.",
+      "examples": [
+        {
+          "value": "http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv",
+          "description": "(A persistent URI pointing to the latest version of the Mondo - NCIT mapping in the Mondo namespace.)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_set_id",
+      "owner": "MappingSet",
+      "domain_of": [
+        "MappingSet"
+      ],
+      "range": "uri",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_set_version",
+      "definition_uri": "https://w3id.org/sssom/mapping_set_version",
+      "description": "A version string for the mapping.",
+      "examples": [
+        {
+          "value": "2020-01-01",
+          "description": "(A date-based version that indicates that the mapping was published on the 1st January in 2021.)",
+          "@type": "Example"
+        },
+        {
+          "value": "1.2.1",
+          "description": "(A semantic version tag that indicates that this is the 1st major, 2nd minor version, patch 1 (https://semver.org/).)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://www.w3.org/2002/07/owl#versionInfo"
+      ],
+      "slot_uri": "http://www.w3.org/2002/07/owl#versionInfo",
+      "owner": "MappingSet",
+      "domain_of": [
+        "MappingSet"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_set_description",
+      "definition_uri": "https://w3id.org/sssom/mapping_set_description",
+      "description": "A description of the mapping set.",
+      "examples": [
+        {
+          "value": "This mapping set was produced to integrate human and mouse phenotype data at the IMPC. It is primarily used for making mouse phenotypes searchable by human synonyms at https://mousephenotype.org/.",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://purl.org/dc/terms/description"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/description",
+      "owner": "MappingSet",
+      "domain_of": [
+        "MappingSet"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "creator_id",
+      "definition_uri": "https://w3id.org/sssom/creator_id",
+      "description": "Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://purl.org/dc/terms/creator"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/creator",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "creator_label",
+      "definition_uri": "https://w3id.org/sssom/creator_label",
+      "description": "A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/creator_label",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "author_id",
+      "definition_uri": "https://w3id.org/sssom/author_id",
+      "description": "Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://purl.org/pav/authoredBy"
+      ],
+      "slot_uri": "http://purl.org/pav/authoredBy",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "author_label",
+      "definition_uri": "https://w3id.org/sssom/author_label",
+      "description": "A string identifying the author of this mapping. In the spirit of provenance, consider to use author_id instead.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/author_label",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "reviewer_id",
+      "definition_uri": "https://w3id.org/sssom/reviewer_id",
+      "description": "Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/reviewer_id",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "reviewer_label",
+      "definition_uri": "https://w3id.org/sssom/reviewer_label",
+      "description": "A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use author_id instead.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/reviewer_label",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "license",
+      "definition_uri": "https://w3id.org/sssom/license",
+      "description": "A url to the license of the mapping. In absence of a license we assume no license.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://purl.org/dc/terms/license"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/license",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "uri",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_source",
+      "definition_uri": "https://w3id.org/sssom/subject_source",
+      "description": "URI of ontology source for the subject.",
+      "examples": [
+        {
+          "value": "http://purl.obolibrary.org/obo/mondo.owl",
+          "description": "(A persistent IRI pointing to the latest version of the Mondo ontology.)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/subject_source",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "uri",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_source_version",
+      "definition_uri": "https://w3id.org/sssom/subject_source_version",
+      "description": "Version IRI or version string of the source of the subject term.",
+      "examples": [
+        {
+          "value": "http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl",
+          "description": "(A persistent Version IRI pointing to the Mondo version '2021-01-30')",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/subject_source_version",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_source",
+      "definition_uri": "https://w3id.org/sssom/object_source",
+      "description": "IRI of ontology source for the object. Version IRI preferred.",
+      "examples": [
+        {
+          "value": "http://purl.obolibrary.org/obo/mondo.owl",
+          "description": "(A persistent IRI pointing to the latest version of the Mondo ontology.)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/object_source",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "uri",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_source_version",
+      "definition_uri": "https://w3id.org/sssom/object_source_version",
+      "description": "Version IRI or version string of the source of the object term.",
+      "examples": [
+        {
+          "value": "http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl",
+          "description": "(A persistent Version IRI pointing to the Mondo version '2021-01-30')",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/object_source_version",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_provider",
+      "definition_uri": "https://w3id.org/sssom/mapping_provider",
+      "description": "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_provider",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "uri",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_set_source",
+      "definition_uri": "https://w3id.org/sssom/mapping_set_source",
+      "description": "A mapping set or set of mapping set that was used to derive the mapping set.",
+      "examples": [
+        {
+          "value": "MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv",
+          "@type": "Example"
+        },
+        {
+          "value": "MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv|MONDO_MAPPINGS:mondo_exactmatch_omim.sssom.tsv",
+          "description": "(multivalued example in TSV)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://www.w3.org/ns/prov#wasDerivedFrom"
+      ],
+      "slot_uri": "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "multivalued": true,
+      "owner": "MappingSet",
+      "domain_of": [
+        "MappingSet"
+      ],
+      "range": "EntityReference",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_source",
+      "definition_uri": "https://w3id.org/sssom/mapping_source",
+      "description": "The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another.",
+      "examples": [
+        {
+          "value": "MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_source",
+      "range": "EntityReference",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_cardinality",
+      "definition_uri": "https://w3id.org/sssom/mapping_cardinality",
+      "description": "A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_cardinality",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "mapping_cardinality_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_tool",
+      "definition_uri": "https://w3id.org/sssom/mapping_tool",
+      "description": "A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.",
+      "examples": [
+        {
+          "value": "https://github.com/AgreementMakerLight/AML-Project",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_tool",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_tool_version",
+      "definition_uri": "https://w3id.org/sssom/mapping_tool_version",
+      "description": "Version string that denotes the version of the mapping tool used.",
+      "examples": [
+        {
+          "value": "v3.2",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_tool_version",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_date",
+      "definition_uri": "https://w3id.org/sssom/mapping_date",
+      "description": "The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://purl.org/pav/authoredOn"
+      ],
+      "slot_uri": "http://purl.org/pav/authoredOn",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "publication_date",
+      "definition_uri": "https://w3id.org/sssom/publication_date",
+      "description": "The date the mapping was published. This is different from the date the mapping was asserted.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://purl.org/dc/terms/created"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/created",
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "confidence",
+      "definition_uri": "https://w3id.org/sssom/confidence",
+      "description": "A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/confidence",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "double",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_match_field",
+      "definition_uri": "https://w3id.org/sssom/subject_match_field",
+      "description": "A tuple of fields (term annotations on the subject) that was used for the match.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/subject_match_field",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_match_field",
+      "definition_uri": "https://w3id.org/sssom/object_match_field",
+      "description": "A tuple of fields (term annotations on the object) that was used for the match.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/object_match_field",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "match_string",
+      "definition_uri": "https://w3id.org/sssom/match_string",
+      "description": "Strings that are shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/match_string",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_preprocessing",
+      "definition_uri": "https://w3id.org/sssom/subject_preprocessing",
+      "description": "Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/subject_preprocessing",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "preprocessing_method_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_preprocessing",
+      "definition_uri": "https://w3id.org/sssom/object_preprocessing",
+      "description": "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/object_preprocessing",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "preprocessing_method_enum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "semantic_similarity_score",
+      "definition_uri": "https://w3id.org/sssom/semantic_similarity_score",
+      "description": "A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/semantic_similarity_score",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "double",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "semantic_similarity_measure",
+      "definition_uri": "https://w3id.org/sssom/semantic_similarity_measure",
+      "description": "The measure used for computing the the semantic similarity score. To make processing this field as unambiguous as possible, we recommend using wikidata identifiers, but wikipedia pages could also be acceptable.",
+      "examples": [
+        {
+          "value": "https://www.wikidata.org/wiki/Q865360",
+          "description": "(the Wikidata identifier for the Jaccard index measure).",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/semantic_similarity_measure",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "see_also",
+      "definition_uri": "https://w3id.org/sssom/see_also",
+      "description": "A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://www.w3.org/2000/01/rdf-schema#seeAlso"
+      ],
+      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "other",
+      "definition_uri": "https://w3id.org/sssom/other",
+      "description": "Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/other",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "comment",
+      "definition_uri": "https://w3id.org/sssom/comment",
+      "description": "Free text field containing either curator notes or text generated by tool providing additional informative information.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://www.w3.org/2000/01/rdf-schema#comment"
+      ],
+      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#comment",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_set_license",
+      "definition_uri": "https://w3id.org/sssom/license",
+      "description": "A url to the license of the mapping. In absence of a license we assume no license.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://purl.org/dc/terms/license"
+      ],
+      "is_a": "license",
+      "domain": "MappingSet",
+      "slot_uri": "http://purl.org/dc/terms/license",
+      "alias": "license",
+      "owner": "MappingSet",
+      "domain_of": [
+        "MappingSet"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "license",
+      "range": "uri",
+      "required": true,
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "MappingSet",
+      "definition_uri": "https://w3id.org/sssom/MappingSet",
+      "description": "Represents a set of mappings",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slots": [
+        "mappings",
+        "mapping_set_id",
+        "mapping_set_version",
+        "mapping_set_source",
+        "mapping_set_description",
+        "creator_id",
+        "creator_label",
+        "mapping_set_license",
+        "subject_type",
+        "subject_source",
+        "subject_source_version",
+        "object_type",
+        "object_source",
+        "object_source_version",
+        "mapping_provider",
+        "mapping_tool",
+        "mapping_date",
+        "subject_match_field",
+        "object_match_field",
+        "subject_preprocessing",
+        "object_preprocessing",
+        "see_also",
+        "other",
+        "comment"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/sssom/MappingSet",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Mapping",
+      "definition_uri": "https://w3id.org/sssom/Mapping",
+      "description": "Represents an individual mapping between a pair of entities",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "owl:Axiom"
+      ],
+      "slots": [
+        "subject_id",
+        "subject_label",
+        "subject_category",
+        "predicate_id",
+        "predicate_label",
+        "predicate_modifier",
+        "object_id",
+        "object_label",
+        "object_category",
+        "mapping_justification",
+        "author_id",
+        "author_label",
+        "reviewer_id",
+        "reviewer_label",
+        "creator_id",
+        "creator_label",
+        "license",
+        "subject_type",
+        "subject_source",
+        "subject_source_version",
+        "object_type",
+        "object_source",
+        "object_source_version",
+        "mapping_provider",
+        "mapping_cardinality",
+        "mapping_tool",
+        "mapping_tool_version",
+        "mapping_date",
+        "confidence",
+        "subject_match_field",
+        "object_match_field",
+        "match_string",
+        "subject_preprocessing",
+        "object_preprocessing",
+        "semantic_similarity_score",
+        "semantic_similarity_measure",
+        "see_also",
+        "other",
+        "comment"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://www.w3.org/2002/07/owl#Axiom",
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.7.0",
+  "source_file": "sssom_schema.yaml",
+  "source_file_date": "2022-05-23T09:51:23",
+  "source_file_size": 18494,
+  "generation_date": "2022-05-23T20:00:17",
+  "@type": "SchemaDefinition",
+  "@context": [
+    "sssom_schema/project/jsonld/sssom_schema.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    {
+      "@base": "https://w3id.org/sssom/"
+    }
+  ]
+}

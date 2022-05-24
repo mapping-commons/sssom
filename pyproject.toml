@@ -1,10 +1,15 @@
 [tool.poetry]
-name = "linkml-project-template"
+name = "sssom-schema"
 version = "0.1.0"
-description = "Enter description of your project here"
-authors = ["Mark A. Miller <mamillerpa@gmail.com>"]
+description = "SSSOM is a Simple Standard for Sharing Ontology Mappings."
+authors = [
+    "Nicolas Matentzoglu <nicolas.matentzoglu@gmail.com>",
+    "Harshad Hegde <hhegde@lbl.gov>"
+    ]
 license = "MIT"
-include = ["README.md", "src/linkml", "project"]
+packages = [
+    { include = "sssom_schema" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
