@@ -383,7 +383,7 @@ linkml-runtime = ">=1.1.6"
 
 [[package]]
 name = "linkml-runtime"
-version = "1.2.14"
+version = "1.2.15"
 description = "Runtime environment for LinkML, the Linked open data modeling language"
 category = "main"
 optional = false
@@ -1313,8 +1313,8 @@ linkml-dataops = [
     {file = "linkml_dataops-0.1.0.tar.gz", hash = "sha256:4550eab65e78b70dc3b9c651724a94ac2b1d1edb2fbe576465f1d6951a54ed04"},
 ]
 linkml-runtime = [
-    {file = "linkml_runtime-1.2.14-py3-none-any.whl", hash = "sha256:fff32adf21461f333f0aae3d5f4584032d3511671813868bc23851fe01ace1a2"},
-    {file = "linkml_runtime-1.2.14.tar.gz", hash = "sha256:5cd2c92818cc9b45f89c107a665d88c7330a8b860f564e71ddc6ac7a54a02f05"},
+    {file = "linkml-runtime-1.2.15.tar.gz", hash = "sha256:09ae3d03c3200fc9a75598dbeb2beecf5e09f23fbcf6d961be4f93b11616dc0f"},
+    {file = "linkml_runtime-1.2.15-py3-none-any.whl", hash = "sha256:37905faa9299ed70c5cbd52ac4c25c08879b547cb65fabd2bfe9d5d4d3b25840"},
 ]
 markdown = [
     {file = "Markdown-3.3.7-py3-none-any.whl", hash = "sha256:f5da449a6e1c989a4cea2631aa8ee67caa5a2ef855d551c88f9e309f4634c621"},
