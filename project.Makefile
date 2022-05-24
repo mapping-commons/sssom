@@ -9,5 +9,5 @@ gen-excel:
 build:
 	poetry build
 
-deploy:
+pypi:
 	poetry publish
