@@ -1382,9 +1382,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2022-05-23T09:51:23",
+  "source_file_date": "2022-05-24T08:45:43",
   "source_file_size": 18494,
-  "generation_date": "2022-05-23T20:00:17",
+  "generation_date": "2022-05-24T09:41:59",
   "@type": "SchemaDefinition",
   "@context": [
     "sssom_schema/project/jsonld/sssom_schema.context.jsonld",
