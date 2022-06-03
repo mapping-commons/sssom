@@ -12,7 +12,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 linkml-runtime = "^1.1.24"
 
 [tool.poetry.dev-dependencies]
