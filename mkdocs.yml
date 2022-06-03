@@ -24,12 +24,20 @@ markdown_extensions:
 nav:
   - Home: home.md
   - About SSSOM: about.md
-  - SSSOM Specification: spec.md
-  - Use cases: usecases.md
-  - Workshops: workshops.md
-  - Presentations: presentations.md
-  - Index: index.md
+  - Specification: index.md
+  - Overview: spec.md
+  - FAQ: faq.md
   - Credits: credits.md
-  - Tutorial: tutorial.md
+  - Contact us: contact.md
+  - Resources for contributors:
+    - How to contribute?: contributing.md
+    - Code of Conduct: code_of_conduct.md
+  - Resources for users:
+    - Use cases: usecases.md
+    - Workshops: workshops.md
+    - Presentations: presentations.md
+    - Tutorial: tutorial.md
+  
+  
 site_url: https://mapping-commons.github.io/sssom/
 repo_url: https://github.com/mapping-commons/sssom/
