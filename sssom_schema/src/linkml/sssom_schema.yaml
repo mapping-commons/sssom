@@ -293,12 +293,11 @@ slots:
   mapping_set_source:
     description: A mapping set or set of mapping set that was used to derive the mapping set.
     slot_uri: prov:wasDerivedFrom
-    range: EntityReference
+    range: uri
     multivalued: true
     examples:
-      - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
-      - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv|MONDO_MAPPINGS:mondo_exactmatch_omim.sssom.tsv
-        description: (multivalued example in TSV)
+      - value: http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv
+        description: A persistent, ideally versioned, link to the mapping set from which the current mapping set is derived.
   mapping_source:
     description: The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple
       mapping sets or deriving one mapping set from another.
