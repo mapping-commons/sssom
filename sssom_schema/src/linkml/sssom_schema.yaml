@@ -57,10 +57,6 @@ enums:
       "1:0": One-to-none mapping
       "0:1": None-to-one mapping
       "n:n": Many-to-many mapping
-  preprocessing_method_enum:
-    permissible_values:
-      Stemming:
-      TaxonRestrictionRemoval:
 
 types:
  EntityReference:
@@ -186,8 +182,8 @@ slots:
     range: EntityReference
     required: true
     examples:
-      - value: OMAPV:Lexical
-      - value: OMAPV:HumanCurated
+      - value: semapv:LexicalMatching
+      - value: semapv:ManualMappingCuration
   object_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
@@ -356,14 +352,20 @@ slots:
     description: Method of preprocessing applied to the fields of the subject. 
       If different preprocessing steps were performed on different fields, it is
       recommended to store the match in separate rows.
-    range: preprocessing_method_enum
+    range: EntityReference
     multivalued: true
+    examples:
+      - value: semapv:Stemming
+      - value: semapv:StopWordRemoval
   object_preprocessing:
     description: Method of preprocessing applied to the fields of the object. 
       If different preprocessing steps were performed on different fields, it is
       recommended to store the match in separate rows.
-    range: preprocessing_method_enum
+    range: EntityReference
     multivalued: true
+    examples:
+      - value: semapv:Stemming
+      - value: semapv:StopWordRemoval
   semantic_similarity_score:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
