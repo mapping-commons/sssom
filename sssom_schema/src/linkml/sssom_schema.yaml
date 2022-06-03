@@ -14,6 +14,7 @@ prefixes:
   pav: http://purl.org/pav/
   prov: http://www.w3.org/ns/prov#
   skos: http://www.w3.org/2004/02/skos/core#
+  semapv: http://w3id.org/semapv/
 see_also:
 - https://github.com/OBOFoundry/SSSOM
 default_curi_maps:
@@ -180,7 +181,18 @@ slots:
   mapping_justification:
     description: A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
     range: EntityReference
+    pattern: "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$"
     required: true
+    any_of:
+      - equals_string: semapv:LexicalMatching
+      - equals_string: semapv:LogicalReasoning
+      - equals_string: semapv:CompositeMatching
+      - equals_string: semapv:UnspecifiedMatching
+      - equals_string: semapv:SemanticSimilarityThresholdMatching
+      - equals_string: semapv:LexicalSimilarityThresholdMatching
+      - equals_string: semapv:MappingChaining
+      - equals_string: semapv:MappingReview
+      - equals_string: semapv:ManualMappingCuration
     examples:
       - value: semapv:LexicalMatching
       - value: semapv:ManualMappingCuration
