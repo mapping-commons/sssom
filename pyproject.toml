@@ -9,7 +9,7 @@ authors = [
     ]
 license = "MIT"
 packages = [
-    { include = "sssom_schema", from="sssom_schema/src"}
+    { include = "sssom_schema" }
 ]
 
 [tool.poetry.dependencies]
