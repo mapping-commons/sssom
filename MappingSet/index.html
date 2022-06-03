@@ -575,14 +575,14 @@
 </tr>
 <tr>
 <td><a href="../subject_preprocessing/">subject_preprocessing</a></td>
-<td><a href="../PreprocessingMethodEnum/">PreprocessingMethodEnum</a></td>
+<td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..*</td>
 <td>Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.</td>
 <td>.</td>
 </tr>
 <tr>
 <td><a href="../object_preprocessing/">object_preprocessing</a></td>
-<td><a href="../PreprocessingMethodEnum/">PreprocessingMethodEnum</a></td>
+<td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..*</td>
 <td>Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.</td>
 <td>.</td>
@@ -874,21 +874,27 @@
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Method of preprocessing applied to the fields of the subject. If</span><span class="w"></span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">different preprocessing steps were performed on different fields, it is recommended</span><span class="w"></span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to store the match in separate rows.</span><span class="w"></span>
+<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semapv:Stemming</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semapv:StopWordRemoval</span><span class="w"></span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_preprocessing</span><span class="w"></span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">preprocessing_method_enum</span><span class="w"></span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EntityReference</span><span class="w"></span>
 <span class="w">  </span><span class="nt">object_preprocessing</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_preprocessing</span><span class="w"></span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Method of preprocessing applied to the fields of the object. If different</span><span class="w"></span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">preprocessing steps were performed on different fields, it is recommended to</span><span class="w"></span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">store the match in separate rows.</span><span class="w"></span>
+<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semapv:Stemming</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semapv:StopWordRemoval</span><span class="w"></span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_preprocessing</span><span class="w"></span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">preprocessing_method_enum</span><span class="w"></span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EntityReference</span><span class="w"></span>
 <span class="w">  </span><span class="nt">see_also</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">see_also</span><span class="w"></span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A URL specific for the mapping instance. E.g. for kboom we have a</span><span class="w"></span>
