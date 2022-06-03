@@ -20,6 +20,7 @@ None &#8594;  <sub>1..1</sub> [Uri](types/Uri.md)
 ## Used by
 
  * [MappingSet](MappingSet.md)
+ * [MappingSetReference](MappingSetReference.md)
 
 ## Other properties
 

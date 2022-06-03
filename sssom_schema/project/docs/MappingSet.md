@@ -7,7 +7,7 @@ Represents a set of mappings
 URI: [sssom:MappingSet](https://w3id.org/sssom/MappingSet)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]<mappings%200..*-++[MappingSet&#124;mapping_set_id:uri;mapping_set_version:string%20%3F;mapping_set_source:EntityReference%20*;mapping_set_description:string%20%3F;creator_id:EntityReference%20*;creator_label:string%20*;license:uri;subject_type:entity_type_enum%20%3F;subject_source:uri%20%3F;subject_source_version:string%20%3F;object_type:entity_type_enum%20%3F;object_source:uri%20%3F;object_source_version:string%20%3F;mapping_provider:uri%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:EntityReference%20*;object_match_field:EntityReference%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[Mapping])](https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]<mappings%200..*-++[MappingSet&#124;mapping_set_id:uri;mapping_set_version:string%20%3F;mapping_set_source:EntityReference%20*;mapping_set_description:string%20%3F;creator_id:EntityReference%20*;creator_label:string%20*;license:uri;subject_type:entity_type_enum%20%3F;subject_source:uri%20%3F;subject_source_version:string%20%3F;object_type:entity_type_enum%20%3F;object_source:uri%20%3F;object_source_version:string%20%3F;mapping_provider:uri%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:EntityReference%20*;object_match_field:EntityReference%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[Mapping])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]<mappings%200..*-++[MappingSet&#124;mapping_set_id:uri;mapping_set_version:string%20%3F;mapping_set_source:uri%20*;mapping_set_description:string%20%3F;creator_id:EntityReference%20*;creator_label:string%20*;license:uri;subject_type:entity_type_enum%20%3F;subject_source:EntityReference%20%3F;subject_source_version:string%20%3F;object_type:entity_type_enum%20%3F;object_source:EntityReference%20%3F;object_source_version:string%20%3F;mapping_provider:uri%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:EntityReference%20*;object_match_field:EntityReference%20*;subject_preprocessing:EntityReference%20*;object_preprocessing:EntityReference%20*;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[Mapping])](https://yuml.me/diagram/nofunky;dir:TB/class/[Mapping]<mappings%200..*-++[MappingSet&#124;mapping_set_id:uri;mapping_set_version:string%20%3F;mapping_set_source:uri%20*;mapping_set_description:string%20%3F;creator_id:EntityReference%20*;creator_label:string%20*;license:uri;subject_type:entity_type_enum%20%3F;subject_source:EntityReference%20%3F;subject_source_version:string%20%3F;object_type:entity_type_enum%20%3F;object_source:EntityReference%20%3F;object_source_version:string%20%3F;mapping_provider:uri%20%3F;mapping_tool:string%20%3F;mapping_date:date%20%3F;subject_match_field:EntityReference%20*;object_match_field:EntityReference%20*;subject_preprocessing:EntityReference%20*;object_preprocessing:EntityReference%20*;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[Mapping])
 
 ## Referenced by Class
 
@@ -31,9 +31,8 @@ URI: [sssom:MappingSet](https://w3id.org/sssom/MappingSet)
      * Example: 1.2.1 (A semantic version tag that indicates that this is the 1st major, 2nd minor version, patch 1 (https://semver.org/).)
  * [mapping_set_source](mapping_set_source.md)  <sub>0..\*</sub>
      * Description: A mapping set or set of mapping set that was used to derive the mapping set.
-     * Range: [EntityReference](types/EntityReference.md)
-     * Example: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv None
-     * Example: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv|MONDO_MAPPINGS:mondo_exactmatch_omim.sssom.tsv (multivalued example in TSV)
+     * Range: [Uri](types/Uri.md)
+     * Example: http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv A persistent, ideally versioned, link to the mapping set from which the current mapping set is derived.
  * [mapping_set_description](mapping_set_description.md)  <sub>0..1</sub>
      * Description: A description of the mapping set.
      * Range: [String](types/String.md)
@@ -53,8 +52,9 @@ URI: [sssom:MappingSet](https://w3id.org/sssom/MappingSet)
      * Example: owl:Class None
  * [subject_source](subject_source.md)  <sub>0..1</sub>
      * Description: URI of ontology source for the subject.
-     * Range: [Uri](types/Uri.md)
-     * Example: http://purl.obolibrary.org/obo/mondo.owl (A persistent IRI pointing to the latest version of the Mondo ontology.)
+     * Range: [EntityReference](types/EntityReference.md)
+     * Example: obo:mondo.owl A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
+     * Example: wikidata:Q7876491 A Wikidata identifier for the Uberon ontology resource.
  * [subject_source_version](subject_source_version.md)  <sub>0..1</sub>
      * Description: Version IRI or version string of the source of the subject term.
      * Range: [String](types/String.md)
@@ -65,8 +65,9 @@ URI: [sssom:MappingSet](https://w3id.org/sssom/MappingSet)
      * Example: owl:Class None
  * [object_source](object_source.md)  <sub>0..1</sub>
      * Description: IRI of ontology source for the object. Version IRI preferred.
-     * Range: [Uri](types/Uri.md)
-     * Example: http://purl.obolibrary.org/obo/mondo.owl (A persistent IRI pointing to the latest version of the Mondo ontology.)
+     * Range: [EntityReference](types/EntityReference.md)
+     * Example: obo:mondo.owl A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
+     * Example: wikidata:Q7876491 A Wikidata identifier for the Uberon ontology resource.
  * [object_source_version](object_source_version.md)  <sub>0..1</sub>
      * Description: Version IRI or version string of the source of the object term.
      * Range: [String](types/String.md)
@@ -89,10 +90,14 @@ URI: [sssom:MappingSet](https://w3id.org/sssom/MappingSet)
      * Range: [EntityReference](types/EntityReference.md)
  * [subject_preprocessing](subject_preprocessing.md)  <sub>0..\*</sub>
      * Description: Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.
-     * Range: [preprocessing_method_enum](preprocessing_method_enum.md)
+     * Range: [EntityReference](types/EntityReference.md)
+     * Example: semapv:Stemming None
+     * Example: semapv:StopWordRemoval None
  * [object_preprocessing](object_preprocessing.md)  <sub>0..\*</sub>
      * Description: Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.
-     * Range: [preprocessing_method_enum](preprocessing_method_enum.md)
+     * Range: [EntityReference](types/EntityReference.md)
+     * Example: semapv:Stemming None
+     * Example: semapv:StopWordRemoval None
  * [see_also](see_also.md)  <sub>0..\*</sub>
      * Description: A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment
      * Range: [String](types/String.md)

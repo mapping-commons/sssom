@@ -7,13 +7,15 @@
 **version:** None
 
 
-Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)
+Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)
 
 
 ### Classes
 
  * [Mapping](Mapping.md) - Represents an individual mapping between a pair of entities
+ * [MappingRegistry](MappingRegistry.md) - A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries.
  * [MappingSet](MappingSet.md) - Represents a set of mappings
+ * [MappingSetReference](MappingSetReference.md) - A reference to a mapping set. It allows to augment mapping set metadata from the perspective of the registry, for example, providing confidence, or a local filename or a grouping.
 
 ### Mixins
 
@@ -26,14 +28,22 @@ Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)
  * [confidence](confidence.md) - A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.
  * [creator_id](creator_id.md) - Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.
  * [creator_label](creator_label.md) - A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.
+ * [documentation](documentation.md) - A URL to the documentation of this mapping commons.
+ * [homepage](homepage.md) - A URL to a homepage of this mapping commons.
+ * [imports](imports.md) - A list of registries that should be imported into this one.
+ * [last_updated](last_updated.md) - The date this reference was last updated.
  * [license](license.md) - A url to the license of the mapping. In absence of a license we assume no license.
      * [mapping set➞license](mapping_set_license.md)
+ * [local_name](local_name.md) - The local name assigned to file that corresponds to the downloaded mapping set.
  * [mapping_cardinality](mapping_cardinality.md) - A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.
  * [mapping_date](mapping_date.md) - The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
  * [mapping_justification](mapping_justification.md) - A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
  * [mapping_provider](mapping_provider.md) - URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.
+ * [mapping_registry_id](mapping_registry_id.md) - The unique identifier of a mapping registry.
  * [mapping_set_description](mapping_set_description.md) - A description of the mapping set.
+ * [mapping_set_group](mapping_set_group.md) - Set by the owners of the mapping registry. A way to group .
  * [mapping_set_id](mapping_set_id.md) - A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.
+ * [mapping_set_references](mapping_set_references.md) - A list of mapping set references.
  * [mapping_set_source](mapping_set_source.md) - A mapping set or set of mapping set that was used to derive the mapping set.
  * [mapping_set_version](mapping_set_version.md) - A version string for the mapping.
  * [mapping_source](mapping_source.md) - The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another.
@@ -41,6 +51,7 @@ Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)
  * [mapping_tool_version](mapping_tool_version.md) - Version string that denotes the version of the mapping tool used.
  * [mappings](mappings.md) - Contains a list of mapping objects
  * [match_string](match_string.md) - Strings that are shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots.
+ * [mirror_from](mirror_from.md) - A URL location from which to obtain a resource, such as a mapping set.
  * [object_category](object_category.md) - The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.
  * [object_id](object_id.md) - The ID of the object of the mapping.
  * [object_label](object_label.md) - The label of object of the mapping
@@ -55,6 +66,7 @@ Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)
  * [predicate_modifier](predicate_modifier.md) - A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
  * [predicate_type](predicate_type.md) - The type of entity that is being mapped.
  * [publication_date](publication_date.md) - The date the mapping was published. This is different from the date the mapping was asserted.
+ * [registry_confidence](registry_confidence.md) - This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
  * [reviewer_id](reviewer_id.md) - Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.
  * [reviewer_label](reviewer_label.md) - A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use author_id instead.
  * [see_also](see_also.md) - A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment
@@ -74,7 +86,6 @@ Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)
  * [entity_type_enum](entity_type_enum.md)
  * [mapping_cardinality_enum](mapping_cardinality_enum.md)
  * [predicate_modifier_enum](predicate_modifier_enum.md)
- * [preprocessing_method_enum](preprocessing_method_enum.md)
 
 ### Subsets
 

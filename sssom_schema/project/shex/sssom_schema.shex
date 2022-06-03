@@ -58,10 +58,10 @@ linkml:Nodeidentifier NONLITERAL
           <creator_label> @linkml:String * ;
           dcterms:license @linkml:Uri ? ;
           <subject_type> @<EntityTypeEnum> ? ;
-          <subject_source> @linkml:Uri ? ;
+          <subject_source> @<EntityReference> ? ;
           <subject_source_version> @linkml:String ? ;
           <object_type> @<EntityTypeEnum> ? ;
-          <object_source> @linkml:Uri ? ;
+          <object_source> @<EntityReference> ? ;
           <object_source_version> @linkml:String ? ;
           <mapping_provider> @linkml:Uri ? ;
           <mapping_cardinality> @<MappingCardinalityEnum> ? ;
@@ -72,8 +72,8 @@ linkml:Nodeidentifier NONLITERAL
           <subject_match_field> @<EntityReference> * ;
           <object_match_field> @<EntityReference> * ;
           <match_string> @linkml:String * ;
-          <subject_preprocessing> @<PreprocessingMethodEnum> * ;
-          <object_preprocessing> @<PreprocessingMethodEnum> * ;
+          <subject_preprocessing> @<EntityReference> * ;
+          <object_preprocessing> @<EntityReference> * ;
           <semantic_similarity_score> @linkml:Double ? ;
           <semantic_similarity_measure> @linkml:String ? ;
           rdfs:seeAlso @linkml:String * ;
@@ -84,33 +84,56 @@ linkml:Nodeidentifier NONLITERAL
     )
 }
 
+<MappingRegistry> CLOSED {
+    (  $<MappingRegistry_tes> (  <mapping_registry_id> @<EntityReference> ;
+          <imports> @linkml:Uri * ;
+          <mapping_set_references> @<MappingSetReference> * ;
+          <documentation> @linkml:Uri ? ;
+          <homepage> @linkml:Uri ?
+       ) ;
+       rdf:type [ <MappingRegistry> ] ?
+    )
+}
+
 <MappingSet> CLOSED {
     (  $<MappingSet_tes> (  <mappings> @<Mapping> * ;
           <mapping_set_id> @linkml:Uri ;
           owl:versionInfo @linkml:String ? ;
-          prov:wasDerivedFrom @<EntityReference> * ;
+          prov:wasDerivedFrom @linkml:Uri * ;
           dcterms:description @linkml:String ? ;
           dcterms:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
           dcterms:license @linkml:Uri ;
           <subject_type> @<EntityTypeEnum> ? ;
-          <subject_source> @linkml:Uri ? ;
+          <subject_source> @<EntityReference> ? ;
           <subject_source_version> @linkml:String ? ;
           <object_type> @<EntityTypeEnum> ? ;
-          <object_source> @linkml:Uri ? ;
+          <object_source> @<EntityReference> ? ;
           <object_source_version> @linkml:String ? ;
           <mapping_provider> @linkml:Uri ? ;
           <mapping_tool> @linkml:String ? ;
           pav:authoredOn @linkml:Date ? ;
           <subject_match_field> @<EntityReference> * ;
           <object_match_field> @<EntityReference> * ;
-          <subject_preprocessing> @<PreprocessingMethodEnum> * ;
-          <object_preprocessing> @<PreprocessingMethodEnum> * ;
+          <subject_preprocessing> @<EntityReference> * ;
+          <object_preprocessing> @<EntityReference> * ;
           rdfs:seeAlso @linkml:String * ;
           <other> @linkml:String ? ;
           rdfs:comment @linkml:String ?
        ) ;
        rdf:type [ <MappingSet> ] ?
+    )
+}
+
+<MappingSetReference> CLOSED {
+    (  $<MappingSetReference_tes> (  <mapping_set_id> @linkml:Uri ;
+          <mirror_from> @linkml:Uri ? ;
+          <registry_confidence> @linkml:Double ? ;
+          <mapping_set_group> @linkml:String ? ;
+          <last_updated> @linkml:Date ? ;
+          <local_name> @linkml:String ?
+       ) ;
+       rdf:type [ <MappingSetReference> ] ?
     )
 }
 

@@ -1,20 +1,15 @@
 {
-   "_comments": "Auto generated from sssom_schema.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-05-24T09:41:59\n    Schema: sssom\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "_comments": "Auto generated from sssom_schema.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-06-03T16:24:15\n    Schema: sssom\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
-      "Orphanet": {
-         "@id": "http://www.orpha.net/ORDO/Orphanet_",
-         "@prefix": true
-      },
       "dc": "http://purl.org/dc/terms/",
-      "dce": "http://purl.org/dc/elements/1.1/",
       "dcterms": "http://purl.org/dc/terms/",
       "linkml": "https://w3id.org/linkml/",
       "oboInOwl": "http://www.geneontology.org/formats/oboInOwl#",
-      "oio": "http://www.geneontology.org/formats/oboInOwl#",
       "owl": "http://www.w3.org/2002/07/owl#",
       "pav": "http://purl.org/pav/",
       "prov": "http://www.w3.org/ns/prov#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "semapv": "https://w3id.org/semapv/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "sssom": "https://w3id.org/sssom/",
       "@vocab": "https://w3id.org/sssom/",
@@ -31,6 +26,18 @@
       "creator_id": {
          "@type": "rdfs:Resource",
          "@id": "dc:creator"
+      },
+      "documentation": {
+         "@type": "@id"
+      },
+      "homepage": {
+         "@type": "@id"
+      },
+      "imports": {
+         "@type": "@id"
+      },
+      "last_updated": {
+         "@type": "xsd:date"
       },
       "license": {
          "@type": "@id",
@@ -54,14 +61,20 @@
       "mapping_provider": {
          "@type": "@id"
       },
+      "mapping_registry_id": {
+         "@type": "rdfs:Resource"
+      },
       "mapping_set_description": {
          "@id": "dc:description"
       },
       "mapping_set_id": {
          "@type": "@id"
       },
+      "mapping_set_references": {
+         "@type": "@id"
+      },
       "mapping_set_source": {
-         "@type": "rdfs:Resource",
+         "@type": "@id",
          "@id": "prov:wasDerivedFrom"
       },
       "mapping_set_version": {
@@ -73,6 +86,9 @@
       "mappings": {
          "@type": "@id"
       },
+      "mirror_from": {
+         "@type": "@id"
+      },
       "object_id": {
          "@type": "rdfs:Resource",
          "@id": "owl:annotatedTarget"
@@ -81,15 +97,10 @@
          "@type": "rdfs:Resource"
       },
       "object_preprocessing": {
-         "@context": {
-            "@vocab": "@null",
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         }
+         "@type": "rdfs:Resource"
       },
       "object_source": {
-         "@type": "@id"
+         "@type": "rdfs:Resource"
       },
       "object_type": {
          "@context": {
@@ -123,6 +134,9 @@
          "@type": "xsd:date",
          "@id": "dc:created"
       },
+      "registry_confidence": {
+         "@type": "xsd:double"
+      },
       "reviewer_id": {
          "@type": "rdfs:Resource"
       },
@@ -140,15 +154,10 @@
          "@type": "rdfs:Resource"
       },
       "subject_preprocessing": {
-         "@context": {
-            "@vocab": "@null",
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         }
+         "@type": "rdfs:Resource"
       },
       "subject_source": {
-         "@type": "@id"
+         "@type": "rdfs:Resource"
       },
       "subject_type": {
          "@context": {
