@@ -6,47 +6,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mapping-commons.github.io/sssom/Boolean/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Date/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Datetime/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Decimal/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Double/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://mapping-commons.github.io/sssom/EntityReference/</loc>
          <lastmod>2022-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/EntityTypeEnum/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Float/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Integer/</loc>
          <lastmod>2022-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -76,42 +41,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mapping-commons.github.io/sssom/Ncname/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Nodeidentifier/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Objectidentifier/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://mapping-commons.github.io/sssom/PredicateModifierEnum/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/String/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Time/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Uri/</loc>
-         <lastmod>2022-06-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/Uriorcurie/</loc>
          <lastmod>2022-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>

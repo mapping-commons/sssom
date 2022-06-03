@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://mapping-commons.github.io/sssom/Mapping/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.0">
     
     
       
@@ -19,11 +19,12 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.fd896c8a.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -480,50 +481,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#slots" class="md-nav__link">
-    Slots
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usages" class="md-nav__link">
-    Usages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identifier-and-mapping-information" class="md-nav__link">
-    Identifier and Mapping Information
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkml-specification" class="md-nav__link">
-    LinkML Specification
-  </a>
-  
-    <nav class="md-nav" aria-label="LinkML Specification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#direct" class="md-nav__link">
-    Direct
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#induced" class="md-nav__link">
     Induced
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -548,367 +508,191 @@
 <h1 id="class-mapping">Class: Mapping</h1>
 <p><em>Represents an individual mapping between a pair of entities</em></p>
 <p>URI: <a href="http://www.w3.org/2002/07/owl#Axiom">owl:Axiom</a></p>
-<!-- no inheritance hierarchy -->
+<p><div class="highlight"><pre><span></span><code> classDiagram
+    class Mapping
+      Mapping : author_id
+      Mapping : author_label
+      Mapping : comment
+      Mapping : confidence
+      Mapping : creator_id
+      Mapping : creator_label
+      Mapping : license
+      Mapping : mapping_cardinality
+      Mapping : mapping_date
+      Mapping : mapping_justification
+      Mapping : mapping_provider
+      Mapping : mapping_tool
+      Mapping : mapping_tool_version
+      Mapping : match_string
+      Mapping : object_category
+      Mapping : object_id
+      Mapping : object_label
+      Mapping : object_match_field
+      Mapping : object_preprocessing
+      Mapping : object_source
+      Mapping : object_source_version
+      Mapping : object_type
+      Mapping : other
+      Mapping : predicate_id
+      Mapping : predicate_label
+      Mapping : predicate_modifier
+      Mapping : reviewer_id
+      Mapping : reviewer_label
+      Mapping : see_also
+      Mapping : semantic_similarity_measure
+      Mapping : semantic_similarity_score
+      Mapping : subject_category
+      Mapping : subject_id
+      Mapping : subject_label
+      Mapping : subject_match_field
+      Mapping : subject_preprocessing
+      Mapping : subject_source
+      Mapping : subject_source_version
+      Mapping : subject_type
 
-<h2 id="slots">Slots</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Range</th>
-<th>Cardinality</th>
-<th>Description</th>
-<th>Info</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../subject_id/">subject_id</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>1..1</td>
-<td>The ID of the subject of the mapping.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../subject_label/">subject_label</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1 <em>recommended</em></td>
-<td>The label of subject of the mapping</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../subject_category/">subject_category</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1</td>
-<td>The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../predicate_id/">predicate_id</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>1..1</td>
-<td>The ID of the predicate or relation that relates the subject and object of this match.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../predicate_label/">predicate_label</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1</td>
-<td>The label of the predicate/relation of the mapping</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../predicate_modifier/">predicate_modifier</a></td>
-<td><a href="../PredicateModifierEnum/">PredicateModifierEnum</a></td>
-<td>0..1</td>
-<td>A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../object_id/">object_id</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>1..1</td>
-<td>The ID of the object of the mapping.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../object_label/">object_label</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1 <em>recommended</em></td>
-<td>The label of object of the mapping</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../object_category/">object_category</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1</td>
-<td>The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../mapping_justification/">mapping_justification</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>1..1</td>
-<td>A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../author_id/">author_id</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>0..*</td>
-<td>Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../author_label/">author_label</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..*</td>
-<td>A string identifying the author of this mapping. In the spirit of provenance, consider to use author_id instead.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../reviewer_id/">reviewer_id</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>0..*</td>
-<td>Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../reviewer_label/">reviewer_label</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..*</td>
-<td>A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use author_id instead.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../creator_id/">creator_id</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>0..*</td>
-<td>Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../creator_label/">creator_label</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..*</td>
-<td>A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../license/">license</a></td>
-<td><a href="uri.md">uri</a></td>
-<td>0..1</td>
-<td>A url to the license of the mapping. In absence of a license we assume no license.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../subject_type/">subject_type</a></td>
-<td><a href="../EntityTypeEnum/">EntityTypeEnum</a></td>
-<td>0..1</td>
-<td>The type of entity that is being mapped.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../subject_source/">subject_source</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>0..1</td>
-<td>URI of ontology source for the subject.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../subject_source_version/">subject_source_version</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1</td>
-<td>Version IRI or version string of the source of the subject term.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../object_type/">object_type</a></td>
-<td><a href="../EntityTypeEnum/">EntityTypeEnum</a></td>
-<td>0..1</td>
-<td>The type of entity that is being mapped.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../object_source/">object_source</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>0..1</td>
-<td>IRI of ontology source for the object. Version IRI preferred.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../object_source_version/">object_source_version</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1</td>
-<td>Version IRI or version string of the source of the object term.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../mapping_provider/">mapping_provider</a></td>
-<td><a href="uri.md">uri</a></td>
-<td>0..1</td>
-<td>URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../mapping_cardinality/">mapping_cardinality</a></td>
-<td><a href="../MappingCardinalityEnum/">MappingCardinalityEnum</a></td>
-<td>0..1</td>
-<td>A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../mapping_tool/">mapping_tool</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1</td>
-<td>A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../mapping_tool_version/">mapping_tool_version</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1</td>
-<td>Version string that denotes the version of the mapping tool used.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../mapping_date/">mapping_date</a></td>
-<td><a href="date.md">date</a></td>
-<td>0..1</td>
-<td>The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../confidence/">confidence</a></td>
-<td><a href="double.md">double</a></td>
-<td>0..1</td>
-<td>A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../subject_match_field/">subject_match_field</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>0..*</td>
-<td>A tuple of fields (term annotations on the subject) that was used for the match.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../object_match_field/">object_match_field</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>0..*</td>
-<td>A tuple of fields (term annotations on the object) that was used for the match.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../match_string/">match_string</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..*</td>
-<td>Strings that are shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../subject_preprocessing/">subject_preprocessing</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>0..*</td>
-<td>Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../object_preprocessing/">object_preprocessing</a></td>
-<td><a href="../EntityReference/">EntityReference</a></td>
-<td>0..*</td>
-<td>Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../semantic_similarity_score/">semantic_similarity_score</a></td>
-<td><a href="double.md">double</a></td>
-<td>0..1</td>
-<td>A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../semantic_similarity_measure/">semantic_similarity_measure</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1</td>
-<td>The measure used for computing the the semantic similarity score. To make processing this field as unambiguous as possible, we recommend using wikidata identifiers, but wikipedia pages could also be acceptable.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../see_also/">see_also</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..*</td>
-<td>A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../other/">other</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1</td>
-<td>Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.</td>
-<td>.</td>
-</tr>
-<tr>
-<td><a href="../comment/">comment</a></td>
-<td><a href="string.md">string</a></td>
-<td>0..1</td>
-<td>Free text field containing either curator notes or text generated by tool providing additional informative information.</td>
-<td>.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../MappingSet/">MappingSet</a></td>
-<td><a href="../mappings/">mappings</a></td>
-<td>range</td>
-<td>mapping</td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h2 id="linkml-specification">LinkML Specification</h2>
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
-<h3 id="direct">Direct</h3>
-<details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping</span><span class="w"></span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Represents an individual mapping between a pair of entities</span><span class="w"></span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="nt">slots</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_id</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_label</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_category</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">predicate_id</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">predicate_label</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">predicate_modifier</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_id</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_label</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_category</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_justification</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">author_id</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">author_label</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reviewer_id</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reviewer_label</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">creator_id</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">creator_label</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">license</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_type</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_source</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_source_version</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_type</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_source</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_source_version</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_provider</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_cardinality</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_tool</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_tool_version</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_date</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">confidence</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_match_field</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_match_field</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">match_string</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_preprocessing</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_preprocessing</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semantic_similarity_score</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semantic_similarity_measure</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">see_also</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">comment</span><span class="w"></span>
-<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">owl:Axiom</span><span class="w"></span>
+
+
+
+
+&lt;!-- no inheritance hierarchy --&gt;
+
+
+## Slots
+
+| Name | Range | Cardinality | Description  | Info |
+| ---  | --- | --- | --- | --- |
+| [subject_id](subject_id.md) | [EntityReference](EntityReference.md) | 1..1 | The ID of the subject of the mapping.  | . |
+| [subject_label](subject_label.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 _recommended_ | The label of subject of the mapping  | . |
+| [subject_category](subject_category.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 | The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.  | . |
+| [predicate_id](predicate_id.md) | [EntityReference](EntityReference.md) | 1..1 | The ID of the predicate or relation that relates the subject and object of this match.  | . |
+| [predicate_label](predicate_label.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 | The label of the predicate/relation of the mapping  | . |
+| [predicate_modifier](predicate_modifier.md) | [PredicateModifierEnum](PredicateModifierEnum.md) | 0..1 | A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion  | . |
+| [object_id](object_id.md) | [EntityReference](EntityReference.md) | 1..1 | The ID of the object of the mapping.  | . |
+| [object_label](object_label.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 _recommended_ | The label of object of the mapping  | . |
+| [object_category](object_category.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 | The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.  | . |
+| [mapping_justification](mapping_justification.md) | [EntityReference](EntityReference.md) | 1..1 | A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.  | . |
+| [author_id](author_id.md) | [EntityReference](EntityReference.md) | 0..* | Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.  | . |
+| [author_label](author_label.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..* | A string identifying the author of this mapping. In the spirit of provenance, consider to use author_id instead.  | . |
+| [reviewer_id](reviewer_id.md) | [EntityReference](EntityReference.md) | 0..* | Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.  | . |
+| [reviewer_label](reviewer_label.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..* | A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use author_id instead.  | . |
+| [creator_id](creator_id.md) | [EntityReference](EntityReference.md) | 0..* | Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.  | . |
+| [creator_label](creator_label.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..* | A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.  | . |
+| [license](license.md) | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | 0..1 | A url to the license of the mapping. In absence of a license we assume no license.  | . |
+| [subject_type](subject_type.md) | [EntityTypeEnum](EntityTypeEnum.md) | 0..1 | The type of entity that is being mapped.  | . |
+| [subject_source](subject_source.md) | [EntityReference](EntityReference.md) | 0..1 | URI of ontology source for the subject.  | . |
+| [subject_source_version](subject_source_version.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 | Version IRI or version string of the source of the subject term.  | . |
+| [object_type](object_type.md) | [EntityTypeEnum](EntityTypeEnum.md) | 0..1 | The type of entity that is being mapped.  | . |
+| [object_source](object_source.md) | [EntityReference](EntityReference.md) | 0..1 | IRI of ontology source for the object. Version IRI preferred.  | . |
+| [object_source_version](object_source_version.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 | Version IRI or version string of the source of the object term.  | . |
+| [mapping_provider](mapping_provider.md) | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | 0..1 | URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.  | . |
+| [mapping_cardinality](mapping_cardinality.md) | [MappingCardinalityEnum](MappingCardinalityEnum.md) | 0..1 | A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.  | . |
+| [mapping_tool](mapping_tool.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 | A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.  | . |
+| [mapping_tool_version](mapping_tool_version.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 | Version string that denotes the version of the mapping tool used.  | . |
+| [mapping_date](mapping_date.md) | [xsd:date](http://www.w3.org/2001/XMLSchema#date) | 0..1 | The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.  | . |
+| [confidence](confidence.md) | [xsd:double](http://www.w3.org/2001/XMLSchema#double) | 0..1 | A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.  | . |
+| [subject_match_field](subject_match_field.md) | [EntityReference](EntityReference.md) | 0..* | A tuple of fields (term annotations on the subject) that was used for the match.  | . |
+| [object_match_field](object_match_field.md) | [EntityReference](EntityReference.md) | 0..* | A tuple of fields (term annotations on the object) that was used for the match.  | . |
+| [match_string](match_string.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..* | Strings that are shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots.  | . |
+| [subject_preprocessing](subject_preprocessing.md) | [EntityReference](EntityReference.md) | 0..* | Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.  | . |
+| [object_preprocessing](object_preprocessing.md) | [EntityReference](EntityReference.md) | 0..* | Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.  | . |
+| [semantic_similarity_score](semantic_similarity_score.md) | [xsd:double](http://www.w3.org/2001/XMLSchema#double) | 0..1 | A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence.  | . |
+| [semantic_similarity_measure](semantic_similarity_measure.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 | The measure used for computing the the semantic similarity score. To make processing this field as unambiguous as possible, we recommend using wikidata identifiers, but wikipedia pages could also be acceptable.  | . |
+| [see_also](see_also.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..* | A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment  | . |
+| [other](other.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 | Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.  | . |
+| [comment](comment.md) | [xsd:string](http://www.w3.org/2001/XMLSchema#string) | 0..1 | Free text field containing either curator notes or text generated by tool providing additional informative information.  | . |
+
+
+## Usages
+
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [MappingSet](MappingSet.md) | [mappings](mappings.md) | range | mapping |
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://w3id.org/sssom/schema/
+
+
+
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | [&#39;owl:Axiom&#39;] |
+| native | [&#39;sssom:Mapping&#39;] |
+
+
+## LinkML Specification
+
+&lt;!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx --&gt;
+
+### Direct
+
+&lt;details&gt;
+```yaml
+name: mapping
+description: Represents an individual mapping between a pair of entities
+from_schema: https://w3id.org/sssom/schema/
+slots:
+- subject_id
+- subject_label
+- subject_category
+- predicate_id
+- predicate_label
+- predicate_modifier
+- object_id
+- object_label
+- object_category
+- mapping_justification
+- author_id
+- author_label
+- reviewer_id
+- reviewer_label
+- creator_id
+- creator_label
+- license
+- subject_type
+- subject_source
+- subject_source_version
+- object_type
+- object_source
+- object_source_version
+- mapping_provider
+- mapping_cardinality
+- mapping_tool
+- mapping_tool_version
+- mapping_date
+- confidence
+- subject_match_field
+- object_match_field
+- match_string
+- subject_preprocessing
+- object_preprocessing
+- semantic_similarity_score
+- semantic_similarity_measure
+- see_also
+- other
+- comment
+class_uri: owl:Axiom
 </code></pre></div>
-</details>
-
+</details></p>
 <h3 id="induced">Induced</h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping</span><span class="w"></span>
@@ -1383,6 +1167,9 @@
 
               
             </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
           </div>
         </div>
         
@@ -1410,10 +1197,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../assets/javascripts/bundle.0f659f14.min.js"></script>
       
     
   </body>
