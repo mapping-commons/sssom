@@ -1,6 +1,7 @@
 id: https://w3id.org/sssom/schema/
 name: sssom
 description: Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)
+readme: README.md
 imports:
 - linkml:types
 prefixes:
