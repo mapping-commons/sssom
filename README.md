@@ -13,7 +13,7 @@ SSSOM is a Simple Standard for Sharing Ontological Mappings, providing
 
 The SSSOM TSV format in particular is geared towards the needs of the wider bioinformatics community as a way to safely exchange mappings in an easily readable yet semantically well-specified manner. Consider this example of a simple mapping file:
 
-| subject_id	| predicate_id	| object_id	| match_type	| subject_label	| object_label |
+| subject_id	| predicate_id	| object_id	| match_type | subject_label	| object_label |
 | --- | --- | --- | --- | --- | --- |
 | HP:0009124	| skos:exactMatch	| MP:0000003	| Lexical	| Abnormal adipose tissue morphology	| abnormal adipose tissue morphology |
 | HP:0008551	| skos:exactMatch	| MP:0000018	| Lexical	| Microtia	| small ears |
@@ -24,7 +24,7 @@ SSSOM specifies all its metadata elements:
 - subject_id
 - predicate_id
 - object_id
-- match_type
+- match_type (*NOTE June 2022*: `match_type` is being replaced by `mapping_justification` see [here](https://github.com/mapping-commons/sssom/issues/150))
 - subject_label
 - object_label
 
