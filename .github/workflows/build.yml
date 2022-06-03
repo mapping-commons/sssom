@@ -1,10 +1,10 @@
 name: Build
 on:
   workflow_dispatch:
-  push:
-    branches: [ master ]
-    paths:
-      - 'src/linkml/sssom.yaml'
+  #push:
+  #  branches: [ master ]
+  #  paths:
+  #    - 'src/linkml/sssom.yaml'
 
 jobs:
   build:

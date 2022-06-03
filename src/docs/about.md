@@ -1,3 +1,0 @@
-# About my-project
-
-...
