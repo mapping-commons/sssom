@@ -25,6 +25,6 @@ None &#8594;  <sub>1..1</sub> [EntityReference](types/EntityReference.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Examples:** | | Example(value='OMAPV:Lexical', description=None) |
-|  | | Example(value='OMAPV:HumanCurated', description=None) |
+| **Examples:** | | Example(value='semapv:LexicalMatching', description=None) |
+|  | | Example(value='semapv:ManualMappingCuration', description=None) |
 

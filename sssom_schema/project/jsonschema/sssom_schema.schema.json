@@ -73,6 +73,7 @@
             },
             "mapping_justification": {
                "description": "A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.",
+               "pattern": "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$",
                "type": "string"
             },
             "mapping_provider": {
@@ -116,7 +117,7 @@
             "object_preprocessing": {
                "description": "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.",
                "items": {
-                  "$ref": "#/$defs/PreprocessingMethodEnum"
+                  "type": "string"
                },
                "type": "array"
             },
@@ -199,7 +200,7 @@
             "subject_preprocessing": {
                "description": "Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.",
                "items": {
-                  "$ref": "#/$defs/PreprocessingMethodEnum"
+                  "type": "string"
                },
                "type": "array"
             },
@@ -237,6 +238,43 @@
          ],
          "title": "MappingCardinalityEnum",
          "type": "string"
+      },
+      "MappingRegistry": {
+         "additionalProperties": false,
+         "description": "A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries.",
+         "properties": {
+            "documentation": {
+               "description": "A URL to the documentation of this mapping commons.",
+               "type": "string"
+            },
+            "homepage": {
+               "description": "A URL to a homepage of this mapping commons.",
+               "type": "string"
+            },
+            "imports": {
+               "description": "A list of registries that should be imported into this one.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "mapping_registry_id": {
+               "description": "The unique identifier of a mapping registry.",
+               "type": "string"
+            },
+            "mapping_set_references": {
+               "description": "A list of mapping set references.",
+               "items": {
+                  "$ref": "#/$defs/MappingSetReference"
+               },
+               "type": "array"
+            }
+         },
+         "required": [
+            "mapping_registry_id"
+         ],
+         "title": "MappingRegistry",
+         "type": "object"
       },
       "MappingSet": {
          "additionalProperties": false,
@@ -313,7 +351,7 @@
             "object_preprocessing": {
                "description": "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.",
                "items": {
-                  "$ref": "#/$defs/PreprocessingMethodEnum"
+                  "type": "string"
                },
                "type": "array"
             },
@@ -350,7 +388,7 @@
             "subject_preprocessing": {
                "description": "Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.",
                "items": {
-                  "$ref": "#/$defs/PreprocessingMethodEnum"
+                  "type": "string"
                },
                "type": "array"
             },
@@ -374,21 +412,48 @@
          "title": "MappingSet",
          "type": "object"
       },
+      "MappingSetReference": {
+         "additionalProperties": false,
+         "description": "A reference to a mapping set. It allows to augment mapping set metadata from the perspective of the registry, for example, providing confidence, or a local filename or a grouping.",
+         "properties": {
+            "last_updated": {
+               "description": "The date this reference was last updated.",
+               "format": "date",
+               "type": "string"
+            },
+            "local_name": {
+               "description": "The local name assigned to file that corresponds to the downloaded mapping set.",
+               "type": "string"
+            },
+            "mapping_set_group": {
+               "description": "Set by the owners of the mapping registry. A way to group .",
+               "type": "string"
+            },
+            "mapping_set_id": {
+               "description": "A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.",
+               "type": "string"
+            },
+            "mirror_from": {
+               "description": "A URL location from which to obtain a resource, such as a mapping set.",
+               "type": "string"
+            },
+            "registry_confidence": {
+               "description": "This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.",
+               "type": "number"
+            }
+         },
+         "required": [
+            "mapping_set_id"
+         ],
+         "title": "MappingSetReference",
+         "type": "object"
+      },
       "PredicateModifierEnum": {
          "description": "",
          "enum": [
             "Not"
          ],
          "title": "PredicateModifierEnum",
-         "type": "string"
-      },
-      "PreprocessingMethodEnum": {
-         "description": "",
-         "enum": [
-            "Stemming",
-            "TaxonRestrictionRemoval"
-         ],
-         "title": "PreprocessingMethodEnum",
          "type": "string"
       }
    },

@@ -1,71 +1,90 @@
 // Represents an individual mapping between a pair of entities
 message Mapping
  {
-  subjectId EntityReference = 1
-  optional subjectLabel String = 2
-  optional subjectCategory String = 3
-  predicateId EntityReference = 4
-  optional predicateLabel String = 5
-  optional predicateModifier PredicateModifierEnum = 6
-  objectId EntityReference = 7
-  optional objectLabel String = 8
-  optional objectCategory String = 9
-  mappingJustification EntityReference = 10
-  repeated authorId EntityReference = 11
-  repeated authorLabel String = 12
-  repeated reviewerId EntityReference = 13
-  repeated reviewerLabel String = 14
-  repeated creatorId EntityReference = 15
-  repeated creatorLabel String = 16
-  optional license Uri = 17
-  optional subjectType EntityTypeEnum = 18
-  optional subjectSource Uri = 19
-  optional subjectSourceVersion String = 20
-  optional objectType EntityTypeEnum = 21
-  optional objectSource Uri = 22
-  optional objectSourceVersion String = 23
-  optional mappingProvider Uri = 24
-  optional mappingCardinality MappingCardinalityEnum = 25
-  optional mappingTool String = 26
-  optional mappingToolVersion String = 27
-  optional mappingDate Date = 28
-  optional confidence Double = 29
-  repeated subjectMatchField EntityReference = 30
-  repeated objectMatchField EntityReference = 31
-  repeated matchString String = 32
-  repeated subjectPreprocessing PreprocessingMethodEnum = 33
-  repeated objectPreprocessing PreprocessingMethodEnum = 34
-  optional semanticSimilarityScore Double = 35
-  optional semanticSimilarityMeasure String = 36
-  repeated seeAlso String = 37
-  optional other String = 38
-  optional comment String = 39
+  entityReference subjectId = 0
+  string subjectLabel = 0
+  string subjectCategory = 0
+  entityReference predicateId = 0
+  string predicateLabel = 0
+  predicateModifierEnum predicateModifier = 0
+  entityReference objectId = 0
+  string objectLabel = 0
+  string objectCategory = 0
+  entityReference mappingJustification = 0
+ repeated  entityReference authorId = 0
+ repeated  string authorLabel = 0
+ repeated  entityReference reviewerId = 0
+ repeated  string reviewerLabel = 0
+ repeated  entityReference creatorId = 0
+ repeated  string creatorLabel = 0
+  uri license = 0
+  entityTypeEnum subjectType = 0
+  entityReference subjectSource = 0
+  string subjectSourceVersion = 0
+  entityTypeEnum objectType = 0
+  entityReference objectSource = 0
+  string objectSourceVersion = 0
+  uri mappingProvider = 0
+  mappingCardinalityEnum mappingCardinality = 0
+  string mappingTool = 0
+  string mappingToolVersion = 0
+  date mappingDate = 0
+  double confidence = 0
+ repeated  entityReference subjectMatchField = 0
+ repeated  entityReference objectMatchField = 0
+ repeated  string matchString = 0
+ repeated  entityReference subjectPreprocessing = 0
+ repeated  entityReference objectPreprocessing = 0
+  double semanticSimilarityScore = 0
+  string semanticSimilarityMeasure = 0
+ repeated  string seeAlso = 0
+  string other = 0
+  string comment = 0
+ }
+// A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries.
+message MappingRegistry
+ {
+  entityReference mappingRegistryId = 0
+ repeated  uri imports = 0
+ repeated  mappingSetReference mappingSetReferences = 0
+  uri documentation = 0
+  uri homepage = 0
  }
 // Represents a set of mappings
 message MappingSet
  {
-  repeated mappings Mapping = 1
-  mappingSetId Uri = 2
-  optional mappingSetVersion String = 3
-  repeated mappingSetSource EntityReference = 4
-  optional mappingSetDescription String = 5
-  repeated creatorId EntityReference = 6
-  repeated creatorLabel String = 7
-  license Uri = 8
-  optional subjectType EntityTypeEnum = 9
-  optional subjectSource Uri = 10
-  optional subjectSourceVersion String = 11
-  optional objectType EntityTypeEnum = 12
-  optional objectSource Uri = 13
-  optional objectSourceVersion String = 14
-  optional mappingProvider Uri = 15
-  optional mappingTool String = 16
-  optional mappingDate Date = 17
-  repeated subjectMatchField EntityReference = 18
-  repeated objectMatchField EntityReference = 19
-  repeated subjectPreprocessing PreprocessingMethodEnum = 20
-  repeated objectPreprocessing PreprocessingMethodEnum = 21
-  repeated seeAlso String = 22
-  optional other String = 23
-  optional comment String = 24
+ repeated  mapping mappings = 0
+  uri mappingSetId = 0
+  string mappingSetVersion = 0
+ repeated  uri mappingSetSource = 0
+  string mappingSetDescription = 0
+ repeated  entityReference creatorId = 0
+ repeated  string creatorLabel = 0
+  uri license = 0
+  entityTypeEnum subjectType = 0
+  entityReference subjectSource = 0
+  string subjectSourceVersion = 0
+  entityTypeEnum objectType = 0
+  entityReference objectSource = 0
+  string objectSourceVersion = 0
+  uri mappingProvider = 0
+  string mappingTool = 0
+  date mappingDate = 0
+ repeated  entityReference subjectMatchField = 0
+ repeated  entityReference objectMatchField = 0
+ repeated  entityReference subjectPreprocessing = 0
+ repeated  entityReference objectPreprocessing = 0
+ repeated  string seeAlso = 0
+  string other = 0
+  string comment = 0
+ }
+// A reference to a mapping set. It allows to augment mapping set metadata from the perspective of the registry, for example, providing confidence, or a local filename or a grouping.
+message MappingSetReference
+ {
+  uri mappingSetId = 0
+  uri mirrorFrom = 0
+  double registryConfidence = 0
+  string mappingSetGroup = 0
+  date lastUpdated = 0
+  string localName = 0
  }

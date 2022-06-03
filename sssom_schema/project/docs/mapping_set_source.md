@@ -9,7 +9,7 @@ URI: [sssom:mapping_set_source](https://w3id.org/sssom/mapping_set_source)
 
 ## Domain and Range
 
-None &#8594;  <sub>0..\*</sub> [EntityReference](types/EntityReference.md)
+None &#8594;  <sub>0..\*</sub> [Uri](types/Uri.md)
 
 ## Parents
 
@@ -26,6 +26,5 @@ None &#8594;  <sub>0..\*</sub> [EntityReference](types/EntityReference.md)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | prov:wasDerivedFrom |
-| **Examples:** | | Example(value='MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv', description=None) |
-|  | | Example(value='MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv|MONDO_MAPPINGS:mondo_exactmatch_omim.sssom.tsv', description='(multivalued example in TSV)') |
+| **Examples:** | | Example(value='http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv', description='A persistent, ideally versioned, link to the mapping set from which the current mapping set is derived.') |
 

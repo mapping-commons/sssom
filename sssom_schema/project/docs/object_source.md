@@ -9,7 +9,7 @@ URI: [sssom:object_source](https://w3id.org/sssom/object_source)
 
 ## Domain and Range
 
-None &#8594;  <sub>0..1</sub> [Uri](types/Uri.md)
+None &#8594;  <sub>0..1</sub> [EntityReference](types/EntityReference.md)
 
 ## Parents
 
@@ -26,5 +26,6 @@ None &#8594;  <sub>0..1</sub> [Uri](types/Uri.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Examples:** | | Example(value='http://purl.obolibrary.org/obo/mondo.owl', description='(A persistent IRI pointing to the latest version of the Mondo ontology.)') |
+| **Examples:** | | Example(value='obo:mondo.owl', description='A persistent OBO CURIE pointing to the latest version of the Mondo ontology.') |
+|  | | Example(value='wikidata:Q7876491', description='A Wikidata identifier for the Uberon ontology resource.') |
 

@@ -33,14 +33,23 @@ CREATE TABLE mapping (
 	subject_match_field TEXT, 
 	object_match_field TEXT, 
 	match_string TEXT, 
-	subject_preprocessing VARCHAR(23), 
-	object_preprocessing VARCHAR(23), 
+	subject_preprocessing TEXT, 
+	object_preprocessing TEXT, 
 	semantic_similarity_score FLOAT, 
 	semantic_similarity_measure TEXT, 
 	see_also TEXT, 
 	other TEXT, 
 	comment TEXT, 
 	PRIMARY KEY (subject_id, subject_label, subject_category, predicate_id, predicate_label, predicate_modifier, object_id, object_label, object_category, mapping_justification, author_id, author_label, reviewer_id, reviewer_label, creator_id, creator_label, license, subject_type, subject_source, subject_source_version, object_type, object_source, object_source_version, mapping_provider, mapping_cardinality, mapping_tool, mapping_tool_version, mapping_date, confidence, subject_match_field, object_match_field, match_string, subject_preprocessing, object_preprocessing, semantic_similarity_score, semantic_similarity_measure, see_also, other, comment)
+);
+
+CREATE TABLE mapping_registry (
+	mapping_registry_id TEXT NOT NULL, 
+	imports TEXT, 
+	mapping_set_references TEXT, 
+	documentation TEXT, 
+	homepage TEXT, 
+	PRIMARY KEY (mapping_registry_id, imports, mapping_set_references, documentation, homepage)
 );
 
 CREATE TABLE mapping_set (
@@ -63,10 +72,20 @@ CREATE TABLE mapping_set (
 	mapping_date DATE, 
 	subject_match_field TEXT, 
 	object_match_field TEXT, 
-	subject_preprocessing VARCHAR(23), 
-	object_preprocessing VARCHAR(23), 
+	subject_preprocessing TEXT, 
+	object_preprocessing TEXT, 
 	see_also TEXT, 
 	other TEXT, 
 	comment TEXT, 
 	PRIMARY KEY (mappings, mapping_set_id, mapping_set_version, mapping_set_source, mapping_set_description, creator_id, creator_label, license, subject_type, subject_source, subject_source_version, object_type, object_source, object_source_version, mapping_provider, mapping_tool, mapping_date, subject_match_field, object_match_field, subject_preprocessing, object_preprocessing, see_also, other, comment)
+);
+
+CREATE TABLE mapping_set_reference (
+	mapping_set_id TEXT NOT NULL, 
+	mirror_from TEXT, 
+	registry_confidence FLOAT, 
+	mapping_set_group TEXT, 
+	last_updated DATE, 
+	local_name TEXT, 
+	PRIMARY KEY (mapping_set_id, mirror_from, registry_confidence, mapping_set_group, last_updated, local_name)
 );

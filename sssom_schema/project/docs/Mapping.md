@@ -7,7 +7,7 @@ Represents an individual mapping between a pair of entities
 URI: [sssom:Mapping](https://w3id.org/sssom/Mapping)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[MappingSet]++-%20mappings%200..*>[Mapping&#124;subject_id:EntityReference;subject_label:string%20%3F;subject_category:string%20%3F;predicate_id:EntityReference;predicate_label:string%20%3F;predicate_modifier:predicate_modifier_enum%20%3F;object_id:EntityReference;object_label:string%20%3F;object_category:string%20%3F;mapping_justification:EntityReference;author_id:EntityReference%20*;author_label:string%20*;reviewer_id:EntityReference%20*;reviewer_label:string%20*;creator_id:EntityReference%20*;creator_label:string%20*;license:uri%20%3F;subject_type:entity_type_enum%20%3F;subject_source:uri%20%3F;subject_source_version:string%20%3F;object_type:entity_type_enum%20%3F;object_source:uri%20%3F;object_source_version:string%20%3F;mapping_provider:uri%20%3F;mapping_cardinality:mapping_cardinality_enum%20%3F;mapping_tool:string%20%3F;mapping_tool_version:string%20%3F;mapping_date:date%20%3F;confidence:double%20%3F;subject_match_field:EntityReference%20*;object_match_field:EntityReference%20*;match_string:string%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;semantic_similarity_score:double%20%3F;semantic_similarity_measure:string%20%3F;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[MappingSet])](https://yuml.me/diagram/nofunky;dir:TB/class/[MappingSet]++-%20mappings%200..*>[Mapping&#124;subject_id:EntityReference;subject_label:string%20%3F;subject_category:string%20%3F;predicate_id:EntityReference;predicate_label:string%20%3F;predicate_modifier:predicate_modifier_enum%20%3F;object_id:EntityReference;object_label:string%20%3F;object_category:string%20%3F;mapping_justification:EntityReference;author_id:EntityReference%20*;author_label:string%20*;reviewer_id:EntityReference%20*;reviewer_label:string%20*;creator_id:EntityReference%20*;creator_label:string%20*;license:uri%20%3F;subject_type:entity_type_enum%20%3F;subject_source:uri%20%3F;subject_source_version:string%20%3F;object_type:entity_type_enum%20%3F;object_source:uri%20%3F;object_source_version:string%20%3F;mapping_provider:uri%20%3F;mapping_cardinality:mapping_cardinality_enum%20%3F;mapping_tool:string%20%3F;mapping_tool_version:string%20%3F;mapping_date:date%20%3F;confidence:double%20%3F;subject_match_field:EntityReference%20*;object_match_field:EntityReference%20*;match_string:string%20*;subject_preprocessing:preprocessing_method_enum%20*;object_preprocessing:preprocessing_method_enum%20*;semantic_similarity_score:double%20%3F;semantic_similarity_measure:string%20%3F;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[MappingSet])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[MappingSet]++-%20mappings%200..*>[Mapping&#124;subject_id:EntityReference;subject_label:string%20%3F;subject_category:string%20%3F;predicate_id:EntityReference;predicate_label:string%20%3F;predicate_modifier:predicate_modifier_enum%20%3F;object_id:EntityReference;object_label:string%20%3F;object_category:string%20%3F;mapping_justification:EntityReference;author_id:EntityReference%20*;author_label:string%20*;reviewer_id:EntityReference%20*;reviewer_label:string%20*;creator_id:EntityReference%20*;creator_label:string%20*;license:uri%20%3F;subject_type:entity_type_enum%20%3F;subject_source:EntityReference%20%3F;subject_source_version:string%20%3F;object_type:entity_type_enum%20%3F;object_source:EntityReference%20%3F;object_source_version:string%20%3F;mapping_provider:uri%20%3F;mapping_cardinality:mapping_cardinality_enum%20%3F;mapping_tool:string%20%3F;mapping_tool_version:string%20%3F;mapping_date:date%20%3F;confidence:double%20%3F;subject_match_field:EntityReference%20*;object_match_field:EntityReference%20*;match_string:string%20*;subject_preprocessing:EntityReference%20*;object_preprocessing:EntityReference%20*;semantic_similarity_score:double%20%3F;semantic_similarity_measure:string%20%3F;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[MappingSet])](https://yuml.me/diagram/nofunky;dir:TB/class/[MappingSet]++-%20mappings%200..*>[Mapping&#124;subject_id:EntityReference;subject_label:string%20%3F;subject_category:string%20%3F;predicate_id:EntityReference;predicate_label:string%20%3F;predicate_modifier:predicate_modifier_enum%20%3F;object_id:EntityReference;object_label:string%20%3F;object_category:string%20%3F;mapping_justification:EntityReference;author_id:EntityReference%20*;author_label:string%20*;reviewer_id:EntityReference%20*;reviewer_label:string%20*;creator_id:EntityReference%20*;creator_label:string%20*;license:uri%20%3F;subject_type:entity_type_enum%20%3F;subject_source:EntityReference%20%3F;subject_source_version:string%20%3F;object_type:entity_type_enum%20%3F;object_source:EntityReference%20%3F;object_source_version:string%20%3F;mapping_provider:uri%20%3F;mapping_cardinality:mapping_cardinality_enum%20%3F;mapping_tool:string%20%3F;mapping_tool_version:string%20%3F;mapping_date:date%20%3F;confidence:double%20%3F;subject_match_field:EntityReference%20*;object_match_field:EntityReference%20*;match_string:string%20*;subject_preprocessing:EntityReference%20*;object_preprocessing:EntityReference%20*;semantic_similarity_score:double%20%3F;semantic_similarity_measure:string%20%3F;see_also:string%20*;other:string%20%3F;comment:string%20%3F],[MappingSet])
 
 ## Referenced by Class
 
@@ -48,7 +48,7 @@ URI: [sssom:Mapping](https://w3id.org/sssom/Mapping)
      * Example: skos:exactMatch The subject and the object can, with a high degree of confidence, be used interchangeably across a wide range of information retrieval applications.
      * Example: skos:narrowMatch From the SKOS primer: A triple skos:narrower (and skos:narrowMatch) asserts that , the object of the triple, is a narrower concept than , the subject of the triple.
      * Example: skos:broadMatch From the SKOS primer: A triple skos:broader (and skos:broadMatch) asserts that , the object of the triple, is a broader concept than , the subject of the triple.
-     * Example: oio:database_cross_reference Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)
+     * Example: oboInOwl:database_cross_reference Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)
      * Example: rdfs:seeAlso The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.
  * [predicate_modifier](predicate_modifier.md)  <sub>0..1</sub>
      * Description: A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
@@ -70,8 +70,8 @@ URI: [sssom:Mapping](https://w3id.org/sssom/Mapping)
  * [mapping_justification](mapping_justification.md)  <sub>1..1</sub>
      * Description: A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
      * Range: [EntityReference](types/EntityReference.md)
-     * Example: OMAPV:Lexical None
-     * Example: OMAPV:HumanCurated None
+     * Example: semapv:LexicalMatching None
+     * Example: semapv:ManualMappingCuration None
  * [author_id](author_id.md)  <sub>0..\*</sub>
      * Description: Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.
      * Range: [EntityReference](types/EntityReference.md)
@@ -99,8 +99,9 @@ URI: [sssom:Mapping](https://w3id.org/sssom/Mapping)
      * Example: owl:Class None
  * [subject_source](subject_source.md)  <sub>0..1</sub>
      * Description: URI of ontology source for the subject.
-     * Range: [Uri](types/Uri.md)
-     * Example: http://purl.obolibrary.org/obo/mondo.owl (A persistent IRI pointing to the latest version of the Mondo ontology.)
+     * Range: [EntityReference](types/EntityReference.md)
+     * Example: obo:mondo.owl A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
+     * Example: wikidata:Q7876491 A Wikidata identifier for the Uberon ontology resource.
  * [subject_source_version](subject_source_version.md)  <sub>0..1</sub>
      * Description: Version IRI or version string of the source of the subject term.
      * Range: [String](types/String.md)
@@ -111,8 +112,9 @@ URI: [sssom:Mapping](https://w3id.org/sssom/Mapping)
      * Example: owl:Class None
  * [object_source](object_source.md)  <sub>0..1</sub>
      * Description: IRI of ontology source for the object. Version IRI preferred.
-     * Range: [Uri](types/Uri.md)
-     * Example: http://purl.obolibrary.org/obo/mondo.owl (A persistent IRI pointing to the latest version of the Mondo ontology.)
+     * Range: [EntityReference](types/EntityReference.md)
+     * Example: obo:mondo.owl A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
+     * Example: wikidata:Q7876491 A Wikidata identifier for the Uberon ontology resource.
  * [object_source_version](object_source_version.md)  <sub>0..1</sub>
      * Description: Version IRI or version string of the source of the object term.
      * Range: [String](types/String.md)
@@ -148,10 +150,14 @@ URI: [sssom:Mapping](https://w3id.org/sssom/Mapping)
      * Range: [String](types/String.md)
  * [subject_preprocessing](subject_preprocessing.md)  <sub>0..\*</sub>
      * Description: Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.
-     * Range: [preprocessing_method_enum](preprocessing_method_enum.md)
+     * Range: [EntityReference](types/EntityReference.md)
+     * Example: semapv:Stemming None
+     * Example: semapv:StopWordRemoval None
  * [object_preprocessing](object_preprocessing.md)  <sub>0..\*</sub>
      * Description: Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.
-     * Range: [preprocessing_method_enum](preprocessing_method_enum.md)
+     * Range: [EntityReference](types/EntityReference.md)
+     * Example: semapv:Stemming None
+     * Example: semapv:StopWordRemoval None
  * [semantic_similarity_score](semantic_similarity_score.md)  <sub>0..1</sub>
      * Description: A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence.
      * Range: [Double](types/Double.md)

@@ -1,8 +1,9 @@
 {
   "name": "sssom",
-  "description": "Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)",
+  "description": "Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)",
   "see_also": [
-    "https://github.com/OBOFoundry/SSSOM"
+    "https://github.com/mapping-commons/sssom",
+    "https://mapping-commons.github.io/sssom/home/"
   ],
   "id": "https://w3id.org/sssom/schema/",
   "imports": [
@@ -27,18 +28,6 @@
       "prefix_reference": "http://www.geneontology.org/formats/oboInOwl#"
     },
     {
-      "prefix_prefix": "dce",
-      "prefix_reference": "http://purl.org/dc/elements/1.1/"
-    },
-    {
-      "prefix_prefix": "Orphanet",
-      "prefix_reference": "http://www.orpha.net/ORDO/Orphanet_"
-    },
-    {
-      "prefix_prefix": "oio",
-      "prefix_reference": "http://www.geneontology.org/formats/oboInOwl#"
-    },
-    {
       "prefix_prefix": "pav",
       "prefix_reference": "http://purl.org/pav/"
     },
@@ -49,6 +38,10 @@
     {
       "prefix_prefix": "skos",
       "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
+    },
+    {
+      "prefix_prefix": "semapv",
+      "prefix_reference": "https://w3id.org/semapv/"
     }
   ],
   "default_curi_maps": [
@@ -321,22 +314,131 @@
           "description": "Many-to-many mapping"
         }
       ]
-    },
-    {
-      "name": "preprocessing_method_enum",
-      "definition_uri": "https://w3id.org/sssom/PreprocessingMethodEnum",
-      "from_schema": "https://w3id.org/sssom/schema/",
-      "permissible_values": [
-        {
-          "text": "Stemming"
-        },
-        {
-          "text": "TaxonRestrictionRemoval"
-        }
-      ]
     }
   ],
   "slots": [
+    {
+      "name": "mirror_from",
+      "definition_uri": "https://w3id.org/sssom/mirror_from",
+      "description": "A URL location from which to obtain a resource, such as a mapping set.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mirror_from",
+      "owner": "MappingSetReference",
+      "domain_of": [
+        "MappingSetReference"
+      ],
+      "range": "uri",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "registry_confidence",
+      "definition_uri": "https://w3id.org/sssom/registry_confidence",
+      "description": "This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/registry_confidence",
+      "owner": "MappingSetReference",
+      "domain_of": [
+        "MappingSetReference"
+      ],
+      "range": "double",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "last_updated",
+      "definition_uri": "https://w3id.org/sssom/last_updated",
+      "description": "The date this reference was last updated.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/last_updated",
+      "owner": "MappingSetReference",
+      "domain_of": [
+        "MappingSetReference"
+      ],
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "local_name",
+      "definition_uri": "https://w3id.org/sssom/local_name",
+      "description": "The local name assigned to file that corresponds to the downloaded mapping set.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/local_name",
+      "owner": "MappingSetReference",
+      "domain_of": [
+        "MappingSetReference"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_set_references",
+      "definition_uri": "https://w3id.org/sssom/mapping_set_references",
+      "description": "A list of mapping set references.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_set_references",
+      "multivalued": true,
+      "owner": "MappingRegistry",
+      "domain_of": [
+        "MappingRegistry"
+      ],
+      "range": "MappingSetReference",
+      "recommended": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_registry_id",
+      "definition_uri": "https://w3id.org/sssom/mapping_registry_id",
+      "description": "The unique identifier of a mapping registry.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_registry_id",
+      "owner": "MappingRegistry",
+      "domain_of": [
+        "MappingRegistry"
+      ],
+      "range": "EntityReference",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "imports",
+      "definition_uri": "https://w3id.org/sssom/imports",
+      "description": "A list of registries that should be imported into this one.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/imports",
+      "multivalued": true,
+      "owner": "MappingRegistry",
+      "domain_of": [
+        "MappingRegistry"
+      ],
+      "range": "uri",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "documentation",
+      "definition_uri": "https://w3id.org/sssom/documentation",
+      "description": "A URL to the documentation of this mapping commons.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/documentation",
+      "owner": "MappingRegistry",
+      "domain_of": [
+        "MappingRegistry"
+      ],
+      "range": "uri",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "homepage",
+      "definition_uri": "https://w3id.org/sssom/homepage",
+      "description": "A URL to a homepage of this mapping commons.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/homepage",
+      "owner": "MappingRegistry",
+      "domain_of": [
+        "MappingRegistry"
+      ],
+      "range": "uri",
+      "@type": "SlotDefinition"
+    },
     {
       "name": "mappings",
       "definition_uri": "https://w3id.org/sssom/mappings",
@@ -544,7 +646,7 @@
           "@type": "Example"
         },
         {
-          "value": "oio:database_cross_reference",
+          "value": "oboInOwl:database_cross_reference",
           "description": "Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)",
           "@type": "Example"
         },
@@ -658,11 +760,11 @@
       "description": "A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.",
       "examples": [
         {
-          "value": "OMAPV:Lexical",
+          "value": "semapv:LexicalMatching",
           "@type": "Example"
         },
         {
-          "value": "OMAPV:HumanCurated",
+          "value": "semapv:ManualMappingCuration",
           "@type": "Example"
         }
       ],
@@ -674,6 +776,45 @@
       ],
       "range": "EntityReference",
       "required": true,
+      "pattern": "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$",
+      "any_of": [
+        {
+          "equals_string": "semapv:LexicalMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:LogicalReasoning",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:CompositeMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:UnspecifiedMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:SemanticSimilarityThresholdMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:LexicalSimilarityThresholdMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:MappingChaining",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:MappingReview",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:ManualMappingCuration",
+          "@type": "AnonymousSlotExpression"
+        }
+      ],
       "@type": "SlotDefinition"
     },
     {
@@ -709,9 +850,10 @@
       ],
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/mapping_set_id",
-      "owner": "MappingSet",
+      "owner": "MappingSetReference",
       "domain_of": [
-        "MappingSet"
+        "MappingSet",
+        "MappingSetReference"
       ],
       "range": "uri",
       "required": true,
@@ -741,6 +883,19 @@
       "owner": "MappingSet",
       "domain_of": [
         "MappingSet"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_set_group",
+      "definition_uri": "https://w3id.org/sssom/mapping_set_group",
+      "description": "Set by the owners of the mapping registry. A way to group .",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_set_group",
+      "owner": "MappingSetReference",
+      "domain_of": [
+        "MappingSetReference"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -882,8 +1037,13 @@
       "description": "URI of ontology source for the subject.",
       "examples": [
         {
-          "value": "http://purl.obolibrary.org/obo/mondo.owl",
-          "description": "(A persistent IRI pointing to the latest version of the Mondo ontology.)",
+          "value": "obo:mondo.owl",
+          "description": "A persistent OBO CURIE pointing to the latest version of the Mondo ontology.",
+          "@type": "Example"
+        },
+        {
+          "value": "wikidata:Q7876491",
+          "description": "A Wikidata identifier for the Uberon ontology resource.",
           "@type": "Example"
         }
       ],
@@ -894,7 +1054,7 @@
         "MappingSet",
         "Mapping"
       ],
-      "range": "uri",
+      "range": "EntityReference",
       "@type": "SlotDefinition"
     },
     {
@@ -924,8 +1084,13 @@
       "description": "IRI of ontology source for the object. Version IRI preferred.",
       "examples": [
         {
-          "value": "http://purl.obolibrary.org/obo/mondo.owl",
-          "description": "(A persistent IRI pointing to the latest version of the Mondo ontology.)",
+          "value": "obo:mondo.owl",
+          "description": "A persistent OBO CURIE pointing to the latest version of the Mondo ontology.",
+          "@type": "Example"
+        },
+        {
+          "value": "wikidata:Q7876491",
+          "description": "A Wikidata identifier for the Uberon ontology resource.",
           "@type": "Example"
         }
       ],
@@ -936,7 +1101,7 @@
         "MappingSet",
         "Mapping"
       ],
-      "range": "uri",
+      "range": "EntityReference",
       "@type": "SlotDefinition"
     },
     {
@@ -980,12 +1145,8 @@
       "description": "A mapping set or set of mapping set that was used to derive the mapping set.",
       "examples": [
         {
-          "value": "MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv",
-          "@type": "Example"
-        },
-        {
-          "value": "MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv|MONDO_MAPPINGS:mondo_exactmatch_omim.sssom.tsv",
-          "description": "(multivalued example in TSV)",
+          "value": "http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv",
+          "description": "A persistent, ideally versioned, link to the mapping set from which the current mapping set is derived.",
           "@type": "Example"
         }
       ],
@@ -999,7 +1160,7 @@
       "domain_of": [
         "MappingSet"
       ],
-      "range": "EntityReference",
+      "range": "uri",
       "@type": "SlotDefinition"
     },
     {
@@ -1159,6 +1320,16 @@
       "name": "subject_preprocessing",
       "definition_uri": "https://w3id.org/sssom/subject_preprocessing",
       "description": "Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.",
+      "examples": [
+        {
+          "value": "semapv:Stemming",
+          "@type": "Example"
+        },
+        {
+          "value": "semapv:StopWordRemoval",
+          "@type": "Example"
+        }
+      ],
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/subject_preprocessing",
       "multivalued": true,
@@ -1167,13 +1338,23 @@
         "MappingSet",
         "Mapping"
       ],
-      "range": "preprocessing_method_enum",
+      "range": "EntityReference",
       "@type": "SlotDefinition"
     },
     {
       "name": "object_preprocessing",
       "definition_uri": "https://w3id.org/sssom/object_preprocessing",
       "description": "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.",
+      "examples": [
+        {
+          "value": "semapv:Stemming",
+          "@type": "Example"
+        },
+        {
+          "value": "semapv:StopWordRemoval",
+          "@type": "Example"
+        }
+      ],
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/object_preprocessing",
       "multivalued": true,
@@ -1182,7 +1363,7 @@
         "MappingSet",
         "Mapping"
       ],
-      "range": "preprocessing_method_enum",
+      "range": "EntityReference",
       "@type": "SlotDefinition"
     },
     {
@@ -1378,13 +1559,46 @@
       "slot_usage": {},
       "class_uri": "http://www.w3.org/2002/07/owl#Axiom",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "MappingRegistry",
+      "definition_uri": "https://w3id.org/sssom/MappingRegistry",
+      "description": "A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slots": [
+        "mapping_registry_id",
+        "imports",
+        "mapping_set_references",
+        "documentation",
+        "homepage"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/sssom/MappingRegistry",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MappingSetReference",
+      "definition_uri": "https://w3id.org/sssom/MappingSetReference",
+      "description": "A reference to a mapping set. It allows to augment mapping set metadata from the perspective of the registry, for example, providing confidence, or a local filename or a grouping.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slots": [
+        "mapping_set_id",
+        "mirror_from",
+        "registry_confidence",
+        "mapping_set_group",
+        "last_updated",
+        "local_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/sssom/MappingSetReference",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2022-05-24T08:45:43",
-  "source_file_size": 18494,
-  "generation_date": "2022-05-24T09:41:59",
+  "source_file_date": "2022-06-03T16:07:16",
+  "source_file_size": 21345,
+  "generation_date": "2022-06-03T16:24:16",
   "@type": "SchemaDefinition",
   "@context": [
     "sssom_schema/project/jsonld/sssom_schema.context.jsonld",
