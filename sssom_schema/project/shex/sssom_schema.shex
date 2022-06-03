@@ -1,0 +1,117 @@
+BASE <https://w3id.org/sssom/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX pav: <http://purl.org/pav/>
+
+
+<EntityReference> rdfs:Resource
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:dateTime
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:Uriorcurie IRI
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+<Mapping> CLOSED {
+    (  $<Mapping_tes> (  owl:annotatedSource @<EntityReference> ;
+          <subject_label> @linkml:String ? ;
+          <subject_category> @linkml:String ? ;
+          owl:annotatedProperty @<EntityReference> ;
+          <predicate_label> @linkml:String ? ;
+          <predicate_modifier> @<PredicateModifierEnum> ? ;
+          owl:annotatedTarget @<EntityReference> ;
+          <object_label> @linkml:String ? ;
+          <object_category> @linkml:String ? ;
+          <mapping_justification> @<EntityReference> ;
+          pav:authoredBy @<EntityReference> * ;
+          <author_label> @linkml:String * ;
+          <reviewer_id> @<EntityReference> * ;
+          <reviewer_label> @linkml:String * ;
+          dcterms:creator @<EntityReference> * ;
+          <creator_label> @linkml:String * ;
+          dcterms:license @linkml:Uri ? ;
+          <subject_type> @<EntityTypeEnum> ? ;
+          <subject_source> @linkml:Uri ? ;
+          <subject_source_version> @linkml:String ? ;
+          <object_type> @<EntityTypeEnum> ? ;
+          <object_source> @linkml:Uri ? ;
+          <object_source_version> @linkml:String ? ;
+          <mapping_provider> @linkml:Uri ? ;
+          <mapping_cardinality> @<MappingCardinalityEnum> ? ;
+          <mapping_tool> @linkml:String ? ;
+          <mapping_tool_version> @linkml:String ? ;
+          pav:authoredOn @linkml:Date ? ;
+          <confidence> @linkml:Double ? ;
+          <subject_match_field> @<EntityReference> * ;
+          <object_match_field> @<EntityReference> * ;
+          <match_string> @linkml:String * ;
+          <subject_preprocessing> @<PreprocessingMethodEnum> * ;
+          <object_preprocessing> @<PreprocessingMethodEnum> * ;
+          <semantic_similarity_score> @linkml:Double ? ;
+          <semantic_similarity_measure> @linkml:String ? ;
+          rdfs:seeAlso @linkml:String * ;
+          <other> @linkml:String ? ;
+          rdfs:comment @linkml:String ?
+       ) ;
+       rdf:type [ owl:Axiom ] ?
+    )
+}
+
+<MappingSet> CLOSED {
+    (  $<MappingSet_tes> (  <mappings> @<Mapping> * ;
+          <mapping_set_id> @linkml:Uri ;
+          owl:versionInfo @linkml:String ? ;
+          prov:wasDerivedFrom @<EntityReference> * ;
+          dcterms:description @linkml:String ? ;
+          dcterms:creator @<EntityReference> * ;
+          <creator_label> @linkml:String * ;
+          dcterms:license @linkml:Uri ;
+          <subject_type> @<EntityTypeEnum> ? ;
+          <subject_source> @linkml:Uri ? ;
+          <subject_source_version> @linkml:String ? ;
+          <object_type> @<EntityTypeEnum> ? ;
+          <object_source> @linkml:Uri ? ;
+          <object_source_version> @linkml:String ? ;
+          <mapping_provider> @linkml:Uri ? ;
+          <mapping_tool> @linkml:String ? ;
+          pav:authoredOn @linkml:Date ? ;
+          <subject_match_field> @<EntityReference> * ;
+          <object_match_field> @<EntityReference> * ;
+          <subject_preprocessing> @<PreprocessingMethodEnum> * ;
+          <object_preprocessing> @<PreprocessingMethodEnum> * ;
+          rdfs:seeAlso @linkml:String * ;
+          <other> @linkml:String ? ;
+          rdfs:comment @linkml:String ?
+       ) ;
+       rdf:type [ <MappingSet> ] ?
+    )
+}
+
+
