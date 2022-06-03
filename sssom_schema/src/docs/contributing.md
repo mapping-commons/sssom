@@ -139,14 +139,106 @@ This section lists the labels we use to help us track and manage issues and pull
 
 | Label name | `mapping-commons/sssom` :mag_right: | `sssom`‑org :mag_right: | Description |
 | --- | --- | --- | --- |
-| `enhancement` | [search][search-sssom-repo-label-enhancement] | [search][search-sssom-org-label-enhancement] | Feature requests. |
-| `bug` | [search][search-sssom-repo-label-bug] | [search][search-sssom-org-label-bug] | Confirmed bugs or reports that are very likely to be bugs. |
-| `question` | [search][search-sssom-repo-label-question] | [search][search-sssom-org-label-question] | Questions more than bug reports or feature requests (e.g. how do I do X). |
-| `feedback` | [search][search-sssom-repo-label-feedback] | [search][search-sssom-org-label-feedback] | General feedback more than bug reports or feature requests. |
-| `help-wanted` | [search][search-sssom-repo-label-help-wanted] | [search][search-sssom-org-label-help-wanted] | The SSSOM core team would appreciate help from the community in resolving these issues. |
-| `beginner` | [search][search-sssom-repo-label-beginner] | [search][search-sssom-org-label-beginner] | Less complex issues which would be good first issues to work on for users who want to contribute to SSSOM. |
-| `more-information-needed` | [search][search-sssom-repo-label-more-information-needed] | [search][search-sssom-org-label-more-information-needed] | More information needs to be collected about these problems or feature requests (e.g. steps to reproduce). |
-| `needs-reproduction` | [search][search-sssom-repo-label-needs-reproduction] | [search][search-sssom-org-label-needs-reproduction] | Likely bugs, but haven't been reliably reproduced. |
-| `blocked` | [search][search-sssom-repo-label-blocked] | [search][search-sssom-org-label-blocked] | Issues blocked on other issues. |
-| `duplicate` | [search][search-sssom-repo-label-duplicate] | [search][search-sssom-org-label-duplicate] | Issues which are duplicates of other issues, i.e. they have been reported before. |
-| `wontfix` | [search][search-sssom-repo-label-wontfix] | [search][search-sssom-org-label-wontfix] | The SSSOM core team has decided not to fix these issues for now, either because they're working as intended or for some other reason. |
+| `enhancement` | [search][search-sssom-repo-label-enhancement] | [search][search-mapping-commons-org-label-enhancement] | Feature requests. |
+| `bug` | [search][search-sssom-repo-label-bug] | [search][search-mapping-commons-org-label-bug] | Confirmed bugs or reports that are very likely to be bugs. |
+| `question` | [search][search-sssom-repo-label-question] | [search][search-mapping-commons-org-label-question] | Questions more than bug reports or feature requests (e.g. how do I do X). |
+| `feedback` | [search][search-sssom-repo-label-feedback] | [search][search-mapping-commons-org-label-feedback] | General feedback more than bug reports or feature requests. |
+| `help-wanted` | [search][search-sssom-repo-label-help-wanted] | [search][search-mapping-commons-org-label-help-wanted] | The SSSOM core team would appreciate help from the community in resolving these issues. |
+| `beginner` | [search][search-sssom-repo-label-beginner] | [search][search-mapping-commons-org-label-beginner] | Less complex issues which would be good first issues to work on for users who want to contribute to SSSOM. |
+| `more-information-needed` | [search][search-sssom-repo-label-more-information-needed] | [search][search-mapping-commons-org-label-more-information-needed] | More information needs to be collected about these problems or feature requests (e.g. steps to reproduce). |
+| `needs-reproduction` | [search][search-sssom-repo-label-needs-reproduction] | [search][search-mapping-commons-org-label-needs-reproduction] | Likely bugs, but haven't been reliably reproduced. |
+| `blocked` | [search][search-sssom-repo-label-blocked] | [search][search-mapping-commons-org-label-blocked] | Issues blocked on other issues. |
+| `duplicate` | [search][search-sssom-repo-label-duplicate] | [search][search-mapping-commons-org-label-duplicate] | Issues which are duplicates of other issues, i.e. they have been reported before. |
+| `wontfix` | [search][search-sssom-repo-label-wontfix] | [search][search-mapping-commons-org-label-wontfix] | The SSSOM core team has decided not to fix these issues for now, either because they're working as intended or for some other reason. |
+
+[search-sssom-repo-label-enhancement]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aenhancement
+[search-mapping-commons-org-label-enhancement]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aenhancement
+[search-sssom-repo-label-bug]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Abug
+[search-mapping-commons-org-label-bug]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Abug
+[search-sssom-repo-label-question]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aquestion
+[search-mapping-commons-org-label-question]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aquestion
+[search-sssom-repo-label-feedback]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Afeedback
+[search-mapping-commons-org-label-feedback]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Afeedback
+[search-sssom-repo-label-help-wanted]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Ahelp-wanted
+[search-mapping-commons-org-label-help-wanted]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Ahelp-wanted
+[search-sssom-repo-label-beginner]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Abeginner
+[search-mapping-commons-org-label-beginner]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Abeginner
+[search-sssom-repo-label-more-information-needed]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Amore-information-needed
+[search-mapping-commons-org-label-more-information-needed]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Amore-information-needed
+[search-sssom-repo-label-needs-reproduction]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aneeds-reproduction
+[search-mapping-commons-org-label-needs-reproduction]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aneeds-reproduction
+[search-sssom-repo-label-triage-help-needed]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Atriage-help-needed
+[search-mapping-commons-org-label-triage-help-needed]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Atriage-help-needed
+[search-sssom-repo-label-windows]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Awindows
+[search-mapping-commons-org-label-windows]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Awindows
+[search-sssom-repo-label-linux]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Alinux
+[search-mapping-commons-org-label-linux]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Alinux
+[search-sssom-repo-label-mac]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Amac
+[search-mapping-commons-org-label-mac]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Amac
+[search-sssom-repo-label-documentation]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Adocumentation
+[search-mapping-commons-org-label-documentation]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Adocumentation
+[search-sssom-repo-label-performance]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aperformance
+[search-mapping-commons-org-label-performance]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aperformance
+[search-sssom-repo-label-security]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Asecurity
+[search-mapping-commons-org-label-security]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Asecurity
+[search-sssom-repo-label-ui]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aui
+[search-mapping-commons-org-label-ui]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aui
+[search-sssom-repo-label-api]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aapi
+[search-mapping-commons-org-label-api]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aapi
+[search-sssom-repo-label-crash]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Acrash
+[search-mapping-commons-org-label-crash]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Acrash
+[search-sssom-repo-label-auto-indent]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aauto-indent
+[search-mapping-commons-org-label-auto-indent]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aauto-indent
+[search-sssom-repo-label-encoding]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aencoding
+[search-mapping-commons-org-label-encoding]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aencoding
+[search-sssom-repo-label-network]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Anetwork
+[search-mapping-commons-org-label-network]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Anetwork
+[search-sssom-repo-label-uncaught-exception]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Auncaught-exception
+[search-mapping-commons-org-label-uncaught-exception]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Auncaught-exception
+[search-sssom-repo-label-git]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Agit
+[search-mapping-commons-org-label-git]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Agit
+[search-sssom-repo-label-blocked]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Ablocked
+[search-mapping-commons-org-label-blocked]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Ablocked
+[search-sssom-repo-label-duplicate]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aduplicate
+[search-mapping-commons-org-label-duplicate]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aduplicate
+[search-sssom-repo-label-wontfix]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Awontfix
+[search-mapping-commons-org-label-wontfix]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Awontfix
+[search-sssom-repo-label-invalid]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Ainvalid
+[search-mapping-commons-org-label-invalid]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Ainvalid
+[search-sssom-repo-label-package-idea]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Apackage-idea
+[search-mapping-commons-org-label-package-idea]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Apackage-idea
+[search-sssom-repo-label-wrong-repo]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Awrong-repo
+[search-mapping-commons-org-label-wrong-repo]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Awrong-repo
+[search-sssom-repo-label-editor-rendering]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aeditor-rendering
+[search-mapping-commons-org-label-editor-rendering]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aeditor-rendering
+[search-sssom-repo-label-build-error]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Abuild-error
+[search-mapping-commons-org-label-build-error]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Abuild-error
+[search-sssom-repo-label-error-from-pathwatcher]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aerror-from-pathwatcher
+[search-mapping-commons-org-label-error-from-pathwatcher]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aerror-from-pathwatcher
+[search-sssom-repo-label-error-from-save]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aerror-from-save
+[search-mapping-commons-org-label-error-from-save]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aerror-from-save
+[search-sssom-repo-label-error-from-open]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aerror-from-open
+[search-mapping-commons-org-label-error-from-open]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aerror-from-open
+[search-sssom-repo-label-installer]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Ainstaller
+[search-mapping-commons-org-label-installer]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Ainstaller
+[search-sssom-repo-label-auto-updater]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Aauto-updater
+[search-mapping-commons-org-label-auto-updater]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aauto-updater
+[search-sssom-repo-label-deprecation-help]: https://github.com/search?q=is%3Aopen+is%3Aissue+repo%3Amapping-commons%2Fsssom+label%3Adeprecation-help
+[search-mapping-commons-org-label-deprecation-help]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Adeprecation-help
+[search-sssom-repo-label-electron]: https://github.com/search?q=is%3Aissue+repo%3Amapping-commons%2Fsssom+is%3Aopen+label%3Aelectron
+[search-mapping-commons-org-label-electron]: https://github.com/search?q=is%3Aopen+is%3Aissue+user%3Amapping-commons+label%3Aelectron
+[search-sssom-repo-label-work-in-progress]: https://github.com/search?q=is%3Aopen+is%3Apr+repo%3Amapping-commons%2Fsssom+label%3Awork-in-progress
+[search-mapping-commons-org-label-work-in-progress]: https://github.com/search?q=is%3Aopen+is%3Apr+user%3Amapping-commons+label%3Awork-in-progress
+[search-sssom-repo-label-needs-review]: https://github.com/search?q=is%3Aopen+is%3Apr+repo%3Amapping-commons%2Fsssom+label%3Aneeds-review
+[search-mapping-commons-org-label-needs-review]: https://github.com/search?q=is%3Aopen+is%3Apr+user%3Amapping-commons+label%3Aneeds-review
+[search-sssom-repo-label-under-review]: https://github.com/search?q=is%3Aopen+is%3Apr+repo%3Amapping-commons%2Fsssom+label%3Aunder-review
+[search-mapping-commons-org-label-under-review]: https://github.com/search?q=is%3Aopen+is%3Apr+user%3Amapping-commons+label%3Aunder-review
+[search-sssom-repo-label-requires-changes]: https://github.com/search?q=is%3Aopen+is%3Apr+repo%3Amapping-commons%2Fsssom+label%3Arequires-changes
+[search-mapping-commons-org-label-requires-changes]: https://github.com/search?q=is%3Aopen+is%3Apr+user%3Amapping-commons+label%3Arequires-changes
+[search-sssom-repo-label-needs-testing]: https://github.com/search?q=is%3Aopen+is%3Apr+repo%3Amapping-commons%2Fsssom+label%3Aneeds-testing
+[search-mapping-commons-org-label-needs-testing]: https://github.com/search?q=is%3Aopen+is%3Apr+user%3Amapping-commons+label%3Aneeds-testing
+
+[beginner]:https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Abeginner+label%3Ahelp-wanted+user%3Amapping-commons+sort%3Acomments-desc
+[help-wanted]:https://github.com/search?q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted+user%3Amapping-commons+sort%3Acomments-desc+-label%3Abeginner
+[contributing-to-official-sssom-packages]:https://flight-manual.sssom.io/hacking-sssom/sections/contributing-to-official-sssom-packages/
+[hacking-on-sssom-core]: https://flight-manual.sssom.io/hacking-sssom/sections/hacking-on-sssom-core/
