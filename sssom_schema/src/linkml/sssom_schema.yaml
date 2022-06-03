@@ -264,10 +264,12 @@ slots:
     slot_uri: dcterms:license
   subject_source:
     description: URI of ontology source for the subject.
-    range: uri
+    range: EntityReference
     examples:
-      - value: http://purl.obolibrary.org/obo/mondo.owl
-        description: (A persistent IRI pointing to the latest version of the Mondo ontology.)
+      - value: obo:mondo.owl
+        description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
+      - value: wikidata:Q7876491
+        description: A Wikidata identifier for the Uberon ontology resource.
   subject_source_version:
     description: Version IRI or version string of the source of the subject term.
     range: string
@@ -276,10 +278,12 @@ slots:
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   object_source:
     description: IRI of ontology source for the object. Version IRI preferred.
-    range: uri
+    range: EntityReference
     examples:
-      - value: http://purl.obolibrary.org/obo/mondo.owl
-        description: (A persistent IRI pointing to the latest version of the Mondo ontology.)
+      - value: obo:mondo.owl
+        description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
+      - value: wikidata:Q7876491
+        description: A Wikidata identifier for the Uberon ontology resource.
   object_source_version:
     description: Version IRI or version string of the source of the object term.
     range: string
