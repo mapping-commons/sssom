@@ -2,7 +2,7 @@
 
 :+1: First of all: Thank you for taking the time to contribute!
 
-The following is a set of guidelines for contributing to SSSOM. They are derived from the excellent contribution guidelines for the [SSSOM Editor](https://github.com/mapping-commons/sssom/edit/master/CONTRIBUTING.md) and are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
+The following is a set of guidelines for contributing to SSSOM. They are derived from the excellent contribution guidelines for the [ATOM Editor](https://github.com/atom/atom/blob/master/CONTRIBUTING.md) and are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
 #### Table Of Contents
 
@@ -27,7 +27,7 @@ The following is a set of guidelines for contributing to SSSOM. They are derived
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [SSSOM Code of Conduct](code_of_conduct.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [a member of the SSSOM core team](contact.md).
+This project and everyone participating in it is governed by the [SSSOM Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [a member of the SSSOM core team](https://mapping-commons.github.io/sssom/contact/).
 
 ## I don't want to read this whole thing I just have a question!!!
 
@@ -35,12 +35,12 @@ This project and everyone participating in it is governed by the [SSSOM Code of 
 We have an official message board with a detailed FAQ and where the community chimes in with helpful advice if you have questions.
 
 * [Github Discussions](https://github.com/mapping-commons/sssom/discussions)
-* [SSSOM FAQ](faq.md)
+* [SSSOM FAQ](https://mapping-commons.github.io/sssom/faq/)
 
 ## What should I know before I get started?
 
-- Read the [overview](spec.md)
-- Do the [SSSOM tutorial](tutorial.md)
+- Read the [overview](https://mapping-commons.github.io/sssom/spec/)
+- Do the [SSSOM tutorial](https://mapping-commons.github.io/sssom/tutorial/)
 - Read about the [SSSOM toolkit](https://mapping-commons.github.io/sssom-py), which is managed [in a different repo](https://github.com/mapping-commons/sssom-py)
 
 ## How Can I Contribute?
