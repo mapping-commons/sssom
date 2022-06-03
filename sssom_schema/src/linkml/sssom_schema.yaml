@@ -7,6 +7,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
   sssom: https://w3id.org/sssom/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   oboInOwl: http://www.geneontology.org/formats/oboInOwl#
   pav: http://purl.org/pav/
   prov: http://www.w3.org/ns/prov#
