@@ -1,6 +1,6 @@
 id: https://w3id.org/sssom/schema/
 name: sssom
-description: Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)
+description: Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)
 imports:
 - linkml:types
 prefixes:
@@ -8,15 +8,13 @@ prefixes:
   sssom: https://w3id.org/sssom/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   oboInOwl: http://www.geneontology.org/formats/oboInOwl#
-  dce: http://purl.org/dc/elements/1.1/
-  Orphanet: http://www.orpha.net/ORDO/Orphanet_
-  oio: http://www.geneontology.org/formats/oboInOwl#
   pav: http://purl.org/pav/
   prov: http://www.w3.org/ns/prov#
   skos: http://www.w3.org/2004/02/skos/core#
-  semapv: http://w3id.org/semapv/
+  semapv: https://w3id.org/semapv/
 see_also:
-- https://github.com/OBOFoundry/SSSOM
+- https://github.com/mapping-commons/sssom
+- https://mapping-commons.github.io/sssom/home/
 default_curi_maps:
 - semweb_context
 - obo_context
@@ -67,6 +65,37 @@ types:
     uri: rdfs:Resource
 
 slots:
+  mirror_from:
+    description: A URL location from which to obtain a resource, such as a mapping set.
+    range: uri
+  registry_confidence:
+    description: This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
+    range: double
+  last_updated:
+    description: The date this reference was last updated.
+    range: date
+  local_name:
+    description: The local name assigned to file that corresponds to the downloaded mapping set.
+    range: string
+  mapping_set_references:
+    description: A list of mapping set references.
+    range: mapping set reference
+    multivalued: true
+    recommended: true
+  mapping_registry_id:
+    description: The unique identifier of a mapping registry.
+    range: EntityReference
+    required: true
+  imports:
+    description: A list of registries that should be imported into this one.
+    multivalued: true
+    range: uri
+  documentation:
+    description: A URL to the documentation of this mapping commons.
+    range: uri
+  homepage:
+    description: A URL to a homepage of this mapping commons.
+    range: uri
   mappings:
     description: Contains a list of mapping objects
     range: mapping
@@ -143,7 +172,7 @@ slots:
         description: "From the SKOS primer: A triple skos:narrower (and skos:narrowMatch) asserts that , the object of the triple, is a narrower concept than , the subject of the triple."
       - value: skos:broadMatch
         description: "From the SKOS primer: A triple skos:broader (and skos:broadMatch) asserts that , the object of the triple, is a broader concept than , the subject of the triple."
-      - value: oio:database_cross_reference
+      - value: oboInOwl:database_cross_reference
         description: Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)
       - value: rdfs:seeAlso
         description: The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.
@@ -218,6 +247,9 @@ slots:
         description: (A date-based version that indicates that the mapping was published on the 1st January in 2021.)
       - value: "1.2.1"
         description: "(A semantic version tag that indicates that this is the 1st major, 2nd minor version, patch 1 (https://semver.org/).)"
+  mapping_set_group:
+    description: Set by the owners of the mapping registry. A way to group .
+    range: string
   mapping_set_description:
     description: A description of the mapping set.
     range: string
@@ -480,3 +512,23 @@ classes:
     - other
     - comment
     class_uri: owl:Axiom
+  mapping registry:
+    description: A registry for managing mapping sets. It holds a set of 
+      mapping set references, and can import other registries.
+    slots:
+      - mapping_registry_id
+      - imports
+      - mapping_set_references
+      - documentation
+      - homepage
+  mapping set reference:
+    description: A reference to a mapping set. It allows to augment mapping 
+      set metadata from the perspective of the registry, for example, providing 
+      confidence, or a local filename or a grouping.
+    slots:
+      - mapping_set_id
+      - mirror_from
+      - registry_confidence
+      - mapping_set_group
+      - last_updated
+      - local_name
