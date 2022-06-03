@@ -61,7 +61,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/MappingRegistry/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/MappingSet/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/MappingSetReference/</loc>
          <lastmod>2022-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -146,6 +156,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/documentation/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/editors/</loc>
          <lastmod>2022-06-03</lastmod>
          <changefreq>daily</changefreq>
@@ -161,7 +176,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/homepage/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/imports/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/last_updated/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/license/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/local_name/</loc>
          <lastmod>2022-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -186,12 +221,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/mapping_registry_id/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/mapping_set_description/</loc>
          <lastmod>2022-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/mapping_set_group/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/mapping_set_id/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/mapping_set_references/</loc>
          <lastmod>2022-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -232,6 +282,11 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/mc2021/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/mirror_from/</loc>
          <lastmod>2022-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -307,6 +362,11 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/publication_date/</loc>
+         <lastmod>2022-06-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/registry_confidence/</loc>
          <lastmod>2022-06-03</lastmod>
          <changefreq>daily</changefreq>
     </url>

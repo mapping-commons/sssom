@@ -452,7 +452,7 @@
 
 
 <h1 id="sssom">sssom</h1>
-<p>Datamodel for Simple Standard for Sharing Ontology Mappings (SSSOM)</p>
+<p>Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)</p>
 <p>URI: https://w3id.org/sssom/schema/</p>
 <h2 id="classes">Classes</h2>
 <table>
@@ -471,6 +471,14 @@
 <td><a href="Mapping/">Mapping</a></td>
 <td>Represents an individual mapping between a pair of entities</td>
 </tr>
+<tr>
+<td><a href="MappingRegistry/">MappingRegistry</a></td>
+<td>A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries.</td>
+</tr>
+<tr>
+<td><a href="MappingSetReference/">MappingSetReference</a></td>
+<td>A reference to a mapping set. It allows to augment mapping set metadata from the perspective of the registry, for example, providing confidence, or a local filename or a grouping.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="slots">Slots</h2>
@@ -482,6 +490,42 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="mirror_from/">mirror_from</a></td>
+<td>A URL location from which to obtain a resource, such as a mapping set.</td>
+</tr>
+<tr>
+<td><a href="registry_confidence/">registry_confidence</a></td>
+<td>This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.</td>
+</tr>
+<tr>
+<td><a href="last_updated/">last_updated</a></td>
+<td>The date this reference was last updated.</td>
+</tr>
+<tr>
+<td><a href="local_name/">local_name</a></td>
+<td>The local name assigned to file that corresponds to the downloaded mapping set.</td>
+</tr>
+<tr>
+<td><a href="mapping_set_references/">mapping_set_references</a></td>
+<td>A list of mapping set references.</td>
+</tr>
+<tr>
+<td><a href="mapping_registry_id/">mapping_registry_id</a></td>
+<td>The unique identifier of a mapping registry.</td>
+</tr>
+<tr>
+<td><a href="imports/">imports</a></td>
+<td>A list of registries that should be imported into this one.</td>
+</tr>
+<tr>
+<td><a href="documentation/">documentation</a></td>
+<td>A URL to the documentation of this mapping commons.</td>
+</tr>
+<tr>
+<td><a href="homepage/">homepage</a></td>
+<td>A URL to a homepage of this mapping commons.</td>
+</tr>
 <tr>
 <td><a href="mappings/">mappings</a></td>
 <td>Contains a list of mapping objects</td>
@@ -545,6 +589,10 @@
 <tr>
 <td><a href="mapping_set_version/">mapping_set_version</a></td>
 <td>A version string for the mapping.</td>
+</tr>
+<tr>
+<td><a href="mapping_set_group/">mapping_set_group</a></td>
+<td>Set by the owners of the mapping registry. A way to group .</td>
 </tr>
 <tr>
 <td><a href="mapping_set_description/">mapping_set_description</a></td>
