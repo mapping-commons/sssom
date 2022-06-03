@@ -1,0 +1,18 @@
+{
+   "Orphanet": "http://www.orpha.net/ORDO/Orphanet_",
+   "dc": "http://purl.org/dc/terms/",
+   "dce": "http://purl.org/dc/elements/1.1/",
+   "dcterms": "http://purl.org/dc/terms/",
+   "linkml": "https://w3id.org/linkml/",
+   "oboInOwl": "http://www.geneontology.org/formats/oboInOwl#",
+   "oio": "http://www.geneontology.org/formats/oboInOwl#",
+   "owl": "http://www.w3.org/2002/07/owl#",
+   "pav": "http://purl.org/pav/",
+   "prov": "http://www.w3.org/ns/prov#",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "sssom": "https://w3id.org/sssom/",
+   "Mapping": {
+      "@id": "owl:Axiom"
+   }
+}
