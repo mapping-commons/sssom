@@ -1,5 +1,5 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-06-03T16:24:22
+# Generation date: 2022-06-06T15:25:11
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
@@ -39,6 +39,7 @@ OBOINOWL = CurieNamespace('oboInOwl', 'http://www.geneontology.org/formats/oboIn
 OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
 PAV = CurieNamespace('pav', 'http://purl.org/pav/')
 PROV = CurieNamespace('prov', 'http://www.w3.org/ns/prov#')
+RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SEMAPV = CurieNamespace('semapv', 'https://w3id.org/semapv/')
 SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
@@ -49,8 +50,8 @@ DEFAULT_ = SSSOM
 # Types
 class EntityReference(Uriorcurie):
     """ A reference to a mapped entity. This is represented internally as a string, and as a resource in RDF """
-    type_class_uri = RDFS.Resource
-    type_class_curie = "rdfs:Resource"
+    type_class_uri = RDF.Resource
+    type_class_curie = "rdf:Resource"
     type_name = "EntityReference"
     type_model_uri = SSSOM.EntityReference
 
