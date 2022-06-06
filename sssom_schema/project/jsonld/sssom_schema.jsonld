@@ -24,6 +24,10 @@
       "prefix_reference": "http://www.w3.org/2000/01/rdf-schema#"
     },
     {
+      "prefix_prefix": "rdf",
+      "prefix_reference": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    },
+    {
       "prefix_prefix": "oboInOwl",
       "prefix_reference": "http://www.geneontology.org/formats/oboInOwl#"
     },
@@ -58,7 +62,7 @@
       "from_schema": "https://w3id.org/sssom/schema/",
       "typeof": "uriorcurie",
       "base": "str",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#Resource",
+      "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource",
       "repr": "str",
       "@type": "TypeDefinition"
     },
@@ -1596,9 +1600,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2022-06-03T16:07:16",
-  "source_file_size": 21345,
-  "generation_date": "2022-06-03T16:24:16",
+  "source_file_date": "2022-06-06T15:19:32",
+  "source_file_size": 21395,
+  "generation_date": "2022-06-06T15:24:57",
   "@type": "SchemaDefinition",
   "@context": [
     "sssom_schema/project/jsonld/sssom_schema.context.jsonld",
