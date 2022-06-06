@@ -8,9 +8,6 @@ authors = [
     "Harshad Hegde <hhegde@lbl.gov>"
     ]
 license = "MIT"
-packages = [
-    { include = "sssom_schema"}
-]
 
 [tool.poetry.dependencies]
 python = "^3.9"
