@@ -8,7 +8,7 @@ on:
 
     paths:
     - 'src/docs/*'
-    - 'src/schema/sssom_schema.yaml'
+    - 'src/sssom_schema/schema/sssom_schema.yaml'
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -71,5 +71,5 @@ jobs:
         mkdir docs
         touch docs/.nojekyll
         cp -r src/docs/* docs/
-        poetry run gen-doc -d docs src/schema/sssom_schema.yaml
+        poetry run gen-doc -d docs src/sssom_schema/schema/sssom_schema.yaml
         poetry run mkdocs gh-deploy
