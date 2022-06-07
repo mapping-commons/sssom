@@ -70,6 +70,6 @@ jobs:
       run: |
         mkdir docs
         touch docs/.nojekyll
-        cp -r sssom_schema/src/docs/* docs/
-        poetry run gen-doc -d docs sssom_schema/src/linkml/sssom_schema.yaml
+        cp -r src/docs/* docs/
+        poetry run gen-doc -d docs src/schema/sssom_schema.yaml
         poetry run mkdocs gh-deploy
