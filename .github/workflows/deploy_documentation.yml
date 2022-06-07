@@ -7,8 +7,8 @@ on:
     branches: [ master ]
 
     paths:
-    - 'sssom_schema/src/docs/*'
-    - 'sssom_schema/src/linkml/sssom_schema.yaml'
+    - 'src/docs/*'
+    - 'src/schema/sssom_schema.yaml'
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
