@@ -6,9 +6,9 @@ on:
   pull_request:
     branches: [ master ]
 
-    # paths:
-    # - 'src/docs/*'
-    # - 'src/sssom_schema/schema/sssom_schema.yaml'
+    paths:
+    - 'src/docs/*'
+    - 'src/sssom_schema/schema/sssom_schema.yaml'
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
