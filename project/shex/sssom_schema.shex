@@ -9,7 +9,7 @@ PREFIX linkml: <https://w3id.org/linkml/>
 PREFIX pav: <http://purl.org/pav/>
 
 
-<EntityReference> rdf:Resource
+<EntityReference> rdfs:Resource
 
 linkml:String xsd:string
 

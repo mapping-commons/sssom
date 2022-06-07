@@ -36,13 +36,13 @@ enums:
         meaning: owl:NamedIndividual
       skos concept:
         meaning: skos:Concept
-      rdf resource:
-        meaning: rdf:Resource
-      rdf class:
+      rdfs resource:
+        meaning: rdfs:Resource
+      rdfs class:
         meaning: rdfs:Class
-      rdf literal:
+      rdfs literal:
         meaning: rdfs:Literal
-      rdf datatype:
+      rdfs datatype:
         meaning: rdfs:Datatype
       rdf property:
         meaning: rdf:Property

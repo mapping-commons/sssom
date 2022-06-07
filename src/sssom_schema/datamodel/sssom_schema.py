@@ -1,5 +1,5 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-06-06T15:25:11
+# Generation date: 2022-06-07T11:23:26
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
@@ -50,8 +50,8 @@ DEFAULT_ = SSSOM
 # Types
 class EntityReference(Uriorcurie):
     """ A reference to a mapped entity. This is represented internally as a string, and as a resource in RDF """
-    type_class_uri = RDF.Resource
-    type_class_curie = "rdf:Resource"
+    type_class_uri = RDFS.Resource
+    type_class_curie = "rdfs:Resource"
     type_name = "EntityReference"
     type_model_uri = SSSOM.EntityReference
 
@@ -489,17 +489,17 @@ class EntityTypeEnum(EnumDefinitionImpl):
         setattr(cls, "skos concept",
                 PermissibleValue(text="skos concept",
                                  meaning=SKOS.Concept) )
-        setattr(cls, "rdf resource",
-                PermissibleValue(text="rdf resource",
-                                 meaning=RDF.Resource) )
-        setattr(cls, "rdf class",
-                PermissibleValue(text="rdf class",
+        setattr(cls, "rdfs resource",
+                PermissibleValue(text="rdfs resource",
+                                 meaning=RDFS.Resource) )
+        setattr(cls, "rdfs class",
+                PermissibleValue(text="rdfs class",
                                  meaning=RDFS.Class) )
-        setattr(cls, "rdf literal",
-                PermissibleValue(text="rdf literal",
+        setattr(cls, "rdfs literal",
+                PermissibleValue(text="rdfs literal",
                                  meaning=RDFS.Literal) )
-        setattr(cls, "rdf datatype",
-                PermissibleValue(text="rdf datatype",
+        setattr(cls, "rdfs datatype",
+                PermissibleValue(text="rdfs datatype",
                                  meaning=RDFS.Datatype) )
         setattr(cls, "rdf property",
                 PermissibleValue(text="rdf property",

@@ -10,8 +10,8 @@ RUN = poetry run
 # get values from about.yaml file
 SCHEMA_NAME = $(shell sh ./utils/get-value.sh name)
 SOURCE_SCHEMA_PATH = $(shell sh ./utils/get-value.sh source_schema_path)
-SRC = sssom_schema/src
-DEST = sssom_schema/project
+SRC = src
+DEST = project
 PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
 DOCDIR = docs
 

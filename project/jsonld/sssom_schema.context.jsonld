@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from sssom_schema.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-06-06T15:24:56\n    Schema: sssom\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "_comments": "Auto generated from sssom_schema.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-06-07T11:23:12\n    Schema: sssom\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
       "dc": "http://purl.org/dc/terms/",
       "dcterms": "http://purl.org/dc/terms/",
@@ -15,7 +15,7 @@
       "sssom": "https://w3id.org/sssom/",
       "@vocab": "https://w3id.org/sssom/",
       "author_id": {
-         "@type": "rdf:Resource",
+         "@type": "rdfs:Resource",
          "@id": "pav:authoredBy"
       },
       "comment": {
@@ -25,7 +25,7 @@
          "@type": "xsd:double"
       },
       "creator_id": {
-         "@type": "rdf:Resource",
+         "@type": "rdfs:Resource",
          "@id": "dc:creator"
       },
       "documentation": {
@@ -57,13 +57,13 @@
          "@id": "pav:authoredOn"
       },
       "mapping_justification": {
-         "@type": "rdf:Resource"
+         "@type": "rdfs:Resource"
       },
       "mapping_provider": {
          "@type": "@id"
       },
       "mapping_registry_id": {
-         "@type": "rdf:Resource"
+         "@type": "rdfs:Resource"
       },
       "mapping_set_description": {
          "@id": "dc:description"
@@ -82,7 +82,7 @@
          "@id": "owl:versionInfo"
       },
       "mapping_source": {
-         "@type": "rdf:Resource"
+         "@type": "rdfs:Resource"
       },
       "mappings": {
          "@type": "@id"
@@ -91,17 +91,17 @@
          "@type": "@id"
       },
       "object_id": {
-         "@type": "rdf:Resource",
+         "@type": "rdfs:Resource",
          "@id": "owl:annotatedTarget"
       },
       "object_match_field": {
-         "@type": "rdf:Resource"
+         "@type": "rdfs:Resource"
       },
       "object_preprocessing": {
-         "@type": "rdf:Resource"
+         "@type": "rdfs:Resource"
       },
       "object_source": {
-         "@type": "rdf:Resource"
+         "@type": "rdfs:Resource"
       },
       "object_type": {
          "@context": {
@@ -112,7 +112,7 @@
          }
       },
       "predicate_id": {
-         "@type": "rdf:Resource",
+         "@type": "rdfs:Resource",
          "@id": "owl:annotatedProperty"
       },
       "predicate_modifier": {
@@ -139,7 +139,7 @@
          "@type": "xsd:double"
       },
       "reviewer_id": {
-         "@type": "rdf:Resource"
+         "@type": "rdfs:Resource"
       },
       "see_also": {
          "@id": "rdfs:seeAlso"
@@ -148,17 +148,17 @@
          "@type": "xsd:double"
       },
       "subject_id": {
-         "@type": "rdf:Resource",
+         "@type": "rdfs:Resource",
          "@id": "owl:annotatedSource"
       },
       "subject_match_field": {
-         "@type": "rdf:Resource"
+         "@type": "rdfs:Resource"
       },
       "subject_preprocessing": {
-         "@type": "rdf:Resource"
+         "@type": "rdfs:Resource"
       },
       "subject_source": {
-         "@type": "rdf:Resource"
+         "@type": "rdfs:Resource"
       },
       "subject_type": {
          "@context": {
