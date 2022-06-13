@@ -763,7 +763,7 @@
 <li><a href="#noise">Acceptable degree of noise</a></li>
 <li><a href="#use-case">Intended use case</a></li>
 </ol>
-<p><a id="precision" /></p>
+<p><a id="precision"></a></p>
 <h3 id="what-is-the-precision-of-the-mapping">What is the <strong>precision</strong> of the mapping?</h3>
 <p>As a curator, you should try to investigate the <strong>intended meaning</strong> of both the subject and the object. This task usually involves trying to find out as much as possible about the mapped identifiers: What is their human readable definition? Are their any logical axioms that could help understanding the intended meaning? Sometimes, this even involves asking the respective stewards of the database or ontology for clarification. <strong>Important:</strong> The key here is "intended meaning", i.e. when you see <code>FOODON:Apple</code> (FOODON is an ontology), you do not try to figure out <em>what an apple is</em>, but what thing in the world (in your conceptual model of the world) the FOODON developers <em>intended the <code>FOODON:Apple</code> identifier to refer to</em>. This may be an Apple that you can eat. Or a <a href="https://en.wikipedia.org/wiki/List_of_apple_cultivars">cultivar</a>!</p>
 <p>The <strong>precision</strong> is simply: is the mapping <code>exact</code>, <code>close</code>, <code>broad</code>, <code>narrow</code> or <code>related</code>? Here is an basic guide of how to think of each:</p>
@@ -774,7 +774,7 @@
 <li><code>narrow</code>: The subject refers to a broader term. For example "Apple (cultivar)" is a narrow match to "Gala (cultivar)". Think of it as the opposite of "broad". <code>broad</code> and <code>narrow</code> are so called inverse categories: If "Gala (cultivar)" is a <code>broad</code> match to "Apple (cultivar)", then "Apple (cultivar)" is a <code>narrow</code> match to "Gala (cultivar)"! One <strong>note of caution</strong>: <code>narrow</code> matches generally have  less useful applications then <code>broad</code> ones. For example, if we want to <em>group</em> subject entities in a database under an ontology to make them query-able in a knowledge graph, only <code>broad</code> matches to the ontology can be retrieved. For example, if we map "Gala (cultivar)" in a database to "Apple (cultivar)" in an ontology, and we wish to write a semantic query to obtain all records that are about "Apple (cultivar)" according to the ontology, we obtain "Gala (cultivar)". This is not true the other way around: if the ontology term is <em>more</em> specific then the database time, it cant be use the group the database data.</li>
 <li><code>related</code>: The subject refers to an analogous concept of a different category. For example "Apple" and "Apple tree" are considered <code>related</code> matches, but not <code>exact</code> matches, as "Apple" is of the "fruit" category, and "Apple tree" of the "tree" category. Other examples include: "disease" and "phenotype", "chemical" and "chemical exposure", "car" and "car manufacturing process". In general, <code>related</code> mappings should be reserved for "direct analogues". For example, we should not try to map to <code>related</code> and <code>broad</code> categories at the same time, like, for example, "Gala (cultivar)" to "Apple tree". This causes a huge amount of proliferation of very "low value" mappings (see use case section later).</li>
 </ul>
-<p><a id="noise" /></p>
+<p><a id="noise"></a></p>
 <h3 id="what-is-the-acceptable-degree-of-noise-of-the-mapping">What is the <strong>acceptable degree of noise</strong> of the mapping?</h3>
 <p>Depending on what you want to do with your mappings, different quality levels are acceptable. This section is <em>not exhaustive</em>. "Noise" is the permissible margin of error for some target use case.</p>
 <p>While reading through this section, you should keep one things in mind: It is <em>never</em> a good idea to think about mappings as "correct" or "wrong". Even the the exact same identifier (for example in Wikidata, or even the biomedical data domain) can mean something very different depending on which database it is using it or in which part of which datamodel (or value set) they are used. Mapping should therefore be perceived as an inexact art where the goal is not "correctness" but "fitness for purpose": can the mappings deliver the use case I am interested in? In the following, we will take a closer look at the varying levels of noise you may need to weigh against each other.</p>
@@ -790,7 +790,7 @@
 <li>"zero-noise": Very expensive. Every mapping must be carefully reviewed by a human curator, sometimes by a group of curators. In our experience, reviewing or establishing a mapping like this (manually) can take anything between 10 and 30 minutes - occasionally more.</li>
 </ul>
 <p>You can use these estimated costs for mapping review to determine how much it would cost to apply the same level of rigour to your own mappings.</p>
-<p><a id="use-case" /></p>
+<p><a id="use-case"></a></p>
 <h3 id="what-is-the-intended-use-case">What is the intended use case?</h3>
 <p>This section is informative, not exhaustive, and will give you a sense of how use cases affect your choice of mapping predicate.</p>
 <p>We have covered some implications of use cases in the sections above:</p>
@@ -805,7 +805,7 @@
 <li><a href="#instance">Instance vs concept-level mapping</a></li>
 <li><a href="#uc-typical">Typical use cases</a></li>
 </ul>
-<p><a id="uc-semantic" /></p>
+<p><a id="uc-semantic"></a></p>
 <h4 id="semantic-frameworks-for-analysis-and-querying">Semantic frameworks for analysis and querying</h4>
 <p>There are four semantic frameworks/formalisms that default SSSOM supports: (1) <a href="https://www.w3.org/TR/rdf-sparql-query/">SPARQL/RDF(S)</a> (querying an integrated knowledge with basic SPARQL); (2) <a href="https://www.w3.org/TR/skos-reference/">Simple Knowledge organisation systems (SKOS)</a>; (3) <a href="https://www.w3.org/TR/owl2-syntax/">Web Ontology Language (OWL)</a>; (4) no formalism (property graphs, non-semantic use cases). We will briefly discuss the implications of each for your use cases.</p>
 <ul>
@@ -815,7 +815,7 @@
 <li>Using no semantic framework does not mean semantic mappings are useless! Many extremely useful applications exist for mappings which do not involve a semantic framework, such as those related to <a href="https://www.oxfordsemantic.tech/fundamentals/what-is-a-labeled-property-graph">Labelled Property Graphs</a> (for example <a href="https://neo4j.com/">neo4j</a>). Even if you just want to translate your data into a graph, it is useful to know the semantics of your mappings as they can inform your graph queries.</li>
 </ul>
 <p>Other semantic frameworks exists such as rule-based systems (e.g. Datalog, SWRL), but they are not used as widely as the above in our domain.</p>
-<p><a id="uc-semantic" /></p>
+<p><a id="uc-semantic"></a></p>
 <h4 id="instance-vs-property-vs-concept-level-mapping">Instance vs Property vs Concept-level mapping</h4>
 <p>To pick the correct mapping predicated, it is furthermore important to understand whether you are mapping concepts or instances:</p>
 <ul>
@@ -829,7 +829,7 @@
 <li>Property-level: the entities being mapped are both properties, like, for example, rdfs:label, skos:prefLabel, RO:0000050 (part of). </li>
 </ul>
 <p>Note that it does not make sense to try and map instances of concepts, or concepts, directly to properties. There are no relationships that would support such a mapping.</p>
-<p><a id="uc-typical" /></p>
+<p><a id="uc-typical"></a></p>
 <h4 id="typical-use-cases">Typical use cases</h4>
 <p>Typical use cases for mappings include:</p>
 <ol>
@@ -837,7 +837,7 @@
 <li><em>Data translation</em>. Similar to data integration, but we want to map as precisely as possible. Only <code>exact</code> matches really matter if we want to make sure that data annotated with one ontology means the exact same thing as data annotated with another. Noise in the mappings is often not acceptable. An example for this is if one source has annotated all its genes using the Huge Gene Nomenclature Committee (HGNC) while another is using NCBI Gene Database identifiers. <code>broad</code>, <code>narrow</code> and even <code>close</code> matches are mostly  meaningless - we need a 1:1 translation table with next to zero noise.</li>
 <li><em>Ontology and knowledge graph merging</em>. Here, the key issue is that <code>exact</code> matches matches have as little noise as possible. Some merging approaches use probabilistic algorithms to weed out out potentially bad mappings (low levels of noise may be acceptable, see for example <a href="https://github.com/INCATools/boomer">boomer</a>), but any naive merging approach, which is still prevalent in the knowledge graph world, will usually do the following: (1) Merge all <code>exact</code> matches into one "node" in the knowledge graph and (2) redirect all data against all these <code>exact</code> matches to that newly created node.</li>
 </ol>
-<p><a id="tenstep" /></p>
+<p><a id="tenstep"></a></p>
 <h2 id="the-3-step-process-for-selecting-an-appropriate-mapping-predicate">The 3-step process for selecting an appropriate mapping predicate</h2>
 <p>The following 10-step process condenses the sections above into a simple to follow algorithm.</p>
 <p>Given two terms A and B:</p>
