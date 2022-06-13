@@ -146,6 +146,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/mapping-predicates/</loc>
+         <lastmod>2022-06-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/mapping_cardinality/</loc>
          <lastmod>2022-06-13</lastmod>
          <changefreq>daily</changefreq>
@@ -157,11 +162,6 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/mapping_justification/</loc>
-         <lastmod>2022-06-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/mapping_predicates/</loc>
          <lastmod>2022-06-13</lastmod>
          <changefreq>daily</changefreq>
     </url>

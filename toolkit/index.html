@@ -456,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mapping_predicates/" class="md-nav__link">
+      <a href="../mapping-predicates/" class="md-nav__link">
         How to use mapping predicates
       </a>
     </li>
@@ -517,6 +517,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extracting-mappings-from-an-external-source" class="md-nav__link">
+    Extracting mappings from an external source
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combining-mappings-from-several-sources" class="md-nav__link">
+    Combining mappings from several sources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-an-sssom-mapping-table-into-different-formats" class="md-nav__link">
+    Converting an SSSOM mapping table into different formats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-methods" class="md-nav__link">
+    Other methods:
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -572,6 +607,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extracting-mappings-from-an-external-source" class="md-nav__link">
+    Extracting mappings from an external source
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combining-mappings-from-several-sources" class="md-nav__link">
+    Combining mappings from several sources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-an-sssom-mapping-table-into-different-formats" class="md-nav__link">
+    Converting an SSSOM mapping table into different formats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-methods" class="md-nav__link">
+    Other methods:
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -595,9 +665,57 @@
 <h2 id="pre-requisites">Pre-requisites</h2>
 <ul>
 <li>Complete the <a href="../tutorial/">basic SSSOM tutorial</a></li>
+<li><a href="https://mapping-commons.github.io/sssom-py/installation.html">Install SSSOM toolkit</a>. Alternatively, you can install the <a href="https://github.com/INCATools/ontology-development-kit">Ontology Development Kit (ODK)</a> and follow the tutorial using its <a href="https://oboacademy.github.io/obook/howto/odk-setup/">docker image</a>.</li>
+<li>We are assuming a Unix shell for this tutorial, but most of the principles should apply to the Windows CMD as well. Windows users may prefer to install the ODK (see above).</li>
 </ul>
 <h2 id="overview">Overview</h2>
-<p>SSSOM toolkit, previously known as <code>sssom-py</code>, is a set of utility methods for processing SSSOM files.</p>
+<p>SSSOM toolkit (STK), previously known as <code>sssom-py</code>, is a set of utility methods for processing SSSOM files, packaged as a Command Line Client (CLI) and a <a href="https://pypi.org/project/sssom/">python package</a>. In the following, we will extract mappings from an ontology an process them with the CLI. The goal is to give a sense of the functionality of the toolkit. Additional and more up-to-date information on usage can be found <a href="https://mapping-commons.github.io/sssom-py">here</a>.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><code>parse</code>: <a href="#parse">Extracting mappings from an external source</a></li>
+<li><code>merge</code>: <a href="#merge">Combining mappings from several sources</a></li>
+<li><code>convert</code>: <a href="#convert">Converting an SSSOM mapping table into different formats</a></li>
+</ol>
+<p><a id="parse"></a></p>
+<h2 id="extracting-mappings-from-an-external-source">Extracting mappings from an external source</h2>
+<p>One key issue developers are faced with is to convert various different mapping formats into a common representation (e.g. SSSOM). The SSSOM toolkit (STK) already implements a number of commonly use mapping formats:</p>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Web_Ontology_Language">OWL Ontologies</a></li>
+<li><a href="https://moex.gitlabpages.inria.fr/alignapi/">Alignment API</a> Format (format used by the Ontology Alignment Evaluation Initiative, OAEI)</li>
+<li>Parsers for SNOMED mapping format and FHIR Concept Map are <a href="https://github.com/mapping-commons/sssom-py/pull/207">in the making</a>, June 2022.</li>
+</ol>
+<p>Here we use Uberon, an anatomy ontology in the biomedical domain.</p>
+<div class="highlight"><pre><span></span><code>wget http://purl.obolibrary.org/obo/uberon/uberon-base.json -O uberon-base.json
+</code></pre></div>
+<p>Feel free to download the file manually if you do not have <code>wget</code> installed.</p>
+<p>Now use <code>sssom parse</code> to extract all the mappings provided by the ontology. As there are multiple json based formats that can be parsed, you have to tell <code>sssom</code> which format you are using: <code>--input-format obographs-json</code>.</p>
+<div class="highlight"><pre><span></span><code>sssom parse uberon-base.json --input-format obographs-json --output uberon.sssom.tsv
+</code></pre></div>
+<p>From a CLI design perspective we already notice a few things:</p>
+<ol>
+<li><code>uberon-base.json</code> is passed to the STK <em>as an argument</em> (without an option like <code>-i</code>). This is the case for most <em>primary inputs</em> (mapping tables, source files) througout the SSSOM client.</li>
+</ol>
+<p><a id="merge"></a></p>
+<h2 id="combining-mappings-from-several-sources">Combining mappings from several sources</h2>
+<p><a id="convert"></a></p>
+<h2 id="converting-an-sssom-mapping-table-into-different-formats">Converting an SSSOM mapping table into different formats</h2>
+<h2 id="other-methods">Other methods:</h2>
+<ul>
+<li>cliquesummary</li>
+<li>correlations</li>
+<li>crosstab</li>
+<li>dedupe</li>
+<li>diff</li>
+<li>dosql</li>
+<li>partition</li>
+<li>ptable</li>
+<li>reconcile-prefixes</li>
+<li>rewire</li>
+<li>sort</li>
+<li>sparql</li>
+<li>split</li>
+<li>validate</li>
+</ul>
 <p><em>Under construction</em>.</p>
 
               
@@ -616,7 +734,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../mapping_predicates/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How to use mapping predicates" rel="prev">
+        <a href="../mapping-predicates/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How to use mapping predicates" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
