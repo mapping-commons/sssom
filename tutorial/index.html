@@ -11,15 +11,15 @@
         <link rel="canonical" href="https://mapping-commons.github.io/sssom/tutorial/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.0">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
     
     
       
-        <title>Tutorial - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>Basic Tutorial - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fd896c8a.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tutorial
+              Basic Tutorial
             
           </span>
         </div>
@@ -452,12 +452,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Tutorial
+          Basic Tutorial
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Tutorial
+        Basic Tutorial
       </a>
       
         
@@ -683,6 +683,34 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping_predicates/" class="md-nav__link">
+        How to use mapping predicates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toolkit/" class="md-nav__link">
+        A basic guide for the SSSOM toolkit
+      </a>
     </li>
   
 
@@ -1197,6 +1225,7 @@ SELECT * WHERE {
   FILTER(STRSTARTS(str(?sub),&quot;http://purl.obolibrary.org/obo/FOODON_&quot;))
 }
 </code></pre></div>
+<p>A detailed discussion on mapping predicates can be found <a href="../mapping_predicates/">here</a>.</p>
 <h5 id="mapping-apple-attempt-1">Mapping "apple", attempt 1</h5>
 <p>Our first attempt is to try and map <code>KF_FOOD:F001</code> (apple). At the time of writing, a search for the string "apple" just across the labels in FOODON reveals more than 300 results. There are no exact matches for the search string "apple", i.e. there is no entity in FOODON that has the label "apple" exactly. Rather than sifting through the large set of results, we move on to try to map a more specific element first. As FOODON is an ontology, having a mapping to a more specific element (e.g. <code>gala</code>) may help us to find an appropriate mapping for the more general concept (e.g. <code>apple</code>), which should be hierarchically related to the more specific term.</p>
 <h5 id="mapping-gala">Mapping "gala"</h5>
@@ -1469,7 +1498,7 @@ SELECT * WHERE {
 <li>is reasonably short, but not too short (3-4 sentences)</li>
 </ul>
 <p><code>license</code>: An identifier for a license description. One of the most serious impediments to re-use on the web is the absence of clear and <strong>standardised</strong> licenses. We recommend the creative commons licenses for open data, either CC-0 (public domain, no license) or CC-BY 4.0. (Some people prefer CC-BY 4.0, because it ensures that attribution is taken more seriously.) Even when using a proprietary license, it is good to be transparent here, so that an "accidentally leaked" data file is not mistakenly assumed to be "open".</p>
-<p><code>subject_source</code>: URI of source the subject. This is one of the most important pieces of metadata: an unambiguous reference to a source. It is notoriously hard to standardise source reference, and we are <a href="https://github.com/mapping-commons/sssom/issues/126">currently debating</a> whether we should require URIs in the strict sense (e.g. a URL to a source, or a PURL to an ontology) or whether we can refer to a source simply by a PREFIX (as long as it can be dereferenced by bioregistry.io).</p>
+<p><code>subject_source</code>: URI of source the subject. This is one of the most important pieces of metadata: an unambiguous reference to a source. It is notoriously hard to standardise source references (<a href="https://github.com/mapping-commons/sssom/issues/126">see past debate</a>). We recommend to use the standard URIs used in your own domain, for example OBO (<code>obo:mondo</code>) or Wikidata (<code>wikidata:Q7876491</code>).</p>
 <p><code>subject_source_version</code>: The version of the source of the subject. In order to interpret a mapping, it is not enough to know the source. Sources changes all the time, whether they are database and/or ontology: classes are obsoleted, database records are deleted. What counts for an exact mapping may change through the evolution of a source. <em>Always</em> document the source version, if you can. This can be very difficult for database systems that do not have a real notion of versioning.</p>
 <p><code>object_source</code>: URI of source the object. See <code>subject_source</code>.</p>
 <p><code>object_source_version</code>: The version of the source of the object. See <code>subject_source_version</code>.</p>
@@ -1600,9 +1629,11 @@ curie_map:
 <h4 id="embedded-vs-external-mode-for-sssom-metadata">Embedded vs external mode for SSSOM metadata</h4>
 <p>One problem with table formats like TSV or CSV, in contrast to more flexible tree shaped formats like JSON or XML, is that it is notoriously hard to include metadata about the whole table (for example, mapping <strong>set</strong> metadata) in them. There are essentially three options:</p>
 <ol>
-<li>All metadata is stored as values in columns. While this is definitely possible, it is not ideal for a few reasons:</li>
+<li>All metadata is stored as values in columns. While this is definitely possible, it is not ideal for a few reasons:<ol>
 <li>It is highly redundant. If we have to store the <code>mapping_set_id</code>, for example, as a value in a mapping table with 1000 mappings, it is repeated 1000 times.</li>
 <li>It is less immediately clear whether a piece of metadata pertains to the <code>mapping_set</code> or a <code>mapping</code> (you have to study the specification to understand that <code>author_id</code> pertains to an individual mapping rather than the whole mapping set).</li>
+</ol>
+</li>
 <li>Metadata about the mapping set is stored within the TSV file header. Basically, we introduce a number of rows at the top of the TSV file that we reserve for metadata. The disadvantage is that many parsers for such flat files do not know how to deal with a header like this.</li>
 <li>We keep metadata about tables and mapping sets separate, i.e. we keep one TSV file that contains the data and one YAML file that contains the mapping set metadata. This is often a good option, but keeping the two separate may cause a problem: in environments where the data is shared around (emailed, copied) the connection can get lost.</li>
 </ol>
@@ -1782,6 +1813,21 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   Huma
         </a>
       
       
+        
+        <a href="../mapping_predicates/" class="md-footer__link md-footer__link--next" aria-label="Next: How to use mapping predicates" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              How to use mapping predicates
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
     </nav>
   
   <div class="md-footer-meta md-typeset">
@@ -1807,7 +1853,7 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   Huma
     <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.0f659f14.min.js"></script>
+      <script src="../assets/javascripts/bundle.f758a944.min.js"></script>
       
     
   </body>

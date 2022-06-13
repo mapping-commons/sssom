@@ -1,0 +1,1054 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/mapping_predicates/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+    
+    
+      
+        <title>How to use mapping predicates - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-pick-the-right-mapping-predicates" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-header__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A Simple Standard for Sharing Ontology Mappings (SSSOM)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How to use mapping predicates
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-nav__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    A Simple Standard for Sharing Ontology Mappings (SSSOM)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../home/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        About SSSOM
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Specification
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../credits/" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        Contact us
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Resources for contributors
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources for contributors" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Resources for contributors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        How to contribute?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_of_conduct/" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Resources for users
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources for users" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Resources for users
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/" class="md-nav__link">
+        Use cases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshops/" class="md-nav__link">
+        Workshops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../presentations/" class="md-nav__link">
+        Presentations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        Basic Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          How to use mapping predicates
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        How to use mapping predicates
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-content" class="md-nav__link">
+    Table of content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    Glossary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-primary-concerns-for-selecting-a-mapping-predicate" class="md-nav__link">
+    The three primary concerns for selecting a mapping predicate
+  </a>
+  
+    <nav class="md-nav" aria-label="The three primary concerns for selecting a mapping predicate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-precision-of-the-mapping" class="md-nav__link">
+    What is the precision of the mapping?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-acceptable-degree-of-noise-of-the-mapping" class="md-nav__link">
+    What is the acceptable degree of noise of the mapping?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-intended-use-case" class="md-nav__link">
+    What is the intended use case?
+  </a>
+  
+    <nav class="md-nav" aria-label="What is the intended use case?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semantic-frameworks-for-analysis-and-querying" class="md-nav__link">
+    Semantic frameworks for analysis and querying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-vs-property-vs-concept-level-mapping" class="md-nav__link">
+    Instance vs Property vs Concept-level mapping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typical-use-cases" class="md-nav__link">
+    Typical use cases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-3-step-process-for-selecting-an-appropriate-mapping-predicate" class="md-nav__link">
+    The 3-step process for selecting an appropriate mapping predicate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequently-asked-questions" class="md-nav__link">
+    Frequently asked questions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toolkit/" class="md-nav__link">
+        A basic guide for the SSSOM toolkit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-content" class="md-nav__link">
+    Table of content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    Glossary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-primary-concerns-for-selecting-a-mapping-predicate" class="md-nav__link">
+    The three primary concerns for selecting a mapping predicate
+  </a>
+  
+    <nav class="md-nav" aria-label="The three primary concerns for selecting a mapping predicate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-precision-of-the-mapping" class="md-nav__link">
+    What is the precision of the mapping?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-acceptable-degree-of-noise-of-the-mapping" class="md-nav__link">
+    What is the acceptable degree of noise of the mapping?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-intended-use-case" class="md-nav__link">
+    What is the intended use case?
+  </a>
+  
+    <nav class="md-nav" aria-label="What is the intended use case?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semantic-frameworks-for-analysis-and-querying" class="md-nav__link">
+    Semantic frameworks for analysis and querying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-vs-property-vs-concept-level-mapping" class="md-nav__link">
+    Instance vs Property vs Concept-level mapping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typical-use-cases" class="md-nav__link">
+    Typical use cases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-3-step-process-for-selecting-an-appropriate-mapping-predicate" class="md-nav__link">
+    The 3-step process for selecting an appropriate mapping predicate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequently-asked-questions" class="md-nav__link">
+    Frequently asked questions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/mapping-commons/sssom/edit/master/sssom_schema/src/docs/mapping_predicates.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="how-to-pick-the-right-mapping-predicates">How to pick the right mapping predicates</h1>
+<p>A mapping predicate such as skos:exactMatch species the semantics of the mapping relation - in other words, it defines how a computer (and human!) should interpret the mapping when it is being used. For example, a computer program may be allowed to merge nodes in a knowledge graph <em>only when they are <code>skos:exactMatch</code></em>, but not when they are, say, <code>skos:closeMatch</code>.</p>
+<p>Picking the right predicate to specify the meaning of your mapping is often a difficult process. The following guide should help you to understand the most widely used mapping predicates and when they are appropriate.</p>
+<h2 id="table-of-content">Table of content</h2>
+<ul>
+<li><a href="#primary">The three primary concerns for selecting a mapping predicate</a></li>
+<li><a href="#tenstep">The 3 step process for selecting an appropriate mapping predicate</a></li>
+<li></li>
+</ul>
+<h2 id="glossary">Glossary</h2>
+<ul>
+<li><code>subject</code>: the entity that is being mapped</li>
+<li><code>object</code>: the entity that the <code>subject</code> is mapped to</li>
+<li><code>predicate</code>: the semantic mapping relationship used</li>
+</ul>
+<p><a id="primary"></p>
+<h2 id="the-three-primary-concerns-for-selecting-a-mapping-predicate">The three primary concerns for selecting a mapping predicate</h2>
+<p>There are at least three things you need to decide before selecting an appropriate mapping predicate:</p>
+<ol>
+<li><a href="#precision">Precision</a></li>
+<li><a href="#noise">Acceptable degree of noise</a></li>
+<li><a href="#use-case">Intended use case</a></li>
+</ol>
+<p><a id="precision" /></p>
+<h3 id="what-is-the-precision-of-the-mapping">What is the <strong>precision</strong> of the mapping?</h3>
+<p>As a curator, you should try to investigate the <strong>intended meaning</strong> of both the subject and the object. This task usually involves trying to find out as much as possible about the mapped identifiers: What is their human readable definition? Are their any logical axioms that could help understanding the intended meaning? Sometimes, this even involves asking the respective stewards of the database or ontology for clarification. <strong>Important:</strong> The key here is "intended meaning", i.e. when you see <code>FOODON:Apple</code> (FOODON is an ontology), you do not try to figure out <em>what an apple is</em>, but what thing in the world (in your conceptual model of the world) the FOODON developers <em>intended the <code>FOODON:Apple</code> identifier to refer to</em>. This may be an Apple that you can eat. Or a <a href="https://en.wikipedia.org/wiki/List_of_apple_cultivars">cultivar</a>!</p>
+<p>The <strong>precision</strong> is simply: is the mapping <code>exact</code>, <code>close</code>, <code>broad</code>, <code>narrow</code> or <code>related</code>? Here is an basic guide of how to think of each:</p>
+<ul>
+<li><code>exact</code>: The two terms are intended to refer to the same thing. For example, both the subject and the object identifiers refer to the concept of <a href="https://en.wikipedia.org/wiki/Gala_(apple)">Gala cultivar</a>.</li>
+<li><code>close</code>: The two terms are intended to refer to roughly the same thing, but not quite. This is a hazy category and should be avoided in practice, because when taken too literally, most mappings could be interpreted as close mappings. This is not the point of creating mappings, if their intention is to be useful (see "use case" considerations later in this document). An example of a <code>close</code> mapping is one between the "heart" concept in a database of anatomical entities for biological research on chimpanzees and the "human heart" in an electronic health record for humans.</li>
+<li><code>broad</code>: The subject refers to a broader term. For example, "human heart" in an electronic health record refers to "heart" in a general anatomy ontology that covers all species, such as Uberon. Another example is "Gala (cultivar)" in one ontology or database to "Apple (cultivar)" in another: the Apple (cultivar) has a broader meaning then "Gala (cultivar)". For a good mapping, it is advisable that "broad" and "narrow" are applied a bit more strictly than is technically permitted by the SKOS specification: both the subject and the object should belong to the same <strong>category</strong>. For example, you should use broad (or narrow) only if both the subject and the object are "cultivars" (in the above example).</li>
+<li><code>narrow</code>: The subject refers to a broader term. For example "Apple (cultivar)" is a narrow match to "Gala (cultivar)". Think of it as the opposite of "broad". <code>broad</code> and <code>narrow</code> are so called inverse categories: If "Gala (cultivar)" is a <code>broad</code> match to "Apple (cultivar)", then "Apple (cultivar)" is a <code>narrow</code> match to "Gala (cultivar)"! One <strong>note of caution</strong>: <code>narrow</code> matches generally have  less useful applications then <code>broad</code> ones. For example, if we want to <em>group</em> subject entities in a database under an ontology to make them query-able in a knowledge graph, only <code>broad</code> matches to the ontology can be retrieved. For example, if we map "Gala (cultivar)" in a database to "Apple (cultivar)" in an ontology, and we wish to write a semantic query to obtain all records that are about "Apple (cultivar)" according to the ontology, we obtain "Gala (cultivar)". This is not true the other way around: if the ontology term is <em>more</em> specific then the database time, it cant be use the group the database data.</li>
+<li><code>related</code>: The subject refers to an analogous concept of a different category. For example "Apple" and "Apple tree" are considered <code>related</code> matches, but not <code>exact</code> matches, as "Apple" is of the "fruit" category, and "Apple tree" of the "tree" category. Other examples include: "disease" and "phenotype", "chemical" and "chemical exposure", "car" and "car manufacturing process". In general, <code>related</code> mappings should be reserved for "direct analogues". For example, we should not try to map to <code>related</code> and <code>broad</code> categories at the same time, like, for example, "Gala (cultivar)" to "Apple tree". This causes a huge amount of proliferation of very "low value" mappings (see use case section later).</li>
+</ul>
+<p><a id="noise" /></p>
+<h3 id="what-is-the-acceptable-degree-of-noise-of-the-mapping">What is the <strong>acceptable degree of noise</strong> of the mapping?</h3>
+<p>Depending on what you want to do with your mappings, different quality levels are acceptable. This section is <em>not exhaustive</em>. "Noise" is the permissible margin of error for some target use case.</p>
+<p>While reading through this section, you should keep one things in mind: It is <em>never</em> a good idea to think about mappings as "correct" or "wrong". Even the the exact same identifier (for example in Wikidata, or even the biomedical data domain) can mean something very different depending on which database it is using it or in which part of which datamodel (or value set) they are used. Mapping should therefore be perceived as an inexact art where the goal is not "correctness" but "fitness for purpose": can the mappings deliver the use case I am interested in? In the following, we will take a closer look at the varying levels of noise you may need to weigh against each other.</p>
+<ul>
+<li>"zero-noise". Some mappings directly inform decision processes of downstream consumers, such as clinical decision support or manufacturing. For example, in an electronic health record (EHR) system we may want to know what the latest recommended drugs (or contra-indications) for a conditions are, and the disease-drugs relationships may be curated using one terminology such as <a href="https://ohdsi.org/omop">OMOP</a>, and the EHR may be represented using <a href="https://icd.codes/icd10cm">ICD10-CM</a> (a clinical terminology used widely by hospitals). In these cases, noise should be zero or close to zero, as patient lives depend on the correctness of these mappings.</li>
+<li>"low-noise". Most mappings are used to augment/inform processes that are a bit upstream of the final consumer. For example, mappings are used to group data for analysis or make it easier to find related data during search (enhancing search indexing semantically). The final consumer does not immediately "see" the mappings, but they just see the consequences of applying the mappings. In these cases, a bit of noise may be acceptable, i.e. some mappings that are "not quite right". Practically, these os very often the case where data sources are aligned automatically to enable searches across, so a few bad mappings are better than having none. </li>
+<li>"high-noise": Some use cases employ data processing approaches that are themselves highly resilient to noise, like Machine Learning. Here, even a larger number of mappings (in a knowledge graph for example) which are "not quite right", or noisy, may be acceptable (if the signal to noise ratio is still ok, i.e. there are "more good than bad" mappings).</li>
+</ul>
+<p>There is no easy recipe by which you can decide what level of noise is acceptable. Your use case will determine this. What you, as the steward of your organisation's mapping data, should consider is that there is (roughly) an order of magnitude in cost involved between the three levels:</p>
+<ul>
+<li>"high-noise": Very cheap to generate. Automated matching tools can be used to generate the mappings, with no human review required. Your system may implement a way for your consumers to flag up bad results which can be traced back to a bad mapping, and simply exclude them moving forward, but generally.</li>
+<li>"low-noise": Moderately expensive. Most mappings are generated using automated matchers, but then confirmed by a human curator. The confirmation process can often be "hand-wavy" to weed out obviously bad mappings, but do not involve the same rigour as "zero-noise" mappings would require to maintain scalability to large volumes of mappings. Such a "hand-wavy" confirmative review can take 10 seconds to 100 seconds (if a quick look up is required).</li>
+<li>"zero-noise": Very expensive. Every mapping must be carefully reviewed by a human curator, sometimes by a group of curators. In our experience, reviewing or establishing a mapping like this (manually) can take anything between 10 and 30 minutes - occasionally more.</li>
+</ul>
+<p>You can use these estimated costs for mapping review to determine how much it would cost to apply the same level of rigour to your own mappings.</p>
+<p><a id="use-case" /></p>
+<h3 id="what-is-the-intended-use-case">What is the intended use case?</h3>
+<p>This section is informative, not exhaustive, and will give you a sense of how use cases affect your choice of mapping predicate.</p>
+<p>We have covered some implications of use cases in the sections above:</p>
+<ol>
+<li>Some use cases require lower <em>levels of noise</em>, others can live with higher levels of noise.</li>
+<li>Mappings are rarely 100% exact when mapping across semantic spaces (different database, ontologies, terminologies). What matters is not "correctness" - what matters is that the mappings are "<em>fit for purpose</em>" (i.e. useful for your use case).</li>
+<li>Some mappings may be of <em>more value</em> for your use case than others (for example, <code>exact</code> mappings may be more valuable than <code>broad</code> mappings). You can find the right level of cost benefit by selecting optimising value and cost of generating/maintaining such mappings. <code>close</code> mappings may often have a very low value, but if your acceptable level of noise is high, just generate them, since they don't cost you anything!</li>
+</ol>
+<p>Other key considerations in the sections are:</p>
+<ul>
+<li><a href="#uc-semantic">Semantic frameworks for analysis and querying</a></li>
+<li><a href="#instance">Instance vs concept-level mapping</a></li>
+<li><a href="#uc-typical">Typical use cases</a></li>
+</ul>
+<p><a id="uc-semantic" /></p>
+<h4 id="semantic-frameworks-for-analysis-and-querying">Semantic frameworks for analysis and querying</h4>
+<p>There are four semantic frameworks/formalisms that default SSSOM supports: (1) <a href="https://www.w3.org/TR/rdf-sparql-query/">SPARQL/RDF(S)</a> (querying an integrated knowledge with basic SPARQL); (2) <a href="https://www.w3.org/TR/skos-reference/">Simple Knowledge organisation systems (SKOS)</a>; (3) <a href="https://www.w3.org/TR/owl2-syntax/">Web Ontology Language (OWL)</a>; (4) no formalism (property graphs, non-semantic use cases). We will briefly discuss the implications of each for your use cases.</p>
+<ul>
+<li>SPARQL/RDF(S) is a very general semantic framework that allows query across <a href="https://www.w3.org/TR/sparql11-property-paths/">property paths</a>. Many SPARQL engines provide at least RDFS entailment regime, which allows for some (basic) semantic reasoning (subClassOf, property domains). This is the most likely semantic framework of choice if your use case involves semantic queries such as those involving sub-class groupings.</li>
+<li>SKOS is semantic framework that layers on top of RDF and specifies semantics for a handful of properties that are useful for building taxonomies that do not seek to follow the rigorous semantics of the class-level modelling constructs such as subClassOf. We have no experience with SKOS reasoners, and do not know if there are any out there. This means, in effect, that this "case" (semantic framework) has the same exact considerations as the SPARQL/RDF(S) one above.</li>
+<li>OWL is a very powerful semantic framework that is based on formal logic. Ontologies represented in OWL offer support for complex expressions of knowledge, way beyond what RDFS and SKOS can do. OWL is the semantic framework of choice if the goal is to build <strong>and reason</strong> over an integrated (merged) ontology. An example use case where OWL is the appropriate framework is integration of species-specific anatomy ontologies under species-neutral ones, see for example <a href="https://github.com/obophenotype/uberon">Uberon</a>. A basic rule of thumb is: unless you know positively that you have to reason over the <em>merged</em> graph, i.e. set of all ontologies you have mapped across, OWL is probably overkill and should be avoided.</li>
+<li>Using no semantic framework does not mean semantic mappings are useless! Many extremely useful applications exist for mappings which do not involve a semantic framework, such as those related to <a href="https://www.oxfordsemantic.tech/fundamentals/what-is-a-labeled-property-graph">Labelled Property Graphs</a> (for example <a href="https://neo4j.com/">neo4j</a>). Even if you just want to translate your data into a graph, it is useful to know the semantics of your mappings as they can inform your graph queries.</li>
+</ul>
+<p>Other semantic frameworks exists such as rule-based systems (e.g. Datalog, SWRL), but they are not used as widely as the above in our domain.</p>
+<p><a id="uc-semantic" /></p>
+<h4 id="instance-vs-property-vs-concept-level-mapping">Instance vs Property vs Concept-level mapping</h4>
+<p>To pick the correct mapping predicated, it is furthermore important to understand whether you are mapping concepts or instances:</p>
+<ul>
+<li>Concept-level: the entity being mapped constitutes a class or a concept. A concept can be thought of a collection or set of individuals. For example, "Apple" could refer to the class of all apples.</li>
+<li>Instance-level: the entity being mapped constitutes an individual or an instance. An instance is a single real world entity, such as Barack Obama. Instances are members of classes/concepts. For example, Barack Obama belongs to the class of "Person", or "Former Presidents". Another example is an individual apple on a shelf in a supermarket ("Gala Apple 199999"), which is an instance of the "Apple" class.</li>
+</ul>
+<p>Note that notions like <code>broad</code> or <code>narrow</code> make no sense when mapping instances. We typically try to avoid the SKOS vocabulary for mapping instances, and make use of <code>owl:sameAs</code> instead. Note that <code>owl:sameAs</code> does have implications for reasoning, but it is also the preferred property when within the "RDF/SPARQL" semantic framework.</p>
+<p>If the mapping involves an instance <em>and</em> a class, you have hit a corner case of the SSSOM use case. This case can still be represented, but instance-concept relationships are not widely thought of as "mappings".</p>
+<p>In much the same way as concepts and instances, you can also map properties, (or "properties", or "relationships"):</p>
+<ul>
+<li>Property-level: the entities being mapped are both properties, like, for example, rdfs:label, skos:prefLabel, RO:0000050 (part of). </li>
+</ul>
+<p>Note that it does not make sense to try and map instances of concepts, or concepts, directly to properties. There are no relationships that would support such a mapping.</p>
+<p><a id="uc-typical" /></p>
+<h4 id="typical-use-cases">Typical use cases</h4>
+<p>Typical use cases for mappings include:</p>
+<ol>
+<li><em>Semantic data integration</em>. This often involves linking data to ontologies or semantic layers in knowledge graphs. Data from one source (such as an EHR) is translated to another (such as OMOP, see above). To analyse the data semantically, the most valuable links are <code>exact</code> and <code>broad</code> as these allow you to directly query the ontology to retrieve instance data. <code>close</code> and <code>narrow</code> matches are less useful for such a use case, but maybe be consulted as the "next best thing" to an exact mapping. Often, a low level of noise is acceptable.</li>
+<li><em>Data translation</em>. Similar to data integration, but we want to map as precisely as possible. Only <code>exact</code> matches really matter if we want to make sure that data annotated with one ontology means the exact same thing as data annotated with another. Noise in the mappings is often not acceptable. An example for this is if one source has annotated all its genes using the Huge Gene Nomenclature Committee (HGNC) while another is using NCBI Gene Database identifiers. <code>broad</code>, <code>narrow</code> and even <code>close</code> matches are mostly  meaningless - we need a 1:1 translation table with next to zero noise.</li>
+<li><em>Ontology and knowledge graph merging</em>. Here, the key issue is that <code>exact</code> matches matches have as little noise as possible. Some merging approaches use probabilistic algorithms to weed out out potentially bad mappings (low levels of noise may be acceptable, see for example <a href="https://github.com/INCATools/boomer">boomer</a>), but any naive merging approach, which is still prevalent in the knowledge graph world, will usually do the following: (1) Merge all <code>exact</code> matches into one "node" in the knowledge graph and (2) redirect all data against all these <code>exact</code> matches to that newly created node.</li>
+</ol>
+<p><a id="tenstep" /></p>
+<h2 id="the-3-step-process-for-selecting-an-appropriate-mapping-predicate">The 3-step process for selecting an appropriate mapping predicate</h2>
+<p>The following 10-step process condenses the sections above into a simple to follow algorithm.</p>
+<p>Given two terms A and B:</p>
+<ol>
+<li>Target: semantic framework: Does your use case require OWL reasoning over the merged subject and object sources?<ul>
+<li>If yes, use OWL vocabulary for properties</li>
+<li>If no, use RDF/SPARQL/SKOS vocabulary for properties</li>
+</ul>
+</li>
+<li>Are A and B instances, properties or concepts?<ul>
+<li>If A and B are instances use only vocabulary suitable for instances</li>
+<li>If A and B are concepts, use only vocabulary suitable for concepts</li>
+<li>If A and B are properties, use only vocabulary suitable for properties</li>
+<li>If either one of A or B is an instance and the other is a concept, use only vocabulary suitable for describing instance-class relationships</li>
+</ul>
+</li>
+<li>Is A roughly the same with B?<ul>
+<li>If yes, does the difference between "truly exact" and your understanding of <code>A</code> and <code>B</code> constitute "acceptable noise level"?<ul>
+<li>If yes: the mapping is <code>exact</code>.</li>
+<li>If no: the mapping is <code>close</code>.</li>
+</ul>
+</li>
+<li>If no, determine if the precision as described above.</li>
+</ul>
+</li>
+</ol>
+<p>You can now select the mapping predicate based on the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Mapping Predicate</th>
+<th>Precision</th>
+<th>Suitable for semantic framework</th>
+<th>Suitable entity types?</th>
+<th>Acceptable noise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>skos:exactMatch</td>
+<td>exact</td>
+<td>SKOS/RDF(S)/SPARQL/NO</td>
+<td>Concept</td>
+<td>low</td>
+</tr>
+<tr>
+<td>skos:relatedMatch</td>
+<td>related</td>
+<td>SKOS/RDF(S)/SPARQL/NO</td>
+<td>Concept</td>
+<td>low</td>
+</tr>
+<tr>
+<td>skos:broadMatch</td>
+<td>broad</td>
+<td>SKOS/RDF(S)/SPARQL/NO</td>
+<td>Concept</td>
+<td>low</td>
+</tr>
+<tr>
+<td>skos:narrowMatch</td>
+<td>narrow</td>
+<td>SKOS/RDF(S)/SPARQL/NO</td>
+<td>Concept</td>
+<td>low</td>
+</tr>
+<tr>
+<td>skos:closeMatch</td>
+<td>close</td>
+<td>SKOS/RDF(S)/SPARQL/NO</td>
+<td>Concept</td>
+<td>low</td>
+</tr>
+<tr>
+<td>owl:sameAs</td>
+<td>exact</td>
+<td>SKOS/RDF(S)/SPARQL/OWL/NO</td>
+<td>Instance</td>
+<td>low</td>
+</tr>
+<tr>
+<td>owl:equivalentClass</td>
+<td>exact</td>
+<td>OWL</td>
+<td>Concept</td>
+<td>no</td>
+</tr>
+<tr>
+<td>rdfs:subClassOf</td>
+<td>broad</td>
+<td>RDF(S)/SPARQL/OWL</td>
+<td>Concept</td>
+<td>no</td>
+</tr>
+<tr>
+<td>owl:equivalentProperty</td>
+<td>exact</td>
+<td>OWL</td>
+<td>Property</td>
+<td>no</td>
+</tr>
+<tr>
+<td>rdfs:subPropertyOf</td>
+<td>broad</td>
+<td>OWL</td>
+<td>Property</td>
+<td>no</td>
+</tr>
+<tr>
+<td>oboInOwl:hasDbXref</td>
+<td>exact</td>
+<td>SKOS/RDF(S)/SPARQL</td>
+<td>Any</td>
+<td>high</td>
+</tr>
+<tr>
+<td>rdfs:seeAlso</td>
+<td>close</td>
+<td>SKOS/RDF(S)/SPARQL</td>
+<td>Any</td>
+<td>high</td>
+</tr>
+<tr>
+<td>rdf:type</td>
+<td>exact/broad</td>
+<td>RDF(S)/SPARQL/OWL</td>
+<td>Instance-Concept</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p>Note that "acceptable noise" refers to "what is acceptable for the target semantic framework". When using OWL, even a bit of noise can have huge consequences for reasoning, so it is not advisable to use the OWL vocabulary in cases were there is a lot of noise.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<ol>
+<li>None of the mapping predicates listed here seem to fit for my use case. Can I define my own?</li>
+</ol>
+<p>The SSSOM specification is currently open to specifying new mapping predicates. However, it is always advisable to open an <a href="https://github.com/mapping-commons/sssom/issues">issue</a> to discuss such cases with the wider community - there may be some benefit in standardising predicates from the start!</p>
+
+              
+            </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../tutorial/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Basic Tutorial" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Basic Tutorial
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../toolkit/" class="md-footer__link md-footer__link--next" aria-label="Next: A basic guide for the SSSOM toolkit" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              A basic guide for the SSSOM toolkit
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f758a944.min.js"></script>
+      
+    
+  </body>
+</html>
