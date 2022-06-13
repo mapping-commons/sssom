@@ -37,7 +37,7 @@ nav:
     - Workshops: workshops.md
     - Presentations: presentations.md
     - Basic Tutorial: tutorial.md
-    - How to use mapping predicates: mapping_predicates.md
+    - How to use mapping predicates: mapping-predicates.md
     - A basic guide for the SSSOM toolkit: toolkit.md
 
 site_url: https://mapping-commons.github.io/sssom/

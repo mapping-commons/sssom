@@ -204,7 +204,7 @@ SELECT * WHERE {
 }
 ```
 
-A detailed discussion on mapping predicates can be found [here](mapping_predicates.md).
+A detailed discussion on mapping predicates can be found [here](mapping-predicates.md).
 
 ##### Mapping "apple", attempt 1
 

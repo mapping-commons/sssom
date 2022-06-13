@@ -8,7 +8,7 @@ Picking the right predicate to specify the meaning of your mapping is often a di
 
 - [The three primary concerns for selecting a mapping predicate](#primary)
 - [The 3 step process for selecting an appropriate mapping predicate](#tenstep)
-- 
+- [Frequently asked questions about mapping predicates](#faq)
 
 ## Glossary
 
@@ -16,7 +16,7 @@ Picking the right predicate to specify the meaning of your mapping is often a di
 - `object`: the entity that the `subject` is mapped to
 - `predicate`: the semantic mapping relationship used
 
-<a id="primary">
+<a id="primary"></a>
 
 ## The three primary concerns for selecting a mapping predicate
 
@@ -161,6 +161,8 @@ You can now select the mapping predicate based on the table below:
 | rdf:type               | exact/broad | RDF(S)/SPARQL/OWL               | Instance-Concept       | no               |
 
 Note that "acceptable noise" refers to "what is acceptable for the target semantic framework". When using OWL, even a bit of noise can have huge consequences for reasoning, so it is not advisable to use the OWL vocabulary in cases were there is a lot of noise.
+
+<a id="faq"></a>
 
 ## Frequently asked questions
 
