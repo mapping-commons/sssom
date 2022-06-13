@@ -26,7 +26,7 @@ There are at least three things you need to decide before selecting an appropria
 2. [Acceptable degree of noise](#noise)
 3. [Intended use case](#use-case)
 
-<a id="precision" />
+<a id="precision"></a>
 
 ### What is the **precision** of the mapping? 
 
@@ -40,7 +40,7 @@ The **precision** is simply: is the mapping `exact`, `close`, `broad`, `narrow` 
 - `narrow`: The subject refers to a broader term. For example "Apple (cultivar)" is a narrow match to "Gala (cultivar)". Think of it as the opposite of "broad". `broad` and `narrow` are so called inverse categories: If "Gala (cultivar)" is a `broad` match to "Apple (cultivar)", then "Apple (cultivar)" is a `narrow` match to "Gala (cultivar)"! One **note of caution**: `narrow` matches generally have  less useful applications then `broad` ones. For example, if we want to _group_ subject entities in a database under an ontology to make them query-able in a knowledge graph, only `broad` matches to the ontology can be retrieved. For example, if we map "Gala (cultivar)" in a database to "Apple (cultivar)" in an ontology, and we wish to write a semantic query to obtain all records that are about "Apple (cultivar)" according to the ontology, we obtain "Gala (cultivar)". This is not true the other way around: if the ontology term is _more_ specific then the database time, it cant be use the group the database data.
 - `related`: The subject refers to an analogous concept of a different category. For example "Apple" and "Apple tree" are considered `related` matches, but not `exact` matches, as "Apple" is of the "fruit" category, and "Apple tree" of the "tree" category. Other examples include: "disease" and "phenotype", "chemical" and "chemical exposure", "car" and "car manufacturing process". In general, `related` mappings should be reserved for "direct analogues". For example, we should not try to map to `related` and `broad` categories at the same time, like, for example, "Gala (cultivar)" to "Apple tree". This causes a huge amount of proliferation of very "low value" mappings (see use case section later).
 
-<a id="noise" />
+<a id="noise"></a>
 
 ### What is the **acceptable degree of noise** of the mapping?
 
@@ -60,7 +60,7 @@ There is no easy recipe by which you can decide what level of noise is acceptabl
 
 You can use these estimated costs for mapping review to determine how much it would cost to apply the same level of rigour to your own mappings.
 
-<a id="use-case" />
+<a id="use-case"></a>
 
 ### What is the intended use case?
 
@@ -78,7 +78,7 @@ Other key considerations in the sections are:
 - [Instance vs concept-level mapping](#instance)
 - [Typical use cases](#uc-typical)
 
-<a id="uc-semantic" />
+<a id="uc-semantic"></a>
 
 #### Semantic frameworks for analysis and querying
 
@@ -91,7 +91,7 @@ There are four semantic frameworks/formalisms that default SSSOM supports: (1) [
 
 Other semantic frameworks exists such as rule-based systems (e.g. Datalog, SWRL), but they are not used as widely as the above in our domain.
 
-<a id="uc-semantic" />
+<a id="uc-semantic"></a>
 
 #### Instance vs Property vs Concept-level mapping
 
@@ -110,7 +110,7 @@ In much the same way as concepts and instances, you can also map properties, (or
 
 Note that it does not make sense to try and map instances of concepts, or concepts, directly to properties. There are no relationships that would support such a mapping.
 
-<a id="uc-typical" />
+<a id="uc-typical"></a>
 
 #### Typical use cases
 
@@ -120,7 +120,7 @@ Typical use cases for mappings include:
 2. _Data translation_. Similar to data integration, but we want to map as precisely as possible. Only `exact` matches really matter if we want to make sure that data annotated with one ontology means the exact same thing as data annotated with another. Noise in the mappings is often not acceptable. An example for this is if one source has annotated all its genes using the Huge Gene Nomenclature Committee (HGNC) while another is using NCBI Gene Database identifiers. `broad`, `narrow` and even `close` matches are mostly  meaningless - we need a 1:1 translation table with next to zero noise.
 3. _Ontology and knowledge graph merging_. Here, the key issue is that `exact` matches matches have as little noise as possible. Some merging approaches use probabilistic algorithms to weed out out potentially bad mappings (low levels of noise may be acceptable, see for example [boomer](https://github.com/INCATools/boomer)), but any naive merging approach, which is still prevalent in the knowledge graph world, will usually do the following: (1) Merge all `exact` matches into one "node" in the knowledge graph and (2) redirect all data against all these `exact` matches to that newly created node.
 
-<a id="tenstep" />
+<a id="tenstep"></a>
 
 ## The 3-step process for selecting an appropriate mapping predicate
 
