@@ -204,6 +204,8 @@ SELECT * WHERE {
 }
 ```
 
+A detailed discussion on mapping predicates can be found [here](mapping_predicates.md).
+
 ##### Mapping "apple", attempt 1
 
 Our first attempt is to try and map `KF_FOOD:F001` (apple). At the time of writing, a search for the string "apple" just across the labels in FOODON reveals more than 300 results. There are no exact matches for the search string "apple", i.e. there is no entity in FOODON that has the label "apple" exactly. Rather than sifting through the large set of results, we move on to try to map a more specific element first. As FOODON is an ontology, having a mapping to a more specific element (e.g. `gala`) may help us to find an appropriate mapping for the more general concept (e.g. `apple`), which should be hierarchically related to the more specific term.
@@ -322,7 +324,7 @@ The author is a crucial bit of metadata, in particular in conjunction with the m
 
 `license`: An identifier for a license description. One of the most serious impediments to re-use on the web is the absence of clear and **standardised** licenses. We recommend the creative commons licenses for open data, either CC-0 (public domain, no license) or CC-BY 4.0. (Some people prefer CC-BY 4.0, because it ensures that attribution is taken more seriously.) Even when using a proprietary license, it is good to be transparent here, so that an "accidentally leaked" data file is not mistakenly assumed to be "open".
 
-`subject_source`: URI of source the subject. This is one of the most important pieces of metadata: an unambiguous reference to a source. It is notoriously hard to standardise source reference, and we are [currently debating](https://github.com/mapping-commons/sssom/issues/126) whether we should require URIs in the strict sense (e.g. a URL to a source, or a PURL to an ontology) or whether we can refer to a source simply by a PREFIX (as long as it can be dereferenced by bioregistry.io).
+`subject_source`: URI of source the subject. This is one of the most important pieces of metadata: an unambiguous reference to a source. It is notoriously hard to standardise source references ([see past debate](https://github.com/mapping-commons/sssom/issues/126)). We recommend to use the standard URIs used in your own domain, for example OBO (`obo:mondo`) or Wikidata (`wikidata:Q7876491`).
 
 `subject_source_version`: The version of the source of the subject. In order to interpret a mapping, it is not enough to know the source. Sources changes all the time, whether they are database and/or ontology: classes are obsoleted, database records are deleted. What counts for an exact mapping may change through the evolution of a source. _Always_ document the source version, if you can. This can be very difficult for database systems that do not have a real notion of versioning.
 
@@ -387,8 +389,8 @@ This concludes the manual curation tutorial. Next, we will process the two mappi
 One problem with table formats like TSV or CSV, in contrast to more flexible tree shaped formats like JSON or XML, is that it is notoriously hard to include metadata about the whole table (for example, mapping **set** metadata) in them. There are essentially three options:
 
 1. All metadata is stored as values in columns. While this is definitely possible, it is not ideal for a few reasons:
-   1. It is highly redundant. If we have to store the `mapping_set_id`, for example, as a value in a mapping table with 1000 mappings, it is repeated 1000 times.
-   2. It is less immediately clear whether a piece of metadata pertains to the `mapping_set` or a `mapping` (you have to study the specification to understand that `author_id` pertains to an individual mapping rather than the whole mapping set).
+    1. It is highly redundant. If we have to store the `mapping_set_id`, for example, as a value in a mapping table with 1000 mappings, it is repeated 1000 times.
+    2. It is less immediately clear whether a piece of metadata pertains to the `mapping_set` or a `mapping` (you have to study the specification to understand that `author_id` pertains to an individual mapping rather than the whole mapping set).
 2. Metadata about the mapping set is stored within the TSV file header. Basically, we introduce a number of rows at the top of the TSV file that we reserve for metadata. The disadvantage is that many parsers for such flat files do not know how to deal with a header like this.
 3. We keep metadata about tables and mapping sets separate, i.e. we keep one TSV file that contains the data and one YAML file that contains the mapping set metadata. This is often a good option, but keeping the two separate may cause a problem: in environments where the data is shared around (emailed, copied) the connection can get lost.
 
