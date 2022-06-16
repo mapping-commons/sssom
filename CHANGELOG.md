@@ -1,4 +1,6 @@
 # Changelog for SSSOM
+## SSSOM version 1.1
+- added citation.cff file
 
 ## SSSOM version 1.0
 - Changed `match_type` logic to `mapping_justification` ([issue](https://github.com/mapping-commons/sssom/issues/150)).
