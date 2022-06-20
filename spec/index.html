@@ -1173,7 +1173,7 @@ Mapping rules define the conditions under which we determine a match between two
 <div class="highlight"><pre><span></span><code>Annotation(Q,V) for all V in L.
 </code></pre></div>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>AnnotationAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) skos:exactMatch &lt;http://purl.obolibrary.org/obo/HP_0009894&gt; &lt;http://purl.obolibrary.org/obo/MP_0000019&gt;)
+<div class="highlight"><pre><span></span><code>AnnotationAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) skos:exactMatch &lt;http://purl.obolibrary.org/obo/HP_0009894&gt; &lt;http://purl.obolibrary.org/obo/MP_0000019&gt;)
 </code></pre></div>
 <p>Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the <a href="https://www.w3.org/TR/owl2-syntax/#Annotations">OWL 2 Structural Specification</a>.</p>
 <h4 id="predicate-is-an-object-property">Predicate is an object property</h4>
@@ -1185,7 +1185,7 @@ Mapping rules define the conditions under which we determine a match between two
 <div class="highlight"><pre><span></span><code>SubclassOf(sssomMetadata, A, P some O)
 </code></pre></div>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) &lt;http://example.org/AA&gt; ObjectSomeValuesFrom(&lt;http://example.org/x&gt; &lt;http://example.org/BB&gt;))
+<div class="highlight"><pre><span></span><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) &lt;http://example.org/AA&gt; ObjectSomeValuesFrom(&lt;http://example.org/x&gt; &lt;http://example.org/BB&gt;))
 </code></pre></div>
 <h5 id="case-2-object-and-subject-are-individuals">Case 2: Object and Subject are individuals</h5>
 <p>The Mapping <S,P,O> gets translated into an object property assertion: </p>
@@ -1195,7 +1195,7 @@ Mapping rules define the conditions under which we determine a match between two
 <div class="highlight"><pre><span></span><code>ObjectPropertyAssertion(sssomMetadata, P, A, O)
 </code></pre></div>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>ObjectPropertyAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) &lt;http://www.example.org/x&gt; &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
+<div class="highlight"><pre><span></span><code>ObjectPropertyAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) &lt;http://www.example.org/x&gt; &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
 </code></pre></div>
 <h4 id="predicate-is-language-relational-construct-of-rdfs-or-owl">Predicate is language relational construct of RDFS or OWL</h4>
 <p>The mapping <S,P,O> gets translated into an annotated axiom that corresponds to the construct used. By default, SSSOM will support:</p>
@@ -1211,7 +1211,7 @@ Mapping rules define the conditions under which we determine a match between two
 </table>
 
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
+<div class="highlight"><pre><span></span><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
 </code></pre></div>
 <h3 id="tsv">TSV:</h3>
 <p>All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the <a href="https://mapping-commons.github.io/sssom/Mapping/">SSSOM metadata</a>. For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, mapping_justification, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, mapping_justification. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.</p>
@@ -1382,13 +1382,13 @@ spaces (e.g. controlled vocabularies, semantic databases), which means if you ha
 </ul>
 </li>
 <li>provide a completely executable curation_rule:<ul>
-<li>if the mapping is <code>Lexical</code>, provide:<ul>
+<li>if the mapping is <code>semapv:LexicalMatching</code>, provide:<ul>
 <li><code>subject_preprocessing</code>, <code>object_preprocessing</code></li>
 <li><code>subject_match_field</code>, <code>object_match_field</code></li>
 <li><code>match_string</code></li>
 </ul>
 </li>
-<li>if the mapping is <code>Logical</code>, the mapping should be derivable by a reasoner from a combination of the <code>object_source</code> and <code>subject_source</code>. If more is needed then please leave a <code>comment</code> with details.</li>
+<li>if the mapping is <code>semapv:LogicalReasoning</code>, the mapping should be derivable by a reasoner from a combination of the <code>object_source</code> and <code>subject_source</code>. If more is needed then please leave a <code>comment</code> with details.</li>
 <li>if the mapping is <code>HumanCurated</code>.. (this needs to be <a href="https://github.com/mapping-commons/SSSOM/issues/57">fleshed out</a>. For now, leave a <code>comment</code> indicating what you did to arrive at your conclusion, i.e. wether you compared the definitions, looked up the "labels" in a database, ran a tool and decided to trust it etc.)</li>
 <li>if the mapping is <code>SemanticSimilarity</code> (graph similarity, neighbourhood, cosine similarity), you should provide:<ul>
 <li><code>semantic_similarity_score</code></li>
