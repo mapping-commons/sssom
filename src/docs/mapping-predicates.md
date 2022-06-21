@@ -30,32 +30,32 @@ There are at least three things you need to decide before selecting an appropria
 
 ### What is the **precision** of the mapping? 
 
-As a curator, you should try to investigate the **intended meaning** of both the subject and the object. This task usually involves trying to find out as much as possible about the mapped identifiers: What is their human readable definition? Are there any logical axioms that could help with understanding the intended meaning? Sometimes, this even involves asking the respective stewards of the database or ontology for clarification. **Important:** The key here is "intended meaning", i.e. when you see `FOODON:Apple` (FOODON is an ontology), you do not try to figure out _what an apple is_, but what thing in the world (in your conceptual model of the world) the FOODON developers _intended the `FOODON:Apple` identifier to refer to_. This may be an Apple that you can eat. Or a [cultivar](https://en.wikipedia.org/wiki/List_of_apple_cultivars)!
+As a curator, you should try to investigate the **intended meaning** of both the subject and the object. This task usually involves trying to find out as much as possible about the mapped identifiers: What is their human readable definition? Are there any logical axioms that could help with understanding the intended meaning? Sometimes, this even involves asking the respective stewards of the database or ontology for clarification. **Important:** The key here is "intended meaning". For example, when you see `FOODON:Apple` (FOODON is an ontology), you do not try to figure out _what an apple is_, but what thing in the world (in your conceptual model of the world) the FOODON developers _intended the `FOODON:Apple` identifier to refer to_. This might be an apple that you can eat, or a [cultivar](https://en.wikipedia.org/wiki/List_of_apple_cultivars)!
 
-The **precision** is simply: is the mapping `exact`, `close`, `broad`, `narrow` or `related`? Here is an basic guide of how to think of each:
+The **precision** is simply: is the mapping `exact`, `close`, `broad`, `narrow` or `related`? Here is a basic guide about how to think of each:
 
 - `exact`: The two terms are intended to refer to the same thing. For example, both the subject and the object identifiers refer to the concept of [Gala cultivar](https://en.wikipedia.org/wiki/Gala_(apple)).
 - `close`: The two terms are intended to refer to roughly the same thing, but not quite. This is a hazy category and should be avoided in practice, because when taken too literally, most mappings could be interpreted as close mappings. This is not the point of creating mappings, if their intention is to be useful (see "use case" considerations later in this document). An example of a `close` mapping is one between the "heart" concept in a database of anatomical entities for biological research on chimpanzees and the "human heart" in an electronic health record for humans.
 - `broad`: The subject refers to a broader term. For example, "human heart" in an electronic health record refers to "heart" in a general anatomy ontology that covers all species, such as Uberon. Another example is "Gala (cultivar)" in one ontology or database to "Apple (cultivar)" in another: the Apple (cultivar) has a broader meaning then "Gala (cultivar)". For a good mapping, it is advisable that "broad" and "narrow" are applied a bit more strictly than is technically permitted by the SKOS specification: both the subject and the object should belong to the same **category**. For example, you should use broad (or narrow) only if both the subject and the object are "cultivars" (in the above example).
-- `narrow`: The subject refers to a broader term. For example "Apple (cultivar)" is a narrow match to "Gala (cultivar)". Think of it as the opposite of "broad". `broad` and `narrow` are so called inverse categories: If "Gala (cultivar)" is a `broad` match to "Apple (cultivar)", then "Apple (cultivar)" is a `narrow` match to "Gala (cultivar)"! One **note of caution**: `narrow` matches generally have less useful applications then `broad` ones. For example, if we want to _group_ subject entities in a database under an ontology to make them query-able in a knowledge graph, only `broad` matches to the ontology can be retrieved. For example, if we map "Gala (cultivar)" in a database to "Apple (cultivar)" in an ontology, and we wish to write a semantic query to obtain all records that are about "Apple (cultivar)" according to the ontology, we obtain "Gala (cultivar)". This is not true the other way around: if the ontology term is _more_ specific then the database term, it can't be used to group the database data.
+- `narrow`: The subject refers to a broader term. For example "Apple (cultivar)" is a narrow match to "Gala (cultivar)". Think of it as the opposite of "broad". `broad` and `narrow` are so-called inverse categories: If "Gala (cultivar)" is a `broad` match to "Apple (cultivar)", then "Apple (cultivar)" is a `narrow` match to "Gala (cultivar)"! One **note of caution**: `narrow` matches generally have less useful applications then `broad` ones. For example, if we want to _group_ subject entities in a database under an ontology to make them queryable in a knowledge graph, only `broad` matches to the ontology can be retrieved. For example, if we map "Gala (cultivar)" in a database to "Apple (cultivar)" in an ontology, and we wish to write a semantic query to obtain all records that are about "Apple (cultivar)" according to the ontology, we obtain "Gala (cultivar)". This is not true the other way around: if the ontology term is _more_ specific then the database term, it can't be used to group the database data.
 - `related`: The subject refers to an analogous concept of a different category. For example "Apple" and "Apple tree" are considered `related` matches, but not `exact` matches, as "Apple" is of the "fruit" category, and "Apple tree" of the "tree" category. Other examples include: "disease" and "phenotype", "chemical" and "chemical exposure", "car" and "car manufacturing process". In general, `related` mappings should be reserved for "direct analogues". For example, we should not try to map to `related` and `broad` categories at the same time, like, for example, "Gala (cultivar)" to "Apple tree". This causes a huge amount of proliferation of very "low value" mappings (see use case section later).
 
 <a id="noise"></a>
 
 ### What is the **acceptable degree of noise** of the mapping?
 
-Depending on what you want to do with your mappings, different quality levels are acceptable. This section is _not exhaustive_. "Noise" is the permissible margin of error for some target use case.
+"Noise" is the permissible margin of error for some target use case. Depending on what you want to do with your mappings, different quality levels are acceptable. This section is _not exhaustive_. 
 
-While reading through this section, you should keep one things in mind: It is _never_ a good idea to think about mappings as "correct" or "wrong". Even the the exact same identifier (for example in Wikidata, or even the biomedical data domain) can mean something very different depending on which database it is using it or in which part of which datamodel (or value set) they are used. Mapping should therefore be perceived as an inexact art where the goal is not "correctness" but "fitness for purpose": can the mappings deliver the use case I am interested in? In the following, we will take a closer look at the varying levels of noise you may need to weigh against each other.
+While reading through this section, you should keep one thing in mind: it is _never_ a good idea to think about mappings as "correct" or "wrong". Even the the exact same identifier (for example in Wikidata, or even the biomedical data domain) can mean something very different depending on which database it is using it or in which part of which datamodel (or value set) they are used. Mapping should therefore be perceived as an inexact art where the goal is not "correctness" but "fitness for purpose": can the mappings deliver the use case I am interested in? In the following, we will take a closer look at the varying levels of noise you may need to weigh against each other.
 
 - "zero-noise". Some mappings directly inform decision processes of downstream consumers, such as clinical decision support or manufacturing. For example, in an electronic health record (EHR) system we may want to know what the latest recommended drugs (or contra-indications) for a conditions are, and the disease-drugs relationships may be curated using one terminology such as [OMOP](https://ohdsi.org/omop), and the EHR may be represented using [ICD10-CM](https://icd.codes/icd10cm) (a clinical terminology used widely by hospitals). In these cases, noise should be zero or close to zero, as patient lives depend on the correctness of these mappings.
-- "low-noise". Most mappings are used to augment/inform processes that are a bit upstream of the final consumer. For example, mappings are used to group data for analysis or make it easier to find related data during search (enhancing search indexing semantically). The final consumer does not immediately "see" the mappings, but they just see the consequences of applying the mappings. In these cases, a bit of noise may be acceptable, i.e. some mappings that are "not quite right". Practically, this is very often the case where data sources are aligned automatically to enable searches across, so a few bad mappings are better than having none. 
+- "low-noise". Most mappings are used to augment/inform processes that are a bit upstream of the final consumer. For example, mappings are used to group data for analysis or make it easier to find related data during search (enhancing search indexing semantically). The final consumer does not immediately "see" the mappings, but  just  the consequences of applying the mappings. In these cases, a bit of noise may be acceptable, i.e. some mappings that are "not quite right". Practically, this is very often the case where data sources are aligned automatically to enable searches across, so a few bad mappings are better than having none. 
 - "high-noise": Some use cases employ data processing approaches that are themselves highly resilient to noise, like Machine Learning. Here, even a larger number of mappings (in a knowledge graph for example) which are "not quite right", or noisy, may be acceptable (if the signal to noise ratio is still ok, i.e. there are "more good than bad" mappings).
 
-There is no easy recipe by which you can decide what level of noise is acceptable. Your use case will determine this. What you, as the steward of your organisation's mapping data, should consider is that there is (roughly) an order of magnitude in cost involved between the three levels:
+There is no easy formula by which you can decide what level of noise is acceptable. Your use case will determine this. What you, as the steward of your organisation's mapping data, should consider is that there is (roughly) an order of magnitude in cost involved between the three levels:
 
-- "high-noise": Very cheap to generate. Automated matching tools can be used to generate the mappings, with no human review required. Your system may implement a way for your consumers to flag up bad results which can be traced back to a bad mapping, and simply exclude them moving forward, but generally.
-- "low-noise": Moderately expensive. Most mappings are generated using automated matchers, but then confirmed by a human curator. The confirmation process can often be "hand-wavy" to weed out obviously bad mappings, but do not involve the same rigour as "zero-noise" mappings would require to maintain scalability to large volumes of mappings. Such a "hand-wavy" confirmative review can take 10 seconds to 100 seconds (if a quick look up is required).
+- "high-noise": Very cheap to generate. Automated matching tools can be used to generate the mappings, with no human review required. Your system may implement a way for your consumers to flag up bad results which can be traced back to a bad mapping, and simply exclude them moving forward.
+- "low-noise": Moderately expensive. Most mappings are generated using automated matchers, but then confirmed by a human curator. The confirmation process can often be "hand-wavy" to weed out obviously bad mappings, but do not involve the same rigour as "zero-noise" mappings would require to maintain scalability to large volumes of mappings. Such a "hand-wavy" confirmative review can take 10 seconds to 100 seconds (if a quick lookup is required).
 - "zero-noise": Very expensive. Every mapping must be carefully reviewed by a human curator, sometimes by a group of curators. In our experience, reviewing or establishing a mapping like this (manually) can take anything between 10 and 30 minutes - occasionally more.
 
 You can use these estimated costs for mapping review to determine how much it would cost to apply the same level of rigour to your own mappings.
@@ -89,26 +89,26 @@ There are four semantic frameworks/formalisms that default SSSOM supports: (1) [
 - OWL is a very powerful semantic framework that is based on formal logic. Ontologies represented in OWL offer support for complex expressions of knowledge, way beyond what RDFS and SKOS can do. OWL is the semantic framework of choice if the goal is to build **and reason** over an integrated (merged) ontology. An example use case where OWL is the appropriate framework is integration of species-specific anatomy ontologies under species-neutral ones, see for example [Uberon](https://github.com/obophenotype/uberon). A basic rule of thumb is: unless you know positively that you have to reason over the _merged_ graph, i.e. set of all ontologies you have mapped across, OWL is probably overkill and should be avoided.
 - Using no semantic framework does not mean semantic mappings are useless! Many extremely useful applications exist for mappings which do not involve a semantic framework, such as those related to [Labelled Property Graphs](https://www.oxfordsemantic.tech/fundamentals/what-is-a-labeled-property-graph) (for example [neo4j](https://neo4j.com/)). Even if you just want to translate your data into a graph, it is useful to know the semantics of your mappings as they can inform your graph queries.
 
-Other semantic frameworks exists such as rule-based systems (e.g. Datalog, SWRL), but they are not used as widely as the above in our domain.
+Other semantic frameworks exist such as rule-based systems (e.g. Datalog, SWRL), but they are not used as widely as the above in our domain.
 
 <a id="uc-semantic"></a>
 
 #### Instance vs Property vs Concept-level mapping
 
-To pick the correct mapping predicated, it is furthermore important to understand whether you are mapping concepts or instances:
+To pick the correct mapping predicate, it is important to understand whether you are mapping concepts or instances:
 
 - Concept-level: the entity being mapped constitutes a class or a concept. A concept can be thought of a collection or set of individuals. For example, "Apple" could refer to the class of all apples.
-- Instance-level: the entity being mapped constitutes an individual or an instance. An instance is a single real world entity, such as Barack Obama. Instances are members of classes/concepts. For example, Barack Obama belongs to the class of "Person", or "Former Presidents". Another example is an individual apple on a shelf in a supermarket ("Gala Apple 199999"), which is an instance of the "Apple" class.
+- Instance-level: the entity being mapped constitutes an individual or an instance. An instance is a single real-world entity, such as Barack Obama. Instances are members of classes/concepts. For example, Barack Obama belongs to the class of "Person", or "Former Presidents". Another example is an individual apple on a shelf in a supermarket ("Gala Apple 199999"), which is an instance of the "Apple" class.
 
 Note that notions like `broad` or `narrow` make no sense when mapping instances. We typically try to avoid the SKOS vocabulary for mapping instances, and make use of `owl:sameAs` instead. Note that `owl:sameAs` does have implications for reasoning, but it is also the preferred property when within the "RDF/SPARQL" semantic framework.
 
 If the mapping involves an instance _and_ a class, you have hit a corner case of the SSSOM use case. This case can still be represented, but instance-concept relationships are not widely thought of as "mappings".
 
-In much the same way as concepts and instances, you can also map properties, (or "properties", or "relationships"):
+In much the same way as concepts and instances, you can also map properties or "relationships":
 
 - Property-level: the entities being mapped are both properties, like, for example, rdfs:label, skos:prefLabel, RO:0000050 (part of). 
 
-Note that it does not make sense to try and map instances of concepts, or concepts, directly to properties. There are no relationships that would support such a mapping.
+Note that it does not make sense to try to map instances of concepts, or concepts, directly to properties. There are no relationships that would support such a mapping.
 
 <a id="uc-typical"></a>
 
@@ -124,7 +124,7 @@ Typical use cases for mappings include:
 
 ## The 3-step process for selecting an appropriate mapping predicate
 
-The following 10-step process condenses the sections above into a simple to follow algorithm.
+The following 3-step process condenses the sections above into a simple to follow algorithm.
 
 Given two terms A and B:
 
@@ -132,11 +132,11 @@ Given two terms A and B:
     - If yes, use OWL vocabulary for properties
     - If no, use RDF/SPARQL/SKOS vocabulary for properties
 1. Are A and B instances, properties or concepts?
-    - If A and B are instances use only vocabulary suitable for instances
+    - If A and B are instances, use only vocabulary suitable for instances
     - If A and B are concepts, use only vocabulary suitable for concepts
     - If A and B are properties, use only vocabulary suitable for properties
     - If either one of A or B is an instance and the other is a concept, use only vocabulary suitable for describing instance-class relationships
-1. Is A roughly the same with B?
+1. Is A roughly the same as B?
     - If yes, does the difference between "truly exact" and your understanding of `A` and `B` constitute "acceptable noise level"?
         - If yes: the mapping is `exact`.
         - If no: the mapping is `close`.
@@ -160,7 +160,7 @@ You can now select the mapping predicate based on the table below:
 | rdfs:seeAlso           | close       | SKOS/RDF(S)/SPARQL              | Any                    | high             |
 | rdf:type               | exact/broad | RDF(S)/SPARQL/OWL               | Instance-Concept       | no               |
 
-Note that "acceptable noise" refers to "what is acceptable for the target semantic framework". When using OWL, even a bit of noise can have huge consequences for reasoning, so it is not advisable to use the OWL vocabulary in cases were there is a lot of noise.
+Note that "acceptable noise" refers to "what is acceptable for the target semantic framework". When using OWL, even a bit of noise can have huge consequences for reasoning, so it is not advisable to use the OWL vocabulary in cases where there is a lot of noise.
 
 <a id="faq"></a>
 
