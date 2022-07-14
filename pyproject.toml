@@ -11,7 +11,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7.6"
-linkml-runtime = "^1.1.24"
+linkml-runtime = "1.3.0rc7"
 
 [tool.poetry.dev-dependencies]
 linkml = "^1.2.6"
