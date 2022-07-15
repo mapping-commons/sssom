@@ -11,10 +11,11 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7.6"
-linkml-runtime = "^1.1.24"
+linkml-runtime = "*"
+mkdocs-mermaid2-plugin = "^0.6.0"
 
 [tool.poetry.dev-dependencies]
-linkml = "^1.2.6"
+linkml = "^1.2.17"
 mkdocs-material = "^8.2.8"
 
 [build-system]
