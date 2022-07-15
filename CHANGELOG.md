@@ -1,6 +1,4 @@
 # Changelog for SSSOM
-## SSSOM version 1.1
-- added citation.cff file
 
 ## SSSOM version 1.0
 
