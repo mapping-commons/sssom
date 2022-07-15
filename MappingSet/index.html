@@ -536,7 +536,7 @@
 <h1 id="class-mappingset">Class: MappingSet</h1>
 <p><em>Represents a set of mappings</em></p>
 <p>URI: <a href="https://w3id.org/sssom/MappingSet">sssom:MappingSet</a></p>
-<p><div class="highlight"><pre><span></span><code> classDiagram
+<pre><code class="language-mermaid"> classDiagram
     class MappingSet
       MappingSet : comment
       MappingSet : creator_id
@@ -628,8 +628,8 @@
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | [&#39;sssom:MappingSet&#39;] |
-| native | [&#39;sssom:MappingSet&#39;] |
+| self | ['sssom:MappingSet'] |
+| native | ['sssom:MappingSet'] |
 
 
 ## LinkML Specification
@@ -672,280 +672,284 @@ slot_usage:
   license:
     name: license
     required: true
-</code></pre></div>
-</details></p>
+
+</code></pre>
+</details>
 <h3 id="induced">Induced</h3>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Represents a set of mappings</span><span class="w"></span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="nt">slot_usage</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">license</span><span class="w"></span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="nt">attributes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mappings</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mappings</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Contains a list of mapping objects</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mappings</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping</span><span class="w"></span>
-<span class="w">    </span><span class="nt">recommended</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_set_id</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_id</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A globally unique identifier for the mapping set (not each individual</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">mapping). Should be IRI, ideally resolvable.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(A persistent URI pointing to the latest version of the Mondo -</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">NCIT mapping in the Mondo namespace.)</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_id</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span><span class="w"></span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_set_version</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_version</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A version string for the mapping.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2020-01-01&#39;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(A date-based version that indicates that the mapping was published</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">on the 1st January in 2021.)</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.2.1</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(A semantic version tag that indicates that this is the 1st major,</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">2nd minor version, patch 1 (https://semver.org/).)</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">owl:versionInfo</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_version</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_set_source</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_source</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A mapping set or set of mapping set that was used to derive the mapping</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">set.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A persistent, ideally versioned, link to the mapping set from which</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">the current mapping set is derived.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:wasDerivedFrom</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_source</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_set_description</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_description</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A description of the mapping set.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">This mapping set was produced to integrate human and mouse phenotype</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">data at the IMPC. It is primarily used for making mouse phenotypes searchable</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">by human synonyms at https://mousephenotype.org/.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dc:description</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_description</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-<span class="w">  </span><span class="nt">creator_id</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">creator_id</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Identifies the persons or groups responsible for the creation of</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the mapping. The creator is the agent that put the mapping in its published</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">form, which may be different from the author, which is a person that was actively</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">involved in the assertion of the mapping. Recommended to be a (pipe-separated)</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">list of ORCIDs or otherwise identifying URLs, but any identifying string (such</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">as name and affiliation) is permissible.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dc:creator</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">creator_id</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EntityReference</span><span class="w"></span>
-<span class="w">  </span><span class="nt">creator_label</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">creator_label</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A string identifying the creator of this mapping. In the spirit of</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">provenance, consider to use creator_id instead.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">creator_label</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-<span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">license</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A url to the license of the mapping. In absence of a license we assume</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">no license.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:license</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">license</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span><span class="w"></span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">subject_type</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_type</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The type of entity that is being mapped.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">owl:Class</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_type</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entity_type_enum</span><span class="w"></span>
-<span class="w">  </span><span class="nt">subject_source</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_source</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">URI of ontology source for the subject.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">obo:mondo.owl</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A persistent OBO CURIE pointing to the latest version of the Mondo</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">ontology.</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wikidata:Q7876491</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A Wikidata identifier for the Uberon ontology resource.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_source</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EntityReference</span><span class="w"></span>
-<span class="w">  </span><span class="nt">subject_source_version</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_source_version</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Version IRI or version string of the source of the subject term.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(A persistent Version IRI pointing to the Mondo version &#39;2021-01-30&#39;)</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_source_version</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-<span class="w">  </span><span class="nt">object_type</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_type</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The type of entity that is being mapped.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">owl:Class</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_type</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entity_type_enum</span><span class="w"></span>
-<span class="w">  </span><span class="nt">object_source</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_source</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IRI of ontology source for the object. Version IRI preferred.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">obo:mondo.owl</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A persistent OBO CURIE pointing to the latest version of the Mondo</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">ontology.</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wikidata:Q7876491</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A Wikidata identifier for the Uberon ontology resource.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_source</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EntityReference</span><span class="w"></span>
-<span class="w">  </span><span class="nt">object_source_version</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_source_version</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Version IRI or version string of the source of the object term.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(A persistent Version IRI pointing to the Mondo version &#39;2021-01-30&#39;)</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_source_version</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_provider</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_provider</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">URL pointing to the source that provided the mapping, for example</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">an ontology that already contains the mappings, or a database from which it</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">was derived.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_provider</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_tool</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_tool</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A reference to the tool or algorithm that was used to generate the</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">mapping. Should be a URL pointing to more info about it, but can be free text.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/AgreementMakerLight/AML-Project</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_tool</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_date</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_date</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The date the mapping was asserted. This is different from the date</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the mapping was published or compiled in a SSSOM file.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pav:authoredOn</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_date</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span><span class="w"></span>
-<span class="w">  </span><span class="nt">subject_match_field</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_match_field</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A tuple of fields (term annotations on the subject) that was used</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for the match.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_match_field</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EntityReference</span><span class="w"></span>
-<span class="w">  </span><span class="nt">object_match_field</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_match_field</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A tuple of fields (term annotations on the object) that was used</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for the match.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_match_field</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EntityReference</span><span class="w"></span>
-<span class="w">  </span><span class="nt">subject_preprocessing</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_preprocessing</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Method of preprocessing applied to the fields of the subject. If</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">different preprocessing steps were performed on different fields, it is recommended</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to store the match in separate rows.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semapv:Stemming</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semapv:StopWordRemoval</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subject_preprocessing</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EntityReference</span><span class="w"></span>
-<span class="w">  </span><span class="nt">object_preprocessing</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_preprocessing</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Method of preprocessing applied to the fields of the object. If different</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">preprocessing steps were performed on different fields, it is recommended to</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">store the match in separate rows.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semapv:Stemming</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semapv:StopWordRemoval</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_preprocessing</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EntityReference</span><span class="w"></span>
-<span class="w">  </span><span class="nt">see_also</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">see_also</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A URL specific for the mapping instance. E.g. for kboom we have a</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">per-mapping image that shows surrounding axioms that drive probability. Could</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">also be a github issue URL that discussed a complicated alignment</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdfs:seeAlso</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">see_also</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-<span class="w">  </span><span class="nt">other</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pipe separated list of key value pairs for properties not part of</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the SSSOM spec. Can be used to encode additional provenance data.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-<span class="w">  </span><span class="nt">comment</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">comment</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Free text field containing either curator notes or text generated</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">by tool providing additional informative information.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdfs:comment</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">comment</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-</code></pre></div>
+
+<pre><code class="language-yaml">name: mapping set
+description: Represents a set of mappings
+from_schema: https://w3id.org/sssom/schema/
+slot_usage:
+  license:
+    name: license
+    required: true
+attributes:
+  mappings:
+    name: mappings
+    description: Contains a list of mapping objects
+    from_schema: https://w3id.org/sssom/schema/
+    multivalued: true
+    alias: mappings
+    owner: mapping set
+    range: mapping
+    recommended: true
+    inlined_as_list: true
+  mapping_set_id:
+    name: mapping_set_id
+    description: A globally unique identifier for the mapping set (not each individual
+      mapping). Should be IRI, ideally resolvable.
+    examples:
+    - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
+      description: (A persistent URI pointing to the latest version of the Mondo -
+        NCIT mapping in the Mondo namespace.)
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mapping_set_id
+    owner: mapping set
+    range: uri
+    required: true
+  mapping_set_version:
+    name: mapping_set_version
+    description: A version string for the mapping.
+    examples:
+    - value: '2020-01-01'
+      description: (A date-based version that indicates that the mapping was published
+        on the 1st January in 2021.)
+    - value: 1.2.1
+      description: (A semantic version tag that indicates that this is the 1st major,
+        2nd minor version, patch 1 (https://semver.org/).)
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: owl:versionInfo
+    alias: mapping_set_version
+    owner: mapping set
+    range: string
+  mapping_set_source:
+    name: mapping_set_source
+    description: A mapping set or set of mapping set that was used to derive the mapping
+      set.
+    examples:
+    - value: http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv
+      description: A persistent, ideally versioned, link to the mapping set from which
+        the current mapping set is derived.
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: prov:wasDerivedFrom
+    multivalued: true
+    alias: mapping_set_source
+    owner: mapping set
+    range: uri
+  mapping_set_description:
+    name: mapping_set_description
+    description: A description of the mapping set.
+    examples:
+    - value: This mapping set was produced to integrate human and mouse phenotype
+        data at the IMPC. It is primarily used for making mouse phenotypes searchable
+        by human synonyms at https://mousephenotype.org/.
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: dc:description
+    alias: mapping_set_description
+    owner: mapping set
+    range: string
+  creator_id:
+    name: creator_id
+    description: Identifies the persons or groups responsible for the creation of
+      the mapping. The creator is the agent that put the mapping in its published
+      form, which may be different from the author, which is a person that was actively
+      involved in the assertion of the mapping. Recommended to be a (pipe-separated)
+      list of ORCIDs or otherwise identifying URLs, but any identifying string (such
+      as name and affiliation) is permissible.
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: dc:creator
+    multivalued: true
+    alias: creator_id
+    owner: mapping set
+    range: EntityReference
+  creator_label:
+    name: creator_label
+    description: A string identifying the creator of this mapping. In the spirit of
+      provenance, consider to use creator_id instead.
+    from_schema: https://w3id.org/sssom/schema/
+    multivalued: true
+    alias: creator_label
+    owner: mapping set
+    range: string
+  license:
+    name: license
+    description: A url to the license of the mapping. In absence of a license we assume
+      no license.
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: dcterms:license
+    alias: license
+    owner: mapping set
+    range: uri
+    required: true
+  subject_type:
+    name: subject_type
+    description: The type of entity that is being mapped.
+    examples:
+    - value: owl:Class
+    from_schema: https://w3id.org/sssom/schema/
+    alias: subject_type
+    owner: mapping set
+    range: entity_type_enum
+  subject_source:
+    name: subject_source
+    description: URI of ontology source for the subject.
+    examples:
+    - value: obo:mondo.owl
+      description: A persistent OBO CURIE pointing to the latest version of the Mondo
+        ontology.
+    - value: wikidata:Q7876491
+      description: A Wikidata identifier for the Uberon ontology resource.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: subject_source
+    owner: mapping set
+    range: EntityReference
+  subject_source_version:
+    name: subject_source_version
+    description: Version IRI or version string of the source of the subject term.
+    examples:
+    - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
+      description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
+    from_schema: https://w3id.org/sssom/schema/
+    alias: subject_source_version
+    owner: mapping set
+    range: string
+  object_type:
+    name: object_type
+    description: The type of entity that is being mapped.
+    examples:
+    - value: owl:Class
+    from_schema: https://w3id.org/sssom/schema/
+    alias: object_type
+    owner: mapping set
+    range: entity_type_enum
+  object_source:
+    name: object_source
+    description: IRI of ontology source for the object. Version IRI preferred.
+    examples:
+    - value: obo:mondo.owl
+      description: A persistent OBO CURIE pointing to the latest version of the Mondo
+        ontology.
+    - value: wikidata:Q7876491
+      description: A Wikidata identifier for the Uberon ontology resource.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: object_source
+    owner: mapping set
+    range: EntityReference
+  object_source_version:
+    name: object_source_version
+    description: Version IRI or version string of the source of the object term.
+    examples:
+    - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
+      description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
+    from_schema: https://w3id.org/sssom/schema/
+    alias: object_source_version
+    owner: mapping set
+    range: string
+  mapping_provider:
+    name: mapping_provider
+    description: URL pointing to the source that provided the mapping, for example
+      an ontology that already contains the mappings, or a database from which it
+      was derived.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mapping_provider
+    owner: mapping set
+    range: uri
+  mapping_tool:
+    name: mapping_tool
+    description: A reference to the tool or algorithm that was used to generate the
+      mapping. Should be a URL pointing to more info about it, but can be free text.
+    examples:
+    - value: https://github.com/AgreementMakerLight/AML-Project
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mapping_tool
+    owner: mapping set
+    range: string
+  mapping_date:
+    name: mapping_date
+    description: The date the mapping was asserted. This is different from the date
+      the mapping was published or compiled in a SSSOM file.
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: pav:authoredOn
+    alias: mapping_date
+    owner: mapping set
+    range: date
+  subject_match_field:
+    name: subject_match_field
+    description: A tuple of fields (term annotations on the subject) that was used
+      for the match.
+    from_schema: https://w3id.org/sssom/schema/
+    multivalued: true
+    alias: subject_match_field
+    owner: mapping set
+    range: EntityReference
+  object_match_field:
+    name: object_match_field
+    description: A tuple of fields (term annotations on the object) that was used
+      for the match.
+    from_schema: https://w3id.org/sssom/schema/
+    multivalued: true
+    alias: object_match_field
+    owner: mapping set
+    range: EntityReference
+  subject_preprocessing:
+    name: subject_preprocessing
+    description: Method of preprocessing applied to the fields of the subject. If
+      different preprocessing steps were performed on different fields, it is recommended
+      to store the match in separate rows.
+    examples:
+    - value: semapv:Stemming
+    - value: semapv:StopWordRemoval
+    from_schema: https://w3id.org/sssom/schema/
+    multivalued: true
+    alias: subject_preprocessing
+    owner: mapping set
+    range: EntityReference
+  object_preprocessing:
+    name: object_preprocessing
+    description: Method of preprocessing applied to the fields of the object. If different
+      preprocessing steps were performed on different fields, it is recommended to
+      store the match in separate rows.
+    examples:
+    - value: semapv:Stemming
+    - value: semapv:StopWordRemoval
+    from_schema: https://w3id.org/sssom/schema/
+    multivalued: true
+    alias: object_preprocessing
+    owner: mapping set
+    range: EntityReference
+  see_also:
+    name: see_also
+    description: A URL specific for the mapping instance. E.g. for kboom we have a
+      per-mapping image that shows surrounding axioms that drive probability. Could
+      also be a github issue URL that discussed a complicated alignment
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: rdfs:seeAlso
+    multivalued: true
+    alias: see_also
+    owner: mapping set
+    range: string
+  other:
+    name: other
+    description: Pipe separated list of key value pairs for properties not part of
+      the SSSOM spec. Can be used to encode additional provenance data.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: other
+    owner: mapping set
+    range: string
+  comment:
+    name: comment
+    description: Free text field containing either curator notes or text generated
+      by tool providing additional informative information.
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: rdfs:comment
+    alias: comment
+    owner: mapping set
+    range: string
+
+</code></pre>
+
 </details>
 
               

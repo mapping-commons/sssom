@@ -1043,8 +1043,8 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>Table 1: An example of a typical mapping table one might find on the web.
-</code></pre></div>
+<pre><code>Table 1: An example of a typical mapping table one might find on the web.
+</code></pre>
 <p>This type of table lacks clear semantics and is therefore very difficult to use and re-use either by humans or by machines. We will discuss a few of the most critical problems in the sections that follow.</p>
 <p><em>Non-transparent imprecision</em>. Mapping precision describes, usually qualitatively, whether a mapping between a subject and an object is exact, broad, narrow, close or related. An exact mapping means that the subject term can be replaced with the object term and vice versa, i.e. they refer to the exact same real-world entity. A broad mapping links a subject term to a more general term, for example, the term "leg" to the term "hindlimb" (if the ontology defines leg as the parts of the hindlimb that exclude the foot). A narrow mapping links a subject term to a more specific term. For example, "long QT syndrome" in the Mondo Disease Ontology is a narrow match to "Romano-Ward long QT syndrome" in Orphanet. A close mapping relates two terms that are neither exact, broad or narrow, but belong to the same category of things and are semantically similar, such as "apple" to "pear", or "paw" to "hand". Due to its subjective nature ("what is close?"), this is a problematic category of mapping, but it is widely used, for example for relating similar anatomical terms across species. Related mappings are mappings across categories of things, such as the mapping between a phenotype "enlarged liver" and the anatomical entity "liver". In practice, it is rare that mapping tables such as the one presented in Table 1 constitute a set of purely "exact" matches. </p>
 <p>Different use cases may require different levels of mapping precision. For example, for entity merging (defined as the process of merging two entities from different sources into one) or data translation (defined as the process of moving annotations from using one ontology to another), exact mappings may be required, while for data grouping broad matches are often sufficient (ensuring that the subject is classified under the object term). For many machine learning use cases, close and related matches will be extremely useful regardless of their lack of semantic precision (though semantic precision is likely to improve predictive power). In practice, many mappings are to varying degrees imprecise but do not specify the mapping precision. This makes it impossible to reliably apply them to use cases such as entity merging or data translation.</p>
@@ -1163,40 +1163,40 @@ Mapping rules define the conditions under which we determine a match between two
 </ol>
 <h4 id="predicate-is-an-annotation-property">Predicate is an annotation property:</h4>
 <p>If the predicate corresponds to an annotation property, the mapping <S,P,O, sssomMetadata> gets converted to an OWLAnnotationAssertion axiom: <code>OWLAnnotationAssertion(P,S,O)</code>. All mapping level metadata (<code>sssomMetadata</code>) gets converted into OWLAnnotation objects which are materialised as axiom annotations on the mapping annotation assertion, see <a href="https://www.w3.org/TR/owl2-syntax/#Annotations">OWL 2 Structural Specification</a>:</p>
-<div class="highlight"><pre><span></span><code>AnnotationAssertion(sssomMetadata P, S, O)
-</code></pre></div>
+<pre><code>AnnotationAssertion(sssomMetadata P, S, O)
+</code></pre>
 <p>Where <code>sssomMetadata</code> is a sequence of OWL Annotations objects like:</p>
-<div class="highlight"><pre><span></span><code>Annotation(Q1,V1) Annotation(Q2,V2) ... Annotation(Qn,Vn)
-</code></pre></div>
+<pre><code>Annotation(Q1,V1) Annotation(Q2,V2) ... Annotation(Qn,Vn)
+</code></pre>
 <p>where Qi is a SSSOM metadata element and Vi is an annotation value.</p>
 <p>Note that if a SSSOM metadata element value is a list L (i.e. can have multiple elements, such as creator and others), individual annotations are created for each of them:</p>
-<div class="highlight"><pre><span></span><code>Annotation(Q,V) for all V in L.
-</code></pre></div>
+<pre><code>Annotation(Q,V) for all V in L.
+</code></pre>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>AnnotationAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) skos:exactMatch &lt;http://purl.obolibrary.org/obo/HP_0009894&gt; &lt;http://purl.obolibrary.org/obo/MP_0000019&gt;)
-</code></pre></div>
+<pre><code>AnnotationAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) skos:exactMatch &lt;http://purl.obolibrary.org/obo/HP_0009894&gt; &lt;http://purl.obolibrary.org/obo/MP_0000019&gt;)
+</code></pre>
 <p>Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the <a href="https://www.w3.org/TR/owl2-syntax/#Annotations">OWL 2 Structural Specification</a>.</p>
 <h4 id="predicate-is-an-object-property">Predicate is an object property</h4>
 <h5 id="case-1-object-and-subject-are-classes">Case 1: Object and Subject are classes.</h5>
 <p>The Mapping <S,P,O> gets translated into an existential restriction: </p>
-<div class="highlight"><pre><span></span><code>SubclassOf(A, P some O)
-</code></pre></div>
+<pre><code>SubclassOf(A, P some O)
+</code></pre>
 <p>All metadata elements are added as OWLAnnotation objects and added to SubclassOf axiom as axiom annotations:</p>
-<div class="highlight"><pre><span></span><code>SubclassOf(sssomMetadata, A, P some O)
-</code></pre></div>
+<pre><code>SubclassOf(sssomMetadata, A, P some O)
+</code></pre>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) &lt;http://example.org/AA&gt; ObjectSomeValuesFrom(&lt;http://example.org/x&gt; &lt;http://example.org/BB&gt;))
-</code></pre></div>
+<pre><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) &lt;http://example.org/AA&gt; ObjectSomeValuesFrom(&lt;http://example.org/x&gt; &lt;http://example.org/BB&gt;))
+</code></pre>
 <h5 id="case-2-object-and-subject-are-individuals">Case 2: Object and Subject are individuals</h5>
 <p>The Mapping <S,P,O> gets translated into an object property assertion: </p>
-<div class="highlight"><pre><span></span><code>ObjectPropertyAssertion(P, A, O)
-</code></pre></div>
+<pre><code>ObjectPropertyAssertion(P, A, O)
+</code></pre>
 <p>All metadata elements are added as OWLAnnotation objects and added to ObjectPropertyAssertion axiom as axiom annotations:</p>
-<div class="highlight"><pre><span></span><code>ObjectPropertyAssertion(sssomMetadata, P, A, O)
-</code></pre></div>
+<pre><code>ObjectPropertyAssertion(sssomMetadata, P, A, O)
+</code></pre>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>ObjectPropertyAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) &lt;http://www.example.org/x&gt; &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
-</code></pre></div>
+<pre><code>ObjectPropertyAssertion(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) &lt;http://www.example.org/x&gt; &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
+</code></pre>
 <h4 id="predicate-is-language-relational-construct-of-rdfs-or-owl">Predicate is language relational construct of RDFS or OWL</h4>
 <p>The mapping <S,P,O> gets translated into an annotated axiom that corresponds to the construct used. By default, SSSOM will support:</p>
 <table>
@@ -1211,8 +1211,8 @@ Mapping rules define the conditions under which we determine a match between two
 </table>
 
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
-</code></pre></div>
+<pre><code>SubClassOf(Annotation(sssom:creator_id &lt;https://orcid.org/0000-0002-7356-1779&gt;) Annotation(sssom:mapping_justification semapv:LexicalMatching) &lt;http://www.example.org/a&gt; &lt;http://www.example.org/b&gt;)
+</code></pre>
 <h3 id="tsv">TSV:</h3>
 <p>All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the <a href="https://mapping-commons.github.io/sssom/Mapping/">SSSOM metadata</a>. For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, mapping_justification, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, mapping_justification. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.</p>
 <p>Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a <code>curie_map:</code> parameter in the yaml file. The value can be either a dictionary of CURIE-&gt;URLPREFIX pairs or a link to a valid curie map of the same shape.</p>
@@ -1223,50 +1223,51 @@ Mapping rules define the conditions under which we determine a match between two
 <li>External yaml metadata files should have the extension <code>.sssom.yml</code>, for example <code>mp-hp-exact-0.0.1.sssom.tsv</code></li>
 </ul>
 <p>Example (<a href="https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.yml">download</a>):</p>
-<div class="highlight"><pre><span></span><code>creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
+<pre><code>creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
 curie_map: 
   HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
   MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
   skos: &quot;http://www.w3.org/2004/02/skos/core&quot;
 license: &quot;https://creativecommons.org/publicdomain/zero/1.0/&quot;
 mapping_provider: &quot;http://purl.obolibrary.org/obo/upheno.owl&quot;
-</code></pre></div>
+</code></pre>
 <h4 id="external-mode">External mode</h4>
 <p>In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension <code>-meta.yml</code>. By default, tools will look for the file of that name in the same directory as the the mapping set table.</p>
 <p>Example (<a href="https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
-<div class="highlight"><pre><span></span><code>subject_id  predicate_id    object_id   mapping_justification   subject_label   object_label
+<pre><code>subject_id  predicate_id    object_id   mapping_justification   subject_label   object_label
 HP:0009124  skos:exactMatch MP:0000003  Lexical Abnormal adipose tissue morphology  abnormal adipose tissue morphology
 HP:0008551  skos:exactMatch MP:0000018  Lexical Microtia    small ears
 HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
-</code></pre></div>
+</code></pre>
 <h4 id="embedded-mode-default">Embedded mode (default)</h4>
 <p>In the embedded mode, we allow the integration of mapping set level metadata as <strong><em>commented YAML</em></strong>. Apart from being commented, the YAML follows the exact same spec as the <em>YAML specified by the external mode</em>. Heavily used tools in bioinformatics such as pandas allow to <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">specify comment characters</a> when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.</p>
 <p>Note: the mapping set level metadata <em>must be included as a continuous block at the beginning of the file</em>. This means in particular: 
 - No comments can be included that are not part of the metadata data. For example, this is not allowed:</p>
-<p>Illegal case 1:
-<div class="highlight"><pre><span></span><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
+<p>Illegal case 1:</p>
+<pre><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
 # This is a comment that does not belong here
 #curie_map: 
 #  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
 #  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
-</code></pre></div></p>
-<p>Illegal case 2:
-<div class="highlight"><pre><span></span><code># This is a comment that does not belong here
+</code></pre>
+<p>Illegal case 2:</p>
+<pre><code># This is a comment that does not belong here
 #creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
 #curie_map: 
 #  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
 #  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
-</code></pre></div></p>
+</code></pre>
 <ul>
 <li>There should be no empty rows: the commented yaml files <em>must</em> be directly followed by the column headers. For example, this is not allowed:</li>
 </ul>
-<p>Illegal case 3:
-<div class="highlight"><pre><span></span><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
+<p>Illegal case 3:</p>
+<pre><code>
+#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
 
 #curie_map: 
 #  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
 #  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
-</code></pre></div></p>
+</code></pre>
 <ul>
 <li>The can be only a single # in the beginning of each row, followed immediately by the yaml.</li>
 <li>When the leading hash-symbol is stripped from the header block, the resulting string is:</li>
@@ -1275,7 +1276,7 @@ HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
 <li>After the table header, no further row should be commented out.</li>
 </ul>
 <p>Example (<a href="https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/embedded/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
-<div class="highlight"><pre><span></span><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
+<pre><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
 #curie_map: 
 #  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
 #  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
@@ -1286,7 +1287,7 @@ subject_id  predicate_id    object_id   mapping_justification   subject_label   
 HP:0009124  skos:exactMatch MP:0000003  Lexical Abnormal adipose tissue morphology  abnormal adipose tissue morphology
 HP:0008551  skos:exactMatch MP:0000018  Lexical Microtia    small ears
 HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
-</code></pre></div>
+</code></pre>
 <p><em>Notes:</em></p>
 <ul>
 <li>ROBOT implementation: <a href="https://github.com/ontodev/robot/issues/312">https://github.com/ontodev/robot/issues/312</a></li>

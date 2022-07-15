@@ -536,7 +536,7 @@
 <h1 id="class-mappingregistry">Class: MappingRegistry</h1>
 <p><em>A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries.</em></p>
 <p>URI: <a href="https://w3id.org/sssom/MappingRegistry">sssom:MappingRegistry</a></p>
-<p><div class="highlight"><pre><span></span><code> classDiagram
+<pre><code class="language-mermaid"> classDiagram
     class MappingRegistry
       MappingRegistry : documentation
       MappingRegistry : homepage
@@ -590,8 +590,8 @@
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | [&#39;sssom:MappingRegistry&#39;] |
-| native | [&#39;sssom:MappingRegistry&#39;] |
+| self | ['sssom:MappingRegistry'] |
+| native | ['sssom:MappingRegistry'] |
 
 
 ## LinkML Specification
@@ -612,55 +612,59 @@ slots:
 - mapping_set_references
 - documentation
 - homepage
-</code></pre></div>
-</details></p>
+
+</code></pre>
+</details>
 <h3 id="induced">Induced</h3>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping registry</span><span class="w"></span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A registry for managing mapping sets. It holds a set of mapping set references,</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">and can import other registries.</span><span class="w"></span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="nt">attributes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_registry_id</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_registry_id</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The unique identifier of a mapping registry.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_registry_id</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping registry</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EntityReference</span><span class="w"></span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">imports</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">imports</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A list of registries that should be imported into this one.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">imports</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping registry</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_set_references</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_references</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A list of mapping set references.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_references</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping registry</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set reference</span><span class="w"></span>
-<span class="w">    </span><span class="nt">recommended</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">documentation</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">documentation</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A URL to the documentation of this mapping commons.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">documentation</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping registry</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span><span class="w"></span>
-<span class="w">  </span><span class="nt">homepage</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">homepage</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A URL to a homepage of this mapping commons.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">homepage</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping registry</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span><span class="w"></span>
-</code></pre></div>
+
+<pre><code class="language-yaml">name: mapping registry
+description: A registry for managing mapping sets. It holds a set of mapping set references,
+  and can import other registries.
+from_schema: https://w3id.org/sssom/schema/
+attributes:
+  mapping_registry_id:
+    name: mapping_registry_id
+    description: The unique identifier of a mapping registry.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mapping_registry_id
+    owner: mapping registry
+    range: EntityReference
+    required: true
+  imports:
+    name: imports
+    description: A list of registries that should be imported into this one.
+    from_schema: https://w3id.org/sssom/schema/
+    multivalued: true
+    alias: imports
+    owner: mapping registry
+    range: uri
+  mapping_set_references:
+    name: mapping_set_references
+    description: A list of mapping set references.
+    from_schema: https://w3id.org/sssom/schema/
+    multivalued: true
+    alias: mapping_set_references
+    owner: mapping registry
+    range: mapping set reference
+    recommended: true
+  documentation:
+    name: documentation
+    description: A URL to the documentation of this mapping commons.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: documentation
+    owner: mapping registry
+    range: uri
+  homepage:
+    name: homepage
+    description: A URL to a homepage of this mapping commons.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: homepage
+    owner: mapping registry
+    range: uri
+
+</code></pre>
+
 </details>
 
               

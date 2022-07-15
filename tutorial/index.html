@@ -1049,10 +1049,10 @@
 <li>We select a reasonable prefix for the code, for example (1) <code>embl.ebi.person</code> and (2) <code>demographics-survey-datamodel.demographics.highest_education</code>. Note these do not need to be globally unique anymore. Indeed, you could, if you wanted to, use (much) shorter prefixes. (NOTE: some people disagree with this and strive for globally unique prefixes. In the biomedical domain, for example, we try to coordinate prefixes at http://bioregistry.io/. This is not however, necessary when using SSSOM).</li>
 <li>We record the prefixes and their URI prefixes (sometimes called URI expansions) in the <code>curie_map</code> of our SSSOM file:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>curie_map:
+<pre><code>curie_map:
   embl.ebi.person: &quot;http://embl.org/ebi/person/&quot;
   demographics-survey-datamodel.demographics.highest_education: &quot;http://embl.org/demographics-survey-datamodel/demographics.highest_education#&quot;
-</code></pre></div>
+</code></pre>
 <ul>
 <li>Now we can refer to our entities in the SSSOM mapping table like this: (1) <code>embl.ebi.person:p9787869</code> and (2) <code>demographics-survey-datamodel.demographics.highest_education:UNIVERSITY</code>.</li>
 </ul>
@@ -1217,14 +1217,14 @@
 </table>
 <p>While not necessary from a computational perspective, we recommend to document the labels of both the subject and the object to make the mapping table easier to process for human curators.</p>
 <p>The next step is now to try and identify suitable terms from FOODON to map to. In the biomedical domain, most curators will <a href="https://www.ebi.ac.uk/ols/search?q=apple&amp;groupField=iri&amp;start=0&amp;ontology=foodon">search OLS</a> or <a href="https://www.ontobee.org/search?ontology=FOODON&amp;keywords=apple&amp;submit=Search+terms">Ontobee</a>, but some more technically advanced users may choose to use <a href="https://api.triplydb.com/s/nq_xvl3JQ">SPARQL over ontobee</a> or another endpoint:</p>
-<div class="highlight"><pre><span></span><code>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+<pre><code>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 SELECT * WHERE {
   ?sub rdfs:label ?obj .
   FILTER(regex(str(?obj), &quot;apple&quot;))
   FILTER(STRSTARTS(str(?sub),&quot;http://purl.obolibrary.org/obo/FOODON_&quot;))
 }
-</code></pre></div>
+</code></pre>
 <p>A detailed discussion on mapping predicates can be found <a href="../mapping-predicates/">here</a>.</p>
 <h5 id="mapping-apple-attempt-1">Mapping "apple", attempt 1</h5>
 <p>Our first attempt is to try and map <code>KF_FOOD:F001</code> (apple). At the time of writing, a search for the string "apple" just across the labels in FOODON reveals more than 300 results. There are no exact matches for the search string "apple", i.e. there is no entity in FOODON that has the label "apple" exactly. Rather than sifting through the large set of results, we move on to try to map a more specific element first. As FOODON is an ontology, having a mapping to a more specific element (e.g. <code>gala</code>) may help us to find an appropriate mapping for the more general concept (e.g. <code>apple</code>), which should be hierarchically related to the more specific term.</p>
@@ -1597,7 +1597,7 @@ SELECT * WHERE {
 </table>
 <p><strong>Mapping set metadata</strong>. In this tutorial, only <code>mapping_set_id</code>, <code>mapping_set_version</code>, <code>license</code> and <code>mapping_set_description</code> are purely <code>mapping_set</code> metadata. Everything else is considered <code>mapping</code> metadata.
 Mapping set metadata is captured in <a href="https://yaml.org/">YAML</a> format. For this tutorial, we will capture the following:</p>
-<div class="highlight"><pre><span></span><code>mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+<pre><code>mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
 license: https://creativecommons.org/licenses/by/4.0/
 mapping_set_version: &quot;2022-06-01&quot;
 mapping_set_description: &quot;Manually curated alignment of KEWL FOODIE INC internal food and nutrition database with Food Ontology (FOODON). Intended to be used for ontological analysis and grouping of KEWL FOODIE INC related data.&quot;
@@ -1610,7 +1610,7 @@ curie_map:
   sempav: https://w3id.org/semapv/
   skos: &quot;http://www.w3.org/2004/02/skos/core#&quot;
   sssom: https://w3id.org/sssom/
-</code></pre></div>
+</code></pre>
 <p>Despite <code>object_source</code> and <code>subject_source</code> being <em>mapping</em> metadata, we decided to capture them at mapping set level, as they are not likely to change throughout versions of the mapping set. Note that while the <code>object_source</code> resolves to an actual page on the web (<a href="https://www.wikidata.org/wiki/Q55118395">FOODON</a>), <code>KF_FOOD:DB</code> does not. SSSOM requires a source to correspond to an IRI (see ongoing <a href="https://github.com/mapping-commons/sssom/issues/126">debate</a>). This helps to ensure that it is unambiguously clear what the source was. Imagine someone documenting the string <code>INTERNAL_DB</code> or just <code>DB</code> - even in large organisations, but certainly on the web, this can cause clashes.</p>
 <p>The <code>curie_map</code> (better known as "prefix map") is another key concept in SSSOM (and most Semantic Web standards). It maps prefixes to URI expansions. This serves three main purposes.</p>
 <ol>
@@ -1646,10 +1646,10 @@ curie_map:
 <li><a href="https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/example1.sssom.yml">Metadata</a></li>
 </ul>
 <p>Now you let's use SSSOM toolkit to merge these two:</p>
-<div class="highlight"><pre><span></span><code>sssom parse example1.sssom.tsv -m example1.sssom.yml -o foodieinc-food.sssom.tsv
-</code></pre></div>
+<pre><code>sssom parse example1.sssom.tsv -m example1.sssom.yml -o foodieinc-food.sssom.tsv
+</code></pre>
 <p>If you open <code>foodieinc-food.sssom.tsv</code>, you will see:</p>
-<div class="highlight"><pre><span></span><code># comment: We could map to FOODON:00004187 instead which more specifically refers to
+<pre><code># comment: We could map to FOODON:00004187 instead which more specifically refers to
 #   &quot;raw&quot; Pink apples. Decided against to be consistent with other mapping choices.
 # curie_map:
 #   FOODON: http://purl.obolibrary.org/obo/FOODON_
@@ -1657,12 +1657,12 @@ curie_map:
 #   skos: http://www.w3.org/2004/02/skos/core#
 #   sssom: https://w3id.org/sssom/
 # license: https://creativecommons.org/licenses/by/4.0/
-# mapping_date: &#39;2022-05-02&#39;
+# mapping_date: '2022-05-02'
 # mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food
 #   and nutrition database with Food Ontology (FOODON). Intended to be used for ontological
 #   analysis and grouping of KEWL FOODIE INC related data.
 # mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
-# mapping_set_version: &#39;2022-06-01&#39;
+# mapping_set_version: '2022-06-01'
 # object_source: wikidata:Q55118395
 # object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
 # subject_source: KF_FOOD:DB
@@ -1672,16 +1672,16 @@ KF_FOOD:F002    gala    skos:exactMatch FOODON:00003348 Gala apple (whole)  Huma
 KF_FOOD:F003    pink    skos:exactMatch FOODON:00004186 Pink apple (whole)  HumanCurated    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  0.9 &quot;We could map to FOODON:00004187 instead which more specifically refers to &quot;&quot;raw&quot;&quot; Pink apples. Decided against to be consistent with other mapping choices.&quot;
 KF_FOOD:F004    braeburn    skos:exactMatch sssom:NoMapping     HumanCurated    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  1.0 
 KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   HumanCurated    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  1.0 
-</code></pre></div>
+</code></pre>
 <h4 id="converting-an-sssom-file-to-json">Converting an SSSOM file to JSON</h4>
 <p>We will now convert the embedded SSSOM file we created before into JSON:</p>
-<div class="highlight"><pre><span></span><code>sssom convert foodieinc-food.sssom.tsv --output-format json -o foodieinc-food.sssom.json
-</code></pre></div>
+<pre><code>sssom convert foodieinc-food.sssom.tsv --output-format json -o foodieinc-food.sssom.json
+</code></pre>
 <p>While the JSON format is <a href="https://github.com/mapping-commons/sssom/issues/102">not yet stable</a>, it is close to completion.</p>
 <h4 id="diff-between-two-versions">Diff between two versions</h4>
 <p>The last part of this tutorial concerns one of the main motivations of using a controlled metadata model for mappings: versioning. One key concern for data management, and mapping management in particular, is to be able under understand the evolution of mappings over time. While this command is not stable yet, we can use it to understand the difference between two mappings sets: <code>sssom diff</code>. Let us try to look at the difference between an old version of our foodie-inc mapping set and our new one:</p>
-<div class="highlight"><pre><span></span><code>sssom diff foodieinc-food.sssom.tsv ../embedded/foodie-inc-2022-05-01.sssom.tsv -o diff.sssom.tsv
-</code></pre></div>
+<pre><code>sssom diff foodieinc-food.sssom.tsv ../embedded/foodie-inc-2022-05-01.sssom.tsv -o diff.sssom.tsv
+</code></pre>
 <p>The outcome gives us the following information:</p>
 <table>
 <thead>

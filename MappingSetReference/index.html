@@ -536,7 +536,7 @@
 <h1 id="class-mappingsetreference">Class: MappingSetReference</h1>
 <p><em>A reference to a mapping set. It allows to augment mapping set metadata from the perspective of the registry, for example, providing confidence, or a local filename or a grouping.</em></p>
 <p>URI: <a href="https://w3id.org/sssom/MappingSetReference">sssom:MappingSetReference</a></p>
-<p><div class="highlight"><pre><span></span><code> classDiagram
+<pre><code class="language-mermaid"> classDiagram
     class MappingSetReference
       MappingSetReference : last_updated
       MappingSetReference : local_name
@@ -597,8 +597,8 @@
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | [&#39;sssom:MappingSetReference&#39;] |
-| native | [&#39;sssom:MappingSetReference&#39;] |
+| self | ['sssom:MappingSetReference'] |
+| native | ['sssom:MappingSetReference'] |
 
 
 ## LinkML Specification
@@ -621,69 +621,73 @@ slots:
 - mapping_set_group
 - last_updated
 - local_name
-</code></pre></div>
-</details></p>
+
+</code></pre>
+</details>
 <h3 id="induced">Induced</h3>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set reference</span><span class="w"></span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A reference to a mapping set. It allows to augment mapping set metadata</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">from the perspective of the registry, for example, providing confidence, or a local</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">filename or a grouping.</span><span class="w"></span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="nt">attributes</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_set_id</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_id</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A globally unique identifier for the mapping set (not each individual</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">mapping). Should be IRI, ideally resolvable.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">examples</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv</span><span class="w"></span>
-<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(A persistent URI pointing to the latest version of the Mondo -</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">NCIT mapping in the Mondo namespace.)</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_id</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set reference</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span><span class="w"></span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mirror_from</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mirror_from</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A URL location from which to obtain a resource, such as a mapping</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">set.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mirror_from</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set reference</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uri</span><span class="w"></span>
-<span class="w">  </span><span class="nt">registry_confidence</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">registry_confidence</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">This value is set by the registry that indexes the mapping set. It</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">reflects the confidence the registry has in the correctness of the mappings</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in the mapping set.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">registry_confidence</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set reference</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">double</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mapping_set_group</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_group</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set by the owners of the mapping registry. A way to group .</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping_set_group</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set reference</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-<span class="w">  </span><span class="nt">last_updated</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">last_updated</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The date this reference was last updated.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">last_updated</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set reference</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span><span class="w"></span>
-<span class="w">  </span><span class="nt">local_name</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local_name</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The local name assigned to file that corresponds to the downloaded</span><span class="w"></span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">mapping set.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/sssom/schema/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local_name</span><span class="w"></span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mapping set reference</span><span class="w"></span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"></span>
-</code></pre></div>
+
+<pre><code class="language-yaml">name: mapping set reference
+description: A reference to a mapping set. It allows to augment mapping set metadata
+  from the perspective of the registry, for example, providing confidence, or a local
+  filename or a grouping.
+from_schema: https://w3id.org/sssom/schema/
+attributes:
+  mapping_set_id:
+    name: mapping_set_id
+    description: A globally unique identifier for the mapping set (not each individual
+      mapping). Should be IRI, ideally resolvable.
+    examples:
+    - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
+      description: (A persistent URI pointing to the latest version of the Mondo -
+        NCIT mapping in the Mondo namespace.)
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mapping_set_id
+    owner: mapping set reference
+    range: uri
+    required: true
+  mirror_from:
+    name: mirror_from
+    description: A URL location from which to obtain a resource, such as a mapping
+      set.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mirror_from
+    owner: mapping set reference
+    range: uri
+  registry_confidence:
+    name: registry_confidence
+    description: This value is set by the registry that indexes the mapping set. It
+      reflects the confidence the registry has in the correctness of the mappings
+      in the mapping set.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: registry_confidence
+    owner: mapping set reference
+    range: double
+  mapping_set_group:
+    name: mapping_set_group
+    description: Set by the owners of the mapping registry. A way to group .
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mapping_set_group
+    owner: mapping set reference
+    range: string
+  last_updated:
+    name: last_updated
+    description: The date this reference was last updated.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: last_updated
+    owner: mapping set reference
+    range: date
+  local_name:
+    name: local_name
+    description: The local name assigned to file that corresponds to the downloaded
+      mapping set.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: local_name
+    owner: mapping set reference
+    range: string
+
+</code></pre>
+
 </details>
 
               
