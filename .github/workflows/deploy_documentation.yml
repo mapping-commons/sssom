@@ -9,6 +9,7 @@ on:
     paths:
     - 'src/docs/*'
     - 'src/sssom_schema/schema/sssom_schema.yaml'
+    - 'mkdocs.yml'
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
