@@ -279,7 +279,7 @@ Annotation(Q,V) for all V in L.
 Example:
 
 ```
-AnnotationAssertion(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) skos:exactMatch <http://purl.obolibrary.org/obo/HP_0009894> <http://purl.obolibrary.org/obo/MP_0000019>)
+AnnotationAssertion(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalMatching) skos:exactMatch <http://purl.obolibrary.org/obo/HP_0009894> <http://purl.obolibrary.org/obo/MP_0000019>)
 ```
 
 Mapping set level annotations are manifested as Ontology annotation in the usual way, according to the [OWL 2 Structural Specification](https://www.w3.org/TR/owl2-syntax/#Annotations).
@@ -303,7 +303,7 @@ SubclassOf(sssomMetadata, A, P some O)
 Example:
 
 ```
-SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) <http://example.org/AA> ObjectSomeValuesFrom(<http://example.org/x> <http://example.org/BB>))
+SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalMatching) <http://example.org/AA> ObjectSomeValuesFrom(<http://example.org/x> <http://example.org/BB>))
 ```
 
 ##### Case 2: Object and Subject are individuals
@@ -323,7 +323,7 @@ ObjectPropertyAssertion(sssomMetadata, P, A, O)
 Example:
 
 ```
-ObjectPropertyAssertion(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) <http://www.example.org/x> <http://www.example.org/a> <http://www.example.org/b>)
+ObjectPropertyAssertion(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalMatching) <http://www.example.org/x> <http://www.example.org/a> <http://www.example.org/b>)
 ```
 
 #### Predicate is language relational construct of RDFS or OWL
@@ -344,7 +344,7 @@ The mapping <S,P,O> gets translated into an annotated axiom that corresponds to 
 Example:
 
 ```
-SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalEquivalenceMatch) <http://www.example.org/a> <http://www.example.org/b>)
+SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) Annotation(sssom:mapping_justification semapv:LexicalMatching) <http://www.example.org/a> <http://www.example.org/b>)
 ```
 
 ### TSV:
@@ -525,11 +525,11 @@ To enable cross-walking, we propose the following **Five-Star system** for mappi
          - `mapping_set_version`
          - `mapping_provider` (if the mapping is not original, i.e. it is not derived from another source)
     - provide a completely executable curation_rule:
-        - if the mapping is `Lexical`, provide:
+        - if the mapping is `semapv:LexicalMatching`, provide:
             - `subject_preprocessing`, `object_preprocessing`
             - `subject_match_field`, `object_match_field`
             - `match_string`
-        - if the mapping is `Logical`, the mapping should be derivable by a reasoner from a combination of the `object_source` and `subject_source`. If more is needed then please leave a `comment` with details.
+        - if the mapping is `semapv:LogicalReasoning`, the mapping should be derivable by a reasoner from a combination of the `object_source` and `subject_source`. If more is needed then please leave a `comment` with details.
         - if the mapping is `HumanCurated`.. (this needs to be [fleshed out](https://github.com/mapping-commons/SSSOM/issues/57). For now, leave a `comment` indicating what you did to arrive at your conclusion, i.e. wether you compared the definitions, looked up the "labels" in a database, ran a tool and decided to trust it etc.)
         - if the mapping is `SemanticSimilarity` (graph similarity, neighbourhood, cosine similarity), you should provide:
             - `semantic_similarity_score`
