@@ -360,7 +360,7 @@ We recommend to use the following *filename conventions* for SSSOM metadatafiles
 - TSV files should have the extension `.sssom.tsv`, for example: `mp-hp-exact-0.0.1.sssom.tsv`.
 - External yaml metadata files should have the extension `.sssom.yml`, for example `mp-hp-exact-0.0.1.sssom.tsv`
 
-Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.yml)):
+Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.yml)):
 
 ```
 creator_id: "https://orcid.org/0000-0002-7356-1779"
@@ -376,7 +376,7 @@ mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
 
 In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension `-meta.yml`. By default, tools will look for the file of that name in the same directory as the the mapping set table.
 
-Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv)):
+Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv)):
 
 ```
 subject_id	predicate_id	object_id	mapping_justification	subject_label	object_label
@@ -428,7 +428,7 @@ Illegal case 3:
   2. conforms to SSSOM mapping set specification (only `curie_map` or a metadata elements that are allowed on `mapping_set` level, i.e. `global`).
 - After the table header, no further row should be commented out.
 
-Example ([download](https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/embedded/mp-hp-exact-0.0.1.sssom.tsv)):
+Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/embedded/mp-hp-exact-0.0.1.sssom.tsv)):
 
 ```
 #creator_id: "https://orcid.org/0000-0002-7356-1779"
