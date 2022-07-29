@@ -1222,7 +1222,7 @@ Mapping rules define the conditions under which we determine a match between two
 <li>TSV files should have the extension <code>.sssom.tsv</code>, for example: <code>mp-hp-exact-0.0.1.sssom.tsv</code>.</li>
 <li>External yaml metadata files should have the extension <code>.sssom.yml</code>, for example <code>mp-hp-exact-0.0.1.sssom.tsv</code></li>
 </ul>
-<p>Example (<a href="https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.yml">download</a>):</p>
+<p>Example (<a href="https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.yml">download</a>):</p>
 <pre><code>creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
 curie_map: 
   HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
@@ -1233,7 +1233,7 @@ mapping_provider: &quot;http://purl.obolibrary.org/obo/upheno.owl&quot;
 </code></pre>
 <h4 id="external-mode">External mode</h4>
 <p>In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension <code>-meta.yml</code>. By default, tools will look for the file of that name in the same directory as the the mapping set table.</p>
-<p>Example (<a href="https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
+<p>Example (<a href="https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
 <pre><code>subject_id  predicate_id    object_id   mapping_justification   subject_label   object_label
 HP:0009124  skos:exactMatch MP:0000003  Lexical Abnormal adipose tissue morphology  abnormal adipose tissue morphology
 HP:0008551  skos:exactMatch MP:0000018  Lexical Microtia    small ears
@@ -1275,7 +1275,7 @@ HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
 <li>conforms to SSSOM mapping set specification (only <code>curie_map</code> or a metadata elements that are allowed on <code>mapping_set</code> level, i.e. <code>global</code>).</li>
 <li>After the table header, no further row should be commented out.</li>
 </ul>
-<p>Example (<a href="https://raw.githubusercontent.com/matentzn/SSSOM/master/examples/embedded/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
+<p>Example (<a href="https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/embedded/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
 <pre><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
 #curie_map: 
 #  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
