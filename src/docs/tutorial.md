@@ -379,10 +379,7 @@ This concludes the manual curation tutorial. Next, we will process the two mappi
 <a id="automated1"></a>
 ### Automated processing 1: Creating an embedded SSSOM file
 
-*Important note May 8 2022**: The SSSOM toolkit have not yet been updated to the most recent changes of the SSSOM data model. If you get an error `ValueError: match_type must be supplied`, you have to change your SSSOM table to follow this part of the tutorial:
-
-1. Rename the `mapping_justification` column to `match_type`.
-2. Change the `semapv:HumanCuration` value in that column to just `HumanCurated` (sic, without semapv).
+*Important note May 8 2022**: The SSSOM toolkit have not yet been updated to the most recent changes of the SSSOM data model. If you get an error `ValueError: match_type must be supplied`, you have to update your local installation.
 
 #### Embedded vs external mode for SSSOM metadata
 
@@ -431,12 +428,12 @@ If you open `foodieinc-food.sssom.tsv`, you will see:
 # object_source: wikidata:Q55118395
 # object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
 # subject_source: KF_FOOD:DB
-subject_id	subject_label	predicate_id	object_id	object_label	match_type	author_id	object_source_version	mapping_date	confidence	comment
-KF_FOOD:F001	apple	skos:exactMatch	FOODON:00002473	apple (whole)	HumanCurated	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	0.95	"We could map to FOODON:03310788 instead to cover sliced apples, but only ""whole"" apple types exist."
-KF_FOOD:F002	gala	skos:exactMatch	FOODON:00003348	Gala apple (whole)	HumanCurated	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	1.0	
-KF_FOOD:F003	pink	skos:exactMatch	FOODON:00004186	Pink apple (whole)	HumanCurated	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	0.9	"We could map to FOODON:00004187 instead which more specifically refers to ""raw"" Pink apples. Decided against to be consistent with other mapping choices."
-KF_FOOD:F004	braeburn	skos:exactMatch	sssom:NoMapping		HumanCurated	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	1.0	
-KF_FOOD:F004	braeburn	skos:broadMatch	FOODON:00002473	apple (whole)	HumanCurated	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	1.0	
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	object_source_version	mapping_date	confidence	comment
+KF_FOOD:F001	apple	skos:exactMatch	FOODON:00002473	apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	0.95	"We could map to FOODON:03310788 instead to cover sliced apples, but only ""whole"" apple types exist."
+KF_FOOD:F002	gala	skos:exactMatch	FOODON:00003348	Gala apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	1.0	
+KF_FOOD:F003	pink	skos:exactMatch	FOODON:00004186	Pink apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	0.9	"We could map to FOODON:00004187 instead which more specifically refers to ""raw"" Pink apples. Decided against to be consistent with other mapping choices."
+KF_FOOD:F004	braeburn	skos:exactMatch	sssom:NoMapping		semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	1.0	
+KF_FOOD:F004	braeburn	skos:broadMatch	FOODON:00002473	apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	1.0	
 ```
 
 #### Converting an SSSOM file to JSON
@@ -459,13 +456,13 @@ sssom diff foodieinc-food.sssom.tsv ../embedded/foodie-inc-2022-05-01.sssom.tsv 
 
 The outcome gives us the following information:
 
-| subject_id   | subject_label | predicate_id    | object_id       | object_label            | match_type   | author_id                 | object_source_version                                                | mapping_date | confidence | comment        |
+| subject_id   | subject_label | predicate_id    | object_id       | object_label            | mapping_justification | author_id                 | object_source_version                                                | mapping_date | confidence | comment        |
 |--------------|---------------|-----------------|-----------------|-------------------------|--------------|---------------------------|----------------------------------------------------------------------|--------------|------------|----------------|
-| KF_FOOD:F003 | pink          | skos:exactMatch | FOODON:00004186 | Pink apple (whole)      | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 0.9        | UNIQUE_1       |
-| KF_FOOD:F003 | pink          | skos:exactMatch | FOODON:00004187 | Pink apple (whole, raw) | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 0.9        | UNIQUE_2       |
-| KF_FOOD:F002 | gala          | skos:exactMatch | FOODON:00003348 | Gala apple (whole)      | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 1.0        | COMMON_TO_BOTH |
-| KF_FOOD:F004 | braeburn      | skos:broadMatch | FOODON:00002473 | apple (whole)           | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 1.0        | COMMON_TO_BOTH |
-| KF_FOOD:F001 | apple         | skos:exactMatch | FOODON:00002473 | apple (whole)           | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 0.95       | COMMON_TO_BOTH |
-| KF_FOOD:F004 | braeburn      | skos:exactMatch | sssom:NoMapping |                         | HumanCurated | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 1.0        | COMMON_TO_BOTH |
+| KF_FOOD:F003 | pink          | skos:exactMatch | FOODON:00004186 | Pink apple (whole)      | semapv:ManualMappingCuration | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 0.9        | UNIQUE_1       |
+| KF_FOOD:F003 | pink          | skos:exactMatch | FOODON:00004187 | Pink apple (whole, raw) | semapv:ManualMappingCuration | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 0.9        | UNIQUE_2       |
+| KF_FOOD:F002 | gala          | skos:exactMatch | FOODON:00003348 | Gala apple (whole)      | semapv:ManualMappingCuration | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 1.0        | COMMON_TO_BOTH |
+| KF_FOOD:F004 | braeburn      | skos:broadMatch | FOODON:00002473 | apple (whole)           | semapv:ManualMappingCuration | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 1.0        | COMMON_TO_BOTH |
+| KF_FOOD:F001 | apple         | skos:exactMatch | FOODON:00002473 | apple (whole)           | semapv:ManualMappingCuration | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 0.95       | COMMON_TO_BOTH |
+| KF_FOOD:F004 | braeburn      | skos:exactMatch | sssom:NoMapping |                         | semapv:ManualMappingCuration | orcid:0000-0002-7356-1779 | http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl | 2022-05-02   | 1.0        | COMMON_TO_BOTH |
 
 This can be used to understand that the first mapping is only present in the new mapping set, while the second mapping was present in the old mapping set - all the other ones are in common between the two.
