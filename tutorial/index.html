@@ -1621,11 +1621,7 @@ curie_map:
 <p>This concludes the manual curation tutorial. Next, we will process the two mapping sets using "SSSOM python toolkit" (aka sssom-py).</p>
 <p><a id="automated1"></a></p>
 <h3 id="automated-processing-1-creating-an-embedded-sssom-file">Automated processing 1: Creating an embedded SSSOM file</h3>
-<p><em>Important note May 8 2022</em>*: The SSSOM toolkit have not yet been updated to the most recent changes of the SSSOM data model. If you get an error <code>ValueError: match_type must be supplied</code>, you have to change your SSSOM table to follow this part of the tutorial:</p>
-<ol>
-<li>Rename the <code>mapping_justification</code> column to <code>match_type</code>.</li>
-<li>Change the <code>semapv:HumanCuration</code> value in that column to just <code>HumanCurated</code> (sic, without semapv).</li>
-</ol>
+<p><em>Important note May 8 2022</em>*: The SSSOM toolkit have not yet been updated to the most recent changes of the SSSOM data model. If you get an error <code>ValueError: match_type must be supplied</code>, you have to update your local installation.</p>
 <h4 id="embedded-vs-external-mode-for-sssom-metadata">Embedded vs external mode for SSSOM metadata</h4>
 <p>One problem with table formats like TSV or CSV, in contrast to more flexible tree shaped formats like JSON or XML, is that it is notoriously hard to include metadata about the whole table (for example, mapping <strong>set</strong> metadata) in them. There are essentially three options:</p>
 <ol>
@@ -1666,12 +1662,12 @@ curie_map:
 # object_source: wikidata:Q55118395
 # object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
 # subject_source: KF_FOOD:DB
-subject_id  subject_label   predicate_id    object_id   object_label    match_type  author_id   object_source_version   mapping_date    confidence  comment
-KF_FOOD:F001    apple   skos:exactMatch FOODON:00002473 apple (whole)   HumanCurated    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  0.95    &quot;We could map to FOODON:03310788 instead to cover sliced apples, but only &quot;&quot;whole&quot;&quot; apple types exist.&quot;
-KF_FOOD:F002    gala    skos:exactMatch FOODON:00003348 Gala apple (whole)  HumanCurated    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  1.0 
-KF_FOOD:F003    pink    skos:exactMatch FOODON:00004186 Pink apple (whole)  HumanCurated    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  0.9 &quot;We could map to FOODON:00004187 instead which more specifically refers to &quot;&quot;raw&quot;&quot; Pink apples. Decided against to be consistent with other mapping choices.&quot;
-KF_FOOD:F004    braeburn    skos:exactMatch sssom:NoMapping     HumanCurated    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  1.0 
-KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   HumanCurated    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  1.0 
+subject_id  subject_label   predicate_id    object_id   object_label    mapping_justification   author_id   object_source_version   mapping_date    confidence  comment
+KF_FOOD:F001    apple   skos:exactMatch FOODON:00002473 apple (whole)   semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  0.95    &quot;We could map to FOODON:03310788 instead to cover sliced apples, but only &quot;&quot;whole&quot;&quot; apple types exist.&quot;
+KF_FOOD:F002    gala    skos:exactMatch FOODON:00003348 Gala apple (whole)  semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  1.0 
+KF_FOOD:F003    pink    skos:exactMatch FOODON:00004186 Pink apple (whole)  semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  0.9 &quot;We could map to FOODON:00004187 instead which more specifically refers to &quot;&quot;raw&quot;&quot; Pink apples. Decided against to be consistent with other mapping choices.&quot;
+KF_FOOD:F004    braeburn    skos:exactMatch sssom:NoMapping     semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  1.0 
+KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl    2022-05-02  1.0 
 </code></pre>
 <h4 id="converting-an-sssom-file-to-json">Converting an SSSOM file to JSON</h4>
 <p>We will now convert the embedded SSSOM file we created before into JSON:</p>
@@ -1691,7 +1687,7 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   Huma
 <th>predicate_id</th>
 <th>object_id</th>
 <th>object_label</th>
-<th>match_type</th>
+<th>mapping_justification</th>
 <th>author_id</th>
 <th>object_source_version</th>
 <th>mapping_date</th>
@@ -1706,7 +1702,7 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   Huma
 <td>skos:exactMatch</td>
 <td>FOODON:00004186</td>
 <td>Pink apple (whole)</td>
-<td>HumanCurated</td>
+<td>semapv:ManualMappingCuration</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td>http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl</td>
 <td>2022-05-02</td>
@@ -1719,7 +1715,7 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   Huma
 <td>skos:exactMatch</td>
 <td>FOODON:00004187</td>
 <td>Pink apple (whole, raw)</td>
-<td>HumanCurated</td>
+<td>semapv:ManualMappingCuration</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td>http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl</td>
 <td>2022-05-02</td>
@@ -1732,7 +1728,7 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   Huma
 <td>skos:exactMatch</td>
 <td>FOODON:00003348</td>
 <td>Gala apple (whole)</td>
-<td>HumanCurated</td>
+<td>semapv:ManualMappingCuration</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td>http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl</td>
 <td>2022-05-02</td>
@@ -1745,7 +1741,7 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   Huma
 <td>skos:broadMatch</td>
 <td>FOODON:00002473</td>
 <td>apple (whole)</td>
-<td>HumanCurated</td>
+<td>semapv:ManualMappingCuration</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td>http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl</td>
 <td>2022-05-02</td>
@@ -1758,7 +1754,7 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   Huma
 <td>skos:exactMatch</td>
 <td>FOODON:00002473</td>
 <td>apple (whole)</td>
-<td>HumanCurated</td>
+<td>semapv:ManualMappingCuration</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td>http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl</td>
 <td>2022-05-02</td>
@@ -1771,7 +1767,7 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   Huma
 <td>skos:exactMatch</td>
 <td>sssom:NoMapping</td>
 <td></td>
-<td>HumanCurated</td>
+<td>semapv:ManualMappingCuration</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td>http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl</td>
 <td>2022-05-02</td>
