@@ -497,6 +497,7 @@ classes:
     - object_source
     - object_source_version
     - mapping_provider
+    - mapping_source
     - mapping_cardinality
     - mapping_tool
     - mapping_tool_version
