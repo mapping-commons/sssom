@@ -310,6 +310,7 @@
       Mapping : mapping_date
       Mapping : mapping_justification
       Mapping : mapping_provider
+      Mapping : mapping_source
       Mapping : mapping_tool
       Mapping : mapping_tool_version
       Mapping : match_string
@@ -522,6 +523,13 @@
 <td>.</td>
 </tr>
 <tr>
+<td><a href="../mapping_source/">mapping_source</a></td>
+<td><a href="../EntityReference/">EntityReference</a></td>
+<td>0..1</td>
+<td>The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another.</td>
+<td>.</td>
+</tr>
+<tr>
 <td><a href="../mapping_cardinality/">mapping_cardinality</a></td>
 <td><a href="../MappingCardinalityEnum/">MappingCardinalityEnum</a></td>
 <td>0..1</td>
@@ -703,6 +711,7 @@ slots:
 - object_source
 - object_source_version
 - mapping_provider
+- mapping_source
 - mapping_cardinality
 - mapping_tool
 - mapping_tool_version
@@ -1043,6 +1052,17 @@ attributes:
     alias: mapping_provider
     owner: mapping
     range: uri
+  mapping_source:
+    name: mapping_source
+    description: The mapping set this mapping was originally defined in. mapping_source
+      is used for example when merging multiple mapping sets or deriving one mapping
+      set from another.
+    examples:
+    - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mapping_source
+    owner: mapping
+    range: EntityReference
   mapping_cardinality:
     name: mapping_cardinality
     description: A string indicating whether this mapping is from a 1:1 (the subject_id
