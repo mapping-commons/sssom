@@ -488,10 +488,10 @@ Current mappings are extremely hard to use for data integration, because they ar
 
 In principle, to reach full integration through mappings, you will have to cross-map all ontologies, or semantic
 spaces (e.g. controlled vocabularies, semantic databases), which means if you have N "spaces", you have `N x (N - 1)` mappings (because A -> B is often different from B -> A). It makes sense to consider mappings as a directed graph from which you can infer other mappings using graph walking or [graph traversals](https://en.wikipedia.org/wiki/Graph_traversal). To mitigate the explosion of mappings, we have to be able to cross-walk. While some typical mapping predicates such as owl:equivalentClass or skos:exactMatch are symetric (which means that if A -> B then you can infer B -> A, which we will call a "walk-back"), other are not (skos:narrowMatch), but maybe have `inverse` predicates (A --[skos:narrowMatch]--> B implies B --[skos:broadMatch]--> A). Apart from walk backs, you can infer additional mappings through a chain of subsequent mappings (multi-hop forward walks), for example:
-- multi-hop forward walks `{ PR:000050277 -> ncbiprotein:YP_009725304, ncbiprotein:YP_009725304-> uniprot.chain:PRO_0000449627 } --> {PR:000050277 -> uniprot.chain:PRO_0000449627}`
-) 
-- walk-backs `{ PR:000050277 -> ncbiprotein:YP_009725304 } --> {ncbiprotein:YP_009725304 -> PR:000050277}`
-- combinations `{ PR:000050277 -> ncbiprotein:YP_009725304, ncbiprotein:YP_009725304-> uniprot.chain:PRO_0000449627, MY:NSP8-> uniprot.chain:PRO_0000449627 } --> { PR:000050277 -> MY:NSP8 }`
+
+- multi-hop forward walks: `{ PR:000050277 -> ncbiprotein:YP_009725304, ncbiprotein:YP_009725304-> uniprot.chain:PRO_0000449627 } --> {PR:000050277 -> uniprot.chain:PRO_0000449627}` 
+- walk-backs: `{ PR:000050277 -> ncbiprotein:YP_009725304 } --> {ncbiprotein:YP_009725304 -> PR:000050277}`
+- combinations: `{ PR:000050277 -> ncbiprotein:YP_009725304, ncbiprotein:YP_009725304-> uniprot.chain:PRO_0000449627, MY:NSP8-> uniprot.chain:PRO_0000449627 } --> { PR:000050277 -> MY:NSP8 }`
 
 To enable cross-walking, we propose the following **Five-Star system** for mapping sets. 
 
