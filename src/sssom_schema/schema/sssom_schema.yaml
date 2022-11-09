@@ -113,6 +113,16 @@ slots:
     examples:
       - value: HP:0009894
         description: The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'
+  literal:
+    description: The literal being mapped
+    range: string
+    required: true
+    mappings:
+    - owl:annotatedSource
+    slot_uri: owl:annotatedSource
+    examples:
+      - value: "Alzheimer"
+        description: A string referring to some thing.
   subject_label:
     description: The label of subject of the mapping
     range: string
@@ -510,6 +520,47 @@ classes:
     - object_preprocessing
     - semantic_similarity_score
     - semantic_similarity_measure
+    - see_also
+    - other
+    - comment
+    class_uri: owl:Axiom
+  literal mapping:
+    description: Represents an individual mapping between a a literal and an entity.
+    slots:
+    - literal
+    - literal_datatype
+    - predicate_id
+    - predicate_label
+    - predicate_modifier
+    - object_id
+    - object_label
+    - object_category
+    - mapping_justification
+    - author_id
+    - author_label
+    - reviewer_id
+    - reviewer_label
+    - creator_id
+    - creator_label
+    - license
+    - literal_source
+    - literal_source_version
+    - object_type
+    - object_source
+    - object_source_version
+    - mapping_provider
+    - mapping_source
+    - mapping_cardinality
+    - mapping_tool
+    - mapping_tool_version
+    - mapping_date
+    - confidence
+    - object_match_field
+    - match_string
+    - literal_preprocessing
+    - object_preprocessing
+    - similarity_score
+    - similarity_measure
     - see_also
     - other
     - comment
