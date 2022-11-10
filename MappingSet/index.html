@@ -308,6 +308,7 @@
       MappingSet : mapping_set_description
       MappingSet : mapping_set_id
       MappingSet : mapping_set_source
+      MappingSet : mapping_set_title
       MappingSet : mapping_set_version
       MappingSet : mapping_tool
       MappingSet : mappings
@@ -364,6 +365,13 @@
 <td><a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
 <td>0..*</td>
 <td>A mapping set or set of mapping set that was used to derive the mapping set.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../mapping_set_title/">mapping_set_title</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
+<td>0..1</td>
+<td>The display name of a mapping set.</td>
 <td>.</td>
 </tr>
 <tr>
@@ -545,6 +553,7 @@ slots:
 - mapping_set_id
 - mapping_set_version
 - mapping_set_source
+- mapping_set_title
 - mapping_set_description
 - creator_id
 - creator_label
@@ -634,6 +643,16 @@ attributes:
     alias: mapping_set_source
     owner: mapping set
     range: uri
+  mapping_set_title:
+    name: mapping_set_title
+    description: The display name of a mapping set.
+    examples:
+    - value: The Mondo-OMIM mappings by Monarch Initiative.
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: dc:title
+    alias: mapping_set_title
+    owner: mapping set
+    range: string
   mapping_set_description:
     name: mapping_set_description
     description: A description of the mapping set.
