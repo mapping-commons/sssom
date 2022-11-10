@@ -13,6 +13,7 @@ prefixes:
   prov: http://www.w3.org/ns/prov#
   skos: http://www.w3.org/2004/02/skos/core#
   semapv: https://w3id.org/semapv/
+  xsd: http://www.w3.org/2001/XMLSchema#
 see_also:
 - https://github.com/mapping-commons/sssom
 - https://mapping-commons.github.io/sssom/home/
@@ -333,6 +334,20 @@ slots:
         description: A Wikidata identifier for the Uberon ontology resource.
   subject_source_version:
     description: Version IRI or version string of the source of the subject term.
+    range: string
+    examples:
+      - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
+        description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
+  literal_source:
+    description: URI of ontology source for the literal.
+    range: EntityReference
+    examples:
+      - value: obo:mondo.owl
+        description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
+      - value: wikidata:Q7876491
+        description: A Wikidata identifier for the Uberon ontology resource.
+  literal_source_version:
+    description: Version IRI or version string of the source of the literal.
     range: string
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
