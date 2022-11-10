@@ -251,6 +251,12 @@ slots:
   mapping_set_group:
     description: Set by the owners of the mapping registry. A way to group .
     range: string
+  mapping_set_title:
+    description: The display name of a mapping set.
+    range: string
+    slot_uri: dc:title
+    examples:
+      - value: "The Mondo-OMIM mappings by Monarch Initiative."
   mapping_set_description:
     description: A description of the mapping set.
     range: string
@@ -450,6 +456,7 @@ classes:
     - mapping_set_id
     - mapping_set_version
     - mapping_set_source
+    - mapping_set_title
     - mapping_set_description
     - creator_id
     - creator_label
