@@ -87,6 +87,12 @@ slots:
     description: The unique identifier of a mapping registry.
     range: EntityReference
     required: true
+  registry_title:
+    description: The title of a mapping registry.
+    range: string
+  registry_description:
+    description: The description of a mapping registry.
+    range: string
   imports:
     description: A list of registries that should be imported into this one.
     multivalued: true
