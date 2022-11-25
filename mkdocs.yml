@@ -21,6 +21,9 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 nav:
   - Home: home.md
   - About SSSOM: about.md
@@ -39,6 +42,7 @@ nav:
     - Basic Tutorial: tutorial.md
     - How to use mapping predicates: mapping-predicates.md
     - A basic guide for the SSSOM toolkit: toolkit.md
+    - 5-Star Entity Mappings - Cheatsheet: 5star-mappings.md
 
 site_url: https://mapping-commons.github.io/sssom/
 repo_url: https://github.com/mapping-commons/sssom/
