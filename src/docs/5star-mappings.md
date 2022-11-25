@@ -14,7 +14,7 @@ if they are made available, they lack standardization and metadata. Here we outl
 5-Star mapping system (inspired by Tim Berners-Lee’s 5-star system for Linked Data) 
 to help you bring mapping production in your organization to the next level - step by step.
 
-# :star: 1-Star Mappings
+## :star: 1-Star Mappings
 
 * **Goal**: Export mapping in a computationally accessible format, make it publicly available and record mapping precision.
 * **Implementation**:
@@ -28,7 +28,7 @@ to help you bring mapping production in your organization to the next level - st
     * Dropping societal costs by enabling others to re-use mappings
     * Moving data between semantic spaces
 
-# :star::star: 2-Star Mappings
+## :star::star: 2-Star Mappings
 
 * **Goal**: Make mappings available in a place with version control suitable for providing community feedback, make your own 
 uncertainty explicit, add license and select semantic mapping predicate.
@@ -42,7 +42,7 @@ uncertainty explicit, add license and select semantic mapping predicate.
     * Transparently versioned access to mappings and the opportunity to provide more direct feedback
     * Downstream users can filter for high-confidence mappings
 
-# :star::star::star: 3-Star Mappings
+## :star::star::star: 3-Star Mappings
 
 * **Goal**: Export mappings in a community standard format with basic versioning and provenance information.
 * **Implementation**
@@ -57,7 +57,7 @@ uncertainty explicit, add license and select semantic mapping predicate.
     * Enabling the decentralised production of mappings by independent expert communities
     * Basic metadata, in particular justifications, enable downstream users to assess “fitness for purpose” for a different context
 
-# :star::star::star::star: 4-Star Mappings
+## :star::star::star::star: 4-Star Mappings
 
 * **Goal**: Make it easier to discover mappings by registering them at public mapping registry
 * **Implementation**
@@ -69,7 +69,7 @@ uncertainty explicit, add license and select semantic mapping predicate.
 * **Enables**:
     * Mappings can easily be made available by Open Terminology services which enable scalable data mapping services
 
-# :star::star::star::star::star: 5-Star Mappings
+## :star::star::star::star::star: 5-Star Mappings
 
 * **Goal**: Ensure currency of mappings
 * **Implementation**:
