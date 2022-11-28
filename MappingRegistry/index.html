@@ -307,7 +307,9 @@
       MappingRegistry : documentation
       MappingRegistry : homepage
       MappingRegistry : imports
+      MappingRegistry : mapping_registry_description
       MappingRegistry : mapping_registry_id
+      MappingRegistry : mapping_registry_title
       MappingRegistry : mapping_set_references
 
 </div>
@@ -329,6 +331,20 @@
 <td><a href="../EntityReference/">EntityReference</a></td>
 <td>1..1</td>
 <td>The unique identifier of a mapping registry.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../mapping_registry_title/">mapping_registry_title</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
+<td>0..1</td>
+<td>The title of a mapping registry.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../mapping_registry_description/">mapping_registry_description</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
+<td>0..1</td>
+<td>The description of a mapping registry.</td>
 <td>.</td>
 </tr>
 <tr>
@@ -396,6 +412,8 @@ description: A registry for managing mapping sets. It holds a set of mapping set
 from_schema: https://w3id.org/sssom/schema/
 slots:
 - mapping_registry_id
+- mapping_registry_title
+- mapping_registry_description
 - imports
 - mapping_set_references
 - documentation
@@ -418,6 +436,20 @@ attributes:
     owner: mapping registry
     range: EntityReference
     required: true
+  mapping_registry_title:
+    name: mapping_registry_title
+    description: The title of a mapping registry.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mapping_registry_title
+    owner: mapping registry
+    range: string
+  mapping_registry_description:
+    name: mapping_registry_description
+    description: The description of a mapping registry.
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mapping_registry_description
+    owner: mapping registry
+    range: string
   imports:
     name: imports
     description: A list of registries that should be imported into this one.

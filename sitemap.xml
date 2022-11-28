@@ -176,7 +176,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/mapping_registry_description/</loc>
+         <lastmod>2022-11-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/mapping_registry_id/</loc>
+         <lastmod>2022-11-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/mapping_registry_title/</loc>
          <lastmod>2022-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
