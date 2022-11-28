@@ -90,7 +90,7 @@ slots:
   mapping_registry_title:
     description: The title of a mapping registry.
     range: string
-  registry_description:
+  mapping_registry_description:
     description: The description of a mapping registry.
     range: string
   imports:
