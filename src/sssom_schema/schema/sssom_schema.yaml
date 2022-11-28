@@ -533,7 +533,7 @@ classes:
     slots:
       - mapping_registry_id
       - registry_title
-      - registry_description
+      - mapping_registry_description
       - imports
       - mapping_set_references
       - documentation
