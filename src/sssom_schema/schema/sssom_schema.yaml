@@ -532,7 +532,7 @@ classes:
       mapping set references, and can import other registries.
     slots:
       - mapping_registry_id
-      - registry_title
+      - mapping_registry_title
       - mapping_registry_description
       - imports
       - mapping_set_references
