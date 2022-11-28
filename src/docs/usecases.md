@@ -2,7 +2,7 @@
 
 ## Mondo disease mappings
 
-- [https://github.com/monarch-initiative/mondo/tree/sssom-rewrite/src/ontology/mappings](https://github.com/monarch-initiative/mondo/tree/master/src/ontology/mappings)
+- [Mondo mappings](https://github.com/monarch-initiative/mondo/tree/master/src/ontology/mappings)
 
 ## The National Microbiome Data Collaborative (NMDC, https://microbiomedata.org/):
 
