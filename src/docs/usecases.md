@@ -2,7 +2,7 @@
 
 ## Mondo disease mappings
 
-- https://github.com/monarch-initiative/mondo/tree/sssom-rewrite/src/ontology/mappings
+- [https://github.com/monarch-initiative/mondo/tree/sssom-rewrite/src/ontology/mappings](https://github.com/monarch-initiative/mondo/tree/master/src/ontology/mappings)
 
 ## The National Microbiome Data Collaborative (NMDC, https://microbiomedata.org/):
 
@@ -16,7 +16,6 @@
 ## Cross-species mapping efforts
 
 - [mouse-human mapping commons](https://github.com/mapping-commons/mh_mapping_initiative)
-- [IMPC mappings](https://docs.google.com/spreadsheets/d/1XSqT3KsTIO6aAm8hCwUsb-KBNOto1no48KaJraM5rqY/edit#gid=543401299)
 
 ## Microbial traits
 
