@@ -9,8 +9,6 @@ PREFIX linkml: <https://w3id.org/linkml/>
 PREFIX pav: <http://purl.org/pav/>
 
 
-<EntityReference> rdfs:Resource
-
 linkml:String xsd:string
 
 linkml:Integer xsd:integer
@@ -29,6 +27,8 @@ linkml:Date xsd:date
 
 linkml:Datetime xsd:dateTime
 
+linkml:DateOrDatetime linkml:DateOrDatetime
+
 linkml:Uriorcurie IRI
 
 linkml:Uri IRI
@@ -38,6 +38,12 @@ linkml:Ncname xsd:string
 linkml:Objectidentifier IRI
 
 linkml:Nodeidentifier NONLITERAL
+
+<EntityReference> CLOSED {
+    (  $<EntityReference_tes> rdf:type . * ;
+       rdf:type [ <EntityReference> ] ?
+    )
+}
 
 <Mapping> CLOSED {
     (  $<Mapping_tes> (  owl:annotatedSource @<EntityReference> ;
@@ -64,6 +70,7 @@ linkml:Nodeidentifier NONLITERAL
           <object_source> @<EntityReference> ? ;
           <object_source_version> @linkml:String ? ;
           <mapping_provider> @linkml:Uri ? ;
+          <mapping_source> @<EntityReference> ? ;
           <mapping_cardinality> @<MappingCardinalityEnum> ? ;
           <mapping_tool> @linkml:String ? ;
           <mapping_tool_version> @linkml:String ? ;
@@ -86,6 +93,8 @@ linkml:Nodeidentifier NONLITERAL
 
 <MappingRegistry> CLOSED {
     (  $<MappingRegistry_tes> (  <mapping_registry_id> @<EntityReference> ;
+          <mapping_registry_title> @linkml:String ? ;
+          <mapping_registry_description> @linkml:String ? ;
           <imports> @linkml:Uri * ;
           <mapping_set_references> @<MappingSetReference> * ;
           <documentation> @linkml:Uri ? ;
@@ -100,6 +109,7 @@ linkml:Nodeidentifier NONLITERAL
           <mapping_set_id> @linkml:Uri ;
           owl:versionInfo @linkml:String ? ;
           prov:wasDerivedFrom @linkml:Uri * ;
+          dcterms:title @linkml:String ? ;
           dcterms:description @linkml:String ? ;
           dcterms:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;

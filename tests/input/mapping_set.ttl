@@ -1,0 +1,239 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <https://w3id.org/sssom/> .
+@prefix ns2: <http://purl.org/pav/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a ns1:MappingSet ;
+    dcterms:creator <https://orcid.org/0000-0002-2232-0967> ;
+    dcterms:description "The IMPC Mouse Morphology Mappings: Gross Pathology & Tissue Collection Test (PATO)" ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/"^^xsd:anyURI ;
+    rdfs:comment "What is the purpose of this entire table?" ;
+    ns1:mapping_provider "https://www.mousephenotype.org"^^xsd:anyURI ;
+    ns1:mapping_set_id "pato_hp_pat_impc"^^xsd:anyURI ;
+    ns1:mappings [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0001566> ;
+            owl:annotatedTarget <http://purl.obolibrary.org/obo/HP_0020034> ;
+            ns1:mapping_justification <https://w3id.org/semapv/LexicalMatching> ;
+            ns1:object_label "Diffuse" ;
+            ns1:subject_label "diffuse" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000952> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "brown" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000366> ;
+            owl:annotatedTarget <http://purl.obolibrary.org/obo/HP_0012835> ;
+            ns1:mapping_justification <https://w3id.org/semapv/LexicalMatching> ;
+            ns1:object_label "Left" ;
+            ns1:subject_label "left" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000618> ;
+            owl:annotatedTarget <http://purl.obolibrary.org/obo/HP_0012832> ;
+            ns1:mapping_justification <https://w3id.org/semapv/LexicalMatching> ;
+            ns1:object_label "Bilateral" ;
+            ns1:subject_label "bilateral" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:exactMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000627> ;
+            owl:annotatedTarget <http://purl.obolibrary.org/obo/HP_0030650> ;
+            ns1:mapping_justification <https://w3id.org/semapv/LexicalMatching> ;
+            ns1:object_label "Focal" ;
+            ns1:subject_label "focal" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0002410> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "beige" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000954> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "pink" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0002416> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "sunken" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0002274> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "mottled" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000322> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "red" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000574> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "decreased length" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000587> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "decreased size" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000950> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "grey" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000573> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "increased length" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000324> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "yellow" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000323> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "white" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0002401> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "random pattern" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0002408> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "watery" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000632> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "symmetrical" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000411> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "circular" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0001369> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "raised" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000407> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "flat" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000367> ;
+            owl:annotatedTarget <http://purl.obolibrary.org/obo/HP_0012834> ;
+            ns1:mapping_justification <https://w3id.org/semapv/LexicalMatching> ;
+            ns1:object_label "Right" ;
+            ns1:subject_label "right" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000318> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "blue" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0002409> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "fluid-filled" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000386> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "hard" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000586> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "increased size" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000387> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "soft" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0002402> ;
+            owl:annotatedTarget <http://purl.obolibrary.org/obo/HP_0030651> ;
+            ns1:mapping_justification <https://w3id.org/semapv/LogicalReasoning> ;
+            ns1:object_label "Multifocal" ;
+            ns1:subject_label "multifocal to coalescing" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0002376> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "inflated" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000320> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "green" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000317> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "black" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0002406> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "friable" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0000634> ;
+            owl:annotatedTarget <http://purl.obolibrary.org/obo/HP_0012833> ;
+            ns1:mapping_justification <https://w3id.org/semapv/LexicalMatching> ;
+            ns1:object_label "Unilateral" ;
+            ns1:subject_label "unilateral" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0001891> ;
+            owl:annotatedTarget ns1:NoTermFound ;
+            ns1:mapping_justification <https://w3id.org/semapv/ManualMappingCuration> ;
+            ns1:subject_label "ovate" ],
+        [ a owl:Axiom ;
+            owl:annotatedProperty skos:closeMatch ;
+            owl:annotatedSource <http://purl.obolibrary.org/obo/PATO_0001791> ;
+            owl:annotatedTarget <http://purl.obolibrary.org/obo/HP_0030651> ;
+            ns1:mapping_justification <https://w3id.org/semapv/LexicalMatching> ;
+            ns1:object_label "Multifocal" ;
+            ns1:subject_label "multifocal (preferred synonym of multi-localised)" ] .

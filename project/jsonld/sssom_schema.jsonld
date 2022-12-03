@@ -56,17 +56,6 @@
   "default_range": "string",
   "types": [
     {
-      "name": "EntityReference",
-      "definition_uri": "https://w3id.org/sssom/EntityReference",
-      "description": "A reference to a mapped entity. This is represented internally as a string, and as a resource in RDF",
-      "from_schema": "https://w3id.org/sssom/schema/",
-      "typeof": "uriorcurie",
-      "base": "str",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#Resource",
-      "repr": "str",
-      "@type": "TypeDefinition"
-    },
-    {
       "name": "string",
       "definition_uri": "https://w3id.org/linkml/String",
       "description": "A character string",
@@ -132,7 +121,7 @@
       "definition_uri": "https://w3id.org/linkml/Time",
       "description": "A time object represents a (local) time of day, independent of any particular day",
       "notes": [
-        "URI is dateTime because OWL reasoners don't work with straight date or time"
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
       ],
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
@@ -163,6 +152,17 @@
       "imported_from": "linkml:types",
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date_or_datetime",
+      "definition_uri": "https://w3id.org/linkml/DateOrDatetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "https://w3id.org/linkml/DateOrDatetime",
       "repr": "str",
       "@type": "TypeDefinition"
     },
@@ -401,6 +401,33 @@
       ],
       "range": "EntityReference",
       "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_registry_title",
+      "definition_uri": "https://w3id.org/sssom/mapping_registry_title",
+      "description": "The title of a mapping registry.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_registry_title",
+      "owner": "MappingRegistry",
+      "domain_of": [
+        "MappingRegistry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_registry_description",
+      "definition_uri": "https://w3id.org/sssom/mapping_registry_description",
+      "description": "The description of a mapping registry.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_registry_description",
+      "owner": "MappingRegistry",
+      "domain_of": [
+        "MappingRegistry"
+      ],
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -483,6 +510,7 @@
       ],
       "range": "EntityReference",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -572,6 +600,7 @@
       ],
       "range": "EntityReference",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -650,7 +679,7 @@
           "@type": "Example"
         },
         {
-          "value": "oboInOwl:database_cross_reference",
+          "value": "oboInOwl:hasDbXref",
           "description": "Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)",
           "@type": "Example"
         },
@@ -711,6 +740,7 @@
       ],
       "range": "EntityReference",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -780,6 +810,7 @@
       ],
       "range": "EntityReference",
       "required": true,
+      "inlined": true,
       "pattern": "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$",
       "any_of": [
         {
@@ -905,6 +936,28 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "mapping_set_title",
+      "definition_uri": "https://w3id.org/sssom/mapping_set_title",
+      "description": "The display name of a mapping set.",
+      "examples": [
+        {
+          "value": "The Mondo-OMIM mappings by Monarch Initiative.",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "owner": "MappingSet",
+      "domain_of": [
+        "MappingSet"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "mapping_set_description",
       "definition_uri": "https://w3id.org/sssom/mapping_set_description",
       "description": "A description of the mapping set.",
@@ -942,6 +995,7 @@
         "Mapping"
       ],
       "range": "EntityReference",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -974,6 +1028,7 @@
         "Mapping"
       ],
       "range": "EntityReference",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1002,6 +1057,7 @@
         "Mapping"
       ],
       "range": "EntityReference",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1059,6 +1115,7 @@
         "Mapping"
       ],
       "range": "EntityReference",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1106,6 +1163,7 @@
         "Mapping"
       ],
       "range": "EntityReference",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1179,7 +1237,12 @@
       ],
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/mapping_source",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
       "range": "EntityReference",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1289,6 +1352,7 @@
         "Mapping"
       ],
       "range": "EntityReference",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1304,6 +1368,7 @@
         "Mapping"
       ],
       "range": "EntityReference",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1343,6 +1408,7 @@
         "Mapping"
       ],
       "range": "EntityReference",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1368,6 +1434,7 @@
         "Mapping"
       ],
       "range": "EntityReference",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1477,6 +1544,14 @@
   ],
   "classes": [
     {
+      "name": "EntityReference",
+      "definition_uri": "https://w3id.org/sssom/EntityReference",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/sssom/EntityReference",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "MappingSet",
       "definition_uri": "https://w3id.org/sssom/MappingSet",
       "description": "Represents a set of mappings",
@@ -1486,6 +1561,7 @@
         "mapping_set_id",
         "mapping_set_version",
         "mapping_set_source",
+        "mapping_set_title",
         "mapping_set_description",
         "creator_id",
         "creator_label",
@@ -1544,6 +1620,7 @@
         "object_source",
         "object_source_version",
         "mapping_provider",
+        "mapping_source",
         "mapping_cardinality",
         "mapping_tool",
         "mapping_tool_version",
@@ -1571,6 +1648,8 @@
       "from_schema": "https://w3id.org/sssom/schema/",
       "slots": [
         "mapping_registry_id",
+        "mapping_registry_title",
+        "mapping_registry_description",
         "imports",
         "mapping_set_references",
         "documentation",
@@ -1600,9 +1679,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2022-06-07T11:14:57",
-  "source_file_size": 21401,
-  "generation_date": "2022-06-07T11:23:13",
+  "source_file_date": "2022-12-03T13:46:56",
+  "source_file_size": 21744,
+  "generation_date": "2022-12-03T13:47:23",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom_schema.context.jsonld",

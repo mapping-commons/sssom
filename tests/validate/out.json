@@ -1,0 +1,273 @@
+{
+  "mapping_set_id": "pato_hp_pat_impc",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "mappings": [
+    {
+      "subject_id": "PATO:0001566",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "HP:0020034",
+      "mapping_justification": "semapv:LexicalMatching",
+      "subject_label": "diffuse",
+      "object_label": "Diffuse"
+    },
+    {
+      "subject_id": "PATO:0000952",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "brown"
+    },
+    {
+      "subject_id": "PATO:0000366",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "HP:0012835",
+      "mapping_justification": "semapv:LexicalMatching",
+      "subject_label": "left",
+      "object_label": "Left"
+    },
+    {
+      "subject_id": "PATO:0000618",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "HP:0012832",
+      "mapping_justification": "semapv:LexicalMatching",
+      "subject_label": "bilateral",
+      "object_label": "Bilateral"
+    },
+    {
+      "subject_id": "PATO:0000627",
+      "predicate_id": "skos:exactMatch",
+      "object_id": "HP:0030650",
+      "mapping_justification": "semapv:LexicalMatching",
+      "subject_label": "focal",
+      "object_label": "Focal"
+    },
+    {
+      "subject_id": "PATO:0002410",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "beige"
+    },
+    {
+      "subject_id": "PATO:0000954",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "pink"
+    },
+    {
+      "subject_id": "PATO:0002416",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "sunken"
+    },
+    {
+      "subject_id": "PATO:0002274",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "mottled"
+    },
+    {
+      "subject_id": "PATO:0000322",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "red"
+    },
+    {
+      "subject_id": "PATO:0000574",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "decreased length"
+    },
+    {
+      "subject_id": "PATO:0000587",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "decreased size"
+    },
+    {
+      "subject_id": "PATO:0000950",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "grey"
+    },
+    {
+      "subject_id": "PATO:0000573",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "increased length"
+    },
+    {
+      "subject_id": "PATO:0000324",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "yellow"
+    },
+    {
+      "subject_id": "PATO:0000323",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "white"
+    },
+    {
+      "subject_id": "PATO:0002401",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "random pattern"
+    },
+    {
+      "subject_id": "PATO:0002408",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "watery"
+    },
+    {
+      "subject_id": "PATO:0000632",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "symmetrical"
+    },
+    {
+      "subject_id": "PATO:0000411",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "circular"
+    },
+    {
+      "subject_id": "PATO:0001369",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "raised"
+    },
+    {
+      "subject_id": "PATO:0000407",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "flat"
+    },
+    {
+      "subject_id": "PATO:0000367",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "HP:0012834",
+      "mapping_justification": "semapv:LexicalMatching",
+      "subject_label": "right",
+      "object_label": "Right"
+    },
+    {
+      "subject_id": "PATO:0000318",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "blue"
+    },
+    {
+      "subject_id": "PATO:0002409",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "fluid-filled"
+    },
+    {
+      "subject_id": "PATO:0000386",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "hard"
+    },
+    {
+      "subject_id": "PATO:0000586",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "increased size"
+    },
+    {
+      "subject_id": "PATO:0000387",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "soft"
+    },
+    {
+      "subject_id": "PATO:0002402",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "HP:0030651",
+      "mapping_justification": "semapv:LogicalReasoning",
+      "subject_label": "multifocal to coalescing",
+      "object_label": "Multifocal"
+    },
+    {
+      "subject_id": "PATO:0002376",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "inflated"
+    },
+    {
+      "subject_id": "PATO:0000320",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "green"
+    },
+    {
+      "subject_id": "PATO:0000317",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "black"
+    },
+    {
+      "subject_id": "PATO:0002406",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "friable"
+    },
+    {
+      "subject_id": "PATO:0000634",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "HP:0012833",
+      "mapping_justification": "semapv:LexicalMatching",
+      "subject_label": "unilateral",
+      "object_label": "Unilateral"
+    },
+    {
+      "subject_id": "PATO:0001891",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "sssom:NoTermFound",
+      "mapping_justification": "semapv:ManualMappingCuration",
+      "subject_label": "ovate"
+    },
+    {
+      "subject_id": "PATO:0001791",
+      "predicate_id": "skos:closeMatch",
+      "object_id": "HP:0030651",
+      "mapping_justification": "semapv:LexicalMatching",
+      "subject_label": "multifocal (preferred synonym of multi-localised)",
+      "object_label": "Multifocal"
+    }
+  ],
+  "mapping_set_description": "The IMPC Mouse Morphology Mappings: Gross Pathology & Tissue Collection Test (PATO)",
+  "creator_id": [
+    "https://orcid.org/0000-0002-2232-0967"
+  ],
+  "mapping_provider": "https://www.mousephenotype.org",
+  "comment": "What is the purpose of this entire table?",
+  "@type": "MappingSet"
+}
