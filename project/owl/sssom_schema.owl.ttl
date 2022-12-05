@@ -29,19 +29,18 @@ sssom:predicate_type a owl:ObjectProperty,
 
 <https://w3id.org/sssom/schema/> a owl:Ontology ;
     rdfs:label "sssom" ;
-    IAO:0000700 sssom:EntityReference,
-        sssom:Mapping,
+    IAO:0000700 sssom:Mapping,
         sssom:MappingRegistry,
         sssom:MappingSet,
         sssom:MappingSetReference ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     rdfs:seeAlso "https://github.com/mapping-commons/sssom",
         "https://mapping-commons.github.io/sssom/home/" ;
-    linkml:generation_date "2022-12-03T13:47:34" ;
+    linkml:generation_date "2022-12-05T12:45:59" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "sssom_schema.yaml" ;
-    linkml:source_file_date "2022-12-03T13:46:56" ;
-    linkml:source_file_size 21744 .
+    linkml:source_file_date "2022-12-05T12:45:49" ;
+    linkml:source_file_size 21634 .
 
 dcterms:created a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -54,9 +53,12 @@ sssom:MappingRegistry a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "mapping registry" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Uri ;
-            owl:onProperty sssom:homepage ],
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty sssom:mapping_registry_id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sssom:MappingSetReference ;
+            owl:onProperty sssom:mapping_set_references ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
@@ -68,14 +70,11 @@ sssom:MappingRegistry a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Uri ;
+            owl:onProperty sssom:homepage ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uri ;
             owl:onProperty sssom:documentation ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:MappingSetReference ;
-            owl:onProperty sssom:mapping_set_references ],
-        [ a owl:Restriction ;
-            owl:onClass sssom:EntityReference ;
-            owl:onProperty sssom:mapping_registry_id ;
-            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uri ;
             owl:onProperty sssom:imports ] ;
@@ -86,38 +85,48 @@ sssom:MappingSet a owl:Class,
     rdfs:label "mapping set" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Uri ;
-            owl:onProperty sssom:mapping_provider ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
-            owl:onProperty sssom:object_preprocessing ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass sssom:EntityTypeEnum ;
-            owl:onProperty sssom:subject_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass sssom:EntityTypeEnum ;
-            owl:onProperty sssom:object_type ],
+            owl:onClass linkml:Date ;
+            owl:onProperty pav:authoredOn ],
         [ a owl:Restriction ;
             owl:onClass linkml:Uri ;
-            owl:onProperty dcterms:license ;
+            owl:onProperty sssom:mapping_set_id ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty dcterms:title ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sssom:object_preprocessing ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty sssom:object_source_version ],
         [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
-            owl:onProperty sssom:subject_preprocessing ],
+            owl:onClass linkml:Uri ;
+            owl:onProperty dcterms:license ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sssom:subject_match_field ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass sssom:EntityReference ;
+            owl:onClass linkml:Uriorcurie ;
             owl:onProperty sssom:subject_source ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty dcterms:title ],
+            owl:onClass linkml:Uri ;
+            owl:onProperty sssom:mapping_provider ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sssom:object_match_field ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass sssom:EntityTypeEnum ;
+            owl:onProperty sssom:subject_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uri ;
+            owl:onProperty prov:wasDerivedFrom ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
@@ -125,56 +134,46 @@ sssom:MappingSet a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty sssom:other ],
+            owl:onProperty rdfs:comment ],
         [ a owl:Restriction ;
-            owl:onClass linkml:Uri ;
-            owl:onProperty sssom:mapping_set_id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass sssom:EntityReference ;
-            owl:onProperty sssom:object_source ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty rdfs:seeAlso ],
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sssom:subject_preprocessing ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty sssom:subject_source_version ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:Mapping ;
-            owl:onProperty sssom:mappings ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty owl:versionInfo ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
-            owl:onProperty sssom:subject_match_field ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uri ;
-            owl:onProperty prov:wasDerivedFrom ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
-            owl:onProperty sssom:object_match_field ],
+            owl:onProperty dcterms:description ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty sssom:creator_label ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty rdfs:comment ],
+            owl:onProperty sssom:subject_source_version ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Date ;
-            owl:onProperty pav:authoredOn ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
+            owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty dcterms:creator ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty dcterms:description ] ;
+            owl:onProperty sssom:other ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom sssom:Mapping ;
+            owl:onProperty sssom:mappings ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty rdfs:seeAlso ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty owl:versionInfo ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty sssom:object_source ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass sssom:EntityTypeEnum ;
+            owl:onProperty sssom:object_type ] ;
     skos:definition "Represents a set of mappings" .
 
 sssom:author_label a owl:ObjectProperty,
@@ -228,7 +227,7 @@ sssom:mapping_cardinality a owl:ObjectProperty,
 sssom:mapping_justification a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "mapping_justification" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable." ;
     linkml:examples "Example(value='semapv:LexicalMatching', description=None)",
         "Example(value='semapv:ManualMappingCuration', description=None)" .
@@ -242,7 +241,7 @@ sssom:mapping_registry_description a owl:ObjectProperty,
 sssom:mapping_registry_id a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "mapping_registry_id" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "The unique identifier of a mapping registry." .
 
 sssom:mapping_registry_title a owl:ObjectProperty,
@@ -266,7 +265,7 @@ sssom:mapping_set_references a owl:ObjectProperty,
 sssom:mapping_source a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "mapping_source" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another." ;
     linkml:examples "Example(value='MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv', description=None)" .
 
@@ -344,7 +343,7 @@ sssom:registry_confidence a owl:ObjectProperty,
 sssom:reviewer_id a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "reviewer_id" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible." .
 
 sssom:reviewer_label a owl:ObjectProperty,
@@ -400,7 +399,7 @@ dcterms:title a owl:ObjectProperty,
 pav:authoredBy a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "author_id" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible." ;
     skos:exactMatch pav:authoredBy .
 
@@ -439,7 +438,7 @@ owl:NamedIndividual a owl:Class,
 owl:annotatedProperty a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "predicate_id" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "The ID of the predicate or relation that relates the subject and object of this match." ;
     skos:exactMatch owl:annotatedProperty ;
     linkml:examples "Example(value='skos:exactMatch', description=None)" .
@@ -447,7 +446,7 @@ owl:annotatedProperty a owl:ObjectProperty,
 owl:annotatedSource a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject_id" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "The ID of the subject of the mapping." ;
     skos:exactMatch owl:annotatedSource ;
     linkml:examples "Example(value='HP:0009894', description=\"The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'\")" .
@@ -455,7 +454,7 @@ owl:annotatedSource a owl:ObjectProperty,
 owl:annotatedTarget a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "object_id" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "The ID of the object of the mapping." ;
     skos:exactMatch owl:annotatedTarget ;
     linkml:examples "Example(value='HP:0009894', description=\"The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'\")" .
@@ -538,13 +537,13 @@ sssom:mapping_tool a owl:ObjectProperty,
 sssom:object_match_field a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "object_match_field" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "A tuple of fields (term annotations on the object) that was used for the match." .
 
 sssom:object_preprocessing a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "object_preprocessing" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." ;
     linkml:examples "Example(value='semapv:Stemming', description=None)",
         "Example(value='semapv:StopWordRemoval', description=None)" .
@@ -552,7 +551,7 @@ sssom:object_preprocessing a owl:ObjectProperty,
 sssom:object_source a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "object_source" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "IRI of ontology source for the object. Version IRI preferred." ;
     linkml:examples "Example(value='obo:mondo.owl', description='A persistent OBO CURIE pointing to the latest version of the Mondo ontology.')",
         "Example(value='wikidata:Q7876491', description='A Wikidata identifier for the Uberon ontology resource.')" .
@@ -580,13 +579,13 @@ sssom:other a owl:ObjectProperty,
 sssom:subject_match_field a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject_match_field" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "A tuple of fields (term annotations on the subject) that was used for the match." .
 
 sssom:subject_preprocessing a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject_preprocessing" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." ;
     linkml:examples "Example(value='semapv:Stemming', description=None)",
         "Example(value='semapv:StopWordRemoval', description=None)" .
@@ -594,7 +593,7 @@ sssom:subject_preprocessing a owl:ObjectProperty,
 sssom:subject_source a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject_source" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "URI of ontology source for the subject." ;
     linkml:examples "Example(value='obo:mondo.owl', description='A persistent OBO CURIE pointing to the latest version of the Mondo ontology.')",
         "Example(value='wikidata:Q7876491', description='A Wikidata identifier for the Uberon ontology resource.')" .
@@ -616,7 +615,7 @@ sssom:subject_type a owl:ObjectProperty,
 dcterms:creator a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "creator_id" ;
-    rdfs:range sssom:EntityReference ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible." ;
     skos:exactMatch dcterms:creator .
 
@@ -653,85 +652,81 @@ sssom:Mapping a owl:Class,
     rdfs:label "mapping" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:other ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Uri ;
             owl:onProperty dcterms:license ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty sssom:match_string ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
-            owl:onProperty sssom:reviewer_id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
-            owl:onProperty sssom:subject_match_field ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Uri ;
-            owl:onProperty sssom:mapping_provider ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass sssom:MappingCardinalityEnum ;
-            owl:onProperty sssom:mapping_cardinality ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
-            owl:onProperty sssom:object_preprocessing ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty sssom:predicate_label ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty sssom:reviewer_label ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Date ;
-            owl:onProperty pav:authoredOn ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
-            owl:onProperty sssom:subject_preprocessing ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass sssom:EntityReference ;
-            owl:onProperty sssom:mapping_source ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty sssom:mapping_tool_version ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty rdfs:seeAlso ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass sssom:PredicateModifierEnum ;
-            owl:onProperty sssom:predicate_modifier ],
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty sssom:mapping_justification ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty sssom:subject_category ],
         [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sssom:subject_preprocessing ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty sssom:subject_source ],
+        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty sssom:author_label ],
+            owl:onProperty sssom:creator_label ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Double ;
             owl:onProperty sssom:semantic_similarity_score ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass sssom:EntityReference ;
-            owl:onProperty sssom:subject_source ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
-            owl:onProperty sssom:object_match_field ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
-            owl:onProperty dcterms:creator ],
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty sssom:mapping_source ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty sssom:object_category ],
+            owl:onProperty rdfs:comment ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sssom:reviewer_id ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty sssom:creator_label ],
+            owl:onProperty sssom:reviewer_label ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Double ;
+            owl:onProperty sssom:confidence ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sssom:match_string ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:subject_source_version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty sssom:object_source ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty owl:annotatedTarget ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sssom:object_preprocessing ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty owl:annotatedProperty ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty rdfs:seeAlso ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass sssom:MappingCardinalityEnum ;
+            owl:onProperty sssom:mapping_cardinality ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
@@ -739,26 +734,30 @@ sssom:Mapping a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty sssom:other ],
+            owl:onProperty sssom:object_category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Double ;
-            owl:onProperty sssom:confidence ],
+            owl:onClass linkml:Uri ;
+            owl:onProperty sssom:mapping_provider ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Date ;
+            owl:onProperty pav:authoredOn ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty sssom:subject_source_version ],
+            owl:onProperty sssom:object_source_version ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty rdfs:comment ],
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty owl:annotatedSource ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom sssom:EntityReference ;
+            owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty pav:authoredBy ],
         [ a owl:Restriction ;
-            owl:onClass sssom:EntityReference ;
-            owl:onProperty owl:annotatedProperty ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass sssom:PredicateModifierEnum ;
+            owl:onProperty sssom:predicate_modifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
@@ -766,39 +765,39 @@ sssom:Mapping a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty sssom:mapping_tool ],
-        [ a owl:Restriction ;
-            owl:onClass sssom:EntityReference ;
-            owl:onProperty sssom:mapping_justification ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass sssom:EntityReference ;
-            owl:onProperty owl:annotatedTarget ;
-            owl:qualifiedCardinality 1 ],
+            owl:onProperty sssom:predicate_label ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass sssom:EntityTypeEnum ;
-            owl:onProperty sssom:object_type ],
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:mapping_tool ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:mapping_tool_version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty sssom:object_label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty dcterms:creator ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sssom:object_match_field ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass sssom:EntityTypeEnum ;
             owl:onProperty sssom:subject_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty sssom:object_source_version ],
+            owl:onClass sssom:EntityTypeEnum ;
+            owl:onProperty sssom:object_type ],
         [ a owl:Restriction ;
-            owl:onClass sssom:EntityReference ;
-            owl:onProperty owl:annotatedSource ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty sssom:subject_match_field ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty sssom:object_label ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass sssom:EntityReference ;
-            owl:onProperty sssom:object_source ] ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty sssom:author_label ] ;
     skos:definition "Represents an individual mapping between a pair of entities" ;
     skos:exactMatch owl:Axiom .
 
@@ -811,12 +810,12 @@ sssom:MappingSetReference a owl:Class,
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Uri ;
-            owl:onProperty sssom:mirror_from ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:Double ;
             owl:onProperty sssom:registry_confidence ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Uri ;
+            owl:onProperty sssom:mirror_from ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
@@ -870,10 +869,6 @@ sssom:EntityTypeEnum a owl:Class,
 owl:Class a owl:Class,
         sssom:EntityTypeEnum ;
     rdfs:label "owl class" .
-
-sssom:EntityReference a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "entity reference" .
 
 linkml:SlotDefinition a owl:Class ;
     rdfs:label "slot_definition" .

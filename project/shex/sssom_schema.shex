@@ -1,12 +1,12 @@
 BASE <https://w3id.org/sssom/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
 PREFIX pav: <http://purl.org/pav/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 
 
 linkml:String xsd:string
@@ -39,48 +39,42 @@ linkml:Objectidentifier IRI
 
 linkml:Nodeidentifier NONLITERAL
 
-<EntityReference> CLOSED {
-    (  $<EntityReference_tes> rdf:type . * ;
-       rdf:type [ <EntityReference> ] ?
-    )
-}
-
 <Mapping> CLOSED {
-    (  $<Mapping_tes> (  owl:annotatedSource @<EntityReference> ;
+    (  $<Mapping_tes> (  owl:annotatedSource @linkml:Uriorcurie ;
           <subject_label> @linkml:String ? ;
           <subject_category> @linkml:String ? ;
-          owl:annotatedProperty @<EntityReference> ;
+          owl:annotatedProperty @linkml:Uriorcurie ;
           <predicate_label> @linkml:String ? ;
           <predicate_modifier> @<PredicateModifierEnum> ? ;
-          owl:annotatedTarget @<EntityReference> ;
+          owl:annotatedTarget @linkml:Uriorcurie ;
           <object_label> @linkml:String ? ;
           <object_category> @linkml:String ? ;
-          <mapping_justification> @<EntityReference> ;
-          pav:authoredBy @<EntityReference> * ;
+          <mapping_justification> @linkml:Uriorcurie ;
+          pav:authoredBy @linkml:Uriorcurie * ;
           <author_label> @linkml:String * ;
-          <reviewer_id> @<EntityReference> * ;
+          <reviewer_id> @linkml:Uriorcurie * ;
           <reviewer_label> @linkml:String * ;
-          dcterms:creator @<EntityReference> * ;
+          dcterms:creator @linkml:Uriorcurie * ;
           <creator_label> @linkml:String * ;
           dcterms:license @linkml:Uri ? ;
           <subject_type> @<EntityTypeEnum> ? ;
-          <subject_source> @<EntityReference> ? ;
+          <subject_source> @linkml:Uriorcurie ? ;
           <subject_source_version> @linkml:String ? ;
           <object_type> @<EntityTypeEnum> ? ;
-          <object_source> @<EntityReference> ? ;
+          <object_source> @linkml:Uriorcurie ? ;
           <object_source_version> @linkml:String ? ;
           <mapping_provider> @linkml:Uri ? ;
-          <mapping_source> @<EntityReference> ? ;
+          <mapping_source> @linkml:Uriorcurie ? ;
           <mapping_cardinality> @<MappingCardinalityEnum> ? ;
           <mapping_tool> @linkml:String ? ;
           <mapping_tool_version> @linkml:String ? ;
           pav:authoredOn @linkml:Date ? ;
           <confidence> @linkml:Double ? ;
-          <subject_match_field> @<EntityReference> * ;
-          <object_match_field> @<EntityReference> * ;
+          <subject_match_field> @linkml:Uriorcurie * ;
+          <object_match_field> @linkml:Uriorcurie * ;
           <match_string> @linkml:String * ;
-          <subject_preprocessing> @<EntityReference> * ;
-          <object_preprocessing> @<EntityReference> * ;
+          <subject_preprocessing> @linkml:Uriorcurie * ;
+          <object_preprocessing> @linkml:Uriorcurie * ;
           <semantic_similarity_score> @linkml:Double ? ;
           <semantic_similarity_measure> @linkml:String ? ;
           rdfs:seeAlso @linkml:String * ;
@@ -92,7 +86,7 @@ linkml:Nodeidentifier NONLITERAL
 }
 
 <MappingRegistry> CLOSED {
-    (  $<MappingRegistry_tes> (  <mapping_registry_id> @<EntityReference> ;
+    (  $<MappingRegistry_tes> (  <mapping_registry_id> @linkml:Uriorcurie ;
           <mapping_registry_title> @linkml:String ? ;
           <mapping_registry_description> @linkml:String ? ;
           <imports> @linkml:Uri * ;
@@ -111,22 +105,22 @@ linkml:Nodeidentifier NONLITERAL
           prov:wasDerivedFrom @linkml:Uri * ;
           dcterms:title @linkml:String ? ;
           dcterms:description @linkml:String ? ;
-          dcterms:creator @<EntityReference> * ;
+          dcterms:creator @linkml:Uriorcurie * ;
           <creator_label> @linkml:String * ;
           dcterms:license @linkml:Uri ;
           <subject_type> @<EntityTypeEnum> ? ;
-          <subject_source> @<EntityReference> ? ;
+          <subject_source> @linkml:Uriorcurie ? ;
           <subject_source_version> @linkml:String ? ;
           <object_type> @<EntityTypeEnum> ? ;
-          <object_source> @<EntityReference> ? ;
+          <object_source> @linkml:Uriorcurie ? ;
           <object_source_version> @linkml:String ? ;
           <mapping_provider> @linkml:Uri ? ;
           <mapping_tool> @linkml:String ? ;
           pav:authoredOn @linkml:Date ? ;
-          <subject_match_field> @<EntityReference> * ;
-          <object_match_field> @<EntityReference> * ;
-          <subject_preprocessing> @<EntityReference> * ;
-          <object_preprocessing> @<EntityReference> * ;
+          <subject_match_field> @linkml:Uriorcurie * ;
+          <object_match_field> @linkml:Uriorcurie * ;
+          <subject_preprocessing> @linkml:Uriorcurie * ;
+          <object_preprocessing> @linkml:Uriorcurie * ;
           rdfs:seeAlso @linkml:String * ;
           <other> @linkml:String ? ;
           rdfs:comment @linkml:String ?

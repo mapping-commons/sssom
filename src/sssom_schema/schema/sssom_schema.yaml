@@ -79,7 +79,7 @@ slots:
     recommended: true
   mapping_registry_id:
     description: The unique identifier of a mapping registry.
-    range: entity reference
+    range: uriorcurie
     required: true
   mapping_registry_title:
     description: The title of a mapping registry.
@@ -105,7 +105,7 @@ slots:
     recommended: true
   subject_id:
     description: The ID of the subject of the mapping.
-    range: entity reference
+    range: uriorcurie
     required: true
     mappings:
     - owl:annotatedSource
@@ -138,7 +138,7 @@ slots:
       object of this match.
     mappings:
     - owl:annotatedProperty
-    range: entity reference
+    range: uriorcurie
     required: true
     slot_uri: owl:annotatedProperty
     examples:
@@ -187,7 +187,7 @@ slots:
     description: The ID of the object of the mapping.
     mappings:
     - owl:annotatedTarget
-    range: entity reference
+    range: uriorcurie
     required: true
     slot_uri: owl:annotatedTarget
     examples:
@@ -210,7 +210,7 @@ slots:
         description: (The CURIE of the biolink class for genes.)
   mapping_justification:
     description: A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
-    range: entity reference
+    range: uriorcurie
     pattern: "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$"
     required: true
     any_of:
@@ -272,7 +272,7 @@ slots:
       identifying URLs, but any identifying string (such as name and affiliation)
       is permissible.
     slot_uri: dc:creator
-    range: entity reference
+    range: uriorcurie
     multivalued: true
   creator_label:
     description: A string identifying the creator of this mapping. In the spirit of
@@ -285,7 +285,7 @@ slots:
       identifying URLs, but any identifying string (such as name and affiliation)
       is permissible.
     slot_uri: pav:authoredBy
-    range: entity reference
+    range: uriorcurie
     multivalued: true
   author_label:
     description: A string identifying the author of this mapping. In the spirit of
@@ -297,7 +297,7 @@ slots:
       Recommended to be a (pipe-separated) list of ORCIDs or otherwise
       identifying URLs, but any identifying string (such as name and affiliation)
       is permissible.
-    range: entity reference
+    range: uriorcurie
     multivalued: true
   reviewer_label:
     description: A string identifying the reviewer of this mapping. In the spirit of
@@ -311,7 +311,7 @@ slots:
     slot_uri: dcterms:license
   subject_source:
     description: URI of ontology source for the subject.
-    range: entity reference
+    range: uriorcurie
     examples:
       - value: obo:mondo.owl
         description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
@@ -325,7 +325,7 @@ slots:
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   object_source:
     description: IRI of ontology source for the object. Version IRI preferred.
-    range: entity reference
+    range: uriorcurie
     examples:
       - value: obo:mondo.owl
         description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
@@ -352,7 +352,7 @@ slots:
   mapping_source:
     description: The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple
       mapping sets or deriving one mapping set from another.
-    range: entity reference
+    range: uriorcurie
     examples:
       - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
   mapping_cardinality:
@@ -387,12 +387,12 @@ slots:
   subject_match_field:
     description: A tuple of fields (term annotations on the subject) that was used
       for the match.
-    range: entity reference
+    range: uriorcurie
     multivalued: true
   object_match_field:
     description: A tuple of fields (term annotations on the object) that was used
       for the match.
-    range: entity reference
+    range: uriorcurie
     multivalued: true
   match_string:
     description: Strings that are shared by subj/obj. It is recommended to indicate the 
@@ -403,7 +403,7 @@ slots:
     description: Method of preprocessing applied to the fields of the subject. 
       If different preprocessing steps were performed on different fields, it is
       recommended to store the match in separate rows.
-    range: entity reference
+    range: uriorcurie
     multivalued: true
     examples:
       - value: semapv:Stemming
@@ -412,7 +412,7 @@ slots:
     description: Method of preprocessing applied to the fields of the object. 
       If different preprocessing steps were performed on different fields, it is
       recommended to store the match in separate rows.
-    range: entity reference
+    range: uriorcurie
     multivalued: true
     examples:
       - value: semapv:Stemming
@@ -446,7 +446,6 @@ slots:
     slot_uri: rdfs:comment
     range: string
 classes:
-  entity reference:
   mapping set:
     description: Represents a set of mappings
     slot_usage:

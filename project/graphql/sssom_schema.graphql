@@ -1,44 +1,40 @@
-type EntityReference
-  {
-  }
-
 type Mapping
   {
-    subjectId: EntityReference!
+    subjectId: Uriorcurie!
     subjectLabel: String
     subjectCategory: String
-    predicateId: EntityReference!
+    predicateId: Uriorcurie!
     predicateLabel: String
     predicateModifier: PredicateModifierEnum
-    objectId: EntityReference!
+    objectId: Uriorcurie!
     objectLabel: String
     objectCategory: String
-    mappingJustification: EntityReference!
-    authorId: [EntityReference]
+    mappingJustification: Uriorcurie!
+    authorId: [Uriorcurie]
     authorLabel: [String]
-    reviewerId: [EntityReference]
+    reviewerId: [Uriorcurie]
     reviewerLabel: [String]
-    creatorId: [EntityReference]
+    creatorId: [Uriorcurie]
     creatorLabel: [String]
     license: Uri
     subjectType: EntityTypeEnum
-    subjectSource: EntityReference
+    subjectSource: Uriorcurie
     subjectSourceVersion: String
     objectType: EntityTypeEnum
-    objectSource: EntityReference
+    objectSource: Uriorcurie
     objectSourceVersion: String
     mappingProvider: Uri
-    mappingSource: EntityReference
+    mappingSource: Uriorcurie
     mappingCardinality: MappingCardinalityEnum
     mappingTool: String
     mappingToolVersion: String
     mappingDate: Date
     confidence: Double
-    subjectMatchField: [EntityReference]
-    objectMatchField: [EntityReference]
+    subjectMatchField: [Uriorcurie]
+    objectMatchField: [Uriorcurie]
     matchString: [String]
-    subjectPreprocessing: [EntityReference]
-    objectPreprocessing: [EntityReference]
+    subjectPreprocessing: [Uriorcurie]
+    objectPreprocessing: [Uriorcurie]
     semanticSimilarityScore: Double
     semanticSimilarityMeasure: String
     seeAlso: [String]
@@ -48,7 +44,7 @@ type Mapping
 
 type MappingRegistry
   {
-    mappingRegistryId: EntityReference!
+    mappingRegistryId: Uriorcurie!
     mappingRegistryTitle: String
     mappingRegistryDescription: String
     imports: [Uri]
@@ -65,22 +61,22 @@ type MappingSet
     mappingSetSource: [Uri]
     mappingSetTitle: String
     mappingSetDescription: String
-    creatorId: [EntityReference]
+    creatorId: [Uriorcurie]
     creatorLabel: [String]
     license: Uri!
     subjectType: EntityTypeEnum
-    subjectSource: EntityReference
+    subjectSource: Uriorcurie
     subjectSourceVersion: String
     objectType: EntityTypeEnum
-    objectSource: EntityReference
+    objectSource: Uriorcurie
     objectSourceVersion: String
     mappingProvider: Uri
     mappingTool: String
     mappingDate: Date
-    subjectMatchField: [EntityReference]
-    objectMatchField: [EntityReference]
-    subjectPreprocessing: [EntityReference]
-    objectPreprocessing: [EntityReference]
+    subjectMatchField: [Uriorcurie]
+    objectMatchField: [Uriorcurie]
+    subjectPreprocessing: [Uriorcurie]
+    objectPreprocessing: [Uriorcurie]
     seeAlso: [String]
     other: String
     comment: String

@@ -1,41 +1,41 @@
 // Represents an individual mapping between a pair of entities
 message Mapping
  {
-  entityReference subjectId = 0
+  uriorcurie subjectId = 0
   string subjectLabel = 0
   string subjectCategory = 0
-  entityReference predicateId = 0
+  uriorcurie predicateId = 0
   string predicateLabel = 0
   predicateModifierEnum predicateModifier = 0
-  entityReference objectId = 0
+  uriorcurie objectId = 0
   string objectLabel = 0
   string objectCategory = 0
-  entityReference mappingJustification = 0
- repeated  entityReference authorId = 0
+  uriorcurie mappingJustification = 0
+ repeated  uriorcurie authorId = 0
  repeated  string authorLabel = 0
- repeated  entityReference reviewerId = 0
+ repeated  uriorcurie reviewerId = 0
  repeated  string reviewerLabel = 0
- repeated  entityReference creatorId = 0
+ repeated  uriorcurie creatorId = 0
  repeated  string creatorLabel = 0
   uri license = 0
   entityTypeEnum subjectType = 0
-  entityReference subjectSource = 0
+  uriorcurie subjectSource = 0
   string subjectSourceVersion = 0
   entityTypeEnum objectType = 0
-  entityReference objectSource = 0
+  uriorcurie objectSource = 0
   string objectSourceVersion = 0
   uri mappingProvider = 0
-  entityReference mappingSource = 0
+  uriorcurie mappingSource = 0
   mappingCardinalityEnum mappingCardinality = 0
   string mappingTool = 0
   string mappingToolVersion = 0
   date mappingDate = 0
   double confidence = 0
- repeated  entityReference subjectMatchField = 0
- repeated  entityReference objectMatchField = 0
+ repeated  uriorcurie subjectMatchField = 0
+ repeated  uriorcurie objectMatchField = 0
  repeated  string matchString = 0
- repeated  entityReference subjectPreprocessing = 0
- repeated  entityReference objectPreprocessing = 0
+ repeated  uriorcurie subjectPreprocessing = 0
+ repeated  uriorcurie objectPreprocessing = 0
   double semanticSimilarityScore = 0
   string semanticSimilarityMeasure = 0
  repeated  string seeAlso = 0
@@ -45,7 +45,7 @@ message Mapping
 // A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries.
 message MappingRegistry
  {
-  entityReference mappingRegistryId = 0
+  uriorcurie mappingRegistryId = 0
   string mappingRegistryTitle = 0
   string mappingRegistryDescription = 0
  repeated  uri imports = 0
@@ -62,22 +62,22 @@ message MappingSet
  repeated  uri mappingSetSource = 0
   string mappingSetTitle = 0
   string mappingSetDescription = 0
- repeated  entityReference creatorId = 0
+ repeated  uriorcurie creatorId = 0
  repeated  string creatorLabel = 0
   uri license = 0
   entityTypeEnum subjectType = 0
-  entityReference subjectSource = 0
+  uriorcurie subjectSource = 0
   string subjectSourceVersion = 0
   entityTypeEnum objectType = 0
-  entityReference objectSource = 0
+  uriorcurie objectSource = 0
   string objectSourceVersion = 0
   uri mappingProvider = 0
   string mappingTool = 0
   date mappingDate = 0
- repeated  entityReference subjectMatchField = 0
- repeated  entityReference objectMatchField = 0
- repeated  entityReference subjectPreprocessing = 0
- repeated  entityReference objectPreprocessing = 0
+ repeated  uriorcurie subjectMatchField = 0
+ repeated  uriorcurie objectMatchField = 0
+ repeated  uriorcurie subjectPreprocessing = 0
+ repeated  uriorcurie objectPreprocessing = 0
  repeated  string seeAlso = 0
   string other = 0
   string comment = 0
