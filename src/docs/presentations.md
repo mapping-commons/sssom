@@ -26,6 +26,11 @@
 - [Seminar info](events/oboacademy2022.md)
 - [Slides](https://mapping-commons.github.io/sssom/tutorial/)
 
+## Workshop on Prefixes, CURIEs, and IRIs
+
+- Fall 2021, Use Case Talk on the need for prefix maps for SSSOM
+- [Workshop info](https://biopragmatics.github.io/workshops/WPCI2021)
+
 ## Pistoia Seminar 2022: A Simple Standard for Sharing Ontological Mappings (SSSOM)
 
 - 28th April 2022, Team Meeting
