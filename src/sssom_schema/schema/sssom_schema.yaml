@@ -128,6 +128,11 @@ slots:
   subject_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
+      This slot is deliberately underspecified. Conceptual categories can range from
+      those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve
+      as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this
+      optional field is documentation for human reviewers - when a category is known
+      and documented clearly, the cost of interpreting and evaluating the mapping decreases.
     range: string
     examples:
       - value: UBERON:0001062
@@ -208,6 +213,11 @@ slots:
   object_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
+      This slot is deliberately underspecified. Conceptual categories can range from
+      those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve
+      as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this
+      optional field is documentation for human reviewers - when a category is known
+      and documented clearly, the cost of interpreting and evaluating the mapping decreases.
     range: string
     examples:
       - value: UBERON:0001062
