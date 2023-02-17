@@ -137,6 +137,8 @@ slots:
     examples:
       - value: UBERON:0001062
         description: (The CURIE of the Uberon term for "anatomical entity".)
+      - value: anatomical entity
+        description: (A string, rather than ID, describing the "anatomical entity" category. This is possible, but less preferred than using an ID.)
       - value: biolink:Gene
         description: (The CURIE of the biolink class for genes.)
   subject_type:
@@ -222,6 +224,8 @@ slots:
     examples:
       - value: UBERON:0001062
         description: (The CURIE of the Uberon term for "anatomical entity".)
+      - value: anatomical entity
+        description: (A string, rather than ID, describing the "anatomical entity" category. This is possible, but less preferred than using an ID.)
       - value: biolink:Gene
         description: (The CURIE of the biolink class for genes.)
   mapping_justification:
