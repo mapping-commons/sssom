@@ -596,6 +596,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rules-for-semapv" class="md-nav__link">
+    Rules for SEMAPV
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -779,6 +786,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rules-for-semapv" class="md-nav__link">
+    Rules for SEMAPV
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -893,6 +907,12 @@ We like to call the output of an inverse rule a <code>walk-back</code>. A comman
 <ul>
 <li>RI1: <code>(:A)-[skos:narrowMatch]-&gt;(:B)</code> -&gt; <code>(:B)-[skos:broadMatch]-&gt;(:A)</code></li>
 <li>RI2: <code>(:A)-[skos:broadMatch]-&gt;(:B)</code> -&gt; <code>(:B)-[skos:narrowMatch]-&gt;(:A)</code></li>
+</ul>
+<h3 id="rules-for-semapv">Rules for SEMAPV</h3>
+<ul>
+<li>RI3: <code>(:A)-[semapv:crossSpeciesExactMatch]-&gt;(:B)</code> -&gt; <code>(:B)-[semapv:crossSpeciesExactMatch]-&gt;(:A)</code></li>
+<li>RI4: <code>(:A)-[semapv:crossSpeciesNarrowMatch]-&gt;(:B)</code> -&gt; <code>(:B)-[semapv:crossSpeciesBroadMatch]-&gt;(:A)</code></li>
+<li>RI5: <code>(:A)-[semapv:crossSpeciesBroadMatch]-&gt;(:B)</code> -&gt; <code>(:B)-[semapv:crossSpeciesNarrowMatch]-&gt;(:A)</code></li>
 </ul>
 <p><a id="generalisation"></a></p>
 <h2 id="generalisation-rules">Generalisation Rules</h2>
