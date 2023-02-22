@@ -92,6 +92,12 @@ This excludes the exact predicates for which inverse rules are redundant.
 - RI1: `(:A)-[skos:narrowMatch]->(:B)` -> `(:B)-[skos:broadMatch]->(:A)`
 - RI2: `(:A)-[skos:broadMatch]->(:B)` -> `(:B)-[skos:narrowMatch]->(:A)`
 
+### Rules for SEMAPV
+
+- RI3: `(:A)-[semapv:crossSpeciesExactMatch]->(:B)` -> `(:B)-[semapv:crossSpeciesExactMatch]->(:A)`
+- RI4: `(:A)-[semapv:crossSpeciesNarrowMatch]->(:B)` -> `(:B)-[semapv:crossSpeciesBroadMatch]->(:A)`
+- RI5: `(:A)-[semapv:crossSpeciesBroadMatch]->(:B)` -> `(:B)-[semapv:crossSpeciesNarrowMatch]->(:A)`
+
 <a id="generalisation"></a>
 
 ## Generalisation Rules
