@@ -459,11 +459,22 @@ slots:
   other:
     description: Pipe separated list of key value pairs for properties not part of
       the SSSOM spec. Can be used to encode additional provenance data.
-    range: string
+    range: key value pair
+    multivalued: true
+    inlined_as_list: true
+    recommended: true
   comment:
     description: Free text field containing either curator notes or text generated
       by tool providing additional informative information.
     slot_uri: rdfs:comment
+    range: string
+  key:
+    description: Generic slot for key, which should correspond to a entity reference
+    range: EntityReference
+    examples:
+      - value: myapi:mapping_id
+  value:
+    description: Generic slot for a value with no restrictions
     range: string
 classes:
   mapping set:
@@ -563,3 +574,8 @@ classes:
       - mapping_set_group
       - last_updated
       - local_name
+  key value pair:
+    description: A simple structure to hold key-value pairs
+    slots:
+      - key
+      - value
