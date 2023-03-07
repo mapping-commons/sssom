@@ -115,9 +115,9 @@ slots:
       The purpose of this field is not to provide a unique identifier (which would be used in provenance-related work), but a conventient field
       for an API and a UI (of a Mapping Registry) to retrieve information. It should be possible to ensure that that the 
       ID works to retrieve data from the API across different releases of the registry.
-    range: str
+    range: EntityReference
     examples:
-      - value: A989886786786
+      - value: REGISTRY:A989886786786
         description: A database identifier that represents the identity of this mapping. It may resolve to a website containing information about this mapping.
   mapping_registry_mapping_set_id:
     description: An optional reference to a mapping set provided by a specific mapping registry, 
@@ -125,9 +125,9 @@ slots:
       The purpose of this field is not to provide additional metadata, but a conventient field
       for an API and a UI (of a Mapping Registry) to link back a specific mapping to its mapping set.
     examples:
-      - value: M12345678
+      - value: REGISTRY:M12345678
         description: A database identifier that represents the identity of this mapping set. It will resolve to a website cotaining information about this mapping.
-    range: str
+    range: EntityReference
   subject_id:
     description: The ID of the subject of the mapping.
     range: EntityReference
