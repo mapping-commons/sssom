@@ -109,6 +109,25 @@ slots:
     multivalued: true
     inlined_as_list: true
     recommended: true
+  mapping_registry_mapping_id:
+    description: An optional identifier of the mapping as provided by a specific mapping registry, NOT by the mapping provider. 
+      There are no restrictions on how it this id should be formed, and tools should feel free to use their own schemes.
+      The purpose of this field is not to provide a unique identifier (which would be used in provenance-related work), but a conventient field
+      for an API and a UI (of a Mapping Registry) to retrieve information. It should be possible to ensure that that the 
+      ID works to retrieve data from the API across different releases of the registry.
+    range: str
+    examples:
+      - value: A989886786786
+        description: A database identifier that represents the identity of this mapping. It may resolve to a website containing information about this mapping.
+  mapping_registry_mapping_set_id:
+    description: An optional reference to a mapping set provided by a specific mapping registry, 
+      NOT by the mapping provider. Any mapping registry can (and will) freely overwrite this field.
+      The purpose of this field is not to provide additional metadata, but a conventient field
+      for an API and a UI (of a Mapping Registry) to link back a specific mapping to its mapping set.
+    examples:
+      - value: M12345678
+        description: A database identifier that represents the identity of this mapping set. It will resolve to a website cotaining information about this mapping.
+    range: str
   subject_id:
     description: The ID of the subject of the mapping.
     range: EntityReference
@@ -497,6 +516,7 @@ classes:
     - see_also
     - other
     - comment
+    - mapping_registry_mapping_set_id
   mapping:
     description: Represents an individual mapping between a pair of entities
     slots:
@@ -540,6 +560,8 @@ classes:
     - see_also
     - other
     - comment
+    - mapping_registry_mapping_id
+    - mapping_registry_mapping_set_id
     class_uri: owl:Axiom
   mapping registry:
     description: A registry for managing mapping sets. It holds a set of 
