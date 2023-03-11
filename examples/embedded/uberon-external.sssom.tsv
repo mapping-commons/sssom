@@ -1,0 +1,20 @@
+# curie_map:
+#   FBbt: http://purl.obolibrary.org/obo/FBbt_
+#   UBERON: http://purl.obolibrary.org/obo/UBERON_
+#   ZFA: http://purl.obolibrary.org/obo/ZFA_
+#   MYINTERNALNAMESPACE: http://my.internal.ns/vocab/
+#   semapv: https://w3id.org/semapv/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   dc: http://purl.org/dc/terms/
+# license: https://w3id.org/sssom/license/unspecified
+# mapping_set_id: https://w3id.org/sssom/mappings/12345287613876278135
+# extension_definition:
+#   - key: modified
+#     value: dc:modified
+#   - key: mapping_id
+#     value: MYINTERNALNAMESPACE:mapping_id
+#   - key: funded_by
+#     value: foaf:fundedBy
+subject_id	predicate_id	object_id	mapping_justification	modified	mapping_id	funded_by
+UBERON:0000004	skos:exactMatch	ZFA:0000047	semapv:UnspecifiedMatching	2022-03-01	M6972619762	NIH:RM1-HG010860-01
+UBERON:0000005	skos:exactMatch	FBbt:00005157	semapv:UnspecifiedMatching	2022-02-01	M98879876121	NIH:RM1-HG010860-01

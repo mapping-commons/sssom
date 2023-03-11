@@ -456,13 +456,23 @@ slots:
     slot_uri: rdfs:seeAlso
     range: string
     multivalued: true
-  other:
-    description: Pipe separated list of key value pairs for properties not part of
-      the SSSOM spec. Can be used to encode additional provenance data.
+  extension:
+    description: A way to extend SSSOM mapping fields with your use case specific information. 
+      Any extension must be declaced in the extension_definition element on mapping_set level.
+      Extensions MUST NOT alter the semantics of the mapping, as they will be disregarded by most standard tools,
+      i.e. not included as part of API requests and others.
     range: key value pair
     multivalued: true
-    inlined_as_list: true
-    recommended: true
+  extension_definition:
+    description: A way to extend SSSOM mapping fields with your use case specific information. 
+    # can I make the 'value' slot of type resource for this element, but otherwise re-use the generic key-value pair class?
+    # Or better keep that element optional and simply tread extensions as package that is ignored by transformers?
+    range: key value pair
+    multivalued: true
+  other:
+    description: An open ended field in which any information can be added that can be captured as a string. It is recommended 
+      to avoid using this field in favour of the 'comment' or 'extenion fields.
+    range: string
   comment:
     description: Free text field containing either curator notes or text generated
       by tool providing additional informative information.
@@ -470,9 +480,11 @@ slots:
     range: string
   key:
     description: Generic slot for key, which should correspond to a entity reference
-    range: EntityReference
+    range: string
+    # Any more restrictions, like alphabetical?
     examples:
-      - value: myapi:mapping_id
+      - value: mapping_id
+      - value: audience
   value:
     description: Generic slot for a value with no restrictions
     range: string
@@ -508,6 +520,8 @@ classes:
     - see_also
     - other
     - comment
+    - extension
+    - extension_definition
   mapping:
     description: Represents an individual mapping between a pair of entities
     slots:
@@ -551,6 +565,7 @@ classes:
     - see_also
     - other
     - comment
+    - extension
     class_uri: owl:Axiom
   mapping registry:
     description: A registry for managing mapping sets. It holds a set of 
