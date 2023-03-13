@@ -40,7 +40,8 @@ Example description.
 # license: https://w3id.org/sssom/license/unspecified
 # mapping_set_id: https://w3id.org/sssom/mappings/ac9e1878-73f4-4767-8402-a6c40e1b0835
 ```
-| subject_id	| predicate_id	| object_id	| mapping_justification | element_id_example	| 
-| --- | --- | --- | --- | --- | --- |
+
+| subject_id	| predicate_id	  | object_id	  | mapping_justification   | element_id_example	| 
+| ----------- | --------------- | ----------- | ----------------------- | ------------------- |
 | HP:0009124	| skos:exactMatch	| MP:0000003	| semapv:LexicalMatching	| YOUR EXAMPLE VALUE	| 
 | HP:0008551	| skos:exactMatch	| MP:0000018	| semapv:LexicalMatching	| YOUR EXAMPLE VALUE	|
