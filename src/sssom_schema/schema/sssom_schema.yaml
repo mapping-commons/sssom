@@ -444,7 +444,9 @@ slots:
       The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.
     range: EntityReference
     multivalued: true
-    see_also: https://github.com/mapping-commons/sssom/issues/166
+    see_also: 
+      - https://github.com/mapping-commons/sssom/issues/166
+      - https://github.com/mapping-commons/sssom/pull/258
   curation_rule_text:
     description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
       Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
@@ -453,7 +455,9 @@ slots:
       perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.
     range: string
     multivalued: true
-    see_also: https://github.com/mapping-commons/sssom/issues/166
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/166
+      - https://github.com/mapping-commons/sssom/pull/258
   semantic_similarity_score:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
