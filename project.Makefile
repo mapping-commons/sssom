@@ -21,6 +21,7 @@ MAPPING_DIR_EMBEDDED=examples/embedded
 TMPDIR = tmp
 
 validate-example-schema-%:
+	mkdir -p $(TMPDIR)
 	tsvalid $(MAPPING_DIR_SCHEMA)/$*.sssom.tsv --comment "#" --skip E1
 	sssom validate $(MAPPING_DIR_SCHEMA)/$*.sssom.tsv
 	sssom convert $(MAPPING_DIR_SCHEMA)/$*.sssom.tsv -o $(TMPDIR)/schema-$*.sssom.ttl
