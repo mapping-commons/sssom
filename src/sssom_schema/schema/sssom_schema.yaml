@@ -446,6 +446,29 @@ slots:
     examples:
       - value: semapv:Stemming
       - value: semapv:StopWordRemoval
+  curation_rule:
+    description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
+      Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
+      rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets.
+      The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.
+    range: EntityReference
+    multivalued: true
+    see_also: 
+      - https://github.com/mapping-commons/sssom/issues/166
+      - https://github.com/mapping-commons/sssom/pull/258
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
+  curation_rule_text:
+    description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
+      Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
+      rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets.
+      The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the
+      perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.
+    range: string
+    multivalued: true
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/166
+      - https://github.com/mapping-commons/sssom/pull/258
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv
   semantic_similarity_score:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
@@ -539,6 +562,8 @@ classes:
     - mapping_tool_version
     - mapping_date
     - confidence
+    - curation_rule
+    - curation_rule_text
     - subject_match_field
     - object_match_field
     - match_string

@@ -1,0 +1,18 @@
+#curie_map:
+#  WTO: http://purl.obolibrary.org/obo/WTO_
+#  CO321: "http://www.cropontology.org/rdf/CO_321:"
+#  ror: https://ror.org/
+#mapping_set_id: https://w3id.org/sssom/commons/examples/curation_rule_text2.sssom.tsv
+#license: "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+#comment: This is an example file for the SSSOM for illustration only. This example was extracted from a real mapping set where the subject source (WTO) is an ontology used to annotate text (e.g. scientific literature) and the object source (CO321) is an ontology used to annotate the traits evaluated from observational data. The objective of the alignment is to allow information retrieval from both textual and experimental phenotypic dataset.
+#creator_id: ror:02kvxyf05
+#creator_label: "INRAE"
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	curation_rule_text	comment
+WTO:0000304	cold resistance	skos:closeMatch	CO321:0000080	Cold tolerance	semapv:ManualMappingCuration	Rule 4: We consider that "tolerance" and "resistance" are almost equivalent when applied to abiotic environmental conditions. 
+WTO:0000450	aluminium toxicity	skos:closeMatch	CO321:0000079	Aluminum tolerance	semapv:ManualMappingCuration	Rule 3: We consider that the user of the information retrieval function interested in plant traits related to metal toxicity  (WTO) also wants to retrieve observational data measuring the plant tolerance to the same metal (CO_321). The rule metal + toxicity (WTO) <-> metal + tolerance  (CO321) is valid for any kind of metal.
+WTO:0000065	anther extrusion	skos:exactMatch	CO321:0000982	Anther extrusion	semapv:ManualMappingCuration		
+WTO:0000296	aphid resistance	skos:closeMatch	CO321:0000085	Aphid damage	semapv:ManualMappingCuration	Rule 2: We consider that the user of the information retrieval function interested in plant traits related to damages caused by some animal,  insect, nematode, etc. also wants to retrieve observational data mentioning resistance to the same living organism.
+WTO:0000281	Armyworm resistance	skos:closeMatch	CO321:0000086	Armyworm damage	semapv:ManualMappingCuration	Rule 2: We consider that the user of the information retrieval function interested in plant traits related to damages caused by some animal,  insect, nematode, etc. also wants to retrieve observational data mentioning resistance to the same living organism.
+WTO:0000125	awn color	skos:exactMatch	CO321:0000960	Awn color	semapv:ManualMappingCuration		
+WTO:0000126	awn length	skos:exactMatch	CO321:0000026	Awn length	semapv:ManualMappingCuration		
+WTO:0000452	bacterial leaf blight resistance	skos:closeMatch	CO321:0000932	Bacterial leaf blight severity	semapv:ManualMappingCuration	Rule 1.3: We consider that the user of the information retrieval function, given a pathogen or a disease, would like to retrieve all data, independently of the way the affection is observed. In observational data, a severity score is represented by two digits representing the vertical disease progress and an estimate of severity. The capacity of resistance to a disease would be deduced from the severity of this one on the plant.
