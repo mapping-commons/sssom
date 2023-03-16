@@ -72,6 +72,9 @@
       "description": "A character string",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Text"
+      ],
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "@type": "TypeDefinition"
@@ -82,6 +85,9 @@
       "description": "An integer",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
       "@type": "TypeDefinition"
@@ -92,6 +98,9 @@
       "description": "A binary (true or false) value",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
       "repr": "bool",
@@ -103,6 +112,9 @@
       "description": "A real number that conforms to the xsd:float specification",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Float"
+      ],
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
       "@type": "TypeDefinition"
@@ -113,6 +125,9 @@
       "description": "A real number that conforms to the xsd:double specification",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:Float"
+      ],
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
       "@type": "TypeDefinition"
@@ -123,6 +138,9 @@
       "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "broad_mappings": [
+        "schema:Number"
+      ],
       "base": "Decimal",
       "uri": "http://www.w3.org/2001/XMLSchema#decimal",
       "@type": "TypeDefinition"
@@ -132,10 +150,13 @@
       "definition_uri": "https://w3id.org/linkml/Time",
       "description": "A time object represents a (local) time of day, independent of any particular day",
       "notes": [
-        "URI is dateTime because OWL reasoners don't work with straight date or time"
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
       ],
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Time"
+      ],
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -150,6 +171,9 @@
       ],
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Date"
+      ],
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
@@ -161,8 +185,22 @@
       "description": "The combination of a date and time",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date_or_datetime",
+      "definition_uri": "https://w3id.org/linkml/DateOrDatetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "https://w3id.org/linkml/DateOrDatetime",
       "repr": "str",
       "@type": "TypeDefinition"
     },
@@ -178,11 +216,34 @@
       "@type": "TypeDefinition"
     },
     {
-      "name": "uri",
-      "definition_uri": "https://w3id.org/linkml/Uri",
-      "description": "a complete URI",
+      "name": "curie",
+      "definition_uri": "https://w3id.org/linkml/Curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "base": "Curie",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:URL"
+      ],
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
@@ -404,6 +465,32 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "mapping_registry_title",
+      "definition_uri": "https://w3id.org/sssom/mapping_registry_title",
+      "description": "The title of a mapping registry.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_registry_title",
+      "owner": "MappingRegistry",
+      "domain_of": [
+        "MappingRegistry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_registry_description",
+      "definition_uri": "https://w3id.org/sssom/mapping_registry_description",
+      "description": "The description of a mapping registry.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "slot_uri": "https://w3id.org/sssom/mapping_registry_description",
+      "owner": "MappingRegistry",
+      "domain_of": [
+        "MappingRegistry"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "imports",
       "definition_uri": "https://w3id.org/sssom/imports",
       "description": "A list of registries that should be imported into this one.",
@@ -508,11 +595,16 @@
     {
       "name": "subject_category",
       "definition_uri": "https://w3id.org/sssom/subject_category",
-      "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.",
+      "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.",
       "examples": [
         {
           "value": "UBERON:0001062",
           "description": "(The CURIE of the Uberon term for \"anatomical entity\".)",
+          "@type": "Example"
+        },
+        {
+          "value": "anatomical entity",
+          "description": "(A string, rather than ID, describing the \"anatomical entity\" category. This is possible, but less preferred than using an ID.)",
           "@type": "Example"
         },
         {
@@ -522,6 +614,10 @@
         }
       ],
       "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://github.com/mapping-commons/sssom/issues/13",
+        "https://github.com/mapping-commons/sssom/issues/256"
+      ],
       "slot_uri": "https://w3id.org/sssom/subject_category",
       "owner": "Mapping",
       "domain_of": [
@@ -586,6 +682,9 @@
         }
       ],
       "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://github.com/mapping-commons/sssom/issues/107"
+      ],
       "slot_uri": "https://w3id.org/sssom/predicate_modifier",
       "owner": "Mapping",
       "domain_of": [
@@ -650,7 +749,7 @@
           "@type": "Example"
         },
         {
-          "value": "oboInOwl:database_cross_reference",
+          "value": "oboInOwl:hasDbXref",
           "description": "Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)",
           "@type": "Example"
         },
@@ -736,11 +835,16 @@
     {
       "name": "object_category",
       "definition_uri": "https://w3id.org/sssom/object_category",
-      "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.",
+      "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.",
       "examples": [
         {
           "value": "UBERON:0001062",
           "description": "(The CURIE of the Uberon term for \"anatomical entity\".)",
+          "@type": "Example"
+        },
+        {
+          "value": "anatomical entity",
+          "description": "(A string, rather than ID, describing the \"anatomical entity\" category. This is possible, but less preferred than using an ID.)",
           "@type": "Example"
         },
         {
@@ -750,6 +854,10 @@
         }
       ],
       "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://github.com/mapping-commons/sssom/issues/13",
+        "https://github.com/mapping-commons/sssom/issues/256"
+      ],
       "slot_uri": "https://w3id.org/sssom/object_category",
       "owner": "Mapping",
       "domain_of": [
@@ -900,6 +1008,28 @@
       "owner": "MappingSetReference",
       "domain_of": [
         "MappingSetReference"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mapping_set_title",
+      "definition_uri": "https://w3id.org/sssom/mapping_set_title",
+      "description": "The display name of a mapping set.",
+      "examples": [
+        {
+          "value": "The Mondo-OMIM mappings by Monarch Initiative.",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "mappings": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "owner": "MappingSet",
+      "domain_of": [
+        "MappingSet"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -1179,6 +1309,10 @@
       ],
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/mapping_source",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
       "range": "EntityReference",
       "@type": "SlotDefinition"
     },
@@ -1371,6 +1505,44 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "curation_rule",
+      "definition_uri": "https://w3id.org/sssom/curation_rule",
+      "description": "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://github.com/mapping-commons/sssom/issues/166",
+        "https://github.com/mapping-commons/sssom/pull/258",
+        "https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv"
+      ],
+      "slot_uri": "https://w3id.org/sssom/curation_rule",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "curation_rule_text",
+      "definition_uri": "https://w3id.org/sssom/curation_rule_text",
+      "description": "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.",
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://github.com/mapping-commons/sssom/issues/166",
+        "https://github.com/mapping-commons/sssom/pull/258",
+        "https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv"
+      ],
+      "slot_uri": "https://w3id.org/sssom/curation_rule_text",
+      "multivalued": true,
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "semantic_similarity_score",
       "definition_uri": "https://w3id.org/sssom/semantic_similarity_score",
       "description": "A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence.",
@@ -1486,6 +1658,7 @@
         "mapping_set_id",
         "mapping_set_version",
         "mapping_set_source",
+        "mapping_set_title",
         "mapping_set_description",
         "creator_id",
         "creator_label",
@@ -1544,11 +1717,14 @@
         "object_source",
         "object_source_version",
         "mapping_provider",
+        "mapping_source",
         "mapping_cardinality",
         "mapping_tool",
         "mapping_tool_version",
         "mapping_date",
         "confidence",
+        "curation_rule",
+        "curation_rule_text",
         "subject_match_field",
         "object_match_field",
         "match_string",
@@ -1571,6 +1747,8 @@
       "from_schema": "https://w3id.org/sssom/schema/",
       "slots": [
         "mapping_registry_id",
+        "mapping_registry_title",
+        "mapping_registry_description",
         "imports",
         "mapping_set_references",
         "documentation",
@@ -1600,9 +1778,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2022-06-07T11:14:57",
-  "source_file_size": 21401,
-  "generation_date": "2022-06-07T11:23:13",
+  "source_file_date": "2023-03-16T13:09:31",
+  "source_file_size": 25619,
+  "generation_date": "2023-03-16T14:57:34",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom_schema.context.jsonld",
