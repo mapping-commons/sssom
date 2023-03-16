@@ -20,6 +20,7 @@ default_curi_maps:
 - semweb_context
 - obo_context
 default_prefix: sssom
+default_range: string
 
 enums:
   entity_type_enum:
@@ -134,6 +135,9 @@ slots:
       optional field is documentation for human reviewers - when a category is known
       and documented clearly, the cost of interpreting and evaluating the mapping decreases.
     range: string
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/13
+      - https://github.com/mapping-commons/sssom/issues/256
     examples:
       - value: UBERON:0001062
         description: (The CURIE of the Uberon term for "anatomical entity".)
@@ -159,6 +163,8 @@ slots:
   predicate_modifier:
     description: A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
     range: predicate_modifier_enum
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/107
     examples:
       - value: Not
         description: Negates the predicate, see documentation of predicate_modifier_enum
@@ -221,6 +227,9 @@ slots:
       optional field is documentation for human reviewers - when a category is known
       and documented clearly, the cost of interpreting and evaluating the mapping decreases.
     range: string
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/13
+      - https://github.com/mapping-commons/sssom/issues/256
     examples:
       - value: UBERON:0001062
         description: (The CURIE of the Uberon term for "anatomical entity".)
