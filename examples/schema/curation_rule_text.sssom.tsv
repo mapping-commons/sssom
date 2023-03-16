@@ -3,8 +3,9 @@
 #  MP: http://purl.obolibrary.org/obo/MP_
 #  orcid: https://orcid.org/
 #  DISEASE_MAPPING_COMMONS_RULES: https://w3id.org/sssom/commons/disease/curation-rules/
-#creator_id: orcid:0000-0002-7356-1779
+#mapping_set_id: https://w3id.org/sssom/commons/examples/curation_rule_text.sssom.tsv
 #license: "https://creativecommons.org/publicdomain/zero/1.0/"
+#creator_id: orcid:0000-0002-7356-1779
 #mapping_provider: "https://w3id.org/sssom/core_team"
 #comment: This is an example file for the SSSOM for illustration only. Its contents are entirely fabricated.
 subject_id	predicate_id	object_id	mapping_justification	curation_rule_text	see_also
