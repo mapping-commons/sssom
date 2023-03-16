@@ -315,6 +315,8 @@
       Mapping : confidence
       Mapping : creator_id
       Mapping : creator_label
+      Mapping : curation_rule
+      Mapping : curation_rule_text
       Mapping : license
       Mapping : mapping_cardinality
       Mapping : mapping_date
@@ -575,6 +577,20 @@
 <td>.</td>
 </tr>
 <tr>
+<td><a href="../curation_rule/">curation_rule</a></td>
+<td><a href="../EntityReference/">EntityReference</a></td>
+<td>0..*</td>
+<td>A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../curation_rule_text/">curation_rule_text</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
+<td>0..*</td>
+<td>A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.</td>
+<td>.</td>
+</tr>
+<tr>
 <td><a href="../subject_match_field/">subject_match_field</a></td>
 <td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..*</td>
@@ -727,6 +743,8 @@ slots:
 - mapping_tool_version
 - mapping_date
 - confidence
+- curation_rule
+- curation_rule_text
 - subject_match_field
 - object_match_field
 - match_string
@@ -1147,6 +1165,45 @@ attributes:
     alias: confidence
     owner: mapping
     range: double
+  curation_rule:
+    name: curation_rule
+    description: A curation rule is a (potentially) complex condition executed by
+      an agent that led to the establishment of a mapping. Curation rules often involve
+      complex domain-specific considerations, which are hard to capture in an automated
+      fashion. The curation rule is captured as a resource rather than a string, which
+      enables higher levels of transparency and sharing across mapping sets. The URI
+      representation of the curation rule is expected to be a resolvable identifier
+      which provides details about the nature of the curation rule.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/166
+    - https://github.com/mapping-commons/sssom/pull/258
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
+    multivalued: true
+    alias: curation_rule
+    owner: mapping
+    range: EntityReference
+  curation_rule_text:
+    name: curation_rule_text
+    description: A curation rule is a (potentially) complex condition executed by
+      an agent that led to the establishment of a mapping. Curation rules often involve
+      complex domain-specific considerations, which are hard to capture in an automated
+      fashion. The curation rule should be captured as a resource (entity reference)
+      rather than a string (see curation_rule element), which enables higher levels
+      of transparency and sharing across mapping sets. The textual representation
+      of curation rule is intended to be used in cases where (1) the creation of a
+      resource is not practical from the perspective of the mapping_provider and (2)
+      as an additional piece of metadata to augment the curation_rule element with
+      a human readable text.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/166
+    - https://github.com/mapping-commons/sssom/pull/258
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv
+    multivalued: true
+    alias: curation_rule_text
+    owner: mapping
+    range: string
   subject_match_field:
     name: subject_match_field
     description: A tuple of fields (term annotations on the subject) that was used

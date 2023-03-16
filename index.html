@@ -709,6 +709,14 @@ Name: sssom</p>
 <td>A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.</td>
 </tr>
 <tr>
+<td><a href="curation_rule/">curation_rule</a></td>
+<td>A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.</td>
+</tr>
+<tr>
+<td><a href="curation_rule_text/">curation_rule_text</a></td>
+<td>A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.</td>
+</tr>
+<tr>
 <td><a href="documentation/">documentation</a></td>
 <td>A URL to the documentation of this mapping commons.</td>
 </tr>
