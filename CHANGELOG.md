@@ -27,7 +27,6 @@
 
 - Make adding a concrete SSSOM example part of the new element request
 - Adding QC checks for example SSSOM files hosted in the repo
-SSSOM 0.11.1 release by @matentzn in #270
 
 ## SSSOM version 0.10.1
 
