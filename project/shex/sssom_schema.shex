@@ -29,7 +29,11 @@ linkml:Date xsd:date
 
 linkml:Datetime xsd:dateTime
 
+linkml:DateOrDatetime linkml:DateOrDatetime
+
 linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
 
 linkml:Uri IRI
 
@@ -64,11 +68,14 @@ linkml:Nodeidentifier NONLITERAL
           <object_source> @<EntityReference> ? ;
           <object_source_version> @linkml:String ? ;
           <mapping_provider> @linkml:Uri ? ;
+          <mapping_source> @<EntityReference> ? ;
           <mapping_cardinality> @<MappingCardinalityEnum> ? ;
           <mapping_tool> @linkml:String ? ;
           <mapping_tool_version> @linkml:String ? ;
           pav:authoredOn @linkml:Date ? ;
           <confidence> @linkml:Double ? ;
+          <curation_rule> @<EntityReference> * ;
+          <curation_rule_text> @linkml:String * ;
           <subject_match_field> @<EntityReference> * ;
           <object_match_field> @<EntityReference> * ;
           <match_string> @linkml:String * ;
@@ -86,6 +93,8 @@ linkml:Nodeidentifier NONLITERAL
 
 <MappingRegistry> CLOSED {
     (  $<MappingRegistry_tes> (  <mapping_registry_id> @<EntityReference> ;
+          <mapping_registry_title> @linkml:String ? ;
+          <mapping_registry_description> @linkml:String ? ;
           <imports> @linkml:Uri * ;
           <mapping_set_references> @<MappingSetReference> * ;
           <documentation> @linkml:Uri ? ;
@@ -100,6 +109,7 @@ linkml:Nodeidentifier NONLITERAL
           <mapping_set_id> @linkml:Uri ;
           owl:versionInfo @linkml:String ? ;
           prov:wasDerivedFrom @linkml:Uri * ;
+          dcterms:title @linkml:String ? ;
           dcterms:description @linkml:String ? ;
           dcterms:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;

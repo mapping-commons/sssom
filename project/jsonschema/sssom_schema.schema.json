@@ -58,6 +58,20 @@
                },
                "type": "array"
             },
+            "curation_rule": {
+               "description": "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "curation_rule_text": {
+               "description": "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "license": {
                "description": "A url to the license of the mapping. In absence of a license we assume no license.",
                "type": "string"
@@ -80,6 +94,10 @@
                "description": "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.",
                "type": "string"
             },
+            "mapping_source": {
+               "description": "The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another.",
+               "type": "string"
+            },
             "mapping_tool": {
                "description": "A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.",
                "type": "string"
@@ -96,7 +114,7 @@
                "type": "array"
             },
             "object_category": {
-               "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.",
+               "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.",
                "type": "string"
             },
             "object_id": {
@@ -179,7 +197,7 @@
                "type": "number"
             },
             "subject_category": {
-               "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary.",
+               "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.",
                "type": "string"
             },
             "subject_id": {
@@ -258,8 +276,16 @@
                },
                "type": "array"
             },
+            "mapping_registry_description": {
+               "description": "The description of a mapping registry.",
+               "type": "string"
+            },
             "mapping_registry_id": {
                "description": "The unique identifier of a mapping registry.",
+               "type": "string"
+            },
+            "mapping_registry_title": {
+               "description": "The title of a mapping registry.",
                "type": "string"
             },
             "mapping_set_references": {
@@ -325,6 +351,10 @@
                   "type": "string"
                },
                "type": "array"
+            },
+            "mapping_set_title": {
+               "description": "The display name of a mapping set.",
+               "type": "string"
             },
             "mapping_set_version": {
                "description": "A version string for the mapping.",
