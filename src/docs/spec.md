@@ -469,7 +469,7 @@ JSON translation is fully managed by [LinkML dumper classes](https://linkml.io/l
   * Is the format optimized for google refine?
   * Maintain mappings in github/tsvs
     * Rendering
-    * Drive-by PRs
+    * [Drive-by Curation](https://doi.org/10.32388/KBX9VO) PRs
 
 * Providers
   * Autogenerate pages like 
