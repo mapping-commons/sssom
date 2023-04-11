@@ -5,6 +5,7 @@
 #  ICD9: https://bioregistry.io/icd9:
 #  SCTID: http://snomed.info/id/
 #  ICD10CM: https://bioregistry.io/icd10cm:
+#  wikidata: https://www.wikidata.org/entity/
 #mapping_set_title: VSAC concept set for Abdominal Aortic Aneurysm
 #mapping_set_id: https://w3id.org/sssom/commons/examples/concept_set.sssom.tsv
 #license: "https://creativecommons.org/publicdomain/zero/1.0/"
