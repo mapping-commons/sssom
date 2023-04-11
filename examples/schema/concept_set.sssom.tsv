@@ -11,10 +11,10 @@
 #creator_id: orcid:0000-0002-7356-1779
 #mapping_provider: "https://w3id.org/sssom/core_team"
 #comment: This is an example file for the SSSOM to illustrate how concept sets could be represented in SSSOM. Its contents are fabricated.
-subject_id		predicate_id	object_id		mapping_justification
-ICD9:093.0	Aneurysm of aorta, specified as syphilitic	skos:exactMatch	SCTID:233985008	Abdominal aortic aneurysm (disorder)	semapv:ManualMappingCuration
-ICD9:093.0	Aneurysm of aorta, specified as syphilitic	skos:exactMatch	ICD10CM:A52.01	Syphilitic aneurysm of aorta	semapv:ManualMappingCuration
-SCTID:233985008	Abdominal aortic aneurysm (disorder)	skos:exactMatch	ICD10CM:A52.01	Syphilitic aneurysm of aorta	semapv:ManualMappingCuration
-SCTID:233985008	Abdominal aortic aneurysm (disorder)	skos:exactMatch	ICD9:093.0	Aneurysm of aorta, specified as syphilitic	semapv:ManualMappingCuration
-ICD10CM:A52.01	Syphilitic aneurysm of aorta	skos:exactMatch	SCTID:233985008	Abdominal aortic aneurysm (disorder)	semapv:ManualMappingCuration
-ICD10CM:A52.01	Syphilitic aneurysm of aorta	skos:exactMatch	ICD9:093.0	Aneurysm of aorta, specified as syphilitic	semapv:ManualMappingCuration
+subject_id	subject_label	subject_source	predicate_id	object_id	object_label	object_source	mapping_justification
+ICD9:093.0	Aneurysm of aorta, specified as syphilitic	wikidata:Q14067712	skos:exactMatch	SCTID:233985008	Abdominal aortic aneurysm (disorder)	wikidata:Q1753883	semapv:ManualMappingCuration
+ICD9:093.0	Aneurysm of aorta, specified as syphilitic	wikidata:Q14067712	skos:exactMatch	ICD10CM:A52.01	Syphilitic aneurysm of aorta	wikidata:Q5969475	semapv:ManualMappingCuration
+SCTID:233985008	Abdominal aortic aneurysm (disorder)	wikidata:Q1753883	skos:exactMatch	ICD10CM:A52.01	Syphilitic aneurysm of aorta	wikidata:Q5969475	semapv:ManualMappingCuration
+SCTID:233985008	Abdominal aortic aneurysm (disorder)	wikidata:Q1753883	skos:exactMatch	ICD9:093.0	Aneurysm of aorta, specified as syphilitic	wikidata:Q14067712	semapv:ManualMappingCuration
+ICD10CM:A52.01	Syphilitic aneurysm of aorta	wikidata:Q5969475	skos:exactMatch	SCTID:233985008	Abdominal aortic aneurysm (disorder)	wikidata:Q1753883	semapv:ManualMappingCuration
+ICD10CM:A52.01	Syphilitic aneurysm of aorta	wikidata:Q5969475	skos:exactMatch	ICD9:093.0	Aneurysm of aorta, specified as syphilitic	wikidata:Q14067712	semapv:ManualMappingCuration
