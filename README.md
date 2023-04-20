@@ -58,3 +58,5 @@ Nicolas Matentzoglu, James P Balhoff, Susan M Bello, Chris Bizon, Matthew Brush,
     eprint = {https://academic.oup.com/database/article-pdf/doi/10.1093/database/baac035/43832024/baac035.pdf},
 }
 ```
+
+A [second report with updates since the primary SSSOM publication](https://ceur-ws.org/Vol-3324/om2022_LTpaper6.pdf) above was published as part of the proceedings of the Ontology Matching Workshop 2022.

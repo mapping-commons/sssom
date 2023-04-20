@@ -21,6 +21,7 @@ default_curi_maps:
 - semweb_context
 - obo_context
 default_prefix: sssom
+default_range: string
 
 enums:
   entity_type_enum:
@@ -88,6 +89,12 @@ slots:
     description: The unique identifier of a mapping registry.
     range: EntityReference
     required: true
+  mapping_registry_title:
+    description: The title of a mapping registry.
+    range: string
+  mapping_registry_description:
+    description: The description of a mapping registry.
+    range: string
   imports:
     description: A list of registries that should be imported into this one.
     multivalued: true
@@ -143,10 +150,20 @@ slots:
   subject_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
+      This slot is deliberately underspecified. Conceptual categories can range from
+      those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve
+      as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this
+      optional field is documentation for human reviewers - when a category is known
+      and documented clearly, the cost of interpreting and evaluating the mapping decreases.
     range: string
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/13
+      - https://github.com/mapping-commons/sssom/issues/256
     examples:
       - value: UBERON:0001062
         description: (The CURIE of the Uberon term for "anatomical entity".)
+      - value: anatomical entity
+        description: (A string, rather than ID, describing the "anatomical entity" category. This is possible, but less preferred than using an ID.)
       - value: biolink:Gene
         description: (The CURIE of the biolink class for genes.)
   subject_type:
@@ -167,6 +184,8 @@ slots:
   predicate_modifier:
     description: A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
     range: predicate_modifier_enum
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/107
     examples:
       - value: Not
         description: Negates the predicate, see documentation of predicate_modifier_enum
@@ -223,10 +242,20 @@ slots:
   object_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
+      This slot is deliberately underspecified. Conceptual categories can range from
+      those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve
+      as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this
+      optional field is documentation for human reviewers - when a category is known
+      and documented clearly, the cost of interpreting and evaluating the mapping decreases.
     range: string
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/13
+      - https://github.com/mapping-commons/sssom/issues/256
     examples:
       - value: UBERON:0001062
         description: (The CURIE of the Uberon term for "anatomical entity".)
+      - value: anatomical entity
+        description: (A string, rather than ID, describing the "anatomical entity" category. This is possible, but less preferred than using an ID.)
       - value: biolink:Gene
         description: (The CURIE of the biolink class for genes.)
   mapping_justification:
@@ -272,6 +301,12 @@ slots:
   mapping_set_group:
     description: Set by the owners of the mapping registry. A way to group .
     range: string
+  mapping_set_title:
+    description: The display name of a mapping set.
+    range: string
+    slot_uri: dc:title
+    examples:
+      - value: "The Mondo-OMIM mappings by Monarch Initiative."
   mapping_set_description:
     description: A description of the mapping set.
     range: string
@@ -453,6 +488,29 @@ slots:
     examples:
       - value: semapv:Stemming
       - value: semapv:StopWordRemoval
+  curation_rule:
+    description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
+      Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
+      rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets.
+      The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.
+    range: EntityReference
+    multivalued: true
+    see_also: 
+      - https://github.com/mapping-commons/sssom/issues/166
+      - https://github.com/mapping-commons/sssom/pull/258
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
+  curation_rule_text:
+    description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
+      Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
+      rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets.
+      The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the
+      perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.
+    range: string
+    multivalued: true
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/166
+      - https://github.com/mapping-commons/sssom/pull/258
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv
   semantic_similarity_score:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
@@ -504,6 +562,7 @@ classes:
     - mapping_set_id
     - mapping_set_version
     - mapping_set_source
+    - mapping_set_title
     - mapping_set_description
     - creator_id
     - creator_label
@@ -557,6 +616,8 @@ classes:
     - mapping_tool_version
     - mapping_date
     - confidence
+    - curation_rule
+    - curation_rule_text
     - subject_match_field
     - object_match_field
     - match_string
@@ -614,6 +675,8 @@ classes:
       mapping set references, and can import other registries.
     slots:
       - mapping_registry_id
+      - mapping_registry_title
+      - mapping_registry_description
       - imports
       - mapping_set_references
       - documentation
