@@ -1,6 +1,6 @@
 # Getting started
 
-- First, create a virtual environment of your choice (anaconda, venv, pyenv, poetry etc.). If you need assistance with virtual environments, [here's a guide](https://berkeleybop.github.io/best_practice/python_environments) to help you navigate through this vast topic.
+- First, create a virtual environment of your choice (anaconda, venv, pyenv, poetry etc.). If you need assistance with virtual environments, [here's a guide](https://berkeleybop.github.io/best_practice/python_environments) to help you setup pyenv and use poetry with it.
 - Install the [cruft](https://github.com/cruft/cruft) package. Cruft enables keeping projects up-to-date with future updates made to this original template.
 
     ```
