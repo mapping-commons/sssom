@@ -330,7 +330,7 @@ slots:
     multivalued: true
   reviewer_label:
     description: A string identifying the reviewer of this mapping. In the spirit of
-      provenance, consider to use author_id instead.
+      provenance, consider to use reviewer_id instead.
     range: string
     multivalued: true
   license:
