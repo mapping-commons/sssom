@@ -360,7 +360,7 @@ Note that only metadata elements permissible in a global context (G, or L/G) can
 We recommend to use the following *filename conventions* for SSSOM metadatafiles:
 
 - TSV files should have the extension `.sssom.tsv`, for example: `mp-hp-exact-0.0.1.sssom.tsv`.
-- External yaml metadata files should have the extension `.sssom.yml`, for example `mp-hp-exact-0.0.1.sssom.tsv`
+- External yaml metadata files should have the extension `.sssom.yml`, for example `mp-hp-exact-0.0.1.sssom.yml`
 
 Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.yml)):
 
@@ -376,7 +376,7 @@ mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
 
 #### External mode 
 
-In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension `-meta.yml`. By default, tools will look for the file of that name in the same directory as the the mapping set table.
+In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension `.sssom.yml`. By default, tools will look for the file of that name in the same directory as the the mapping set table.
 
 Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv)):
 
