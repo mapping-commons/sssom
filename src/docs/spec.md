@@ -151,8 +151,6 @@ Note this is a public copy of the editors’ draft. It is provided for discussio
 
 ## SSSOM Metadata Elements
 
-The SSSOM specification defines a set of SSSOM metadata elements that are used to describe mappings. Apart from the elements themselves, some example usage and a description, **_[the SSSOM spec](https://mapping-commons.github.io/sssom/Mapping/) defines the canonical order for the metadata_** in which the elements SHOULD appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
-
 A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.
 
 The conceptual model of SSSOM has two main elements: 
@@ -355,6 +353,10 @@ All SSSOM metadata elements labelled with L in the metadata table are permissibl
 
 Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. The YAML metadata block MUST contain a curie map that allows the unambiguous interpretation of CURIES. A curie map is supplied after a `curie_map:` parameter in the yaml file. The value is a dictionary of CURIE->URLPREFIX pairs.
 Note that the following prefixes are built-in and (1) MUST NOT be changed from their bioregistry conformant default interpretation and (2) MAY be omitted from the curie map: "`sssom`", "`owl`", "`rdf`", "`rdfs`", "`skos`", "`semapv`".
+      
+**Canonical ordering of columns**. Apart from the elements themselves, some example usage and a description, **_[the SSSOM spec](https://mapping-commons.github.io/sssom/Mapping/) defines the canonical order for the metadata_** in which the elements SHOULD appear when serialised.
+(The "canonical order" corresponds to the exact order of elements as seen in the specification.)
+This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
 
 Note that only metadata elements permissible in a global context (G, or L/G) can be used in the metadata-file.
 
