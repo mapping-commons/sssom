@@ -175,7 +175,7 @@
                "type": "array"
             },
             "reviewer_label": {
-               "description": "A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use author_id instead.",
+               "description": "A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use reviewer_id instead.",
                "items": {
                   "type": "string"
                },

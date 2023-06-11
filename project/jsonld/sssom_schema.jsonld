@@ -45,7 +45,7 @@
     },
     {
       "prefix_prefix": "semapv",
-      "prefix_reference": "https://w3id.org/semapv/"
+      "prefix_reference": "https://w3id.org/semapv/vocab/"
     }
   ],
   "default_curi_maps": [
@@ -158,7 +158,7 @@
         "schema:Time"
       ],
       "base": "XSDTime",
-      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#time",
       "repr": "str",
       "@type": "TypeDefinition"
     },
@@ -1137,7 +1137,7 @@
     {
       "name": "reviewer_label",
       "definition_uri": "https://w3id.org/sssom/reviewer_label",
-      "description": "A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use author_id instead.",
+      "description": "A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use reviewer_id instead.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/reviewer_label",
       "multivalued": true,
@@ -1778,9 +1778,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2023-03-16T13:09:31",
-  "source_file_size": 25619,
-  "generation_date": "2023-03-16T14:57:34",
+  "source_file_date": "2023-06-11T14:17:57",
+  "source_file_size": 25627,
+  "generation_date": "2023-06-11T14:18:30",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom_schema.context.jsonld",
