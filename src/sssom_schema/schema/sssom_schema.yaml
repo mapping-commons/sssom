@@ -12,7 +12,7 @@ prefixes:
   pav: http://purl.org/pav/
   prov: http://www.w3.org/ns/prov#
   skos: http://www.w3.org/2004/02/skos/core#
-  semapv: https://w3id.org/semapv/
+  semapv: https://w3id.org/semapv/vocab/
 see_also:
 - https://github.com/mapping-commons/sssom
 - https://mapping-commons.github.io/sssom/home/
