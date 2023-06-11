@@ -353,14 +353,14 @@ SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) 
 
 All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the [SSSOM metadata](https://mapping-commons.github.io/sssom/Mapping/). For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, mapping_justification, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, mapping_justification. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.
 
-Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a `curie_map:` parameter in the yaml file. The value can be either a dictionary of CURIE->URLPREFIX pairs or a link to a valid curie map of the same shape.
+Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a `curie_map:` parameter in the yaml file. The value is a dictionary of CURIE->URLPREFIX pairs.
 
 Note that only metadata elements permissible in a global context (G, or L/G) can be used in the metadata-file.
 
 We recommend to use the following *filename conventions* for SSSOM metadatafiles:
 
 - TSV files should have the extension `.sssom.tsv`, for example: `mp-hp-exact-0.0.1.sssom.tsv`.
-- External yaml metadata files should have the extension `.sssom.yml`, for example `mp-hp-exact-0.0.1.sssom.tsv`
+- External yaml metadata files should have the extension `.sssom.yml`, for example `mp-hp-exact-0.0.1.sssom.yml`
 
 Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.yml)):
 
@@ -376,7 +376,7 @@ mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
 
 #### External mode 
 
-In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension `-meta.yml`. By default, tools will look for the file of that name in the same directory as the the mapping set table.
+In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension `.sssom.yml`. By default, tools will look for the file of that name in the same directory as the the mapping set table.
 
 Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv)):
 
