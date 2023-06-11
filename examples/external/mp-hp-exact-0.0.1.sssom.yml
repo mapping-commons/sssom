@@ -1,7 +1,12 @@
-creator_id: "https://orcid.org/0000-0002-7356-1779"
-curie_map: 
-  HP: "http://purl.obolibrary.org/obo/HP_"
-  MP: "http://purl.obolibrary.org/obo/MP_"
-  skos: "http://www.w3.org/2004/02/skos/core"
-license: "https://creativecommons.org/publicdomain/zero/1.0/"
-mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
+curie_map:
+  HP: http://purl.obolibrary.org/obo/HP_
+  MP: http://purl.obolibrary.org/obo/MP_
+  owl: http://www.w3.org/2002/07/owl#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  semapv: https://w3id.org/semapv/
+  skos: http://www.w3.org/2004/02/skos/core#
+  sssom: https://w3id.org/sssom/
+license: https://creativecommons.org/publicdomain/zero/1.0/
+mapping_provider: http://purl.obolibrary.org/obo/upheno.owl
+mapping_set_id: https://w3id.org/sssom/mappings/27f85fe9-8a72-4e76-909b-7ba4244d9ede
