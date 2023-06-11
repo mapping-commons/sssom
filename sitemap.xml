@@ -96,6 +96,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/create-mapping-commons/</loc>
+         <lastmod>2023-06-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/creator_id/</loc>
          <lastmod>2023-06-11</lastmod>
          <changefreq>daily</changefreq>
