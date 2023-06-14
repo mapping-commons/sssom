@@ -1,0 +1,181 @@
+{
+   "_comments": "Auto generated from sssom_schema.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2023-06-11T14:18:30\n    Schema: sssom\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://w3id.org/sssom/schema/\n    description: Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "@context": {
+      "dc": "http://purl.org/dc/terms/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "linkml": "https://w3id.org/linkml/",
+      "oboInOwl": "http://www.geneontology.org/formats/oboInOwl#",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "pav": "http://purl.org/pav/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "semapv": "https://w3id.org/semapv/vocab/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "sssom": "https://w3id.org/sssom/",
+      "@vocab": "https://w3id.org/sssom/",
+      "author_id": {
+         "@type": "rdfs:Resource",
+         "@id": "pav:authoredBy"
+      },
+      "comment": {
+         "@id": "rdfs:comment"
+      },
+      "confidence": {
+         "@type": "xsd:double"
+      },
+      "creator_id": {
+         "@type": "rdfs:Resource",
+         "@id": "dc:creator"
+      },
+      "curation_rule": {
+         "@type": "rdfs:Resource"
+      },
+      "documentation": {
+         "@type": "@id"
+      },
+      "homepage": {
+         "@type": "@id"
+      },
+      "imports": {
+         "@type": "@id"
+      },
+      "last_updated": {
+         "@type": "xsd:date"
+      },
+      "license": {
+         "@type": "@id",
+         "@id": "dcterms:license"
+      },
+      "mapping_cardinality": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "mapping_date": {
+         "@type": "xsd:date",
+         "@id": "pav:authoredOn"
+      },
+      "mapping_justification": {
+         "@type": "rdfs:Resource"
+      },
+      "mapping_provider": {
+         "@type": "@id"
+      },
+      "mapping_registry_id": {
+         "@type": "rdfs:Resource"
+      },
+      "mapping_set_description": {
+         "@id": "dc:description"
+      },
+      "mapping_set_id": {
+         "@type": "@id"
+      },
+      "mapping_set_references": {
+         "@type": "@id"
+      },
+      "mapping_set_source": {
+         "@type": "@id",
+         "@id": "prov:wasDerivedFrom"
+      },
+      "mapping_set_title": {
+         "@id": "dc:title"
+      },
+      "mapping_set_version": {
+         "@id": "owl:versionInfo"
+      },
+      "mapping_source": {
+         "@type": "rdfs:Resource"
+      },
+      "mappings": {
+         "@type": "@id"
+      },
+      "mirror_from": {
+         "@type": "@id"
+      },
+      "object_id": {
+         "@type": "rdfs:Resource",
+         "@id": "owl:annotatedTarget"
+      },
+      "object_match_field": {
+         "@type": "rdfs:Resource"
+      },
+      "object_preprocessing": {
+         "@type": "rdfs:Resource"
+      },
+      "object_source": {
+         "@type": "rdfs:Resource"
+      },
+      "object_type": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "predicate_id": {
+         "@type": "rdfs:Resource",
+         "@id": "owl:annotatedProperty"
+      },
+      "predicate_modifier": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "predicate_type": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "publication_date": {
+         "@type": "xsd:date",
+         "@id": "dc:created"
+      },
+      "registry_confidence": {
+         "@type": "xsd:double"
+      },
+      "reviewer_id": {
+         "@type": "rdfs:Resource"
+      },
+      "see_also": {
+         "@id": "rdfs:seeAlso"
+      },
+      "semantic_similarity_score": {
+         "@type": "xsd:double"
+      },
+      "subject_id": {
+         "@type": "rdfs:Resource",
+         "@id": "owl:annotatedSource"
+      },
+      "subject_match_field": {
+         "@type": "rdfs:Resource"
+      },
+      "subject_preprocessing": {
+         "@type": "rdfs:Resource"
+      },
+      "subject_source": {
+         "@type": "rdfs:Resource"
+      },
+      "subject_type": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         }
+      },
+      "Mapping": {
+         "@id": "owl:Axiom"
+      }
+   }
+}
