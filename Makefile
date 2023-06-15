@@ -40,7 +40,7 @@ install:
 	poetry install
 .PHONY: install
 
-all: gen-project gendoc gen-excel
+all: gen-project gendoc gen-excel get-context
 %.yaml: gen-project
 deploy: all mkd-gh-deploy
 
@@ -56,6 +56,10 @@ check-config:
 
 convert-examples-to-%:
 	$(patsubst %, $(RUN) linkml-convert  % -s $(SOURCE_SCHEMA_PATH) -C Person, $(shell find src/data/examples -name "*.yaml")) 
+
+get-context:
+	mkdir -p $(SRC)/$(SCHEMA_NAME)/context
+	cp $(DEST)/jsonld/* $(SRC)/$(SCHEMA_NAME)/context
 
 examples/%.yaml: src/data/examples/%.yaml
 	$(RUN) linkml-convert -s $(SOURCE_SCHEMA_PATH) -C Person $< -o $@
