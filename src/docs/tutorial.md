@@ -357,7 +357,7 @@ curie_map:
   KF_FOOD: https://kewl-foodie.inc/food/
   wikidata: http://www.wikidata.org/entity/
   FOODON: http://purl.obolibrary.org/obo/FOODON_
-  sempav: https://w3id.org/semapv/
+  sempav: https://w3id.org/semapv/vocab/
   skos: "http://www.w3.org/2004/02/skos/core#"
   sssom: https://w3id.org/sssom/
 ```

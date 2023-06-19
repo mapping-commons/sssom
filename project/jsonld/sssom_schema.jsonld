@@ -45,7 +45,7 @@
     },
     {
       "prefix_prefix": "semapv",
-      "prefix_reference": "https://w3id.org/semapv/"
+      "prefix_reference": "https://w3id.org/semapv/vocab/"
     }
   ],
   "default_curi_maps": [
