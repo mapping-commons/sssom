@@ -1,6 +1,6 @@
 # Changelog for SSSOM
 
-## SSSOM version 1.0
+## SSSOM version 0.13.0
 
 - The necessity of the "canonical column ordering" was downgraded from MUST to SHOULD (https://github.com/mapping-commons/sssom/pull/285)
 - Documents clearly that built-in prefixes MUST NOT be redefined (https://github.com/mapping-commons/sssom/pull/285)
