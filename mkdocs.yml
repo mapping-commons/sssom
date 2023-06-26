@@ -44,6 +44,7 @@ nav:
     - Overview of Chaining Rules: chaining_rules.md
     - A basic guide for the SSSOM toolkit: toolkit.md
     - 5-Star Entity Mappings - Cheatsheet: 5star-mappings.md
+    - Update schema/context and release: update.md
 
 site_url: https://mapping-commons.github.io/sssom/
 repo_url: https://github.com/mapping-commons/sssom/

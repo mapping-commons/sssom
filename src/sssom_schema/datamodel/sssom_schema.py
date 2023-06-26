@@ -1,5 +1,5 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-03-16T14:57:46
+# Generation date: 2023-06-19T15:06:37
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
@@ -41,7 +41,7 @@ PAV = CurieNamespace('pav', 'http://purl.org/pav/')
 PROV = CurieNamespace('prov', 'http://www.w3.org/ns/prov#')
 RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
-SEMAPV = CurieNamespace('semapv', 'https://w3id.org/semapv/')
+SEMAPV = CurieNamespace('semapv', 'https://w3id.org/semapv/vocab/')
 SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
 SSSOM = CurieNamespace('sssom', 'https://w3id.org/sssom/')
 DEFAULT_ = SSSOM
