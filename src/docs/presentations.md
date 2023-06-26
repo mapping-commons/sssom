@@ -1,5 +1,10 @@
 # Presentations
 
+## OHDSI 2023 Symposium: Synergizing Simple Standard for Sharing Ontology Mappings (SSSOM) and the Observational Health Data Sciences and Informatics (OHDSI)
+
+- 3rd July 2023, https://www.ohdsi-europe.org/index.php/symposium-2023
+- [Seminar info](events/ohdsi2023.md)
+
 ## Elixir Data Interoperability Meeting: Introduction to SSSOM 
 
 - 6th March 2023
