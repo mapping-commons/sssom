@@ -11,5 +11,7 @@
 - Polina Talapova
 - Nicolas Matentzoglu
 
-Link to poster: TBD.
-Link to short report: TBD.
+*Links*:
+
+- [Link to poster](https://www.dropbox.com/s/qru8lel4ahrluwo/ohdsi2023_matentzoglu_talapova_poster.pdf?dl=0)
+- [Link to short report](https://www.dropbox.com/s/gvnjq16cfwvnna4/ohdsi2023_matentzoglu_talapova_extended_abstract.pdf?dl=0)
