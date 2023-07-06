@@ -326,6 +326,7 @@
       MappingSet : mapping_set_title
       MappingSet : mapping_set_version
       MappingSet : mapping_tool
+      MappingSet : mapping_tool_version
       MappingSet : mappings
       MappingSet : object_match_field
       MappingSet : object_preprocessing
@@ -474,6 +475,13 @@
 <td>.</td>
 </tr>
 <tr>
+<td><a href="../mapping_tool_version/">mapping_tool_version</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
+<td>0..1</td>
+<td>Version string that denotes the version of the mapping tool used.</td>
+<td>.</td>
+</tr>
+<tr>
 <td><a href="../mapping_date/">mapping_date</a></td>
 <td><a href="http://www.w3.org/2001/XMLSchema#date">xsd:date</a></td>
 <td>0..1</td>
@@ -581,6 +589,7 @@ slots:
 - object_source_version
 - mapping_provider
 - mapping_tool
+- mapping_tool_version
 - mapping_date
 - subject_match_field
 - object_match_field
@@ -794,6 +803,15 @@ attributes:
     - value: https://github.com/AgreementMakerLight/AML-Project
     from_schema: https://w3id.org/sssom/schema/
     alias: mapping_tool
+    owner: mapping set
+    range: string
+  mapping_tool_version:
+    name: mapping_tool_version
+    description: Version string that denotes the version of the mapping tool used.
+    examples:
+    - value: v3.2
+    from_schema: https://w3id.org/sssom/schema/
+    alias: mapping_tool_version
     owner: mapping set
     range: string
   mapping_date:
