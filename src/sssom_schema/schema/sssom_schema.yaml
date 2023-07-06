@@ -521,6 +521,7 @@ classes:
     - object_source_version
     - mapping_provider
     - mapping_tool
+    - mapping_tool_version
     - mapping_date
     - subject_match_field
     - object_match_field
