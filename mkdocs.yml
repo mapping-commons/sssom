@@ -36,7 +36,9 @@ nav:
     - How to contribute?: contributing.md
     - Code of Conduct: code_of_conduct.md
   - Resources for users:
-    - Use cases: usecases.md
+    - Use cases: 
+      - Overview: usecases.md
+      - How to gradually enrich OMOP mappings with SSSOM: tutorials/omop-mappings.md
     - Workshops: workshops.md
     - Presentations: presentations.md
     - Basic Tutorial: tutorial.md
