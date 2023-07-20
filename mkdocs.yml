@@ -41,6 +41,7 @@ nav:
     - Presentations: presentations.md
     - Basic Tutorial: tutorial.md
     - How to use mapping predicates: mapping-predicates.md
+    - Set up a mapping registry/commons: mapping-commons.md
     - Overview of Chaining Rules: chaining_rules.md
     - A basic guide for the SSSOM toolkit: toolkit.md
     - 5-Star Entity Mappings - Cheatsheet: 5star-mappings.md
