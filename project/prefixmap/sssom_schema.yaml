@@ -1,5 +1,4 @@
 {
-   "dc": "http://purl.org/dc/terms/",
    "dcterms": "http://purl.org/dc/terms/",
    "linkml": "https://w3id.org/linkml/",
    "oboInOwl": "http://www.geneontology.org/formats/oboInOwl#",

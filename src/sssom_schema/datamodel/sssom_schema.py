@@ -1,5 +1,5 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-07-25T09:55:38
+# Generation date: 2023-07-25T10:05:11
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
@@ -32,7 +32,6 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
-DC = CurieNamespace('dc', 'http://purl.org/dc/terms/')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 OBOINOWL = CurieNamespace('oboInOwl', 'http://www.geneontology.org/formats/oboInOwl#')
@@ -660,13 +659,13 @@ slots.mapping_set_version = Slot(uri=OWL.versionInfo, name="mapping_set_version"
 slots.mapping_set_group = Slot(uri=SSSOM.mapping_set_group, name="mapping_set_group", curie=SSSOM.curie('mapping_set_group'),
                    model_uri=SSSOM.mapping_set_group, domain=None, range=Optional[str])
 
-slots.mapping_set_title = Slot(uri=DC.title, name="mapping_set_title", curie=DC.curie('title'),
+slots.mapping_set_title = Slot(uri=DCTERMS.title, name="mapping_set_title", curie=DCTERMS.curie('title'),
                    model_uri=SSSOM.mapping_set_title, domain=None, range=Optional[str])
 
-slots.mapping_set_description = Slot(uri=DC.description, name="mapping_set_description", curie=DC.curie('description'),
+slots.mapping_set_description = Slot(uri=DCTERMS.description, name="mapping_set_description", curie=DCTERMS.curie('description'),
                    model_uri=SSSOM.mapping_set_description, domain=None, range=Optional[str])
 
-slots.creator_id = Slot(uri=DC.creator, name="creator_id", curie=DC.curie('creator'),
+slots.creator_id = Slot(uri=DCTERMS.creator, name="creator_id", curie=DCTERMS.curie('creator'),
                    model_uri=SSSOM.creator_id, domain=None, range=Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]])
 
 slots.creator_label = Slot(uri=SSSOM.creator_label, name="creator_label", curie=SSSOM.curie('creator_label'),
@@ -720,7 +719,7 @@ slots.mapping_tool_version = Slot(uri=SSSOM.mapping_tool_version, name="mapping_
 slots.mapping_date = Slot(uri=PAV.authoredOn, name="mapping_date", curie=PAV.curie('authoredOn'),
                    model_uri=SSSOM.mapping_date, domain=None, range=Optional[Union[str, XSDDate]])
 
-slots.publication_date = Slot(uri=DC.created, name="publication_date", curie=DC.curie('created'),
+slots.publication_date = Slot(uri=DCTERMS.created, name="publication_date", curie=DCTERMS.curie('created'),
                    model_uri=SSSOM.publication_date, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.confidence = Slot(uri=SSSOM.confidence, name="confidence", curie=SSSOM.curie('confidence'),
