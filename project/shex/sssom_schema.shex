@@ -6,7 +6,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
 PREFIX pav: <http://purl.org/pav/>
-PREFIX dc1: <http://purl.org/dc/terms/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 
 
 <EntityReference> rdfs:Resource
@@ -64,9 +64,9 @@ linkml:Sparqlpath xsd:string
           <author_label> @linkml:String * ;
           <reviewer_id> @<EntityReference> * ;
           <reviewer_label> @linkml:String * ;
-          dc1:creator @<EntityReference> * ;
+          dcterms:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
-          dc1:license @linkml:Uri ? ;
+          dcterms:license @linkml:Uri ? ;
           <subject_type> @<EntityTypeEnum> ? ;
           <subject_source> @<EntityReference> ? ;
           <subject_source_version> @linkml:String ? ;
@@ -115,11 +115,11 @@ linkml:Sparqlpath xsd:string
           <mapping_set_id> @linkml:Uri ;
           owl:versionInfo @linkml:String ? ;
           prov:wasDerivedFrom @linkml:Uri * ;
-          dc1:title @linkml:String ? ;
-          dc1:description @linkml:String ? ;
-          dc1:creator @<EntityReference> * ;
+          dcterms:title @linkml:String ? ;
+          dcterms:description @linkml:String ? ;
+          dcterms:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
-          dc1:license @linkml:Uri ;
+          dcterms:license @linkml:Uri ;
           <subject_type> @<EntityTypeEnum> ? ;
           <subject_source> @<EntityReference> ? ;
           <subject_source_version> @linkml:String ? ;
