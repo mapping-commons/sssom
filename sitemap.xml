@@ -171,6 +171,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/mapping-commons/</loc>
+         <lastmod>2023-07-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/mapping-predicates/</loc>
          <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
