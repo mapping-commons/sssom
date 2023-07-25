@@ -1399,6 +1399,7 @@
       "slot_uri": "https://w3id.org/sssom/mapping_tool_version",
       "owner": "Mapping",
       "domain_of": [
+        "MappingSet",
         "Mapping"
       ],
       "range": "string",
@@ -1707,6 +1708,7 @@
         "object_source_version",
         "mapping_provider",
         "mapping_tool",
+        "mapping_tool_version",
         "mapping_date",
         "subject_match_field",
         "object_match_field",
@@ -1814,9 +1816,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2023-06-19T14:51:37",
-  "source_file_size": 25627,
-  "generation_date": "2023-06-19T15:06:31",
+  "source_file_date": "2023-07-25T09:52:38",
+  "source_file_size": 25654,
+  "generation_date": "2023-07-25T09:55:31",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom_schema.context.jsonld",

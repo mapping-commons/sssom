@@ -75,6 +75,7 @@ message MappingSet
   string objectSourceVersion = 0
   uri mappingProvider = 0
   string mappingTool = 0
+  string mappingToolVersion = 0
   date mappingDate = 0
  repeated  entityReference subjectMatchField = 0
  repeated  entityReference objectMatchField = 0
