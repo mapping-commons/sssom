@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://mapping-commons.github.io/sssom/object_category/">
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/matching-tool-implementation-guide/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
     
     
       
-        <title>Slot: object_category - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>Matching tool implementation guide - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-object_category" class="md-skip">
+        <a href="#matching-tools-implementation-guide-for-sssom" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: object_category
+              Matching tool implementation guide
             
           </span>
         </div>
@@ -370,12 +370,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
       
       
       
@@ -597,11 +599,73 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../matching-tool-implementation-guide/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Matching tool implementation guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Matching tool implementation guide
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-guide-for-implementation" class="md-nav__link">
+    Step-by-step guide for implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -654,29 +718,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    Properties
+  <a href="#basics" class="md-nav__link">
+    Basics
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#identifier-and-mapping-information" class="md-nav__link">
-    Identifier and Mapping Information
-  </a>
-  
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    Schema Source
+  <a href="#background" class="md-nav__link">
+    Background
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-guide-for-implementation" class="md-nav__link">
+    Step-by-step guide for implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
   
 </li>
       
@@ -692,25 +757,81 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/object_category.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/matching-tool-implementation-guide.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="slot-object_category">Slot: object_category</h1>
-<p><em>The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.</em></p>
-<p>URI: <a href="https://w3id.org/sssom/object_category">https://w3id.org/sssom/object_category</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="properties">Properties</h2>
+<h1 id="matching-tools-implementation-guide-for-sssom">Matching Tools: Implementation Guide for SSSOM</h1>
+<p><em>Summary</em>*: The goal of this document is to advice matching tool developers how to implement SSSOM-style matching justifications as part of their output. For example, if a mapping was determined (or is supported by) a lexical matching process, we can document that, alongside metadata that further describes the details about that process.</p>
+<p>As of 17.07.2023, this guide is a <em>work in progress</em>. If you are a tool developer interested to implement these recommendations, feel free to reach out on https://github.com/mapping-commons/sssom/issues for support and feel empowered to help us improve this guide!</p>
+<h2 id="basics">Basics</h2>
+<ol>
+<li>A (semantic) mapping in the sense of this guide is a tuple <code>&lt;s, p, o, |j|&gt;</code> that describes the correspondence of a subject <code>s</code> to an object <code>o</code> via a mapping predicate <code>p</code>. <code>|j|</code> is a non-empty set of mapping justifications that provide evidence towards the validity of the correspondence.</li>
+<li>As stated above, but re-stated for clarity: <strong>every mapping can be associated with 1 or more justifications</strong>.</li>
+<li>Carefully consider if a piece of metadata should be applied on <a href="https://mapping-commons.github.io/sssom/Mapping/">mapping</a> or <a href="https://mapping-commons.github.io/sssom/MappingSet/">mapping set</a> level. As a rule of thumb, if a piece of metadata applies to absolutely all mappings in the target set, then consider adding it as metadata to the mapping set, to safe space.</li>
+<li>Justifications in the sense of this guide comprise a <em>category</em> (documented in the <a href="https://mapping-commons.github.io/sssom/mapping_justification/">mapping_justification</a> field), which is represented as a specific matching activity such as "lexical matching", "logical matching", "manual mapping curation", etc, a confidence value that represents the amount of confidence the justification contributes to the perceived truthfulness of a mapping, and additional metadata that provide additional provenance.</li>
+<li>The basic vocabulary for the justification category is the <a href="https://github.com/mapping-commons/semantic-mapping-vocabulary">Semantic Mapping Vocabulary</a>. Feel free to use the <a href="https://github.com/mapping-commons/semantic-mapping-vocabulary/issues">issue tracker</a> to request new categories to be added. There is a fast turnaround.</li>
+<li>The goal of providing mapping justifications is to enable cross-purpose re-use of mappings, sharing of mappings and <a href="../glossary/">mapping reconciliation</a>. Mapping justifications make individual mapping decisions transparent.</li>
+<li>Adding justifications is always valueable, even if <strong>not all detailed metadata is provided</strong>.</li>
+<li>Many justifications are combinations of other justifications. For example, we may decide that a match is justified if (a) there is a lexical match and (b) the surrounding graph-structure is isomorphic or (c) the entities involved share the same properties. In this case, we should add individual justifications for each individual justification. The <a href="https://mapping-commons.github.io/sssom/confidence/">confidence</a> value expresses how <strong>confident the specific justification makes you feel about the truthfulness of the mapping</strong>. If a joint probability is calculated from multiple justifications, add a separate justification for that, e.g. <a href="https://w3id.org/semapv/vocab/CompositeMatching">semapv:CompositeMatching</a>.</li>
+<li>In the SSSOM TSV formats, every row corresponds to a justification, not a mapping. So the same mapping with three justifications will result in three rows in the SSSOM TSV file.</li>
+</ol>
+<h2 id="background">Background</h2>
+<p>Before reading on, please skim through the <a href="..">technical documentation of SSSOM</a> to get a sense of what kind of properties exist, and read our primer on <a href="../mapping-justifications/">mapping justifications</a> first, which explains how to design a number of frequently used mapping justifications.</p>
+<p>As the collection of justifications can impact the performance of he matching process (at least for huge matching tasks), it is adviseable that the process can be switched off by the CLI.</p>
+<p>For most matching processes, we first construct a candidate mapping set from a combination of sources, for example:</p>
+<ol>
+<li>Mappings provided by user as input to the matching process</li>
+<li>Lexical exact matching</li>
+<li>Lexical fuzzy matching (traditional and word embeddings)</li>
+</ol>
+<p>As a second step, we use often complex combinations of techniques to refine and expand the candidate mapping set:</p>
+<ol>
+<li>Structural matching (graph-based approaches etc)</li>
+<li>Semantic matching</li>
+<li>Logical matching (for example by deconstructing complex terms into composites and then using logical reasoning).</li>
+<li>Similarity based matching, including graph-embedding similarity (machine learning), old-school semantic similarity measures like Resnik or even Jaccard (over some part of the ontology/schema structure)</li>
+</ol>
+<p>As a rule of thumb, the more complex the rules by which a match is determined, the harder it is to provide a useful justification. To put it slighly differently: the more complex a justification, the less useful it is if the goal is to make matching decisions <strong>transparent for human users</strong>. A good example of this are decisions based on embedding (e.g. graph, node) similarity: while it is often useful to understand that a match has been determined by a threshold (e.g. &gt;=0.9) of cosine similarity of a node embedding, it is less important to communicate exactly how the embedding space was constructed.</p>
+<p>This insight guides our implementation in two ways:</p>
+<ol>
+<li>We start by focusing on the "easy" cases with clear mapping justifications (like the lexical ones used to construct the <em>candidate mapping set</em>), and incrementally work our way up towards harder ones.</li>
+<li>We have a default justification for "complex" cases which we have not covered yet. This is necessary not only because it may be hard to construct complex justifications from within a matching tool, but also because SSSOM simply does not have a way to express the justification yet (in this case, request clarification on the <a href="https://github.com/mapping-commons/sssom/issues">SSSOM issue tracker</a>).</li>
+</ol>
+<h2 id="step-by-step-guide-for-implementation">Step-by-step guide for implementation</h2>
+<p>This step by step guide is roughly according to our own thinking of what should be done first, second, and so on.</p>
+<ol>
+<li>Add an option to your matching tool to output legal SSSOM TSV (recommended format now), for example <code>--export-sssom</code> or similar.</li>
+<li>OPTIONAL: Add an option to your matching tool to accept legal SSSOM TSV as user input as an alternative to Alignment API (recommended format now).</li>
+<li>Always provide basic provenance in the SSSOM output:</li>
+<li><a href="https://mapping-commons.github.io/sssom/mapping_tool/">mapping_tool</a>: The canonical reference to your tool, ideally a persistent identifier.</li>
+<li><a href="https://mapping-commons.github.io/sssom/mapping_tool_version/">mapping_tool_version</a>: The version of the tool used to compute the mapping set.</li>
+<li><a href="https://mapping-commons.github.io/sssom/mapping_set_id/">mapping_set_id</a>: A (often randomly generated) mapping set identifier.</li>
+<li><a href="https://mapping-commons.github.io/sssom/mapping_date/">mapping_date</a>: The date the mapping was generated.</li>
+<li>OPTIONAL: if available, add <a href="https://mapping-commons.github.io/sssom/subject_source/">subject_source</a>, <a href="https://mapping-commons.github.io/sssom/object_source/">object_source</a> and <a href="https://mapping-commons.github.io/sssom/subject_source_version/">subject_source_version</a>, <a href="https://mapping-commons.github.io/sssom/object_source_version/">object_source_version</a>.</li>
+<li>Document some basic entity metadata, this can help reading the mapping set:</li>
+<li><a href="https://mapping-commons.github.io/sssom/subject_label/">subject_label</a>, <a href="https://mapping-commons.github.io/sssom/object_label/">object_label</a>: If available, add the label of the subject, and object id.</li>
+<li>Add basic justification support<ol>
+<li>Track lexical matching-based mapping decisions. A good chunk of candidate mappings will be computed by some form of lexical matching. See <a href="../mapping-justifications/#lexical-matching">here</a> for details.</li>
+<li>If something more complex than a simple lexical matching has happened, try to find an appropriate one in <a href="https://mapping-commons.github.io/semantic-mapping-vocabulary/">SEMAPV</a>. If none exists, or its too much work to create one, use as a fall-through:</li>
+<li><a href="https://w3id.org/semapv/vocab/CompositeMatching">semapv:CompositeMatching</a> in the case that the match was established through a combination of approaches, but you don't want to provide justifications for each individual one.</li>
+<li><a href="https://w3id.org/semapv/vocab/UnspecifiedMatching">semapv:UnspecifiedMatching</a> in the case you dont know why the match happened.</li>
+<li>All justifications should come with a <a href="https://mapping-commons.github.io/sssom/confidence/">confidence</a> value that expresses how <strong>confident the specific justification makes you feel about the truthfulness of the mapping</strong>.</li>
+</ol>
+</li>
+<li>Track if a mapping was provided (as input) by a user. Ideally, if the input to the matching process is SSSOM, simply adopt all of the mapping justifications provided by the user. If the provided mapping has no metadata, add a suitable <a href="https://mapping-commons.github.io/sssom/mapping_provider/">mapping_provider</a> value (e.g. <code>MYTOOL:USER</code>, to indicate  that the mapping was provided by the user).</li>
+<li>Add advanced justification support. Add all metadata explained in <a href="../mapping-justifications/">mapping justifications</a>. Where suitable fields or values are missing from the <a href="https://mapping-commons.github.io/sssom/">SSSOM datamodel</a> or <a href="https://mapping-commons.github.io/semantic-mapping-vocabulary/">SEMAPV</a>, request them on the <a href="https://github.com/mapping-commons/sssom/issues">SSSOM</a> or <a href="https://github.com/mapping-commons/semantic-mapping-vocabulary/issues">SEMAPV issue tracker</a> respectively. There is likely a lot of interesting details to be added, so dont be shy to request/suggest!</li>
+<li>If you reject a user provided mapping, it makes sense to include that in a negative mapping set in SSSOM. You could provide <a href="https://mapping-commons.github.io/sssom/predicate_modifier/">predicate_modifier</a><code>= NOT</code> to ensure the file is not interpreted wrongly.</li>
+<li>HIGHLY OPTIONAL: In some few cases, it may be interesting to inform the user that not all mappings are 1:1. In this case, it could be advisable to use the <code>mapping_cardinality</code> field.</li>
+<li>OPTIONAL: If relevant you can add the <a href="https://mapping-commons.github.io/sssom/subject_type/">subject_type</a> and <a href="https://mapping-commons.github.io/sssom/object_type/">object_type</a> fields to your output, if known. This can be interesting in some cases with mixed content (being able to separate <code>owl:Class</code> related mappings from those about <code>owl:ObjectProperty</code>).</li>
+<li>You can always use the <a href="https://mapping-commons.github.io/sssom/comment/">comment</a> or <a href="https://mapping-commons.github.io/sssom/other/">other</a>* fields to deposit additional useful metadata that can later be turned into structured content.</li>
+</ol>
+<h2 id="examples">Examples</h2>
 <ul>
-<li>Range: <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
-</ul>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/sssom/schema/</li>
+<li><a href="https://github.com/mapping-commons/mh_mapping_initiative/blob/master/mappings/mp_hp_mgi_all.sssom.tsv">MGI Mouse-Human mappings</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/tree/master/examples/embedded">SSSOM examples</a></li>
 </ul>
 
               
@@ -724,6 +845,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../update/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Update schema/context and release" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Update schema/context and release
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Glossary
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

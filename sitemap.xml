@@ -141,6 +141,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/glossary/</loc>
+         <lastmod>2023-07-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/home/</loc>
          <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
@@ -172,6 +177,11 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/mapping-commons/</loc>
+         <lastmod>2023-07-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/mapping-justifications/</loc>
          <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -272,6 +282,11 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/match_string/</loc>
+         <lastmod>2023-07-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/matching-tool-implementation-guide/</loc>
          <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
