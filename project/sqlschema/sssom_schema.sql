@@ -75,6 +75,7 @@ CREATE TABLE mapping_set (
 	object_source_version TEXT, 
 	mapping_provider TEXT, 
 	mapping_tool TEXT, 
+	mapping_tool_version TEXT, 
 	mapping_date DATE, 
 	subject_match_field TEXT, 
 	object_match_field TEXT, 
@@ -83,7 +84,7 @@ CREATE TABLE mapping_set (
 	see_also TEXT, 
 	other TEXT, 
 	comment TEXT, 
-	PRIMARY KEY (mappings, mapping_set_id, mapping_set_version, mapping_set_source, mapping_set_title, mapping_set_description, creator_id, creator_label, license, subject_type, subject_source, subject_source_version, object_type, object_source, object_source_version, mapping_provider, mapping_tool, mapping_date, subject_match_field, object_match_field, subject_preprocessing, object_preprocessing, see_also, other, comment)
+	PRIMARY KEY (mappings, mapping_set_id, mapping_set_version, mapping_set_source, mapping_set_title, mapping_set_description, creator_id, creator_label, license, subject_type, subject_source, subject_source_version, object_type, object_source, object_source_version, mapping_provider, mapping_tool, mapping_tool_version, mapping_date, subject_match_field, object_match_field, subject_preprocessing, object_preprocessing, see_also, other, comment)
 );
 
 CREATE TABLE mapping_set_reference (

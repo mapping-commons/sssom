@@ -1,5 +1,5 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-06-19T15:06:37
+# Generation date: 2023-07-25T09:55:38
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
@@ -89,6 +89,7 @@ class MappingSet(YAMLRoot):
     object_source_version: Optional[str] = None
     mapping_provider: Optional[Union[str, URI]] = None
     mapping_tool: Optional[str] = None
+    mapping_tool_version: Optional[str] = None
     mapping_date: Optional[Union[str, XSDDate]] = None
     subject_match_field: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     object_match_field: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
@@ -157,6 +158,9 @@ class MappingSet(YAMLRoot):
 
         if self.mapping_tool is not None and not isinstance(self.mapping_tool, str):
             self.mapping_tool = str(self.mapping_tool)
+
+        if self.mapping_tool_version is not None and not isinstance(self.mapping_tool_version, str):
+            self.mapping_tool_version = str(self.mapping_tool_version)
 
         if self.mapping_date is not None and not isinstance(self.mapping_date, XSDDate):
             self.mapping_date = XSDDate(self.mapping_date)
