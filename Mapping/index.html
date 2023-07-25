@@ -383,6 +383,7 @@
       Mapping : predicate_id
       Mapping : predicate_label
       Mapping : predicate_modifier
+      Mapping : publication_date
       Mapping : reviewer_id
       Mapping : reviewer_label
       Mapping : see_also
@@ -615,6 +616,13 @@
 <td>.</td>
 </tr>
 <tr>
+<td><a href="../publication_date/">publication_date</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#date">xsd:date</a></td>
+<td>0..1</td>
+<td>The date the mapping was published. This is different from the date the mapping was asserted.</td>
+<td>.</td>
+</tr>
+<tr>
 <td><a href="../confidence/">confidence</a></td>
 <td><a href="http://www.w3.org/2001/XMLSchema#double">xsd:double</a></td>
 <td>0..1</td>
@@ -787,6 +795,7 @@ slots:
 - mapping_tool
 - mapping_tool_version
 - mapping_date
+- publication_date
 - confidence
 - curation_rule
 - curation_rule_text
@@ -1200,6 +1209,15 @@ attributes:
     from_schema: https://w3id.org/sssom/schema/
     slot_uri: pav:authoredOn
     alias: mapping_date
+    owner: mapping
+    range: date
+  publication_date:
+    name: publication_date
+    description: The date the mapping was published. This is different from the date
+      the mapping was asserted.
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: dcterms:created
+    alias: publication_date
     owner: mapping
     range: date
   confidence:

@@ -374,6 +374,7 @@
       MappingSet : object_source_version
       MappingSet : object_type
       MappingSet : other
+      MappingSet : publication_date
       MappingSet : see_also
       MappingSet : subject_match_field
       MappingSet : subject_preprocessing
@@ -529,6 +530,13 @@
 <td>.</td>
 </tr>
 <tr>
+<td><a href="../publication_date/">publication_date</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#date">xsd:date</a></td>
+<td>0..1</td>
+<td>The date the mapping was published. This is different from the date the mapping was asserted.</td>
+<td>.</td>
+</tr>
+<tr>
 <td><a href="../subject_match_field/">subject_match_field</a></td>
 <td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..*</td>
@@ -631,6 +639,7 @@ slots:
 - mapping_tool
 - mapping_tool_version
 - mapping_date
+- publication_date
 - subject_match_field
 - object_match_field
 - subject_preprocessing
@@ -861,6 +870,15 @@ attributes:
     from_schema: https://w3id.org/sssom/schema/
     slot_uri: pav:authoredOn
     alias: mapping_date
+    owner: mapping set
+    range: date
+  publication_date:
+    name: publication_date
+    description: The date the mapping was published. This is different from the date
+      the mapping was asserted.
+    from_schema: https://w3id.org/sssom/schema/
+    slot_uri: dcterms:created
+    alias: publication_date
     owner: mapping set
     range: date
   subject_match_field:
