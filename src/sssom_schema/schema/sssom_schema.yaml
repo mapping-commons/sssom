@@ -524,6 +524,7 @@ classes:
     - mapping_tool
     - mapping_tool_version
     - mapping_date
+    - publication_date
     - subject_match_field
     - object_match_field
     - subject_preprocessing
@@ -563,6 +564,7 @@ classes:
     - mapping_tool
     - mapping_tool_version
     - mapping_date
+    - publication_date
     - confidence
     - curation_rule
     - curation_rule_text
