@@ -4,6 +4,7 @@ description: Datamodel for Simple Standard for Sharing Ontological Mappings (SSS
 imports:
 - linkml:types
 prefixes:
+  dcterms: http://purl.org/dc/terms/
   linkml: https://w3id.org/linkml/
   sssom: https://w3id.org/sssom/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
@@ -283,13 +284,13 @@ slots:
   mapping_set_title:
     description: The display name of a mapping set.
     range: string
-    slot_uri: dc:title
+    slot_uri: dcterms:title
     examples:
       - value: "The Mondo-OMIM mappings by Monarch Initiative."
   mapping_set_description:
     description: A description of the mapping set.
     range: string
-    slot_uri: dc:description
+    slot_uri: dcterms:description
     examples:
       - value: "This mapping set was produced to integrate human and mouse phenotype data at the IMPC. It is primarily used for making mouse phenotypes searchable by human synonyms at https://mousephenotype.org/."
   creator_id:
@@ -300,7 +301,7 @@ slots:
       Recommended to be a (pipe-separated) list of ORCIDs or otherwise
       identifying URLs, but any identifying string (such as name and affiliation)
       is permissible.
-    slot_uri: dc:creator
+    slot_uri: dcterms:creator
     range: EntityReference
     multivalued: true
   creator_label:
@@ -407,7 +408,7 @@ slots:
     range: date
   publication_date:
     description: The date the mapping was published. This is different from the date the mapping was asserted.
-    slot_uri: dc:created
+    slot_uri: dcterms:created
     range: date
   confidence:
     description: A score between 0 and 1 to denote the confidence or probability that
