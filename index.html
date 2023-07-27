@@ -803,11 +803,11 @@ Name: sssom</p>
 <tbody>
 <tr>
 <td><a href="author_id/">author_id</a></td>
-<td>Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
+<td>Identifies the persons or groups responsible for asserting the mappings. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
 </tr>
 <tr>
 <td><a href="author_label/">author_label</a></td>
-<td>A string identifying the author of this mapping. In the spirit of provenance, consider to use author_id instead.</td>
+<td>A string identifying the author of this mapping. In the spirit of provenance, consider using author_id instead.</td>
 </tr>
 <tr>
 <td><a href="comment/">comment</a></td>
@@ -819,11 +819,11 @@ Name: sssom</p>
 </tr>
 <tr>
 <td><a href="creator_id/">creator_id</a></td>
-<td>Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
+<td>Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
 </tr>
 <tr>
 <td><a href="creator_label/">creator_label</a></td>
-<td>A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.</td>
+<td>A string identifying the creator of this mapping. In the spirit of provenance, consider using creator_id instead.</td>
 </tr>
 <tr>
 <td><a href="curation_rule/">curation_rule</a></td>
@@ -951,7 +951,7 @@ Name: sssom</p>
 </tr>
 <tr>
 <td><a href="object_match_field/">object_match_field</a></td>
-<td>A tuple of fields (term annotations on the object) that was used for the match.</td>
+<td>A list of properties (term annotations on the object) that was used for the match.</td>
 </tr>
 <tr>
 <td><a href="object_preprocessing/">object_preprocessing</a></td>
@@ -959,7 +959,7 @@ Name: sssom</p>
 </tr>
 <tr>
 <td><a href="object_source/">object_source</a></td>
-<td>IRI of ontology source for the object. Version IRI preferred.</td>
+<td>URI of vocabulary or identifier source for the object.</td>
 </tr>
 <tr>
 <td><a href="object_source_version/">object_source_version</a></td>
@@ -999,11 +999,11 @@ Name: sssom</p>
 </tr>
 <tr>
 <td><a href="reviewer_id/">reviewer_id</a></td>
-<td>Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
+<td>Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
 </tr>
 <tr>
 <td><a href="reviewer_label/">reviewer_label</a></td>
-<td>A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use reviewer_id instead.</td>
+<td>A string identifying the reviewer of this mapping. In the spirit of provenance, consider using reviewer_id instead.</td>
 </tr>
 <tr>
 <td><a href="see_also/">see_also</a></td>
@@ -1031,7 +1031,7 @@ Name: sssom</p>
 </tr>
 <tr>
 <td><a href="subject_match_field/">subject_match_field</a></td>
-<td>A tuple of fields (term annotations on the subject) that was used for the match.</td>
+<td>A list of properties (term annotations on the subject) that was used for the match.</td>
 </tr>
 <tr>
 <td><a href="subject_preprocessing/">subject_preprocessing</a></td>
@@ -1039,7 +1039,7 @@ Name: sssom</p>
 </tr>
 <tr>
 <td><a href="subject_source/">subject_source</a></td>
-<td>URI of ontology source for the subject.</td>
+<td>URI of vocabulary or identifier source for the subject.</td>
 </tr>
 <tr>
 <td><a href="subject_source_version/">subject_source_version</a></td>

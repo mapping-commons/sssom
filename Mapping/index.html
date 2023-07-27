@@ -486,42 +486,42 @@
 <td><a href="../author_id/">author_id</a></td>
 <td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..*</td>
-<td>Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
+<td>Identifies the persons or groups responsible for asserting the mappings. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
 <td>.</td>
 </tr>
 <tr>
 <td><a href="../author_label/">author_label</a></td>
 <td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>0..*</td>
-<td>A string identifying the author of this mapping. In the spirit of provenance, consider to use author_id instead.</td>
+<td>A string identifying the author of this mapping. In the spirit of provenance, consider using author_id instead.</td>
 <td>.</td>
 </tr>
 <tr>
 <td><a href="../reviewer_id/">reviewer_id</a></td>
 <td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..*</td>
-<td>Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
+<td>Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
 <td>.</td>
 </tr>
 <tr>
 <td><a href="../reviewer_label/">reviewer_label</a></td>
 <td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>0..*</td>
-<td>A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use reviewer_id instead.</td>
+<td>A string identifying the reviewer of this mapping. In the spirit of provenance, consider using reviewer_id instead.</td>
 <td>.</td>
 </tr>
 <tr>
 <td><a href="../creator_id/">creator_id</a></td>
 <td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..*</td>
-<td>Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.</td>
+<td>Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
 <td>.</td>
 </tr>
 <tr>
 <td><a href="../creator_label/">creator_label</a></td>
 <td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>0..*</td>
-<td>A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.</td>
+<td>A string identifying the creator of this mapping. In the spirit of provenance, consider using creator_id instead.</td>
 <td>.</td>
 </tr>
 <tr>
@@ -542,7 +542,7 @@
 <td><a href="../subject_source/">subject_source</a></td>
 <td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..1</td>
-<td>URI of ontology source for the subject.</td>
+<td>URI of vocabulary or identifier source for the subject.</td>
 <td>.</td>
 </tr>
 <tr>
@@ -563,7 +563,7 @@
 <td><a href="../object_source/">object_source</a></td>
 <td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..1</td>
-<td>IRI of ontology source for the object. Version IRI preferred.</td>
+<td>URI of vocabulary or identifier source for the object.</td>
 <td>.</td>
 </tr>
 <tr>
@@ -647,14 +647,14 @@
 <td><a href="../subject_match_field/">subject_match_field</a></td>
 <td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..*</td>
-<td>A tuple of fields (term annotations on the subject) that was used for the match.</td>
+<td>A list of properties (term annotations on the subject) that was used for the match.</td>
 <td>.</td>
 </tr>
 <tr>
 <td><a href="../object_match_field/">object_match_field</a></td>
 <td><a href="../EntityReference/">EntityReference</a></td>
 <td>0..*</td>
-<td>A tuple of fields (term annotations on the object) that was used for the match.</td>
+<td>A list of properties (term annotations on the object) that was used for the match.</td>
 <td>.</td>
 </tr>
 <tr>
@@ -1021,8 +1021,7 @@ attributes:
   author_id:
     name: author_id
     description: Identifies the persons or groups responsible for asserting the mappings.
-      Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying
-      URLs, but any identifying string (such as name and affiliation) is permissible.
+      Recommended to be a list of ORCIDs or otherwise identifying URIs.
     from_schema: https://w3id.org/sssom/schema/
     slot_uri: pav:authoredBy
     multivalued: true
@@ -1032,7 +1031,7 @@ attributes:
   author_label:
     name: author_label
     description: A string identifying the author of this mapping. In the spirit of
-      provenance, consider to use author_id instead.
+      provenance, consider using author_id instead.
     from_schema: https://w3id.org/sssom/schema/
     multivalued: true
     alias: author_label
@@ -1041,8 +1040,7 @@ attributes:
   reviewer_id:
     name: reviewer_id
     description: Identifies the persons or groups that reviewed and confirmed the
-      mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying
-      URLs, but any identifying string (such as name and affiliation) is permissible.
+      mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.
     from_schema: https://w3id.org/sssom/schema/
     multivalued: true
     alias: reviewer_id
@@ -1051,7 +1049,7 @@ attributes:
   reviewer_label:
     name: reviewer_label
     description: A string identifying the reviewer of this mapping. In the spirit
-      of provenance, consider to use reviewer_id instead.
+      of provenance, consider using reviewer_id instead.
     from_schema: https://w3id.org/sssom/schema/
     multivalued: true
     alias: reviewer_label
@@ -1062,9 +1060,8 @@ attributes:
     description: Identifies the persons or groups responsible for the creation of
       the mapping. The creator is the agent that put the mapping in its published
       form, which may be different from the author, which is a person that was actively
-      involved in the assertion of the mapping. Recommended to be a (pipe-separated)
-      list of ORCIDs or otherwise identifying URLs, but any identifying string (such
-      as name and affiliation) is permissible.
+      involved in the assertion of the mapping. Recommended to be a list of ORCIDs
+      or otherwise identifying URIs.
     from_schema: https://w3id.org/sssom/schema/
     slot_uri: dcterms:creator
     multivalued: true
@@ -1074,7 +1071,7 @@ attributes:
   creator_label:
     name: creator_label
     description: A string identifying the creator of this mapping. In the spirit of
-      provenance, consider to use creator_id instead.
+      provenance, consider using creator_id instead.
     from_schema: https://w3id.org/sssom/schema/
     multivalued: true
     alias: creator_label
@@ -1100,7 +1097,7 @@ attributes:
     range: entity_type_enum
   subject_source:
     name: subject_source
-    description: URI of ontology source for the subject.
+    description: URI of vocabulary or identifier source for the subject.
     examples:
     - value: obo:mondo.owl
       description: A persistent OBO CURIE pointing to the latest version of the Mondo
@@ -1132,7 +1129,7 @@ attributes:
     range: entity_type_enum
   object_source:
     name: object_source
-    description: IRI of ontology source for the object. Version IRI preferred.
+    description: URI of vocabulary or identifier source for the object.
     examples:
     - value: obo:mondo.owl
       description: A persistent OBO CURIE pointing to the latest version of the Mondo
@@ -1269,7 +1266,7 @@ attributes:
     range: string
   subject_match_field:
     name: subject_match_field
-    description: A tuple of fields (term annotations on the subject) that was used
+    description: A list of properties (term annotations on the subject) that was used
       for the match.
     from_schema: https://w3id.org/sssom/schema/
     multivalued: true
@@ -1278,7 +1275,7 @@ attributes:
     range: EntityReference
   object_match_field:
     name: object_match_field
-    description: A tuple of fields (term annotations on the object) that was used
+    description: A list of properties (term annotations on the object) that was used
       for the match.
     from_schema: https://w3id.org/sssom/schema/
     multivalued: true
