@@ -298,40 +298,37 @@ slots:
       the mapping. The creator is the agent that put the mapping in its published form, 
       which may be different from the author, which is a person that was actively involved
       in the assertion of the mapping.
-      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
-      identifying URLs, but any identifying string (such as name and affiliation)
-      is permissible.
+      Recommended to be a list of ORCIDs or otherwise
+      identifying URIs.
     slot_uri: dcterms:creator
     range: EntityReference
     multivalued: true
   creator_label:
     description: A string identifying the creator of this mapping. In the spirit of
-      provenance, consider to use creator_id instead.
+      provenance, consider using creator_id instead.
     range: string
     multivalued: true
   author_id:
     description: Identifies the persons or groups responsible for asserting the mappings.
-      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
-      identifying URLs, but any identifying string (such as name and affiliation)
-      is permissible.
+      Recommended to be a list of ORCIDs or otherwise
+      identifying URIs.
     slot_uri: pav:authoredBy
     range: EntityReference
     multivalued: true
   author_label:
     description: A string identifying the author of this mapping. In the spirit of
-      provenance, consider to use author_id instead.
+      provenance, consider using author_id instead.
     range: string
     multivalued: true
   reviewer_id:
     description: Identifies the persons or groups that reviewed and confirmed the mapping.
-      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
-      identifying URLs, but any identifying string (such as name and affiliation)
-      is permissible.
+      Recommended to be a list of ORCIDs or otherwise
+      identifying URIs.
     range: EntityReference
     multivalued: true
   reviewer_label:
     description: A string identifying the reviewer of this mapping. In the spirit of
-      provenance, consider to use reviewer_id instead.
+      provenance, consider using reviewer_id instead.
     range: string
     multivalued: true
   license:
@@ -340,7 +337,7 @@ slots:
     range: uri
     slot_uri: dcterms:license
   subject_source:
-    description: URI of ontology source for the subject.
+    description: URI of vocabulary or identifier source for the subject.
     range: EntityReference
     examples:
       - value: obo:mondo.owl
@@ -354,7 +351,7 @@ slots:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   object_source:
-    description: IRI of ontology source for the object. Version IRI preferred.
+    description: URI of vocabulary or identifier source for the object.
     range: EntityReference
     examples:
       - value: obo:mondo.owl
@@ -415,12 +412,12 @@ slots:
       the match is correct, where 1 denotes total confidence.
     range: double
   subject_match_field:
-    description: A tuple of fields (term annotations on the subject) that was used
+    description: A list of properties (term annotations on the subject) that was used
       for the match.
     range: EntityReference
     multivalued: true
   object_match_field:
-    description: A tuple of fields (term annotations on the object) that was used
+    description: A list of properties (term annotations on the object) that was used
       for the match.
     range: EntityReference
     multivalued: true
