@@ -337,7 +337,7 @@ slots:
     range: uri
     slot_uri: dcterms:license
   subject_source:
-    description: URI of ontology source for the subject.
+    description: URI of vocabulary or identifier source for the subject.
     range: EntityReference
     examples:
       - value: obo:mondo.owl
@@ -351,7 +351,7 @@ slots:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   object_source:
-    description: URI of the source vocabulary of the object. Version IRI preferred.
+    description: URI of vocabulary or identifier source for the object.
     range: EntityReference
     examples:
       - value: obo:mondo.owl
