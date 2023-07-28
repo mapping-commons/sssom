@@ -227,7 +227,7 @@ The use of predicates is not restricted by SSSOM, but for maximum re-use, the fo
     <td>From the SKOS primer: A triple <A> skos:broader (and skos:broadMatch) <B> asserts that <B>, the object of the triple, is a broader concept than <A>, the subject of the triple.</td>
   </tr>
   <tr>
-    <td>oio:database_cross_reference</td>
+    <td>oboInOwl:database_cross_reference</td>
     <td>Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)</td>
   </tr>
   <tr>
