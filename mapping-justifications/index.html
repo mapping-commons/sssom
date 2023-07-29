@@ -582,12 +582,52 @@
     Semantic similarity threshold-based matching
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Semantic similarity threshold-based matching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#level-1-documenting-semantic-similarity-matches" class="md-nav__link">
     Level 1: Documenting semantic similarity matches
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-mapping-curation" class="md-nav__link">
+    Manual mapping curation
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual mapping curation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-documenting-manual-mapping-curation" class="md-nav__link">
+    Level 1: Documenting manual mapping curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-documenting-the-confidence-of-expert-curation" class="md-nav__link">
+    Level 2: Documenting the confidence of expert curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-documenting-curation-rules" class="md-nav__link">
+    Level 3: Documenting curation rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -797,12 +837,52 @@
     Semantic similarity threshold-based matching
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Semantic similarity threshold-based matching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#level-1-documenting-semantic-similarity-matches" class="md-nav__link">
     Level 1: Documenting semantic similarity matches
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-mapping-curation" class="md-nav__link">
+    Manual mapping curation
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual mapping curation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-documenting-manual-mapping-curation" class="md-nav__link">
+    Level 1: Documenting manual mapping curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-documenting-the-confidence-of-expert-curation" class="md-nav__link">
+    Level 2: Documenting the confidence of expert curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-documenting-curation-rules" class="md-nav__link">
+    Level 3: Documenting curation rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -837,6 +917,7 @@
 <ol>
 <li><a href="#lexical-matching">lexical matching</a></li>
 <li><a href="#semantic-matching">semantic similarity threshold-based matching</a></li>
+<li><a href="#manual-mapping-curation">manual mapping curation</a></li>
 <li><a href="#mapping-review">mapping review</a></li>
 <li>Other justifications<ol>
 <li>background knowledge-based matching</li>
@@ -844,7 +925,6 @@
 <li>instance-based matching</li>
 <li>lexical similarity threshold-based matching</li>
 <li>logical reasoning</li>
-<li>manual mapping curation</li>
 <li>mapping chaining-based matching</li>
 <li>mapping inversion-based matching</li>
 <li>semantic similarity threshold-based matching</li>
@@ -889,13 +969,30 @@
 </ol>
 <p><strong>Important note on applicability of SSSOM for semantic similarity profiles</strong>: SSSOM is not used for documenting semantic similarity profiles, i.e. cross-tables where some set of terms are compared with another set of terms and the semantic similarity is recorded as a score. SSSOM is used to document mappings, and only if a mapping decision is influenced by a semantic similarity based approach, especially in conjunction with as specific thresshold, SSSOM is applicable. For pure semantic similarity tables use <a href="https://incatools.github.io/ontology-access-kit/datamodels/similarity/index.html">OAK Semantic Similarity</a>.</p>
 <p><strong>Semantic vs lexical similarity?</strong>: Semantic similarity is different from lexical similarity intuitively because the context (the graph structure, the background information) is taken into account and provides an (often crude) model of the actual entity, rather than of the word describing it. However, the distinctions can become a bit hazy. Imagine learning a graph embedding on a graph without edges, or a word embedding purely on a single label - there is definitely a grey zone where lexical similarity finishes and semantic similarity begins. In practice though, it should be mostly clear.</p>
-<h2 id="level-1-documenting-semantic-similarity-matches">Level 1: Documenting semantic similarity matches</h2>
-<p>The suggested metadata for semantic similarity threshold based matching approach is:</p>
+<h4 id="level-1-documenting-semantic-similarity-matches">Level 1: Documenting semantic similarity matches</h4>
+<p>The suggested metadata for semantic similarity threshold-based matching approach is:</p>
 <ul>
 <li><a href="https://mapping-commons.github.io/sssom/semantic_similarity_measure/">semantic_similarity_measure</a></li>
 <li><a href="https://mapping-commons.github.io/sssom/semantic_similarity_score/">semantic_similarity_score</a></li>
 <li>((authors note: Maybe we need a <a href="https://github.com/mapping-commons/sssom/issues/296">value for similarity threshold</a>?))</li>
 </ul>
+<p><a id="manual-mapping-curation"></a></p>
+<h2 id="manual-mapping-curation">Manual mapping curation</h2>
+<p><a href="https://w3id.org/semapv/vocab/ManualMappingCuration">semapv:ManualMappingCuration</a> is a process conducted by a (usually human) agent to determine a mapping by virtue of domain expertise. The task usually involves the agent determining, for a given <code>subject_id</code>, a suitable <code>obect_id</code> in the <code>object_source</code>.</p>
+<h4 id="level-1-documenting-manual-mapping-curation">Level 1: Documenting manual mapping curation</h4>
+<p>The suggested minimal metadata for manual mapping curation is:</p>
+<ul>
+<li><a href="https://mapping-commons.github.io/sssom/author_id/">author_id</a>: Documenting, using a unique identifier such as an ORCID, the identity of the author performing the expert curation.</li>
+<li><a href="https://mapping-commons.github.io/sssom/comment/">comment</a>: When no formal <a href="https://mapping-commons.github.io/sssom/curation_rule/">curation_rule</a> is provided (see below), it is recommended to provide a short comment with the mapping justification, especially if there is some uncertainty or ambiguity about the mapping decision.</li>
+</ul>
+<h4 id="level-2-documenting-the-confidence-of-expert-curation">Level 2: Documenting the confidence of expert curation</h4>
+<p><a href="https://mapping-commons.github.io/sssom/confidence/">confidence</a> is an incredibly useful metric for downstream users, including ETL engineers and data analysts. In an ideal world, all mappings have some kind of confidence associated with them. <code>confidence</code> scores should be read as "the strength of evidence provided in this record/table row (i.e mapping justification) leads us to believe the mapping (e.g. OMOP:44499396 --[skos:broadMatch]--&gt; OMOP:4028717) is correct with 90% confidence.</p>
+<p>In manual curation, confidence expresses the domain expertise degree of conviction that the asserted mapping holds true. While manual mapping curation is still considered a gold standard, in practice human agents have (a) varying levels of expertise on the subject domain, (b) varying levels of understanding of the intuitions behind "semantic spaces" and associated concepts and (c) varying levels of metadata associated with a concept to be able to determine a match (definitions, labels, papers, synonyms, etc). Documenting confidence can be very useful both to increase the transparency of data science pipelines that involve entity mappings, and as a means to increase curation speed: rather than trying to achieve 100% confidence for a mapping, which can be extremely time-consuming, it is often better to first "wave through" a mapping with lower confidence to reach coverage, and later revisit low confidence mappings iteratively.</p>
+<h4 id="level-3-documenting-curation-rules">Level 3: Documenting curation rules</h4>
+<p>For manual matches, it is often unclear by what criteria a match was established. Documenting the <code>curation rule</code>s can help increase consistency for manual curation, and transparency for downstream users.</p>
+<p>For example <code>OHDSI_CURATION_RULE:19</code> could correspond to the following rule:</p>
+<p>OHDSI_CURATION_RULE:19 = If the subject concept does not have an exact match in the object source vocabulary, we select the nearest broad ("up-hill") concept applicable. Conceptually, if both terms would exist in the same terminology, the subject concept can be defined as a subconcept of the object concept. The determination for both criteria (nearest broad, conceptally subconcept) is performed through medical expert judgement.</p>
+<p>Curation rules are often very use case-specific and difficult to standardise. As of August 2023, SSSOM does not provide any standardised curation rules, but encourages the community to define them locally.</p>
 <p><a id="mapping-review"></a></p>
 <h2 id="mapping-review">Mapping review</h2>
 <p><a href="https://w3id.org/semapv/vocab/MappingReview">semapv:MappingReview</a> is a process conducted by a (usually human) agent to determine the validity of a specific given mapping. It differs from <a href="https://w3id.org/semapv/vocab/ManualMappingCuration">semapv:ManualMappingCuration</a> in that it does not involve looking for alternative mappings or indeed, necessarily determining if a mapping is the best possible mapping. It should be considered cheaper, less trustworthy evidence compared to <a href="https://w3id.org/semapv/vocab/ManualMappingCuration">semapv:ManualMappingCuration</a>.</p>
