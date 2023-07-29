@@ -435,12 +435,18 @@ slots:
     examples:
       - value: https://www.wikidata.org/wiki/Q865360
         description: (the Wikidata identifier for the Jaccard index measure).
-  issue_tracker:
+  issue_tracker_item:
     description: A URL location of the issue tracker item discussing this mapping or mapping set.
     range: uri
     examples:
       - value: https://github.com/mapping-commons/sssom/issues/166
         description: (A URL resolving to an issue discussing a new SSSOM element request)
+  issue_tracker:
+    description: A URL location of the issue tracker for this entity.
+    range: uri
+    examples:
+      - value: https://github.com/mapping-commons/mh_mapping_initiative/issues
+        description: (A URL resolving to the issue tracker of the Mouse-Human mapping initiative)
   see_also:
     description: A URL specific for the mapping instance. E.g. for kboom we have a
       per-mapping image that shows surrounding axioms that drive probability. Could
@@ -531,7 +537,7 @@ classes:
     - semantic_similarity_score
     - semantic_similarity_measure
     - see_also
-    - issue_tracker
+    - issue_tracker_item
     - other
     - comment
     class_uri: owl:Axiom
