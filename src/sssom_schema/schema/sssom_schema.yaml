@@ -485,12 +485,20 @@ slots:
     examples:
       - value: SSSOM_GITHUB_ISSUE:166
         description: (A URL resolving to an issue discussing a new SSSOM element request)
+    see_also: 
+      - https://github.com/mapping-commons/sssom/issues/78
+      - https://github.com/mapping-commons/sssom/pull/259
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker_item.sssom.tsv
   issue_tracker:
     description: A URL location of the issue tracker for this entity.
     range: uri
     examples:
       - value: https://github.com/mapping-commons/mh_mapping_initiative/issues
         description: (A URL resolving to the issue tracker of the Mouse-Human mapping initiative)
+    see_also: 
+      - https://github.com/mapping-commons/sssom/issues/78
+      - https://github.com/mapping-commons/sssom/pull/259
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker.sssom.tsv
   see_also:
     description: A URL specific for the mapping instance. E.g. for kboom we have a
       per-mapping image that shows surrounding axioms that drive probability. Could
