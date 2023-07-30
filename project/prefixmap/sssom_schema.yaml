@@ -1,5 +1,4 @@
 {
-   "dc": "http://purl.org/dc/terms/",
    "dcterms": "http://purl.org/dc/terms/",
    "linkml": "https://w3id.org/linkml/",
    "oboInOwl": "http://www.geneontology.org/formats/oboInOwl#",
@@ -8,7 +7,7 @@
    "prov": "http://www.w3.org/ns/prov#",
    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-   "semapv": "https://w3id.org/semapv/",
+   "semapv": "https://w3id.org/semapv/vocab/",
    "skos": "http://www.w3.org/2004/02/skos/core#",
    "sssom": "https://w3id.org/sssom/",
    "Mapping": {
