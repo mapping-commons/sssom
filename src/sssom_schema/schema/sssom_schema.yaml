@@ -436,10 +436,10 @@ slots:
       - value: https://www.wikidata.org/wiki/Q865360
         description: (the Wikidata identifier for the Jaccard index measure).
   issue_tracker_item:
-    description: A URL location of the issue tracker item discussing this mapping or mapping set.
-    range: uri
+    description: The issue tracker item discussing this mapping.
+    range: EntityReference
     examples:
-      - value: https://github.com/mapping-commons/sssom/issues/166
+      - value: SSSOM_GITHUB_ISSUE:166
         description: (A URL resolving to an issue discussing a new SSSOM element request)
   issue_tracker:
     description: A URL location of the issue tracker for this entity.
