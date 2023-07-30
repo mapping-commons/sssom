@@ -151,8 +151,6 @@ Note this is a public copy of the editors’ draft. It is provided for discussio
 
 ## SSSOM Metadata Elements
 
-The SSSOM specification defines a set of SSSOM metadata elements that are used to describe mappings. Apart from the elements themselves, some example usage and a description, **_[the SSSOM spec](https://mapping-commons.github.io/sssom/Mapping/) defines the canonical order for the metadata_** in which the elements should appear when serialised. This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
-
 A "term" is defined in a controlled vocabulary / ontology, and usually corresponds to a class, an individual or a property (entity in OWL, concept in SKOS, resource in RDF). The "subject" is the term on the left side of the mapping, and the "object" is the term on the right side of the mapping. A "predicate" relates the subject with the object and is typically an annotation or object property. A "mapping set" is a set of mappings that can be shared using the SSSOM standard.
 
 The conceptual model of SSSOM has two main elements: 
@@ -229,7 +227,7 @@ The use of predicates is not restricted by SSSOM, but for maximum re-use, the fo
     <td>From the SKOS primer: A triple <A> skos:broader (and skos:broadMatch) <B> asserts that <B>, the object of the triple, is a broader concept than <A>, the subject of the triple.</td>
   </tr>
   <tr>
-    <td>oio:database_cross_reference</td>
+    <td>oboInOwl:database_cross_reference</td>
     <td>Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)</td>
   </tr>
   <tr>
@@ -351,16 +349,21 @@ SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) 
 
 ### TSV:
 
-All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns MUST be sorted according to the order as they appear in the [SSSOM metadata](https://mapping-commons.github.io/sssom/Mapping/). For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, mapping_justification, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, mapping_justification. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.
+All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns SHOULD be sorted according to the order as they appear in the [SSSOM metadata](https://mapping-commons.github.io/sssom/Mapping/). For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, mapping_justification, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, mapping_justification. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.
 
-Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. Note that for the TSV, it will be required to supply a valid curie map that allows the unambiguous interpretation of CURIEs. A curie map is supplied after a `curie_map:` parameter in the yaml file. The value can be either a dictionary of CURIE->URLPREFIX pairs or a link to a valid curie map of the same shape.
+Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. The YAML metadata block MUST contain a curie map that allows the unambiguous interpretation of CURIES. A curie map is supplied after a `curie_map:` parameter in the yaml file. The value is a dictionary of CURIE->URLPREFIX pairs.
+Note that the following prefixes are built-in and (1) MUST NOT be changed from their [SSSOM default interpretation](https://github.com/mapping-commons/sssom/blob/master/project/jsonld/sssom_schema.context.jsonld) and (2) MAY be omitted from the curie map: "`sssom`", "`owl`", "`rdf`", "`rdfs`", "`skos`", "`semapv`".
+      
+**Canonical ordering of columns**. Apart from the elements themselves, some example usage and a description, **_[the SSSOM spec](https://mapping-commons.github.io/sssom/Mapping/) defines the canonical order for the metadata_** in which the elements SHOULD appear when serialised.
+(The "canonical order" corresponds to the exact order of elements as seen in the specification.)
+This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
 
 Note that only metadata elements permissible in a global context (G, or L/G) can be used in the metadata-file.
 
 We recommend to use the following *filename conventions* for SSSOM metadatafiles:
 
 - TSV files should have the extension `.sssom.tsv`, for example: `mp-hp-exact-0.0.1.sssom.tsv`.
-- External yaml metadata files should have the extension `.sssom.yml`, for example `mp-hp-exact-0.0.1.sssom.tsv`
+- External yaml metadata files should have the extension `.sssom.yml`, for example `mp-hp-exact-0.0.1.sssom.yml`
 
 Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.yml)):
 
@@ -376,7 +379,7 @@ mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
 
 #### External mode 
 
-In external mode, the mapping set metadata is supplied by a separate YAML file having the same base-name of the mapping file, with the extension `-meta.yml`. By default, tools will look for the file of that name in the same directory as the the mapping set table.
+In external mode, the mapping set metadata MUST be supplied in a separate YAML file; that file SHOULD have the same base name as the mapping file, with the extension `.sssom.yml`.
 
 Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv)):
 
@@ -469,7 +472,7 @@ JSON translation is fully managed by [LinkML dumper classes](https://linkml.io/l
   * Is the format optimized for google refine?
   * Maintain mappings in github/tsvs
     * Rendering
-    * Drive-by PRs
+    * [Drive-by Curation](https://doi.org/10.32388/KBX9VO) PRs
 
 * Providers
   * Autogenerate pages like 

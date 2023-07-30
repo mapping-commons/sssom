@@ -24,11 +24,14 @@ type Mapping
     objectSource: EntityReference
     objectSourceVersion: String
     mappingProvider: Uri
+    mappingSource: EntityReference
     mappingCardinality: MappingCardinalityEnum
     mappingTool: String
     mappingToolVersion: String
     mappingDate: Date
     confidence: Double
+    curationRule: [EntityReference]
+    curationRuleText: [String]
     subjectMatchField: [EntityReference]
     objectMatchField: [EntityReference]
     matchString: [String]
@@ -44,6 +47,8 @@ type Mapping
 type MappingRegistry
   {
     mappingRegistryId: EntityReference!
+    mappingRegistryTitle: String
+    mappingRegistryDescription: String
     imports: [Uri]
     mappingSetReferences: [MappingSetReference]
     documentation: Uri
@@ -56,6 +61,7 @@ type MappingSet
     mappingSetId: Uri!
     mappingSetVersion: String
     mappingSetSource: [Uri]
+    mappingSetTitle: String
     mappingSetDescription: String
     creatorId: [EntityReference]
     creatorLabel: [String]
@@ -68,6 +74,7 @@ type MappingSet
     objectSourceVersion: String
     mappingProvider: Uri
     mappingTool: String
+    mappingToolVersion: String
     mappingDate: Date
     subjectMatchField: [EntityReference]
     objectMatchField: [EntityReference]

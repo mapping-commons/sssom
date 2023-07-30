@@ -1,20 +1,26 @@
-# mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
-# license: https://creativecommons.org/licenses/by/4.0/
-# mapping_date: '2022-05-02'
-# mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food
-#   and nutrition database with Food Ontology (FOODON). Intended to be used for ontological
-#   analysis and grouping of KEWL FOODIE INC related data.
-# mapping_set_version: '2022-05-01'
-# object_source: wikidata:Q55118395
-# object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
-# subject_source: KF_FOOD:DB
 # comment: We could map to FOODON:00004187 instead which more specifically refers to
 #   'raw' Pink apples. Decided against to be consistent with other mapping choices.
 # curie_map:
 #   FOODON: http://purl.obolibrary.org/obo/FOODON_
 #   KF_FOOD: https://kewl-foodie.inc/food/
+#   orcid: https://orcid.org/
+#   owl: http://www.w3.org/2002/07/owl#
+#   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+#   rdfs: http://www.w3.org/2000/01/rdf-schema#
+#   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
 #   sssom: https://w3id.org/sssom/
+#   wikidata: https://www.wikidata.org/wiki/
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_date: '2022-05-02'
+# mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food
+#   and nutrition database with Food Ontology (FOODON). Intended to be used for ontological
+#   analysis and grouping of KEWL FOODIE INC related data.
+# mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+# mapping_set_version: '2022-05-01'
+# object_source: wikidata:Q55118395
+# object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
+# subject_source: KF_FOOD:DB
 subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	object_source_version	mapping_date	confidence	comment
 KF_FOOD:F001	apple	skos:exactMatch	FOODON:00002473	apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	0.95	"We could map to FOODON:03310788 instead to cover sliced apples, but only ""whole"" apple types exist."
 KF_FOOD:F002	gala	skos:exactMatch	FOODON:00003348	Gala apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl	2022-05-02	1.0	

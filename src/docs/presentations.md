@@ -1,5 +1,24 @@
 # Presentations
 
+## OHDSI 2023 Symposium: Synergizing Simple Standard for Sharing Ontology Mappings (SSSOM) and the Observational Health Data Sciences and Informatics (OHDSI)
+
+- 3rd July 2023, https://www.ohdsi-europe.org/index.php/symposium-2023
+- [Seminar info](events/ohdsi2023.md)
+
+## Elixir Data Interoperability Meeting: Introduction to SSSOM 
+
+- 6th March 2023
+- This talk is a variant of the CCB Seminar Series talk below
+- [Slides](https://docs.google.com/presentation/d/1w-rNLTprIbW8IUBu6YokDsPe98AKg4VwfR1gSsJrae8/edit#slide=id.g167f28e52df_0_22)
+
+## Ontology Summit 2023: Open, FAIR and standardised mappings for ontologies, controlled vocabularies and database entities
+
+- 22 February 2023, virtual
+- This talk is a variant of the CCB Seminar Series talk below
+- [Seminar info](https://ontologforum.org/index.php/ConferenceCall_2023_02_22)
+- [Video recording (scroll to minute 46)](https://ontologforum.s3.amazonaws.com/OntologySummit2023/Part1/Ubergraph--JimBalhoff_20230222.mp4)
+- [Slides](https://docs.google.com/presentation/d/1_TuimFiJ_7VP0ZFkQrHYky_ktFZc981Vse0-_hZjKtc/edit#slide=id.g167f28e52df_0_22)
+
 ## CCB Seminar Series: Open SSSOM - Unlocking the wealth of biomedical data using shared standardized entity mappings
 
 - December 2022 talk, virtual

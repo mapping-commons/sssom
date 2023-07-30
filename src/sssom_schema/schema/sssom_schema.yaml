@@ -4,6 +4,7 @@ description: Datamodel for Simple Standard for Sharing Ontological Mappings (SSS
 imports:
 - linkml:types
 prefixes:
+  dcterms: http://purl.org/dc/terms/
   linkml: https://w3id.org/linkml/
   sssom: https://w3id.org/sssom/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
@@ -12,7 +13,7 @@ prefixes:
   pav: http://purl.org/pav/
   prov: http://www.w3.org/ns/prov#
   skos: http://www.w3.org/2004/02/skos/core#
-  semapv: https://w3id.org/semapv/
+  semapv: https://w3id.org/semapv/vocab/
 see_also:
 - https://github.com/mapping-commons/sssom
 - https://mapping-commons.github.io/sssom/home/
@@ -20,6 +21,7 @@ default_curi_maps:
 - semweb_context
 - obo_context
 default_prefix: sssom
+default_range: string
 
 enums:
   entity_type_enum:
@@ -128,10 +130,20 @@ slots:
   subject_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
+      This slot is deliberately underspecified. Conceptual categories can range from
+      those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve
+      as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this
+      optional field is documentation for human reviewers - when a category is known
+      and documented clearly, the cost of interpreting and evaluating the mapping decreases.
     range: string
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/13
+      - https://github.com/mapping-commons/sssom/issues/256
     examples:
       - value: UBERON:0001062
         description: (The CURIE of the Uberon term for "anatomical entity".)
+      - value: anatomical entity
+        description: (A string, rather than ID, describing the "anatomical entity" category. This is possible, but less preferred than using an ID.)
       - value: biolink:Gene
         description: (The CURIE of the biolink class for genes.)
   subject_type:
@@ -152,6 +164,8 @@ slots:
   predicate_modifier:
     description: A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
     range: predicate_modifier_enum
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/107
     examples:
       - value: Not
         description: Negates the predicate, see documentation of predicate_modifier_enum
@@ -208,10 +222,20 @@ slots:
   object_category:
     description: The conceptual category to which the subject belongs to. This can
       be a string denoting the category or a term from a controlled vocabulary.
+      This slot is deliberately underspecified. Conceptual categories can range from
+      those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve
+      as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this
+      optional field is documentation for human reviewers - when a category is known
+      and documented clearly, the cost of interpreting and evaluating the mapping decreases.
     range: string
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/13
+      - https://github.com/mapping-commons/sssom/issues/256
     examples:
       - value: UBERON:0001062
         description: (The CURIE of the Uberon term for "anatomical entity".)
+      - value: anatomical entity
+        description: (A string, rather than ID, describing the "anatomical entity" category. This is possible, but less preferred than using an ID.)
       - value: biolink:Gene
         description: (The CURIE of the biolink class for genes.)
   mapping_justification:
@@ -260,13 +284,13 @@ slots:
   mapping_set_title:
     description: The display name of a mapping set.
     range: string
-    slot_uri: dc:title
+    slot_uri: dcterms:title
     examples:
       - value: "The Mondo-OMIM mappings by Monarch Initiative."
   mapping_set_description:
     description: A description of the mapping set.
     range: string
-    slot_uri: dc:description
+    slot_uri: dcterms:description
     examples:
       - value: "This mapping set was produced to integrate human and mouse phenotype data at the IMPC. It is primarily used for making mouse phenotypes searchable by human synonyms at https://mousephenotype.org/."
   creator_id:
@@ -274,40 +298,37 @@ slots:
       the mapping. The creator is the agent that put the mapping in its published form, 
       which may be different from the author, which is a person that was actively involved
       in the assertion of the mapping.
-      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
-      identifying URLs, but any identifying string (such as name and affiliation)
-      is permissible.
-    slot_uri: dc:creator
+      Recommended to be a list of ORCIDs or otherwise
+      identifying URIs.
+    slot_uri: dcterms:creator
     range: EntityReference
     multivalued: true
   creator_label:
     description: A string identifying the creator of this mapping. In the spirit of
-      provenance, consider to use creator_id instead.
+      provenance, consider using creator_id instead.
     range: string
     multivalued: true
   author_id:
     description: Identifies the persons or groups responsible for asserting the mappings.
-      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
-      identifying URLs, but any identifying string (such as name and affiliation)
-      is permissible.
+      Recommended to be a list of ORCIDs or otherwise
+      identifying URIs.
     slot_uri: pav:authoredBy
     range: EntityReference
     multivalued: true
   author_label:
     description: A string identifying the author of this mapping. In the spirit of
-      provenance, consider to use author_id instead.
+      provenance, consider using author_id instead.
     range: string
     multivalued: true
   reviewer_id:
     description: Identifies the persons or groups that reviewed and confirmed the mapping.
-      Recommended to be a (pipe-separated) list of ORCIDs or otherwise
-      identifying URLs, but any identifying string (such as name and affiliation)
-      is permissible.
+      Recommended to be a list of ORCIDs or otherwise
+      identifying URIs.
     range: EntityReference
     multivalued: true
   reviewer_label:
     description: A string identifying the reviewer of this mapping. In the spirit of
-      provenance, consider to use author_id instead.
+      provenance, consider using reviewer_id instead.
     range: string
     multivalued: true
   license:
@@ -316,7 +337,7 @@ slots:
     range: uri
     slot_uri: dcterms:license
   subject_source:
-    description: URI of ontology source for the subject.
+    description: URI of vocabulary or identifier source for the subject.
     range: EntityReference
     examples:
       - value: obo:mondo.owl
@@ -330,7 +351,7 @@ slots:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   object_source:
-    description: IRI of ontology source for the object. Version IRI preferred.
+    description: URI of vocabulary or identifier source for the object.
     range: EntityReference
     examples:
       - value: obo:mondo.owl
@@ -384,19 +405,19 @@ slots:
     range: date
   publication_date:
     description: The date the mapping was published. This is different from the date the mapping was asserted.
-    slot_uri: dc:created
+    slot_uri: dcterms:created
     range: date
   confidence:
     description: A score between 0 and 1 to denote the confidence or probability that
       the match is correct, where 1 denotes total confidence.
     range: double
   subject_match_field:
-    description: A tuple of fields (term annotations on the subject) that was used
+    description: A list of properties (term annotations on the subject) that was used
       for the match.
     range: EntityReference
     multivalued: true
   object_match_field:
-    description: A tuple of fields (term annotations on the object) that was used
+    description: A list of properties (term annotations on the object) that was used
       for the match.
     range: EntityReference
     multivalued: true
@@ -423,6 +444,29 @@ slots:
     examples:
       - value: semapv:Stemming
       - value: semapv:StopWordRemoval
+  curation_rule:
+    description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
+      Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
+      rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets.
+      The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.
+    range: EntityReference
+    multivalued: true
+    see_also: 
+      - https://github.com/mapping-commons/sssom/issues/166
+      - https://github.com/mapping-commons/sssom/pull/258
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
+  curation_rule_text:
+    description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
+      Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
+      rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets.
+      The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the
+      perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.
+    range: string
+    multivalued: true
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/166
+      - https://github.com/mapping-commons/sssom/pull/258
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv
   semantic_similarity_score:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
@@ -487,7 +531,9 @@ classes:
     - object_source_version
     - mapping_provider
     - mapping_tool
+    - mapping_tool_version
     - mapping_date
+    - publication_date
     - subject_match_field
     - object_match_field
     - subject_preprocessing
@@ -528,7 +574,10 @@ classes:
     - mapping_tool
     - mapping_tool_version
     - mapping_date
+    - publication_date
     - confidence
+    - curation_rule
+    - curation_rule_text
     - subject_match_field
     - object_match_field
     - match_string

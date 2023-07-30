@@ -50,10 +50,6 @@ A 10 minute deep-dive into Jerome Euzenat classification of ontology matching te
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Jag9hHCZRj8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-A 10 minute overview of Clinical Terminology Mappings by Michael Kahn at CU Anschutz can be seen in the following. This video is highly optional and reveals a very non-semantic webby perspective on the subject. It is focussed on OMOP mappings, one of the many terminology standards in the medical domain.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/J3_2WbUAOF4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 <a id="what"></a>
 
 ### What are we mapping?
@@ -361,7 +357,7 @@ curie_map:
   KF_FOOD: https://kewl-foodie.inc/food/
   wikidata: http://www.wikidata.org/entity/
   FOODON: http://purl.obolibrary.org/obo/FOODON_
-  sempav: https://w3id.org/semapv/
+  sempav: https://w3id.org/semapv/vocab/
   skos: "http://www.w3.org/2004/02/skos/core#"
   sssom: https://w3id.org/sssom/
 ```

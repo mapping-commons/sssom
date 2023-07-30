@@ -25,11 +25,14 @@ message Mapping
   entityReference objectSource = 0
   string objectSourceVersion = 0
   uri mappingProvider = 0
+  entityReference mappingSource = 0
   mappingCardinalityEnum mappingCardinality = 0
   string mappingTool = 0
   string mappingToolVersion = 0
   date mappingDate = 0
   double confidence = 0
+ repeated  entityReference curationRule = 0
+ repeated  string curationRuleText = 0
  repeated  entityReference subjectMatchField = 0
  repeated  entityReference objectMatchField = 0
  repeated  string matchString = 0
@@ -45,6 +48,8 @@ message Mapping
 message MappingRegistry
  {
   entityReference mappingRegistryId = 0
+  string mappingRegistryTitle = 0
+  string mappingRegistryDescription = 0
  repeated  uri imports = 0
  repeated  mappingSetReference mappingSetReferences = 0
   uri documentation = 0
@@ -57,6 +62,7 @@ message MappingSet
   uri mappingSetId = 0
   string mappingSetVersion = 0
  repeated  uri mappingSetSource = 0
+  string mappingSetTitle = 0
   string mappingSetDescription = 0
  repeated  entityReference creatorId = 0
  repeated  string creatorLabel = 0
@@ -69,6 +75,7 @@ message MappingSet
   string objectSourceVersion = 0
   uri mappingProvider = 0
   string mappingTool = 0
+  string mappingToolVersion = 0
   date mappingDate = 0
  repeated  entityReference subjectMatchField = 0
  repeated  entityReference objectMatchField = 0
