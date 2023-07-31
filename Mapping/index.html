@@ -362,6 +362,7 @@
       Mapping : creator_label
       Mapping : curation_rule
       Mapping : curation_rule_text
+      Mapping : issue_tracker_item
       Mapping : license
       Mapping : mapping_cardinality
       Mapping : mapping_date
@@ -700,6 +701,13 @@
 <td>.</td>
 </tr>
 <tr>
+<td><a href="../issue_tracker_item/">issue_tracker_item</a></td>
+<td><a href="../EntityReference/">EntityReference</a></td>
+<td>0..1</td>
+<td>The issue tracker item discussing this mapping.</td>
+<td>.</td>
+</tr>
+<tr>
 <td><a href="../other/">other</a></td>
 <td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>0..1</td>
@@ -807,6 +815,7 @@ slots:
 - semantic_similarity_score
 - semantic_similarity_measure
 - see_also
+- issue_tracker_item
 - other
 - comment
 class_uri: owl:Axiom
@@ -1348,6 +1357,20 @@ attributes:
     alias: see_also
     owner: mapping
     range: string
+  issue_tracker_item:
+    name: issue_tracker_item
+    description: The issue tracker item discussing this mapping.
+    examples:
+    - value: SSSOM_GITHUB_ISSUE:166
+      description: (A URL resolving to an issue discussing a new SSSOM element request)
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/78
+    - https://github.com/mapping-commons/sssom/pull/259
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker_item.sssom.tsv
+    alias: issue_tracker_item
+    owner: mapping
+    range: EntityReference
   other:
     name: other
     description: Pipe separated list of key value pairs for properties not part of

@@ -357,6 +357,7 @@
       MappingRegistry : documentation
       MappingRegistry : homepage
       MappingRegistry : imports
+      MappingRegistry : issue_tracker
       MappingRegistry : mapping_registry_description
       MappingRegistry : mapping_registry_id
       MappingRegistry : mapping_registry_title
@@ -425,6 +426,13 @@
 <td>A URL to a homepage of this mapping commons.</td>
 <td>.</td>
 </tr>
+<tr>
+<td><a href="../issue_tracker/">issue_tracker</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
+<td>0..1</td>
+<td>A URL location of the issue tracker for this entity.</td>
+<td>.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="usages">Usages</h2>
@@ -468,6 +476,7 @@ slots:
 - mapping_set_references
 - documentation
 - homepage
+- issue_tracker
 
 </code></pre>
 </details>
@@ -529,6 +538,21 @@ attributes:
     description: A URL to a homepage of this mapping commons.
     from_schema: https://w3id.org/sssom/schema/
     alias: homepage
+    owner: mapping registry
+    range: uri
+  issue_tracker:
+    name: issue_tracker
+    description: A URL location of the issue tracker for this entity.
+    examples:
+    - value: https://github.com/mapping-commons/mh_mapping_initiative/issues
+      description: (A URL resolving to the issue tracker of the Mouse-Human mapping
+        initiative)
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/78
+    - https://github.com/mapping-commons/sssom/pull/259
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker.sssom.tsv
+    alias: issue_tracker
     owner: mapping registry
     range: uri
 

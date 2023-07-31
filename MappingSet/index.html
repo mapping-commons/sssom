@@ -357,6 +357,7 @@
       MappingSet : comment
       MappingSet : creator_id
       MappingSet : creator_label
+      MappingSet : issue_tracker
       MappingSet : license
       MappingSet : mapping_date
       MappingSet : mapping_provider
@@ -572,6 +573,13 @@
 <td>.</td>
 </tr>
 <tr>
+<td><a href="../issue_tracker/">issue_tracker</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
+<td>0..1</td>
+<td>A URL location of the issue tracker for this entity.</td>
+<td>.</td>
+</tr>
+<tr>
 <td><a href="../other/">other</a></td>
 <td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>0..1</td>
@@ -645,6 +653,7 @@ slots:
 - subject_preprocessing
 - object_preprocessing
 - see_also
+- issue_tracker
 - other
 - comment
 slot_usage:
@@ -935,6 +944,21 @@ attributes:
     alias: see_also
     owner: mapping set
     range: string
+  issue_tracker:
+    name: issue_tracker
+    description: A URL location of the issue tracker for this entity.
+    examples:
+    - value: https://github.com/mapping-commons/mh_mapping_initiative/issues
+      description: (A URL resolving to the issue tracker of the Mouse-Human mapping
+        initiative)
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/78
+    - https://github.com/mapping-commons/sssom/pull/259
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker.sssom.tsv
+    alias: issue_tracker
+    owner: mapping set
+    range: uri
   other:
     name: other
     description: Pipe separated list of key value pairs for properties not part of
