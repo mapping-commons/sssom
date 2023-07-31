@@ -1,5 +1,9 @@
 # Changelog for SSSOM
 
+## Next
+
+- Add issue_tracker_item and issue_tracker [model elements](https://github.com/mapping-commons/sssom/pull/259).
+
 ## SSSOM version 0.13.0
 
 - The necessity of the "canonical column ordering" was downgraded from MUST to SHOULD (https://github.com/mapping-commons/sssom/pull/285)
