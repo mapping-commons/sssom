@@ -1099,7 +1099,7 @@
     {
       "name": "creator_id",
       "definition_uri": "https://w3id.org/sssom/creator_id",
-      "description": "Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.",
+      "description": "Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "mappings": [
         "http://purl.org/dc/terms/creator"
@@ -1117,7 +1117,7 @@
     {
       "name": "creator_label",
       "definition_uri": "https://w3id.org/sssom/creator_label",
-      "description": "A string identifying the creator of this mapping. In the spirit of provenance, consider to use creator_id instead.",
+      "description": "A string identifying the creator of this mapping. In the spirit of provenance, consider using creator_id instead.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/creator_label",
       "multivalued": true,
@@ -1132,7 +1132,7 @@
     {
       "name": "author_id",
       "definition_uri": "https://w3id.org/sssom/author_id",
-      "description": "Identifies the persons or groups responsible for asserting the mappings. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.",
+      "description": "Identifies the persons or groups responsible for asserting the mappings. Recommended to be a list of ORCIDs or otherwise identifying URIs.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "mappings": [
         "http://purl.org/pav/authoredBy"
@@ -1149,7 +1149,7 @@
     {
       "name": "author_label",
       "definition_uri": "https://w3id.org/sssom/author_label",
-      "description": "A string identifying the author of this mapping. In the spirit of provenance, consider to use author_id instead.",
+      "description": "A string identifying the author of this mapping. In the spirit of provenance, consider using author_id instead.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/author_label",
       "multivalued": true,
@@ -1163,7 +1163,7 @@
     {
       "name": "reviewer_id",
       "definition_uri": "https://w3id.org/sssom/reviewer_id",
-      "description": "Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a (pipe-separated) list of ORCIDs or otherwise identifying URLs, but any identifying string (such as name and affiliation) is permissible.",
+      "description": "Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/reviewer_id",
       "multivalued": true,
@@ -1177,7 +1177,7 @@
     {
       "name": "reviewer_label",
       "definition_uri": "https://w3id.org/sssom/reviewer_label",
-      "description": "A string identifying the reviewer of this mapping. In the spirit of provenance, consider to use reviewer_id instead.",
+      "description": "A string identifying the reviewer of this mapping. In the spirit of provenance, consider using reviewer_id instead.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/reviewer_label",
       "multivalued": true,
@@ -1208,7 +1208,7 @@
     {
       "name": "subject_source",
       "definition_uri": "https://w3id.org/sssom/subject_source",
-      "description": "URI of ontology source for the subject.",
+      "description": "URI of vocabulary or identifier source for the subject.",
       "examples": [
         {
           "value": "obo:mondo.owl",
@@ -1255,7 +1255,7 @@
     {
       "name": "object_source",
       "definition_uri": "https://w3id.org/sssom/object_source",
-      "description": "IRI of ontology source for the object. Version IRI preferred.",
+      "description": "URI of vocabulary or identifier source for the object.",
       "examples": [
         {
           "value": "obo:mondo.owl",
@@ -1435,6 +1435,11 @@
         "http://purl.org/dc/terms/created"
       ],
       "slot_uri": "http://purl.org/dc/terms/created",
+      "owner": "Mapping",
+      "domain_of": [
+        "MappingSet",
+        "Mapping"
+      ],
       "range": "date",
       "@type": "SlotDefinition"
     },
@@ -1454,7 +1459,7 @@
     {
       "name": "subject_match_field",
       "definition_uri": "https://w3id.org/sssom/subject_match_field",
-      "description": "A tuple of fields (term annotations on the subject) that was used for the match.",
+      "description": "A list of properties (term annotations on the subject) that was used for the match.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/subject_match_field",
       "multivalued": true,
@@ -1469,7 +1474,7 @@
     {
       "name": "object_match_field",
       "definition_uri": "https://w3id.org/sssom/object_match_field",
-      "description": "A tuple of fields (term annotations on the object) that was used for the match.",
+      "description": "A list of properties (term annotations on the object) that was used for the match.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/object_match_field",
       "multivalued": true,
@@ -1617,6 +1622,57 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "issue_tracker_item",
+      "definition_uri": "https://w3id.org/sssom/issue_tracker_item",
+      "description": "The issue tracker item discussing this mapping.",
+      "examples": [
+        {
+          "value": "SSSOM_GITHUB_ISSUE:166",
+          "description": "(A URL resolving to an issue discussing a new SSSOM element request)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://github.com/mapping-commons/sssom/issues/78",
+        "https://github.com/mapping-commons/sssom/pull/259",
+        "https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker_item.sssom.tsv"
+      ],
+      "slot_uri": "https://w3id.org/sssom/issue_tracker_item",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "issue_tracker",
+      "definition_uri": "https://w3id.org/sssom/issue_tracker",
+      "description": "A URL location of the issue tracker for this entity.",
+      "examples": [
+        {
+          "value": "https://github.com/mapping-commons/mh_mapping_initiative/issues",
+          "description": "(A URL resolving to the issue tracker of the Mouse-Human mapping initiative)",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://github.com/mapping-commons/sssom/issues/78",
+        "https://github.com/mapping-commons/sssom/pull/259",
+        "https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker.sssom.tsv"
+      ],
+      "slot_uri": "https://w3id.org/sssom/issue_tracker",
+      "owner": "MappingRegistry",
+      "domain_of": [
+        "MappingSet",
+        "MappingRegistry"
+      ],
+      "range": "uri",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "see_also",
       "definition_uri": "https://w3id.org/sssom/see_also",
       "description": "A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment",
@@ -1714,11 +1770,13 @@
         "mapping_tool",
         "mapping_tool_version",
         "mapping_date",
+        "publication_date",
         "subject_match_field",
         "object_match_field",
         "subject_preprocessing",
         "object_preprocessing",
         "see_also",
+        "issue_tracker",
         "other",
         "comment"
       ],
@@ -1764,6 +1822,7 @@
         "mapping_tool",
         "mapping_tool_version",
         "mapping_date",
+        "publication_date",
         "confidence",
         "curation_rule",
         "curation_rule_text",
@@ -1775,6 +1834,7 @@
         "semantic_similarity_score",
         "semantic_similarity_measure",
         "see_also",
+        "issue_tracker_item",
         "other",
         "comment"
       ],
@@ -1794,7 +1854,8 @@
         "imports",
         "mapping_set_references",
         "documentation",
-        "homepage"
+        "homepage",
+        "issue_tracker"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sssom/MappingRegistry",
@@ -1820,9 +1881,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2023-07-25T10:02:33",
-  "source_file_size": 25711,
-  "generation_date": "2023-07-25T10:05:03",
+  "source_file_date": "2023-07-31T17:42:04",
+  "source_file_size": 26565,
+  "generation_date": "2023-07-31T17:42:55",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom_schema.context.jsonld",

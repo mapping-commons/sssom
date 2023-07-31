@@ -29,6 +29,7 @@ type Mapping
     mappingTool: String
     mappingToolVersion: String
     mappingDate: Date
+    publicationDate: Date
     confidence: Double
     curationRule: [EntityReference]
     curationRuleText: [String]
@@ -40,6 +41,7 @@ type Mapping
     semanticSimilarityScore: Double
     semanticSimilarityMeasure: String
     seeAlso: [String]
+    issueTrackerItem: EntityReference
     other: String
     comment: String
   }
@@ -53,6 +55,7 @@ type MappingRegistry
     mappingSetReferences: [MappingSetReference]
     documentation: Uri
     homepage: Uri
+    issueTracker: Uri
   }
 
 type MappingSet
@@ -76,11 +79,13 @@ type MappingSet
     mappingTool: String
     mappingToolVersion: String
     mappingDate: Date
+    publicationDate: Date
     subjectMatchField: [EntityReference]
     objectMatchField: [EntityReference]
     subjectPreprocessing: [EntityReference]
     objectPreprocessing: [EntityReference]
     seeAlso: [String]
+    issueTracker: Uri
     other: String
     comment: String
   }

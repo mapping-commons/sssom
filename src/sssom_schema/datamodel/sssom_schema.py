@@ -1,5 +1,5 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-07-25T10:05:11
+# Generation date: 2023-07-31T17:42:59
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
@@ -90,11 +90,13 @@ class MappingSet(YAMLRoot):
     mapping_tool: Optional[str] = None
     mapping_tool_version: Optional[str] = None
     mapping_date: Optional[Union[str, XSDDate]] = None
+    publication_date: Optional[Union[str, XSDDate]] = None
     subject_match_field: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     object_match_field: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     subject_preprocessing: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     object_preprocessing: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     see_also: Optional[Union[str, List[str]]] = empty_list()
+    issue_tracker: Optional[Union[str, URI]] = None
     other: Optional[str] = None
     comment: Optional[str] = None
 
@@ -164,6 +166,9 @@ class MappingSet(YAMLRoot):
         if self.mapping_date is not None and not isinstance(self.mapping_date, XSDDate):
             self.mapping_date = XSDDate(self.mapping_date)
 
+        if self.publication_date is not None and not isinstance(self.publication_date, XSDDate):
+            self.publication_date = XSDDate(self.publication_date)
+
         if not isinstance(self.subject_match_field, list):
             self.subject_match_field = [self.subject_match_field] if self.subject_match_field is not None else []
         self.subject_match_field = [v if isinstance(v, EntityReference) else EntityReference(v) for v in self.subject_match_field]
@@ -183,6 +188,9 @@ class MappingSet(YAMLRoot):
         if not isinstance(self.see_also, list):
             self.see_also = [self.see_also] if self.see_also is not None else []
         self.see_also = [v if isinstance(v, str) else str(v) for v in self.see_also]
+
+        if self.issue_tracker is not None and not isinstance(self.issue_tracker, URI):
+            self.issue_tracker = URI(self.issue_tracker)
 
         if self.other is not None and not isinstance(self.other, str):
             self.other = str(self.other)
@@ -234,6 +242,7 @@ class Mapping(YAMLRoot):
     mapping_tool: Optional[str] = None
     mapping_tool_version: Optional[str] = None
     mapping_date: Optional[Union[str, XSDDate]] = None
+    publication_date: Optional[Union[str, XSDDate]] = None
     confidence: Optional[float] = None
     curation_rule: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     curation_rule_text: Optional[Union[str, List[str]]] = empty_list()
@@ -245,6 +254,7 @@ class Mapping(YAMLRoot):
     semantic_similarity_score: Optional[float] = None
     semantic_similarity_measure: Optional[str] = None
     see_also: Optional[Union[str, List[str]]] = empty_list()
+    issue_tracker_item: Optional[Union[str, EntityReference]] = None
     other: Optional[str] = None
     comment: Optional[str] = None
 
@@ -350,6 +360,9 @@ class Mapping(YAMLRoot):
         if self.mapping_date is not None and not isinstance(self.mapping_date, XSDDate):
             self.mapping_date = XSDDate(self.mapping_date)
 
+        if self.publication_date is not None and not isinstance(self.publication_date, XSDDate):
+            self.publication_date = XSDDate(self.publication_date)
+
         if self.confidence is not None and not isinstance(self.confidence, float):
             self.confidence = float(self.confidence)
 
@@ -391,6 +404,9 @@ class Mapping(YAMLRoot):
             self.see_also = [self.see_also] if self.see_also is not None else []
         self.see_also = [v if isinstance(v, str) else str(v) for v in self.see_also]
 
+        if self.issue_tracker_item is not None and not isinstance(self.issue_tracker_item, EntityReference):
+            self.issue_tracker_item = EntityReference(self.issue_tracker_item)
+
         if self.other is not None and not isinstance(self.other, str):
             self.other = str(self.other)
 
@@ -419,6 +435,7 @@ class MappingRegistry(YAMLRoot):
     mapping_set_references: Optional[Union[Union[dict, "MappingSetReference"], List[Union[dict, "MappingSetReference"]]]] = empty_list()
     documentation: Optional[Union[str, URI]] = None
     homepage: Optional[Union[str, URI]] = None
+    issue_tracker: Optional[Union[str, URI]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.mapping_registry_id):
@@ -443,6 +460,9 @@ class MappingRegistry(YAMLRoot):
 
         if self.homepage is not None and not isinstance(self.homepage, URI):
             self.homepage = URI(self.homepage)
+
+        if self.issue_tracker is not None and not isinstance(self.issue_tracker, URI):
+            self.issue_tracker = URI(self.issue_tracker)
 
         super().__post_init__(**kwargs)
 
@@ -751,6 +771,12 @@ slots.semantic_similarity_score = Slot(uri=SSSOM.semantic_similarity_score, name
 
 slots.semantic_similarity_measure = Slot(uri=SSSOM.semantic_similarity_measure, name="semantic_similarity_measure", curie=SSSOM.curie('semantic_similarity_measure'),
                    model_uri=SSSOM.semantic_similarity_measure, domain=None, range=Optional[str])
+
+slots.issue_tracker_item = Slot(uri=SSSOM.issue_tracker_item, name="issue_tracker_item", curie=SSSOM.curie('issue_tracker_item'),
+                   model_uri=SSSOM.issue_tracker_item, domain=None, range=Optional[Union[str, EntityReference]])
+
+slots.issue_tracker = Slot(uri=SSSOM.issue_tracker, name="issue_tracker", curie=SSSOM.curie('issue_tracker'),
+                   model_uri=SSSOM.issue_tracker, domain=None, range=Optional[Union[str, URI]])
 
 slots.see_also = Slot(uri=RDFS.seeAlso, name="see_also", curie=RDFS.curie('seeAlso'),
                    model_uri=SSSOM.see_also, domain=None, range=Optional[Union[str, List[str]]])

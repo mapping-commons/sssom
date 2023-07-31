@@ -30,6 +30,7 @@ CREATE TABLE mapping (
 	mapping_tool TEXT, 
 	mapping_tool_version TEXT, 
 	mapping_date DATE, 
+	publication_date DATE, 
 	confidence FLOAT, 
 	curation_rule TEXT, 
 	curation_rule_text TEXT, 
@@ -41,9 +42,10 @@ CREATE TABLE mapping (
 	semantic_similarity_score FLOAT, 
 	semantic_similarity_measure TEXT, 
 	see_also TEXT, 
+	issue_tracker_item TEXT, 
 	other TEXT, 
 	comment TEXT, 
-	PRIMARY KEY (subject_id, subject_label, subject_category, predicate_id, predicate_label, predicate_modifier, object_id, object_label, object_category, mapping_justification, author_id, author_label, reviewer_id, reviewer_label, creator_id, creator_label, license, subject_type, subject_source, subject_source_version, object_type, object_source, object_source_version, mapping_provider, mapping_source, mapping_cardinality, mapping_tool, mapping_tool_version, mapping_date, confidence, curation_rule, curation_rule_text, subject_match_field, object_match_field, match_string, subject_preprocessing, object_preprocessing, semantic_similarity_score, semantic_similarity_measure, see_also, other, comment)
+	PRIMARY KEY (subject_id, subject_label, subject_category, predicate_id, predicate_label, predicate_modifier, object_id, object_label, object_category, mapping_justification, author_id, author_label, reviewer_id, reviewer_label, creator_id, creator_label, license, subject_type, subject_source, subject_source_version, object_type, object_source, object_source_version, mapping_provider, mapping_source, mapping_cardinality, mapping_tool, mapping_tool_version, mapping_date, publication_date, confidence, curation_rule, curation_rule_text, subject_match_field, object_match_field, match_string, subject_preprocessing, object_preprocessing, semantic_similarity_score, semantic_similarity_measure, see_also, issue_tracker_item, other, comment)
 );
 
 CREATE TABLE mapping_registry (
@@ -54,7 +56,8 @@ CREATE TABLE mapping_registry (
 	mapping_set_references TEXT, 
 	documentation TEXT, 
 	homepage TEXT, 
-	PRIMARY KEY (mapping_registry_id, mapping_registry_title, mapping_registry_description, imports, mapping_set_references, documentation, homepage)
+	issue_tracker TEXT, 
+	PRIMARY KEY (mapping_registry_id, mapping_registry_title, mapping_registry_description, imports, mapping_set_references, documentation, homepage, issue_tracker)
 );
 
 CREATE TABLE mapping_set (
@@ -77,14 +80,16 @@ CREATE TABLE mapping_set (
 	mapping_tool TEXT, 
 	mapping_tool_version TEXT, 
 	mapping_date DATE, 
+	publication_date DATE, 
 	subject_match_field TEXT, 
 	object_match_field TEXT, 
 	subject_preprocessing TEXT, 
 	object_preprocessing TEXT, 
 	see_also TEXT, 
+	issue_tracker TEXT, 
 	other TEXT, 
 	comment TEXT, 
-	PRIMARY KEY (mappings, mapping_set_id, mapping_set_version, mapping_set_source, mapping_set_title, mapping_set_description, creator_id, creator_label, license, subject_type, subject_source, subject_source_version, object_type, object_source, object_source_version, mapping_provider, mapping_tool, mapping_tool_version, mapping_date, subject_match_field, object_match_field, subject_preprocessing, object_preprocessing, see_also, other, comment)
+	PRIMARY KEY (mappings, mapping_set_id, mapping_set_version, mapping_set_source, mapping_set_title, mapping_set_description, creator_id, creator_label, license, subject_type, subject_source, subject_source_version, object_type, object_source, object_source_version, mapping_provider, mapping_tool, mapping_tool_version, mapping_date, publication_date, subject_match_field, object_match_field, subject_preprocessing, object_preprocessing, see_also, issue_tracker, other, comment)
 );
 
 CREATE TABLE mapping_set_reference (
