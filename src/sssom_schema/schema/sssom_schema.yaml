@@ -653,7 +653,10 @@ classes:
     - comment
     class_uri: owl:Axiom
   literal mapping:
-    description: Represents an individual mapping between a literal and an entity. Note that this schema has been created on 01.08.2023 and is subject to change.
+    description: Represents an individual mapping between a literal and an entity. 
+      Note that this schema has been created on 01.08.2023 and is subject to change.
+    see_also:
+    - https://mapping-commons.github.io/sssom/sssom-profiles/
     slots:
     - literal
     - literal_datatype
