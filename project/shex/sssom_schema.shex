@@ -1,12 +1,12 @@
 BASE <https://w3id.org/sssom/>
-PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
 PREFIX pav: <http://purl.org/pav/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dc1: <http://purl.org/dc/terms/>
 
 
 <EntityReference> rdfs:Resource
@@ -64,9 +64,9 @@ linkml:Sparqlpath xsd:string
           <author_label> @linkml:String * ;
           <reviewer_id> @<EntityReference> * ;
           <reviewer_label> @linkml:String * ;
-          dcterms:creator @<EntityReference> * ;
+          dc1:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
-          dcterms:license @linkml:Uri ? ;
+          dc1:license @linkml:Uri ? ;
           <subject_type> @<EntityTypeEnum> ? ;
           <subject_source> @<EntityReference> ? ;
           <subject_source_version> @linkml:String ? ;
@@ -79,6 +79,7 @@ linkml:Sparqlpath xsd:string
           <mapping_tool> @linkml:String ? ;
           <mapping_tool_version> @linkml:String ? ;
           pav:authoredOn @linkml:Date ? ;
+          dc1:created @linkml:Date ? ;
           <confidence> @linkml:Double ? ;
           <curation_rule> @<EntityReference> * ;
           <curation_rule_text> @linkml:String * ;
@@ -90,6 +91,7 @@ linkml:Sparqlpath xsd:string
           <semantic_similarity_score> @linkml:Double ? ;
           <semantic_similarity_measure> @linkml:String ? ;
           rdfs:seeAlso @linkml:String * ;
+          <issue_tracker_item> @<EntityReference> ? ;
           <other> @linkml:String ? ;
           rdfs:comment @linkml:String ?
        ) ;
@@ -104,7 +106,8 @@ linkml:Sparqlpath xsd:string
           <imports> @linkml:Uri * ;
           <mapping_set_references> @<MappingSetReference> * ;
           <documentation> @linkml:Uri ? ;
-          <homepage> @linkml:Uri ?
+          <homepage> @linkml:Uri ? ;
+          <issue_tracker> @linkml:Uri ?
        ) ;
        rdf:type [ <MappingRegistry> ] ?
     )
@@ -115,11 +118,11 @@ linkml:Sparqlpath xsd:string
           <mapping_set_id> @linkml:Uri ;
           owl:versionInfo @linkml:String ? ;
           prov:wasDerivedFrom @linkml:Uri * ;
-          dcterms:title @linkml:String ? ;
-          dcterms:description @linkml:String ? ;
-          dcterms:creator @<EntityReference> * ;
+          dc1:title @linkml:String ? ;
+          dc1:description @linkml:String ? ;
+          dc1:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
-          dcterms:license @linkml:Uri ;
+          dc1:license @linkml:Uri ;
           <subject_type> @<EntityTypeEnum> ? ;
           <subject_source> @<EntityReference> ? ;
           <subject_source_version> @linkml:String ? ;
@@ -130,11 +133,13 @@ linkml:Sparqlpath xsd:string
           <mapping_tool> @linkml:String ? ;
           <mapping_tool_version> @linkml:String ? ;
           pav:authoredOn @linkml:Date ? ;
+          dc1:created @linkml:Date ? ;
           <subject_match_field> @<EntityReference> * ;
           <object_match_field> @<EntityReference> * ;
           <subject_preprocessing> @<EntityReference> * ;
           <object_preprocessing> @<EntityReference> * ;
           rdfs:seeAlso @linkml:String * ;
+          <issue_tracker> @linkml:Uri ? ;
           <other> @linkml:String ? ;
           rdfs:comment @linkml:String ?
        ) ;

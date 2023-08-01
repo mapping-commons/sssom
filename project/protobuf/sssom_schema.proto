@@ -30,6 +30,7 @@ message Mapping
   string mappingTool = 0
   string mappingToolVersion = 0
   date mappingDate = 0
+  date publicationDate = 0
   double confidence = 0
  repeated  entityReference curationRule = 0
  repeated  string curationRuleText = 0
@@ -41,6 +42,7 @@ message Mapping
   double semanticSimilarityScore = 0
   string semanticSimilarityMeasure = 0
  repeated  string seeAlso = 0
+  entityReference issueTrackerItem = 0
   string other = 0
   string comment = 0
  }
@@ -54,6 +56,7 @@ message MappingRegistry
  repeated  mappingSetReference mappingSetReferences = 0
   uri documentation = 0
   uri homepage = 0
+  uri issueTracker = 0
  }
 // Represents a set of mappings
 message MappingSet
@@ -77,11 +80,13 @@ message MappingSet
   string mappingTool = 0
   string mappingToolVersion = 0
   date mappingDate = 0
+  date publicationDate = 0
  repeated  entityReference subjectMatchField = 0
  repeated  entityReference objectMatchField = 0
  repeated  entityReference subjectPreprocessing = 0
  repeated  entityReference objectPreprocessing = 0
  repeated  string seeAlso = 0
+  uri issueTracker = 0
   string other = 0
   string comment = 0
  }

@@ -1,0 +1,15 @@
+#curie_map:
+#  HP: http://purl.obolibrary.org/obo/HP_
+#  MP: http://purl.obolibrary.org/obo/MP_
+#  orcid: https://orcid.org/
+#  MH_MAPPINGS_GITHUB_ISSUES: https://github.com/mapping-commons/mh_mapping_initiative/issues/
+#mapping_set_id: https://w3id.org/sssom/commons/examples/issue_tracker.sssom.tsv
+#license: "https://creativecommons.org/publicdomain/zero/1.0/"
+#creator_id: orcid:0000-0002-7356-1779
+#mapping_provider: "https://w3id.org/sssom/core_team"
+#issue_tracker: "https://github.com/mapping-commons/mh_mapping_initiative/issues"
+#comment: This is an example file for the SSSOM for illustration only. Its contents are entirely fabricated.
+subject_id	predicate_id	object_id	mapping_justification	issue_tracker_item
+HP:0009124	skos:exactMatch	MP:0000003	semapv:ManualMappingCuration	MH_MAPPINGS_GITHUB_ISSUES:9123
+HP:0008551	skos:exactMatch	MP:0000018	semapv:ManualMappingCuration	
+HP:0000411	skos:exactMatch	MP:0000021	semapv:ManualMappingCuration	MH_MAPPINGS_GITHUB_ISSUES:9125
