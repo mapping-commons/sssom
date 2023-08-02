@@ -50,6 +50,7 @@ nav:
     - 5-Star Entity Mappings - Cheatsheet: 5star-mappings.md
     - Update schema/context and release: update.md
     - Matching tool implementation guide: matching-tool-implementation-guide.md
+    - SSSOM profiles: sssom-profiles.md
     - Glossary: glossary.md
 
 site_url: https://mapping-commons.github.io/sssom/
