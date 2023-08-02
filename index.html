@@ -675,6 +675,20 @@
   
   
     <li class="md-nav__item">
+      <a href="sssom-profiles/" class="md-nav__link">
+        SSSOM profiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="glossary/" class="md-nav__link">
         Glossary
       </a>
@@ -775,6 +789,10 @@ Name: sssom</p>
 </thead>
 <tbody>
 <tr>
+<td><a href="LiteralMapping/">LiteralMapping</a></td>
+<td>Represents an individual mapping between a literal and an entity. Note that this schema has been created on 01.08.2023 and is subject to change.</td>
+</tr>
+<tr>
 <td><a href="Mapping/">Mapping</a></td>
 <td>Represents an individual mapping between a pair of entities</td>
 </tr>
@@ -860,6 +878,26 @@ Name: sssom</p>
 <tr>
 <td><a href="license/">license</a></td>
 <td>A url to the license of the mapping. In absence of a license we assume no license.</td>
+</tr>
+<tr>
+<td><a href="literal/">literal</a></td>
+<td>The literal being mapped</td>
+</tr>
+<tr>
+<td><a href="literal_datatype/">literal_datatype</a></td>
+<td>The datatype of the literal being mapped</td>
+</tr>
+<tr>
+<td><a href="literal_preprocessing/">literal_preprocessing</a></td>
+<td>Method of preprocessing applied to the literal.</td>
+</tr>
+<tr>
+<td><a href="literal_source/">literal_source</a></td>
+<td>URI of ontology source for the literal.</td>
+</tr>
+<tr>
+<td><a href="literal_source_version/">literal_source_version</a></td>
+<td>Version IRI or version string of the source of the literal.</td>
 </tr>
 <tr>
 <td><a href="local_name/">local_name</a></td>
@@ -1024,6 +1062,14 @@ Name: sssom</p>
 <tr>
 <td><a href="semantic_similarity_score/">semantic_similarity_score</a></td>
 <td>A score between 0 and 1 to denote the semantic similarity, where 1 denotes equivalence.</td>
+</tr>
+<tr>
+<td><a href="similarity_measure/">similarity_measure</a></td>
+<td>The measure used for computing the the similarity score. To make processing this field as unambiguous as possible, we recommend using wikidata identifiers, but wikipedia pages could also be acceptable.</td>
+</tr>
+<tr>
+<td><a href="similarity_score/">similarity_score</a></td>
+<td>A score between 0 and 1 to denote the similarity, where 1 denotes equivalence.</td>
 </tr>
 <tr>
 <td><a href="subject_category/">subject_category</a></td>
