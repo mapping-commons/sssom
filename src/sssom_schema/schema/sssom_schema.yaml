@@ -457,7 +457,7 @@ slots:
     range: EntityReference
     multivalued: true
   match_string:
-    description: Strings that are shared by subj/obj. It is recommended to indicate the 
+    description: String that is shared by subj/obj. It is recommended to indicate the 
       fields for the match using the object and subject_match_field slots.
     range: string
     multivalued: true
