@@ -1639,7 +1639,7 @@ SELECT * WHERE {
 <p><strong>Mapping justification metadata</strong>:</p>
 <p><code>mapping_justification</code>: the process or activity that led us to believe the mapping to be correct or reasonable.</p>
 <p>This is the most important piece of metadata and a pivotal concept for SSSOM curation in general. Let us think about all the various ways that can lead us to believe a mapping to be correct.</p>
-<p>The most crude thing would be to document is: "a Human determined this mapping". We do that by documenting the mapping justification <code>sempav:HumanCuration</code>. This justification is a vague placeholder, but it instills some confidence in the mapping consumer (the user) that someone with at least some domain expertise determined the mapping to be ok. We will discuss <code>mapping_justification</code>s in more detailed in a later tutorial on automated matching, where we have many more fine-grained distinctions, like "the justification for asserting this mapping is that the label of the subject matches to an exact synonym of the object after applying 'stemming' during preprocessing". Nevertheless, modelling human curation better is one of the future goals of SSSOM. The key is to document "curation rules", which contain the conditions and assumptions made by the (human) mapping author when asserting the mapping. In the absence of a <a href="https://github.com/mapping-commons/sssom/issues/166">formal element</a> (at least at the time of this writing, May 2022), you should try and document such curation rules in the <code>comment</code> field.</p>
+<p>The most crude thing would be to document is: "a Human determined this mapping". We do that by documenting the mapping justification <code>semapv:HumanCuration</code>. This justification is a vague placeholder, but it instills some confidence in the mapping consumer (the user) that someone with at least some domain expertise determined the mapping to be ok. We will discuss <code>mapping_justification</code>s in more detailed in a later tutorial on automated matching, where we have many more fine-grained distinctions, like "the justification for asserting this mapping is that the label of the subject matches to an exact synonym of the object after applying 'stemming' during preprocessing". Nevertheless, modelling human curation better is one of the future goals of SSSOM. The key is to document "curation rules", which contain the conditions and assumptions made by the (human) mapping author when asserting the mapping. In the absence of a <a href="https://github.com/mapping-commons/sssom/issues/166">formal element</a> (at least at the time of this writing, May 2022), you should try and document such curation rules in the <code>comment</code> field.</p>
 <p><strong>Basic provenance metadata</strong>:</p>
 <p><code>mapping_date</code>: The date the mapping was asserted. </p>
 <p>Why is this important? Time of an assertion is essential provenance. It allows us to prefer assertions (mapping decisions) that were done later, but it also gives us a hint how old a mapping is, in particular if the source versions are not, or cannot, be documented. It is a very easy element to document, and we should try to do that at all times.</p>
@@ -1687,7 +1687,7 @@ SELECT * WHERE {
 <td>apple (whole)</td>
 <td>0.95</td>
 <td>We could map to FOODON:03310788 instead to cover sliced apples, but only "whole" apple types exist.</td>
-<td>sempav:HumanCuration</td>
+<td>semapv:HumanCuration</td>
 <td>2022-05-02</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td></td>
@@ -1701,7 +1701,7 @@ SELECT * WHERE {
 <td>Gala apple (whole)</td>
 <td>1</td>
 <td></td>
-<td>sempav:HumanCuration</td>
+<td>semapv:HumanCuration</td>
 <td>2022-05-02</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td></td>
@@ -1715,7 +1715,7 @@ SELECT * WHERE {
 <td>Pink apple (whole)</td>
 <td>0.9</td>
 <td>We could map to FOODON:00004187 instead which more specifically refers to "raw" Pink apples. Decided against to be consistent with other mapping choices.</td>
-<td>sempav:HumanCuration</td>
+<td>semapv:HumanCuration</td>
 <td>2022-05-02</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td></td>
@@ -1729,7 +1729,7 @@ SELECT * WHERE {
 <td></td>
 <td>1</td>
 <td></td>
-<td>sempav:HumanCuration</td>
+<td>semapv:HumanCuration</td>
 <td>2022-05-02</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td></td>
@@ -1743,7 +1743,7 @@ SELECT * WHERE {
 <td>apple (whole)</td>
 <td>1</td>
 <td></td>
-<td>sempav:HumanCuration</td>
+<td>semapv:HumanCuration</td>
 <td>2022-05-02</td>
 <td>orcid:0000-0002-7356-1779</td>
 <td></td>
@@ -1763,7 +1763,7 @@ curie_map:
   KF_FOOD: https://kewl-foodie.inc/food/
   wikidata: http://www.wikidata.org/entity/
   FOODON: http://purl.obolibrary.org/obo/FOODON_
-  sempav: https://w3id.org/semapv/vocab/
+  semapv: https://w3id.org/semapv/vocab/
   skos: &quot;http://www.w3.org/2004/02/skos/core#&quot;
   sssom: https://w3id.org/sssom/
 </code></pre>
