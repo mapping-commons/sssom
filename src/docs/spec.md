@@ -358,6 +358,8 @@ Note that the following prefixes are built-in and (1) MUST NOT be changed from t
 (The "canonical order" corresponds to the exact order of elements as seen in the specification.)
 This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. 
 
+**Canonical ordering of keys in the YAML metadata block**. For the same reason (avoiding spurious diffs), the keys in the YAML metadata block SHOULD be sorted in the same order as they are listed in the [MappingSet specification](https://mapping-commons.github.io/sssom/MappingSet/); keys in the `curie_map` dictionary SHOULD be sorted by alphabetical order. Those recommendations apply whether the metadata block is embedded in the TSV file or kept in a separate file.
+
 Note that only metadata elements permissible in a global context (G, or L/G) can be used in the metadata-file.
 
 We recommend to use the following *filename conventions* for SSSOM metadatafiles:
