@@ -1364,6 +1364,7 @@ Note that the following prefixes are built-in and (1) MUST NOT be changed from t
 <p><strong>Canonical ordering of columns</strong>. Apart from the elements themselves, some example usage and a description, <strong><em><a href="https://mapping-commons.github.io/sssom/Mapping/">the SSSOM spec</a> defines the canonical order for the metadata</em></strong> in which the elements SHOULD appear when serialised.
 (The "canonical order" corresponds to the exact order of elements as seen in the specification.)
 This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. </p>
+<p><strong>Canonical ordering of keys in the YAML metadata block</strong>. For the same reason (avoiding spurious diffs), the keys in the YAML metadata block SHOULD be sorted in the same order as they are listed in the <a href="https://mapping-commons.github.io/sssom/MappingSet/">MappingSet specification</a>; keys in the <code>curie_map</code> dictionary SHOULD be sorted by alphabetical order. Those recommendations apply whether the metadata block is embedded in the TSV file or kept in a separate file.</p>
 <p>Note that only metadata elements permissible in a global context (G, or L/G) can be used in the metadata-file.</p>
 <p>We recommend to use the following <em>filename conventions</em> for SSSOM metadatafiles:</p>
 <ul>
