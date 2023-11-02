@@ -1,5 +1,10 @@
 # Presentations
 
+## SSSOM Updates 2023 (FAIR Impact and FAIRCORE4EOSC Life Working Session)
+
+- 6th October 2023
+- [Slides](https://docs.google.com/presentation/d/1RY0IKn5TWVqXhcJ5vyabXEPhCPXNLsx9IWiWzQCzXZg/edit#slide=id.g286619c3cee_0_141)
+
 ## OHDSI 2023 Symposium: Synergizing Simple Standard for Sharing Ontology Mappings (SSSOM) and the Observational Health Data Sciences and Informatics (OHDSI)
 
 - 3rd July 2023, https://www.ohdsi-europe.org/index.php/symposium-2023
