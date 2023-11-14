@@ -72,4 +72,5 @@ jobs:
         mkdir docs
         touch docs/.nojekyll
         make gendoc
-        poetry run mkdocs gh-deploy
+        ([ ! -f docs/about.md ] && cp src/docs/about.md docs/) || true
+        make mkd-gh-deploy
