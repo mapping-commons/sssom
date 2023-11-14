@@ -14,6 +14,7 @@ SRC = src
 DEST = project
 PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
 DOCDIR = docs
+TEMPLATE_DIR = $(SRC)/doc-templates
 
 # basename of a YAML file in model/
 .PHONY: all clean
@@ -84,7 +85,7 @@ $(DOCDIR):
 
 gendoc: $(DOCDIR)
 	cp $(SRC)/docs/*md $(DOCDIR) ; \
-	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
+	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH) --template-directory $(TEMPLATE_DIR)
 
 testdoc: gendoc serve
 
