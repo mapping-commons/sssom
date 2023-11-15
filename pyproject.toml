@@ -10,12 +10,12 @@ authors = [
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.7.6"
+python = "^3.8"
 linkml-runtime = "*"
 mkdocs-mermaid2-plugin = "^0.6.0"
 
 [tool.poetry.dev-dependencies]
-linkml = "^1.2.17"
+linkml = "^1.6.2"
 mkdocs-material = "^8.2.8"
 
 [build-system]
