@@ -651,6 +651,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#basic-thoughts-about-architecture" class="md-nav__link">
+    Basic thoughts about architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#step-by-step-guide-for-implementation" class="md-nav__link">
     Step-by-step guide for implementation
   </a>
@@ -748,6 +755,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#basic-thoughts-about-architecture" class="md-nav__link">
+    Basic thoughts about architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#step-by-step-guide-for-implementation" class="md-nav__link">
     Step-by-step guide for implementation
   </a>
@@ -818,6 +832,43 @@
 <li>We start by focusing on the "easy" cases with clear mapping justifications (like the lexical ones used to construct the <em>candidate mapping set</em>), and incrementally work our way up towards harder ones.</li>
 <li>We have a default justification for "complex" cases which we have not covered yet. This is necessary not only because it may be hard to construct complex justifications from within a matching tool, but also because SSSOM simply does not have a way to express the justification yet (in this case, request clarification on the <a href="https://github.com/mapping-commons/sssom/issues">SSSOM issue tracker</a>).</li>
 </ol>
+<h2 id="basic-thoughts-about-architecture">Basic thoughts about architecture</h2>
+<p>The <a href="https://github.com/dwslab/melt">MELT framework</a> offers a well designed architecture for matchers. While the interested readers is referred to <a href="https://dwslab.github.io/melt/">the MELT documentation</a> for details, we want to use it here as an example on how a tool implementor, from a higher level perspective, could think about collecting SSSOM metadata as part of the matchig process.</p>
+<p>Conceptually, a matching process (from the perspective of the MELT developers) has four inputs:</p>
+<ol>
+<li>Source ontology: <code>O_s</code></li>
+<li>Target ontology: <code>O_t</code></li>
+<li>(potentially empty) input alignment: <code>Map_in</code></li>
+<li>Configuration (for the matching tool): <code>Cong</code></li>
+</ol>
+<p>and return one outut:</p>
+<ol>
+<li>Output alignment: <code>Map_out</code></li>
+</ol>
+<p>Note that any given implementation can take other inputs and produce other outputs, but for the sake of this guide
+we assume this basic architecture.</p>
+<p>Conceptually, four elements are important to matching process:</p>
+<ol>
+<li>The alignment</li>
+<li>The individual correspondence part of the alignment</li>
+<li>Evidence gathered for towards the truthfullness of the alignment</li>
+<li>A matcher that implements the "matching process" described above in terms of intput/output</li>
+</ol>
+<p>In the MELT reference implementation, for example, there is an <a href="https://github.com/dwslab/melt/blob/master/yet-another-alignment-api/src/main/java/de/uni_mannheim/informatik/dws/melt/yet_another_alignment_api/Alignment.java">Alignment</a> class. 
+During the matching process, the alignment is passed through a series of <a href="https://github.com/dwslab/melt/blob/master/matching-jena/src/main/java/de/uni_mannheim/informatik/dws/melt/matching_jena/MatcherYAAA.java#L16">matchers</a> to be augmented. For example, a <a href="https://github.com/dwslab/melt/blob/master/matching-jena-matchers/src/main/java/de/uni_mannheim/informatik/dws/melt/matching_jena_matchers/structurelevel/BoundedPathMatching.java#L41">bounded path matcher</a>.
+In essence, the matching process is a series of matchings strung together, passing where the alignment produced by the last process is passed through to the next, then augmented, then passed on (potentially for other processes such as filtering, which we consider matching processes as well).</p>
+<p>During an individual matching process like <a href="https://github.com/dwslab/melt/blob/master/matching-jena-matchers/src/main/java/de/uni_mannheim/informatik/dws/melt/matching_jena_matchers/structurelevel/BoundedPathMatching.java#L41">bounded path matcher</a>, correspondences are added and removed from the alignment.</p>
+<p>The key for a meaningful SSSOM integration is this: when a new correspondence (mapping) is added to the alignment (or "mapping set" in SSSOM speach) you <em>add a piece of evidence alongside the correspondence</em>. 
+This is usually done by extending the correspondence data model with a new field: justification, evidence, or similar.
+A piece of evidence includes three major things:</p>
+<ol>
+<li>A justification. Usually, any <code>matcher</code> type will correspond to exactly one <a href="https://www.ebi.ac.uk/ols4/ontologies/semapv/classes/https%253A%252F%252Fw3id.org%252Fsemapv%252Fvocab%252FMatching?lang=en">justification in the SEMAPV vocabulary</a>.</li>
+<li>A confidence level. This reflects how much confidence the process has induced in the mapping all by itself.</li>
+<li>Any other metadata important for that specific justifications, such as <code>subject_match_field</code> for a lexical matching process.</li>
+</ol>
+<p>Your matching process should collect this metadata, and, by the end of the process, the whole alignment,
+including correspondences and justifications for each correspondence should be exported.</p>
+<p><em>Important note</em>: In the final TSV file, every <em>justification</em> will have its own row! So a correspondence (mapping) will appear on multiple rows!</p>
 <h2 id="step-by-step-guide-for-implementation">Step-by-step guide for implementation</h2>
 <p>This step by step guide is roughly according to our own thinking of what should be done first, second, and so on.</p>
 <ol>
