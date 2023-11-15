@@ -42,6 +42,50 @@ This insight guides our implementation in two ways:
 1. We start by focusing on the "easy" cases with clear mapping justifications (like the lexical ones used to construct the _candidate mapping set_), and incrementally work our way up towards harder ones.
 1. We have a default justification for "complex" cases which we have not covered yet. This is necessary not only because it may be hard to construct complex justifications from within a matching tool, but also because SSSOM simply does not have a way to express the justification yet (in this case, request clarification on the [SSSOM issue tracker](https://github.com/mapping-commons/sssom/issues)).
 
+## Basic thoughts about architecture
+
+The [MELT framework](https://github.com/dwslab/melt) offers a well designed architecture for matchers. While the interested readers is referred to [the MELT documentation](https://dwslab.github.io/melt/) for details, we want to use it here as an example on how a tool implementor, from a higher level perspective, could think about collecting SSSOM metadata as part of the matchig process.
+
+Conceptually, a matching process (from the perspective of the MELT developers) has four inputs:
+
+1. Source ontology: `O_s`
+2. Target ontology: `O_t`
+3. (potentially empty) input alignment: `Map_in`
+4. Configuration (for the matching tool): `Cong`
+
+and return one outut:
+
+1. Output alignment: `Map_out`
+
+Note that any given implementation can take other inputs and produce other outputs, but for the sake of this guide
+we assume this basic architecture.
+
+Conceptually, four elements are important to matching process:
+
+1. The alignment
+1. The individual correspondence part of the alignment
+1. Evidence gathered for towards the truthfullness of the alignment
+1. A matcher that implements the "matching process" described above in terms of intput/output
+
+In the MELT reference implementation, for example, there is an [Alignment](https://github.com/dwslab/melt/blob/master/yet-another-alignment-api/src/main/java/de/uni_mannheim/informatik/dws/melt/yet_another_alignment_api/Alignment.java) class. 
+During the matching process, the alignment is passed through a series of [matchers](https://github.com/dwslab/melt/blob/master/matching-jena/src/main/java/de/uni_mannheim/informatik/dws/melt/matching_jena/MatcherYAAA.java#L16) to be augmented. For example, a [bounded path matcher](https://github.com/dwslab/melt/blob/master/matching-jena-matchers/src/main/java/de/uni_mannheim/informatik/dws/melt/matching_jena_matchers/structurelevel/BoundedPathMatching.java#L41).
+In essence, the matching process is a series of matchings strung together, passing where the alignment produced by the last process is passed through to the next, then augmented, then passed on (potentially for other processes such as filtering, which we consider matching processes as well).
+
+During an individual matching process like [bounded path matcher](https://github.com/dwslab/melt/blob/master/matching-jena-matchers/src/main/java/de/uni_mannheim/informatik/dws/melt/matching_jena_matchers/structurelevel/BoundedPathMatching.java#L41), correspondences are added and removed from the alignment.
+
+The key for a meaningful SSSOM integration is this: when a new correspondence (mapping) is added to the alignment (or "mapping set" in SSSOM speach) you _add a piece of evidence alongside the correspondence_. 
+This is usually done by extending the correspondence data model with a new field: justification, evidence, or similar.
+A piece of evidence includes three major things:
+
+1. A justification. Usually, any `matcher` type will correspond to exactly one [justification in the SEMAPV vocabulary](https://www.ebi.ac.uk/ols4/ontologies/semapv/classes/https%253A%252F%252Fw3id.org%252Fsemapv%252Fvocab%252FMatching?lang=en).
+2. A confidence level. This reflects how much confidence the process has induced in the mapping all by itself.
+3. Any other metadata important for that specific justifications, such as `subject_match_field` for a lexical matching process.
+
+Your matching process should collect this metadata, and, by the end of the process, the whole alignment,
+including correspondences and justifications for each correspondence should be exported.
+
+_Important note_: In the final TSV file, every _justification_ will have its own row! So a correspondence (mapping) will appear on multiple rows!
+
 ## Step-by-step guide for implementation
 
 This step by step guide is roughly according to our own thinking of what should be done first, second, and so on.
