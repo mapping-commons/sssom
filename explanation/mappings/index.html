@@ -1,0 +1,931 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/explanation/mappings/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>What is a mapping? - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-a-mapping" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-header__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A Simple Standard for Sharing Ontology Mappings (SSSOM)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              What is a mapping?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-nav__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    A Simple Standard for Sharing Ontology Mappings (SSSOM)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../home/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        About SSSOM
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Specification
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spec/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../credits/" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        Contact us
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Resources for contributors
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources for contributors" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Resources for contributors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        How to contribute?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_of_conduct/" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Resources for users
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources for users" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Resources for users
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          Use cases
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Use cases" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          Use cases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usecases/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/omop-mappings/" class="md-nav__link">
+        How to gradually enrich OMOP mappings with SSSOM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workshops/" class="md-nav__link">
+        Workshops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../presentations/" class="md-nav__link">
+        Presentations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        Basic Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mapping-justifications/" class="md-nav__link">
+        Mapping Justifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mapping-predicates/" class="md-nav__link">
+        How to use mapping predicates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mapping-commons/" class="md-nav__link">
+        Set up a mapping registry/commons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chaining_rules/" class="md-nav__link">
+        Overview of Chaining Rules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../toolkit/" class="md-nav__link">
+        A basic guide for the SSSOM toolkit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5star-mappings/" class="md-nav__link">
+        5-Star Entity Mappings - Cheatsheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        Update schema/context and release
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../matching-tool-implementation-guide/" class="md-nav__link">
+        Matching tool implementation guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sssom-profiles/" class="md-nav__link">
+        SSSOM profiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#an-attempt-at-a-practical-categorisation" class="md-nav__link">
+    An attempt at a practical categorisation
+  </a>
+  
+    <nav class="md-nav" aria-label="An attempt at a practical categorisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-features-of-mappings" class="md-nav__link">
+    Important features of mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-string-mappings" class="md-nav__link">
+    String-string mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-term-mappings-synonyms" class="md-nav__link">
+    String-term mappings / synonyms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#term-term-mappings-ontology-mappings" class="md-nav__link">
+    Term-term mappings / ontology mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    Further reading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-examples-of-domain-specific-mapping-of-importance-to-the-biomedical-domain" class="md-nav__link">
+    Some examples of domain-specific mapping of importance to the biomedical domain
+  </a>
+  
+    <nav class="md-nav" aria-label="Some examples of domain-specific mapping of importance to the biomedical domain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phenotype-ontology-mappings" class="md-nav__link">
+    Phenotype ontology mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disease-ontology-mappings" class="md-nav__link">
+    Disease ontology mappings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-should-you-map-your-data-to-ontologies" class="md-nav__link">
+    How should you map your data to ontologies?
+  </a>
+  
+    <nav class="md-nav" aria-label="How should you map your data to ontologies?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-1-mapping-internal-controlled-vocabularies" class="md-nav__link">
+    Case 1: Mapping internal controlled vocabularies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-2-mappings-from-free-text" class="md-nav__link">
+    Case 2: Mappings from free text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-3-mappings-between-public-controlled-vocabularies-and-ontologies" class="md-nav__link">
+    Case 3: Mappings between public controlled vocabularies and ontologies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-solve-the-problem-of-mapping-hairballs" class="md-nav__link">
+    How to solve the problem of mapping hairballs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/explanation/mappings.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="what-is-a-mapping">What is a mapping?</h1>
+<p>The word "mapping" is pretty
+overloaded in practice: for some people, it simply means "a correspondence of one term 
+to another equivalent or near equivalent term." 
+But even here, there is little understanding to what a "term" is in this sentence, 
+or what "almost equivalent" means - and, there are many different kinds of mappings used in practice that are not "equivalent" at all. In its very essence, an individual mapping maps one information entity, i.e. a <em>representation of a real world entity</em>, to another information entity - how, and what these strings could be, will be the subject of the following section.</p>
+<p>In the following, we consider an <strong>information entity</strong> a <em>sequence of characters which has a well defined relationship to some thing in the real world</em>, for example:
+- an ontology id like HP:0004934 corresponds to the concept of "Vascular calcification" in the real world. Note that HP:0004934 is annotated with the <code>rdfs:label</code> "Vascular calcification". 
+The label itself is not necessarily a term - it could change, for example to "Abnormal calcification of the vasculature", and still retain the same meaning.
+- "Vascular calcification" may be a term in my controlled vocabulary which I understand to correspond to that respective disease (not all controlled vocabularies have IDs for their terms). 
+This happens for example in clinical data models that do not use formal identifiers to refer to the values of slots in their data model, like "MARRIED" in /datamodel/marital_status.
+- Examples of terms: 
+  - IDs of classes in an ontology
+  - elements of a clinical value set
+  - codes of clinical terminologies such as <a href="https://www.icd10data.com/ICD10CM/Codes/Z00-Z99/Z55-Z65/Z63-/Z63.1">Z63.1</a>
+- TLDR: terms correspond to things in the world and that correspondence is not subject to change. 
+Labels can change without changing the meaning of a term.</p>
+<h2 id="an-attempt-at-a-practical-categorisation">An attempt at a practical categorisation</h2>
+<p>In our experience, there are roughly four kinds of mappings:</p>
+<ul>
+<li><em>string-string</em>: Relating one string, or label, to another string, or label. Understanding such mappings is fundamental to understanding all the other kinds of mappings.</li>
+<li><em>string-term</em>: Relating a specific string or "label" to their corresponding term in a terminology or ontology. We usually refer to these as synonyms, but there may be other words used in this case.</li>
+<li><em>term-term</em>: Relating a term, for example a class in an ontology, to another term. This is what most people in the ontology domain would understand when thy hear "ontology mappings".</li>
+<li><em>complex mappings</em>: Relating two sets of terms. These are the rarest and most complicated kinds of mappings, as they related for example two phenotypic profiles (sets of phenotypes) with each other. We will discuss some more examples in a future lesson.</li>
+</ul>
+<p>In some ways, these four kinds of mappings can be very different. We do believe, however, that there are enough important commonalities such as common features, widely overlapping use cases and overlapping toolkits to consider them together. In the following, we will discuss these in more detail, including important features of mappings and useful tools.</p>
+<h3 id="important-features-of-mappings">Important features of mappings</h3>
+<p>Mappings have historically been neglected as second-class citizens in the medical terminology and ontology worlds -
+the metadata is insufficient to allow for precise analyses and clinical decision support, they are frequently stale and out of date, etc. The question "Where can I find the canonical mappings between X and Y"? is often shrugged off and developers are pointed to aggregators such as <a href="https://www.ebi.ac.uk/spot/oxo/">OxO</a> or <a href="https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/mapping_projects/index.html">UMLS</a> which combine manually curated mappings with automated ones causing <a href="#How-to-solve-the-problem-of-mapping-hairballs">"mapping hairballs"</a>.</p>
+<p>There are many important metadata elements to consider, but the ones that are by far the most important to consider one way or another are:</p>
+<ul>
+<li><em>Precision</em>: Is the mapping exact, broad or merely closely related?</li>
+<li><em>Confidence</em>: Do I trust the mapping? Was is done manually by an expert in my domain, or by an algorithm?</li>
+<li><em>Source version</em>: Which version of the term (or its corresponding ontology) was mapped? Is there a newer mapping which has a more suitable match for my term?</li>
+</ul>
+<p>Whenever you handle mappings (either create, or re-use), make sure you are keenly aware of at least these three metrics, and capture them. You may even want to consider using a proper mapping model like the <a href="https://github.com/mapping-commons/SSSOM/blob/master/SSSOM.md">Simple Shared Standard for Ontology Mappings (SSSOM)</a> which will make your mappings FAIR and reusable.</p>
+<h3 id="string-string-mappings">String-string mappings</h3>
+<p>String-string mappings are mappings that relate two strings. The task of matching two strings is ubiquitous for example in database search fields (where a user search string needs to be mapped to some strings in a database). Most, if not all effective ontology matching techniques will employ some form of string-string matching. For example, to match simple variations of labels such as "abnormal heart" and "heart abnormality", various techniques such as <a href="https://en.wikipedia.org/wiki/Stemming">Stemming</a> and <a href="https://en.wikipedia.org/wiki/Bag-of-words_model#:~:text=The%20bag%2Dof%2Dwords%20model,word%20order%20but%20keeping%20multiplicity.">bag of words</a> can be employed effectively. Other techniques such as edit-distance or Levenshtein can be used to quantify the similarity of two strings, which can provide useful insights into mapping candidates.</p>
+<h3 id="string-term-mappings-synonyms">String-term mappings / synonyms</h3>
+<p>String-term mappings relate a specific string or "label" to their corresponding term in a terminology or ontology. Here, we refer to these as "synonyms", but there may be other cases for string-term mappings beyond synonymy.</p>
+<p>There are a lot of use cases for synonyms so we will name just a few here that are relevant to typical workflows of Semantic Engineers in the life sciences. </p>
+<p><a href="https://en.wikipedia.org/wiki/Thesaurus">Thesauri</a> are reference tools for finding synonyms of terms. Modern ontologies often include very rich thesauri, with some ontologies like Mondo capturing more than 70,000 exact and 35,000 related synonyms. They can provide a huge boost to traditional NLP pipelines by providing synonyms that can be used for both Named Entity Recognition and Entity Resolution. Some insight on how, for example, Uberon was used to boost text mining can be found <a href="https://github.com/obophenotype/uberon/wiki/Using-uberon-for-text-mining">here</a>.</p>
+<h3 id="term-term-mappings-ontology-mappings">Term-term mappings / ontology mappings</h3>
+<p>Term-term mappings relate a term, for example a class in an ontology, to another term, usually from another ontology or database. The term-term case of mappings is what most people in the ontology domain would understand when they hear "ontology mappings". This is also what most people understand when they here "Entity Resolution" in the database world - the task of determining whether, in essence, two rows in a database correspond to the same thing (as an example of a tool doing ER see <a href="https://github.com/anhaidgroup/deepmatcher">deepmatcher</a>, or <a href="https://pypi.org/project/py-entitymatching/">py-entitymatcher</a>). For a list standard entity matching toolkit outside the ontology sphere see <a href="https://www.biggorilla.org/software_cat/entity-matching/index.html">here</a>. </p>
+<h3 id="further-reading">Further reading</h3>
+<ul>
+<li>A great overview can be found in <a href="https://jbiomedsem.biomedcentral.com/articles/10.1186/s13326-017-0170-9">"Tackling the challenges of matching biomedical ontologies" (Faria et al 2018)</a></li>
+<li>A yearly competition of ontology matching systems is held by the <a href="https://oaei.ontologymatching.org/">Ontology Alignment Evaluation Initiative (OAEI)</a>. The challenge <a href="http://oaei.ontologymatching.org/2020/results/">results</a> are a useful guide to identifying systems for matching you may want to try.</li>
+</ul>
+<h2 id="some-examples-of-domain-specific-mapping-of-importance-to-the-biomedical-domain">Some examples of domain-specific mapping of importance to the biomedical domain</h2>
+<h3 id="phenotype-ontology-mappings">Phenotype ontology mappings</h3>
+<p>Mapping phenotypes across species holds great promise for leveraging the knowledge generated by Model Organism Database communities (MODs) for understanding human disease. There is a lot of work happening at the moment (2021) to provide standard mappings between species specific phenotype ontologies to drive translational research (<a href="https://github.com/mapping-commons/mh_mapping_initiative/tree/master/mappings">example</a>). Tools such as <a href="https://github.com/exomiser/Exomiser">Exomiser</a> leverage such mappings to perform clinical diagnostic tasks such as variant prioritisation. Another app you can try out that leverages cross-species mappings is the Monarch Initiatives <a href="https://monarchinitiative.org/analyze/phenotypes">Phenotype Profile Search</a>.</p>
+<h3 id="disease-ontology-mappings">Disease ontology mappings</h3>
+<p>Medical terminology and ontology mapping is a huge deal in medical informatics (<a href="https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/mapping_projects/index.html">example</a>). <a href="https://github.com/monarch-initiative/mondo">Mondo</a> is a particularly rich source of well provenanced disease ontology mappings.</p>
+<h2 id="how-should-you-map-your-data-to-ontologies">How should you map your data to ontologies?</h2>
+<p>There are no one size fits all strategies for mapping your data to ontologies. There
+are many research areas that have something to give in this process. Here, we outline some ideas 
+on how to think about the problem.</p>
+<h3 id="case-1-mapping-internal-controlled-vocabularies">Case 1: Mapping internal controlled vocabularies</h3>
+<h3 id="case-2-mappings-from-free-text">Case 2: Mappings from free text</h3>
+<p>Examples: 
+- <a href="https://monarchinitiative.org/tools/text-annotate">Monarch Text Annotator</a></p>
+<h3 id="case-3-mappings-between-public-controlled-vocabularies-and-ontologies">Case 3: Mappings between public controlled vocabularies and ontologies</h3>
+<h2 id="how-to-solve-the-problem-of-mapping-hairballs">How to solve the problem of mapping hairballs</h2>
+<p>String-term mappings</p>
+<p>Overview of automated approaches
+  - Simple matches (string, string pre-pro, fuzzy string)
+  - Graph-based matches (incl. semantic similarity)
+  - NLP/Machine Learning</p>
+<p>Practical:
+  - Try to get the same mappings as before using techniques
+  - Exact
+  - Simple preprocessing
+  - Levenshtein
+  - Jaccard similarity
+  - Embedding similarity (?)  </p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
