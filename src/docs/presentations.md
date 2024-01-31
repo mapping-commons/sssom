@@ -6,10 +6,16 @@
 - Lightning talk on the deeper integration of the Bioregistry and `curies` toolkit with the SSSOM Python package
 - [Workshop info](https://biopragmatics.github.io/workshops/WPCI2023)
 
+## OM2023: A Simple Standard for Sharing Ontological Mappings 2023: Updates on data model, collaborations and tooling
+
+- 7th November 2023
+- [http://om2023.ontologymatching.org/](http://om2023.ontologymatching.org/)
+- [Slides](https://docs.google.com/presentation/d/1d2t-VcseZ_oAgVTbrDHJOmwQTqyXB9ZHDrZ08OU87a0/edit)
+
 ## SSSOM Updates 2023 (FAIR Impact and FAIRCORE4EOSC Life Working Session)
 
 - 6th October 2023
-- [Slides](https://docs.google.com/presentation/d/1RY0IKn5TWVqXhcJ5vyabXEPhCPXNLsx9IWiWzQCzXZg/edit#slide=id.g286619c3cee_0_141)
+- [Slides](https://docs.google.com/presentation/d/1RY0IKn5TWVqXhcJ5vyabXEPhCPXNLsx9IWiWzQCzXZg/edit)
 
 ## OHDSI 2023 Symposium: Synergizing Simple Standard for Sharing Ontology Mappings (SSSOM) and the Observational Health Data Sciences and Informatics (OHDSI)
 
