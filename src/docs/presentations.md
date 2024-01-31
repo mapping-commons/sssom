@@ -3,7 +3,7 @@
 ## OM2023: A Simple Standard for Sharing Ontological Mappings 2023: Updates on data model, collaborations and tooling
 
 - 7th November 2023
-- http://om2023.ontologymatching.org/
+- [http://om2023.ontologymatching.org/](http://om2023.ontologymatching.org/)
 - [Slides](https://docs.google.com/presentation/d/1d2t-VcseZ_oAgVTbrDHJOmwQTqyXB9ZHDrZ08OU87a0/edit)
 
 ## SSSOM Updates 2023 (FAIR Impact and FAIRCORE4EOSC Life Working Session)
