@@ -60,6 +60,21 @@ enums:
       "1:0": One-to-none mapping
       "0:1": None-to-one mapping
       "n:n": Many-to-many mapping
+  status_enum:
+    permissible_values:
+      draft:
+        description: "Indicates the mapping is in an early, unrefined form. This status is typically used for works in progress that are not yet ready for formal review or publication."
+      submitted:
+        description: "Represents the stage where the mapping has been submitted for review but has not yet been evaluated. This status is used after initial development and indicates readiness for external assessment."
+      reviewed:
+        description: "Denotes that the mapping has been reviewed by peers or evaluators, but it has not yet been formally accepted. This stage involves critical evaluation and may require revisions based on feedback."
+      accepted:
+        description: "Used when the mapping has been formally accepted for publication. This status indicates that it has passed the review phase and is awaiting publication."
+      published:
+        description: "Indicates that the mapping is officially published and publicly available. This is the final status and signifies that the work has completed all prior stages successfully."
+      withdrawn:
+        description: "Used if the mapping has been retracted or removed from consideration or publication. This can occur for various reasons, such as discovery of errors, author's decision, or other critical issues."
+
 
 types:
  EntityReference:
@@ -569,6 +584,18 @@ slots:
       by tool providing additional informative information.
     slot_uri: rdfs:comment
     range: string
+  mapping_status:
+    description: Specifies the current stage in the lifecycle of an ontology mapping. 
+      It represents various phases ranging from initial draft creation to final publication or withdrawal. 
+      It helps in tracking the progress and state of the mapping, providing clear indicators of its readiness, review status, and overall development phase.
+    range: status_enum
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/345
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_status.sssom.tsv
+    examples:
+      - value: draft
+        description: Draft status indicates that the mapping has been suggested, but not been reviewed or accepted by the mapping provider.
+
 classes:
   mapping set:
     description: Represents a set of mappings
@@ -635,6 +662,7 @@ classes:
     - mapping_cardinality
     - mapping_tool
     - mapping_tool_version
+    - mapping_status
     - mapping_date
     - publication_date
     - confidence
