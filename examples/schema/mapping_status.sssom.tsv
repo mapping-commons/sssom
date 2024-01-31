@@ -1,0 +1,20 @@
+#curie_map:
+#  owl: http://www.w3.org/2002/07/owl#
+#  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+#  rdfs: http://www.w3.org/2000/01/rdf-schema#
+#  semapv: https://w3id.org/semapv/vocab/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#  sssom: https://w3id.org/sssom/
+#  orcid: https://orcid.org/
+#  get: https://global-ecosystems.org/explore/
+#  alum8: http://www.neii.gov.au/def/voc/ACLUMP/australian-land-use-and-management-classification/
+#mapping_set_id: https://w3id.org/sssom/commons/examples/mapping_status.sssom.tsv
+#license: "https://creativecommons.org/publicdomain/zero/1.0/"
+#creator_id: orcid:0000-0002-3884-3420
+#mapping_provider: "https://w3id.org/sssom/core_team"
+#comment: This is an example file for the SSSOM for illustration only. Its contents are entirely fabricated.
+subject_id	predicate_id	object_id	mapping_justification	author_id	mapping_date	status	comment
+alum8:Marsh-or-wetlandsaline	skos:exactMatch	get:groups/MFT1.3	semapv:ManualMappingCuration	orcid:0009-0001-6090-9959	2023-12-01	draft	
+alum8:Marsh-or-wetlandsaline	skos:exactMatch	get:groups/MFT1.3	semapv:ManualMappingCuration	orcid:0000-0002-2934-5497	2024-01-03	reviewed	Looks Ok but let's check with Piers
+alum8:Marsh-or-wetlandsaline	skos:exactMatch	get:groups/MFT1.3	semapv:ManualMappingCuration	orcid:0000-0002-2568-59457	2024-01-10	approved	Mapping has been approved by Pier and team.
+alum8:Marsh-or-wetlandsaline	skos:exactMatch	get:groups/MFT1.3	semapv:ManualMappingCuration	orcid:0000-0002-2934-5497	2024-01-13	published	
