@@ -14,6 +14,7 @@ SRC = src
 DEST = project
 PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
 DOCDIR = docs
+TEMPLATE_DIR = $(SRC)/doc-templates
 
 # basename of a YAML file in model/
 .PHONY: all clean
@@ -46,10 +47,14 @@ deploy: all mkd-gh-deploy
 
 # generates all project files
 gen-project: $(PYMODEL)
-	$(RUN) gen-project -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
+	$(RUN) gen-project \
+		--exclude owl \
+		-d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
 
 test:
-	$(RUN) gen-project -d tmp $(SOURCE_SCHEMA_PATH) 
+	$(RUN) gen-project \
+		--exclude owl \
+		-d tmp $(SOURCE_SCHEMA_PATH) 
 
 check-config:
 	@(grep my-datamodel about.yaml > /dev/null && printf "\n**Project not configured**:\n\n  - Remember to edit 'about.yaml'\n\n" || exit 0)
@@ -83,8 +88,8 @@ $(DOCDIR):
 	mkdir -p $@
 
 gendoc: $(DOCDIR)
-	cp $(SRC)/docs/*md $(DOCDIR) ; \
-	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
+	cp -rf $(SRC)/docs/* $(DOCDIR) ; \
+	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH) --template-directory $(TEMPLATE_DIR)
 
 testdoc: gendoc serve
 

@@ -71,6 +71,6 @@ jobs:
       run: |
         mkdir docs
         touch docs/.nojekyll
-        cp -r src/docs/* docs/
-        poetry run gen-doc -d docs src/sssom_schema/schema/sssom_schema.yaml
-        poetry run mkdocs gh-deploy
+        make gendoc
+        ([ ! -f docs/about.md ] && cp src/docs/about.md docs/) || true
+        make mkd-gh-deploy
