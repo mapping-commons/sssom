@@ -162,7 +162,7 @@ Some SSSOM metadata elements apply only to one element or the other, but many ca
 
 Note that some SSSOM metadata elements have known equivalent properties which will be used in the RDF serialisation, for example `see_also` is mapped to `rdfs:seeAlso`.
 
-All metadata elements and their mappings are declared and managed in the [SSSOM schema](https://github.com/mapping-commons/sssom/blob/master/model/schema/sssom.yaml).
+All metadata elements and their mappings are declared and managed in the [SSSOM schema](https://github.com/mapping-commons/sssom/blob/master/src/sssom_schema/schema/sssom_schema.yaml).
 
 ### Metadata Elements
 
