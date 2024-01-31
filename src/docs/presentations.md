@@ -1,5 +1,11 @@
 # Presentations
 
+## Workshop on Prefixes, CURIEs, and IRIs 2023
+
+- November 27<sup>th</sup>, 2023, virtual
+- Lightning talk on the deeper integration of the Bioregistry and `curies` toolkit with the SSSOM Python package
+- [Workshop info](https://biopragmatics.github.io/workshops/WPCI2023)
+
 ## SSSOM Updates 2023 (FAIR Impact and FAIRCORE4EOSC Life Working Session)
 
 - 6th October 2023
@@ -50,9 +56,10 @@
 - [Seminar info](events/oboacademy2022.md)
 - [Slides](https://mapping-commons.github.io/sssom/tutorial/)
 
-## Workshop on Prefixes, CURIEs, and IRIs
+## Workshop on Prefixes, CURIEs, and IRIs 2021
 
 - Fall 2021, Use Case Talk on the need for prefix maps for SSSOM
+- [Video](https://youtu.be/iOXZfLAF_X0?t=1100)
 - [Workshop info](https://biopragmatics.github.io/workshops/WPCI2021)
 
 ## Pistoia Seminar 2022: A Simple Standard for Sharing Ontological Mappings (SSSOM)
