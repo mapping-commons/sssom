@@ -69,6 +69,16 @@ types:
     uri: rdfs:Resource
 
 slots:
+  prefix_name:
+    key: true
+    range: ncname
+  prefix_url:
+    range: uri
+  curie_map:
+    description: A dictionary that contains prefixes as keys and their URI expansions as values.
+    range: prefix
+    multivalued: true
+    inlined: true
   mirror_from:
     description: A URL location from which to obtain a resource, such as a mapping set.
     range: uri
@@ -576,6 +586,7 @@ classes:
       license:
         required: true
     slots:
+    - curie_map
     - mappings
     - mapping_set_id
     - mapping_set_version
@@ -719,3 +730,7 @@ classes:
       - mapping_set_group
       - last_updated
       - local_name
+  prefix:
+    slots:
+      - prefix_name
+      - prefix_url
