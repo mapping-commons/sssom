@@ -128,7 +128,7 @@ slots:
     required: true
     mappings:
     - owl:annotatedSource
-    slot_uri: owl:annotatedSource
+    slot_uri: owl:annotatedTarget
     examples:
       - value: "Alzheimer"
         description: A string referring to some thing.
