@@ -695,7 +695,6 @@ classes:
     - see_also
     - other
     - comment
-    class_uri: owl:Axiom
   mapping registry:
     description: A registry for managing mapping sets. It holds a set of 
       mapping set references, and can import other registries.
