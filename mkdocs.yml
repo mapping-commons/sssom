@@ -25,9 +25,9 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 nav:
-  - Home: home.md
+  - Home: index.md
   - About SSSOM: about.md
-  - Specification: index.md
+  - Specification: linkml-index.md
   - Overview: spec.md
   - FAQ: faq.md
   - Credits: credits.md
