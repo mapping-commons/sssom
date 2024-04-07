@@ -26,7 +26,6 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 nav:
   - Home: index.md
-  - About SSSOM: about.md
   - Specification: linkml-index.md
   - Overview: spec.md
   - FAQ: faq.md
