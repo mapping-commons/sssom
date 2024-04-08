@@ -64,7 +64,10 @@ enums:
 types:
  EntityReference:
     typeof: uriorcurie
-    description: A reference to a mapped entity. This is represented internally as a string, and as a resource in RDF
+    description: |
+      A reference to an entity involved in the mapping.
+      In the JSON and TSV serialisation, an entity reference MUST be a CURIE.
+      In the RDF-based serialisations, an entity reference MUST be an IRI/URI.
     base: str
     uri: rdfs:Resource
 
