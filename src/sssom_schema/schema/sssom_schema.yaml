@@ -66,10 +66,10 @@ types:
     typeof: uriorcurie
     description: |
       A reference to an entity involved in the mapping.
-      In the JSON and TSV serialisation, an entity reference MUST be a CURIE.
-      In the RDF-based serialisations, an entity reference MUST be an IRI/URI.
     base: str
     uri: rdfs:Resource
+    see_also:
+      - https://mapping-commons.github.io/sssom/spec/#tsv
 
 slots:
   mirror_from:
