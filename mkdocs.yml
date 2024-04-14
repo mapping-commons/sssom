@@ -29,8 +29,6 @@ nav:
   - Specification: linkml-index.md
   - Overview: spec.md
   - FAQ: faq.md
-  - Credits: credits.md
-  - Contact us: contact.md
   - Resources for contributors:
     - How to contribute?: contributing.md
     - Code of Conduct: code_of_conduct.md
