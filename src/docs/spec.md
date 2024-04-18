@@ -362,6 +362,8 @@ This precludes spurious diffs in a git setting, which is an important concern fo
 
 Note that only metadata elements permissible in a global context (G, or L/G) can be used in the metadata-file.
 
+**Entity references**: All identifiers in a SSSOM/TSV file (both in the metadata section and in the TSV columns) MUST be in CURIE form. The use of full-length identifiers is officially not supported.
+
 We recommend to use the following *filename conventions* for SSSOM metadatafiles:
 
 - TSV files should have the extension `.sssom.tsv`, for example: `mp-hp-exact-0.0.1.sssom.tsv`.
