@@ -389,10 +389,10 @@ In external mode, the mapping set metadata MUST be supplied in a separate YAML f
 Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv)):
 
 ```
-subject_id  subject_label   predicate_id	object_id	object label    mapping_justification
-HP:0009124  Abnormal adipose tissue morphology	skos:exactMatch	MP:0000003  abnormal adipose tissue morphology	semapv:LexicalMatching
-HP:0008551  Microtia	skos:exactMatch	MP:0000018  small ears	semapv:LexicalMatching
-HP:0000411  Protruding ears skos:exactMatch	MP:0000021  prominent ears	semapv:LexicalMatching
+subject_id	subject_label	predicate_id	object_id	object label	mapping_justification
+HP:0009124	Abnormal adipose tissue morphology	skos:exactMatch	MP:0000003	abnormal adipose tissue morphology	semapv:LexicalMatching
+HP:0008551	Microtia	skos:exactMatch	MP:0000018	small ears	semapv:LexicalMatching
+HP:0000411	Protruding ears	skos:exactMatch	MP:0000021	prominent ears	semapv:LexicalMatching
 ```
 
 #### Embedded mode (default)
@@ -455,10 +455,10 @@ Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/mast
 #  - "orcid:0000-0002-7356-1779"
 #license: "https://creativecommons.org/publicdomain/zero/1.0/"
 #mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
-subject_id  subject_label	predicate_id	object_id   object_label	mapping_justification
-HP:0009124  Abnormal adipose tissue morphology	skos:exactMatch	MP:0000003  abnormal adipose tissue morphology	semapv:LexicalMatching
-HP:0008551  Microtia	skos:exactMatch	MP:0000018  small ears	semapv:LexicalMatching
-HP:0000411  Protruding ears skos:exactMatch	MP:0000021  prominent ears	semapv:LexicalMatching
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification
+HP:0009124	Abnormal adipose tissue morphology	skos:exactMatch	MP:0000003	abnormal adipose tissue morphology	semapv:LexicalMatching
+HP:0008551	Microtia	skos:exactMatch	MP:0000018	small ears	semapv:LexicalMatching
+HP:0000411	Protruding ears	skos:exactMatch	MP:0000021	prominent ears	semapv:LexicalMatching
 ```
 
 *Notes:*
