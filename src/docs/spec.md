@@ -375,7 +375,6 @@ Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/mast
 curie_map: 
   HP: "http://purl.obolibrary.org/obo/HP_"
   MP: "http://purl.obolibrary.org/obo/MP_"
-  skos: "http://www.w3.org/2004/02/skos/core#"
   orcid: "https://orcid.org/"
 creator_id:
   - "orcid:0000-0002-7356-1779"
@@ -451,7 +450,6 @@ Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/mast
 #curie_map: 
 #  HP: "http://purl.obolibrary.org/obo/HP_"
 #  MP: "http://purl.obolibrary.org/obo/MP_"
-#  skos: "http://www.w3.org/2004/02/skos/core#"
 #  orcid: "https://orcid.org/"
 #creator_id:
 #  - "orcid:0000-0002-7356-1779"
