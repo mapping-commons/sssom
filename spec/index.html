@@ -1483,6 +1483,7 @@ Mapping rules define the conditions under which we determine a match between two
 <p>All SSSOM metadata elements labelled with L in the metadata table are permissible as column names in the TSV. List elements (such as creator) are "|"-separated. The columns SHOULD be sorted according to the order as they appear in the <a href="https://mapping-commons.github.io/sssom/Mapping/">SSSOM metadata</a>. For example, the first columns of a mapping set TSV should always be, in that order: subject_id, predicate_id, object_id, mapping_justification, if labels are not included; if they are included, the order should be: subject_id, subject_label, predicate_id, predicate_label, object_id, object_label, mapping_justification. For easier review of diffs, for example git diff or unix diff, we recommend to serialise the TSV by a fixed row order, sorted column by column from left to right.</p>
 <p>Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. The YAML metadata block MUST contain a curie map that allows the unambiguous interpretation of CURIES. A curie map is supplied after a <code>curie_map:</code> parameter in the yaml file. The value is a dictionary of CURIE-&gt;URLPREFIX pairs.
 Note that the following prefixes are built-in and (1) MUST NOT be changed from their <a href="https://github.com/mapping-commons/sssom/blob/master/project/jsonld/sssom_schema.context.jsonld">SSSOM default interpretation</a> and (2) MAY be omitted from the curie map: "<code>sssom</code>", "<code>owl</code>", "<code>rdf</code>", "<code>rdfs</code>", "<code>skos</code>", "<code>semapv</code>".</p>
+<p>Note that <em>all</em> identifiers in a SSSOM/TSV file (all metadata elements with a range of <code>EntityReference</code>), whether they are part of a mapping record or of the set's metadata, MUST be in CURIE form <em>only</em>. The use of full-length identifiers is not officially supported.</p>
 <p><strong>Canonical ordering of columns</strong>. Apart from the elements themselves, some example usage and a description, <strong><em><a href="https://mapping-commons.github.io/sssom/Mapping/">the SSSOM spec</a> defines the canonical order for the metadata</em></strong> in which the elements SHOULD appear when serialised.
 (The "canonical order" corresponds to the exact order of elements as seen in the specification.)
 This precludes spurious diffs in a git setting, which is an important concern for the continuous reviewing of mappings by curators and users. </p>
@@ -1494,50 +1495,57 @@ This precludes spurious diffs in a git setting, which is an important concern fo
 <li>External yaml metadata files should have the extension <code>.sssom.yml</code>, for example <code>mp-hp-exact-0.0.1.sssom.yml</code></li>
 </ul>
 <p>Example (<a href="https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.yml">download</a>):</p>
-<pre><code>creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
-curie_map: 
+<pre><code>curie_map: 
   HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
   MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
-  skos: &quot;http://www.w3.org/2004/02/skos/core&quot;
+  orcid: &quot;https://orcid.org/&quot;
+creator_id:
+  - &quot;orcid:0000-0002-7356-1779&quot;
 license: &quot;https://creativecommons.org/publicdomain/zero/1.0/&quot;
 mapping_provider: &quot;http://purl.obolibrary.org/obo/upheno.owl&quot;
 </code></pre>
 <h4 id="external-mode">External mode</h4>
 <p>In external mode, the mapping set metadata MUST be supplied in a separate YAML file; that file SHOULD have the same base name as the mapping file, with the extension <code>.sssom.yml</code>.</p>
 <p>Example (<a href="https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
-<pre><code>subject_id  predicate_id    object_id   mapping_justification   subject_label   object_label
-HP:0009124  skos:exactMatch MP:0000003  Lexical Abnormal adipose tissue morphology  abnormal adipose tissue morphology
-HP:0008551  skos:exactMatch MP:0000018  Lexical Microtia    small ears
-HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
+<pre><code>subject_id  subject_label   predicate_id    object_id   object label    mapping_justification
+HP:0009124  Abnormal adipose tissue morphology  skos:exactMatch MP:0000003  abnormal adipose tissue morphology  semapv:LexicalMatching
+HP:0008551  Microtia    skos:exactMatch MP:0000018  small ears  semapv:LexicalMatching
+HP:0000411  Protruding ears skos:exactMatch MP:0000021  prominent ears  semapv:LexicalMatching
 </code></pre>
 <h4 id="embedded-mode-default">Embedded mode (default)</h4>
 <p>In the embedded mode, we allow the integration of mapping set level metadata as <strong><em>commented YAML</em></strong>. Apart from being commented, the YAML follows the exact same spec as the <em>YAML specified by the external mode</em>. Heavily used tools in bioinformatics such as pandas allow to <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">specify comment characters</a> when reading CSV files, which makes this option the most user friendly for this community. Additionally, it is a simple unix-level or language-level operation to filter these as a pre-processing in a robust fashion.</p>
 <p>Note: the mapping set level metadata <em>must be included as a continuous block at the beginning of the file</em>. This means in particular: 
 - No comments can be included that are not part of the metadata data. For example, this is not allowed:</p>
 <p>Illegal case 1:</p>
-<pre><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
-# This is a comment that does not belong here
-#curie_map: 
+<pre><code>#curie_map: 
 #  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
 #  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
+#  orcid: &quot;https://orcid.org/&quot;
+# This is a comment that does not belong here
+#creator_id:
+#  - &quot;orcid:0000-0002-7356-1779&quot;
 </code></pre>
 <p>Illegal case 2:</p>
 <pre><code># This is a comment that does not belong here
-#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
 #curie_map: 
 #  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
 #  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
+#  orcid: &quot;https://orcid.org/&quot;
+#creator_id:
+#  - &quot;orcid:0000-0002-7356-1779&quot;
 </code></pre>
 <ul>
 <li>There should be no empty rows: the commented yaml files <em>must</em> be directly followed by the column headers. For example, this is not allowed:</li>
 </ul>
 <p>Illegal case 3:</p>
 <pre><code>
-#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
-
 #curie_map: 
 #  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
 #  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
+#  orcid: &quot;https://orcid.org/&quot;
+
+#creator_id:
+#  - &quot;orcid:0000-0002-7356-1779&quot;
 </code></pre>
 <ul>
 <li>The can be only a single # in the beginning of each row, followed immediately by the yaml.</li>
@@ -1547,17 +1555,18 @@ HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
 <li>After the table header, no further row should be commented out.</li>
 </ul>
 <p>Example (<a href="https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/embedded/mp-hp-exact-0.0.1.sssom.tsv">download</a>):</p>
-<pre><code>#creator_id: &quot;https://orcid.org/0000-0002-7356-1779&quot;
-#curie_map: 
+<pre><code>#curie_map: 
 #  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
 #  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
-#  skos: &quot;http://www.w3.org/2004/02/skos/core&quot;
+#  orcid: &quot;https://orcid.org/&quot;
+#creator_id:
+#  - &quot;orcid:0000-0002-7356-1779&quot;
 #license: &quot;https://creativecommons.org/publicdomain/zero/1.0/&quot;
 #mapping_provider: &quot;http://purl.obolibrary.org/obo/upheno.owl&quot;
-subject_id  predicate_id    object_id   mapping_justification   subject_label   object_label
-HP:0009124  skos:exactMatch MP:0000003  Lexical Abnormal adipose tissue morphology  abnormal adipose tissue morphology
-HP:0008551  skos:exactMatch MP:0000018  Lexical Microtia    small ears
-HP:0000411  skos:exactMatch MP:0000021  Lexical Protruding ear  prominent ears
+subject_id  subject_label   predicate_id    object_id   object_label    mapping_justification
+HP:0009124  Abnormal adipose tissue morphology  skos:exactMatch MP:0000003  abnormal adipose tissue morphology  semapv:LexicalMatching
+HP:0008551  Microtia    skos:exactMatch MP:0000018  small ears  semapv:LexicalMatching
+HP:0000411  Protruding ears skos:exactMatch MP:0000021  prominent ears  semapv:LexicalMatching
 </code></pre>
 <p><em>Notes:</em></p>
 <ul>
