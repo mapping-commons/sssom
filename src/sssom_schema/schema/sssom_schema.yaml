@@ -64,9 +64,12 @@ enums:
 types:
  EntityReference:
     typeof: uriorcurie
-    description: A reference to a mapped entity. This is represented internally as a string, and as a resource in RDF
+    description: |
+      A reference to an entity involved in the mapping.
     base: str
     uri: rdfs:Resource
+    see_also:
+      - https://mapping-commons.github.io/sssom/spec/#tsv
 
 slots:
   prefix_name:
@@ -138,7 +141,7 @@ slots:
     required: true
     mappings:
     - owl:annotatedSource
-    slot_uri: owl:annotatedSource
+    slot_uri: owl:annotatedTarget
     examples:
       - value: "Alzheimer"
         description: A string referring to some thing.
