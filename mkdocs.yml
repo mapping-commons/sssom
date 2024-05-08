@@ -26,8 +26,17 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 nav:
   - Home: index.md
-  - Specification: linkml-index.md
-  - Overview: spec.md
+  - Introduction: introduction.md
+  - Specification:
+    - Introduction: spec-intro.md
+    - Data model:
+      - Introduction: spec-model.md
+      - LinkML documentation: linkml-index.md
+    - Serialisations:
+      - Introduction: spec-formats.md
+      - SSSOM/TSV serialisation: spec-formats-tsv.md
+      - OWL/RDF serialisation: spec-formats-owl.md
+      - JSON serialisation: spec-formats-json.md
   - FAQ: faq.md
   - Resources for contributors:
     - How to contribute?: contributing.md
