@@ -60,3 +60,12 @@ Nicolas Matentzoglu, James P Balhoff, Susan M Bello, Chris Bizon, Matthew Brush,
 ```
 
 A [second report with updates since the primary SSSOM publication](https://ceur-ws.org/Vol-3324/om2022_LTpaper6.pdf) above was published as part of the proceedings of the Ontology Matching Workshop 2022.
+
+## Copying
+
+SSSOM is distributed under the terms of the 3-clause BSD license, as included in the [LICENSE](LICENSE) file of the source distribution.
+
+By exception, the following files are _not_ covered by the 3-clause BSD license:
+
+* [sssom-banner.png](src/docs/images/sssom-banner.png): That file may only be used by members of the internal Monarch team and collaborators on Monarch flagship products.
+
