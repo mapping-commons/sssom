@@ -2,7 +2,7 @@
 
 # A Simple Standard for Sharing Ontological Mappings (SSSOM)
 
-<img src="https://raw.githubusercontent.com/tis-lab/closed-illustrations/master/logos/sssom-logos/sssom_logo_black_banner.png" />
+<img src="src/docs/images/sssom-banner.png" />
 
 
 SSSOM is a Simple Standard for Sharing Ontological Mappings, providing 

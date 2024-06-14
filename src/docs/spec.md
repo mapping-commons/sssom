@@ -1,7 +1,6 @@
 # Simple Standard for Sharing Ontological Mappings (SSSOM)
 
-<img src="https://raw.githubusercontent.com/tis-lab/closed-illustrations/master/logos/sssom-logos/sssom_logo_black_banner.png" />
-
+![SSSOM banner](../images/sssom-banner.png)
 
 Development Draft (under construction: some metadata fields may be subject to change)
 
