@@ -1,6 +1,6 @@
 # Simple Standard for Sharing Ontological Mappings (SSSOM)
 
-![SSSOM banner](../images/sssom-banner.png)
+![SSSOM banner](images/sssom-banner.png)
 
 Development Draft (under construction: some metadata fields may be subject to change)
 
