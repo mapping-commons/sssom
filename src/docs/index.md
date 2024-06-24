@@ -1,6 +1,6 @@
 # Simple Standard for Sharing Ontological Mappings (SSSOM)
 
-<img src="https://github.com/jmcmurry/closed-illustrations/raw/master/logos/sssom-logos/sssom_logo_black-banner.png" />
+![SSSOM banner](images/sssom-banner.png)
 
 **SSSOM** is the Simple Standard for Sharing Ontological Mappings. It comprises three distinct components that are intended to be used together to facilitate the exchange of semantic mappings:
 
