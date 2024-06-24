@@ -1,7 +1,6 @@
 # Simple Standard for Sharing Ontological Mappings (SSSOM)
 
-<img src="https://github.com/jmcmurry/closed-illustrations/raw/master/logos/sssom-logos/sssom_logo_black-banner.png" />
-
+![SSSOM banner](images/sssom-banner.png)
 
 Development Draft (under construction: some metadata fields may be subject to change)
 
@@ -353,6 +352,8 @@ All SSSOM metadata elements labelled with L in the metadata table are permissibl
 
 Metadata about a set of mappings can be supplied as part of the mappings (embedded mode) and as a simple yaml file alongside the primary mapping file. The YAML metadata block MUST contain a curie map that allows the unambiguous interpretation of CURIES. A curie map is supplied after a `curie_map:` parameter in the yaml file. The value is a dictionary of CURIE->URLPREFIX pairs.
 Note that the following prefixes are built-in and (1) MUST NOT be changed from their [SSSOM default interpretation](https://github.com/mapping-commons/sssom/blob/master/project/jsonld/sssom_schema.context.jsonld) and (2) MAY be omitted from the curie map: "`sssom`", "`owl`", "`rdf`", "`rdfs`", "`skos`", "`semapv`".
+
+Note that *all* identifiers in a SSSOM/TSV file (all metadata elements with a range of `EntityReference`), whether they are part of a mapping record or of the set's metadata, MUST be in CURIE form *only*. The use of full-length identifiers is not officially supported.
       
 **Canonical ordering of columns**. Apart from the elements themselves, some example usage and a description, **_[the SSSOM spec](https://mapping-commons.github.io/sssom/Mapping/) defines the canonical order for the metadata_** in which the elements SHOULD appear when serialised.
 (The "canonical order" corresponds to the exact order of elements as seen in the specification.)
@@ -370,11 +371,12 @@ We recommend to use the following *filename conventions* for SSSOM metadatafiles
 Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.yml)):
 
 ```
-creator_id: "https://orcid.org/0000-0002-7356-1779"
 curie_map: 
   HP: "http://purl.obolibrary.org/obo/HP_"
   MP: "http://purl.obolibrary.org/obo/MP_"
-  skos: "http://www.w3.org/2004/02/skos/core"
+  orcid: "https://orcid.org/"
+creator_id:
+  - "orcid:0000-0002-7356-1779"
 license: "https://creativecommons.org/publicdomain/zero/1.0/"
 mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
 ```
@@ -386,10 +388,10 @@ In external mode, the mapping set metadata MUST be supplied in a separate YAML f
 Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/external/mp-hp-exact-0.0.1.sssom.tsv)):
 
 ```
-subject_id	predicate_id	object_id	mapping_justification	subject_label	object_label
-HP:0009124	skos:exactMatch	MP:0000003	Lexical	Abnormal adipose tissue morphology	abnormal adipose tissue morphology
-HP:0008551	skos:exactMatch	MP:0000018	Lexical	Microtia	small ears
-HP:0000411	skos:exactMatch	MP:0000021	Lexical	Protruding ear	prominent ears
+subject_id	subject_label	predicate_id	object_id	object label	mapping_justification
+HP:0009124	Abnormal adipose tissue morphology	skos:exactMatch	MP:0000003	abnormal adipose tissue morphology	semapv:LexicalMatching
+HP:0008551	Microtia	skos:exactMatch	MP:0000018	small ears	semapv:LexicalMatching
+HP:0000411	Protruding ears	skos:exactMatch	MP:0000021	prominent ears	semapv:LexicalMatching
 ```
 
 #### Embedded mode (default)
@@ -401,20 +403,24 @@ Note: the mapping set level metadata _must be included as a continuous block at 
 
 Illegal case 1:
 ```
-#creator_id: "https://orcid.org/0000-0002-7356-1779"
-# This is a comment that does not belong here
 #curie_map: 
 #  HP: "http://purl.obolibrary.org/obo/HP_"
 #  MP: "http://purl.obolibrary.org/obo/MP_"
+#  orcid: "https://orcid.org/"
+# This is a comment that does not belong here
+#creator_id:
+#  - "orcid:0000-0002-7356-1779"
 ```
 
 Illegal case 2:
 ```
 # This is a comment that does not belong here
-#creator_id: "https://orcid.org/0000-0002-7356-1779"
 #curie_map: 
 #  HP: "http://purl.obolibrary.org/obo/HP_"
 #  MP: "http://purl.obolibrary.org/obo/MP_"
+#  orcid: "https://orcid.org/"
+#creator_id:
+#  - "orcid:0000-0002-7356-1779"
 ```
 
 - There should be no empty rows: the commented yaml files _must_ be directly followed by the column headers. For example, this is not allowed:
@@ -422,11 +428,13 @@ Illegal case 2:
 Illegal case 3:
 ```
 
-#creator_id: "https://orcid.org/0000-0002-7356-1779"
-
 #curie_map: 
 #  HP: "http://purl.obolibrary.org/obo/HP_"
 #  MP: "http://purl.obolibrary.org/obo/MP_"
+#  orcid: "https://orcid.org/"
+
+#creator_id:
+#  - "orcid:0000-0002-7356-1779"
 ```
 
 - The can be only a single # in the beginning of each row, followed immediately by the yaml.
@@ -438,17 +446,18 @@ Illegal case 3:
 Example ([download](https://raw.githubusercontent.com/mapping-commons/sssom/master/examples/embedded/mp-hp-exact-0.0.1.sssom.tsv)):
 
 ```
-#creator_id: "https://orcid.org/0000-0002-7356-1779"
 #curie_map: 
 #  HP: "http://purl.obolibrary.org/obo/HP_"
 #  MP: "http://purl.obolibrary.org/obo/MP_"
-#  skos: "http://www.w3.org/2004/02/skos/core"
+#  orcid: "https://orcid.org/"
+#creator_id:
+#  - "orcid:0000-0002-7356-1779"
 #license: "https://creativecommons.org/publicdomain/zero/1.0/"
 #mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
-subject_id	predicate_id	object_id	mapping_justification	subject_label	object_label
-HP:0009124	skos:exactMatch	MP:0000003	Lexical	Abnormal adipose tissue morphology	abnormal adipose tissue morphology
-HP:0008551	skos:exactMatch	MP:0000018	Lexical	Microtia	small ears
-HP:0000411	skos:exactMatch	MP:0000021	Lexical	Protruding ear	prominent ears
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification
+HP:0009124	Abnormal adipose tissue morphology	skos:exactMatch	MP:0000003	abnormal adipose tissue morphology	semapv:LexicalMatching
+HP:0008551	Microtia	skos:exactMatch	MP:0000018	small ears	semapv:LexicalMatching
+HP:0000411	Protruding ears	skos:exactMatch	MP:0000021	prominent ears	semapv:LexicalMatching
 ```
 
 *Notes:*
