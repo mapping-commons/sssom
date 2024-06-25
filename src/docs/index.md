@@ -14,7 +14,7 @@ Beyond defining the standard itself, the **SSSOM Core Team** also aims to implem
 
 ### Basic concepts
 
-The [data model](XXX_TODO_XXX) of SSSOM is centered around two fundamental concepts: mappings and mapping sets.
+The [data model](spec-model.md) of SSSOM is centered around two fundamental concepts: mappings and mapping sets.
 
 A **SSSOM mapping** is a statement that there is a correspondence of some sort between two semantic entities. It comprises two components:
 
@@ -25,7 +25,7 @@ A **SSSOM mapping set** is a collection of SSSOM mappings, with its own metadata
 
 ### The SSSOM/TSV format
 
-The main format proposed by the SSSOM standard to exchange mapping sets is the [SSSOM/TSV format](XXX_TODO_XXX). Here is a basic example of a file in that format:
+The main format proposed by the SSSOM standard to exchange mapping sets is the [SSSOM/TSV format](spec-formats-tsv.md). Here is a basic example of a file in that format:
 
 ```
 #curie_map:
@@ -43,8 +43,8 @@ HP:0000411	Protruding ear	skos:exactMatch	MP:0000021	prominent ears	semapv:Lexic
 **General**
 
 - [GitHub page](https://github.com/mapping-commons/sssom)
-- [Detailed description](XXX-TODO-XXX)
-- [Formal specification](XXX-TODO-XXX)
+- [Detailed description](introduction.md)
+- [Formal specification](spec-intro.md)
 
 **Publications**
 
