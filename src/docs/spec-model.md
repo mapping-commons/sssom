@@ -54,3 +54,30 @@ When a mapping set object has a value in one of its propagatable slots, this MUS
 This mechanism is intended as a convenience, so that a slot which has the same value for all mappings in a set can be specified only once at the level of the set rather than for each individual mapping.
 
 Slots that are not in the above list (“non-propagatable slots”) describe the mapping set itself, not the mappings it contains, even if the slot also exists on the `Mapping` class. For example, the `creator_id` slot, when used in the `MappingSet` class, is intended to refer to the creators of the set, _not_ the creators of the individual mappings (which may be different, and which are listed in the `creator_id` slot of every mapping).
+
+
+## Allowed and common mapping predicates
+
+Implementations MUST accept any arbitrary predicate in the `predicate_id` slot.
+
+The following mapping predicates are considered common, and implementations MAY encourage users to use them:
+
+| Predicate | Description |
+| --------- | ----------- |
+| owl:sameAs | The subject and the object are instances (OWL individuals), and the two instances are the same. |
+| owl:equivalentClass | The subject and the object are OWL classes, and the two classes are the same. |
+| owl:equivalentProperty | The subject and the object are OWL object, data, or annotation properties, and the two properties are the same. |
+| rdfs:subClassOf | The subject and the object are OWL classes, and the subject is a subclass of the object. |
+| rdfs:subPropertyOf | The subject and the object are OWL object, data, or annotation properties, and the subject is a subproperty of the object. |
+| skos:relatedMatch | The subject and the object are associated in some unspecified way. |
+| skos:closeMatch | The subject and the object are sufficiently similar that they can be used interchangeably in some information retrieval applications. |
+| skos:exactMatch | The subject and the object can, with a high degree of confidence, be used interchangeably across a wide range of information retrieval applications. |
+| skos:narrowMatch | The object is a narrower concept than the subject. |
+| skos:broadMatch | The object is a broader concept than the subject. |
+| oboInOwl:hasDbXref | Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go). |
+| rdfs:seeAlso | The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information. |
+
+In addition, predicates from the following sources MAY also be encouraged:
+
+* any relation from the [Relation Ontology (RO)](https://obofoundry.org/ontology/ro.html);
+* any relation under [skos:mappingRelation](http://www.w3.org/2004/02/skos/core#mappingRelation) in the [Semantic Mapping Vocabulary](https://mapping-commons.github.io/semantic-mapping-vocabulary/).
