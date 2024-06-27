@@ -38,9 +38,7 @@ nav:
       - OWL/RDF serialisation: spec-formats-owl.md
       - JSON serialisation: spec-formats-json.md
   - FAQ: faq.md
-  - Resources for contributors:
-    - How to contribute?: contributing.md
-    - Code of Conduct: code_of_conduct.md
+  - Resources for contributors: contributing.md
   - Resources for users:
     - Use cases: 
       - Overview: usecases.md
