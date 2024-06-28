@@ -25,16 +25,20 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 nav:
-  - Home: home.md
-  - About SSSOM: about.md
-  - Specification: index.md
-  - Overview: spec.md
+  - Home: index.md
+  - Introduction: introduction.md
+  - Specification:
+    - Introduction: spec-intro.md
+    - Data model:
+      - Introduction: spec-model.md
+      - LinkML documentation: linkml-index.md
+    - Serialisations:
+      - Introduction: spec-formats.md
+      - SSSOM/TSV serialisation: spec-formats-tsv.md
+      - OWL/RDF serialisation: spec-formats-owl.md
+      - JSON serialisation: spec-formats-json.md
   - FAQ: faq.md
-  - Credits: credits.md
-  - Contact us: contact.md
-  - Resources for contributors:
-    - How to contribute?: contributing.md
-    - Code of Conduct: code_of_conduct.md
+  - Resources for contributors: contributing.md
   - Resources for users:
     - Use cases: 
       - Overview: usecases.md
