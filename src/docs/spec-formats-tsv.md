@@ -27,7 +27,7 @@ The metadata block SHOULD only contains the slots that do have a value. SSSOM/TS
 
 #### Multi-valued slots with a single value
 
-As an exception to the standard YAML rules regarding the serialisation of sequences, a multi-valued slot that happens to contain a single value MAY be serialised as a scalar value rather than as sequence containing only item.
+As an exception to the standard YAML rules regarding the serialisation of sequences, a multi-valued slot that happens to contain a single value MAY be serialised as a scalar value rather than as sequence containing only one item.
 
 For example, a `creator_id` slot with the single value `ORCID:1111-2222-3333-4444` MAY be serialised as
 
@@ -126,7 +126,7 @@ Implementations MUST support the current version of the specification. However, 
 
 #### `match_type` slot
 
-Initial versions of this specification defined a `match_type` slot on the `Mapping` class. The slot was intended to describe the kind of match that led to the mapping, and accepted values from a specific enumeration. In SSSOM 0.9.1, this slot was replaced by the `mapping_justification` slot, and the enumeration was replaced by terms from the SEMAPV vocabulary.
+Initial versions of this specification defined a `match_type` slot on the `Mapping` class. The slot was intended to describe the kind of match that led to the mapping, and accepted values from a specific enumeration. In SSSOM 0.9.1, this slot was replaced by the `mapping_justification` slot, and the enumeration was replaced by terms from the [SEMAPV vocabulary](https://mapping-commons.github.io/semantic-mapping-vocabulary/).
 
 Upon encountering a `match_type` slot, implementations supporting pre-1.0 versions MUST silently transform it into a `mapping_justification` slot and convert the enumeration values using the following table:
 
@@ -148,7 +148,7 @@ If the set contains both `match_type` and `mapping_justification` slots, it is a
 
 Initial versions of this specification defined a `match_term_type` slot on the `Mapping` class. The slot was intended to describe what was being matched. In SSSOM 0.9.1, this slot was replaced by two distinct slots called `subject_type` and `object_type` (this notably allowed for the case where the subject and the object are of a different type, something the `match_term_type` slot did not support).
 
-Upon encountering a `match_term_type` slot, implementations supporting pre-1.0 versions MUST silently transform it into a pair of `subject_type` and `object_type`, both slots having the same value derived from the original value using the following table:
+Upon encountering a `match_term_type` slot, implementations supporting pre-1.0 versions MUST silently transform it into a pair of `subject_type` and `object_type` slots, both slots having the same value derived from the original value using the following table:
 
 | `match_term_type` value | `subject_type` and `object_type` value |
 | ----------------------- | -------------------------------------- |

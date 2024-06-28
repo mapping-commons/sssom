@@ -47,13 +47,13 @@ Mapping set level annotations are manifested as Ontology annotation in the usual
 The mapping `<S,P,O>` gets translated into an existential restriction:
 
 ```
-SubclassOf(A, P some O)
+SubclassOf(S, P some O)
 ```
 
 All metadata slots are added as OWLAnnotation objects and added to SubclassOf axiom as axiom annotations:
 
 ```
-SubclassOf(meta, A, P some O)
+SubclassOf(meta, S, P some O)
 ```
 
 Example:
@@ -67,13 +67,13 @@ SubClassOf(Annotation(sssom:creator_id <https://orcid.org/0000-0002-7356-1779>) 
 The mapping `<S,P,O>` gets translated into an object property assertion:
 
 ```
-ObjectPropertyAssertion(P, A, O)
+ObjectPropertyAssertion(P, S, O)
 ```
 
 All metadata slots are added as OWLAnnotation objects and added to ObjectPropertyAssertion axiom as axiom annotations:
 
 ```
-ObjectPropertyAssertion(meta, P, A, O)
+ObjectPropertyAssertion(meta, P, S, O)
 ```
 
 Example:
@@ -89,8 +89,8 @@ The mapping `<S,P,O, meta>` gets translated into an annotated axiom using the fo
 
 | Mapping predicate   | Generated axiom             |
 | ------------------- | --------------------------- |
-| owl:equivalentClass | EauivalentClass(meta, A, O) |
-| rdfs:subClassOf     | SubClassOf(meta, A, O)      |
+| owl:equivalentClass | EauivalentClass(meta, S, O) |
+| rdfs:subClassOf     | SubClassOf(meta, S, O)      |
 
 Example:
 
