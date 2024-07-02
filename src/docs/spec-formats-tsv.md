@@ -211,39 +211,41 @@ A SSSOM/TSV file in embedded metadata mode:
 
 ```
 #curie_map:
-#  HP: "http://purl.obolibrary.org/obo/HP_"
-#  MP: "http://purl.obolibrary.org/obo/MP_"
-#  orcid: "https://orcid.org/"
-#creator_id:
-#  - "orcid:0000-0002-7356-1779"
-#license: "https://creativecommons.org/publicdomain/zero/1.0/"
-#mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
-subject_id	subject_label	predicate_id	object_id	object label	mapping_justification
-HP:0000411	Protruding ears	skos:exactMatch	MP:0000021	prominent ears	semapv:LexicalMatching
-HP:0008551	Microtia	skos:exactMatch	MP:0000018	small ears	semapv:LexicalMatching
-HP:0009124	Abnormal adipose tissue morphology	skos:exactMatch	MP:0000003	abnormal adipose tissue morphology	semapv:LexicalMatching
+#  FOODON: http://purl.obolibrary.org/obo/FOODON_
+#  KF_FOOD: https://kewl-foodie.inc/food/
+#  orcid: https://orcid.org/
+#mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+#mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food and nutrition database with Food Ontology (FOODON). Intended to be used for ontological analysis and grouping of KEWL FOODIE INC related data.
+#license: https://creativecommons.org/licenses/by/4.0/
+#mapping_date: 2022-05-02
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	confidence	comment
+KF_FOOD:F001	apple	skos:exactMatch	FOODON:00002473	apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	0.95	"We could map to FOODON:03310788 instead to cover sliced apples, but only ""whole"" apple types exist."
+KF_FOOD:F002	gala	skos:exactMatch	FOODON:00003348	Gala apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	1	
+KF_FOOD:F003	pink	skos:exactMatch	FOODON:00004186	Pink apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	0.9	"We could map to FOODON:00004187 instead which more specifically refers to ""raw"" Pink apples. Decided against to be consistent with other mapping choices."
+KF_FOOD:F004	braeburn	skos:broadMatch	FOODON:00002473	apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	1	
 ```
 
 The same set in external metadata mode: first the file containing the metadata block:
 
 ```yaml
 curie_map:
-  HP: "http://purl.obolibrary.org/obo/HP_"
-  MP: "http://purl.obolibrary.org/obo/MP_"
-  orcid: "https://orcid.org/"
-creator_id:
-  - "orcid:0000-0002-7356-1779"
-license: "https://creativecommons.org/publicdomain/zero/1.0/"
-mapping_provider: "http://purl.obolibrary.org/obo/upheno.owl"
+  FOODON: http://purl.obolibrary.org/obo/FOODON_
+  KF_FOOD: https://kewl-foodie.inc/food/
+  orcid: https://orcid.org/
+mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food and nutrition database with Food Ontology (FOODON). Intended to be used for ontological analysis and grouping of KEWL FOODIE INC related data.
+license: https://creativecommons.org/licenses/by/4.0/
+mapping_date: 2022-05-02
 ```
 
 then the file containing the mappings block:
 
 ```
-subject_id	subject_label	predicate_id	object_id	object label	mapping_justification
-HP:0000411	Protruding ears	skos:exactMatch	MP:0000021	prominent ears	semapv:LexicalMatching
-HP:0008551	Microtia	skos:exactMatch	MP:0000018	small ears	semapv:LexicalMatching
-HP:0009124	Abnormal adipose tissue morphology	skos:exactMatch	MP:0000003	abnormal adipose tissue morphology	semapv:LexicalMatching
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	confidence	comment
+KF_FOOD:F001	apple	skos:exactMatch	FOODON:00002473	apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	0.95	"We could map to FOODON:03310788 instead to cover sliced apples, but only ""whole"" apple types exist."
+KF_FOOD:F002	gala	skos:exactMatch	FOODON:00003348	Gala apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	1	
+KF_FOOD:F003	pink	skos:exactMatch	FOODON:00004186	Pink apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	0.9	"We could map to FOODON:00004187 instead which more specifically refers to ""raw"" Pink apples. Decided against to be consistent with other mapping choices."
+KF_FOOD:F004	braeburn	skos:broadMatch	FOODON:00002473	apple (whole)	semapv:ManualMappingCuration	orcid:0000-0002-7356-1779	1	
 ```
 
 ### Invalid examples
