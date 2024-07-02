@@ -12,7 +12,7 @@ A SSSOM/TSV file contains one, and only one, mapping set object. It is made of t
 * the _metadata block_, which contains essentially all the slots of the [`MappingSet` class](MappingSet.md) except the `mappings` slot;
 * the _mappings block_ (also called the _TSV section_), which contains the individual mappings.
 
-A SSSOM/TSV file MUST NOT contain anything else than those two blocks.
+A SSSOM/TSV file MUST NOT contain anything other than those two blocks.
 
 
 ### Metadata block
@@ -23,7 +23,7 @@ The metadata block MUST appear at the beginning of the file. Every line of the b
 
 The metadata block ends with the first line that does not begin with a `#` character, which marks the beginning of the mappings block.
 
-The metadata block SHOULD only contains the slots that do have a value. SSSOM/TSV writers SHOULD skip slots with no value when serialising the mapping set object.
+The metadata block SHOULD only contain the slots that do have a value. SSSOM/TSV writers SHOULD skip slots with no value when serialising the mapping set object.
 
 #### Multi-valued slots with a single value
 
@@ -113,7 +113,7 @@ For any given propagatable slot, propagation is only allowed if none of the indi
 
 ### Condensation
 
-“Condensation” is the opposite of “propagation”. It is the operation of assigning common values to the propagatable slots of the set, based on the values of these slots on individual mappings. That operation SHOULD be performed a SSSOM/TSV writer prior to writing a set into a SSSOM/TSV file.
+“Condensation” is the opposite of “propagation”. It is the operation of assigning common values to the propagatable slots of the set, based on the values of these slots on individual mappings. That operation SHOULD be performed by a SSSOM/TSV writer prior to writing a set into a SSSOM/TSV file.
 
 For any given propagatable slot, condensation is only allowed if (1) all mappings in the set have the same value, and (2) the mapping set does not already have a value in the slot, unless that value happens to be the same as the value in all mappings. If those two conditions are met, then a condensating SSSOM/TSV writer MUST (1) set the value of the slot on the `MappingSet` object to the common value of the slot in all mappings, and (2) remove the condensed value from the individual `Mapping` object.
 
