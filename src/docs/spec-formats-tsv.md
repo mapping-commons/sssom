@@ -214,7 +214,7 @@ When writing the metadata block, a canonical SSSOM/TSV writer:
 When writing the mappings block, a canonical SSSOM/TSV writer:
 
 * MUST quote values only when needed, as per the rules in the [Quoting](#quoting) section;
-* MUST serialise floating point values with three digits after the decimal point, rounding the last digit to the nearest neighbour (rounding up if both neighbours are equidistant);
+* MUST serialise floating point values with up to three digits as needed after the decimal point, rounding the last digit to the nearest neighbour (rounding up if both neighbours are equidistant);
 * MUST write the columns in the order the slots appear in the [“Slots” table](Mapping.md#slots), in the documentation for the `Mapping` class;
 * MUST sort the mappings in lexicographical order on all their slots, in the order the slots appear in the [“Slots” table](Mapping.md#slots).
 
