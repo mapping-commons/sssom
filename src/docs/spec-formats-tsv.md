@@ -123,11 +123,15 @@ As [explained in another section](spec-model.md#propagation-of-mapping-set-slots
 
 For any given propagatable slot, propagation is only allowed if none of the individual mappings already have their own value in that slot. If any mapping (even only one mapping) has a value in that slot, then the slot MUST be considered as non-propagatable. Otherwise, a propagating SSSOM/TSV parser MUST (1) copy over the value of the propagatable slot on the `MappingSet` object to the corresponding slot of every individual `Mapping` objects, and (2) remove the propagated value from the `MappingSet` object.
 
+Implementations that support propagation MUST also support condensation.
+
 ### Condensation
 
-“Condensation” is the opposite of “propagation”. It is the operation of assigning common values to the propagatable slots of the set, based on the values of these slots on individual mappings. That operation SHOULD be performed by a SSSOM/TSV writer prior to writing a set into a SSSOM/TSV file.
+“Condensation” is the opposite of “propagation”. It is the operation of assigning common values to the propagatable slots of the set, based on the values of these slots on individual mappings. That operation SHOULD be performed by a SSSOM/TSV writer prior to writing a set into a SSSOM/TSV file, but that behaviour, if available, MUST be deactivatable.
 
 For any given propagatable slot, condensation is only allowed if (1) all mappings in the set have the same value, and (2) the mapping set does not already have a value in the slot, unless that value happens to be the same as the value in all mappings. If those two conditions are met, then a condensating SSSOM/TSV writer MUST (1) set the value of the slot on the `MappingSet` object to the common value of the slot in all mappings, and (2) remove the condensed value from the individual `Mapping` object.
+
+Implementations that support condensation MUST also support propagation.
 
 
 ## Compatibility with previous versions of the specification
