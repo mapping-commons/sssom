@@ -50,6 +50,18 @@ creator_id:
 
 but the scalar form is frequently found in existing SSSOM/TSV files, so SSSOM/TSV parsers SHOULD accept it. SSSOM/TSV writers SHOULD favour one of the correct YAML serialisations, however.
 
+#### Forbidden YAML features
+
+The following features of the YAML 1.2 specification MUST NOT be used within the metadata block:
+
+* YAML directives ([YAML 1.2 §6.8.1](https://yaml.org/spec/1.2.2/#681-yaml-directives));
+* TAG directives ([YAML 1.2 §6.8.2](https://yaml.org/spec/1.2.2/#682-tag-directives));
+* Node tags ([YAML 1.2 §6.9.1](https://yaml.org/spec/1.2.2/#691-node-tags));
+* Node anchors ([YAML 1.2 §6.9.2](https://yaml.org/spec/1.2.2/#692-node-anchors));
+* Alias nodes ([YAML 1.2 §7.1](https://yaml.org/spec/1.2.2/#71-alias-nodes)).
+
+SSSOM/TSV writers MUST NOT generate any of those when writing the metadata block. The expected behaviour of SSSOM/TSV parsers upon encountering them is unspecified.
+
 
 ### Mappings block
 
