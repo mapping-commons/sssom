@@ -210,7 +210,7 @@ slots:
       - value: rdfs:seeAlso
         description: The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.
   predicate_modifier:
-    description: A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
+    description: A modifier for negating the predicate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
     range: predicate_modifier_enum
     see_also:
       - https://github.com/mapping-commons/sssom/issues/107
