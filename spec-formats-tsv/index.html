@@ -1,0 +1,1665 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/spec-formats-tsv/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>SSSOM/TSV serialisation - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-sssomtsv-serialisation-format" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-header__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A Simple Standard for Sharing Ontology Mappings (SSSOM)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SSSOM/TSV serialisation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-nav__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    A Simple Standard for Sharing Ontology Mappings (SSSOM)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Specification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Specification" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Specification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Data model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data model" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Data model
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-model/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linkml-index/" class="md-nav__link">
+        LinkML documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Serialisations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Serialisations" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Serialisations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SSSOM/TSV serialisation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        SSSOM/TSV serialisation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    Structure
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-block" class="md-nav__link">
+    Metadata block
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-valued-slots-with-a-single-value" class="md-nav__link">
+    Multi-valued slots with a single value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forbidden-yaml-features" class="md-nav__link">
+    Forbidden YAML features
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mappings-block" class="md-nav__link">
+    Mappings block
+  </a>
+  
+    <nav class="md-nav" aria-label="Mappings block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quoting" class="md-nav__link">
+    Quoting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-metadata-mode" class="md-nav__link">
+    External metadata mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoding" class="md-nav__link">
+    Encoding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifiers" class="md-nav__link">
+    Identifiers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propagatable-slots" class="md-nav__link">
+    Propagatable slots
+  </a>
+  
+    <nav class="md-nav" aria-label="Propagatable slots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#propagation" class="md-nav__link">
+    Propagation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condensation" class="md-nav__link">
+    Condensation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility-with-previous-versions-of-the-specification" class="md-nav__link">
+    Compatibility with previous versions of the specification
+  </a>
+  
+    <nav class="md-nav" aria-label="Compatibility with previous versions of the specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compatibility-with-pre-10-versions" class="md-nav__link">
+    Compatibility with pre-1.0 versions
+  </a>
+  
+    <nav class="md-nav" aria-label="Compatibility with pre-1.0 versions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#match_type-slot" class="md-nav__link">
+    match_type slot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match_term_type-slot" class="md-nav__link">
+    match_term_type slot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-sssomtsv-format" class="md-nav__link">
+    Canonical SSSOM/TSV format
+  </a>
+  
+    <nav class="md-nav" aria-label="Canonical SSSOM/TSV format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-rules" class="md-nav__link">
+    General rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules-for-the-metadata-block" class="md-nav__link">
+    Rules for the metadata block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules-for-the-mappings-block" class="md-nav__link">
+    Rules for the mappings block
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invalid-examples" class="md-nav__link">
+    Invalid examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats-owl/" class="md-nav__link">
+        OWL/RDF serialisation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats-json/" class="md-nav__link">
+        JSON serialisation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        Resources for contributors
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Resources for users
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources for users" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Resources for users
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Use cases
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Use cases" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Use cases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/omop-mappings/" class="md-nav__link">
+        How to gradually enrich OMOP mappings with SSSOM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshops/" class="md-nav__link">
+        Workshops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../presentations/" class="md-nav__link">
+        Presentations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        Basic Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-justifications/" class="md-nav__link">
+        Mapping Justifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-predicates/" class="md-nav__link">
+        How to use mapping predicates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-commons/" class="md-nav__link">
+        Set up a mapping registry/commons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chaining_rules/" class="md-nav__link">
+        Overview of Chaining Rules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toolkit/" class="md-nav__link">
+        A basic guide for the SSSOM toolkit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5star-mappings/" class="md-nav__link">
+        5-Star Entity Mappings - Cheatsheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update/" class="md-nav__link">
+        Update schema/context and release
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matching-tool-implementation-guide/" class="md-nav__link">
+        Matching tool implementation guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sssom-profiles/" class="md-nav__link">
+        SSSOM profiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Related documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Related documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Related documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://mapping-commons.github.io/sssom-py/index.html#" class="md-nav__link">
+        SSSOM Toolkit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://incenp.org/dvlpt/sssom-java/" class="md-nav__link">
+        SSSOM Java
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://mapping-commons.github.io/semantic-mapping-vocabulary/" class="md-nav__link">
+        Semantic Mapping Vocabulary (SEMAPV)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://linkml.io/linkml/" class="md-nav__link">
+        LinkML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://oboacademy.github.io/obook/" class="md-nav__link">
+        OBO Academy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://monarch-initiative.github.io/monarch-documentation/" class="md-nav__link">
+        Monarch Initiative
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    Structure
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-block" class="md-nav__link">
+    Metadata block
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-valued-slots-with-a-single-value" class="md-nav__link">
+    Multi-valued slots with a single value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forbidden-yaml-features" class="md-nav__link">
+    Forbidden YAML features
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mappings-block" class="md-nav__link">
+    Mappings block
+  </a>
+  
+    <nav class="md-nav" aria-label="Mappings block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quoting" class="md-nav__link">
+    Quoting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-metadata-mode" class="md-nav__link">
+    External metadata mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoding" class="md-nav__link">
+    Encoding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifiers" class="md-nav__link">
+    Identifiers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propagatable-slots" class="md-nav__link">
+    Propagatable slots
+  </a>
+  
+    <nav class="md-nav" aria-label="Propagatable slots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#propagation" class="md-nav__link">
+    Propagation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condensation" class="md-nav__link">
+    Condensation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility-with-previous-versions-of-the-specification" class="md-nav__link">
+    Compatibility with previous versions of the specification
+  </a>
+  
+    <nav class="md-nav" aria-label="Compatibility with previous versions of the specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compatibility-with-pre-10-versions" class="md-nav__link">
+    Compatibility with pre-1.0 versions
+  </a>
+  
+    <nav class="md-nav" aria-label="Compatibility with pre-1.0 versions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#match_type-slot" class="md-nav__link">
+    match_type slot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match_term_type-slot" class="md-nav__link">
+    match_term_type slot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-sssomtsv-format" class="md-nav__link">
+    Canonical SSSOM/TSV format
+  </a>
+  
+    <nav class="md-nav" aria-label="Canonical SSSOM/TSV format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-rules" class="md-nav__link">
+    General rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules-for-the-metadata-block" class="md-nav__link">
+    Rules for the metadata block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules-for-the-mappings-block" class="md-nav__link">
+    Rules for the mappings block
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invalid-examples" class="md-nav__link">
+    Invalid examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/spec-formats-tsv.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="the-sssomtsv-serialisation-format">The SSSOM/TSV serialisation format</h1>
+<p>The SSSOM/TSV format is intended as the main format for exchanging SSSOM mapping set objects.</p>
+<p>The RECOMMENDED filename extension for a SSSOM/TSV file is <code>.sssom.tsv</code>, but SSSOM/TSV parsers MUST accept SSSOM/TSV files regardless of their extension.</p>
+<h2 id="structure">Structure</h2>
+<p>A SSSOM/TSV file contains one, and only one, mapping set object. It is made of two different parts:</p>
+<ul>
+<li>the <em>metadata block</em>, which contains essentially all the slots of the <a href="../MappingSet/"><code>MappingSet</code> class</a> except the <code>mappings</code> slot;</li>
+<li>the <em>mappings block</em> (also called the <em>TSV section</em>), which contains the individual mappings.</li>
+</ul>
+<p>A SSSOM/TSV file MUST NOT contain anything other than those two blocks.</p>
+<h3 id="metadata-block">Metadata block</h3>
+<p>The metadata block is written as the <a href="https://yaml.org/spec/1.2.2/">YAML 1.2</a> serialisation of the <code>MappingSet</code> object, except that the <code>mappings</code> slot is <em>not</em> included (since it contains the mappings, that are serialised in the mappings block instead).</p>
+<p>The metadata block MUST appear at the beginning of the file. Every line of the block MUST be preceded by a <code>#</code> character; the <code>#</code> character MAY be followed by one or several space characters (U+0020) before the YAML content – if so, every line MUST have the same number of space characters.</p>
+<p>The metadata block ends with the first line that does not begin with a <code>#</code> character, which marks the beginning of the mappings block.</p>
+<p>The metadata block SHOULD only contain the slots that do have a value. SSSOM/TSV writers SHOULD skip slots with no value when serialising the mapping set object.</p>
+<h4 id="multi-valued-slots-with-a-single-value">Multi-valued slots with a single value</h4>
+<p>As an exception to the standard YAML rules regarding the serialisation of sequences, a multi-valued slot that happens to contain a single value MAY be serialised as a scalar value rather than as sequence containing only one item.</p>
+<p>For example, a <code>creator_id</code> slot with the single value <code>ORCID:1111-2222-3333-4444</code> MAY be serialised as</p>
+<pre><code class="language-yaml">creator_id: &quot;ORCID:1111-2222-3333-4444&quot;
+</code></pre>
+<p>This is, strictly speaking, invalid according the YAML specification; the correct serialisation would be either</p>
+<pre><code class="language-yaml">creator_id: [ &quot;ORCID:1111-2222-3333-4444&quot; ]
+</code></pre>
+<p>or</p>
+<pre><code class="language-yaml">creator_id:
+  - &quot;ORCID:1111-2222-3333-4444&quot;
+</code></pre>
+<p>but the scalar form is frequently found in existing SSSOM/TSV files, so SSSOM/TSV parsers SHOULD accept it. SSSOM/TSV writers SHOULD favour one of the correct YAML serialisations, however.</p>
+<h4 id="forbidden-yaml-features">Forbidden YAML features</h4>
+<p>The following features of the YAML 1.2 specification MUST NOT be used within the metadata block:</p>
+<ul>
+<li>YAML directives (<a href="https://yaml.org/spec/1.2.2/#681-yaml-directives">YAML 1.2 §6.8.1</a>);</li>
+<li>TAG directives (<a href="https://yaml.org/spec/1.2.2/#682-tag-directives">YAML 1.2 §6.8.2</a>);</li>
+<li>Node tags (<a href="https://yaml.org/spec/1.2.2/#691-node-tags">YAML 1.2 §6.9.1</a>);</li>
+<li>Node anchors (<a href="https://yaml.org/spec/1.2.2/#692-node-anchors">YAML 1.2 §6.9.2</a>);</li>
+<li>Alias nodes (<a href="https://yaml.org/spec/1.2.2/#71-alias-nodes">YAML 1.2 §7.1</a>).</li>
+</ul>
+<p>SSSOM/TSV writers MUST NOT generate any of those when writing the metadata block. The expected behaviour of SSSOM/TSV parsers upon encountering them is unspecified.</p>
+<h3 id="mappings-block">Mappings block</h3>
+<p>The mappings block contains the mappings, serialised as a matrix where each line represents an individual mapping and each column (separated by tab characters, U+0009) represents one of the slots of the <a href="../Mapping/"><code>Mapping</code> class</a>.</p>
+<p>The mappings block MUST follow immediately the metadata block within a SSSOM/TSV file. It starts with a header line containing the column names, which are the names of the slots in the <code>Mapping</code> class.</p>
+<p>There SHOULD be no empty columns. If none of the mappings in a set has a value for a given slot, that slot SHOULD be skipped when writing the header line and the individual mappings.</p>
+<p>Multi-valued slots MUST be serialised as a list of values separated by <code>|</code> characters.</p>
+<h4 id="quoting">Quoting</h4>
+<p>Within the mappings block, the following quoting rules, adapted from <a href="https://datatracker.ietf.org/doc/html/rfc4180">RFC 4180</a>, apply:</p>
+<ol>
+<li>Any value MAY be enclosed in double quotes (<code>"</code>).</li>
+<li>Values containing line breaks, double quotes, or tabs (U+0009) MUST be enclosed in double quotes.</li>
+<li>When a value is enclosed in double quotes, a double quote appearing within the value MUST be escaped by preceding it with another double quote.</li>
+</ol>
+<p>SSSOM/TSV parsers MUST strip any enclosing double quotes and escaping double quotes before passing the parsed objects to the application code.</p>
+<h2 id="external-metadata-mode">External metadata mode</h2>
+<p>The metadata block MAY be stored in a separate file from the TSV section, instead of preceding it in the same file as described above. This is called the <em>external metadata mode</em> (by contrast, when the two blocks are in the same file, this is called the <em>embedded metadata mode</em>).</p>
+<p>In external mode, the metadata block follows the same rules as described in the <a href="#metadata-block">Metadata block</a> section above, except that lines MUST NOT start with a <code>#</code> character.</p>
+<p>It is RECOMMENDED that the file containing the metadata block has the same basename as the file containing the TSV section, with a <code>.sssom.yml</code> extension.</p>
+<p>When an external metadata file is used, the file containing the TSV section MUST NOT contain anything else than the TSV section. That is, the first line of that file MUST be the header line containing the column names.</p>
+<p>Implementations SHOULD support reading SSSOM/TSV files in external metadata mode; they MAY support writing SSSOM/TSV files in that mode.</p>
+<h2 id="encoding">Encoding</h2>
+<p>SSSOM/TSV files MUST be encoded in UTF-8 (<a href="https://datatracker.ietf.org/doc/html/rfc3629#section-13">RFC 3629</a>). They MUST NOT start with a byte order mark (U+FEFF). This applies to external metadata files as well, when the <a href="#external-metadata-mode">external metadata mode</a> is used.</p>
+<h2 id="identifiers">Identifiers</h2>
+<p>All identifiers in a SSSOM/TSV file, that is, all the values of slots typed as <a href="../EntityReference/">EntityReference</a>, MUST be serialised in <a href="https://www.w3.org/TR/curie/">CURIE syntax</a>. SSSOM/TSV parsers SHOULD reject files containing identifiers serialised as IRIs.</p>
+<p>To allow unambiguous resolution of all CURIEs present in a SSSOM/TSV file, the metadata block MUST contain an additional <code>curie_map</code> field, which is a map of prefix names to IRI prefixes. The <code>curie_map</code> field SHOULD appear at the beginning of the metadata block.</p>
+<p>Any prefix name used in a SSSOM/TSV file MUST be declared with a corresponding entry in the CURIE map. SSSOM/TSV parsers MUST reject a file with undeclared prefix names.</p>
+<p>Prefix names listed in the table found in the <a href="../spec-intro/#iri-prefixes">IRI prefixes</a> section are considered “built-in”. As such, they MAY be omitted from the CURIE map. If they are not omitted, they MUST point to the same IRI prefixes as in the aforementioned table.</p>
+<h2 id="propagatable-slots">Propagatable slots</h2>
+<p>As <a href="../spec-model/#propagation-of-mapping-set-slots">explained in another section</a>, some slots in the <code>MappingSet</code> class are intended, not to describe the mapping set itself, but to store values that are shared by all mappings in the set. These slots are called the “propagatable slots”, because their values should be “propagated” from the mapping set down to the individual mappings.</p>
+<h3 id="propagation">Propagation</h3>
+<p>“Propagation” is the operation of assigning to individual mappings in a set the values from the propagatable slots of the set. That operation SHOULD be performed by a SSSOM/TSV parser before passing the parsed objects to the application code.</p>
+<p>For any given propagatable slot, propagation is only allowed if none of the individual mappings already have their own value in that slot. If any mapping (even only one mapping) has a value in that slot, then the slot MUST be considered as non-propagatable. Otherwise, a propagating SSSOM/TSV parser MUST (1) copy over the value of the propagatable slot on the <code>MappingSet</code> object to the corresponding slot of every individual <code>Mapping</code> objects, and (2) remove the propagated value from the <code>MappingSet</code> object.</p>
+<p>Implementations that support propagation MUST also support condensation.</p>
+<h3 id="condensation">Condensation</h3>
+<p>“Condensation” is the opposite of “propagation”. It is the operation of assigning common values to the propagatable slots of the set, based on the values of these slots on individual mappings. That operation SHOULD be performed by a SSSOM/TSV writer prior to writing a set into a SSSOM/TSV file, but that behaviour, if available, MUST be deactivatable.</p>
+<p>For any given propagatable slot, condensation is only allowed if (1) all mappings in the set have the same value, and (2) the mapping set does not already have a value in the slot, unless that value happens to be the same as the value in all mappings. If those two conditions are met, then a condensating SSSOM/TSV writer MUST (1) set the value of the slot on the <code>MappingSet</code> object to the common value of the slot in all mappings, and (2) remove the condensed value from the individual <code>Mapping</code> object.</p>
+<p>Implementations that support condensation MUST also support propagation.</p>
+<h2 id="compatibility-with-previous-versions-of-the-specification">Compatibility with previous versions of the specification</h2>
+<p>Implementations MUST support the current version of the specification. However, SSSOM/TSV parsers MAY additionally accept to parse files that were compliant to a previous version. This section provides advice for implementations willing to support older versions.</p>
+<h3 id="compatibility-with-pre-10-versions">Compatibility with pre-1.0 versions</h3>
+<h4 id="match_type-slot"><code>match_type</code> slot</h4>
+<p>Initial versions of this specification defined a <code>match_type</code> slot on the <code>Mapping</code> class. The slot was intended to describe the kind of match that led to the mapping, and accepted values from a specific enumeration. In SSSOM 0.9.1, this slot was replaced by the <code>mapping_justification</code> slot, and the enumeration was replaced by terms from the <a href="https://mapping-commons.github.io/semantic-mapping-vocabulary/">SEMAPV vocabulary</a>.</p>
+<p>Upon encountering a <code>match_type</code> slot, implementations supporting pre-1.0 versions MUST silently transform it into a <code>mapping_justification</code> slot and convert the enumeration values using the following table:</p>
+<table>
+<thead>
+<tr>
+<th><code>match_type</code> value</th>
+<th><code>mapping_justification</code> value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lexical</td>
+<td>semapv:LexicalMatching</td>
+</tr>
+<tr>
+<td>Logical</td>
+<td>semapv:LogicalMatching</td>
+</tr>
+<tr>
+<td>HumanCurated</td>
+<td>semapv:ManualMappingCuration</td>
+</tr>
+<tr>
+<td>Complex</td>
+<td>semapv:CompositeMatching</td>
+</tr>
+<tr>
+<td>Unspecified</td>
+<td>semapv:UnspecifiedMatching</td>
+</tr>
+<tr>
+<td>SemanticSimilarity</td>
+<td>semapv:SemanticSimilarityThresholdMatching</td>
+</tr>
+</tbody>
+</table>
+<p>Any other value in the <code>match_type</code> slot MUST be treated as an error.</p>
+<p>If the set contains both <code>match_type</code> and <code>mapping_justification</code> slots, it is advised to simply ignore the former.</p>
+<h4 id="match_term_type-slot"><code>match_term_type</code> slot</h4>
+<p>Initial versions of this specification defined a <code>match_term_type</code> slot on the <code>Mapping</code> class. The slot was intended to describe what was being matched. In SSSOM 0.9.1, this slot was replaced by two distinct slots called <code>subject_type</code> and <code>object_type</code> (this notably allowed for the case where the subject and the object are of a different type, something the <code>match_term_type</code> slot did not support).</p>
+<p>Upon encountering a <code>match_term_type</code> slot, implementations supporting pre-1.0 versions MUST silently transform it into a pair of <code>subject_type</code> and <code>object_type</code> slots, both slots having the same value derived from the original value using the following table:</p>
+<table>
+<thead>
+<tr>
+<th><code>match_term_type</code> value</th>
+<th><code>subject_type</code> and <code>object_type</code> value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ConceptMatch</td>
+<td>skos concept</td>
+</tr>
+<tr>
+<td>ClassMatch</td>
+<td>owl class</td>
+</tr>
+<tr>
+<td>ObjectPropertyMatch</td>
+<td>owl object property</td>
+</tr>
+<tr>
+<td>IndividualMatch</td>
+<td>owl named individual</td>
+</tr>
+<tr>
+<td>DataPropertyMatch</td>
+<td>owl data property</td>
+</tr>
+<tr>
+<td>TermMatch</td>
+<td>rdfs literal</td>
+</tr>
+</tbody>
+</table>
+<p>Any other value in the <code>match_term_type</code> slot MUST be treated as an error.</p>
+<p>If the set already contains <code>subject_type</code> and <code>object_type</code> slots, any <code>match_term_type</code> slot can be silently ignored.</p>
+<h2 id="canonical-sssomtsv-format">Canonical SSSOM/TSV format</h2>
+<p>This section defines a “canonical” variant of the SSSOM/TSV format, which has stricter serialisation rules. The purpose of the canonical SSSOM/TSV format is to minimise differences across SSSOM/TSV files that would be induced by small diverging behaviours between different SSSOM/TSV implementations.</p>
+<p>The rules in this section apply to SSSOM/TSV writers only. SSSOM/TSV writers SHOULD write files in the canonical format, but SSSOM/TSV readers MUST NOT reject a file solely because it does not follow the canonical rules.</p>
+<h3 id="general-rules">General rules</h3>
+<p>A canonical SSSOM/TSV writer:</p>
+<ul>
+<li>MUST use line breaks made of only the U+000A character (no U+000D, and no U+000D + U+000A sequences);</li>
+<li>MUST condense the slots whenever possible, as described in the <a href="#condensation">Condensation</a> section.</li>
+</ul>
+<h3 id="rules-for-the-metadata-block">Rules for the metadata block</h3>
+<p>When writing the metadata block, a canonical SSSOM/TSV writer:</p>
+<ul>
+<li>MUST embed the metadata block in the same file as the TSV section (no external metadata);</li>
+<li>MUST NOT insert additional space characters between the initial <code>#</code> character and the YAML content;</li>
+<li>MUST serialise multi-valued slots as YAML “block sequences” (<a href="https://yaml.org/spec/1.2.2/#821-block-sequences">YAML Specification §8.2.1</a>) – even when the list of values contains only one item;</li>
+<li>MUST serialise scalar values in YAML “plain style” (<a href="https://yaml.org/spec/1.2.2/#733-plain-style">YAML Specification §7.3.3</a>) whenever possible, otherwise in “double-quoted style” (<a href="https://yaml.org/spec/1.2.2/#731-double-quoted-style">YAML Specification §7.3.1</a>);</li>
+<li>MUST serialise the slots in the order they appear in the <a href="../MappingSet/#slots">“Slots” table</a>, in the documentation for the <code>MappingSet</code> class;</li>
+<li>MUST write the <code>curie_map</code> at the beginning of the block, before any other slots;</li>
+<li>MUST NOT include in the CURIE map the prefix names that are considered “built-in”;</li>
+<li>MUST NOT include in the CURIE map any prefix name that is not used anywhere in the set;</li>
+<li>MUST sort the prefix names in the CURIE map in lexicographical order.</li>
+</ul>
+<h3 id="rules-for-the-mappings-block">Rules for the mappings block</h3>
+<p>When writing the mappings block, a canonical SSSOM/TSV writer:</p>
+<ul>
+<li>MUST quote values only when needed, as per the rules in the <a href="#quoting">Quoting</a> section;</li>
+<li>MUST serialise floating point values with up to three digits as needed after the decimal point, rounding the last digit to the nearest neighbour (rounding up if both neighbours are equidistant);</li>
+<li>MUST write the columns in the order the slots appear in the <a href="../Mapping/#slots">“Slots” table</a>, in the documentation for the <code>Mapping</code> class;</li>
+<li>MUST sort the mappings in lexicographical order on all their slots, in the order the slots appear in the <a href="../Mapping/#slots">“Slots” table</a>.</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>This section is <em>non-normative</em>.</p>
+<p>A SSSOM/TSV file in embedded metadata mode:</p>
+<pre><code>#curie_map:
+#  FOODON: http://purl.obolibrary.org/obo/FOODON_
+#  KF_FOOD: https://kewl-foodie.inc/food/
+#  orcid: https://orcid.org/
+#mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+#mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food and nutrition database with Food Ontology (FOODON). Intended to be used for ontological analysis and grouping of KEWL FOODIE INC related data.
+#license: https://creativecommons.org/licenses/by/4.0/
+#mapping_date: 2022-05-02
+subject_id  subject_label   predicate_id    object_id   object_label    mapping_justification   author_id   confidence  comment
+KF_FOOD:F001    apple   skos:exactMatch FOODON:00002473 apple (whole)   semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   0.95    &quot;We could map to FOODON:03310788 instead to cover sliced apples, but only &quot;&quot;whole&quot;&quot; apple types exist.&quot;
+KF_FOOD:F002    gala    skos:exactMatch FOODON:00003348 Gala apple (whole)  semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   1   
+KF_FOOD:F003    pink    skos:exactMatch FOODON:00004186 Pink apple (whole)  semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   0.9 &quot;We could map to FOODON:00004187 instead which more specifically refers to &quot;&quot;raw&quot;&quot; Pink apples. Decided against to be consistent with other mapping choices.&quot;
+KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   1   
+</code></pre>
+<p>The same set in external metadata mode: first the file containing the metadata block:</p>
+<pre><code class="language-yaml">curie_map:
+  FOODON: http://purl.obolibrary.org/obo/FOODON_
+  KF_FOOD: https://kewl-foodie.inc/food/
+  orcid: https://orcid.org/
+mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food and nutrition database with Food Ontology (FOODON). Intended to be used for ontological analysis and grouping of KEWL FOODIE INC related data.
+license: https://creativecommons.org/licenses/by/4.0/
+mapping_date: 2022-05-02
+</code></pre>
+<p>then the file containing the mappings block:</p>
+<pre><code>subject_id  subject_label   predicate_id    object_id   object_label    mapping_justification   author_id   confidence  comment
+KF_FOOD:F001    apple   skos:exactMatch FOODON:00002473 apple (whole)   semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   0.95    &quot;We could map to FOODON:03310788 instead to cover sliced apples, but only &quot;&quot;whole&quot;&quot; apple types exist.&quot;
+KF_FOOD:F002    gala    skos:exactMatch FOODON:00003348 Gala apple (whole)  semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   1   
+KF_FOOD:F003    pink    skos:exactMatch FOODON:00004186 Pink apple (whole)  semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   0.9 &quot;We could map to FOODON:00004187 instead which more specifically refers to &quot;&quot;raw&quot;&quot; Pink apples. Decided against to be consistent with other mapping choices.&quot;
+KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   1   
+</code></pre>
+<h3 id="invalid-examples">Invalid examples</h3>
+<p>Illegal case 1: the metadata block cannot contains comments that are not part of the metadata.</p>
+<pre><code># This is a comment that does not belong here.
+#curie_map:
+#  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
+#  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
+#  orcid: &quot;https://orcid.org/&quot;
+# This is another comment that also does not belong here.
+#creator_id:
+#  - &quot;orcid:0000-0002-7356-1779&quot;
+</code></pre>
+<p>Illegal case 2: there should be no empty lines.</p>
+<pre><code>#curie_map:
+#  HP: &quot;http://purl.obolibrary.org/obo/HP_&quot;
+#  MP: &quot;http://purl.obolibrary.org/obo/MP_&quot;
+#  orcid: &quot;https://orcid.org/&quot;
+
+#creator_id:
+#  - &quot;orcid:0000-0002-7356-1779&quot;
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../spec-formats/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introduction
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../spec-formats-owl/" class="md-footer__link md-footer__link--next" aria-label="Next: OWL/RDF serialisation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              OWL/RDF serialisation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
