@@ -449,6 +449,8 @@ slots:
     description: A score between 0 and 1 to denote the confidence or probability that
       the match is correct, where 1 denotes total confidence.
     range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
   subject_match_field:
     description: A list of properties (term annotations on the subject) that was used
       for the match.
@@ -516,6 +518,8 @@ slots:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
     range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
   semantic_similarity_measure:
     description: The measure used for computing the the semantic similarity score.
       To make processing this field as unambiguous as possible, we recommend using 
@@ -528,6 +532,8 @@ slots:
     description: A score between 0 and 1 to denote the similarity, where
       1 denotes equivalence.
     range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
   similarity_measure:
     description: The measure used for computing the the similarity score.
       To make processing this field as unambiguous as possible, we recommend using 

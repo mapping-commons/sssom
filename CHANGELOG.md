@@ -4,6 +4,7 @@
 
 - Add issue_tracker_item and issue_tracker [model elements](https://github.com/mapping-commons/sssom/pull/259).
 - Add recommendation to sort the keys in the YAML metadata block.
+- Double-typed slots explicitly constrained to the [0.0,1.0] range, as per their description.
 
 ## SSSOM version 0.13.0
 
