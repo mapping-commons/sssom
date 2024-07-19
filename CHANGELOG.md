@@ -7,6 +7,7 @@
 ## SSSOM version 0.15.1
 
 - Add recommendation to sort the keys in the YAML metadata block.
+- Double-typed slots explicitly constrained to the [0.0,1.0] range, as per their description.
 
 ## SSSOM version 0.15.0
 
