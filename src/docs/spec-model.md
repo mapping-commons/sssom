@@ -30,7 +30,9 @@ As mentioned briefly above, there are two different types of slots in the `Mappi
 * slots that provide informations about the set itself;
 * slots that provide informations about all the mappings in the set.
 
-The latter are called “propagatable slots”. The propagatable slots are:
+The latter are called “propagatable slots”. In the LinkML model, they are marked with a `propagated` annotation whose value is set to `true`.
+
+For convenience, here is the current list of propagatable slots:
 
 * `mapping_date`,
 * `mapping_provider`,
@@ -46,8 +48,6 @@ The latter are called “propagatable slots”. The propagatable slots are:
 * `subject_source`,
 * `subject_source_version`,
 * `subject_type`.
-
-(In a future version of this specification, this information will be formally specified directly within the LinkML schema.)
 
 When a mapping set object has a value in one of its propagatable slots, this MUST be interpreted as if all mappings within the set had that same value in their corresponding slot. For example, if a set has the value _foo_ in its `mapping_tool` slot, all the mappings in that set MUST be treated as if they had the value _foo_ in their `mapping_tool` slot.
 
