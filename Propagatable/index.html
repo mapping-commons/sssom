@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://mapping-commons.github.io/sssom/MappingRegistry/" rel="canonical"/>
+<link href="https://mapping-commons.github.io/sssom/Propagatable/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: MappingRegistry - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+<title>Class: Propagatable - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-mappingregistry">
+<a class="md-skip" href="#class-propagatable">
           Skip to content
         </a>
 </div>
@@ -45,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: MappingRegistry
+              Class: Propagatable
             
           </span>
 </div>
@@ -387,6 +387,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#see-also">
+    See Also
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -431,31 +436,15 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/mapping-commons/sssom/edit/master/src/docs/MappingRegistry.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/mapping-commons/sssom/edit/master/src/docs/Propagatable.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="class-mappingregistry">Class: MappingRegistry</h1>
-<p><em>A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries.</em></p>
-<p>URI: <a href="https://w3id.org/sssom/MappingRegistry">sssom:MappingRegistry</a></p>
+<h1 id="class-propagatable">Class: Propagatable</h1>
+<p><em>Metamodel extension class to describe slots whose value can be propagated down from the MappingSet class to the Mapping class.</em></p>
+<p>URI: <a href="https://w3id.org/sssom/Propagatable">sssom:Propagatable</a></p>
 <div class="mermaid"> classDiagram
-    class MappingRegistry
-      MappingRegistry : documentation
-
-      MappingRegistry : homepage
-
-      MappingRegistry : imports
-
-      MappingRegistry : issue_tracker
-
-      MappingRegistry : mapping_registry_description
-
-      MappingRegistry : mapping_registry_id
-
-      MappingRegistry : mapping_registry_title
-
-      MappingRegistry : mapping_set_references
-
-          MappingRegistry --|&gt; mapping set reference : mapping_set_references
+    class Propagatable
+      Propagatable : propagated
 
 
 </div>
@@ -472,55 +461,17 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../mapping_registry_id/">mapping_registry_id</a></td>
-<td>1 <br/> <a href="../EntityReference/">EntityReference</a></td>
-<td>The unique identifier of a mapping registry</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../mapping_registry_title/">mapping_registry_title</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The title of a mapping registry</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../mapping_registry_description/">mapping_registry_description</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The description of a mapping registry</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../imports/">imports</a></td>
-<td>* <br/> <a href="../Uri/">Uri</a></td>
-<td>A list of registries that should be imported into this one</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../mapping_set_references/">mapping_set_references</a></td>
-<td>* <em>recommended</em> <br/> <a href="../MappingSetReference/">MappingSetReference</a></td>
-<td>A list of mapping set references</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../documentation/">documentation</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
-<td>A URL to the documentation of this mapping commons</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../homepage/">homepage</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
-<td>A URL to a homepage of this mapping commons</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../issue_tracker/">issue_tracker</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
-<td>A URL location of the issue tracker for this entity</td>
+<td><a href="../propagated/">propagated</a></td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>Indicates whether a slot can be propagated from a mapping down to individual ...</td>
 <td>direct</td>
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://github.com/mapping-commons/sssom/issues/305">https://github.com/mapping-commons/sssom/issues/305</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -537,11 +488,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>sssom:MappingRegistry</td>
+<td>sssom:Propagatable</td>
 </tr>
 <tr>
 <td>native</td>
-<td>sssom:MappingRegistry</td>
+<td>sssom:Propagatable</td>
 </tr>
 </tbody>
 </table>
@@ -549,122 +500,47 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: mapping registry
-description: A registry for managing mapping sets. It holds a set of mapping set references,
-  and can import other registries.
+<pre><code class="language-yaml">name: Propagatable
+description: Metamodel extension class to describe slots whose value can be propagated
+  down from the MappingSet class to the Mapping class.
 from_schema: https://w3id.org/sssom/schema/
-slots:
-- mapping_registry_id
-- mapping_registry_title
-- mapping_registry_description
-- imports
-- mapping_set_references
-- documentation
-- homepage
-- issue_tracker
+see_also:
+- https://github.com/mapping-commons/sssom/issues/305
+attributes:
+  propagated:
+    name: propagated
+    description: Indicates whether a slot can be propagated from a mapping down to
+      individual mappings.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    domain_of:
+    - Propagatable
+    range: boolean
+class_uri: sssom:Propagatable
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: mapping registry
-description: A registry for managing mapping sets. It holds a set of mapping set references,
-  and can import other registries.
+<pre><code class="language-yaml">name: Propagatable
+description: Metamodel extension class to describe slots whose value can be propagated
+  down from the MappingSet class to the Mapping class.
 from_schema: https://w3id.org/sssom/schema/
+see_also:
+- https://github.com/mapping-commons/sssom/issues/305
 attributes:
-  mapping_registry_id:
-    name: mapping_registry_id
-    description: The unique identifier of a mapping registry.
+  propagated:
+    name: propagated
+    description: Indicates whether a slot can be propagated from a mapping down to
+      individual mappings.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    alias: mapping_registry_id
-    owner: mapping registry
+    alias: propagated
+    owner: Propagatable
     domain_of:
-    - mapping registry
-    range: EntityReference
-    required: true
-  mapping_registry_title:
-    name: mapping_registry_title
-    description: The title of a mapping registry.
-    from_schema: https://w3id.org/sssom/schema/
-    rank: 1000
-    alias: mapping_registry_title
-    owner: mapping registry
-    domain_of:
-    - mapping registry
-    range: string
-  mapping_registry_description:
-    name: mapping_registry_description
-    description: The description of a mapping registry.
-    from_schema: https://w3id.org/sssom/schema/
-    rank: 1000
-    alias: mapping_registry_description
-    owner: mapping registry
-    domain_of:
-    - mapping registry
-    range: string
-  imports:
-    name: imports
-    description: A list of registries that should be imported into this one.
-    from_schema: https://w3id.org/sssom/schema/
-    rank: 1000
-    multivalued: true
-    alias: imports
-    owner: mapping registry
-    domain_of:
-    - mapping registry
-    range: uri
-  mapping_set_references:
-    name: mapping_set_references
-    description: A list of mapping set references.
-    from_schema: https://w3id.org/sssom/schema/
-    rank: 1000
-    multivalued: true
-    alias: mapping_set_references
-    owner: mapping registry
-    domain_of:
-    - mapping registry
-    range: mapping set reference
-    recommended: true
-  documentation:
-    name: documentation
-    description: A URL to the documentation of this mapping commons.
-    from_schema: https://w3id.org/sssom/schema/
-    rank: 1000
-    alias: documentation
-    owner: mapping registry
-    domain_of:
-    - mapping registry
-    range: uri
-  homepage:
-    name: homepage
-    description: A URL to a homepage of this mapping commons.
-    from_schema: https://w3id.org/sssom/schema/
-    rank: 1000
-    alias: homepage
-    owner: mapping registry
-    domain_of:
-    - mapping registry
-    range: uri
-  issue_tracker:
-    name: issue_tracker
-    description: A URL location of the issue tracker for this entity.
-    examples:
-    - value: https://github.com/mapping-commons/mh_mapping_initiative/issues
-      description: (A URL resolving to the issue tracker of the Mouse-Human mapping
-        initiative)
-    from_schema: https://w3id.org/sssom/schema/
-    see_also:
-    - https://github.com/mapping-commons/sssom/issues/78
-    - https://github.com/mapping-commons/sssom/pull/259
-    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker.sssom.tsv
-    rank: 1000
-    alias: issue_tracker
-    owner: mapping registry
-    domain_of:
-    - mapping set
-    - mapping registry
-    range: uri
+    - Propagatable
+    range: boolean
+class_uri: sssom:Propagatable
 
 </code></pre>
 </details>

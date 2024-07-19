@@ -901,6 +901,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    Annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#schema-source" class="md-nav__link">
     Schema Source
   </a>
@@ -955,11 +962,6 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../LiteralMapping/">LiteralMapping</a></td>
-<td>Represents an individual mapping between a literal and an entity</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../Mapping/">Mapping</a></td>
 <td>Represents an individual mapping between a pair of entities</td>
 <td>no</td>
@@ -969,6 +971,11 @@
 <td>Represents a set of mappings</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="../LiteralMapping/">LiteralMapping</a></td>
+<td>Represents an individual mapping between a literal and an entity</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
@@ -976,6 +983,21 @@
 <li>Range: <a href="../Uri/">Uri</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="annotations">Annotations</h3>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>propagated</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://w3id.org/sssom/schema/</li>
@@ -984,6 +1006,12 @@
 <details>
 
 <pre><code class="language-yaml">name: mapping_provider
+instantiates:
+- sssom:Propagatable
+annotations:
+  propagated:
+    tag: propagated
+    value: true
 description: URL pointing to the source that provided the mapping, for example an
   ontology that already contains the mappings, or a database from which it was derived.
 from_schema: https://w3id.org/sssom/schema/

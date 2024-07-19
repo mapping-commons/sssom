@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://mapping-commons.github.io/sssom/mapping_tool_version/">
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/propagated/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: mapping_tool_version - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>Slot: propagated - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-mapping_tool_version" class="md-skip">
+        <a href="#slot-propagated" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: mapping_tool_version
+              Slot: propagated
             
           </span>
         </div>
@@ -893,26 +893,12 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     Identifier and Mapping Information
   </a>
   
     <nav class="md-nav" aria-label="Identifier and Mapping Information">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#annotations" class="md-nav__link">
-    Annotations
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#schema-source" class="md-nav__link">
@@ -947,15 +933,15 @@
                 
                   
 
-  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/mapping_tool_version.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/propagated.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-mapping_tool_version">Slot: mapping_tool_version</h1>
-<p><em>Version string that denotes the version of the mapping tool used.</em></p>
-<p>URI: <a href="https://w3id.org/sssom/mapping_tool_version">sssom:mapping_tool_version</a></p>
+<h1 id="slot-propagated">Slot: propagated</h1>
+<p><em>Indicates whether a slot can be propagated from a mapping down to individual mappings.</em></p>
+<p>URI: <a href="https://w3id.org/sssom/propagated">sssom:propagated</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -969,55 +955,17 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Mapping/">Mapping</a></td>
-<td>Represents an individual mapping between a pair of entities</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../MappingSet/">MappingSet</a></td>
-<td>Represents a set of mappings</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../LiteralMapping/">LiteralMapping</a></td>
-<td>Represents an individual mapping between a literal and an entity</td>
+<td><a href="../Propagatable/">Propagatable</a></td>
+<td>Metamodel extension class to describe slots whose value can be propagated dow...</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="../Boolean/">Boolean</a></li>
 </ul>
-<h2 id="examples">Examples</h2>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v3.2</td>
-</tr>
-</tbody>
-</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="annotations">Annotations</h3>
-<table>
-<thead>
-<tr>
-<th>property</th>
-<th>value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>propagated</td>
-<td>True</td>
-</tr>
-</tbody>
-</table>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://w3id.org/sssom/schema/</li>
@@ -1025,24 +973,16 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: mapping_tool_version
-instantiates:
-- sssom:Propagatable
-annotations:
-  propagated:
-    tag: propagated
-    value: true
-description: Version string that denotes the version of the mapping tool used.
-examples:
-- value: v3.2
+<pre><code class="language-yaml">name: propagated
+description: Indicates whether a slot can be propagated from a mapping down to individual
+  mappings.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
-alias: mapping_tool_version
+alias: propagated
+owner: Propagatable
 domain_of:
-- mapping set
-- mapping
-- literal mapping
-range: string
+- Propagatable
+range: boolean
 
 </code></pre>
 

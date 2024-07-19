@@ -999,7 +999,8 @@
 <li>slots that provide informations about the set itself;</li>
 <li>slots that provide informations about all the mappings in the set.</li>
 </ul>
-<p>The latter are called “propagatable slots”. The propagatable slots are:</p>
+<p>The latter are called “propagatable slots”. In the LinkML model, they are marked with a <code>propagated</code> annotation whose value is set to <code>true</code>.</p>
+<p>For convenience, here is the current list of propagatable slots:</p>
 <ul>
 <li><code>mapping_date</code>,</li>
 <li><code>mapping_provider</code>,</li>
@@ -1016,7 +1017,6 @@
 <li><code>subject_source_version</code>,</li>
 <li><code>subject_type</code>.</li>
 </ul>
-<p>(In a future version of this specification, this information will be formally specified directly within the LinkML schema.)</p>
 <p>When a mapping set object has a value in one of its propagatable slots, this MUST be interpreted as if all mappings within the set had that same value in their corresponding slot. For example, if a set has the value <em>foo</em> in its <code>mapping_tool</code> slot, all the mappings in that set MUST be treated as if they had the value <em>foo</em> in their <code>mapping_tool</code> slot.</p>
 <p>This mechanism is intended as a convenience, so that a slot which has the same value for all mappings in a set can be specified only once at the level of the set rather than for each individual mapping.</p>
 <p>Slots that are not in the above list (“non-propagatable slots”) describe the mapping set itself, not the mappings it contains, even if the slot also exists on the <code>Mapping</code> class. For example, the <code>creator_id</code> slot, when used in the <code>MappingSet</code> class, is intended to refer to the creators of the set, <em>not</em> the creators of the individual mappings (which may be different, and which are listed in the <code>creator_id</code> slot of every mapping).</p>

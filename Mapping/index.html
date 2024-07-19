@@ -556,7 +556,7 @@
 <tbody>
 <tr>
 <td><a href="../subject_id/">subject_id</a></td>
-<td>1..1 <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>1 <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>The ID of the subject of the mapping</td>
 <td>direct</td>
 </tr>
@@ -574,7 +574,7 @@
 </tr>
 <tr>
 <td><a href="../predicate_id/">predicate_id</a></td>
-<td>1..1 <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>1 <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>The ID of the predicate or relation that relates the subject and object of th...</td>
 <td>direct</td>
 </tr>
@@ -592,7 +592,7 @@
 </tr>
 <tr>
 <td><a href="../object_id/">object_id</a></td>
-<td>1..1 <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>1 <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>The ID of the object of the mapping</td>
 <td>direct</td>
 </tr>
@@ -610,43 +610,43 @@
 </tr>
 <tr>
 <td><a href="../mapping_justification/">mapping_justification</a></td>
-<td>1..1 <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>1 <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>A mapping justification is an action (or the written representation of that a...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../author_id/">author_id</a></td>
-<td>0..* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>Identifies the persons or groups responsible for asserting the mappings</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../author_label/">author_label</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>A string identifying the author of this mapping</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../reviewer_id/">reviewer_id</a></td>
-<td>0..* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>Identifies the persons or groups that reviewed and confirmed the mapping</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../reviewer_label/">reviewer_label</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>A string identifying the reviewer of this mapping</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../creator_id/">creator_id</a></td>
-<td>0..* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>Identifies the persons or groups responsible for the creation of the mapping</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../creator_label/">creator_label</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>A string identifying the creator of this mapping</td>
 <td>direct</td>
 </tr>
@@ -742,43 +742,43 @@
 </tr>
 <tr>
 <td><a href="../curation_rule/">curation_rule</a></td>
-<td>0..* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>A curation rule is a (potentially) complex condition executed by an agent tha...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../curation_rule_text/">curation_rule_text</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>A curation rule is a (potentially) complex condition executed by an agent tha...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../subject_match_field/">subject_match_field</a></td>
-<td>0..* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>A list of properties (term annotations on the subject) that was used for the ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../object_match_field/">object_match_field</a></td>
-<td>0..* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>A list of properties (term annotations on the object) that was used for the m...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../match_string/">match_string</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>String that is shared by subj/obj</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../subject_preprocessing/">subject_preprocessing</a></td>
-<td>0..* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>Method of preprocessing applied to the fields of the subject</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../object_preprocessing/">object_preprocessing</a></td>
-<td>0..* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
 <td>Method of preprocessing applied to the fields of the object</td>
 <td>direct</td>
 </tr>
@@ -796,7 +796,7 @@
 </tr>
 <tr>
 <td><a href="../see_also/">see_also</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>A URL specific for the mapping instance</td>
 <td>direct</td>
 </tr>
@@ -1262,6 +1262,12 @@ attributes:
     range: uri
   subject_type:
     name: subject_type
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: The type of entity that is being mapped.
     examples:
     - value: owl:Class
@@ -1275,6 +1281,12 @@ attributes:
     range: entity_type_enum
   subject_source:
     name: subject_source
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: URI of vocabulary or identifier source for the subject.
     examples:
     - value: obo:mondo.owl
@@ -1292,6 +1304,12 @@ attributes:
     range: EntityReference
   subject_source_version:
     name: subject_source_version
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: Version IRI or version string of the source of the subject term.
     examples:
     - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
@@ -1306,6 +1324,12 @@ attributes:
     range: string
   object_type:
     name: object_type
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: The type of entity that is being mapped.
     examples:
     - value: owl:Class
@@ -1320,6 +1344,12 @@ attributes:
     range: entity_type_enum
   object_source:
     name: object_source
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: URI of vocabulary or identifier source for the object.
     examples:
     - value: obo:mondo.owl
@@ -1338,6 +1368,12 @@ attributes:
     range: EntityReference
   object_source_version:
     name: object_source_version
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: Version IRI or version string of the source of the object term.
     examples:
     - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
@@ -1353,6 +1389,12 @@ attributes:
     range: string
   mapping_provider:
     name: mapping_provider
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: URL pointing to the source that provided the mapping, for example
       an ontology that already contains the mappings, or a database from which it
       was derived.
@@ -1396,6 +1438,12 @@ attributes:
     range: mapping_cardinality_enum
   mapping_tool:
     name: mapping_tool
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: A reference to the tool or algorithm that was used to generate the
       mapping. Should be a URL pointing to more info about it, but can be free text.
     examples:
@@ -1411,6 +1459,12 @@ attributes:
     range: string
   mapping_tool_version:
     name: mapping_tool_version
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: Version string that denotes the version of the mapping tool used.
     examples:
     - value: v3.2
@@ -1425,6 +1479,12 @@ attributes:
     range: string
   mapping_date:
     name: mapping_date
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: The date the mapping was asserted. This is different from the date
       the mapping was published or compiled in a SSSOM file.
     from_schema: https://w3id.org/sssom/schema/
@@ -1509,6 +1569,12 @@ attributes:
     range: string
   subject_match_field:
     name: subject_match_field
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: A list of properties (term annotations on the subject) that was used
       for the match.
     from_schema: https://w3id.org/sssom/schema/
@@ -1522,6 +1588,12 @@ attributes:
     range: EntityReference
   object_match_field:
     name: object_match_field
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: A list of properties (term annotations on the object) that was used
       for the match.
     from_schema: https://w3id.org/sssom/schema/
@@ -1549,6 +1621,12 @@ attributes:
     range: string
   subject_preprocessing:
     name: subject_preprocessing
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: Method of preprocessing applied to the fields of the subject. If
       different preprocessing steps were performed on different fields, it is recommended
       to store the match in separate rows.
@@ -1566,6 +1644,12 @@ attributes:
     range: EntityReference
   object_preprocessing:
     name: object_preprocessing
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: Method of preprocessing applied to the fields of the object. If different
       preprocessing steps were performed on different fields, it is recommended to
       store the match in separate rows.

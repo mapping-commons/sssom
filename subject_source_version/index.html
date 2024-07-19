@@ -908,6 +908,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    Annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#schema-source" class="md-nav__link">
     Schema Source
   </a>
@@ -991,6 +998,21 @@
 </tbody>
 </table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="annotations">Annotations</h3>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>propagated</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://w3id.org/sssom/schema/</li>
@@ -999,6 +1021,12 @@
 <details>
 
 <pre><code class="language-yaml">name: subject_source_version
+instantiates:
+- sssom:Propagatable
+annotations:
+  propagated:
+    tag: propagated
+    value: true
 description: Version IRI or version string of the source of the subject term.
 examples:
 - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
