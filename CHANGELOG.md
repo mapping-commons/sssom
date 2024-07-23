@@ -3,6 +3,7 @@
 ## Next
 
 - Add the concept of "propagatable slots".
+- Add the concept of "extension slots".
 
 ## SSSOM version 0.15.1
 
