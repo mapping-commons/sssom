@@ -11,7 +11,7 @@
 #    type_hint: xsd:integer
 #  - slot_name: ext_baz
 #    property: EXPROP:bazProperty
-#    type_hint: linkml:uriOrCurie
+#    type_hint: linkml:Uriorcurie
 #  - slot_name: ext_foo
 #    property: EXPROP:fooProperty
 #ext_foo: Foo A

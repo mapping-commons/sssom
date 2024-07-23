@@ -153,7 +153,7 @@ A SSSOM/TSV reader MUST check the validity of the extension definitions listed i
 
 A SSSOM/TSV reader MUST, upon encountering a non-standard YAML key in the metadata block or an unknown TSV column, check that the name of the key or of the column matches the `slot_name` of one of the extension definitions listed in the mapping set’s `extension_definitions` slot. If there is no match, the non-standard slot MUST be discarded.
 
-Upon encountering a non-standard slot whose corresponding definition has a `type_hint` of `https://w3id.org/linkml/uriOrCurie`, the reader SHOULD check that the value is a CURIE and is resolvable using the mapping set’s `curie_map`.
+Upon encountering a non-standard slot whose corresponding definition has a `type_hint` of `https://w3id.org/linkml/Uriorcurie`, the reader SHOULD check that the value is a CURIE and is resolvable using the mapping set’s `curie_map`.
 
 
 ## Compatibility with previous versions of the specification
