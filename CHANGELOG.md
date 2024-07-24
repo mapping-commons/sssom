@@ -3,6 +3,7 @@
 ## Next
 
 - Add the concept of "propagatable slots".
+- Add the `curie_map` to the model (instead of it being a specificity of the SSSOM/TSV format).
 
 ## SSSOM version 0.15.1
 
