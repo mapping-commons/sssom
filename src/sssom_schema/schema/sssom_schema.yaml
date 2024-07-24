@@ -82,6 +82,8 @@ slots:
     range: prefix
     multivalued: true
     inlined: true
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/225
   mirror_from:
     description: A URL location from which to obtain a resource, such as a mapping set.
     range: uri
