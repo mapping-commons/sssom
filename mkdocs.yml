@@ -30,7 +30,7 @@ nav:
   - Specification:
     - Introduction: spec-intro.md
     - Data model:
-      - Introduction: spec-model.md #This needs to be rewritten
+      - Introduction: spec-model.md
       - Applying Chaining Rules: chaining-rules.md
       - LinkML documentation: linkml-index.md
       - SSSOM profiles: sssom-profiles.md
@@ -43,13 +43,12 @@ nav:
   - Resources for users:
     - FAQ: faq.md
     - Community:
-      - Use Cases: usecases.md # Nico overhault
+      - Use Cases: usecases.md
       - Workshops: workshops.md
       - Presentations: presentations.md
     - Training materials:
-      - Overview: training.md # Nico
+      - Overview: training.md
       - Basic Tutorial: tutorial.md
-      # Add links to obo academy pages here
     - How to:
       - Mapping Justifications: mapping-justifications.md
       - How to use mapping predicates: mapping-predicates.md
