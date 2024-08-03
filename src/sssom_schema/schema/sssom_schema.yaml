@@ -125,8 +125,11 @@ slots:
     examples:
       - value: HP:0009894
         description: The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'
-  literal:
+  subject_literal:
     description: The literal being mapped
+    see_also:
+    - https://mapping-commons.github.io/sssom/sssom-profiles/
+    - https://github.com/mapping-commons/sssom/issues/234
     range: string
     required: true
     mappings:
@@ -135,7 +138,7 @@ slots:
     examples:
       - value: "Alzheimer"
         description: A string referring to some thing.
-  literal_datatype:
+  subject_literal_datatype:
     description: The datatype of the literal being mapped
     range: uri
     required: false
@@ -640,6 +643,8 @@ classes:
     - subject_id
     - subject_label
     - subject_category
+    - subject_literal
+    - subject_literal_datatype
     - predicate_id
     - predicate_label
     - predicate_modifier
@@ -677,6 +682,8 @@ classes:
     - object_preprocessing
     - semantic_similarity_score
     - semantic_similarity_measure
+    - similarity_score
+    - similarity_measure
     - see_also
     - issue_tracker_item
     - other
