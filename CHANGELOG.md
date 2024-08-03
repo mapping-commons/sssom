@@ -3,6 +3,7 @@
 ## Next
 
 - Add the concept of "propagatable slots".
+- Add `curie_map` as an [explicit element of the SSSOM model](https://github.com/mapping-commons/sssom/issues/225)
 
 ## SSSOM version 0.15.1
 
