@@ -173,6 +173,9 @@ slots:
   subject_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     examples:
       - value: owl:Class
   predicate_id:
@@ -285,6 +288,9 @@ slots:
   object_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     examples:
       - value: owl:Class
   mapping_set_id:
@@ -365,6 +371,9 @@ slots:
   subject_source:
     description: URI of vocabulary or identifier source for the subject.
     range: EntityReference
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     examples:
       - value: obo:mondo.owl
         description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
@@ -373,6 +382,9 @@ slots:
   subject_source_version:
     description: Version IRI or version string of the source of the subject term.
     range: string
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
@@ -393,6 +405,9 @@ slots:
   object_source:
     description: URI of vocabulary or identifier source for the object.
     range: EntityReference
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     examples:
       - value: obo:mondo.owl
         description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
@@ -401,6 +416,9 @@ slots:
   object_source_version:
     description: Version IRI or version string of the source of the object term.
     range: string
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
@@ -408,6 +426,9 @@ slots:
     description: URL pointing to the source that provided the mapping, for example
       an ontology that already contains the mappings, or a database from which it was derived.
     range: uri
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
   mapping_set_source:
     description: A mapping set or set of mapping set that was used to derive the mapping set.
     slot_uri: prov:wasDerivedFrom
@@ -432,17 +453,26 @@ slots:
     description: A reference to the tool or algorithm that was used to generate the
       mapping. Should be a URL pointing to more info about it, but can be free text.
     range: string
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     examples:
       - value: https://github.com/AgreementMakerLight/AML-Project
   mapping_tool_version:
     description: Version string that denotes the version of the mapping tool used.
     range: string
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     examples:
       - value: v3.2
   mapping_date:
     description: The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
     slot_uri: pav:authoredOn
     range: date
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
   publication_date:
     description: The date the mapping was published. This is different from the date the mapping was asserted.
     slot_uri: dcterms:created
@@ -451,16 +481,24 @@ slots:
     description: A score between 0 and 1 to denote the confidence or probability that
       the match is correct, where 1 denotes total confidence.
     range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
   subject_match_field:
     description: A list of properties (term annotations on the subject) that was used
       for the match.
     range: EntityReference
     multivalued: true
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
   object_match_field:
     description: A list of properties (term annotations on the object) that was used
       for the match.
     range: EntityReference
     multivalued: true
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
   match_string:
     description: String that is shared by subj/obj. It is recommended to indicate the 
       fields for the match using the object and subject_match_field slots.
@@ -472,6 +510,9 @@ slots:
       recommended to store the match in separate rows.
     range: EntityReference
     multivalued: true
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     examples:
       - value: semapv:Stemming
       - value: semapv:StopWordRemoval
@@ -481,6 +522,9 @@ slots:
       recommended to store the match in separate rows.
     range: EntityReference
     multivalued: true
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     examples:
       - value: semapv:Stemming
       - value: semapv:StopWordRemoval
@@ -518,6 +562,8 @@ slots:
     description: A score between 0 and 1 to denote the semantic similarity, where
       1 denotes equivalence.
     range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
   semantic_similarity_measure:
     description: The measure used for computing the the semantic similarity score.
       To make processing this field as unambiguous as possible, we recommend using 
@@ -530,6 +576,8 @@ slots:
     description: A score between 0 and 1 to denote the similarity, where
       1 denotes equivalence.
     range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
   similarity_measure:
     description: The measure used for computing the the similarity score.
       To make processing this field as unambiguous as possible, we recommend using 
@@ -724,3 +772,14 @@ classes:
       - mapping_set_group
       - last_updated
       - local_name
+  Propagatable:
+    class_uri: sssom:Propagatable
+    description: Metamodel extension class to describe slots whose value can be
+      propagated down from the MappingSet class to the Mapping class.
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/305
+    attributes:
+      propagated:
+        description: Indicates whether a slot can be propagated from a mapping
+          down to individual mappings.
+        range: boolean
