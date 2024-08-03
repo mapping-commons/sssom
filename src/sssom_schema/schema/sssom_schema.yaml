@@ -270,16 +270,6 @@ slots:
     range: EntityReference
     pattern: "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$"
     required: true
-    any_of:
-      - equals_string: semapv:LexicalMatching
-      - equals_string: semapv:LogicalReasoning
-      - equals_string: semapv:CompositeMatching
-      - equals_string: semapv:UnspecifiedMatching
-      - equals_string: semapv:SemanticSimilarityThresholdMatching
-      - equals_string: semapv:LexicalSimilarityThresholdMatching
-      - equals_string: semapv:MappingChaining
-      - equals_string: semapv:MappingReview
-      - equals_string: semapv:ManualMappingCuration
     examples:
       - value: semapv:LexicalMatching
       - value: semapv:ManualMappingCuration
