@@ -112,6 +112,9 @@ Any prefix name used in a SSSOM/TSV file MUST be declared with a corresponding e
 
 Prefix names listed in the table found in the [IRI prefixes](spec-intro.md#iri-prefixes) section are considered “built-in”. As such, they MAY be omitted from the CURIE map. If they are not omitted, they MUST point to the same IRI prefixes as in the aforementioned table.
 
+_Note_ that as of SSSOM version 0.15.3, the `curie_map` element is part of the metadata model.
+This does not have any consequences for SSSOM users, but developers building tools based on
+the LinkML model of the SSSOM schema may have to adjust their parsers and serialisers accordingly.
 
 ## Propagatable slots
 
