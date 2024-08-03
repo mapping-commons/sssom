@@ -84,6 +84,8 @@ slots:
     inlined: true
     see_also:
       - https://github.com/mapping-commons/sssom/issues/225
+      - https://github.com/mapping-commons/sssom/pull/349
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curie_map.sssom.tsv
   mirror_from:
     description: A URL location from which to obtain a resource, such as a mapping set.
     range: uri
