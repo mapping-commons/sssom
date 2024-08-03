@@ -386,20 +386,6 @@ slots:
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
-  literal_source:
-    description: URI of ontology source for the literal.
-    range: EntityReference
-    examples:
-      - value: obo:mondo.owl
-        description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
-      - value: wikidata:Q7876491
-        description: A Wikidata identifier for the Uberon ontology resource.
-  literal_source_version:
-    description: Version IRI or version string of the source of the literal.
-    range: string
-    examples:
-      - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
-        description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   object_source:
     description: URI of vocabulary or identifier source for the object.
     range: EntityReference
@@ -523,13 +509,6 @@ slots:
     instantiates: sssom:Propagatable
     annotations:
       propagated: true
-    examples:
-      - value: semapv:Stemming
-      - value: semapv:StopWordRemoval
-  literal_preprocessing:
-    description: Method of preprocessing applied to the literal.
-    range: EntityReference
-    multivalued: true
     examples:
       - value: semapv:Stemming
       - value: semapv:StopWordRemoval
