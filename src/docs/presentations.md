@@ -1,6 +1,6 @@
 # Presentations
 
-## A Simple Standard for Ontological Mappings 2024: The Case for prioritising 5-Star mappings (Every Cure, internal seminar) 
+## A Simple Standard for Ontological Mappings 2024: The case for prioritising 5-Star mappings (Every Cure, internal seminar) 
 
 - August 1<sup>st</sup>, 2024, virtual
 - Talk to [Every Cure](https://everycure.org/) technical team (Knowledge Sharing Series) to make the case for prioritising the collection of mapping provenance.
