@@ -129,28 +129,5 @@ You can also reach us in the [OBO Foundry Slack](https://obo-communitygroup.slac
 
 ## Acknowledgements
 
-### Funding
-
-#### Phenomics First
-
-Parts of this work were funded by Phenomics First (NIH / NHGRI #1RM1HG010860-01):
-
-- design of the specification;
-- integration of `sssom-py` into Mondo;
-- development of the `sssom-py` command-line interface.
-
-#### Bosch Gift to LBNL
-
-Parts of this work were funded by a gift from [Bosch](https://www.bosch.com/) to the Lawrence Berkely National Laboratories (LBNL):
-
-- `sssom-py`:
-    - IO functionality,
-    - file format converters,
-    - testing framework,
-    - deployment on the [Python Package Index](https://pypi.org/);
-- SSSOM documentation (this document).
-
-### Significant contributions
-
-- The [Link Model Language (LinkML) project](https://github.com/linkml) (used to define the data model).
-- Harvard Medical School (through significant contributions of Charlie Hoyt, including refactoring of sssom-py, release and quality control infrastructure).
+- See [Funding](funding.md) for details on direct contributions.
+- We thank the [Link Model Language (LinkML) project](https://github.com/linkml) and team for their great framework and the LinkML team for their support developing the schema.
