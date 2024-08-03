@@ -1,10 +1,15 @@
 ## Add your own custom Makefile targets here
 # Added by H2
 EXCEL_DIR = $(DEST)/excel
+PYDANTIC_DIR = $(DEST)/pydantic
 
 gen-excel:
 	mkdir -p $(EXCEL_DIR)
 	$(RUN) gen-excel --output $(EXCEL_DIR)/sssom_schema.xlsx $(SOURCE_SCHEMA_PATH)
+
+gen-pydantic:
+	mkdir -p $(PYDANTIC_DIR)
+	$(RUN) gen-pydantic $(SOURCE_SCHEMA_PATH) > $(PYDANTIC_DIR)/sssom_schema.py
 
 build:
 	poetry build

@@ -41,7 +41,7 @@ install:
 	poetry install
 .PHONY: install
 
-all: gen-project gendoc gen-excel get-context
+all: gen-project gendoc gen-excel get-context gen-pydantic
 %.yaml: gen-project
 deploy: all mkd-gh-deploy
 
