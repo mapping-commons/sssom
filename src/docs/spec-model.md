@@ -81,3 +81,41 @@ In addition, predicates from the following sources MAY also be encouraged:
 
 * any relation from the [Relation Ontology (RO)](https://obofoundry.org/ontology/ro.html);
 * any relation under [skos:mappingRelation](http://www.w3.org/2004/02/skos/core#mappingRelation) in the [Semantic Mapping Vocabulary](https://mapping-commons.github.io/semantic-mapping-vocabulary/).
+
+## Documenting unmapped elements
+
+The absence of a mapping in a mapping set can be interpreted in two ways:
+
+1. There is no mapping for that specific (absent) mapping that can be established
+2. The mapping was not established for some other reason, for example, the mapping set is a work in progress
+
+To circumvent this ambiguity, we can explicitly state that a specific term cannot be mapped 
+by using a SSSOM-built-in entity called `sssom:NoTermFound`.
+
+Example SSSOM TSV file:
+
+```
+#curie_map:
+#  HP: http://purl.obolibrary.org/obo/HP_
+#  MP: http://purl.obolibrary.org/obo/MP_
+#  obo: http://purl.obolibrary.org/obo/
+#  orcid: https://orcid.org/
+#mapping_set_id: https://w3id.org/sssom/commons/examples/no_term_found.sssom.tsv
+#creator_id:
+#  - orcid:0000-0002-7356-1779
+#subject_source: obo:hp
+#object_source: obo:mp
+#license: "https://creativecommons.org/publicdomain/zero/1.0/"
+#mapping_provider: "https://w3id.org/sssom/core_team"
+#comment: This is an example file for the SSSOM for illustration only. Its contents are entirely fabricated.
+subject_id	predicate_id	object_id	mapping_justification
+HP:0009124	skos:exactMatch	MP:0000003	semapv:ManualMappingCuration
+HP:0000411	skos:exactMatch	sssom:NoTermFound	semapv:ManualMappingCuration
+```
+
+The second mapping means: `HP:0000411` does not have a corresponding semantic entity in the `object_source` that can be mapped using the `skos:exactMatch` property.
+
+- `sssom:NoTermFound` SHOULD NOT be used in any slot other than `subject_id` and `object_id`.
+  The use of `sssom:NoTermFound` in any slot other than `subject_id` and `object_id` is undefined.
+- When using `sssom:NoTermFound` in the `subject_id` slot, the `subject_source` slot SHOULD be defined.
+- When using `sssom:NoTermFound` in the `object_id` slot, the `object_source` slot SHOULD be defined.
