@@ -86,7 +86,7 @@ In addition, predicates from the following sources MAY also be encouraged:
 
 <a id="non-standard-slots"></a>
 
-Implementations are only REQUIRED to support the standard metadata slots defined in the LinkML model.
+Implementations are only REQUIRED to support the standard metadata slots defined in the SSSOM LinkML schema.
 
 However, implementations MAY support the use of supplementary, non-standard slots (hereafter called _extension slots_ or simply _extensions_). There are two types of extension slots: _defined_ extension slots and _undefined_ extension slots.
 
@@ -129,7 +129,9 @@ The following restrictions apply to all extension slots, regardless of whether t
 
 Each mapping set and each mapping can have at most _one_ value for each extension slot. The expected behaviour upon encountering a repeated extension slot is unspecified.
 
-All extension values MUST be representable as literal strings. Complex data structures (e.g., lists or dictionaries) MUST NOT be used.
+An extension value MUST be either a string or an instance of a simple data type such as a numerical value (integer or floating point), a boolean value, or a date or datetime value. In particular, composite data structures (e.g. lists or dictionaries) MUST NOT be used as extension values.
+
+It is always possible to use arbitrarily complex values by encoding them as literal strings. However, how complex values would be encoded is out of scope of this specification; implementations MUST treat such values as opaque strings.
 
 #### Further restrictions for typed defined extensions
 
