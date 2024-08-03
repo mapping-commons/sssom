@@ -49,6 +49,7 @@ enums:
         meaning: rdfs:Datatype
       rdf property:
         meaning: rdf:Property
+      sssom literal: A special type of literal that is used in SSSOM files to express that the subject_id is not an entity reference.
   predicate_modifier_enum:
     permissible_values:
       Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
@@ -118,7 +119,6 @@ slots:
   subject_id:
     description: The ID of the subject of the mapping.
     range: EntityReference
-    required: true
     mappings:
     - owl:annotatedSource
     slot_uri: owl:annotatedSource
