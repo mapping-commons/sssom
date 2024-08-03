@@ -1,3 +1,45 @@
+# metamodel_version: 1.7.0
+type LiteralMapping
+  {
+    literal: String!
+    literalDatatype: Uri
+    predicateId: EntityReference!
+    predicateLabel: String
+    predicateModifier: PredicateModifierEnum
+    objectId: EntityReference!
+    objectLabel: String
+    objectCategory: String
+    mappingJustification: EntityReference!
+    authorId: [EntityReference]
+    authorLabel: [String]
+    reviewerId: [EntityReference]
+    reviewerLabel: [String]
+    creatorId: [EntityReference]
+    creatorLabel: [String]
+    license: Uri
+    literalSource: EntityReference
+    literalSourceVersion: String
+    objectType: EntityTypeEnum
+    objectSource: EntityReference
+    objectSourceVersion: String
+    mappingProvider: Uri
+    mappingSource: EntityReference
+    mappingCardinality: MappingCardinalityEnum
+    mappingTool: String
+    mappingToolVersion: String
+    mappingDate: Date
+    confidence: Double
+    objectMatchField: [EntityReference]
+    matchString: [String]
+    literalPreprocessing: [EntityReference]
+    objectPreprocessing: [EntityReference]
+    similarityScore: Double
+    similarityMeasure: String
+    seeAlso: [String]
+    other: String
+    comment: String
+  }
+
 type Mapping
   {
     subjectId: EntityReference!
@@ -98,5 +140,10 @@ type MappingSetReference
     mappingSetGroup: String
     lastUpdated: Date
     localName: String
+  }
+
+type Propagatable
+  {
+    propagated: Boolean
   }
 
