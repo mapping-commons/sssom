@@ -3,6 +3,7 @@
 ## Next
 
 - Add the concept of "propagatable slots".
+- Add the entity reference `sssom:NoTermFound` of express the concept of an "unmapped entity" ([issue](https://github.com/mapping-commons/sssom/issues/28))
 
 ## SSSOM version 0.15.1
 
