@@ -17,6 +17,7 @@ The following is a set of guidelines for contributing to SSSOM. They are derived
   * [Suggesting Enhancements](#suggesting-enhancements)
   * [Your First Code Contribution](#your-first-code-contribution)
   * [Pull Requests](#pull-requests)
+  * [Local Testing](#local-testing)
 
 [Styleguides](#styleguides)
   * [Git Commit Messages](#git-commit-messages)
@@ -99,6 +100,59 @@ Please follow these steps to have your contribution considered by the maintainer
 3. After you submit your pull request, verify that all [status checks](https://help.github.com/articles/about-status-checks/) are passing <details><summary>What if the status checks are failing?</summary>If a status check is failing, and you believe that the failure is unrelated to your change, please leave a comment on the pull request explaining why you believe the failure is unrelated. A maintainer will re-run the status check for you. If we conclude that the failure was a false positive, then we will open an issue to track that problem with our status check suite.</details>
 
 While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional design work, tests, or other changes before your pull request can be ultimately accepted.
+
+### Local testing
+
+Contributors are strongly advised to run the test suite locally even before submitting a pull request. This requires a working Python environment that includes a working version of Poetry.
+
+Prepare the testing environment by running:
+
+```sh
+$ make install
+```
+
+This only needs to be run once after cloning the repository. After that, the test suite can be run anytime with
+
+```sh
+$ make test
+```
+
+Furthermore, any change to the LinkML model should also be tested against SSSOM-Py. To do so:
+
+1. In the current `sssom` repository, build the Python files derived from the LinkML:
+
+```sh
+$ make all
+```
+
+2. Clone the SSSOM-Py repository somewhere (outside of your current checkout of `sssom`):
+
+```sh
+$ git clone https://github.com/mapping-commons/sssom-py.git
+```
+
+3. Initialise the Poetry environment inside the newly cloned SSSOM-Py repository:
+
+```sh
+$ poetry install
+```
+
+(Beware that SSSOM-Py does not support Python 3.12, so if that is your default Python version, you may need to explicitly require that Python < 3.12 be used instead, e.g. with `poetry env use 3.11`.)
+
+4. Forcefully install your _local_ version of `sssom-schema` in the newly initialised environment:
+
+```sh
+$ poetry run python -m pip install /path/to/your/sssom/repository
+```
+
+You may get a warning about “incompatible sssom-schema versions”; this is due to the fact that your local copy of `sssom` has a version number set to `0.0.0` (the “real” version number is set at release time, when the package is published to PyPI) and can be safely ignored.
+
+5. Run SSSOM-Py’s test suite:
+
+```sh
+$ poetry run tox -e py
+```
+
 
 ## Styleguides
 
