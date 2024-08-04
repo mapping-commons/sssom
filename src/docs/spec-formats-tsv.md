@@ -139,7 +139,7 @@ Implementations that support condensation MUST also support propagation.
 If an implementation does not support [non-standard slots](spec-model.md#non-standard-slots), then:
 
 * a SSSOM/TSV reader MUST discard any unknown top-level YAML key in the metadata block, and any unknown TSV column in the TSV section;
-* a SSSOM/TSV reader MUST NOT write any unknown top-level YAML key in the metadata block, or any unknown TSV column in the TSV section.
+* a SSSOM/TSV writer MUST NOT write any unknown top-level YAML key in the metadata block, or any unknown TSV column in the TSV section.
 
 ### Support for defined extensions
 

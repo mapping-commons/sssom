@@ -104,7 +104,7 @@ A definition MUST have at least a `slot_name`. The name MUST be a XML “non-col
 
 To avoid any conflicy with a future version of the SSSOM specification (which could introduce new standard slot names), implementations are strongly encouraged to craft extension slot names that start with the `ext_` prefix. No new standard slot with a name starting with `ext_` will ever be introduced in any future version of the standard. (This is an advice for SSSOM producers only; SSSOM consumers MUST NOT reject an extension slot solely on the basis that its name does not start with `ext`.)
 
-A definition SHOULD have a `property`. If it does not, implementations MUST automatically construct a default property by catenating the prefix `http://sssom.invalid/` with the name of the extension.
+A definition SHOULD have a `property`. If it does not, implementations MUST automatically construct a default property by concatenating the prefix `http://sssom.invalid/` with the name of the extension.
 
 The slot name and the property MUST be unique to each definition. No two definitions can share the same name and/or the same property.
 

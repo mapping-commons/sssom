@@ -788,7 +788,7 @@ classes:
       property:
         description: The property associated with the extension slot. It is
           intended to provide a non-ambiguous meaning to the slot (contrary
-          to the name, which for brevity reasons may be ambiguous).
+          to the slot_name, which for brevity reasons may be ambiguous).
         range: uriorcurie
       type_hint:
         description: Expected type of the values of the extension slot.
