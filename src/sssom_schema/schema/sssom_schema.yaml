@@ -49,7 +49,11 @@ enums:
         meaning: rdfs:Datatype
       rdf property:
         meaning: rdf:Property
-      sssom literal: A special type of literal that is used in SSSOM files to express that the subject_id is not an entity reference.
+      sssom literal:
+        description: A special type of literal that is used in SSSOM files to express that the subject_id is not an entity reference.
+        see_also:
+        - https://mapping-commons.github.io/sssom/sssom-profiles/
+        - https://github.com/mapping-commons/sssom/issues/234
   predicate_modifier_enum:
     permissible_values:
       Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
