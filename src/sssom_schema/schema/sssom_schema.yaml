@@ -660,8 +660,6 @@ classes:
     - object_preprocessing
     - semantic_similarity_score
     - semantic_similarity_measure
-    - similarity_score
-    - similarity_measure
     - see_also
     - issue_tracker_item
     - other
