@@ -123,7 +123,6 @@ slots:
   subject_id:
     description: The ID of the subject of the mapping.
     range: EntityReference
-    required: true
     mappings:
     - owl:annotatedSource
     slot_uri: owl:annotatedSource
@@ -220,7 +219,6 @@ slots:
     mappings:
     - owl:annotatedTarget
     range: EntityReference
-    required: true
     slot_uri: owl:annotatedTarget
     examples:
       - value: HP:0009894
