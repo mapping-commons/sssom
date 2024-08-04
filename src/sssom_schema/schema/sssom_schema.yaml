@@ -683,6 +683,23 @@ classes:
           slot_conditions:
             subject_id:
               required: true
+      - preconditions:
+          slot_conditions:
+            object_type: 
+              equals_string: "sssom literal"
+        postconditions:
+          slot_conditions:
+            object_label:
+              required: true
+      - preconditions:
+          slot_conditions:
+            object_type:
+              none_of:
+                equals_string: "sssom literal"
+        postconditions:
+          slot_conditions:
+            object_id:
+              required: true
   mapping registry:
     description: A registry for managing mapping sets. It holds a set of 
       mapping set references, and can import other registries.
