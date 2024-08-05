@@ -1,6 +1,7 @@
 BASE <https://w3id.org/sssom/>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -49,13 +50,12 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
-<Mapping> CLOSED {
-    (  $<Mapping_tes> (  owl:annotatedSource @<EntityReference> ;
-          <subject_label> @linkml:String ? ;
-          <subject_category> @linkml:String ? ;
+<LiteralMapping> CLOSED {
+    (  $<LiteralMapping_tes> (  owl:annotatedTarget @linkml:String ;
+          rdf:datatype @linkml:Uri ? ;
           owl:annotatedProperty @<EntityReference> ;
           <predicate_label> @linkml:String ? ;
-          <predicate_modifier> @<PredicateModifierEnum> ? ;
+          <predicate_modifier> [ <https://w3id.org/sssom/PredicateModifierEnum#Not> ] ? ;
           owl:annotatedTarget @<EntityReference> ;
           <object_label> @linkml:String ? ;
           <object_category> @linkml:String ? ;
@@ -67,15 +67,68 @@ linkml:Sparqlpath xsd:string
           dc1:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
           dc1:license @linkml:Uri ? ;
-          <subject_type> @<EntityTypeEnum> ? ;
-          <subject_source> @<EntityReference> ? ;
-          <subject_source_version> @linkml:String ? ;
-          <object_type> @<EntityTypeEnum> ? ;
+          <literal_source> @<EntityReference> ? ;
+          <literal_source_version> @linkml:String ? ;
+          <object_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property ] ? ;
           <object_source> @<EntityReference> ? ;
           <object_source_version> @linkml:String ? ;
           <mapping_provider> @linkml:Uri ? ;
           <mapping_source> @<EntityReference> ? ;
-          <mapping_cardinality> @<MappingCardinalityEnum> ? ;
+          <mapping_cardinality> [ <https://w3id.org/sssom/MappingCardinalityEnum#1%3A1>
+             <https://w3id.org/sssom/MappingCardinalityEnum#1%3An> <https://w3id.org/sssom/MappingCardinalityEnum#n%3A1>
+             <https://w3id.org/sssom/MappingCardinalityEnum#1%3A0> <https://w3id.org/sssom/MappingCardinalityEnum#0%3A1>
+             <https://w3id.org/sssom/MappingCardinalityEnum#n%3An> ] ? ;
+          <mapping_tool> @linkml:String ? ;
+          <mapping_tool_version> @linkml:String ? ;
+          pav:authoredOn @linkml:Date ? ;
+          <confidence> @linkml:Double ? ;
+          <object_match_field> @<EntityReference> * ;
+          <match_string> @linkml:String * ;
+          <literal_preprocessing> @<EntityReference> * ;
+          <object_preprocessing> @<EntityReference> * ;
+          <similarity_score> @linkml:Double ? ;
+          <similarity_measure> @linkml:String ? ;
+          rdfs:seeAlso @linkml:String * ;
+          <other> @linkml:String ? ;
+          rdfs:comment @linkml:String ?
+       ) ;
+       rdf:type [ owl:Axiom ] ?
+    )
+}
+
+<Mapping> CLOSED {
+    (  $<Mapping_tes> (  owl:annotatedSource @<EntityReference> ;
+          <subject_label> @linkml:String ? ;
+          <subject_category> @linkml:String ? ;
+          owl:annotatedProperty @<EntityReference> ;
+          <predicate_label> @linkml:String ? ;
+          <predicate_modifier> [ <https://w3id.org/sssom/PredicateModifierEnum#Not> ] ? ;
+          owl:annotatedTarget @<EntityReference> ;
+          <object_label> @linkml:String ? ;
+          <object_category> @linkml:String ? ;
+          <mapping_justification> @<EntityReference> ;
+          pav:authoredBy @<EntityReference> * ;
+          <author_label> @linkml:String * ;
+          <reviewer_id> @<EntityReference> * ;
+          <reviewer_label> @linkml:String * ;
+          dc1:creator @<EntityReference> * ;
+          <creator_label> @linkml:String * ;
+          dc1:license @linkml:Uri ? ;
+          <subject_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property ] ? ;
+          <subject_source> @<EntityReference> ? ;
+          <subject_source_version> @linkml:String ? ;
+          <object_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property ] ? ;
+          <object_source> @<EntityReference> ? ;
+          <object_source_version> @linkml:String ? ;
+          <mapping_provider> @linkml:Uri ? ;
+          <mapping_source> @<EntityReference> ? ;
+          <mapping_cardinality> [ <https://w3id.org/sssom/MappingCardinalityEnum#1%3A1>
+             <https://w3id.org/sssom/MappingCardinalityEnum#1%3An> <https://w3id.org/sssom/MappingCardinalityEnum#n%3A1>
+             <https://w3id.org/sssom/MappingCardinalityEnum#1%3A0> <https://w3id.org/sssom/MappingCardinalityEnum#0%3A1>
+             <https://w3id.org/sssom/MappingCardinalityEnum#n%3An> ] ? ;
           <mapping_tool> @linkml:String ? ;
           <mapping_tool_version> @linkml:String ? ;
           pav:authoredOn @linkml:Date ? ;
@@ -114,7 +167,8 @@ linkml:Sparqlpath xsd:string
 }
 
 <MappingSet> CLOSED {
-    (  $<MappingSet_tes> (  <mappings> @<Mapping> * ;
+    (  $<MappingSet_tes> (  <curie_map> @<Prefix> * ;
+          <mappings> @<Mapping> * ;
           <mapping_set_id> @linkml:Uri ;
           owl:versionInfo @linkml:String ? ;
           prov:wasDerivedFrom @linkml:Uri * ;
@@ -123,10 +177,12 @@ linkml:Sparqlpath xsd:string
           dc1:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
           dc1:license @linkml:Uri ;
-          <subject_type> @<EntityTypeEnum> ? ;
+          <subject_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property ] ? ;
           <subject_source> @<EntityReference> ? ;
           <subject_source_version> @linkml:String ? ;
-          <object_type> @<EntityTypeEnum> ? ;
+          <object_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property ] ? ;
           <object_source> @<EntityReference> ? ;
           <object_source_version> @linkml:String ? ;
           <mapping_provider> @linkml:Uri ? ;
@@ -156,6 +212,20 @@ linkml:Sparqlpath xsd:string
           <local_name> @linkml:String ?
        ) ;
        rdf:type [ <MappingSetReference> ] ?
+    )
+}
+
+<Prefix> CLOSED {
+    (  $<Prefix_tes> (  <prefix_name> @linkml:Ncname ;
+          <prefix_url> @linkml:Uri ?
+       ) ;
+       rdf:type [ <Prefix> ]
+    )
+}
+
+<Propagatable> CLOSED {
+    (  $<Propagatable_tes> <propagated> @linkml:Boolean ? ;
+       rdf:type [ <Propagatable> ] ?
     )
 }
 

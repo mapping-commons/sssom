@@ -1,3 +1,44 @@
+// Represents an individual mapping between a literal and an entity. Note that this schema has been created on 01.08.2023 and is subject to change.
+message LiteralMapping
+ {
+  string literal = 0
+  uri literalDatatype = 0
+  entityReference predicateId = 0
+  string predicateLabel = 0
+  predicateModifierEnum predicateModifier = 0
+  entityReference objectId = 0
+  string objectLabel = 0
+  string objectCategory = 0
+  entityReference mappingJustification = 0
+ repeated  entityReference authorId = 0
+ repeated  string authorLabel = 0
+ repeated  entityReference reviewerId = 0
+ repeated  string reviewerLabel = 0
+ repeated  entityReference creatorId = 0
+ repeated  string creatorLabel = 0
+  uri license = 0
+  entityReference literalSource = 0
+  string literalSourceVersion = 0
+  entityTypeEnum objectType = 0
+  entityReference objectSource = 0
+  string objectSourceVersion = 0
+  uri mappingProvider = 0
+  entityReference mappingSource = 0
+  mappingCardinalityEnum mappingCardinality = 0
+  string mappingTool = 0
+  string mappingToolVersion = 0
+  date mappingDate = 0
+  double confidence = 0
+ repeated  entityReference objectMatchField = 0
+ repeated  string matchString = 0
+ repeated  entityReference literalPreprocessing = 0
+ repeated  entityReference objectPreprocessing = 0
+  double similarityScore = 0
+  string similarityMeasure = 0
+ repeated  string seeAlso = 0
+  string other = 0
+  string comment = 0
+ }
 // Represents an individual mapping between a pair of entities
 message Mapping
  {
@@ -61,6 +102,7 @@ message MappingRegistry
 // Represents a set of mappings
 message MappingSet
  {
+ repeated  prefix curieMap = 0
  repeated  mapping mappings = 0
   uri mappingSetId = 0
   string mappingSetVersion = 0
@@ -99,4 +141,14 @@ message MappingSetReference
   string mappingSetGroup = 0
   date lastUpdated = 0
   string localName = 0
+ }
+message Prefix
+ {
+  ncname prefixName = 0
+  uri prefixUrl = 0
+ }
+// Metamodel extension class to describe slots whose value can be propagated down from the MappingSet class to the Mapping class.
+message Propagatable
+ {
+  boolean propagated = 0
  }
