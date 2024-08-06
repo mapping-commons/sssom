@@ -910,6 +910,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     Identifier and Mapping Information
   </a>
@@ -957,7 +964,7 @@
 
 
 <h1 id="slot-similarity_measure">Slot: similarity_measure</h1>
-<p><em>The measure used for computing the the similarity score. To make processing this field as unambiguous as possible, we recommend using wikidata identifiers, but wikipedia pages could also be acceptable.</em></p>
+<p><em>The measure used for computing a similarity score. This field is meant to be used in conjunction with the similarity_score field, to document, for example, the lexical or semantic match of a matching algorithm. To make processing this field as unambiguous as possible, we recommend using wikidata CURIEs, but the type of this field is deliberately unspecified.</em></p>
 <p>URI: <a href="https://w3id.org/sssom/similarity_measure">sssom:similarity_measure</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -976,6 +983,11 @@
 <td>Represents an individual mapping between a literal and an entity</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="../Mapping/">Mapping</a></td>
+<td>Represents an individual mapping between a pair of entities</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
@@ -991,10 +1003,22 @@
 </thead>
 <tbody>
 <tr>
-<td>https://www.wikidata.org/wiki/Q865360</td>
+<td>https://www.wikidata.org/entity/Q865360</td>
+</tr>
+<tr>
+<td>wikidata:Q865360</td>
+</tr>
+<tr>
+<td>Levenshtein distance</td>
 </tr>
 </tbody>
 </table>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="https://github.com/mapping-commons/sssom/issues/385">https://github.com/mapping-commons/sssom/issues/385</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/pull/386">https://github.com/mapping-commons/sssom/pull/386</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/similarity_score.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/similarity_score.sssom.tsv</a></li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -1004,16 +1028,27 @@
 <details>
 
 <pre><code class="language-yaml">name: similarity_measure
-description: The measure used for computing the the similarity score. To make processing
-  this field as unambiguous as possible, we recommend using wikidata identifiers,
-  but wikipedia pages could also be acceptable.
+description: The measure used for computing a similarity score. This field is meant
+  to be used in conjunction with the similarity_score field, to document, for example,
+  the lexical or semantic match of a matching algorithm. To make processing this field
+  as unambiguous as possible, we recommend using wikidata CURIEs, but the type of
+  this field is deliberately unspecified.
 examples:
-- value: https://www.wikidata.org/wiki/Q865360
-  description: (the Wikidata identifier for the Jaccard index measure).
+- value: https://www.wikidata.org/entity/Q865360
+  description: (the Wikidata IRI for the Jaccard index measure).
+- value: wikidata:Q865360
+  description: (the Wikidata CURIE for the Jaccard index measure).
+- value: Levenshtein distance
+  description: (a score to measure the distance between two character sequences).
 from_schema: https://w3id.org/sssom/schema/
+see_also:
+- https://github.com/mapping-commons/sssom/issues/385
+- https://github.com/mapping-commons/sssom/pull/386
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/similarity_score.sssom.tsv
 rank: 1000
 alias: similarity_measure
 domain_of:
+- mapping
 - literal mapping
 range: string
 

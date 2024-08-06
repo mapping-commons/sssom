@@ -581,6 +581,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#semantic_similarity_score-and-semantic_similarity_measure" class="md-nav__link">
+    semantic_similarity_score and semantic_similarity_measure
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1266,6 +1273,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#semantic_similarity_score-and-semantic_similarity_measure" class="md-nav__link">
+    semantic_similarity_score and semantic_similarity_measure
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1505,6 +1519,9 @@
 </table>
 <p>Any other value in the <code>match_term_type</code> slot MUST be treated as an error.</p>
 <p>If the set already contains <code>subject_type</code> and <code>object_type</code> slots, any <code>match_term_type</code> slot can be silently ignored.</p>
+<h4 id="semantic_similarity_score-and-semantic_similarity_measure">semantic_similarity_score and semantic_similarity_measure</h4>
+<p>Initial versions of this specification defined a <code>semantic_similarity_score</code> slot to store the semantic similarity, and a <code>semantic_similarity_measure</code> slot to describe how the the semantic similarity is assessed. In SSSOM 1.0, those slots were replaced by more generic <code>similarity_score</code> and <code>similarity_measure</code> slots.</p>
+<p>Upon encountering a <code>semantic_similarity_score</code> (respectively <code>semantic_similarity_measure</code>) slot, implementations supporting pre-1.0 versions MUST silently transform it into a <code>similarity_score</code> (respectively <code>similarity_measure</code>) slot. No changes on the value of the slot are required.</p>
 <h2 id="canonical-sssomtsv-format">Canonical SSSOM/TSV format</h2>
 <p>This section defines a “canonical” variant of the SSSOM/TSV format, which has stricter serialisation rules. The purpose of the canonical SSSOM/TSV format is to minimise differences across SSSOM/TSV files that would be induced by small diverging behaviours between different SSSOM/TSV implementations.</p>
 <p>The rules in this section apply to SSSOM/TSV writers only. SSSOM/TSV writers SHOULD write files in the canonical format, but SSSOM/TSV readers MUST NOT reject a file solely because it does not follow the canonical rules.</p>
