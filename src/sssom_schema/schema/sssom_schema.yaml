@@ -570,7 +570,7 @@ slots:
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/similarity_score.sssom.tsv
   similarity_measure:
     description: The measure used for computing a similarity score.
-      The score is meant to be used in conjunction with the similarity_score field, to document,
+      This field is meant to be used in conjunction with the similarity_score field, to document,
       for example, the lexical or semantic match of a matching algorithm.
       To make processing this field as unambiguous as possible, we recommend using 
       wikidata CURIEs, but the type of this field is deliberately unspecified.
