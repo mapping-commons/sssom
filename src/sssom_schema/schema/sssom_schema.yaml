@@ -45,15 +45,15 @@ enums:
         meaning: rdfs:Class
       rdfs literal:
         meaning: rdfs:Literal
+        description: "'rdfs literal' used in SSSOM files to express that an entity is represented by a literal."
+        see_also:
+        - https://mapping-commons.github.io/sssom/sssom-profiles/
+        - https://github.com/mapping-commons/sssom/issues/234
       rdfs datatype:
         meaning: rdfs:Datatype
       rdf property:
         meaning: rdf:Property
-      sssom literal:
-        description: A special type of literal that is used in SSSOM files to express that the subject_id is not an entity reference.
-        see_also:
-        - https://mapping-commons.github.io/sssom/sssom-profiles/
-        - https://github.com/mapping-commons/sssom/issues/234
+        
   predicate_modifier_enum:
     permissible_values:
       Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
@@ -681,7 +681,7 @@ classes:
       - preconditions:
           slot_conditions:
             subject_type: 
-              equals_string: "sssom literal"
+              equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
             subject_label:
@@ -690,7 +690,7 @@ classes:
           slot_conditions:
             subject_type:
               none_of:
-                equals_string: "sssom literal"
+                equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
             subject_id:
@@ -698,7 +698,7 @@ classes:
       - preconditions:
           slot_conditions:
             object_type: 
-              equals_string: "sssom literal"
+              equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
             object_label:
@@ -707,7 +707,7 @@ classes:
           slot_conditions:
             object_type:
               none_of:
-                equals_string: "sssom literal"
+                equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
             object_id:
