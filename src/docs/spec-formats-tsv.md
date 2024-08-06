@@ -106,11 +106,9 @@ SSSOM/TSV files MUST be encoded in UTF-8 ([RFC 3629](https://datatracker.ietf.or
 
 All identifiers in a SSSOM/TSV file, that is, all the values of slots typed as [EntityReference](EntityReference.md), MUST be serialised in [CURIE syntax](https://www.w3.org/TR/curie/). SSSOM/TSV parsers SHOULD reject files containing identifiers serialised as IRIs.
 
-To allow unambiguous resolution of all CURIEs present in a SSSOM/TSV file, the metadata block MUST contain an additional `curie_map` field, which is a map of prefix names to IRI prefixes. The `curie_map` field SHOULD appear at the beginning of the metadata block.
+As stated in the description of the model ([Identifiers section](spec-model.md#identifiers)), all prefix names used in CURIEs MUST be declared in the `curie_map` slot of the mapping set object, unless the prefix is a “built-in” prefix (in which case it MAY be omitted). SSSOM/TSV parsers MUST reject a file with undeclared, non-built-in prefix names.
 
-Any prefix name used in a SSSOM/TSV file MUST be declared with a corresponding entry in the CURIE map. SSSOM/TSV parsers MUST reject a file with undeclared prefix names.
-
-Prefix names listed in the table found in the [IRI prefixes](spec-intro.md#iri-prefixes) section are considered “built-in”. As such, they MAY be omitted from the CURIE map. If they are not omitted, they MUST point to the same IRI prefixes as in the aforementioned table.
+A SSSOM/TSV writer SHOULD refuse to serialise a mapping set that contains IRIs that cannot be contracted into CURIEs because there is no suitable prefix declaration in its CURIE map. The use of a custom, ad-hoc logic to infer a possible prefix name where none has been provided (e.g., “if the IRI ends with a `ZZZ_NNNNNNN` pattern, turn it into a `ZZZ:NNNNNNN` CURIE”) is strongly discouraged.
 
 
 ## Propagatable slots
@@ -230,7 +228,6 @@ When writing the metadata block, a canonical SSSOM/TSV writer:
 * MUST serialise multi-valued slots as YAML “block sequences” ([YAML Specification §8.2.1](https://yaml.org/spec/1.2.2/#821-block-sequences)) – even when the list of values contains only one item;
 * MUST serialise scalar values in YAML “plain style” ([YAML Specification §7.3.3](https://yaml.org/spec/1.2.2/#733-plain-style)) whenever possible, otherwise in “double-quoted style” ([YAML Specification §7.3.1](https://yaml.org/spec/1.2.2/#731-double-quoted-style));
 * MUST serialise the slots in the order they appear in the [“Slots” table](MappingSet.md#slots), in the documentation for the `MappingSet` class;
-* MUST write the `curie_map` at the beginning of the block, before any other slots;
 * MUST NOT include in the CURIE map the prefix names that are considered “built-in”;
 * MUST NOT include in the CURIE map any prefix name that is not used anywhere in the set;
 * MUST sort the prefix names in the CURIE map in lexicographical order.

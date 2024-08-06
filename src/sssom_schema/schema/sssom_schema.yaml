@@ -77,6 +77,20 @@ types:
       - https://mapping-commons.github.io/sssom/spec/#tsv
 
 slots:
+  prefix_name:
+    key: true
+    range: ncname
+  prefix_url:
+    range: uri
+  curie_map:
+    description: A dictionary that contains prefixes as keys and their URI expansions as values.
+    range: prefix
+    multivalued: true
+    inlined: true
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/225
+      - https://github.com/mapping-commons/sssom/pull/349
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curie_map.sssom.tsv
   mirror_from:
     description: A URL location from which to obtain a resource, such as a mapping set.
     range: uri
@@ -600,6 +614,7 @@ classes:
       license:
         required: true
     slots:
+    - curie_map
     - mappings
     - mapping_set_id
     - mapping_set_version
@@ -735,6 +750,10 @@ classes:
       - mapping_set_group
       - last_updated
       - local_name
+  prefix:
+    slots:
+      - prefix_name
+      - prefix_url
   extension definition:
     description: A definition of an extension (non-standard) slot.
     attributes:
