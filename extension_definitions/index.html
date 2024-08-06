@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://mapping-commons.github.io/sssom/spec-model/">
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/extension_definitions/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Introduction - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>Slot: extension_definitions - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-sssom-data-model" class="md-skip">
+        <a href="#slot-extension_definitions" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
+              Slot: extension_definitions
             
           </span>
         </div>
@@ -235,14 +235,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
@@ -277,14 +275,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
       
       
       
@@ -305,127 +301,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Introduction
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../spec-model/" class="md-nav__link">
         Introduction
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#propagation-of-mapping-set-slots" class="md-nav__link">
-    Propagation of mapping set slots
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#allowed-and-common-mapping-predicates" class="md-nav__link">
-    Allowed and common mapping predicates
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#representing-unmapped-entities" class="md-nav__link">
-    Representing unmapped entities
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#non-standard-slots" class="md-nav__link">
-    Non-standard slots
-  </a>
-  
-    <nav class="md-nav" aria-label="Non-standard slots">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#defined-extensions" class="md-nav__link">
-    Defined extensions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#undefined-extensions" class="md-nav__link">
-    Undefined extensions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restrictions-on-the-values-of-extension-slots" class="md-nav__link">
-    Restrictions on the values of extension slots
-  </a>
-  
-    <nav class="md-nav" aria-label="Restrictions on the values of extension slots">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#general-restrictions" class="md-nav__link">
-    General restrictions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#further-restrictions-for-typed-defined-extensions" class="md-nav__link">
-    Further restrictions for typed defined extensions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1009,73 +889,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#applicable-classes" class="md-nav__link">
+    Applicable Classes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#propagation-of-mapping-set-slots" class="md-nav__link">
-    Propagation of mapping set slots
+  <a href="#properties" class="md-nav__link">
+    Properties
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#allowed-and-common-mapping-predicates" class="md-nav__link">
-    Allowed and common mapping predicates
+  <a href="#see-also" class="md-nav__link">
+    See Also
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#representing-unmapped-entities" class="md-nav__link">
-    Representing unmapped entities
+  <a href="#identifier-and-mapping-information" class="md-nav__link">
+    Identifier and Mapping Information
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#non-standard-slots" class="md-nav__link">
-    Non-standard slots
-  </a>
-  
-    <nav class="md-nav" aria-label="Non-standard slots">
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#defined-extensions" class="md-nav__link">
-    Defined extensions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#undefined-extensions" class="md-nav__link">
-    Undefined extensions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restrictions-on-the-values-of-extension-slots" class="md-nav__link">
-    Restrictions on the values of extension slots
-  </a>
-  
-    <nav class="md-nav" aria-label="Restrictions on the values of extension slots">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#general-restrictions" class="md-nav__link">
-    General restrictions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#further-restrictions-for-typed-defined-extensions" class="md-nav__link">
-    Further restrictions for typed defined extensions
+  <a href="#schema-source" class="md-nav__link">
+    Schema Source
   </a>
   
 </li>
@@ -1084,9 +928,11 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    LinkML Source
+  </a>
   
 </li>
       
@@ -1104,191 +950,72 @@
                 
                   
 
-  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/spec-model.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/extension_definitions.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="the-sssom-data-model">The SSSOM data model</h1>
-<p>The SSSOM data model (hereafter “the model”) defines the data structure to represent and manipulate SSSOM concepts. The model is formally described as a <a href="https://linkml.io/">LinkML</a> schema, from which the <a href="../linkml-index/">documentation</a> is derived.</p>
-<p>This section provides an overview of the model and supplementary informations that may not be found in the schema (and its derived documentation) itself. Of note, the schema, not this section, is always the authoritative source of truth for all questions pertaining to the model.</p>
-<h2 id="overview">Overview</h2>
-<p>The model consists in a handful of classes, the most important of them being the <a href="../Mapping/"><code>Mapping</code> class</a> and the <a href="../MappingSet/"><code>MappingSet</code> class</a>. Any SSSOM implementation MUST support those two classes and all their slots; support for the other classes is OPTIONAL.</p>
-<p>The <code>Mapping</code> class represents an individual mapping. Fundamental slots in that class are:</p>
-<ul>
-<li><code>subject_id</code> and <code>object_id</code>, referring to the entities being mapped to each other;</li>
-<li><code>predicate_id</code>, referring to the relationship between the mapped entities;</li>
-<li><code>mapping_justification</code>, which should provide the justification for the mapping.</li>
-</ul>
-<p>Those slots are mandatory (including the <code>mapping_justification</code> slot: the SSSOM standard posits that there can be no mapping without some form of justification) and an implementation MUST NOT allow the creation of a mapping object that does not have a value for any one of them.</p>
-<p>Other slots are intended to provide further details about a mapping. Those “further details” are sometimes referred to as “mapping metadata”, though the SSSOM standard makes no formal distinction between “data” and “metadata” – there are only “data about a mapping”.</p>
-<p>The <code>MappingSet</code> class represents, well, a set of individual mappings, which are contained in the <code>mappings</code> slot (a list of <code>Mapping</code> instances). Other slots in that class are intended either to provide further details about the set itself (sometimes referred to as “mapping set metadata”, with the same caveat as above regarding the data/metadata distinction), or to provide common details for all the mappings in the set (see the <a href="#propagation-of-mapping-set-slots">Propagation of mapping set slots</a> section further below for details).</p>
-<p>Of note, within a set, a mapping may not necessarily be uniquely identified by the combination of its four mandatory slots (<code>subject_id</code>, <code>predicate_id</code>, <code>object_id</code>, and <code>mapping_justification</code>). A set may very well contain several mappings with the same subject, predicate, object, and justification, but that differ on some of the other, complementary slots.</p>
-<h2 id="propagation-of-mapping-set-slots">Propagation of mapping set slots</h2>
-<p>As mentioned briefly above, there are two different types of slots in the <code>MappingSet</code> class:</p>
-<ul>
-<li>slots that provide informations about the set itself;</li>
-<li>slots that provide informations about all the mappings in the set.</li>
-</ul>
-<p>The latter are called “propagatable slots”. In the LinkML model, they are marked with a <code>propagated</code> annotation whose value is set to <code>true</code>.</p>
-<p>For convenience, here is the current list of propagatable slots:</p>
-<ul>
-<li><code>mapping_date</code>,</li>
-<li><code>mapping_provider</code>,</li>
-<li><code>mapping_tool</code>,</li>
-<li><code>mapping_tool_version</code>,</li>
-<li><code>object_match_field</code>,</li>
-<li><code>object_preprocessing</code>,</li>
-<li><code>object_source</code>,</li>
-<li><code>object_source_version</code>,</li>
-<li><code>object_type</code>,</li>
-<li><code>subject_match_field</code>,</li>
-<li><code>subject_preprocessing</code>,</li>
-<li><code>subject_source</code>,</li>
-<li><code>subject_source_version</code>,</li>
-<li><code>subject_type</code>.</li>
-</ul>
-<p>When a mapping set object has a value in one of its propagatable slots, this MUST be interpreted as if all mappings within the set had that same value in their corresponding slot. For example, if a set has the value <em>foo</em> in its <code>mapping_tool</code> slot, all the mappings in that set MUST be treated as if they had the value <em>foo</em> in their <code>mapping_tool</code> slot.</p>
-<p>This mechanism is intended as a convenience, so that a slot which has the same value for all mappings in a set can be specified only once at the level of the set rather than for each individual mapping.</p>
-<p>Slots that are not in the above list (“non-propagatable slots”) describe the mapping set itself, not the mappings it contains, even if the slot also exists on the <code>Mapping</code> class. For example, the <code>creator_id</code> slot, when used in the <code>MappingSet</code> class, is intended to refer to the creators of the set, <em>not</em> the creators of the individual mappings (which may be different, and which are listed in the <code>creator_id</code> slot of every mapping).</p>
-<h2 id="allowed-and-common-mapping-predicates">Allowed and common mapping predicates</h2>
-<p>Implementations MUST accept any arbitrary predicate in the <code>predicate_id</code> slot.</p>
-<p>The following mapping predicates are considered common, and implementations MAY encourage users to use them:</p>
+<h1 id="slot-extension_definitions">Slot: extension_definitions</h1>
+<p><em>A list that defines the extension slots used in the mapping set.</em></p>
+<p>URI: <a href="https://w3id.org/sssom/extension_definitions">sssom:extension_definitions</a></p>
+<!-- no inheritance hierarchy -->
+
+<h2 id="applicable-classes">Applicable Classes</h2>
 <table>
 <thead>
 <tr>
-<th>Predicate</th>
+<th>Name</th>
 <th>Description</th>
+<th>Modifies Slot</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>owl:sameAs</td>
-<td>The subject and the object are instances (OWL individuals), and the two instances are the same.</td>
-</tr>
-<tr>
-<td>owl:equivalentClass</td>
-<td>The subject and the object are OWL classes, and the two classes are the same.</td>
-</tr>
-<tr>
-<td>owl:equivalentProperty</td>
-<td>The subject and the object are OWL object, data, or annotation properties, and the two properties are the same.</td>
-</tr>
-<tr>
-<td>rdfs:subClassOf</td>
-<td>The subject and the object are OWL classes, and the subject is a subclass of the object.</td>
-</tr>
-<tr>
-<td>rdfs:subPropertyOf</td>
-<td>The subject and the object are OWL object, data, or annotation properties, and the subject is a subproperty of the object.</td>
-</tr>
-<tr>
-<td>skos:relatedMatch</td>
-<td>The subject and the object are associated in some unspecified way.</td>
-</tr>
-<tr>
-<td>skos:closeMatch</td>
-<td>The subject and the object are sufficiently similar that they can be used interchangeably in some information retrieval applications.</td>
-</tr>
-<tr>
-<td>skos:exactMatch</td>
-<td>The subject and the object can, with a high degree of confidence, be used interchangeably across a wide range of information retrieval applications.</td>
-</tr>
-<tr>
-<td>skos:narrowMatch</td>
-<td>The object is a narrower concept than the subject.</td>
-</tr>
-<tr>
-<td>skos:broadMatch</td>
-<td>The object is a broader concept than the subject.</td>
-</tr>
-<tr>
-<td>oboInOwl:hasDbXref</td>
-<td>Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go).</td>
-</tr>
-<tr>
-<td>rdfs:seeAlso</td>
-<td>The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.</td>
+<td><a href="../MappingSet/">MappingSet</a></td>
+<td>Represents a set of mappings</td>
+<td>no</td>
 </tr>
 </tbody>
 </table>
-<p>In addition, predicates from the following sources MAY also be encouraged:</p>
+<h2 id="properties">Properties</h2>
 <ul>
-<li>any relation from the <a href="https://obofoundry.org/ontology/ro.html">Relation Ontology (RO)</a>;</li>
-<li>any relation under <a href="http://www.w3.org/2004/02/skos/core#mappingRelation">skos:mappingRelation</a> in the <a href="https://mapping-commons.github.io/semantic-mapping-vocabulary/">Semantic Mapping Vocabulary</a>.</li>
+<li>
+<p>Range: <a href="../ExtensionDefinition/">ExtensionDefinition</a></p>
+</li>
+<li>
+<p>Multivalued: True</p>
+</li>
 </ul>
-<h2 id="representing-unmapped-entities">Representing unmapped entities</h2>
-<p>The special value <code>sssom:NoTermFound</code> MAY be used as the <code>object_id</code> of a mapping to explicitly state that the subject of said mapping cannot be mapped to any entity in the domain represented by the <code>object_source</code> slot.</p>
-<p>Likewise, the <code>sssom:NoTermFound</code> value MAY be used as the <code>subject_id</code> of a mapping to state that the object of said mapping cannot be mapped to any entity in the domain represented by the <code>subject_source</code> slot.</p>
-<p>When that special value is used as the <code>subject_id</code> (respectively <code>object_id</code>), the <code>subject_source</code> (respectively <code>object_source</code>) slot SHOULD be defined.</p>
-<p>The <code>sssom:NoTermFound</code> value MUST NOT be used in any other slot than <code>subject_id</code> or <code>object_id</code>.</p>
-<p>The meaning of the NOT predicate modifier in a mapping that refers to <code>sssom:NoTermFound</code> is unspecified.</p>
-<p>When computing cardinality values (to fill the <code>mapping_cardinality</code> slot), mappings that refer to <code>sssom:NoTermFound</code> MUST be ignored.</p>
-<h2 id="non-standard-slots">Non-standard slots</h2>
-<p><a id="non-standard-slots"></a></p>
-<p>Implementations are only REQUIRED to support the standard metadata slots defined in the SSSOM LinkML schema.</p>
-<p>However, implementations MAY support the use of supplementary, non-standard slots (hereafter called <em>extension slots</em> or simply <em>extensions</em>). There are two types of extension slots: <em>defined</em> extension slots and <em>undefined</em> extension slots.</p>
-<h3 id="defined-extensions">Defined extensions</h3>
-<p>Defined extensions are non-standard slots that are explicitly declared (or, <em>defined</em>) before being used. Implementations SHOULD support the use of defined extensions.</p>
-<p>Extensions are defined in the <code>extension_definition</code> slot of the <code>MappingSet</code> object. Each definition is comprised of three elements:</p>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li>the name of the slot, as it will appear when used in a mapping set (<code>slot_name</code>);</li>
-<li>a property intended to specify the meaning of the slot (<code>property</code>);</li>
-<li>the type of values expected by the slot (<code>type_hint</code>).</li>
+<li><a href="https://github.com/mapping-commons/sssom/issues/328">https://github.com/mapping-commons/sssom/issues/328</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv</a></li>
 </ul>
-<p>A definition MUST have at least a <code>slot_name</code>. The name MUST be a XML “non-colonized name” (“NCName”, see <a href="https://www.w3.org/TR/1999/REC-xml-names-19990114/#NT-NCName">Namespaces in XML, §2</a>). The name MUST NOT match the name of an existing standard slot.</p>
-<p>To avoid any conflicy with a future version of the SSSOM specification (which could introduce new standard slot names), implementations are strongly encouraged to craft extension slot names that start with the <code>ext_</code> prefix. No new standard slot with a name starting with <code>ext_</code> will ever be introduced in any future version of the standard. (This is an advice for SSSOM producers only; SSSOM consumers MUST NOT reject an extension slot solely on the basis that its name does not start with <code>ext</code>.)</p>
-<p>A definition SHOULD have a <code>property</code>. If it does not, implementations MUST automatically construct a default property by concatenating the prefix <code>http://sssom.invalid/</code> with the name of the extension.</p>
-<p>The slot name and the property MUST be unique to each definition. No two definitions can share the same name and/or the same property.</p>
-<p>A definition MAY have a <code>type_hint</code>. If it does not, a default type of <code>http://www.w3.org/2001/XMLSchema#string</code> is assumed.</p>
-<p>Once defined, an extension slot may be used as a supplementary slot in either the <code>Mapping</code> class or the <code>MappingSet</code> class (or both), as if it was a normal, standard slot. How those slots are represented internally and provided to client code is left at the discretion of the implementations.</p>
-<h3 id="undefined-extensions">Undefined extensions</h3>
-<p>Undefined extensions are non-standard slots that are not explicitly defined as described in the previous section. Implementations MAY support undefined extensions.</p>
-<p>Upon encountering a non-standard slot that is not a defined extension, an implementation that supports undefined extensions MUST behave as if the slot had been defined with:</p>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>a <code>property</code> constructed by catenating the prefix <code>http://sssom.invalid/</code> to the name of the slot;</li>
-<li>a <code>type_hint</code> of <code>http://www.w3.org/2001/XMLSchema#string</code>.</li>
+<li>from schema: https://w3id.org/sssom/schema/</li>
 </ul>
-<h3 id="restrictions-on-the-values-of-extension-slots">Restrictions on the values of extension slots</h3>
-<h4 id="general-restrictions">General restrictions</h4>
-<p>The following restrictions apply to all extension slots, regardless of whether they are defined or undefined.</p>
-<p>Each mapping set and each mapping can have at most <em>one</em> value for each extension slot. The expected behaviour upon encountering a repeated extension slot is unspecified.</p>
-<p>An extension value MUST be either a string or an instance of a simple data type such as a numerical value (integer or floating point), a boolean value, or a date or datetime value. In particular, composite data structures (e.g. lists or dictionaries) MUST NOT be used as extension values.</p>
-<p>It is always possible to use arbitrarily complex values by encoding them as literal strings. However, how complex values would be encoded is out of scope of this specification; implementations MUST treat such values as opaque strings.</p>
-<h4 id="further-restrictions-for-typed-defined-extensions">Further restrictions for typed defined extensions</h4>
-<p>If a defined extension slot has a <code>type_hint</code> other than <code>http://www.w3.org/2001/XMLSchema#string</code>, implementations MAY enforce further constraints on extension values based on the type hint, according to the following table:</p>
-<table>
-<thead>
-<tr>
-<th>Type hint</th>
-<th>Constraints</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>http://www.w3.org/2001/XMLSchema#integer</td>
-<td>Implementations MAY check that the value is an integer</td>
-</tr>
-<tr>
-<td>http://www.w3.org/2001/XMLSchema#double</td>
-<td>Implementations MAY check that the value is a floating number</td>
-</tr>
-<tr>
-<td>http://www.w3.org/2001/XMLSchema#boolean</td>
-<td>Implementations MAY check that the value is either <code>true</code> or <code>false</code></td>
-</tr>
-<tr>
-<td>http://www.w3.org/2001/XMLSchema#date</td>
-<td>Implementations MAY check that the value is a date in the ISO 8601 format (<code>yyyy-mm-dd</code>)</td>
-</tr>
-<tr>
-<td>http://www.w3.org/2001/XMLSchema#datetime</td>
-<td>Implementations MAY check that the value is a date and time value in the ISO 8601 format (<code>yyyy-mm-ddThh:mm:ssTZ</code>)</td>
-</tr>
-</tbody>
-</table>
-<p>Implementations MAY decide to recognise more types and to enforce type-specific constraints. For example, an implementation could recognise the type <code>http://www.w3.org/2001/XMLSchema#negativeInteger</code> and check that the value starts with a minus sign.</p>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+
+<pre><code class="language-yaml">name: extension_definitions
+description: A list that defines the extension slots used in the mapping set.
+from_schema: https://w3id.org/sssom/schema/
+see_also:
+- https://github.com/mapping-commons/sssom/issues/328
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
+rank: 1000
+multivalued: true
+alias: extension_definitions
+domain_of:
+- mapping set
+range: extension definition
+
+</code></pre>
+
+</details>
 
 
 
@@ -1306,42 +1033,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../spec-intro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Introduction
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../chaining-rules/" class="md-footer__link md-footer__link--next" aria-label="Next: Applying Chaining Rules" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Applying Chaining Rules
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

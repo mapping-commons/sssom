@@ -56,6 +56,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/ExtensionDefinition/</loc>
+         <lastmod>2024-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/Float/</loc>
          <lastmod>2024-08-06</lastmod>
          <changefreq>daily</changefreq>
@@ -222,6 +227,11 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/editors/</loc>
+         <lastmod>2024-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/extension_definitions/</loc>
          <lastmod>2024-08-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -506,6 +516,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/property/</loc>
+         <lastmod>2024-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/publication_date/</loc>
          <lastmod>2024-08-06</lastmod>
          <changefreq>daily</changefreq>
@@ -542,6 +557,11 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/similarity_score/</loc>
+         <lastmod>2024-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/slot_name/</loc>
          <lastmod>2024-08-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -637,6 +657,11 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/tutorial/</loc>
+         <lastmod>2024-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/type_hint/</loc>
          <lastmod>2024-08-06</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -552,6 +552,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#non-standard-slots" class="md-nav__link">
+    Non-standard slots
+  </a>
+  
+    <nav class="md-nav" aria-label="Non-standard slots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#support-for-defined-extensions" class="md-nav__link">
+    Support for defined extensions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#compatibility-with-previous-versions-of-the-specification" class="md-nav__link">
     Compatibility with previous versions of the specification
   </a>
@@ -1244,6 +1264,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#non-standard-slots" class="md-nav__link">
+    Non-standard slots
+  </a>
+  
+    <nav class="md-nav" aria-label="Non-standard slots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#support-for-defined-extensions" class="md-nav__link">
+    Support for defined extensions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#compatibility-with-previous-versions-of-the-specification" class="md-nav__link">
     Compatibility with previous versions of the specification
   </a>
@@ -1438,6 +1478,22 @@
 <p>“Condensation” is the opposite of “propagation”. It is the operation of assigning common values to the propagatable slots of the set, based on the values of these slots on individual mappings. That operation SHOULD be performed by a SSSOM/TSV writer prior to writing a set into a SSSOM/TSV file, but that behaviour, if available, MUST be deactivatable.</p>
 <p>For any given propagatable slot, condensation is only allowed if (1) all mappings in the set have the same value, and (2) the mapping set does not already have a value in the slot, unless that value happens to be the same as the value in all mappings. If those two conditions are met, then a condensating SSSOM/TSV writer MUST (1) set the value of the slot on the <code>MappingSet</code> object to the common value of the slot in all mappings, and (2) remove the condensed value from the individual <code>Mapping</code> object.</p>
 <p>Implementations that support condensation MUST also support propagation.</p>
+<h2 id="non-standard-slots">Non-standard slots</h2>
+<p>If an implementation does not support <a href="../spec-model/#non-standard-slots">non-standard slots</a>, then:</p>
+<ul>
+<li>a SSSOM/TSV reader MUST discard any unknown top-level YAML key in the metadata block, and any unknown TSV column in the TSV section;</li>
+<li>a SSSOM/TSV writer MUST NOT write any unknown top-level YAML key in the metadata block, or any unknown TSV column in the TSV section.</li>
+</ul>
+<h3 id="support-for-defined-extensions">Support for defined extensions</h3>
+<p>This section applies to implementations that supports defined extensions.</p>
+<p>A SSSOM/TSV reader MUST check the validity of the extension definitions listed in the <code>extension_definitions</code> slot in the YAML metadata block:</p>
+<ul>
+<li>definitions with no <code>slot_name</code>, or with a <code>slot_name</code> that is not a XML non-colonized name, MUST be ignored;</li>
+<li>definitions with any unexpected content (e.g. other keys than just <code>slot_name</code>, <code>property</code>, and <code>type_hint</code>) MUST be ignored;</li>
+<li>the <code>property</code> and <code>type_hint</code> values for a given definition, if present, MUST be CURIEs and MUST be resolvable using the mapping set’s <code>curie_map</code>, otherwise the definition MUST be ignored.</li>
+</ul>
+<p>A SSSOM/TSV reader MUST, upon encountering a non-standard YAML key in the metadata block or an unknown TSV column, check that the name of the key or of the column matches the <code>slot_name</code> of one of the extension definitions listed in the mapping set’s <code>extension_definitions</code> slot. If there is no match, the non-standard slot MUST be discarded.</p>
+<p>Upon encountering a non-standard slot whose corresponding definition has a <code>type_hint</code> of <code>https://w3id.org/linkml/Uriorcurie</code>, the reader SHOULD check that the value is a CURIE and is resolvable using the mapping set’s <code>curie_map</code>.</p>
 <h2 id="compatibility-with-previous-versions-of-the-specification">Compatibility with previous versions of the specification</h2>
 <p>Implementations MUST support the current version of the specification. However, SSSOM/TSV parsers MAY additionally accept to parse files that were compliant to a previous version. This section provides advice for implementations willing to support older versions.</p>
 <h3 id="compatibility-with-pre-10-versions">Compatibility with pre-1.0 versions</h3>
@@ -1544,6 +1600,13 @@
 <li>MUST NOT include in the CURIE map any prefix name that is not used anywhere in the set;</li>
 <li>MUST sort the prefix names in the CURIE map in lexicographical order.</li>
 </ul>
+<p>In addition, if <a href="../spec-model/#non-standard-slots">extension slots</a> are supported, the writer:</p>
+<ul>
+<li>MUST write any extension slot in the mapping set <em>after</em> the standard slots;</li>
+<li>MUST sort the extension slots lexicographically on the <code>property</code> of their corresponding extension definitions;</li>
+<li>MUST sort extension definitions on their <code>property</code> value;</li>
+<li>MUST not include an extension definition if the corresponding extension is not used anywhere in the set.</li>
+</ul>
 <h3 id="rules-for-the-mappings-block">Rules for the mappings block</h3>
 <p>When writing the mappings block, a canonical SSSOM/TSV writer:</p>
 <ul>
@@ -1551,6 +1614,11 @@
 <li>MUST serialise floating point values with up to three digits as needed after the decimal point, rounding the last digit to the nearest neighbour (rounding up if both neighbours are equidistant);</li>
 <li>MUST write the columns in the order the slots appear in the <a href="../Mapping/#slots">“Slots” table</a>, in the documentation for the <code>Mapping</code> class;</li>
 <li>MUST sort the mappings in lexicographical order on all their slots, in the order the slots appear in the <a href="../Mapping/#slots">“Slots” table</a>.</li>
+</ul>
+<p>In addition, if <a href="../spec-model/#non-standard-slots">extension slots</a> are supported, the writer:</p>
+<ul>
+<li>MUST write any non-standard column <em>after</em> the standard columns;</li>
+<li>MUST sort the non-standard column lexicographically on the <code>property</code> of their corresponding extension definitions.</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <p>This section is <em>non-normative</em>.</p>
