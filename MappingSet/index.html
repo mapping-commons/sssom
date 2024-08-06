@@ -455,6 +455,10 @@
 
       MappingSet : creator_label
 
+      MappingSet : curie_map
+
+          MappingSet --|&gt; prefix : curie_map
+
       MappingSet : extension_definitions
 
           MappingSet --|&gt; extension definition : extension_definitions
@@ -529,6 +533,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../curie_map/">curie_map</a></td>
+<td>* <br/> <a href="../Prefix/">Prefix</a></td>
+<td>A dictionary that contains prefixes as keys and their URI expansions as value...</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../mappings/">mappings</a></td>
 <td>* <em>recommended</em> <br/> <a href="../Mapping/">Mapping</a></td>
@@ -737,6 +747,7 @@
 description: Represents a set of mappings
 from_schema: https://w3id.org/sssom/schema/
 slots:
+- curie_map
 - mappings
 - mapping_set_id
 - mapping_set_version
@@ -789,6 +800,23 @@ slot_usage:
     - mapping
     required: true
 attributes:
+  curie_map:
+    name: curie_map
+    description: A dictionary that contains prefixes as keys and their URI expansions
+      as values.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/225
+    - https://github.com/mapping-commons/sssom/pull/349
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curie_map.sssom.tsv
+    rank: 1000
+    multivalued: true
+    alias: curie_map
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: prefix
+    inlined: true
   mappings:
     name: mappings
     description: Contains a list of mapping objects

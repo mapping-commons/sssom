@@ -1465,9 +1465,8 @@
 <p>SSSOM/TSV files MUST be encoded in UTF-8 (<a href="https://datatracker.ietf.org/doc/html/rfc3629#section-13">RFC 3629</a>). They MUST NOT start with a byte order mark (U+FEFF). This applies to external metadata files as well, when the <a href="#external-metadata-mode">external metadata mode</a> is used.</p>
 <h2 id="identifiers">Identifiers</h2>
 <p>All identifiers in a SSSOM/TSV file, that is, all the values of slots typed as <a href="../EntityReference/">EntityReference</a>, MUST be serialised in <a href="https://www.w3.org/TR/curie/">CURIE syntax</a>. SSSOM/TSV parsers SHOULD reject files containing identifiers serialised as IRIs.</p>
-<p>To allow unambiguous resolution of all CURIEs present in a SSSOM/TSV file, the metadata block MUST contain an additional <code>curie_map</code> field, which is a map of prefix names to IRI prefixes. The <code>curie_map</code> field SHOULD appear at the beginning of the metadata block.</p>
-<p>Any prefix name used in a SSSOM/TSV file MUST be declared with a corresponding entry in the CURIE map. SSSOM/TSV parsers MUST reject a file with undeclared prefix names.</p>
-<p>Prefix names listed in the table found in the <a href="../spec-intro/#iri-prefixes">IRI prefixes</a> section are considered “built-in”. As such, they MAY be omitted from the CURIE map. If they are not omitted, they MUST point to the same IRI prefixes as in the aforementioned table.</p>
+<p>As stated in the description of the model (<a href="../spec-model/#identifiers">Identifiers section</a>), all prefix names used in CURIEs MUST be declared in the <code>curie_map</code> slot of the mapping set object, unless the prefix is a “built-in” prefix (in which case it MAY be omitted). SSSOM/TSV parsers MUST reject a file with undeclared, non-built-in prefix names.</p>
+<p>A SSSOM/TSV writer SHOULD refuse to serialise a mapping set that contains IRIs that cannot be contracted into CURIEs because there is no suitable prefix declaration in its CURIE map. The use of a custom, ad-hoc logic to infer a possible prefix name where none has been provided (e.g., “if the IRI ends with a <code>ZZZ_NNNNNNN</code> pattern, turn it into a <code>ZZZ:NNNNNNN</code> CURIE”) is strongly discouraged.</p>
 <h2 id="propagatable-slots">Propagatable slots</h2>
 <p>As <a href="../spec-model/#propagation-of-mapping-set-slots">explained in another section</a>, some slots in the <code>MappingSet</code> class are intended, not to describe the mapping set itself, but to store values that are shared by all mappings in the set. These slots are called the “propagatable slots”, because their values should be “propagated” from the mapping set down to the individual mappings.</p>
 <h3 id="propagation">Propagation</h3>
@@ -1595,7 +1594,6 @@
 <li>MUST serialise multi-valued slots as YAML “block sequences” (<a href="https://yaml.org/spec/1.2.2/#821-block-sequences">YAML Specification §8.2.1</a>) – even when the list of values contains only one item;</li>
 <li>MUST serialise scalar values in YAML “plain style” (<a href="https://yaml.org/spec/1.2.2/#733-plain-style">YAML Specification §7.3.3</a>) whenever possible, otherwise in “double-quoted style” (<a href="https://yaml.org/spec/1.2.2/#731-double-quoted-style">YAML Specification §7.3.1</a>);</li>
 <li>MUST serialise the slots in the order they appear in the <a href="../MappingSet/#slots">“Slots” table</a>, in the documentation for the <code>MappingSet</code> class;</li>
-<li>MUST write the <code>curie_map</code> at the beginning of the block, before any other slots;</li>
 <li>MUST NOT include in the CURIE map the prefix names that are considered “built-in”;</li>
 <li>MUST NOT include in the CURIE map any prefix name that is not used anywhere in the set;</li>
 <li>MUST sort the prefix names in the CURIE map in lexicographical order.</li>

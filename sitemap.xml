@@ -131,6 +131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mapping-commons.github.io/sssom/Prefix/</loc>
+         <lastmod>2024-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mapping-commons.github.io/sssom/Propagatable/</loc>
          <lastmod>2024-08-06</lastmod>
          <changefreq>daily</changefreq>
@@ -212,6 +217,11 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/curation_rule_text/</loc>
+         <lastmod>2024-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/curie_map/</loc>
          <lastmod>2024-08-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -472,6 +482,16 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/predicate_type/</loc>
+         <lastmod>2024-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/prefix_name/</loc>
+         <lastmod>2024-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://mapping-commons.github.io/sssom/prefix_url/</loc>
          <lastmod>2024-08-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
