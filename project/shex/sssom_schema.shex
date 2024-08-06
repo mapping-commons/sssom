@@ -50,50 +50,12 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
-<LiteralMapping> CLOSED {
-    (  $<LiteralMapping_tes> (  owl:annotatedTarget @linkml:String ;
-          rdf:datatype @linkml:Uri ? ;
-          owl:annotatedProperty @<EntityReference> ;
-          <predicate_label> @linkml:String ? ;
-          <predicate_modifier> [ <https://w3id.org/sssom/PredicateModifierEnum#Not> ] ? ;
-          owl:annotatedTarget @<EntityReference> ;
-          <object_label> @linkml:String ? ;
-          <object_category> @linkml:String ? ;
-          <mapping_justification> @<EntityReference> ;
-          pav:authoredBy @<EntityReference> * ;
-          <author_label> @linkml:String * ;
-          <reviewer_id> @<EntityReference> * ;
-          <reviewer_label> @linkml:String * ;
-          dc1:creator @<EntityReference> * ;
-          <creator_label> @linkml:String * ;
-          dc1:license @linkml:Uri ? ;
-          <literal_source> @<EntityReference> ? ;
-          <literal_source_version> @linkml:String ? ;
-          <object_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
-             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property ] ? ;
-          <object_source> @<EntityReference> ? ;
-          <object_source_version> @linkml:String ? ;
-          <mapping_provider> @linkml:Uri ? ;
-          <mapping_source> @<EntityReference> ? ;
-          <mapping_cardinality> [ <https://w3id.org/sssom/MappingCardinalityEnum#1%3A1>
-             <https://w3id.org/sssom/MappingCardinalityEnum#1%3An> <https://w3id.org/sssom/MappingCardinalityEnum#n%3A1>
-             <https://w3id.org/sssom/MappingCardinalityEnum#1%3A0> <https://w3id.org/sssom/MappingCardinalityEnum#0%3A1>
-             <https://w3id.org/sssom/MappingCardinalityEnum#n%3An> ] ? ;
-          <mapping_tool> @linkml:String ? ;
-          <mapping_tool_version> @linkml:String ? ;
-          pav:authoredOn @linkml:Date ? ;
-          <confidence> @linkml:Double ? ;
-          <object_match_field> @<EntityReference> * ;
-          <match_string> @linkml:String * ;
-          <literal_preprocessing> @<EntityReference> * ;
-          <object_preprocessing> @<EntityReference> * ;
-          <similarity_score> @linkml:Double ? ;
-          <similarity_measure> @linkml:String ? ;
-          rdfs:seeAlso @linkml:String * ;
-          <other> @linkml:String ? ;
-          rdfs:comment @linkml:String ?
+<ExtensionDefinition> CLOSED {
+    (  $<ExtensionDefinition_tes> (  <slot_name> @linkml:Ncname ;
+          <property> @linkml:Uriorcurie ? ;
+          <type_hint> @linkml:Uriorcurie ?
        ) ;
-       rdf:type [ owl:Axiom ] ?
+       rdf:type [ <ExtensionDefinition> ] ?
     )
 }
 
@@ -141,8 +103,8 @@ linkml:Sparqlpath xsd:string
           <match_string> @linkml:String * ;
           <subject_preprocessing> @<EntityReference> * ;
           <object_preprocessing> @<EntityReference> * ;
-          <semantic_similarity_score> @linkml:Double ? ;
-          <semantic_similarity_measure> @linkml:String ? ;
+          <similarity_score> @linkml:Double ? ;
+          <similarity_measure> @linkml:String ? ;
           rdfs:seeAlso @linkml:String * ;
           <issue_tracker_item> @<EntityReference> ? ;
           <other> @linkml:String ? ;
@@ -197,7 +159,8 @@ linkml:Sparqlpath xsd:string
           rdfs:seeAlso @linkml:String * ;
           <issue_tracker> @linkml:Uri ? ;
           <other> @linkml:String ? ;
-          rdfs:comment @linkml:String ?
+          rdfs:comment @linkml:String ? ;
+          <extension_definitions> @<ExtensionDefinition> *
        ) ;
        rdf:type [ <MappingSet> ] ?
     )
@@ -212,6 +175,12 @@ linkml:Sparqlpath xsd:string
           <local_name> @linkml:String ?
        ) ;
        rdf:type [ <MappingSetReference> ] ?
+    )
+}
+
+<NoTermFound> CLOSED {
+    (  $<NoTermFound_tes> rdf:type . * ;
+       rdf:type [ <NoTermFound> ] ?
     )
 }
 

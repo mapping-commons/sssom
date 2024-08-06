@@ -1,0 +1,16 @@
+#curie_map:
+#  HP: http://purl.obolibrary.org/obo/HP_
+#  MP: http://purl.obolibrary.org/obo/MP_
+#  obo: http://purl.obolibrary.org/obo/
+#  orcid: https://orcid.org/
+#mapping_set_id: https://w3id.org/sssom/commons/examples/no_term_found.sssom.tsv
+#creator_id:
+#  - orcid:0000-0002-7356-1779
+#subject_source: obo:hp
+#object_source: obo:mp
+#license: "https://creativecommons.org/publicdomain/zero/1.0/"
+#mapping_provider: "https://w3id.org/sssom/core_team"
+#comment: This is an example file for the SSSOM for illustration only. Its contents are entirely fabricated.
+subject_id	predicate_id	object_id	mapping_justification
+HP:0009124	skos:exactMatch	MP:0000003	semapv:ManualMappingCuration
+HP:0000411	skos:exactMatch	sssom:NoTermFound	semapv:ManualMappingCuration
