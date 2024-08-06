@@ -88,10 +88,10 @@ The special value `sssom:NoTermFound` MAY be used as the `object_id` of a mappin
 
 Likewise, the `sssom:NoTermFound` value MAY be used as the `subject_id` of a mapping to state that the object of said mapping cannot be mapped to any entity in the domain represented by the `subject_source` slot.
 
-When that special value is used as the `subject_id` (respectively `object_id`), the `subject_source` (respectively object_source) slot SHOULD be defined.
+When that special value is used as the `subject_id` (respectively `object_id`), the `subject_source` (respectively `object_source`) slot SHOULD be defined.
 
-The `sssom:NoTermFound` value MUST NOT be used in any other slot than subject_id or object_id.
+The `sssom:NoTermFound` value MUST NOT be used in any other slot than `subject_id` or `object_id`.
 
 The meaning of the NOT predicate modifier in a mapping that refers to `sssom:NoTermFound` is unspecified.
 
-When computing cardinality values (to fill the mapping_cardinality slot), mappings that refer to `sssom:NoTermFound` MUST be ignored.
+When computing cardinality values (to fill the `mapping_cardinality` slot), mappings that refer to `sssom:NoTermFound` MUST be ignored.
