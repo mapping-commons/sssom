@@ -125,26 +125,6 @@ slots:
     examples:
       - value: HP:0009894
         description: The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'
-  literal:
-    description: The literal being mapped
-    range: string
-    required: true
-    mappings:
-    - owl:annotatedSource
-    slot_uri: owl:annotatedTarget
-    examples:
-      - value: "Alzheimer"
-        description: A string referring to some thing.
-  literal_datatype:
-    description: The datatype of the literal being mapped
-    range: uri
-    required: false
-    mappings:
-    - rdf:datatype
-    slot_uri: rdf:datatype
-    examples:
-      - value: xsd:string
-        description: A string referring to some thing.
   subject_label:
     description: The label of subject of the mapping
     range: string
@@ -388,20 +368,6 @@ slots:
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
         description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
-  literal_source:
-    description: URI of ontology source for the literal.
-    range: EntityReference
-    examples:
-      - value: obo:mondo.owl
-        description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
-      - value: wikidata:Q7876491
-        description: A Wikidata identifier for the Uberon ontology resource.
-  literal_source_version:
-    description: Version IRI or version string of the source of the literal.
-    range: string
-    examples:
-      - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
-        description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   object_source:
     description: URI of vocabulary or identifier source for the object.
     range: EntityReference
@@ -525,13 +491,6 @@ slots:
     instantiates: sssom:Propagatable
     annotations:
       propagated: true
-    examples:
-      - value: semapv:Stemming
-      - value: semapv:StopWordRemoval
-  literal_preprocessing:
-    description: Method of preprocessing applied to the literal.
-    range: EntityReference
-    multivalued: true
     examples:
       - value: semapv:Stemming
       - value: semapv:StopWordRemoval
@@ -712,50 +671,6 @@ classes:
     - similarity_measure
     - see_also
     - issue_tracker_item
-    - other
-    - comment
-    class_uri: owl:Axiom
-  literal mapping:
-    description: Represents an individual mapping between a literal and an entity. 
-      Note that this schema has been created on 01.08.2023 and is subject to change.
-    see_also:
-    - https://mapping-commons.github.io/sssom/sssom-profiles/
-    slots:
-    - literal
-    - literal_datatype
-    - predicate_id
-    - predicate_label
-    - predicate_modifier
-    - object_id
-    - object_label
-    - object_category
-    - mapping_justification
-    - author_id
-    - author_label
-    - reviewer_id
-    - reviewer_label
-    - creator_id
-    - creator_label
-    - license
-    - literal_source
-    - literal_source_version
-    - object_type
-    - object_source
-    - object_source_version
-    - mapping_provider
-    - mapping_source
-    - mapping_cardinality
-    - mapping_tool
-    - mapping_tool_version
-    - mapping_date
-    - confidence
-    - object_match_field
-    - match_string
-    - literal_preprocessing
-    - object_preprocessing
-    - similarity_score
-    - similarity_measure
-    - see_also
     - other
     - comment
     class_uri: owl:Axiom
