@@ -361,6 +361,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#representing-unmapped-entities" class="md-nav__link">
+    Representing unmapped entities
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -968,6 +975,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#representing-unmapped-entities" class="md-nav__link">
+    Representing unmapped entities
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1096,6 +1110,13 @@
 <li>any relation from the <a href="https://obofoundry.org/ontology/ro.html">Relation Ontology (RO)</a>;</li>
 <li>any relation under <a href="http://www.w3.org/2004/02/skos/core#mappingRelation">skos:mappingRelation</a> in the <a href="https://mapping-commons.github.io/semantic-mapping-vocabulary/">Semantic Mapping Vocabulary</a>.</li>
 </ul>
+<h2 id="representing-unmapped-entities">Representing unmapped entities</h2>
+<p>The special value <code>sssom:NoTermFound</code> MAY be used as the <code>object_id</code> of a mapping to explicitly state that the subject of said mapping cannot be mapped to any entity in the domain represented by the <code>object_source</code> slot.</p>
+<p>Likewise, the <code>sssom:NoTermFound</code> value MAY be used as the <code>subject_id</code> of a mapping to state that the object of said mapping cannot be mapped to any entity in the domain represented by the <code>subject_source</code> slot.</p>
+<p>When that special value is used as the <code>subject_id</code> (respectively <code>object_id</code>), the <code>subject_source</code> (respectively <code>object_source</code>) slot SHOULD be defined.</p>
+<p>The <code>sssom:NoTermFound</code> value MUST NOT be used in any other slot than <code>subject_id</code> or <code>object_id</code>.</p>
+<p>The meaning of the NOT predicate modifier in a mapping that refers to <code>sssom:NoTermFound</code> is unspecified.</p>
+<p>When computing cardinality values (to fill the <code>mapping_cardinality</code> slot), mappings that refer to <code>sssom:NoTermFound</code> MUST be ignored.</p>
 
 
 

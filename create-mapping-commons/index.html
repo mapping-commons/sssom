@@ -15,7 +15,7 @@
     
     
       
-        <title>Getting started - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>Create mapping commons - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting started
+              Create mapping commons
             
           </span>
         </div>
@@ -879,8 +879,88 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-this-do" class="md-nav__link">
+    What does this do?
+  </a>
+  
+    <nav class="md-nav" aria-label="What does this do?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#todo" class="md-nav__link">
+    TODO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-control" class="md-nav__link">
+    Version control
+  </a>
+  
+    <nav class="md-nav" aria-label="Version control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    GitHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitlab" class="md-nav__link">
+    GitLab
+  </a>
+  
+    <nav class="md-nav" aria-label="GitLab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#todo_1" class="md-nav__link">
+    TODO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-updates-to-the-projects-boilerplate-code" class="md-nav__link">
+    Future updates to the project's boilerplate code
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -900,29 +980,35 @@
   </a>
 
 
-<h1 id="getting-started">Getting started</h1>
+  <h1>Create mapping commons</h1>
+
+<h2 id="getting-started">Getting started</h2>
 <ul>
 <li>First, create a virtual environment of your choice (anaconda, venv, pyenv, poetry etc.). If you need assistance with virtual environments, <a href="https://berkeleybop.github.io/best_practice/python_environments">here's a guide</a> to help you setup pyenv and use poetry with it.</li>
 <li>
 <p>Install the <a href="https://github.com/cruft/cruft">cruft</a> package. Cruft enables keeping projects up-to-date with future updates made to this original template.</p>
-<p><code>pip install cruft</code>
-- Create a project using the <a href="https://github.com/mapping-commons/mapping-commons-cookiecutter">mapping-commons-cookiecutter</a> template.
-<code>cruft create https://github.com/mapping-commons/mapping-commons-cookiecutter</code></p>
+<p><code>pip install cruft</code></p>
+</li>
+<li>
+<p>Create a project using the <a href="https://github.com/mapping-commons/mapping-commons-cookiecutter">mapping-commons-cookiecutter</a> template.</p>
+<p><code>cruft create https://github.com/mapping-commons/mapping-commons-cookiecutter</code></p>
 </li>
 </ul>
-<p>This kickstarts an interactive session where you declare the following:
-- <code>project_name</code>: Name of the project. [defaults to: my-commons-name]
-- <code>github_org</code>: Name of the github org the project belongs to. [defaults to: my-org]
-- <code>project_description</code>: Description of the project [defaults to: 'This is the project description.']
-- <code>full_name</code>: Name of the author [defaults to: 'My Name']
-- <code>email</code>: Author's email [defaults to: 'my-name@my-org.org']
-- <code>yo</code>: Choose from [1]: Yes, [2]: No [<strong>TEST OPTION FOR NOW</strong>]
-- <code>license</code>: Choose from [1]: Yes, [2]: No [<strong>TEST OPTION FOR NOW</strong>]</p>
-<h1 id="what-does-this-do">What does this do?</h1>
+<p>This kickstarts an interactive session where you declare the following:</p>
+<ul>
+<li><code>project_name</code>: Name of the project. [defaults to: my-commons-name]</li>
+<li><code>github_org</code>: Name of the github org the project belongs to. [defaults to: my-org]</li>
+<li><code>project_description</code>: Description of the project [defaults to: 'This is the project description.']</li>
+<li><code>full_name</code>: Name of the author [defaults to: 'My Name']</li>
+<li><code>email</code>: Author's email [defaults to: 'my-name@my-org.org']</li>
+<li><code>yo</code>: Choose from [1]: Yes, [2]: No [<strong>TEST OPTION FOR NOW</strong>]</li>
+<li><code>license</code>: Choose from [1]: Yes, [2]: No [<strong>TEST OPTION FOR NOW</strong>]</li>
+</ul>
+<h2 id="what-does-this-do">What does this do?</h2>
 <p>The following files and directories are autogenerated in the project:</p>
-<h1 id="todo">TODO</h1>
-<h1 id="version-control">Version control</h1>
-<h2 id="github">GitHub</h2>
+<h3 id="todo">TODO</h3>
+<h2 id="version-control">Version control</h2>
+<h3 id="github">GitHub</h3>
 <ol>
 <li>
 <p>Go to [https://github.com/new] and follow the instructions, being sure to
@@ -937,9 +1023,9 @@
    git remote add origin https://github.com/my-user-or-organization/my-commons-name.git
    git branch -M main
    git push -u origin main</code></p>
-<h2 id="gitlab">GitLab</h2>
-<h3 id="todo_1">TODO</h3>
-<h1 id="future-updates-to-the-projects-boilerplate-code">Future updates to the project's boilerplate code</h1>
+<h3 id="gitlab">GitLab</h3>
+<h4 id="todo_1">TODO</h4>
+<h2 id="future-updates-to-the-projects-boilerplate-code">Future updates to the project's boilerplate code</h2>
 <p>In order to be up-to-date with the template, first check if there is a mismatch between the project's boilerplate code and the template by running:</p>
 <pre><code>cruft check
 </code></pre>
