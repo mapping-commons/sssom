@@ -624,6 +624,13 @@ slots:
       by tool providing additional informative information.
     slot_uri: rdfs:comment
     range: string
+  extension_definitions:
+    description: A list that defines the extension slots used in the mapping set.
+    range: extension definition
+    multivalued: true
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/328
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
 classes:
   mapping set:
     description: Represents a set of mappings
@@ -659,6 +666,7 @@ classes:
     - issue_tracker
     - other
     - comment
+    - extension_definitions
   mapping:
     description: Represents an individual mapping between a pair of entities
     slots:
@@ -774,6 +782,21 @@ classes:
       - mapping_set_group
       - last_updated
       - local_name
+  extension definition:
+    description: A definition of an extension (non-standard) slot.
+    attributes:
+      slot_name:
+        description: The name of the extension slot.
+        range: ncname
+        required: true
+      property:
+        description: The property associated with the extension slot. It is
+          intended to provide a non-ambiguous meaning to the slot (contrary
+          to the slot_name, which for brevity reasons may be ambiguous).
+        range: uriorcurie
+      type_hint:
+        description: Expected type of the values of the extension slot.
+        range: uriorcurie
   Propagatable:
     class_uri: sssom:Propagatable
     description: Metamodel extension class to describe slots whose value can be

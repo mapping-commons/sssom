@@ -82,6 +82,7 @@ In addition, predicates from the following sources MAY also be encouraged:
 * any relation from the [Relation Ontology (RO)](https://obofoundry.org/ontology/ro.html);
 * any relation under [skos:mappingRelation](http://www.w3.org/2004/02/skos/core#mappingRelation) in the [Semantic Mapping Vocabulary](https://mapping-commons.github.io/semantic-mapping-vocabulary/).
 
+
 ## Representing unmapped entities
 
 The special value `sssom:NoTermFound` MAY be used as the `object_id` of a mapping to explicitly state that the subject of said mapping cannot be mapped to any entity in the domain represented by the `object_source` slot.
@@ -95,3 +96,69 @@ The `sssom:NoTermFound` value MUST NOT be used in any other slot than `subject_i
 The meaning of the NOT predicate modifier in a mapping that refers to `sssom:NoTermFound` is unspecified.
 
 When computing cardinality values (to fill the `mapping_cardinality` slot), mappings that refer to `sssom:NoTermFound` MUST be ignored.
+
+
+## Non-standard slots
+
+<a id="non-standard-slots"></a>
+
+Implementations are only REQUIRED to support the standard metadata slots defined in the SSSOM LinkML schema.
+
+However, implementations MAY support the use of supplementary, non-standard slots (hereafter called _extension slots_ or simply _extensions_). There are two types of extension slots: _defined_ extension slots and _undefined_ extension slots.
+
+### Defined extensions
+
+Defined extensions are non-standard slots that are explicitly declared (or, _defined_) before being used. Implementations SHOULD support the use of defined extensions.
+
+Extensions are defined in the `extension_definition` slot of the `MappingSet` object. Each definition is comprised of three elements:
+
+* the name of the slot, as it will appear when used in a mapping set (`slot_name`);
+* a property intended to specify the meaning of the slot (`property`);
+* the type of values expected by the slot (`type_hint`).
+
+A definition MUST have at least a `slot_name`. The name MUST be a XML “non-colonized name” (“NCName”, see [Namespaces in XML, §2](https://www.w3.org/TR/1999/REC-xml-names-19990114/#NT-NCName)). The name MUST NOT match the name of an existing standard slot.
+
+To avoid any conflicy with a future version of the SSSOM specification (which could introduce new standard slot names), implementations are strongly encouraged to craft extension slot names that start with the `ext_` prefix. No new standard slot with a name starting with `ext_` will ever be introduced in any future version of the standard. (This is an advice for SSSOM producers only; SSSOM consumers MUST NOT reject an extension slot solely on the basis that its name does not start with `ext`.)
+
+A definition SHOULD have a `property`. If it does not, implementations MUST automatically construct a default property by concatenating the prefix `http://sssom.invalid/` with the name of the extension.
+
+The slot name and the property MUST be unique to each definition. No two definitions can share the same name and/or the same property.
+
+A definition MAY have a `type_hint`. If it does not, a default type of `http://www.w3.org/2001/XMLSchema#string` is assumed.
+
+Once defined, an extension slot may be used as a supplementary slot in either the `Mapping` class or the `MappingSet` class (or both), as if it was a normal, standard slot. How those slots are represented internally and provided to client code is left at the discretion of the implementations.
+
+### Undefined extensions
+
+Undefined extensions are non-standard slots that are not explicitly defined as described in the previous section. Implementations MAY support undefined extensions.
+
+Upon encountering a non-standard slot that is not a defined extension, an implementation that supports undefined extensions MUST behave as if the slot had been defined with:
+
+* a `property` constructed by catenating the prefix `http://sssom.invalid/` to the name of the slot;
+* a `type_hint` of `http://www.w3.org/2001/XMLSchema#string`.
+
+### Restrictions on the values of extension slots
+
+#### General restrictions
+
+The following restrictions apply to all extension slots, regardless of whether they are defined or undefined.
+
+Each mapping set and each mapping can have at most _one_ value for each extension slot. The expected behaviour upon encountering a repeated extension slot is unspecified.
+
+An extension value MUST be either a string or an instance of a simple data type such as a numerical value (integer or floating point), a boolean value, or a date or datetime value. In particular, composite data structures (e.g. lists or dictionaries) MUST NOT be used as extension values.
+
+It is always possible to use arbitrarily complex values by encoding them as literal strings. However, how complex values would be encoded is out of scope of this specification; implementations MUST treat such values as opaque strings.
+
+#### Further restrictions for typed defined extensions
+
+If a defined extension slot has a `type_hint` other than `http://www.w3.org/2001/XMLSchema#string`, implementations MAY enforce further constraints on extension values based on the type hint, according to the following table:
+
+| Type hint | Constraints |
+| --------- | ----------- |
+| http://www.w3.org/2001/XMLSchema#integer  | Implementations MAY check that the value is an integer |
+| http://www.w3.org/2001/XMLSchema#double   | Implementations MAY check that the value is a floating number |
+| http://www.w3.org/2001/XMLSchema#boolean  | Implementations MAY check that the value is either `true` or `false` |
+| http://www.w3.org/2001/XMLSchema#date     | Implementations MAY check that the value is a date in the ISO 8601 format (`yyyy-mm-dd`) |
+| http://www.w3.org/2001/XMLSchema#datetime | Implementations MAY check that the value is a date and time value in the ISO 8601 format (`yyyy-mm-ddThh:mm:ssTZ`) |
+
+Implementations MAY decide to recognise more types and to enforce type-specific constraints. For example, an implementation could recognise the type `http://www.w3.org/2001/XMLSchema#negativeInteger` and check that the value starts with a minus sign.
