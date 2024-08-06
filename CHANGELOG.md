@@ -3,6 +3,9 @@
 ## Next
 
 - Add the concept of "propagatable slots".
+- Add the concept of "extension slots".
+- Add the entity reference `sssom:NoTermFound` to express the concept of an "unmapped entity" ([issue](https://github.com/mapping-commons/sssom/issues/28))
+- Replace `semantic_similarity_score` with `similarity_score` and `semantic_similarity_measure` with `similarity_measure` in the data model ([issue](https://github.com/mapping-commons/sssom/issues/385))
 
 ## SSSOM version 0.15.1
 

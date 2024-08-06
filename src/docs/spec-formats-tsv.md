@@ -134,6 +134,28 @@ For any given propagatable slot, condensation is only allowed if (1) all mapping
 Implementations that support condensation MUST also support propagation.
 
 
+## Non-standard slots
+
+If an implementation does not support [non-standard slots](spec-model.md#non-standard-slots), then:
+
+* a SSSOM/TSV reader MUST discard any unknown top-level YAML key in the metadata block, and any unknown TSV column in the TSV section;
+* a SSSOM/TSV writer MUST NOT write any unknown top-level YAML key in the metadata block, or any unknown TSV column in the TSV section.
+
+### Support for defined extensions
+
+This section applies to implementations that supports defined extensions.
+
+A SSSOM/TSV reader MUST check the validity of the extension definitions listed in the `extension_definitions` slot in the YAML metadata block:
+
+* definitions with no `slot_name`, or with a `slot_name` that is not a XML non-colonized name, MUST be ignored;
+* definitions with any unexpected content (e.g. other keys than just `slot_name`, `property`, and `type_hint`) MUST be ignored;
+* the `property` and `type_hint` values for a given definition, if present, MUST be CURIEs and MUST be resolvable using the mapping set’s `curie_map`, otherwise the definition MUST be ignored.
+
+A SSSOM/TSV reader MUST, upon encountering a non-standard YAML key in the metadata block or an unknown TSV column, check that the name of the key or of the column matches the `slot_name` of one of the extension definitions listed in the mapping set’s `extension_definitions` slot. If there is no match, the non-standard slot MUST be discarded.
+
+Upon encountering a non-standard slot whose corresponding definition has a `type_hint` of `https://w3id.org/linkml/Uriorcurie`, the reader SHOULD check that the value is a CURIE and is resolvable using the mapping set’s `curie_map`.
+
+
 ## Compatibility with previous versions of the specification
 
 Implementations MUST support the current version of the specification. However, SSSOM/TSV parsers MAY additionally accept to parse files that were compliant to a previous version. This section provides advice for implementations willing to support older versions.
@@ -179,6 +201,11 @@ Any other value in the `match_term_type` slot MUST be treated as an error.
 
 If the set already contains `subject_type` and `object_type` slots, any `match_term_type` slot can be silently ignored.
 
+#### semantic_similarity_score and semantic_similarity_measure
+
+Initial versions of this specification defined a `semantic_similarity_score` slot to store the semantic similarity, and a `semantic_similarity_measure` slot to describe how the the semantic similarity is assessed. In SSSOM 1.0, those slots were replaced by more generic `similarity_score` and `similarity_measure` slots.
+
+Upon encountering a `semantic_similarity_score` (respectively `semantic_similarity_measure`) slot, implementations supporting pre-1.0 versions MUST silently transform it into a `similarity_score` (respectively `similarity_measure`) slot. No changes on the value of the slot are required.
 
 ## Canonical SSSOM/TSV format
 
@@ -208,6 +235,13 @@ When writing the metadata block, a canonical SSSOM/TSV writer:
 * MUST NOT include in the CURIE map any prefix name that is not used anywhere in the set;
 * MUST sort the prefix names in the CURIE map in lexicographical order.
 
+In addition, if [extension slots](spec-model.md#non-standard-slots) are supported, the writer:
+
+* MUST write any extension slot in the mapping set _after_ the standard slots;
+* MUST sort the extension slots lexicographically on the `property` of their corresponding extension definitions;
+* MUST sort extension definitions on their `property` value;
+* MUST not include an extension definition if the corresponding extension is not used anywhere in the set.
+
 
 ### Rules for the mappings block
 
@@ -217,6 +251,11 @@ When writing the mappings block, a canonical SSSOM/TSV writer:
 * MUST serialise floating point values with up to three digits as needed after the decimal point, rounding the last digit to the nearest neighbour (rounding up if both neighbours are equidistant);
 * MUST write the columns in the order the slots appear in the [“Slots” table](Mapping.md#slots), in the documentation for the `Mapping` class;
 * MUST sort the mappings in lexicographical order on all their slots, in the order the slots appear in the [“Slots” table](Mapping.md#slots).
+
+In addition, if [extension slots](spec-model.md#non-standard-slots) are supported, the writer:
+
+* MUST write any non-standard column _after_ the standard columns;
+* MUST sort the non-standard column lexicographically on the `property` of their corresponding extension definitions.
 
 
 ## Examples

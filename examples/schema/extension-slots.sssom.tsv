@@ -1,0 +1,23 @@
+#curie_map:
+#  COMENT: https://example.com/entities/
+#  EXPROP: https://example.org/properties/
+#  ORGENT: https://example.org/entities/
+#mapping_set_id: https://example.org/sets/exo2c-with-extensions
+#mapping_set_title: Sample set EXO2C with extension slots
+#license: https://creativecommons.org/licenses/by/4.0/
+#extension_definitions:
+#  - slot_name: ext_bar
+#    property: EXPROP:barProperty
+#    type_hint: xsd:integer
+#  - slot_name: ext_baz
+#    property: EXPROP:bazProperty
+#    type_hint: linkml:Uriorcurie
+#  - slot_name: ext_foo
+#    property: EXPROP:fooProperty
+#ext_foo: Foo A
+#ext_undeclared_foo: Foo B
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	ext_bar	ext_baz	ext_undeclared_baz
+ORGENT:0001	alice	skos:closeMatch	COMENT:0011	alpha	semapv:ManualMappingCuration	111	ORGENT:BAZ_0001	BAZ A
+ORGENT:0002	bob	skos:closeMatch	COMENT:0012	beta	semapv:ManualMappingCuration	112	ORGENT:BAZ_0002	
+ORGENT:0004	daphne	skos:closeMatch	COMENT:0014	delta	semapv:ManualMappingCuration	114		Baz C
+ORGENT:0005	eve	skos:closeMatch	COMENT:0015	epsilon	semapv:ManualMappingCuration	115	ORGENT:BAZ_0005	Baz E
