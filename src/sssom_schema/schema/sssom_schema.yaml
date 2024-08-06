@@ -186,19 +186,7 @@ slots:
     range: EntityReference
     required: true
     slot_uri: owl:annotatedProperty
-    examples:
-      - value: skos:exactMatch
-  predicate_modifier:
-    description: A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
-    range: predicate_modifier_enum
-    see_also:
-      - https://github.com/mapping-commons/sssom/issues/107
-    examples:
-      - value: Not
-        description: Negates the predicate, see documentation of predicate_modifier_enum
-  predicate_label:
-    description: The label of the predicate/relation of the mapping
-    range: string
+    
     examples:
       - value: owl:sameAs
         description: The subject and the object are instances (owl individuals), and the two instances are the same.
@@ -224,6 +212,20 @@ slots:
         description: Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)
       - value: rdfs:seeAlso
         description: The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.
+  predicate_modifier:
+    description: A modifier for negating the predicate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
+    range: predicate_modifier_enum
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/107
+    examples:
+      - value: Not
+        description: Negates the predicate, see documentation of predicate_modifier_enum
+  predicate_label:
+    description: The label of the predicate/relation of the mapping
+    range: string
+    examples:
+      - value: has cross-reference
+        description: The label of the oboInOwl:hasDbXref property to represent cross-references.
   predicate_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
@@ -806,3 +808,12 @@ classes:
         description: Indicates whether a slot can be propagated from a mapping
           down to individual mappings.
         range: boolean
+  NoTermFound:
+    class_uri: sssom:NoTermFound
+    description: sssom:NoTermFound can be used in place of a subject_id or object_id
+      when the corresponding entity could not be found. It SHOULD be used in conjuction with
+      a corresponding subject_source or object_source to signify where the term was not found.
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/28
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/no_term_found.sssom.tsv
+

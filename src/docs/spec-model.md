@@ -82,6 +82,22 @@ In addition, predicates from the following sources MAY also be encouraged:
 * any relation from the [Relation Ontology (RO)](https://obofoundry.org/ontology/ro.html);
 * any relation under [skos:mappingRelation](http://www.w3.org/2004/02/skos/core#mappingRelation) in the [Semantic Mapping Vocabulary](https://mapping-commons.github.io/semantic-mapping-vocabulary/).
 
+
+## Representing unmapped entities
+
+The special value `sssom:NoTermFound` MAY be used as the `object_id` of a mapping to explicitly state that the subject of said mapping cannot be mapped to any entity in the domain represented by the `object_source` slot.
+
+Likewise, the `sssom:NoTermFound` value MAY be used as the `subject_id` of a mapping to state that the object of said mapping cannot be mapped to any entity in the domain represented by the `subject_source` slot.
+
+When that special value is used as the `subject_id` (respectively `object_id`), the `subject_source` (respectively `object_source`) slot SHOULD be defined.
+
+The `sssom:NoTermFound` value MUST NOT be used in any other slot than `subject_id` or `object_id`.
+
+The meaning of the NOT predicate modifier in a mapping that refers to `sssom:NoTermFound` is unspecified.
+
+When computing cardinality values (to fill the `mapping_cardinality` slot), mappings that refer to `sssom:NoTermFound` MUST be ignored.
+
+
 ## Non-standard slots
 
 <a id="non-standard-slots"></a>
