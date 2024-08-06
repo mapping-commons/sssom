@@ -972,13 +972,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../LiteralMapping/">LiteralMapping</a></td>
-<td>Represents an individual mapping between a literal and an entity</td>
+<td><a href="../Mapping/">Mapping</a></td>
+<td>Represents an individual mapping between a pair of entities</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Mapping/">Mapping</a></td>
-<td>Represents an individual mapping between a pair of entities</td>
+<td><a href="../LiteralMapping/">LiteralMapping</a></td>
+<td>Represents an individual mapping between a literal and an entity</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -996,40 +996,7 @@
 </thead>
 <tbody>
 <tr>
-<td>owl:sameAs</td>
-</tr>
-<tr>
-<td>owl:equivalentClass</td>
-</tr>
-<tr>
-<td>owl:equivalentProperty</td>
-</tr>
-<tr>
-<td>rdfs:subClassOf</td>
-</tr>
-<tr>
-<td>rdfs:subPropertyOf</td>
-</tr>
-<tr>
-<td>skos:relatedMatch</td>
-</tr>
-<tr>
-<td>skos:closeMatch</td>
-</tr>
-<tr>
-<td>skos:exactMatch</td>
-</tr>
-<tr>
-<td>skos:narrowMatch</td>
-</tr>
-<tr>
-<td>skos:broadMatch</td>
-</tr>
-<tr>
-<td>oboInOwl:hasDbXref</td>
-</tr>
-<tr>
-<td>rdfs:seeAlso</td>
+<td>has cross-reference</td>
 </tr>
 </tbody>
 </table>
@@ -1044,45 +1011,8 @@
 <pre><code class="language-yaml">name: predicate_label
 description: The label of the predicate/relation of the mapping
 examples:
-- value: owl:sameAs
-  description: The subject and the object are instances (owl individuals), and the
-    two instances are the same.
-- value: owl:equivalentClass
-  description: The subject and the object are classes (owl class), and the two classes
-    are the same.
-- value: owl:equivalentProperty
-  description: The subject and the object are properties (owl object, data, annotation
-    properties), and the two properties are the same.
-- value: rdfs:subClassOf
-  description: The subject and the object are classes (owl class), and the subject
-    is a subclass of the object.
-- value: rdfs:subPropertyOf
-  description: The subject and the object are properties (owl object, data, annotation
-    properties), and the subject is a subproperty of the object.
-- value: skos:relatedMatch
-  description: The subject and the object are associated in some unspecified way.
-- value: skos:closeMatch
-  description: The subject and the object are sufficiently similar that they can be
-    used interchangeably in some information retrieval applications.
-- value: skos:exactMatch
-  description: The subject and the object can, with a high degree of confidence, be
-    used interchangeably across a wide range of information retrieval applications.
-- value: skos:narrowMatch
-  description: 'From the SKOS primer: A triple skos:narrower (and skos:narrowMatch)
-    asserts that , the object of the triple, is a narrower concept than , the subject
-    of the triple.'
-- value: skos:broadMatch
-  description: 'From the SKOS primer: A triple skos:broader (and skos:broadMatch)
-    asserts that , the object of the triple, is a broader concept than , the subject
-    of the triple.'
-- value: oboInOwl:hasDbXref
-  description: Two terms are related in some way. The meaning is frequently consistent
-    across a single set of mappings. Note this property is often overloaded even where
-    the terms are of a different nature (e.g. interpro2go)
-- value: rdfs:seeAlso
-  description: The subject and the object are associated in some unspecified way.
-    The object IRI often resolves to a resource on the web that provides additional
-    information.
+- value: has cross-reference
+  description: The label of the oboInOwl:hasDbXref property to represent cross-references.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 alias: predicate_label

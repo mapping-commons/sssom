@@ -575,7 +575,7 @@
 <tr>
 <td><a href="../predicate_modifier/">predicate_modifier</a></td>
 <td>0..1 <br/> <a href="../PredicateModifierEnum/">PredicateModifierEnum</a></td>
-<td>A modifier for negating the prediate</td>
+<td>A modifier for negating the predicate</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -900,23 +900,6 @@ attributes:
     description: The ID of the predicate or relation that relates the subject and
       object of this match.
     examples:
-    - value: skos:exactMatch
-    from_schema: https://w3id.org/sssom/schema/
-    mappings:
-    - owl:annotatedProperty
-    rank: 1000
-    slot_uri: owl:annotatedProperty
-    alias: predicate_id
-    owner: literal mapping
-    domain_of:
-    - mapping
-    - literal mapping
-    range: EntityReference
-    required: true
-  predicate_label:
-    name: predicate_label
-    description: The label of the predicate/relation of the mapping
-    examples:
     - value: owl:sameAs
       description: The subject and the object are instances (owl individuals), and
         the two instances are the same.
@@ -957,6 +940,24 @@ attributes:
         The object IRI often resolves to a resource on the web that provides additional
         information.
     from_schema: https://w3id.org/sssom/schema/
+    mappings:
+    - owl:annotatedProperty
+    rank: 1000
+    slot_uri: owl:annotatedProperty
+    alias: predicate_id
+    owner: literal mapping
+    domain_of:
+    - mapping
+    - literal mapping
+    range: EntityReference
+    required: true
+  predicate_label:
+    name: predicate_label
+    description: The label of the predicate/relation of the mapping
+    examples:
+    - value: has cross-reference
+      description: The label of the oboInOwl:hasDbXref property to represent cross-references.
+    from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: predicate_label
     owner: literal mapping
@@ -966,7 +967,7 @@ attributes:
     range: string
   predicate_modifier:
     name: predicate_modifier
-    description: A modifier for negating the prediate. See https://github.com/mapping-commons/sssom/issues/40
+    description: A modifier for negating the predicate. See https://github.com/mapping-commons/sssom/issues/40
       for discussion
     examples:
     - value: Not
