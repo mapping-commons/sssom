@@ -33,7 +33,6 @@ nav:
       - Introduction: spec-model.md
       - Applying Chaining Rules: chaining-rules.md
       - LinkML documentation: linkml-index.md
-      - SSSOM profiles: sssom-profiles.md
     - Serialisations:
       - Introduction: spec-formats.md
       - SSSOM/TSV serialisation: spec-formats-tsv.md
