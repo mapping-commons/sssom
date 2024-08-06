@@ -556,34 +556,36 @@ slots:
       - https://github.com/mapping-commons/sssom/issues/166
       - https://github.com/mapping-commons/sssom/pull/258
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv
-  semantic_similarity_score:
-    description: A score between 0 and 1 to denote the semantic similarity, where
-      1 denotes equivalence.
-    range: double
-    minimum_value: 0.0
-    maximum_value: 1.0
-  semantic_similarity_measure:
-    description: The measure used for computing the the semantic similarity score.
-      To make processing this field as unambiguous as possible, we recommend using 
-      wikidata identifiers, but wikipedia pages could also be acceptable.
-    range: string
-    examples:
-      - value: https://www.wikidata.org/wiki/Q865360
-        description: (the Wikidata identifier for the Jaccard index measure).
   similarity_score:
-    description: A score between 0 and 1 to denote the similarity, where
-      1 denotes equivalence.
+    description: A score between 0 and 1 to denote the similarity between two entities, where
+      1 denotes equivalence, and 0 denotes disjointness. The score is meant to be used in conjunction 
+      with the similarity_measure field, to document, for example, the lexical or semantic match
+      of a matching algorithm.
     range: double
     minimum_value: 0.0
     maximum_value: 1.0
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/385
+      - https://github.com/mapping-commons/sssom/pull/386
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/similarity_score.sssom.tsv
   similarity_measure:
-    description: The measure used for computing the the similarity score.
+    description: The measure used for computing a similarity score.
+      This field is meant to be used in conjunction with the similarity_score field, to document,
+      for example, the lexical or semantic match of a matching algorithm.
       To make processing this field as unambiguous as possible, we recommend using 
-      wikidata identifiers, but wikipedia pages could also be acceptable.
+      wikidata CURIEs, but the type of this field is deliberately unspecified.
     range: string
     examples:
-      - value: https://www.wikidata.org/wiki/Q865360
-        description: (the Wikidata identifier for the Jaccard index measure).
+      - value: https://www.wikidata.org/entity/Q865360
+        description: (the Wikidata IRI for the Jaccard index measure).
+      - value: wikidata:Q865360
+        description: (the Wikidata CURIE for the Jaccard index measure).
+      - value: Levenshtein distance
+        description: (a score to measure the distance between two character sequences).
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/385
+      - https://github.com/mapping-commons/sssom/pull/386
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/similarity_score.sssom.tsv
   issue_tracker_item:
     description: The issue tracker item discussing this mapping.
     range: EntityReference
@@ -704,8 +706,8 @@ classes:
     - match_string
     - subject_preprocessing
     - object_preprocessing
-    - semantic_similarity_score
-    - semantic_similarity_measure
+    - similarity_score
+    - similarity_measure
     - see_also
     - issue_tracker_item
     - other

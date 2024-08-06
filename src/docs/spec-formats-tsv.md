@@ -201,6 +201,11 @@ Any other value in the `match_term_type` slot MUST be treated as an error.
 
 If the set already contains `subject_type` and `object_type` slots, any `match_term_type` slot can be silently ignored.
 
+#### semantic_similarity_score and semantic_similarity_measure
+
+Initial versions of this specification defined a `semantic_similarity_score` slot to store the semantic similarity, and a `semantic_similarity_measure` slot to describe how the the semantic similarity is assessed. In SSSOM 1.0, those slots were replaced by more generic `similarity_score` and `similarity_measure` slots.
+
+Upon encountering a `semantic_similarity_score` (respectively `semantic_similarity_measure`) slot, implementations supporting pre-1.0 versions MUST silently transform it into a `similarity_score` (respectively `similarity_measure`) slot. No changes on the value of the slot are required.
 
 ## Canonical SSSOM/TSV format
 

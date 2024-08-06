@@ -4,6 +4,7 @@
 
 - Add the concept of "propagatable slots".
 - Add the concept of "extension slots".
+- Replace `semantic_similarity_score` with `similarity_score` and `semantic_similarity_measure` with `similarity_measure` in the data model ([issue](https://github.com/mapping-commons/sssom/issues/385))
 
 ## SSSOM version 0.15.1
 
