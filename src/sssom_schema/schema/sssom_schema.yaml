@@ -47,7 +47,7 @@ enums:
         meaning: rdfs:Literal
         description: "'rdfs literal' used in SSSOM files to express that an entity is represented by a literal."
         see_also:
-        - https://mapping-commons.github.io/sssom/sssom-profiles/
+        - https://mapping-commons.github.io/sssom/spec-model/#literal-mappings
         - https://github.com/mapping-commons/sssom/issues/234
       rdfs datatype:
         meaning: rdfs:Datatype
