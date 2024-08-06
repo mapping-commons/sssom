@@ -3,6 +3,7 @@
 ## Next
 
 - Add the concept of "propagatable slots".
+- Add the `curie_map` to the model (instead of it being a specificity of the SSSOM/TSV format).
 - Add the concept of "extension slots".
 - Add the entity reference `sssom:NoTermFound` to express the concept of an "unmapped entity" ([issue](https://github.com/mapping-commons/sssom/issues/28))
 - Replace `semantic_similarity_score` with `similarity_score` and `semantic_similarity_measure` with `similarity_measure` in the data model ([issue](https://github.com/mapping-commons/sssom/issues/385))

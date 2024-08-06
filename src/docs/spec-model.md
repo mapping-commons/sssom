@@ -23,6 +23,15 @@ The `MappingSet` class represents, well, a set of individual mappings, which are
 Of note, within a set, a mapping may not necessarily be uniquely identified by the combination of its four mandatory slots (`subject_id`, `predicate_id`, `object_id`, and `mapping_justification`). A set may very well contain several mappings with the same subject, predicate, object, and justification, but that differ on some of the other, complementary slots.
 
 
+## Identifiers
+
+Throughout the model, identifiers to external resources are represented using the custom type [`EntityReference`](EntityReference.md) (based on the LinkML type [`uriorcurie`](https://w3id.org/linkml/Uriorcurie)), which accepts both full-length IRIs and [CURIEs](https://www.w3.org/TR/curie/) as possible identifier formats. (Note however that serialisation formats may mandate the use of one identifier format over the other; for example, the [SSSOM/TSV](spec-formats-tsv.md) format requires the systematic use of CURIEs, whereas the [OWL/RDF](spec-formats-owl.md) format conversely requires the systematic use of IRIs).
+
+Whenever the CURIE syntax is used in a mapping set (whether this is by choice of the SSSOM producer, or because it is mandated by the serialisation format), all CURIEs MUST be unambiguously resolvable into corresponding full-length IRIs without requiring any external resources. This means that any prefix name used MUST be properly declared in the set’s `curie_map` slot, which is a dictionary associating a prefix name to an IRI prefix.
+
+By exception, prefix names listed in the table found in the [IRI prefixes](spec-intro.md#iri-prefixes) section are considered “built-in”. As such, they MAY be omitted from the `curie_map`. If they are not omitted, they MUST point to the same IRI prefixes as in the aforementioned table.
+
+
 ## Propagation of mapping set slots
 
 As mentioned briefly above, there are two different types of slots in the `MappingSet` class:

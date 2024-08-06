@@ -5,47 +5,6 @@ type ExtensionDefinition
     typeHint: Uriorcurie
   }
 
-type LiteralMapping
-  {
-    literal: String!
-    literalDatatype: Uri
-    predicateId: EntityReference!
-    predicateLabel: String
-    predicateModifier: PredicateModifierEnum
-    objectId: EntityReference!
-    objectLabel: String
-    objectCategory: String
-    mappingJustification: EntityReference!
-    authorId: [EntityReference]
-    authorLabel: [String]
-    reviewerId: [EntityReference]
-    reviewerLabel: [String]
-    creatorId: [EntityReference]
-    creatorLabel: [String]
-    license: Uri
-    literalSource: EntityReference
-    literalSourceVersion: String
-    objectType: EntityTypeEnum
-    objectSource: EntityReference
-    objectSourceVersion: String
-    mappingProvider: Uri
-    mappingSource: EntityReference
-    mappingCardinality: MappingCardinalityEnum
-    mappingTool: String
-    mappingToolVersion: String
-    mappingDate: Date
-    confidence: Double
-    objectMatchField: [EntityReference]
-    matchString: [String]
-    literalPreprocessing: [EntityReference]
-    objectPreprocessing: [EntityReference]
-    similarityScore: Double
-    similarityMeasure: String
-    seeAlso: [String]
-    other: String
-    comment: String
-  }
-
 type Mapping
   {
     subjectId: EntityReference!
@@ -86,8 +45,8 @@ type Mapping
     matchString: [String]
     subjectPreprocessing: [EntityReference]
     objectPreprocessing: [EntityReference]
-    semanticSimilarityScore: Double
-    semanticSimilarityMeasure: String
+    similarityScore: Double
+    similarityMeasure: String
     seeAlso: [String]
     issueTrackerItem: EntityReference
     other: String
@@ -108,6 +67,7 @@ type MappingRegistry
 
 type MappingSet
   {
+    curieMap: [Prefix]
     mappings: [Mapping]
     mappingSetId: Uri!
     mappingSetVersion: String
@@ -147,6 +107,16 @@ type MappingSetReference
     mappingSetGroup: String
     lastUpdated: Date
     localName: String
+  }
+
+type NoTermFound
+  {
+  }
+
+type Prefix
+  {
+    prefixName: Ncname!
+    prefixUrl: Uri
   }
 
 type Propagatable
