@@ -81,11 +81,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://mapping-commons.github.io/sssom/LiteralMapping/</loc>
-         <lastmod>2024-08-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://mapping-commons.github.io/sssom/Mapping/</loc>
          <lastmod>2024-08-06</lastmod>
          <changefreq>daily</changefreq>
@@ -287,31 +282,6 @@
     </url>
     <url>
          <loc>https://mapping-commons.github.io/sssom/linkml-index/</loc>
-         <lastmod>2024-08-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/literal/</loc>
-         <lastmod>2024-08-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/literal_datatype/</loc>
-         <lastmod>2024-08-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/literal_preprocessing/</loc>
-         <lastmod>2024-08-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/literal_source/</loc>
-         <lastmod>2024-08-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://mapping-commons.github.io/sssom/literal_source_version/</loc>
          <lastmod>2024-08-06</lastmod>
          <changefreq>daily</changefreq>
     </url>

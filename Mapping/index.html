@@ -1048,7 +1048,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: EntityReference
     required: true
   predicate_label:
@@ -1063,7 +1062,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: string
   predicate_modifier:
     name: predicate_modifier
@@ -1080,7 +1078,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: predicate_modifier_enum
   object_id:
     name: object_id
@@ -1098,7 +1095,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: EntityReference
     required: true
   object_label:
@@ -1112,7 +1108,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: string
     recommended: true
   object_category:
@@ -1143,7 +1138,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: string
   mapping_justification:
     name: mapping_justification
@@ -1158,7 +1152,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: EntityReference
     required: true
     pattern: ^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$
@@ -1184,7 +1177,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: EntityReference
   author_label:
     name: author_label
@@ -1197,7 +1189,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: string
   reviewer_id:
     name: reviewer_id
@@ -1210,7 +1201,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: EntityReference
   reviewer_label:
     name: reviewer_label
@@ -1223,7 +1213,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: string
   creator_id:
     name: creator_id
@@ -1241,7 +1230,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: EntityReference
   creator_label:
     name: creator_label
@@ -1255,7 +1243,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: string
   license:
     name: license
@@ -1269,7 +1256,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: uri
   subject_type:
     name: subject_type
@@ -1351,7 +1337,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: entity_type_enum
   object_source:
     name: object_source
@@ -1375,7 +1360,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: EntityReference
   object_source_version:
     name: object_source_version
@@ -1396,7 +1380,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: string
   mapping_provider:
     name: mapping_provider
@@ -1416,7 +1399,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: uri
   mapping_source:
     name: mapping_source
@@ -1431,7 +1413,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: EntityReference
   mapping_cardinality:
     name: mapping_cardinality
@@ -1445,7 +1426,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: mapping_cardinality_enum
   mapping_tool:
     name: mapping_tool
@@ -1466,7 +1446,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: string
   mapping_tool_version:
     name: mapping_tool_version
@@ -1486,7 +1465,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: string
   mapping_date:
     name: mapping_date
@@ -1506,7 +1484,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: date
   publication_date:
     name: publication_date
@@ -1531,7 +1508,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: double
     minimum_value: 0.0
     maximum_value: 1.0
@@ -1617,7 +1593,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: EntityReference
   match_string:
     name: match_string
@@ -1630,7 +1605,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: string
   subject_preprocessing:
     name: subject_preprocessing
@@ -1677,7 +1651,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: EntityReference
   similarity_score:
     name: similarity_score
@@ -1695,7 +1668,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: double
     minimum_value: 0.0
     maximum_value: 1.0
@@ -1723,7 +1695,6 @@ attributes:
     owner: mapping
     domain_of:
     - mapping
-    - literal mapping
     range: string
   see_also:
     name: see_also
@@ -1739,7 +1710,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: string
   issue_tracker_item:
     name: issue_tracker_item
@@ -1769,7 +1739,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: string
   comment:
     name: comment
@@ -1783,7 +1752,6 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    - literal mapping
     range: string
 class_uri: owl:Axiom
 
