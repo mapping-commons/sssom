@@ -49,6 +49,7 @@ enums:
         see_also:
         - https://mapping-commons.github.io/sssom/spec-model/#literal-mappings
         - https://github.com/mapping-commons/sssom/issues/234
+        - https://github.com/mapping-commons/sssom/blob/master/examples/schema/literals.sssom.tsv
       rdfs datatype:
         meaning: rdfs:Datatype
       rdf property:
