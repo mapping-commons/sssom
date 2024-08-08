@@ -96,7 +96,7 @@ In addition, predicates from the following sources MAY also be encouraged:
 
 <a id="literal-mappings"></a>
 
-The SSSOM model is primarily intended to represent mappings between semantic entities. However, it may also be used to represent mappings where one side is a literal string that does not have an identifier of its own. Any such mapping is henceforth called a _literal mapping_.
+The SSSOM model is primarily intended to represent mappings between semantic entities. However, it may also be used to represent mappings where at least one side is a literal string that does not have an identifier of its own. Any such mapping is henceforth called a _literal mapping_.
 
 To represent a mapping whose subject (resp. object) is a literal:
 
