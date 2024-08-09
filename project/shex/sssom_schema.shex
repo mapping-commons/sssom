@@ -1,3 +1,4 @@
+# metamodel_version: 1.7.0
 BASE <https://w3id.org/sssom/>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -60,13 +61,13 @@ linkml:Sparqlpath xsd:string
 }
 
 <Mapping> CLOSED {
-    (  $<Mapping_tes> (  owl:annotatedSource @<EntityReference> ;
+    (  $<Mapping_tes> (  owl:annotatedSource @<EntityReference> ? ;
           <subject_label> @linkml:String ? ;
           <subject_category> @linkml:String ? ;
           owl:annotatedProperty @<EntityReference> ;
           <predicate_label> @linkml:String ? ;
           <predicate_modifier> [ <https://w3id.org/sssom/PredicateModifierEnum#Not> ] ? ;
-          owl:annotatedTarget @<EntityReference> ;
+          owl:annotatedTarget @<EntityReference> ? ;
           <object_label> @linkml:String ? ;
           <object_category> @linkml:String ? ;
           <mapping_justification> @<EntityReference> ;
@@ -197,5 +198,4 @@ linkml:Sparqlpath xsd:string
        rdf:type [ <Propagatable> ] ?
     )
 }
-
 

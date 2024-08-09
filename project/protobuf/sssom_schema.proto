@@ -1,3 +1,6 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.7.0
 // A definition of an extension (non-standard) slot.
 message ExtensionDefinition
  {

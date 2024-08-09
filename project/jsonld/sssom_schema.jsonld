@@ -426,7 +426,13 @@
         },
         {
           "text": "rdfs literal",
-          "meaning": "rdfs:Literal"
+          "description": "This value indicate that the entity being mapped is not a semantic entity with a distinct identifier, but is instead represented entirely by its literal label. This value MUST NOT be used in the predicate_type slot.",
+          "meaning": "rdfs:Literal",
+          "see_also": [
+            "https://mapping-commons.github.io/sssom/spec-model/#literal-mappings",
+            "https://github.com/mapping-commons/sssom/issues/234",
+            "https://github.com/mapping-commons/sssom/blob/master/examples/schema/literals.sssom.tsv"
+          ]
         },
         {
           "text": "rdfs datatype",
@@ -715,7 +721,6 @@
         "Mapping"
       ],
       "range": "EntityReference",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -966,7 +971,6 @@
         "Mapping"
       ],
       "range": "EntityReference",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2185,6 +2189,110 @@
       ],
       "slot_usage": {},
       "class_uri": "http://www.w3.org/2002/07/owl#Axiom",
+      "rules": [
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "subject_type",
+                "equals_string": "rdfs literal",
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "subject_label",
+                "required": true,
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "@type": "ClassRule"
+        },
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "subject_type",
+                "none_of": [
+                  {
+                    "equals_string": "rdfs literal",
+                    "@type": "AnonymousSlotExpression"
+                  }
+                ],
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "subject_id",
+                "required": true,
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "@type": "ClassRule"
+        },
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "object_type",
+                "equals_string": "rdfs literal",
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "object_label",
+                "required": true,
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "@type": "ClassRule"
+        },
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "object_type",
+                "none_of": [
+                  {
+                    "equals_string": "rdfs literal",
+                    "@type": "AnonymousSlotExpression"
+                  }
+                ],
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "object_id",
+                "required": true,
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "@type": "ClassRule"
+        }
+      ],
       "@type": "ClassDefinition"
     },
     {
@@ -2315,9 +2423,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2024-08-06T18:58:28",
-  "source_file_size": 31410,
-  "generation_date": "2024-08-06T18:58:48",
+  "source_file_date": "2024-08-09T22:23:57",
+  "source_file_size": 32836,
+  "generation_date": "2024-08-09T22:25:39",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom_schema.context.jsonld",
