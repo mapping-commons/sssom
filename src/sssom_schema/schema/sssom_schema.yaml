@@ -45,10 +45,16 @@ enums:
         meaning: rdfs:Class
       rdfs literal:
         meaning: rdfs:Literal
+        description: This value indicate that the entity being mapped is not a semantic entity with a distinct identifier, but is instead represented entirely by its literal label. This value MUST NOT be used in the predicate_type slot.
+        see_also:
+        - https://mapping-commons.github.io/sssom/spec-model/#literal-mappings
+        - https://github.com/mapping-commons/sssom/issues/234
+        - https://github.com/mapping-commons/sssom/blob/master/examples/schema/literals.sssom.tsv
       rdfs datatype:
         meaning: rdfs:Datatype
       rdf property:
         meaning: rdf:Property
+        
   predicate_modifier_enum:
     permissible_values:
       Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
@@ -132,7 +138,6 @@ slots:
   subject_id:
     description: The ID of the subject of the mapping.
     range: EntityReference
-    required: true
     mappings:
     - owl:annotatedSource
     slot_uri: owl:annotatedSource
@@ -231,7 +236,6 @@ slots:
     mappings:
     - owl:annotatedTarget
     range: EntityReference
-    required: true
     slot_uri: owl:annotatedTarget
     examples:
       - value: HP:0009894
@@ -689,6 +693,41 @@ classes:
     - other
     - comment
     class_uri: owl:Axiom
+    rules:
+      - preconditions:
+          slot_conditions:
+            subject_type: 
+              equals_string: "rdfs literal"
+        postconditions:
+          slot_conditions:
+            subject_label:
+              required: true
+      - preconditions:
+          slot_conditions:
+            subject_type:
+              none_of:
+                equals_string: "rdfs literal"
+        postconditions:
+          slot_conditions:
+            subject_id:
+              required: true
+      - preconditions:
+          slot_conditions:
+            object_type: 
+              equals_string: "rdfs literal"
+        postconditions:
+          slot_conditions:
+            object_label:
+              required: true
+      - preconditions:
+          slot_conditions:
+            object_type:
+              none_of:
+                equals_string: "rdfs literal"
+        postconditions:
+          slot_conditions:
+            object_id:
+              required: true
   mapping registry:
     description: A registry for managing mapping sets. It holds a set of 
       mapping set references, and can import other registries.
