@@ -1,0 +1,9 @@
+#curie_map:
+#  COMENT: https://example.com/entities/
+#mapping_set_id: https://example.org/sets/literal-mappings
+#license: https://creativecommons.org/licenses/by/4.0/
+subject_label	predicate_id	object_id	object_label	mapping_justification	subject_type
+alice	skos:closeMatch	COMENT:0011	alpha	semapv:ManualMappingCuration	rdfs literal
+bob	skos:closeMatch	COMENT:0012	beta	semapv:ManualMappingCuration	rdfs literal
+daphne	skos:closeMatch	COMENT:0014	delta	semapv:ManualMappingCuration	rdfs literal
+eve	skos:closeMatch	COMENT:0015	epsilon	semapv:ManualMappingCuration	rdfs literal

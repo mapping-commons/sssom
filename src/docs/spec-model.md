@@ -92,6 +92,25 @@ In addition, predicates from the following sources MAY also be encouraged:
 * any relation under [skos:mappingRelation](http://www.w3.org/2004/02/skos/core#mappingRelation) in the [Semantic Mapping Vocabulary](https://mapping-commons.github.io/semantic-mapping-vocabulary/).
 
 
+## Literal mappings
+
+<a id="literal-mappings"></a>
+
+The SSSOM model is primarily intended to represent mappings between semantic entities. However, it may also be used to represent mappings where at least one side is a literal string that does not have an identifier of its own. Any such mapping is henceforth called a _literal mapping_.
+
+To represent a mapping whose subject (resp. object) is a literal:
+
+* the `subject_type` (resp. `object_type`) slot MUST be set to `rdfs literal`;
+* the `subject_label` (resp. `object_label`) slot MUST be set to the literal itself;
+* the `subject_id` (resp. `object_id`) slot MAY be left empty.
+
+The last point is an exception to the normal rules about required slots, which state that a mapping must always have a `subject_id` and an `object_id`. Implementations MUST accept a mapping without a `subject_id` (resp. `object_id`) _if and only if_ the `subject_type` (resp. `object_type`) slot is set to `rdfs literal`.
+
+All other slots in the `Mapping` class may be used normally in a literal mapping, with the same meaning as for a non-literal mapping.
+
+When computing the cardinality of mappings in a set (e.g. to set the value of the `mapping_cardinality` slot), if the mapping has a literal subject (resp. object), then the `subject_label` (resp. `object_label`) slot must be used for determining the number of occurrences of the subject (resp. object) in the set.
+
+
 ## Representing unmapped entities
 
 The special value `sssom:NoTermFound` MAY be used as the `object_id` of a mapping to explicitly state that the subject of said mapping cannot be mapped to any entity in the domain represented by the `object_source` slot.
