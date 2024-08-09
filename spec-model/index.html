@@ -369,6 +369,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#literal-mappings" class="md-nav__link">
+    Literal mappings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#representing-unmapped-entities" class="md-nav__link">
     Representing unmapped entities
   </a>
@@ -460,20 +467,6 @@
     <li class="md-nav__item">
       <a href="../linkml-index/" class="md-nav__link">
         LinkML documentation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sssom-profiles/" class="md-nav__link">
-        SSSOM profiles
       </a>
     </li>
   
@@ -1044,6 +1037,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#literal-mappings" class="md-nav__link">
+    Literal mappings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#representing-unmapped-entities" class="md-nav__link">
     Representing unmapped entities
   </a>
@@ -1236,6 +1236,18 @@
 <li>any relation from the <a href="https://obofoundry.org/ontology/ro.html">Relation Ontology (RO)</a>;</li>
 <li>any relation under <a href="http://www.w3.org/2004/02/skos/core#mappingRelation">skos:mappingRelation</a> in the <a href="https://mapping-commons.github.io/semantic-mapping-vocabulary/">Semantic Mapping Vocabulary</a>.</li>
 </ul>
+<h2 id="literal-mappings">Literal mappings</h2>
+<p><a id="literal-mappings"></a></p>
+<p>The SSSOM model is primarily intended to represent mappings between semantic entities. However, it may also be used to represent mappings where at least one side is a literal string that does not have an identifier of its own. Any such mapping is henceforth called a <em>literal mapping</em>.</p>
+<p>To represent a mapping whose subject (resp. object) is a literal:</p>
+<ul>
+<li>the <code>subject_type</code> (resp. <code>object_type</code>) slot MUST be set to <code>rdfs literal</code>;</li>
+<li>the <code>subject_label</code> (resp. <code>object_label</code>) slot MUST be set to the literal itself;</li>
+<li>the <code>subject_id</code> (resp. <code>object_id</code>) slot MAY be left empty.</li>
+</ul>
+<p>The last point is an exception to the normal rules about required slots, which state that a mapping must always have a <code>subject_id</code> and an <code>object_id</code>. Implementations MUST accept a mapping without a <code>subject_id</code> (resp. <code>object_id</code>) <em>if and only if</em> the <code>subject_type</code> (resp. <code>object_type</code>) slot is set to <code>rdfs literal</code>.</p>
+<p>All other slots in the <code>Mapping</code> class may be used normally in a literal mapping, with the same meaning as for a non-literal mapping.</p>
+<p>When computing the cardinality of mappings in a set (e.g. to set the value of the <code>mapping_cardinality</code> slot), if the mapping has a literal subject (resp. object), then the <code>subject_label</code> (resp. <code>object_label</code>) slot must be used for determining the number of occurrences of the subject (resp. object) in the set.</p>
 <h2 id="representing-unmapped-entities">Representing unmapped entities</h2>
 <p>The special value <code>sssom:NoTermFound</code> MAY be used as the <code>object_id</code> of a mapping to explicitly state that the subject of said mapping cannot be mapped to any entity in the domain represented by the <code>object_source</code> slot.</p>
 <p>Likewise, the <code>sssom:NoTermFound</code> value MAY be used as the <code>subject_id</code> of a mapping to state that the object of said mapping cannot be mapped to any entity in the domain represented by the <code>subject_source</code> slot.</p>
