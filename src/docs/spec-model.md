@@ -100,9 +100,9 @@ The SSSOM model is primarily intended to represent mappings between semantic ent
 
 To represent a mapping whose subject (resp. object) is a literal:
 
-* the `subject_type` (resp. `object_type`) slot is set to `rdfs literal`;
-* the `subject_label` (resp. `object_label`) slot is set to the literal itself;
-* the `subject_id` (resp. `object_id`) slot is left empty.
+* the `subject_type` (resp. `object_type`) slot MUST be set to `rdfs literal`;
+* the `subject_label` (resp. `object_label`) slot MUST be set to the literal itself;
+* the `subject_id` (resp. `object_id`) slot MAY be left empty.
 
 The last point is an exception to the normal rules about required slots, which state that a mapping must always have a `subject_id` and an `object_id`. Implementations MUST accept a mapping without a `subject_id` (resp. `object_id`) _if and only if_ the `subject_type` (resp. `object_type`) slot is set to `rdfs literal`.
 
