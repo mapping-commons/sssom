@@ -1,5 +1,5 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-08-06T18:58:49
+# Generation date: 2024-08-09T22:25:39
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
@@ -222,14 +222,14 @@ class Mapping(YAMLRoot):
     class_name: ClassVar[str] = "mapping"
     class_model_uri: ClassVar[URIRef] = SSSOM.Mapping
 
-    subject_id: Union[str, EntityReference] = None
     predicate_id: Union[str, EntityReference] = None
-    object_id: Union[str, EntityReference] = None
     mapping_justification: Union[str, EntityReference] = None
+    subject_id: Optional[Union[str, EntityReference]] = None
     subject_label: Optional[str] = None
     subject_category: Optional[str] = None
     predicate_label: Optional[str] = None
     predicate_modifier: Optional[Union[str, "PredicateModifierEnum"]] = None
+    object_id: Optional[Union[str, EntityReference]] = None
     object_label: Optional[str] = None
     object_category: Optional[str] = None
     author_id: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
@@ -268,25 +268,18 @@ class Mapping(YAMLRoot):
     comment: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.subject_id):
-            self.MissingRequiredField("subject_id")
-        if not isinstance(self.subject_id, EntityReference):
-            self.subject_id = EntityReference(self.subject_id)
-
         if self._is_empty(self.predicate_id):
             self.MissingRequiredField("predicate_id")
         if not isinstance(self.predicate_id, EntityReference):
             self.predicate_id = EntityReference(self.predicate_id)
 
-        if self._is_empty(self.object_id):
-            self.MissingRequiredField("object_id")
-        if not isinstance(self.object_id, EntityReference):
-            self.object_id = EntityReference(self.object_id)
-
         if self._is_empty(self.mapping_justification):
             self.MissingRequiredField("mapping_justification")
         if not isinstance(self.mapping_justification, EntityReference):
             self.mapping_justification = EntityReference(self.mapping_justification)
+
+        if self.subject_id is not None and not isinstance(self.subject_id, EntityReference):
+            self.subject_id = EntityReference(self.subject_id)
 
         if self.subject_label is not None and not isinstance(self.subject_label, str):
             self.subject_label = str(self.subject_label)
@@ -299,6 +292,9 @@ class Mapping(YAMLRoot):
 
         if self.predicate_modifier is not None and not isinstance(self.predicate_modifier, PredicateModifierEnum):
             self.predicate_modifier = PredicateModifierEnum(self.predicate_modifier)
+
+        if self.object_id is not None and not isinstance(self.object_id, EntityReference):
+            self.object_id = EntityReference(self.object_id)
 
         if self.object_label is not None and not isinstance(self.object_label, str):
             self.object_label = str(self.object_label)
@@ -655,6 +651,7 @@ class EntityTypeEnum(EnumDefinitionImpl):
         setattr(cls, "rdfs literal",
             PermissibleValue(
                 text="rdfs literal",
+                description="""This value indicate that the entity being mapped is not a semantic entity with a distinct identifier, but is instead represented entirely by its literal label. This value MUST NOT be used in the predicate_type slot.""",
                 meaning=RDFS["Literal"]))
         setattr(cls, "rdfs datatype",
             PermissibleValue(
@@ -758,7 +755,7 @@ slots.mappings = Slot(uri=SSSOM.mappings, name="mappings", curie=SSSOM.curie('ma
                    model_uri=SSSOM.mappings, domain=None, range=Optional[Union[Union[dict, Mapping], List[Union[dict, Mapping]]]])
 
 slots.subject_id = Slot(uri=OWL.annotatedSource, name="subject_id", curie=OWL.curie('annotatedSource'),
-                   model_uri=SSSOM.subject_id, domain=None, range=Union[str, EntityReference])
+                   model_uri=SSSOM.subject_id, domain=None, range=Optional[Union[str, EntityReference]])
 
 slots.subject_label = Slot(uri=SSSOM.subject_label, name="subject_label", curie=SSSOM.curie('subject_label'),
                    model_uri=SSSOM.subject_label, domain=None, range=Optional[str])
@@ -782,7 +779,7 @@ slots.predicate_type = Slot(uri=SSSOM.predicate_type, name="predicate_type", cur
                    model_uri=SSSOM.predicate_type, domain=None, range=Optional[Union[str, "EntityTypeEnum"]])
 
 slots.object_id = Slot(uri=OWL.annotatedTarget, name="object_id", curie=OWL.curie('annotatedTarget'),
-                   model_uri=SSSOM.object_id, domain=None, range=Union[str, EntityReference])
+                   model_uri=SSSOM.object_id, domain=None, range=Optional[Union[str, EntityReference]])
 
 slots.object_label = Slot(uri=SSSOM.object_label, name="object_label", curie=SSSOM.curie('object_label'),
                    model_uri=SSSOM.object_label, domain=None, range=Optional[str])

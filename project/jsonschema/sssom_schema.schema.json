@@ -43,6 +43,100 @@
         },
         "Mapping": {
             "additionalProperties": false,
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "subject_type": {
+                                "const": "rdfs literal"
+                            }
+                        },
+                        "required": [
+                            "subject_type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "subject_label": {}
+                        },
+                        "required": [
+                            "subject_label"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "subject_type": {
+                                "not": {
+                                    "anyOf": [
+                                        {
+                                            "const": "rdfs literal"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "subject_type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "subject_id": {}
+                        },
+                        "required": [
+                            "subject_id"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "object_type": {
+                                "const": "rdfs literal"
+                            }
+                        },
+                        "required": [
+                            "object_type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "object_label": {}
+                        },
+                        "required": [
+                            "object_label"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "object_type": {
+                                "not": {
+                                    "anyOf": [
+                                        {
+                                            "const": "rdfs literal"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "object_type"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "object_id": {}
+                        },
+                        "required": [
+                            "object_id"
+                        ]
+                    }
+                }
+            ],
             "description": "Represents an individual mapping between a pair of entities",
             "properties": {
                 "author_id": {
@@ -301,9 +395,7 @@
                 }
             },
             "required": [
-                "subject_id",
                 "predicate_id",
-                "object_id",
                 "mapping_justification"
             ],
             "title": "Mapping",

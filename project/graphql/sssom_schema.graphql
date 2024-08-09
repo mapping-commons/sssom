@@ -1,3 +1,4 @@
+# metamodel_version: 1.7.0
 type ExtensionDefinition
   {
     slotName: Ncname!
@@ -7,13 +8,13 @@ type ExtensionDefinition
 
 type Mapping
   {
-    subjectId: EntityReference!
+    subjectId: EntityReference
     subjectLabel: String
     subjectCategory: String
     predicateId: EntityReference!
     predicateLabel: String
     predicateModifier: PredicateModifierEnum
-    objectId: EntityReference!
+    objectId: EntityReference
     objectLabel: String
     objectCategory: String
     mappingJustification: EntityReference!

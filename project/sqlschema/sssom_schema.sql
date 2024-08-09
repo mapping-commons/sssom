@@ -219,13 +219,13 @@ CREATE TABLE "NoTermFound" (
 );
 CREATE TABLE mapping (
 	id INTEGER NOT NULL, 
-	subject_id TEXT NOT NULL, 
+	subject_id TEXT, 
 	subject_label TEXT, 
 	subject_category TEXT, 
 	predicate_id TEXT NOT NULL, 
 	predicate_label TEXT, 
 	predicate_modifier VARCHAR(3), 
-	object_id TEXT NOT NULL, 
+	object_id TEXT, 
 	object_label TEXT, 
 	object_category TEXT, 
 	mapping_justification TEXT NOT NULL, 
