@@ -20,7 +20,7 @@ The [data model](spec-model.md) of SSSOM is centered around two fundamental conc
 A **SSSOM mapping** is a statement that there is a correspondence between two semantic entities. It comprises two components:
 
 1. The **core mapping** (or **raw mapping**), which is a triple `<subject, predicate, object>` that represents the correspondence itself between a subject entity, for example a class in an ontology, and an object entity, for example an identifier in some database, via a semantic mapping predicate, for example `skos:exactMatch`.
-2. **Metadata** that provide supplementary pieces of information about the core mapping. This notably includes information about the *provenance* of the statement (for example, who authored the statement) and its *justification* (a reason that supports the fidelity subject and the object, such as expert review, or exact lexical matching on the entities' primary names).
+2. **Metadata** that provide supplementary pieces of information about the core mapping. This notably includes information about the *provenance* of the statement (for example, who authored the statement), the *confidence* with which the mappings holds, and its *justification* (a reason that supports the fidelity of the mapping between the subject and the object, such as _expert review_, or _exact lexical matching_ on the entities' primary names).
 
 A **SSSOM mapping set** is a collection of SSSOM mappings. Mapping sets can also be associated with metadata, such as license statements, or a description.
 
