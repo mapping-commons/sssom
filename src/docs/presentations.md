@@ -6,6 +6,12 @@
 - Talk to [Every Cure](https://everycure.org/) technical team (Knowledge Sharing Series) to make the case for prioritising the collection of mapping provenance.
 - [Slides](https://docs.google.com/presentation/d/1_KkSeZcKyzsQVlZe8qkl7iEvii3HX0QKR58uvbirTDM/edit)
 
+## (Re-)bridging the anatomy ontologies with SSSOM
+
+- July 19<sup>th</sup>, 2024
+- [15<sup>th</sup> International Conference on Biomedical Ontologies (ICBO)](https://icbo-conference.github.io/icbo2024/)
+- [Slides](https://github.com/gouttegd/sssomt-uberon/releases/download/v2-icbo-2024/screen.pdf), [paper](https://github.com/gouttegd/sssomt-uberon/releases/download/v2-icbo-2024/paper.pdf), [sources](https://github.com/gouttegd/sssomt-uberon)
+
 ## Workshop on Prefixes, CURIEs, and IRIs 2023
 
 - November 27<sup>th</sup>, 2023, virtual
