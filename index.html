@@ -241,16 +241,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sssom-at-a-glance" class="md-nav__link">
-    SSSOM at a glance
+  <a href="#sssom-at-a-glance-model-and-exchange-format" class="md-nav__link">
+    SSSOM at a glance: Model and Exchange Format
   </a>
   
-    <nav class="md-nav" aria-label="SSSOM at a glance">
+    <nav class="md-nav" aria-label="SSSOM at a glance: Model and Exchange Format">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-concepts" class="md-nav__link">
-    Basic concepts
+  <a href="#basic-model" class="md-nav__link">
+    Basic model
   </a>
   
 </li>
@@ -285,6 +285,13 @@
           <li class="md-nav__item">
   <a href="#contact" class="md-nav__link">
     Contact
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steering-committee" class="md-nav__link">
+    Steering committee
   </a>
   
 </li>
@@ -984,16 +991,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sssom-at-a-glance" class="md-nav__link">
-    SSSOM at a glance
+  <a href="#sssom-at-a-glance-model-and-exchange-format" class="md-nav__link">
+    SSSOM at a glance: Model and Exchange Format
   </a>
   
-    <nav class="md-nav" aria-label="SSSOM at a glance">
+    <nav class="md-nav" aria-label="SSSOM at a glance: Model and Exchange Format">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-concepts" class="md-nav__link">
-    Basic concepts
+  <a href="#basic-model" class="md-nav__link">
+    Basic model
   </a>
   
 </li>
@@ -1028,6 +1035,13 @@
           <li class="md-nav__item">
   <a href="#contact" class="md-nav__link">
     Contact
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steering-committee" class="md-nav__link">
+    Steering committee
   </a>
   
 </li>
@@ -1080,22 +1094,23 @@
 
 <h1 id="simple-standard-for-sharing-ontological-mappings-sssom">Simple Standard for Sharing Ontological Mappings (SSSOM)</h1>
 <p><img alt="SSSOM banner" src="images/sssom-banner.png" /></p>
-<p><strong>SSSOM</strong> is the Simple Standard for Sharing Ontological Mappings. It comprises three distinct components that are intended to be used together to facilitate the exchange of semantic mappings:</p>
-<ol>
-<li>a machine-readable and extensible vocabulary to describe metadata of mappings;</li>
-<li>a data model to represent mappings and their associated metadata;</li>
-<li>several file formats to represent sets of mappings on disk and on the network.</li>
-</ol>
-<p>Beyond defining the standard itself, the <strong>SSSOM Core Team</strong> also aims to implement open and community-driven collaborative workflows designed to evolve the standard continuously to address changing requirements and mapping practices, and to provide reference tools and software libraries for working with the standard.</p>
-<h2 id="sssom-at-a-glance">SSSOM at a glance</h2>
-<h3 id="basic-concepts">Basic concepts</h3>
+<p>The Simple Standard for Sharing Ontological Mappings (SSSOM) is a community-driven standard designed to facilitate the exchange and integration of semantic entity mappings.
+As data interoperability becomes increasingly crucial across various domains, SSSOM provides a standardized format to share mappings, enabling researchers and developers to more easily connect and utilize diverse datasets.
+By establishing a common framework, SSSOM enhances the consistency, quality, and discoverability of mappings, thereby supporting more effective data integration and analysis.</p>
+<ul>
+<li><strong>Standardization</strong>: SSSOM provides a unified format for representing semantic, or ontological, mappings, making it easier for different systems and organizations to exchange mapping data consistently.</li>
+<li><strong>Interoperability</strong>: By using SSSOM, data from diverse sources can be integrated more seamlessly, allowing for improved data analysis and research across various fields, including biology, healthcare, and information technology.</li>
+</ul>
+<p>Beyond defining the standard itself, the <strong>SSSOM Core Team</strong> and the SSSOM community also develop reference tools and software libraries for working with the standard.</p>
+<h2 id="sssom-at-a-glance-model-and-exchange-format">SSSOM at a glance: Model and Exchange Format</h2>
+<h3 id="basic-model">Basic model</h3>
 <p>The <a href="spec-model/">data model</a> of SSSOM is centered around two fundamental concepts: mappings and mapping sets.</p>
-<p>A <strong>SSSOM mapping</strong> is a statement that there is a correspondence of some sort between two semantic entities. It comprises two components:</p>
+<p>A <strong>SSSOM mapping</strong> is a statement that there is a correspondence between two semantic entities. It comprises two components:</p>
 <ol>
 <li>The <strong>core mapping</strong> (or <strong>raw mapping</strong>), which is a triple <code>&lt;subject, predicate, object&gt;</code> that represents the correspondence itself between a subject entity, for example a class in an ontology, and an object entity, for example an identifier in some database, via a semantic mapping predicate, for example <code>skos:exactMatch</code>.</li>
-<li><strong>Metadata</strong> that provide supplementary pieces of information about the core mapping. This notably includes information pertaining to the <em>provenance</em> of the statement (for example, who emitted the statement, in other words who decided that the subject and the object should be mapped) and its <em>justification</em> (why should the subject and the object be mapped).</li>
+<li><strong>Metadata</strong> that provide supplementary pieces of information about the core mapping. This notably includes information about the <em>provenance</em> of the statement (for example, who authored the statement), the <em>confidence</em> with which the mappings holds, and its <em>justification</em> (a reason that supports the fidelity of the mapping between the subject and the object, such as <em>expert review</em>, or <em>exact lexical matching</em> on the entities' primary names).</li>
 </ol>
-<p>A <strong>SSSOM mapping set</strong> is a collection of SSSOM mappings, with its own metadata.</p>
+<p>A <strong>SSSOM mapping set</strong> is a collection of SSSOM mappings. Mapping sets can also be associated with metadata, such as license statements, or a description.</p>
 <h3 id="the-sssomtsv-format">The SSSOM/TSV format</h3>
 <p>The main format proposed by the SSSOM standard to exchange mapping sets is the <a href="spec-formats-tsv/">SSSOM/TSV format</a>. Here is a basic example of a file in that format:</p>
 <pre><code>#curie_map:
@@ -1128,28 +1143,39 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   sema
 </ul>
 <p><strong>Related software</strong></p>
 <ul>
-<li><a href="https://mapping-commons.github.io/sssom-py/">SSSOM Toolkit</a> (reference implementation of the standard, in Python)</li>
+<li><a href="https://mapping-commons.github.io/sssom-py/">sssom-py</a> (reference implementation of the standard, a toolkit and API for processing mappings, written in Python)</li>
+<li><a href="https://incenp.org/dvlpt/sssom-java/">SSSOM-Java</a> (an implementation of the SSSOM standard for the Java language)</li>
 </ul>
 <h2 id="the-sssom-core-team">The SSSOM Core Team</h2>
 <h3 id="contact">Contact</h3>
 <p>The preferred way to contact the SSSOM team is through the <a href="https://github.com/mapping-commons/issues">issue tracker</a> (for problems with SSSOM) or the <a href="https://github.com/mapping-commons/sssom/discussions">GitHub discussion forums</a> (for general questions).</p>
 <p>You can find any of the members of the SSSOM core team <a href="https://github.com/orgs/mapping-commons/teams/sssom-core">on GitHub</a>. Their GitHub profiles usually also provide email addresses.</p>
 <p>You can also reach us in the <a href="https://obo-communitygroup.slack.com/archives/C01DP18L5GW">OBO Foundry Slack</a>, in the <code>#sssom</code> channel.</p>
+<h3 id="steering-committee">Steering committee</h3>
+<p>The Steering committee is a self-appointed group of SSSOM contributors, whose aim is to drive the evolution of the standard and coordinate community contributions.</p>
+<ul>
+<li><a href="https://orcid.org/0000-0002-7356-1779">Nicolas Matentzoglu</a> (Semanticly, Independent Consultant; <a href="https://github.com/matentzn">@matentzn</a>)</li>
+<li><a href="https://orcid.org/0000-0002-6095-8718">Damien Goutte-Gattat</a> (Flybase)</li>
+<li><a href="https://orcid.org/0000-0002-2411-565X">Harshad Hegde</a> (LBNL)</li>
+<li><a href="https://orcid.org/0000-0002-6601-2165">Chris Mungall</a> (LBNL)</li>
+<li><a href="https://orcid.org/0000-0001-9114-8737">Melissa Haendel</a> (UNC)</li>
+</ul>
 <h3 id="documentationspecification-editors">Documentation/specification editors</h3>
 <ul>
-<li><a href="https://orcid.org/0000-0002-7356-1779">Nicolas Matentzoglu</a> (Semanticly Ltd; <a href="https://github.com/matentzn">@matentzn</a>)</li>
-<li><a href="https://orcid.org/0000-0002-6601-2165">Chris Mungall</a> (LBL)</li>
-<li><a href="https://orcid.org/0000-0002-9083-4599">Ernesto Jimenez-Ruiz</a> (City, University of London)</li>
-<li><a href="https://orcid.org/0000-0001-6875-5360">John Graybeal</a> (Stanford)</li>
-<li><a href="https://orcid.org/0000-0001-9625-1899">William Duncan</a> (LBL)</li>
-<li><a href="https://orcid.org/0000-0002-7073-9172">David Osumi-Sutherland</a> (EMBL-EBI)</li>
-<li><a href="https://orcid.org/0000-0002-0643-3144">Simon Jupp</a> (SciBite)</li>
-<li><a href="https://orcid.org/0000-0002-8361-2795">James McLaughlin</a> (EMBL-EBI)</li>
-<li><a href="https://orcid.org/0000-0001-7251-9504">Henriette Harmse</a> (EMBL-EBI)</li>
-<li><a href="https://orcid.org/0000-0002-8169-9049">Tiffany Callahan</a> (<a href="https://github.com/callahantiff">@callahantiff</a>)</li>
+<li><a href="https://orcid.org/0000-0002-6523-4866">Anita Caron</a> (EMBL-EBI)</li>
 <li><a href="https://orcid.org/0000-0003-4423-4370">Charlie Hoyt</a> (Harvard Medical School; <a href="https://github.com/cthoyt">@cthoyt</a>)</li>
-<li><a href="https://orcid.org/0000-0003-3257-9937">Thomas Liener</a> (Pistoia Alliance)</li>
-<li><a href="https://orcid.org/0000-0002-2411-565X">Harshad Hegde</a> (LBL)</li>
+<li><a href="https://orcid.org/0000-0002-7073-9172">David Osumi-Sutherland</a> (EMBL-EBI)</li>
+<li><a href="https://orcid.org/0000-0001-5839-2535">Emily Hartley</a> (Critical Path Institute)</li>
+<li><a href="https://orcid.org/0000-0002-9083-4599">Ernesto Jimenez-Ruiz</a> (City, University of London)</li>
+<li><a href="https://orcid.org/0000-0001-5705-7831">Harry Caufield</a> (LBNL)</li>
+<li><a href="https://orcid.org/0000-0001-7251-9504">Henriette Harmse</a> (EMBL-EBI)</li>
+<li><a href="https://orcid.org/0000-0002-8361-2795">James McLaughlin</a> (EMBL-EBI)</li>
+<li><a href="https://orcid.org/0000-0001-6875-5360">John Graybeal</a> (Independent Consultant)</li>
+<li><a href="https://orcid.org/0000-0002-8719-7760">Sierra Moxon</a> (LBNL)</li>
+<li><a href="https://orcid.org/0000-0002-0643-3144">Simon Jupp</a> (SciBite)</li>
+<li><a href="https://orcid.org/0000-0003-3257-9937">Thomas Liener</a> (Independent Consultant)</li>
+<li><a href="https://orcid.org/0000-0002-8169-9049">Tiffany Callahan</a> (<a href="https://github.com/callahantiff">@callahantiff</a>)</li>
+<li><a href="https://orcid.org/0000-0001-9625-1899">William Duncan</a> (University of Florida)</li>
 </ul>
 <h3 id="contributors">Contributors</h3>
 <ul>
@@ -1160,6 +1186,8 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   sema
 <li><a href="https://orcid.org/0000-0002-2908-3327">Anne Thessen</a></li>
 <li><a href="https://orcid.org/0000-0001-9439-5346">Benjamin M. Gyori</a></li>
 <li><a href="https://orcid.org/0000-0001-6717-5313">Bill Baumgartner</a></li>
+<li><a href="https://orcid.org/0000-0002-0096-2766">Cassia Trojahn</a></li>
+<li><a href="https://orcid.org/0000-0002-2404-1582">Clement Jonquet</a></li>
 <li><a href="https://orcid.org/0000-0001-5437-2545">Christopher Chute</a></li>
 <li><a href="https://orcid.org/0000-0002-5301-3142">Chris T. Evelo</a></li>
 <li><a href="https://orcid.org/0000-0002-8844-9165">Damion Dooley</a></li>
@@ -1167,10 +1195,12 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   sema
 <li><a href="https://www.wikidata.org/wiki/Q44607574">Harold Solbrig</a></li>
 <li><a href="https://orcid.org/0000-0002-3002-9838">HyeongSik Kim</a></li>
 <li><a href="https://orcid.org/0000-0003-0109-0522">Ian Harrow</a></li>
+<li><a href="https://orcid.org/0000-0002-2389-9288">Ian Braun</a></li>
 <li><a href="https://orcid.org/0000-0002-1615-2899">James Malone</a></li>
 <li><a href="https://orcid.org/0000-0001-5139-5557">James Overton</a></li>
 <li><a href="https://orcid.org/0000-0002-8688-6599">James P. Balhoff</a></li>
 <li><a href="https://orcid.org/0000-0002-2568-6163">James Stevenson</a></li>
+<li><a href="https://orcid.org/0000-0002-4166-7093">Javier Millán Acosta</a></li>
 <li><a href="https://orcid.org/0000-0001-5052-3836">Jiao Dahzi</a></li>
 <li><a href="https://orcid.org/0000-0002-2906-7319">Joe Flack</a></li>
 <li><a href="https://orcid.org/0000-0002-2955-3405">Jooho Lee</a></li>
@@ -1186,9 +1216,12 @@ KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   sema
 <li><a href="https://orcid.org/0000-0002-4142-7153">Sabrina Toro</a></li>
 <li><a href="https://orcid.org/0000-0002-5316-1399">Sebastian Koehler</a></li>
 <li><a href="https://orcid.org/0000-0003-2338-2550">Shahim Essaid</a></li>
-<li><a href="https://orcid.org/0000-0002-8719-7760">Sierra Moxon</a></li>
+<li><a href="https://orcid.org/0000-0003-4805-8220">Sophie Aubin</a></li>
 <li><a href="https://orcid.org/0000-0003-4606-0597">Sue Bello</a></li>
+<li><a href="https://orcid.org/0000-0001-6142-1106">Sujay Patil</a></li>
+<li><a href="https://orcid.org/0000-0003-0333-5888">Sven Hertling</a></li>
 <li><a href="https://orcid.org/0000-0002-4291-0737">Tim Putman</a></li>
+<li><a href="https://orcid.org/0000-0002-4971-0439">Vinicius de Souza</a></li>
 </ul>
 <h2 id="acknowledgements">Acknowledgements</h2>
 <ul>
