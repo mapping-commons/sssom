@@ -2,26 +2,27 @@
 
 ![SSSOM banner](images/sssom-banner.png)
 
-**SSSOM** is the Simple Standard for Sharing Ontological Mappings. It comprises three distinct components that are intended to be used together to facilitate the exchange of semantic mappings:
+The Simple Standard for Sharing Ontological Mappings (SSSOM) is a community-driven standard designed to facilitate the exchange and integration of semantic entity mappings.
+As data interoperability becomes increasingly crucial across various domains, SSSOM provides a standardized format to share mappings, enabling researchers and developers to more easily connect and utilize diverse datasets.
+By establishing a common framework, SSSOM enhances the consistency, quality, and discoverability of mappings, thereby supporting more effective data integration and analysis.
 
-1. a machine-readable and extensible vocabulary to describe metadata of mappings;
-2. a data model to represent mappings and their associated metadata;
-3. several file formats to represent sets of mappings on disk and on the network.
+- **Standardization**: SSSOM provides a unified format for representing semantic, or ontological, mappings, making it easier for different systems and organizations to exchange mapping data consistently.
+- **Interoperability**: By using SSSOM, data from diverse sources can be integrated more seamlessly, allowing for improved data analysis and research across various fields, including biology, healthcare, and information technology.
 
-Beyond defining the standard itself, the **SSSOM Core Team** also aims to implement open and community-driven collaborative workflows designed to evolve the standard continuously to address changing requirements and mapping practices, and to provide reference tools and software libraries for working with the standard.
+Beyond defining the standard itself, the **SSSOM Core Team** and the SSSOM community also develop reference tools and software libraries for working with the standard.
 
-## SSSOM at a glance
+## SSSOM at a glance: Model and Exchange Format
 
-### Basic concepts
+### Basic model
 
 The [data model](spec-model.md) of SSSOM is centered around two fundamental concepts: mappings and mapping sets.
 
-A **SSSOM mapping** is a statement that there is a correspondence of some sort between two semantic entities. It comprises two components:
+A **SSSOM mapping** is a statement that there is a correspondence between two semantic entities. It comprises two components:
 
 1. The **core mapping** (or **raw mapping**), which is a triple `<subject, predicate, object>` that represents the correspondence itself between a subject entity, for example a class in an ontology, and an object entity, for example an identifier in some database, via a semantic mapping predicate, for example `skos:exactMatch`.
-2. **Metadata** that provide supplementary pieces of information about the core mapping. This notably includes information pertaining to the *provenance* of the statement (for example, who emitted the statement, in other words who decided that the subject and the object should be mapped) and its *justification* (why should the subject and the object be mapped).
+2. **Metadata** that provide supplementary pieces of information about the core mapping. This notably includes information about the *provenance* of the statement (for example, who authored the statement), the *confidence* with which the mappings holds, and its *justification* (a reason that supports the fidelity of the mapping between the subject and the object, such as _expert review_, or _exact lexical matching_ on the entities' primary names).
 
-A **SSSOM mapping set** is a collection of SSSOM mappings, with its own metadata.
+A **SSSOM mapping set** is a collection of SSSOM mappings. Mapping sets can also be associated with metadata, such as license statements, or a description.
 
 ### The SSSOM/TSV format
 
@@ -60,7 +61,8 @@ KF_FOOD:F004	braeburn	skos:broadMatch	FOODON:00002473	apple (whole)	semapv:Manua
 
 **Related software**
 
-- [SSSOM Toolkit](https://mapping-commons.github.io/sssom-py/) (reference implementation of the standard, in Python)
+- [sssom-py](https://mapping-commons.github.io/sssom-py/) (reference implementation of the standard, a toolkit and API for processing mappings, written in Python)
+- [SSSOM-Java](https://incenp.org/dvlpt/sssom-java/) (an implementation of the SSSOM standard for the Java language)
 
 ## The SSSOM Core Team
 
@@ -72,21 +74,32 @@ You can find any of the members of the SSSOM core team [on GitHub](https://githu
 
 You can also reach us in the [OBO Foundry Slack](https://obo-communitygroup.slack.com/archives/C01DP18L5GW), in the `#sssom` channel.
 
+### Steering committee
+
+The Steering committee is a self-appointed group of SSSOM contributors, whose aim is to drive the evolution of the standard and coordinate community contributions.
+
+* [Nicolas Matentzoglu](https://orcid.org/0000-0002-7356-1779) (Semanticly, Independent Consultant; [@matentzn](https://github.com/matentzn))
+* [Damien Goutte-Gattat](https://orcid.org/0000-0002-6095-8718) (Flybase)
+* [Harshad Hegde](https://orcid.org/0000-0002-2411-565X) (LBNL)
+* [Chris Mungall](https://orcid.org/0000-0002-6601-2165) (LBNL)
+* [Melissa Haendel](https://orcid.org/0000-0001-9114-8737) (UNC)
+
 ### Documentation/specification editors
 
-* [Nicolas Matentzoglu](https://orcid.org/0000-0002-7356-1779) (Semanticly Ltd; [@matentzn](https://github.com/matentzn))
-* [Chris Mungall](https://orcid.org/0000-0002-6601-2165) (LBL)
-* [Ernesto Jimenez-Ruiz](https://orcid.org/0000-0002-9083-4599) (City, University of London)
-* [John Graybeal](https://orcid.org/0000-0001-6875-5360) (Stanford)
-* [William Duncan](https://orcid.org/0000-0001-9625-1899) (LBL)
-* [David Osumi-Sutherland](https://orcid.org/0000-0002-7073-9172) (EMBL-EBI)
-* [Simon Jupp](https://orcid.org/0000-0002-0643-3144) (SciBite)
-* [James McLaughlin](https://orcid.org/0000-0002-8361-2795) (EMBL-EBI)
-* [Henriette Harmse](https://orcid.org/0000-0001-7251-9504) (EMBL-EBI)
-* [Tiffany Callahan](https://orcid.org/0000-0002-8169-9049) ([@callahantiff](https://github.com/callahantiff))
+* [Anita Caron](https://orcid.org/0000-0002-6523-4866) (EMBL-EBI)
 * [Charlie Hoyt](https://orcid.org/0000-0003-4423-4370) (Harvard Medical School; [@cthoyt](https://github.com/cthoyt))
-* [Thomas Liener](https://orcid.org/0000-0003-3257-9937) (Pistoia Alliance)
-* [Harshad Hegde](https://orcid.org/0000-0002-2411-565X) (LBL)
+* [David Osumi-Sutherland](https://orcid.org/0000-0002-7073-9172) (EMBL-EBI)
+* [Emily Hartley](https://orcid.org/0000-0001-5839-2535) (Critical Path Institute)
+* [Ernesto Jimenez-Ruiz](https://orcid.org/0000-0002-9083-4599) (City, University of London)
+* [Harry Caufield](https://orcid.org/0000-0001-5705-7831) (LBNL)
+* [Henriette Harmse](https://orcid.org/0000-0001-7251-9504) (EMBL-EBI)
+* [James McLaughlin](https://orcid.org/0000-0002-8361-2795) (EMBL-EBI)
+* [John Graybeal](https://orcid.org/0000-0001-6875-5360) (Independent Consultant)
+* [Sierra Moxon](https://orcid.org/0000-0002-8719-7760) (LBNL)
+* [Simon Jupp](https://orcid.org/0000-0002-0643-3144) (SciBite)
+* [Thomas Liener](https://orcid.org/0000-0003-3257-9937) (Independent Consultant)
+* [Tiffany Callahan](https://orcid.org/0000-0002-8169-9049) ([@callahantiff](https://github.com/callahantiff))
+* [William Duncan](https://orcid.org/0000-0001-9625-1899) (University of Florida)
 
 ### Contributors
 
@@ -97,6 +110,8 @@ You can also reach us in the [OBO Foundry Slack](https://obo-communitygroup.slac
 * [Anne Thessen](https://orcid.org/0000-0002-2908-3327)
 * [Benjamin M. Gyori](https://orcid.org/0000-0001-9439-5346)
 * [Bill Baumgartner](https://orcid.org/0000-0001-6717-5313)
+* [Cassia Trojahn](https://orcid.org/0000-0002-0096-2766)
+* [Clement Jonquet](https://orcid.org/0000-0002-2404-1582)
 * [Christopher Chute](https://orcid.org/0000-0001-5437-2545)
 * [Chris T. Evelo](https://orcid.org/0000-0002-5301-3142)
 * [Damion Dooley](https://orcid.org/0000-0002-8844-9165)
@@ -104,10 +119,12 @@ You can also reach us in the [OBO Foundry Slack](https://obo-communitygroup.slac
 * [Harold Solbrig](https://www.wikidata.org/wiki/Q44607574)
 * [HyeongSik Kim](https://orcid.org/0000-0002-3002-9838)
 * [Ian Harrow](https://orcid.org/0000-0003-0109-0522)
+* [Ian Braun](https://orcid.org/0000-0002-2389-9288)
 * [James Malone](https://orcid.org/0000-0002-1615-2899)
 * [James Overton](https://orcid.org/0000-0001-5139-5557)
 * [James P. Balhoff](https://orcid.org/0000-0002-8688-6599)
 * [James Stevenson](https://orcid.org/0000-0002-2568-6163)
+* [Javier Millán Acosta](https://orcid.org/0000-0002-4166-7093)
 * [Jiao Dahzi](https://orcid.org/0000-0001-5052-3836)
 * [Joe Flack](https://orcid.org/0000-0002-2906-7319)
 * [Jooho Lee](https://orcid.org/0000-0002-2955-3405)
@@ -123,9 +140,12 @@ You can also reach us in the [OBO Foundry Slack](https://obo-communitygroup.slac
 * [Sabrina Toro](https://orcid.org/0000-0002-4142-7153)
 * [Sebastian Koehler](https://orcid.org/0000-0002-5316-1399)
 * [Shahim Essaid](https://orcid.org/0000-0003-2338-2550)
-* [Sierra Moxon](https://orcid.org/0000-0002-8719-7760)
+* [Sophie Aubin](https://orcid.org/0000-0003-4805-8220)
 * [Sue Bello](https://orcid.org/0000-0003-4606-0597)
+* [Sujay Patil](https://orcid.org/0000-0001-6142-1106)
+* [Sven Hertling](https://orcid.org/0000-0003-0333-5888)
 * [Tim Putman](https://orcid.org/0000-0002-4291-0737)
+* [Vinicius de Souza](https://orcid.org/0000-0002-4971-0439)
 
 ## Acknowledgements
 
