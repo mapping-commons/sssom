@@ -1,21 +1,92 @@
-# {% if schema.title %}{{ schema.title }}{% else %}{{ schema.name }}{% endif %}
+# SSSOM Official Data Model Documentation
 
 {% if schema.description %}{{ schema.description }}{% endif %}
 
-URI: {{ schema.id }}
+**Schema PURL**: {{ schema.id }}
 
-Name: {{ schema.name }}
+## Introduction
 
-{% if include_top_level_diagram %}
+While the SSSOM model is quite general and mappings can be shared in different formats, the most common format is the [SSSOM/TSV format](spec-formats-tsv.md).
+Here is a tabular representation of some example mappings for illustration purposes:
 
+| subject_id    | subject_label | predicate_id    | object_id       | object_label         | mapping_justification       | author_id               | confidence | comment                                                                                                                         |
+|---------------|---------------|-----------------|-----------------|----------------------|-----------------------------|-------------------------|------------|---------------------------------------------------------------------------------------------------------------------------------|
+| KF_FOOD:F001  | apple         | skos:exactMatch | FOODON:00002473 | apple (whole)        | semapv:ManualMappingCuration | orcid:0000-0002-7356-1779 | 0.95       | "We could map to FOODON:03310788 instead to cover sliced apples, but only 'whole' apple types exist."                          |
+| KF_FOOD:F002  | gala          | skos:exactMatch | FOODON:00003348 | Gala apple (whole)   | semapv:ManualMappingCuration | orcid:0000-0002-7356-1779 | 1.0        |                                                                                                                                |
+| KF_FOOD:F003  | pink          | skos:exactMatch | FOODON:00004186 | Pink apple (whole)   | semapv:ManualMappingCuration | orcid:0000-0002-7356-1779 | 0.9        | "We could map to FOODON:00004187 instead which more specifically refers to 'raw' Pink apples. Decided against to be consistent with other mapping choices." |
+| KF_FOOD:F004  | braeburn      | skos:broadMatch | FOODON:00002473 | apple (whole)        | semapv:ManualMappingCuration | orcid:0000-0002-7356-1779 | 1.0        |                                                                                                                                |
+
+In the TSV format, mapping set metadata is included at the top of the file, before the mappings themselves, in yaml-like key-value pairs:
+
+
+!!! info "Example header (YAML format)"
+
+    <pre>
+    curie_map:
+      FOODON: http://purl.obolibrary.org/obo/FOODON_
+      KF_FOOD: https://kewl-foodie.inc/food/
+      orcid: https://orcid.org/
+    mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+    mapping_set_description: >
+      Manually curated alignment of KEWL FOODIE INC internal food and 
+      nutrition database with Food Ontology (FOODON). Intended to be 
+      used for ontological analysis and grouping of KEWL FOODIE INC 
+      related data.
+    license: https://creativecommons.org/licenses/by/4.0/
+    mapping_date: 2022-05-02
+    </pre>
+
+See [here](https://github.com/mapping-commons/sssom/tree/master/examples/schema) for concrete examples.
+
+
+## Mapping metadata elements
+
+{% for c in gen.all_class_objects()|sort(attribute=sort_by) -%}
+{% if c.name == "mapping" %}
+{{gen.link(c)}}: {{c.description|enshorten}}
+
+| Column/Field       | Description                                             | Required    |
+|--------------------|---------------------------------------------------------|-------------|
+{%- for slot in c.slots %}
+{%- set slot_info = schemaview.get_slot(slot) %}
+| **{{ gen.link(slot) }}**     | {{ slot_info.description | default("No description") }} | {% if slot_info.required | default(false) %}Required{% elif slot_info.recommended | default(false) %}Recommended{% else %}Optional{% endif %} |
+{%- endfor %}
+{%- endif %}
+{%- endfor %}
+
+## Mappings set metadata elements
+
+{% for c in gen.all_class_objects()|sort(attribute=sort_by) -%}
+{% if c.name == "mapping set" %}
+{{gen.link(c)}}: {{c.description|enshorten}}
+
+| Column/Field       | Description                                             | Required    |
+|--------------------|---------------------------------------------------------|-------------|
+{%- for slot in c.slots %}
+{%- set slot_info = schemaview.get_slot(slot) %}
+| **{{ gen.link(slot) }}**     | {{ slot_info.description | default("No description") }} | {% if slot_info.required | default(false) %}Required{% elif slot_info.recommended | default(false) %}Recommended{% else %}Optional{% endif %} |
+{%- endfor %}
+{%- endif %}
+{%- endfor %}
+
+{#
 ## Schema Diagram
 
 ```{{ gen.mermaid_directive() }}
 {{ gen.mermaid_diagram() }}
 ```
-{% endif %}
+#}
+## Index (all classes, enums and elements)
 
-## Classes
+### Columns/Slots/Fields
+
+| Slot | Description |
+| --- | --- |
+{% for s in gen.all_slot_objects()|sort(attribute=sort_by) -%}
+| {{gen.link(s)}} | {{s.description|enshorten}} |
+{% endfor %}
+
+### Classes
 
 | Class | Description |
 | --- | --- |
@@ -29,15 +100,7 @@ Name: {{ schema.name }}
 {% endfor %}
 {% endif %}
 
-## Slots
-
-| Slot | Description |
-| --- | --- |
-{% for s in gen.all_slot_objects()|sort(attribute=sort_by) -%}
-| {{gen.link(s)}} | {{s.description|enshorten}} |
-{% endfor %}
-
-## Enumerations
+### Enumerations
 
 | Enumeration | Description |
 | --- | --- |
@@ -45,18 +108,10 @@ Name: {{ schema.name }}
 | {{gen.link(e)}} | {{e.description|enshorten}} |
 {% endfor %}
 
-## Types
+### Types
 
 | Type | Description |
 | --- | --- |
 {% for t in gen.all_type_objects()|sort(attribute=sort_by) -%}
 | {{gen.link(t)}} | {{t.description|enshorten}} |
-{% endfor %}
-
-## Subsets
-
-| Subset | Description |
-| --- | --- |
-{% for ss in schemaview.all_subsets().values()|sort(attribute='name') -%}
-| {{gen.link(ss)}} | {{ss.description|enshorten}} |
 {% endfor %}
