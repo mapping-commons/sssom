@@ -15,7 +15,7 @@
     
     
       
-        <title>Slot: mapping_justification - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>mapping_justification - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-mapping_justification" class="md-skip">
+        <a href="#mapping_justification" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: mapping_justification
+              mapping_justification
             
           </span>
         </div>
@@ -875,13 +875,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    Applicable Classes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     Properties
   </a>
@@ -896,28 +889,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#identifier-and-mapping-information" class="md-nav__link">
-    Identifier and Mapping Information
-  </a>
-  
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    Schema Source
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
-    LinkML Source
+  <a href="#schema-developer-documentation" class="md-nav__link">
+    Schema developer documentation
   </a>
   
 </li>
@@ -942,63 +915,37 @@
   </a>
 
 
-<h1 id="slot-mapping_justification">Slot: mapping_justification</h1>
+<h1 id="mapping_justification">mapping_justification</h1>
+<p><strong>URI</strong>: <a href="https://w3id.org/sssom/mapping_justification">sssom:mapping_justification</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a></p>
+<div class="admonition info">
+<p class="admonition-title">Description</p>
 <p><em>A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.</em></p>
-<p>URI: <a href="https://w3id.org/sssom/mapping_justification">sssom:mapping_justification</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../Mapping/">Mapping</a></td>
-<td>Represents an individual mapping between a pair of entities</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
+</div>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../EntityReference/">EntityReference</a></p>
+<p><strong>Range</strong>: <a href="../EntityReference/">EntityReference</a>. The range of the element is the type of the value that can be assigned to it.</p>
 </li>
 <li>
-<p>Required: True</p>
+<p><strong>Required?</strong>: Required (element has to be added to the mapping or mapping set.)</p>
 </li>
-<li>
-<p>Regex pattern: <code>^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$</code></p>
-</li>
+<li><strong>Regex pattern</strong>: <code>^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$</code></li>
 </ul>
 <h2 id="examples">Examples</h2>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>semapv:LexicalMatching</td>
-</tr>
-<tr>
-<td>semapv:ManualMappingCuration</td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/sssom/schema/</li>
-</ul>
-<h2 id="linkml-source">LinkML Source</h2>
-<details>
+<div class="admonition example">
+<p class="admonition-title">Example: semapv:LexicalMatching</p>
+<p><strong>Example value</strong>:</p>
+<p><code>semapv:LexicalMatching</code></p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example: semapv:ManualMappingCuration</p>
+<p><strong>Example value</strong>:</p>
+<p><code>semapv:ManualMappingCuration</code></p>
+</div>
+<h2 id="schema-developer-documentation">Schema developer documentation</h2>
+<details><summary>LinkML source</summary>
+
 
 <pre><code class="language-yaml">name: mapping_justification
 description: A mapping justification is an action (or the written representation of

@@ -15,7 +15,7 @@
     
     
       
-        <title>Slot: reviewer_id - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>reviewer_id - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-reviewer_id" class="md-skip">
+        <a href="#reviewer_id" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: reviewer_id
+              reviewer_id
             
           </span>
         </div>
@@ -875,13 +875,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    Applicable Classes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     Properties
   </a>
@@ -889,28 +882,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#identifier-and-mapping-information" class="md-nav__link">
-    Identifier and Mapping Information
-  </a>
-  
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    Schema Source
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
-    LinkML Source
+  <a href="#schema-developer-documentation" class="md-nav__link">
+    Schema developer documentation
   </a>
   
 </li>
@@ -935,44 +908,22 @@
   </a>
 
 
-<h1 id="slot-reviewer_id">Slot: reviewer_id</h1>
+<h1 id="reviewer_id">reviewer_id</h1>
+<p><strong>URI</strong>: <a href="https://w3id.org/sssom/reviewer_id">sssom:reviewer_id</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a></p>
+<div class="admonition info">
+<p class="admonition-title">Description</p>
 <p><em>Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</em></p>
-<p>URI: <a href="https://w3id.org/sssom/reviewer_id">sssom:reviewer_id</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../Mapping/">Mapping</a></td>
-<td>Represents an individual mapping between a pair of entities</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
+</div>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../EntityReference/">EntityReference</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li><strong>Range</strong>: <a href="../EntityReference/">EntityReference</a>. The range of the element is the type of the value that can be assigned to it.</li>
+<li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
+<li><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</li>
 </ul>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/sssom/schema/</li>
-</ul>
-<h2 id="linkml-source">LinkML Source</h2>
-<details>
+<h2 id="schema-developer-documentation">Schema developer documentation</h2>
+<details><summary>LinkML source</summary>
+
 
 <pre><code class="language-yaml">name: reviewer_id
 description: Identifies the persons or groups that reviewed and confirmed the mapping.
