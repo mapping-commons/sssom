@@ -11,6 +11,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8.1"
+jinjanator = "*"
 linkml-runtime = "*"
 
 [tool.poetry.dev-dependencies]
