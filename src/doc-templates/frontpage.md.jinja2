@@ -61,7 +61,7 @@ For mapping set metadata please see [here](MappingSet.md).
 |--------------------|---------------------------------------------------------|----------------------------------------|---------------------------|-------------|
 {%- for slot in classes['mapping'].slots %}
 {%- set slot_info = slots[slot] %}
-| **{{ slot }}**     | {{ slot_info.description | default("No description") }} | {% if slot_info.range in enums %}{{ enums[slot_info.range].permissible_values.keys() | join(", ") }}{% else %}{% if slot_info.range == "EntityReference" %}entity reference (e.g. CURIE in TSV){% else %}{{ slot_info.range }}{% endif %}{% endif %} | {% if slot_info.examples is defined and slot_info.examples | length > 0 %}{{ slot_info.examples[0].value }}{% else %}N/A{% endif %} | {% if slot_info.required | default(false) %}Required{% elif slot_info.recommended | default(false) %}Recommended{% else %}Optional{% endif %} |
+| **{{ slot }}**     | {{ slot_info.description | default("No description") }} | {% if slot_info.range in enums %}{{ enums[slot_info.range].permissible_values.keys() | join(", ") }}{% else %}{% if slot_info.range == "EntityReference" %}entity reference (e.g. CURIE in TSV){% else %}{{ slot_info.range }}{% endif %}{% endif %} | {% if slot_info.examples is defined and slot_info.examples | length > 0 %}{% if slot_info.examples[0] is string %}{{ slot_info.examples[0].replace("|", "\|") }}{% elif slot_info.examples[0] is mapping %}{{ slot_info.examples[0].value | default("N/A") | replace("|", "\|") }}{% else %}{{ slot_info.examples[0] }}{% endif %}{% else %}N/A{% endif %} | {% if slot_info.required | default(false) %}Required{% elif slot_info.recommended | default(false) %}Recommended{% else %}Optional{% endif %} |
 {%- endfor %}
 
 ### Quick links
