@@ -1,19 +1,18 @@
-# Slot: {{ gen.name(element) }}
+# {{ gen.name(element) }}
 
-{%- if header -%}
-{{header}}
+**URI**: {{ gen.uri_link(element) }}
+
+**Applicable to**: {% for c in schemaview.get_classes_by_slot(element, include_induced=True) %}{{ gen.link(c) }}{% if not loop.last %}, {% endif %}{% endfor -%}
+
+{%- if element.description %}
+{%- set element_description_lines = element.description.split('\n') %}
+!!! info "Description"
+
+    {% for element_description_line in element_description_lines %}
+    _{{ element_description_line }}_
+    {%- endfor %}
 {%- endif -%}
-
-{% if element.description %}
-{% set element_description_lines = element.description.split('\n') %}
-{% for element_description_line in element_description_lines %}
-_{{ element_description_line }}_
-{% endfor %}
-{% endif %}
-
-URI: {{ gen.uri_link(element) }}
-
-
+{#
 {% if schemaview.slot_parents(element.name) or schemaview.slot_children(element.name, mixins=False) %}
 
 ## Inheritance
@@ -24,19 +23,10 @@ URI: {{ gen.uri_link(element) }}
 {% endif %}
 
 {% if schemaview.get_classes_by_slot(element, include_induced=True) %}
-
-## Applicable Classes
-
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-{% for c in schemaview.get_classes_by_slot(element, include_induced=True) -%}
-{{ gen.link(c) }} | {{ schemaview.get_class(c).description|enshorten }} | {% if c in schemaview.get_classes_modifying_slot(element) %} yes {% else %} no {% endif %} |
-{% endfor %}
-
-{% endif %}
-
-
+#}
+{#
 {% if schemaview.is_mixin(element.name) %}
+
 ## Mixin Usage
 
 | mixed into | description | range | domain |
@@ -45,31 +35,18 @@ URI: {{ gen.uri_link(element) }}
 | {{ gen.link(s) }} | {{ schemaview.get_slot(s).description|enshorten }} | {{ schemaview.get_slot(s).range }} | {{ schemaview.get_classes_by_slot(schemaview.get_slot(s))|join(', ') }} |
 {% endfor %}
 {% endif %}
-
+#}
 ## Properties
 
-* Range: {{gen.link(element.range)}}
-{% if element.multivalued %}
-* Multivalued: {{ element.multivalued }}
-{% endif -%}
-{% if element.required %}
-* Required: {{ element.required }}
-{% elif element.recommended %}
-* Recommended: {{ element.recommended }}
-{% endif -%}
-{% if element.minimum_value is not none %}
-* Minimum Value: {{ element.minimum_value|int }}
-{% endif -%}
-{% if element.maximum_value is not none %}
-* Maximum Value: {{ element.maximum_value|int }}
-{% endif -%}
-{% if element.pattern %}
-* Regex pattern: {{ '`' }}{{  element.pattern }}{{ '`' }}
-{% endif -%}
-{% if schemaview.is_mixin(element.name) %}
-* Mixin: {{ element.mixin }}
-{% endif -%}
-
+* **Range**: {{gen.link(element.range)}}. The range of the element is the type of the value that can be assigned to it.
+{% if element.multivalued %}* **Multivalued**: {{ element.multivalued }}. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are `|` separated.{% endif %}
+* **Required?**: {% if element.required %}Required (element has to be added to the mapping or mapping set.)
+{% elif element.recommended %}Recommended (We suggest adding this element to the mapping or mapping set, but it is not required.
+{% else %}Optional (You can add this element to the mapping or mapping set, but it is not required.){% endif -%}
+{% if element.minimum_value is not none %}* **Minimum Value**: {{ element.minimum_value|int }}{% endif -%}
+{% if element.maximum_value is not none %}* **Maximum Value**: {{ element.maximum_value|int }}{% endif -%}
+{% if element.pattern %}* **Regex pattern**: {{ '`' }}{{  element.pattern }}{{ '`' }}{% endif -%}
+{#
 
 {% if schemaview.usage_index().get(element.name) %}
 ## Usages
@@ -80,17 +57,47 @@ URI: {{ gen.uri_link(element) }}
 | {{gen.link(usage.used_by)}} | {{gen.link(usage.slot)}} | {{usage.metaslot}} | {{ gen.link(usage.used) }} |
 {% endfor %}
 {% endif %}
+#}
+{% if element.examples %}
+## Examples
 
-{% include "common_metadata.md.jinja2" %}
+{% for x in element.examples -%}
+!!! example "Example: {{ x.value }}"
 
-## LinkML Source
+    <strong>Example value</strong>:
+        
+    ```
+    {{ x.value }}
+    ```
 
-<details>
+    {% if x.description %}<strong>Description</strong>: {{ x.description }}{% endif %}
+{% endfor %}
+{% endif -%}
+
+{% if element.comments -%}
+## Comments
+
+{% for x in element.comments -%}
+* {{x}}
+{% endfor %}
+{% endif -%}
+
+{% if element.see_also -%}
+## See Also
+
+These are some relevant resources you might find useful to get additional information about the element,
+such as example implementations, issues and pull requests.
+
+{% for x in element.see_also -%}
+* {{ gen.uri_link(x) }}
+{% endfor %}
+{% endif -%}
+
+## Schema developer documentation
+
+<details><summary>LinkML source</summary>
+
 ```yaml
 {{ gen.yaml(element) }}
 ```
 </details>
-
-{%- if footer -%}
-{{footer}}
-{%- endif -%}
