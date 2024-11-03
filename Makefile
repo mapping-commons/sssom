@@ -6,7 +6,8 @@ SHELL := bash
 .SUFFIXES:
 .SECONDARY:
 
-RUN = poetry run
+POETRY = uv tool run --python 3.11 poetry
+RUN = $(POETRY) run
 # get values from about.yaml file
 SCHEMA_NAME = $(shell sh ./utils/get-value.sh name)
 SOURCE_SCHEMA_PATH = $(shell sh ./utils/get-value.sh source_schema_path)
@@ -38,7 +39,7 @@ status: check-config
 setup: install gen-project gendoc git-init-add
 
 install:
-	poetry install
+	$(POETRY) install
 .PHONY: install
 
 all: gen-project gendoc gen-excel get-context
@@ -74,7 +75,7 @@ examples/%.ttl: src/data/examples/%.yaml
 	$(RUN) linkml-convert -P EXAMPLE=http://example.org/ -s $(SOURCE_SCHEMA_PATH) -C Person $< -o $@
 
 upgrade:
-	poetry add -D linkml@latest
+	$(POETRY) add -D linkml@latest
 
 # Test documentation locally
 serve: mkd-serve
