@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://mapping-commons.github.io/sssom/MappingRegistry/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: MappingRegistry - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -615,24 +615,24 @@ attributes:
     description: A list of registries that should be imported into this one.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: imports
     owner: mapping registry
     domain_of:
     - mapping registry
     range: uri
+    multivalued: true
   mapping_set_references:
     name: mapping_set_references
     description: A list of mapping set references.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: mapping_set_references
     owner: mapping registry
     domain_of:
     - mapping registry
     range: mapping set reference
     recommended: true
+    multivalued: true
   documentation:
     name: documentation
     description: A URL to the documentation of this mapping commons.

@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://mapping-commons.github.io/sssom/">
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
     
     
       
@@ -256,8 +256,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-sssomtsv-format" class="md-nav__link">
-    The SSSOM/TSV format
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-reference-for-mapping-metadata" class="md-nav__link">
+    Quick reference for mapping metadata
   </a>
   
 </li>
@@ -1006,8 +1013,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-sssomtsv-format" class="md-nav__link">
-    The SSSOM/TSV format
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-reference-for-mapping-metadata" class="md-nav__link">
+    Quick reference for mapping metadata
   </a>
   
 </li>
@@ -1111,22 +1125,404 @@ By establishing a common framework, SSSOM enhances the consistency, quality, and
 <li><strong>Metadata</strong> that provide supplementary pieces of information about the core mapping. This notably includes information about the <em>provenance</em> of the statement (for example, who authored the statement), the <em>confidence</em> with which the mappings holds, and its <em>justification</em> (a reason that supports the fidelity of the mapping between the subject and the object, such as <em>expert review</em>, or <em>exact lexical matching</em> on the entities' primary names).</li>
 </ol>
 <p>A <strong>SSSOM mapping set</strong> is a collection of SSSOM mappings. Mapping sets can also be associated with metadata, such as license statements, or a description.</p>
-<h3 id="the-sssomtsv-format">The SSSOM/TSV format</h3>
-<p>The main format proposed by the SSSOM standard to exchange mapping sets is the <a href="spec-formats-tsv/">SSSOM/TSV format</a>. Here is a basic example of a file in that format:</p>
-<pre><code>#curie_map:
-#  FOODON: http://purl.obolibrary.org/obo/FOODON_
-#  KF_FOOD: https://kewl-foodie.inc/food/
-#  orcid: https://orcid.org/
-#mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
-#mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food and nutrition database with Food Ontology (FOODON). Intended to be used for ontological analysis and grouping of KEWL FOODIE INC related data.
-#license: https://creativecommons.org/licenses/by/4.0/
-#mapping_date: 2022-05-02
-subject_id  subject_label   predicate_id    object_id   object_label    mapping_justification   author_id   confidence  comment
-KF_FOOD:F001    apple   skos:exactMatch FOODON:00002473 apple (whole)   semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   0.95    &quot;We could map to FOODON:03310788 instead to cover sliced apples, but only &quot;&quot;whole&quot;&quot; apple types exist.&quot;
-KF_FOOD:F002    gala    skos:exactMatch FOODON:00003348 Gala apple (whole)  semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   1   
-KF_FOOD:F003    pink    skos:exactMatch FOODON:00004186 Pink apple (whole)  semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   0.9 &quot;We could map to FOODON:00004187 instead which more specifically refers to &quot;&quot;raw&quot;&quot; Pink apples. Decided against to be consistent with other mapping choices.&quot;
-KF_FOOD:F004    braeburn    skos:broadMatch FOODON:00002473 apple (whole)   semapv:ManualMappingCuration    orcid:0000-0002-7356-1779   1   
+<h3 id="example">Example</h3>
+<p>While the SSSOM model is quite general and mappings can be shared in different formats, the most common format is the <a href="spec-formats-tsv/">SSSOM/TSV format</a>.
+Here is a tabular representation of some example mappings for illustration purposes:</p>
+<table>
+<thead>
+<tr>
+<th>subject_id</th>
+<th>subject_label</th>
+<th>predicate_id</th>
+<th>object_id</th>
+<th>object_label</th>
+<th>mapping_justification</th>
+<th>author_id</th>
+<th>confidence</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KF_FOOD:F001</td>
+<td>apple</td>
+<td>skos:exactMatch</td>
+<td>FOODON:00002473</td>
+<td>apple (whole)</td>
+<td>semapv:ManualMappingCuration</td>
+<td>orcid:0000-0002-7356-1779</td>
+<td>0.95</td>
+<td>"We could map to FOODON:03310788 instead to cover sliced apples, but only 'whole' apple types exist."</td>
+</tr>
+<tr>
+<td>KF_FOOD:F002</td>
+<td>gala</td>
+<td>skos:exactMatch</td>
+<td>FOODON:00003348</td>
+<td>Gala apple (whole)</td>
+<td>semapv:ManualMappingCuration</td>
+<td>orcid:0000-0002-7356-1779</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>KF_FOOD:F003</td>
+<td>pink</td>
+<td>skos:exactMatch</td>
+<td>FOODON:00004186</td>
+<td>Pink apple (whole)</td>
+<td>semapv:ManualMappingCuration</td>
+<td>orcid:0000-0002-7356-1779</td>
+<td>0.9</td>
+<td>"We could map to FOODON:00004187 instead which more specifically refers to 'raw' Pink apples. Decided against to be consistent with other mapping choices."</td>
+</tr>
+<tr>
+<td>KF_FOOD:F004</td>
+<td>braeburn</td>
+<td>skos:broadMatch</td>
+<td>FOODON:00002473</td>
+<td>apple (whole)</td>
+<td>semapv:ManualMappingCuration</td>
+<td>orcid:0000-0002-7356-1779</td>
+<td>1.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>In the TSV format, mapping set metadata is included at the top of the file, before the mappings themselves, in yaml-like key-value pairs:</p>
+<pre><code class="language-yaml">curie_map:
+  FOODON: http://purl.obolibrary.org/obo/FOODON_
+  KF_FOOD: https://kewl-foodie.inc/food/
+  orcid: https://orcid.org/
+mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
+mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food and nutrition database with Food Ontology (FOODON). Intended to be used for ontological analysis and grouping of KEWL FOODIE INC related data.
+license: https://creativecommons.org/licenses/by/4.0/
+mapping_date: 2022-05-02
 </code></pre>
+<p>See <a href="https://github.com/mapping-commons/sssom/tree/master/examples/schema">here</a> for concrete examples.</p>
+<h3 id="quick-reference-for-mapping-metadata">Quick reference for mapping metadata</h3>
+<p>For mapping set metadata please see <a href="MappingSet/">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Column/Field</th>
+<th>Description</th>
+<th>Value</th>
+<th>Examples</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="subject_id/">subject_id</a></strong></td>
+<td>The ID of the subject of the mapping.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>HP:0009894</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="subject_label/">subject_label</a></strong></td>
+<td>The label of subject of the mapping</td>
+<td>string</td>
+<td>Thickened ears</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><strong><a href="subject_category/">subject_category</a></strong></td>
+<td>The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.</td>
+<td>string</td>
+<td>UBERON:0001062</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="predicate_id/">predicate_id</a></strong></td>
+<td>The ID of the predicate or relation that relates the subject and object of this match.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>owl:sameAs</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><strong><a href="predicate_label/">predicate_label</a></strong></td>
+<td>The label of the predicate/relation of the mapping</td>
+<td>string</td>
+<td>has cross-reference</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="predicate_modifier/">predicate_modifier</a></strong></td>
+<td>A modifier for negating the predicate. See https://github.com/mapping-commons/sssom/issues/40 for discussion</td>
+<td>Not</td>
+<td>Not</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="object_id/">object_id</a></strong></td>
+<td>The ID of the object of the mapping.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>HP:0009894</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="object_label/">object_label</a></strong></td>
+<td>The label of object of the mapping</td>
+<td>string</td>
+<td>Thickened ears</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><strong><a href="object_category/">object_category</a></strong></td>
+<td>The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.</td>
+<td>string</td>
+<td>UBERON:0001062</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="mapping_justification/">mapping_justification</a></strong></td>
+<td>A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>semapv:LexicalMatching</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><strong><a href="author_id/">author_id</a></strong></td>
+<td>Identifies the persons or groups responsible for asserting the mappings. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="author_label/">author_label</a></strong></td>
+<td>A string identifying the author of this mapping. In the spirit of provenance, consider using author_id instead.</td>
+<td>string</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="reviewer_id/">reviewer_id</a></strong></td>
+<td>Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="reviewer_label/">reviewer_label</a></strong></td>
+<td>A string identifying the reviewer of this mapping. In the spirit of provenance, consider using reviewer_id instead.</td>
+<td>string</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="creator_id/">creator_id</a></strong></td>
+<td>Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="creator_label/">creator_label</a></strong></td>
+<td>A string identifying the creator of this mapping. In the spirit of provenance, consider using creator_id instead.</td>
+<td>string</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="license/">license</a></strong></td>
+<td>A url to the license of the mapping. In absence of a license we assume no license.</td>
+<td>uri</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="subject_type/">subject_type</a></strong></td>
+<td>The type of entity that is being mapped.</td>
+<td>owl class, owl object property, owl data property, owl annotation property, owl named individual, skos concept, rdfs resource, rdfs class, rdfs literal, rdfs datatype, rdf property</td>
+<td>owl:Class</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="subject_source/">subject_source</a></strong></td>
+<td>URI of vocabulary or identifier source for the subject.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>obo:mondo.owl</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="subject_source_version/">subject_source_version</a></strong></td>
+<td>Version IRI or version string of the source of the subject term.</td>
+<td>string</td>
+<td>http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="object_type/">object_type</a></strong></td>
+<td>The type of entity that is being mapped.</td>
+<td>owl class, owl object property, owl data property, owl annotation property, owl named individual, skos concept, rdfs resource, rdfs class, rdfs literal, rdfs datatype, rdf property</td>
+<td>owl:Class</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="object_source/">object_source</a></strong></td>
+<td>URI of vocabulary or identifier source for the object.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>obo:mondo.owl</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="object_source_version/">object_source_version</a></strong></td>
+<td>Version IRI or version string of the source of the object term.</td>
+<td>string</td>
+<td>http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="mapping_provider/">mapping_provider</a></strong></td>
+<td>URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.</td>
+<td>uri</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="mapping_source/">mapping_source</a></strong></td>
+<td>The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="mapping_cardinality/">mapping_cardinality</a></strong></td>
+<td>A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.</td>
+<td>1:1, 1:n, n:1, 1:0, 0:1, n:n</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="mapping_tool/">mapping_tool</a></strong></td>
+<td>A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.</td>
+<td>string</td>
+<td>https://github.com/AgreementMakerLight/AML-Project</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="mapping_tool_version/">mapping_tool_version</a></strong></td>
+<td>Version string that denotes the version of the mapping tool used.</td>
+<td>string</td>
+<td>v3.2</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="mapping_date/">mapping_date</a></strong></td>
+<td>The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.</td>
+<td>date</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="publication_date/">publication_date</a></strong></td>
+<td>The date the mapping was published. This is different from the date the mapping was asserted.</td>
+<td>date</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="confidence/">confidence</a></strong></td>
+<td>A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.</td>
+<td>double</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="curation_rule/">curation_rule</a></strong></td>
+<td>A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="curation_rule_text/">curation_rule_text</a></strong></td>
+<td>A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.</td>
+<td>string</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="subject_match_field/">subject_match_field</a></strong></td>
+<td>A list of properties (term annotations on the subject) that was used for the match.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="object_match_field/">object_match_field</a></strong></td>
+<td>A list of properties (term annotations on the object) that was used for the match.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="match_string/">match_string</a></strong></td>
+<td>String that is shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots.</td>
+<td>string</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="subject_preprocessing/">subject_preprocessing</a></strong></td>
+<td>Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>semapv:Stemming</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="object_preprocessing/">object_preprocessing</a></strong></td>
+<td>Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>semapv:Stemming</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="similarity_score/">similarity_score</a></strong></td>
+<td>A score between 0 and 1 to denote the similarity between two entities, where 1 denotes equivalence, and 0 denotes disjointness. The score is meant to be used in conjunction with the similarity_measure field, to document, for example, the lexical or semantic match of a matching algorithm.</td>
+<td>double</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="similarity_measure/">similarity_measure</a></strong></td>
+<td>The measure used for computing a similarity score. This field is meant to be used in conjunction with the similarity_score field, to document, for example, the lexical or semantic match of a matching algorithm. To make processing this field as unambiguous as possible, we recommend using wikidata CURIEs, but the type of this field is deliberately unspecified.</td>
+<td>string</td>
+<td>https://www.wikidata.org/entity/Q865360</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="see_also/">see_also</a></strong></td>
+<td>A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment</td>
+<td>string</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="issue_tracker_item/">issue_tracker_item</a></strong></td>
+<td>The issue tracker item discussing this mapping.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>SSSOM_GITHUB_ISSUE:166</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="other/">other</a></strong></td>
+<td>Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.</td>
+<td>string</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="comment/">comment</a></strong></td>
+<td>Free text field containing either curator notes or text generated by tool providing additional informative information.</td>
+<td>string</td>
+<td>N/A</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
 <h3 id="quick-links">Quick links</h3>
 <p><strong>General</strong></p>
 <ul>

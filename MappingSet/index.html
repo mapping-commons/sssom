@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://mapping-commons.github.io/sssom/MappingSet/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: MappingSet - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -776,9 +776,6 @@ slots:
 slot_usage:
   license:
     name: license
-    domain_of:
-    - mapping set
-    - mapping
     required: true
 
 </code></pre>
@@ -792,9 +789,6 @@ rank: 1000
 slot_usage:
   license:
     name: license
-    domain_of:
-    - mapping set
-    - mapping
     required: true
 attributes:
   curie_map:
@@ -807,25 +801,25 @@ attributes:
     - https://github.com/mapping-commons/sssom/pull/349
     - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curie_map.sssom.tsv
     rank: 1000
-    multivalued: true
     alias: curie_map
     owner: mapping set
     domain_of:
     - mapping set
     range: prefix
+    multivalued: true
     inlined: true
   mappings:
     name: mappings
     description: Contains a list of mapping objects
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: mappings
     owner: mapping set
     domain_of:
     - mapping set
     range: mapping
     recommended: true
+    multivalued: true
     inlined_as_list: true
   mapping_set_id:
     name: mapping_set_id
@@ -873,12 +867,12 @@ attributes:
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: prov:wasDerivedFrom
-    multivalued: true
     alias: mapping_set_source
     owner: mapping set
     domain_of:
     - mapping set
     range: uri
+    multivalued: true
   mapping_set_title:
     name: mapping_set_title
     description: The display name of a mapping set.
@@ -917,26 +911,26 @@ attributes:
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: dcterms:creator
-    multivalued: true
     alias: creator_id
     owner: mapping set
     domain_of:
     - mapping set
     - mapping
     range: EntityReference
+    multivalued: true
   creator_label:
     name: creator_label
     description: A string identifying the creator of this mapping. In the spirit of
       provenance, consider using creator_id instead.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: creator_label
     owner: mapping set
     domain_of:
     - mapping set
     - mapping
     range: string
+    multivalued: true
   license:
     name: license
     description: A url to the license of the mapping. In absence of a license we assume
@@ -1177,13 +1171,13 @@ attributes:
       for the match.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: subject_match_field
     owner: mapping set
     domain_of:
     - mapping set
     - mapping
     range: EntityReference
+    multivalued: true
   object_match_field:
     name: object_match_field
     instantiates:
@@ -1196,13 +1190,13 @@ attributes:
       for the match.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: object_match_field
     owner: mapping set
     domain_of:
     - mapping set
     - mapping
     range: EntityReference
+    multivalued: true
   subject_preprocessing:
     name: subject_preprocessing
     instantiates:
@@ -1219,13 +1213,13 @@ attributes:
     - value: semapv:StopWordRemoval
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: subject_preprocessing
     owner: mapping set
     domain_of:
     - mapping set
     - mapping
     range: EntityReference
+    multivalued: true
   object_preprocessing:
     name: object_preprocessing
     instantiates:
@@ -1242,13 +1236,13 @@ attributes:
     - value: semapv:StopWordRemoval
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: object_preprocessing
     owner: mapping set
     domain_of:
     - mapping set
     - mapping
     range: EntityReference
+    multivalued: true
   see_also:
     name: see_also
     description: A URL specific for the mapping instance. E.g. for kboom we have a
@@ -1257,13 +1251,13 @@ attributes:
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: rdfs:seeAlso
-    multivalued: true
     alias: see_also
     owner: mapping set
     domain_of:
     - mapping set
     - mapping
     range: string
+    multivalued: true
   issue_tracker:
     name: issue_tracker
     description: A URL location of the issue tracker for this entity.
@@ -1316,12 +1310,12 @@ attributes:
     - https://github.com/mapping-commons/sssom/issues/328
     - https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
     rank: 1000
-    multivalued: true
     alias: extension_definitions
     owner: mapping set
     domain_of:
     - mapping set
     range: extension definition
+    multivalued: true
 
 </code></pre>
 </details>

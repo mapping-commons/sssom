@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://mapping-commons.github.io/sssom/Mapping/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Mapping - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -1210,48 +1210,48 @@ attributes:
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: pav:authoredBy
-    multivalued: true
     alias: author_id
     owner: mapping
     domain_of:
     - mapping
     range: EntityReference
+    multivalued: true
   author_label:
     name: author_label
     description: A string identifying the author of this mapping. In the spirit of
       provenance, consider using author_id instead.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: author_label
     owner: mapping
     domain_of:
     - mapping
     range: string
+    multivalued: true
   reviewer_id:
     name: reviewer_id
     description: Identifies the persons or groups that reviewed and confirmed the
       mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: reviewer_id
     owner: mapping
     domain_of:
     - mapping
     range: EntityReference
+    multivalued: true
   reviewer_label:
     name: reviewer_label
     description: A string identifying the reviewer of this mapping. In the spirit
       of provenance, consider using reviewer_id instead.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: reviewer_label
     owner: mapping
     domain_of:
     - mapping
     range: string
+    multivalued: true
   creator_id:
     name: creator_id
     description: Identifies the persons or groups responsible for the creation of
@@ -1262,26 +1262,26 @@ attributes:
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: dcterms:creator
-    multivalued: true
     alias: creator_id
     owner: mapping
     domain_of:
     - mapping set
     - mapping
     range: EntityReference
+    multivalued: true
   creator_label:
     name: creator_label
     description: A string identifying the creator of this mapping. In the spirit of
       provenance, consider using creator_id instead.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: creator_label
     owner: mapping
     domain_of:
     - mapping set
     - mapping
     range: string
+    multivalued: true
   license:
     name: license
     description: A url to the license of the mapping. In absence of a license we assume
@@ -1564,12 +1564,12 @@ attributes:
     - https://github.com/mapping-commons/sssom/pull/258
     - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
     rank: 1000
-    multivalued: true
     alias: curation_rule
     owner: mapping
     domain_of:
     - mapping
     range: EntityReference
+    multivalued: true
   curation_rule_text:
     name: curation_rule_text
     description: A curation rule is a (potentially) complex condition executed by
@@ -1588,12 +1588,12 @@ attributes:
     - https://github.com/mapping-commons/sssom/pull/258
     - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv
     rank: 1000
-    multivalued: true
     alias: curation_rule_text
     owner: mapping
     domain_of:
     - mapping
     range: string
+    multivalued: true
   subject_match_field:
     name: subject_match_field
     instantiates:
@@ -1606,13 +1606,13 @@ attributes:
       for the match.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: subject_match_field
     owner: mapping
     domain_of:
     - mapping set
     - mapping
     range: EntityReference
+    multivalued: true
   object_match_field:
     name: object_match_field
     instantiates:
@@ -1625,25 +1625,25 @@ attributes:
       for the match.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: object_match_field
     owner: mapping
     domain_of:
     - mapping set
     - mapping
     range: EntityReference
+    multivalued: true
   match_string:
     name: match_string
     description: String that is shared by subj/obj. It is recommended to indicate
       the fields for the match using the object and subject_match_field slots.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: match_string
     owner: mapping
     domain_of:
     - mapping
     range: string
+    multivalued: true
   subject_preprocessing:
     name: subject_preprocessing
     instantiates:
@@ -1660,13 +1660,13 @@ attributes:
     - value: semapv:StopWordRemoval
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: subject_preprocessing
     owner: mapping
     domain_of:
     - mapping set
     - mapping
     range: EntityReference
+    multivalued: true
   object_preprocessing:
     name: object_preprocessing
     instantiates:
@@ -1683,13 +1683,13 @@ attributes:
     - value: semapv:StopWordRemoval
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
-    multivalued: true
     alias: object_preprocessing
     owner: mapping
     domain_of:
     - mapping set
     - mapping
     range: EntityReference
+    multivalued: true
   similarity_score:
     name: similarity_score
     description: A score between 0 and 1 to denote the similarity between two entities,
@@ -1742,13 +1742,13 @@ attributes:
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: rdfs:seeAlso
-    multivalued: true
     alias: see_also
     owner: mapping
     domain_of:
     - mapping set
     - mapping
     range: string
+    multivalued: true
   issue_tracker_item:
     name: issue_tracker_item
     description: The issue tracker item discussing this mapping.
