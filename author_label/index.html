@@ -882,6 +882,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -921,6 +928,19 @@
 <li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
 <li><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example: Nicolas Matentzoglu|Chris Mungall</p>
+<p><strong>Example value</strong>:</p>
+<p><code>Nicolas Matentzoglu|Chris Mungall</code></p>
+<p><strong>Description</strong>: The human-readable names of the (multiple) authors of the mapping.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example: Nicolas Matentzoglu</p>
+<p><strong>Example value</strong>:</p>
+<p><code>Nicolas Matentzoglu</code></p>
+<p><strong>Description</strong>: The human-readable name of the author of the mapping.</p>
+</div>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
@@ -928,6 +948,11 @@
 <pre><code class="language-yaml">name: author_label
 description: A string identifying the author of this mapping. In the spirit of provenance,
   consider using author_id instead.
+examples:
+- value: Nicolas Matentzoglu|Chris Mungall
+  description: The human-readable names of the (multiple) authors of the mapping.
+- value: Nicolas Matentzoglu
+  description: The human-readable name of the author of the mapping.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 alias: author_label

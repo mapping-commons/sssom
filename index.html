@@ -1222,7 +1222,7 @@ mapping_date: 2022-05-02
 </tr>
 <tr>
 <td><strong><a href="subject_label/">subject_label</a></strong></td>
-<td>The label of subject of the mapping</td>
+<td>The label of subject of the mapping.</td>
 <td>string</td>
 <td>Thickened ears</td>
 <td>Recommended</td>
@@ -1243,7 +1243,7 @@ mapping_date: 2022-05-02
 </tr>
 <tr>
 <td><strong><a href="predicate_label/">predicate_label</a></strong></td>
-<td>The label of the predicate/relation of the mapping</td>
+<td>The label of the predicate/relation of the mapping.</td>
 <td>string</td>
 <td>has cross-reference</td>
 <td>Optional</td>
@@ -1264,7 +1264,7 @@ mapping_date: 2022-05-02
 </tr>
 <tr>
 <td><strong><a href="object_label/">object_label</a></strong></td>
-<td>The label of object of the mapping</td>
+<td>The label of object of the mapping.</td>
 <td>string</td>
 <td>Thickened ears</td>
 <td>Recommended</td>
@@ -1287,49 +1287,49 @@ mapping_date: 2022-05-02
 <td><strong><a href="author_id/">author_id</a></strong></td>
 <td>Identifies the persons or groups responsible for asserting the mappings. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
 <td>entity reference (e.g. CURIE in TSV)</td>
-<td>N/A</td>
+<td>orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="author_label/">author_label</a></strong></td>
 <td>A string identifying the author of this mapping. In the spirit of provenance, consider using author_id instead.</td>
 <td>string</td>
-<td>N/A</td>
+<td>Nicolas Matentzoglu|Chris Mungall</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="reviewer_id/">reviewer_id</a></strong></td>
 <td>Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
 <td>entity reference (e.g. CURIE in TSV)</td>
-<td>N/A</td>
+<td>orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="reviewer_label/">reviewer_label</a></strong></td>
 <td>A string identifying the reviewer of this mapping. In the spirit of provenance, consider using reviewer_id instead.</td>
 <td>string</td>
-<td>N/A</td>
+<td>Nicolas Matentzoglu|Chris Mungall</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="creator_id/">creator_id</a></strong></td>
 <td>Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</td>
 <td>entity reference (e.g. CURIE in TSV)</td>
-<td>N/A</td>
+<td>orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="creator_label/">creator_label</a></strong></td>
 <td>A string identifying the creator of this mapping. In the spirit of provenance, consider using creator_id instead.</td>
 <td>string</td>
-<td>N/A</td>
+<td>Nicolas Matentzoglu|Chris Mungall</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="license/">license</a></strong></td>
 <td>A url to the license of the mapping. In absence of a license we assume no license.</td>
 <td>uri</td>
-<td>N/A</td>
+<td>https://creativecommons.org/licenses/by/4.0/</td>
 <td>Optional</td>
 </tr>
 <tr>
@@ -1378,7 +1378,7 @@ mapping_date: 2022-05-02
 <td><strong><a href="mapping_provider/">mapping_provider</a></strong></td>
 <td>URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.</td>
 <td>uri</td>
-<td>N/A</td>
+<td>https://www.ohdsi.org/</td>
 <td>Optional</td>
 </tr>
 <tr>
@@ -1392,7 +1392,7 @@ mapping_date: 2022-05-02
 <td><strong><a href="mapping_cardinality/">mapping_cardinality</a></strong></td>
 <td>A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.</td>
 <td>1:1, 1:n, n:1, 1:0, 0:1, n:n</td>
-<td>N/A</td>
+<td>1:1</td>
 <td>Optional</td>
 </tr>
 <tr>
@@ -1413,56 +1413,56 @@ mapping_date: 2022-05-02
 <td><strong><a href="mapping_date/">mapping_date</a></strong></td>
 <td>The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.</td>
 <td>date</td>
-<td>N/A</td>
+<td>2021-01-01</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="publication_date/">publication_date</a></strong></td>
 <td>The date the mapping was published. This is different from the date the mapping was asserted.</td>
 <td>date</td>
-<td>N/A</td>
+<td>2021-01-01</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="confidence/">confidence</a></strong></td>
 <td>A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.</td>
 <td>double</td>
-<td>N/A</td>
+<td>0.95</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="curation_rule/">curation_rule</a></strong></td>
 <td>A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.</td>
 <td>entity reference (e.g. CURIE in TSV)</td>
-<td>N/A</td>
+<td>DISEASE_MAPPING_COMMONS_RULES:MPR2</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="curation_rule_text/">curation_rule_text</a></strong></td>
 <td>A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.</td>
 <td>string</td>
-<td>N/A</td>
+<td>The two phenotypes inhere in homologous structures and exhibit the same phenotypic quality.</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="subject_match_field/">subject_match_field</a></strong></td>
 <td>A list of properties (term annotations on the subject) that was used for the match.</td>
 <td>entity reference (e.g. CURIE in TSV)</td>
-<td>N/A</td>
+<td>rdfs:label</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="object_match_field/">object_match_field</a></strong></td>
 <td>A list of properties (term annotations on the object) that was used for the match.</td>
 <td>entity reference (e.g. CURIE in TSV)</td>
-<td>N/A</td>
+<td>rdfs:label</td>
 <td>Optional</td>
 </tr>
 <tr>
 <td><strong><a href="match_string/">match_string</a></strong></td>
 <td>String that is shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots.</td>
 <td>string</td>
-<td>N/A</td>
+<td>gala</td>
 <td>Optional</td>
 </tr>
 <tr>
@@ -1483,7 +1483,7 @@ mapping_date: 2022-05-02
 <td><strong><a href="similarity_score/">similarity_score</a></strong></td>
 <td>A score between 0 and 1 to denote the similarity between two entities, where 1 denotes equivalence, and 0 denotes disjointness. The score is meant to be used in conjunction with the similarity_measure field, to document, for example, the lexical or semantic match of a matching algorithm.</td>
 <td>double</td>
-<td>N/A</td>
+<td>0.95</td>
 <td>Optional</td>
 </tr>
 <tr>
@@ -1497,7 +1497,7 @@ mapping_date: 2022-05-02
 <td><strong><a href="see_also/">see_also</a></strong></td>
 <td>A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment</td>
 <td>string</td>
-<td>N/A</td>
+<td>https://github.com/mapping-commons/mh_mapping_initiative/pull/41</td>
 <td>Optional</td>
 </tr>
 <tr>
@@ -1509,7 +1509,7 @@ mapping_date: 2022-05-02
 </tr>
 <tr>
 <td><strong><a href="other/">other</a></strong></td>
-<td>Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.</td>
+<td>Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data. NOTE. This field is not recommended for general use, and should be used sparingly. See https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv for an alternative approach based on extension slots.</td>
 <td>string</td>
 <td>N/A</td>
 <td>Optional</td>
@@ -1518,7 +1518,7 @@ mapping_date: 2022-05-02
 <td><strong><a href="comment/">comment</a></strong></td>
 <td>Free text field containing either curator notes or text generated by tool providing additional informative information.</td>
 <td>string</td>
-<td>N/A</td>
+<td>This mapping is weird in that the hierarchical position of the two terms is very different.</td>
 <td>Optional</td>
 </tr>
 </tbody>

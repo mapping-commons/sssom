@@ -882,6 +882,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     See Also
   </a>
@@ -928,6 +935,13 @@
 <li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
 <li><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example: DISEASE_MAPPING_COMMONS_RULES:MPR2</p>
+<p><strong>Example value</strong>:</p>
+<p><code>DISEASE_MAPPING_COMMONS_RULES:MPR2</code></p>
+<p><strong>Description</strong>: A reference to the Disease Mapping Commons rule with the ID MPR2.</p>
+</div>
 <h2 id="see-also">See Also</h2>
 <p>These are some relevant resources you might find useful to get additional information about the element,
 such as example implementations, issues and pull requests.</p>
@@ -948,6 +962,9 @@ description: A curation rule is a (potentially) complex condition executed by an
   higher levels of transparency and sharing across mapping sets. The URI representation
   of the curation rule is expected to be a resolvable identifier which provides details
   about the nature of the curation rule.
+examples:
+- value: DISEASE_MAPPING_COMMONS_RULES:MPR2
+  description: A reference to the Disease Mapping Commons rule with the ID MPR2.
 from_schema: https://w3id.org/sssom/schema/
 see_also:
 - https://github.com/mapping-commons/sssom/issues/166

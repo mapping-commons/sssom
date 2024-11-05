@@ -882,6 +882,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -910,7 +917,7 @@
 
 <h1 id="object_match_field">object_match_field</h1>
 <p><strong>URI</strong>: <a href="https://w3id.org/sssom/object_match_field">sssom:object_match_field</a></p>
-<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
 <p><em>A list of properties (term annotations on the object) that was used for the match.</em></p>
@@ -921,6 +928,19 @@
 <li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
 <li><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example: rdfs:label</p>
+<p><strong>Example value</strong>:</p>
+<p><code>rdfs:label</code></p>
+<p><strong>Description</strong>: The RDFS label property (rdfs:label) was used to match the object.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example: skos:prefLabel</p>
+<p><strong>Example value</strong>:</p>
+<p><code>skos:prefLabel</code></p>
+<p><strong>Description</strong>: The SKOS preferred label property (skos:prefLabel) was used to match the object.</p>
+</div>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
@@ -934,6 +954,12 @@ annotations:
     value: true
 description: A list of properties (term annotations on the object) that was used for
   the match.
+examples:
+- value: rdfs:label
+  description: The RDFS label property (rdfs:label) was used to match the object.
+- value: skos:prefLabel
+  description: The SKOS preferred label property (skos:prefLabel) was used to match
+    the object.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 alias: object_match_field

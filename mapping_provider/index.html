@@ -882,6 +882,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -910,7 +917,7 @@
 
 <h1 id="mapping_provider">mapping_provider</h1>
 <p><strong>URI</strong>: <a href="https://w3id.org/sssom/mapping_provider">sssom:mapping_provider</a></p>
-<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
 <p><em>URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.</em></p>
@@ -924,6 +931,19 @@
 <p><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</p>
 </li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example: https://www.ohdsi.org/</p>
+<p><strong>Example value</strong>:</p>
+<p><code>https://www.ohdsi.org/</code></p>
+<p><strong>Description</strong>: A URL pointing to the Observational Health Data Sciences and Informatics initiative.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example: https://monarchinitiative.org/</p>
+<p><strong>Example value</strong>:</p>
+<p><code>https://monarchinitiative.org/</code></p>
+<p><strong>Description</strong>: A URL pointing to the Monarch Initiative Resource.</p>
+</div>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
@@ -937,6 +957,12 @@ annotations:
     value: true
 description: URL pointing to the source that provided the mapping, for example an
   ontology that already contains the mappings, or a database from which it was derived.
+examples:
+- value: https://www.ohdsi.org/
+  description: A URL pointing to the Observational Health Data Sciences and Informatics
+    initiative.
+- value: https://monarchinitiative.org/
+  description: A URL pointing to the Monarch Initiative Resource.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 alias: mapping_provider

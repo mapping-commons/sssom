@@ -882,6 +882,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -910,7 +917,7 @@
 
 <h1 id="publication_date">publication_date</h1>
 <p><strong>URI</strong>: <a href="http://purl.org/dc/terms/created">dcterms:created</a></p>
-<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
 <p><em>The date the mapping was published. This is different from the date the mapping was asserted.</em></p>
@@ -924,6 +931,12 @@
 <p><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</p>
 </li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example: 2021-01-01</p>
+<p><strong>Example value</strong>:</p>
+<p><code>2021-01-01</code></p>
+</div>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
@@ -931,6 +944,8 @@
 <pre><code class="language-yaml">name: publication_date
 description: The date the mapping was published. This is different from the date the
   mapping was asserted.
+examples:
+- value: '2021-01-01'
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 slot_uri: dcterms:created

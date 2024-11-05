@@ -882,6 +882,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -921,6 +928,13 @@
 <li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
 <li><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example: gala</p>
+<p><strong>Example value</strong>:</p>
+<p><code>gala</code></p>
+<p><strong>Description</strong>: The 'gala' string was matched for both subject and object.</p>
+</div>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
@@ -928,6 +942,9 @@
 <pre><code class="language-yaml">name: match_string
 description: String that is shared by subj/obj. It is recommended to indicate the
   fields for the match using the object and subject_match_field slots.
+examples:
+- value: gala
+  description: The 'gala' string was matched for both subject and object.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 alias: match_string

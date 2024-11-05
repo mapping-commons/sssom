@@ -882,6 +882,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -924,6 +931,13 @@
 <p><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)<em> </em><em>Minimum Value</em><em>: 0</em> <strong>Maximum Value</strong>: 1</p>
 </li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example: 0.95</p>
+<p><strong>Example value</strong>:</p>
+<p><code>0.95</code></p>
+<p><strong>Description</strong>: A confidence score of 0.95, indicating 95% confidence.</p>
+</div>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
@@ -931,6 +945,9 @@
 <pre><code class="language-yaml">name: confidence
 description: A score between 0 and 1 to denote the confidence or probability that
   the match is correct, where 1 denotes total confidence.
+examples:
+- value: '0.95'
+  description: A confidence score of 0.95, indicating 95% confidence.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 alias: confidence

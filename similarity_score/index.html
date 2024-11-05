@@ -882,6 +882,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     See Also
   </a>
@@ -931,6 +938,13 @@
 <p><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)<em> </em><em>Minimum Value</em><em>: 0</em> <strong>Maximum Value</strong>: 1</p>
 </li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example: 0.95</p>
+<p><strong>Example value</strong>:</p>
+<p><code>0.95</code></p>
+<p><strong>Description</strong>: A similarity score of 0.95, indicating 95% similarity.</p>
+</div>
 <h2 id="see-also">See Also</h2>
 <p>These are some relevant resources you might find useful to get additional information about the element,
 such as example implementations, issues and pull requests.</p>
@@ -948,6 +962,9 @@ description: A score between 0 and 1 to denote the similarity between two entiti
   where 1 denotes equivalence, and 0 denotes disjointness. The score is meant to be
   used in conjunction with the similarity_measure field, to document, for example,
   the lexical or semantic match of a matching algorithm.
+examples:
+- value: '0.95'
+  description: A similarity score of 0.95, indicating 95% similarity.
 from_schema: https://w3id.org/sssom/schema/
 see_also:
 - https://github.com/mapping-commons/sssom/issues/385

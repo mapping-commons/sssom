@@ -910,10 +910,10 @@
 
 <h1 id="other">other</h1>
 <p><strong>URI</strong>: <a href="https://w3id.org/sssom/other">sssom:other</a></p>
-<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.</em></p>
+<p><em>Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data. NOTE. This field is not recommended for general use, and should be used sparingly. See https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv for an alternative approach based on extension slots.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
@@ -930,7 +930,9 @@
 
 <pre><code class="language-yaml">name: other
 description: Pipe separated list of key value pairs for properties not part of the
-  SSSOM spec. Can be used to encode additional provenance data.
+  SSSOM spec. Can be used to encode additional provenance data. NOTE. This field is
+  not recommended for general use, and should be used sparingly. See https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
+  for an alternative approach based on extension slots.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 alias: other

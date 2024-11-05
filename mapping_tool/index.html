@@ -917,7 +917,7 @@
 
 <h1 id="mapping_tool">mapping_tool</h1>
 <p><strong>URI</strong>: <a href="https://w3id.org/sssom/mapping_tool">sssom:mapping_tool</a></p>
-<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
 <p><em>A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.</em></p>
@@ -936,6 +936,13 @@
 <p class="admonition-title">Example: https://github.com/AgreementMakerLight/AML-Project</p>
 <p><strong>Example value</strong>:</p>
 <p><code>https://github.com/AgreementMakerLight/AML-Project</code></p>
+<p><strong>Description</strong>: A URL pointing to the AgreementMakerLight project.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example: AgreementMakerLight</p>
+<p><strong>Example value</strong>:</p>
+<p><code>AgreementMakerLight</code></p>
+<p><strong>Description</strong>: A string (name) denoting the AgreementMakerLight project.</p>
 </div>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
@@ -952,6 +959,9 @@ description: A reference to the tool or algorithm that was used to generate the 
   Should be a URL pointing to more info about it, but can be free text.
 examples:
 - value: https://github.com/AgreementMakerLight/AML-Project
+  description: A URL pointing to the AgreementMakerLight project.
+- value: AgreementMakerLight
+  description: A string (name) denoting the AgreementMakerLight project.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 alias: mapping_tool

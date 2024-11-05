@@ -882,6 +882,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -910,7 +917,7 @@
 
 <h1 id="creator_id">creator_id</h1>
 <p><strong>URI</strong>: <a href="http://purl.org/dc/terms/creator">dcterms:creator</a></p>
-<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
 <p><em>Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</em></p>
@@ -921,6 +928,19 @@
 <li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
 <li><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165</p>
+<p><strong>Example value</strong>:</p>
+<p><code>orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165</code></p>
+<p><strong>Description</strong>: The ORCID of the (multiple) creators of the mapping.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example: orcid:0000-0002-7356-1779</p>
+<p><strong>Example value</strong>:</p>
+<p><code>orcid:0000-0002-7356-1779</code></p>
+<p><strong>Description</strong>: The ORCID of the creator of the mapping.</p>
+</div>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
@@ -931,6 +951,11 @@ description: Identifies the persons or groups responsible for the creation of th
   may be different from the author, which is a person that was actively involved in
   the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying
   URIs.
+examples:
+- value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
+  description: The ORCID of the (multiple) creators of the mapping.
+- value: orcid:0000-0002-7356-1779
+  description: The ORCID of the creator of the mapping.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 slot_uri: dcterms:creator

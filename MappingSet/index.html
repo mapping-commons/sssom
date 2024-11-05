@@ -440,7 +440,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-mappingset">Class: MappingSet</h1>
-<p><em>Represents a set of mappings</em></p>
+<p><em>Represents a set of mappings.</em></p>
 <p>URI: <a href="https://w3id.org/sssom/MappingSet">sssom:MappingSet</a></p>
 <div class="mermaid"> classDiagram
     class MappingSet
@@ -739,7 +739,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: mapping set
-description: Represents a set of mappings
+description: Represents a set of mappings.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 slots:
@@ -783,7 +783,7 @@ slot_usage:
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: mapping set
-description: Represents a set of mappings
+description: Represents a set of mappings.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 slot_usage:
@@ -810,7 +810,7 @@ attributes:
     inlined: true
   mappings:
     name: mappings
-    description: Contains a list of mapping objects
+    description: Contains a list of mapping objects.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: mappings
@@ -827,8 +827,8 @@ attributes:
       mapping). Should be IRI, ideally resolvable.
     examples:
     - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
-      description: (A persistent URI pointing to the latest version of the Mondo -
-        NCIT mapping in the Mondo namespace.)
+      description: A persistent URI pointing to the latest version of the Mondo -
+        NCIT mapping in the Mondo namespace.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: mapping_set_id
@@ -843,8 +843,8 @@ attributes:
     description: A version string for the mapping.
     examples:
     - value: '2020-01-01'
-      description: (A date-based version that indicates that the mapping was published
-        on the 1st January in 2021.)
+      description: A date-based version that indicates that the mapping was published
+        on the 1st January in 2021.
     - value: 1.2.1
       description: (A semantic version tag that indicates that this is the 1st major,
         2nd minor version, patch 1 (https://semver.org/).)
@@ -908,6 +908,11 @@ attributes:
       form, which may be different from the author, which is a person that was actively
       involved in the assertion of the mapping. Recommended to be a list of ORCIDs
       or otherwise identifying URIs.
+    examples:
+    - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
+      description: The ORCID of the (multiple) creators of the mapping.
+    - value: orcid:0000-0002-7356-1779
+      description: The ORCID of the creator of the mapping.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: dcterms:creator
@@ -922,6 +927,11 @@ attributes:
     name: creator_label
     description: A string identifying the creator of this mapping. In the spirit of
       provenance, consider using creator_id instead.
+    examples:
+    - value: Nicolas Matentzoglu|Chris Mungall
+      description: The human-readable names of the (multiple) creators of the mapping.
+    - value: Nicolas Matentzoglu
+      description: The human-readable name of the creator of the mapping.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: creator_label
@@ -935,6 +945,9 @@ attributes:
     name: license
     description: A url to the license of the mapping. In absence of a license we assume
       no license.
+    examples:
+    - value: https://creativecommons.org/licenses/by/4.0/
+      description: The URI of the Creative Commons Attribution 4.0 International license.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: dcterms:license
@@ -998,7 +1011,7 @@ attributes:
     description: Version IRI or version string of the source of the subject term.
     examples:
     - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
-      description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
+      description: A persistent Version IRI pointing to the Mondo version '2021-01-30'
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: subject_source_version
@@ -1060,7 +1073,7 @@ attributes:
     description: Version IRI or version string of the source of the object term.
     examples:
     - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
-      description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
+      description: A persistent Version IRI pointing to the Mondo version '2021-01-30'
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: object_source_version
@@ -1080,6 +1093,12 @@ attributes:
     description: URL pointing to the source that provided the mapping, for example
       an ontology that already contains the mappings, or a database from which it
       was derived.
+    examples:
+    - value: https://www.ohdsi.org/
+      description: A URL pointing to the Observational Health Data Sciences and Informatics
+        initiative.
+    - value: https://monarchinitiative.org/
+      description: A URL pointing to the Monarch Initiative Resource.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: mapping_provider
@@ -1100,6 +1119,9 @@ attributes:
       mapping. Should be a URL pointing to more info about it, but can be free text.
     examples:
     - value: https://github.com/AgreementMakerLight/AML-Project
+      description: A URL pointing to the AgreementMakerLight project.
+    - value: AgreementMakerLight
+      description: A string (name) denoting the AgreementMakerLight project.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: mapping_tool
@@ -1137,6 +1159,8 @@ attributes:
         value: true
     description: The date the mapping was asserted. This is different from the date
       the mapping was published or compiled in a SSSOM file.
+    examples:
+    - value: '2021-01-01'
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: pav:authoredOn
@@ -1150,6 +1174,8 @@ attributes:
     name: publication_date
     description: The date the mapping was published. This is different from the date
       the mapping was asserted.
+    examples:
+    - value: '2021-01-01'
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: dcterms:created
@@ -1169,6 +1195,12 @@ attributes:
         value: true
     description: A list of properties (term annotations on the subject) that was used
       for the match.
+    examples:
+    - value: rdfs:label
+      description: The RDFS label property (rdfs:label) was used to match the subject.
+    - value: skos:prefLabel
+      description: The SKOS preferred label property (skos:prefLabel) was used to
+        match the subject.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: subject_match_field
@@ -1188,6 +1220,12 @@ attributes:
         value: true
     description: A list of properties (term annotations on the object) that was used
       for the match.
+    examples:
+    - value: rdfs:label
+      description: The RDFS label property (rdfs:label) was used to match the object.
+    - value: skos:prefLabel
+      description: The SKOS preferred label property (skos:prefLabel) was used to
+        match the object.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: object_match_field
@@ -1248,6 +1286,9 @@ attributes:
     description: A URL specific for the mapping instance. E.g. for kboom we have a
       per-mapping image that shows surrounding axioms that drive probability. Could
       also be a github issue URL that discussed a complicated alignment
+    examples:
+    - value: https://github.com/mapping-commons/mh_mapping_initiative/pull/41
+      description: A URL pointing to the pull request that introduced the mapping.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: rdfs:seeAlso
@@ -1263,8 +1304,8 @@ attributes:
     description: A URL location of the issue tracker for this entity.
     examples:
     - value: https://github.com/mapping-commons/mh_mapping_initiative/issues
-      description: (A URL resolving to the issue tracker of the Mouse-Human mapping
-        initiative)
+      description: A URL resolving to the issue tracker of the Mouse-Human mapping
+        initiative
     from_schema: https://w3id.org/sssom/schema/
     see_also:
     - https://github.com/mapping-commons/sssom/issues/78
@@ -1280,7 +1321,10 @@ attributes:
   other:
     name: other
     description: Pipe separated list of key value pairs for properties not part of
-      the SSSOM spec. Can be used to encode additional provenance data.
+      the SSSOM spec. Can be used to encode additional provenance data. NOTE. This
+      field is not recommended for general use, and should be used sparingly. See
+      https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
+      for an alternative approach based on extension slots.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: other
@@ -1293,6 +1337,10 @@ attributes:
     name: comment
     description: Free text field containing either curator notes or text generated
       by tool providing additional informative information.
+    examples:
+    - value: This mapping is weird in that the hierarchical position of the two terms
+        is very different.
+      description: A comment explaining a mapping authors reservation on a mapping.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     slot_uri: rdfs:comment
