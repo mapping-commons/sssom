@@ -1,5 +1,11 @@
 # Presentations
 
+## A Simple Standard for Ontological Mappings 2024: A quick guide for getting started with publishing better entity mappings (RDA’s 23rd plenary)
+
+- November 13<sup>th</sup>, 2024, hybrid
+- Talk at [RDA plenary](https://www.rd-alliance.org/rdas-23rd-plenary-programme/), in particular [VSSIG WG](https://www.rd-alliance.org/session_entry/group-session-applications-03-07-2024-john-graybeal/) giving a brief update and encouraging SSSOM uptake.
+- [Slides](https://docs.google.com/presentation/d/1TKdXO-THSUf5PHZp2sYrzaTQhtunoB78A6_Yt8VEyoc/edit?usp=sharing)
+
 ## A Simple Standard for Ontological Mappings 2024: The case for prioritising 5-Star mappings (Every Cure, internal seminar) 
 
 - August 1<sup>st</sup>, 2024, virtual
