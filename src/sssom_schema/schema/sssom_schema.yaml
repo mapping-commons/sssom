@@ -45,7 +45,7 @@ enums:
         meaning: rdfs:Class
       rdfs literal:
         meaning: rdfs:Literal
-        description: This value indicate that the entity being mapped is not a semantic entity with a distinct identifier, but is instead represented entirely by its literal label. This value MUST NOT be used in the predicate_type slot.
+        description: This value indicates that the entity being mapped is not a semantic entity with a distinct identifier, but is instead represented entirely by its literal label. This value MUST NOT be used in the predicate_type slot.
         see_also:
         - https://mapping-commons.github.io/sssom/spec-model/#literal-mappings
         - https://github.com/mapping-commons/sssom/issues/234
@@ -54,6 +54,11 @@ enums:
         meaning: rdfs:Datatype
       rdf property:
         meaning: rdf:Property
+      composed entity:
+        description: This value indicates that the entity ID does not represent a single entity, but a composite involving several individual entities. This value MUST NOT be used in the predicate_type slot. This specifications does not prescribe how an ID representing a composite entity should be interpreted; this is left at the discretion of applications.
+        see_also:
+        - https://github.com/mapping-commons/sssom/issues/402
+        - https://github.com/mapping-commons/sssom/blob/master/examples/schema/composite-entities.sssom.tsv
         
   predicate_modifier_enum:
     permissible_values:
