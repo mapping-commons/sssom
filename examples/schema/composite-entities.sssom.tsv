@@ -1,0 +1,12 @@
+#curie_map:
+#  HP: http://purl.obolibrary.org/obo/HP_
+#  MONDO: http://purl.obolibrary.org/obo/MONDO_
+#  MP: http://purl.obolibrary.org/obo/MP_
+#  SCHEMA: http://example.org/schema
+#mapping_set_id: https://w3id.org/sssom/commons/examples/composite-entities.sssom.tsv
+#license: https://creativecommons.org/publicdomain/zero/1.0/
+#comment: This is an example file for the SSSOM for illustration only. Its contents are entirely fabricated.
+subject_id	predicate_id	object_id	mapping_justification	subject_type
+SCHEMA:0001/(disease:'MONDO:0005148',phenotype:'HP:0009124')	skos:exactMatch	MP:0000003	semapv:ManualMappingCuration	composed entity expression
+SCHEMA:0001/(disease:'MONDO:0005149',phenotype:'HP:0008551')	skos:exactMatch	MP:0000018	semapv:ManualMappingCuration	composed entity expression
+SCHEMA:0001/(disease:'MONDO:0005150',phenotype:'HP:0000411')	skos:exactMatch	MP:0000018	semapv:ManualMappingCuration	composed entity expression
