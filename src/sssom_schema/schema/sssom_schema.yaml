@@ -54,7 +54,7 @@ enums:
         meaning: rdfs:Datatype
       rdf property:
         meaning: rdf:Property
-      composed entity:
+      composed entity expression:
         description: This value indicates that the entity ID does not represent a single entity, but a composite involving several individual entities. This value MUST NOT be used in the predicate_type slot. This specifications does not prescribe how an ID representing a composite entity should be interpreted; this is left at the discretion of applications.
         see_also:
         - https://github.com/mapping-commons/sssom/issues/402

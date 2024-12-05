@@ -2,7 +2,7 @@
 
 ## Next
 
-- Add `composed entity` as a new value in the `EntityType` enumeration ([issue](https://github.com/mapping-commons/sssom/issues/402)).
+- Add `composed entity expression` as a new value in the `EntityType` enumeration ([issue](https://github.com/mapping-commons/sssom/issues/402)).
 - TBD
 
 ## SSSOM version 1.0.0
