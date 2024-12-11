@@ -990,7 +990,7 @@
 <tr>
 <td>rdfs literal</td>
 <td>rdfs:Literal</td>
-<td>This value indicate that the entity being mapped is not a semantic entity wit...</td>
+<td>This value indicates that the entity being mapped is not a semantic entity wi...</td>
 </tr>
 <tr>
 <td>rdfs datatype</td>
@@ -1001,6 +1001,11 @@
 <td>rdf property</td>
 <td>rdf:Property</td>
 <td></td>
+</tr>
+<tr>
+<td>composed entity expression</td>
+<td>None</td>
+<td>This value indicates that the entity ID does not represent a single entity, b...</td>
 </tr>
 </tbody>
 </table>
@@ -1065,7 +1070,7 @@ permissible_values:
     meaning: rdfs:Class
   rdfs literal:
     text: rdfs literal
-    description: This value indicate that the entity being mapped is not a semantic
+    description: This value indicates that the entity being mapped is not a semantic
       entity with a distinct identifier, but is instead represented entirely by its
       literal label. This value MUST NOT be used in the predicate_type slot.
     meaning: rdfs:Literal
@@ -1079,6 +1084,16 @@ permissible_values:
   rdf property:
     text: rdf property
     meaning: rdf:Property
+  composed entity expression:
+    text: composed entity expression
+    description: This value indicates that the entity ID does not represent a single
+      entity, but a composite involving several individual entities. This value MUST
+      NOT be used in the predicate_type slot. This specifications does not prescribe
+      how an ID representing a composite entity should be interpreted; this is left
+      at the discretion of applications.
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/402
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/composite-entities.sssom.tsv
 
 </code></pre>
 
