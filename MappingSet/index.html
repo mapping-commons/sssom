@@ -498,6 +498,10 @@
 
       MappingSet : other
 
+      MappingSet : predicate_type
+
+          MappingSet --|&gt; entity_type_enum : predicate_type
+
       MappingSet : publication_date
 
       MappingSet : see_also
@@ -622,6 +626,12 @@
 <td><a href="../object_source_version/">object_source_version</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>Version IRI or version string of the source of the object term</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../predicate_type/">predicate_type</a></td>
+<td>0..1 <br/> <a href="../EntityTypeEnum/">EntityTypeEnum</a></td>
+<td>The type of the predicate used to map the subject and object entities</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -759,6 +769,7 @@ slots:
 - object_type
 - object_source
 - object_source_version
+- predicate_type
 - mapping_provider
 - mapping_tool
 - mapping_tool_version
@@ -1082,6 +1093,27 @@ attributes:
     - mapping set
     - mapping
     range: string
+  predicate_type:
+    name: predicate_type
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: The type of the predicate used to map the subject and object entities.
+    examples:
+    - value: owl:AnnotationProperty
+    - value: owl:ObjectProperty
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/143
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv
+    rank: 1000
+    alias: predicate_type
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: entity_type_enum
   mapping_provider:
     name: mapping_provider
     instantiates:

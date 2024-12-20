@@ -889,6 +889,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -917,10 +924,10 @@
 
 <h1 id="predicate_type">predicate_type</h1>
 <p><strong>URI</strong>: <a href="https://w3id.org/sssom/predicate_type">sssom:predicate_type</a></p>
-<p><strong>Applicable to</strong>: </p>
+<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>The type of entity that is being mapped.</em></p>
+<p><em>The type of the predicate used to map the subject and object entities.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
@@ -942,18 +949,35 @@
 <p><strong>Example value</strong>:</p>
 <p><code>owl:ObjectProperty</code></p>
 </div>
+<h2 id="see-also">See Also</h2>
+<p>These are some relevant resources you might find useful to get additional information about the element,
+such as example implementations, issues and pull requests.</p>
+<ul>
+<li><a href="https://github.com/mapping-commons/sssom/issues/143">https://github.com/mapping-commons/sssom/issues/143</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv</a></li>
+</ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
 
 <pre><code class="language-yaml">name: predicate_type
-description: The type of entity that is being mapped.
+annotations:
+  propagated:
+    tag: propagated
+    value: true
+description: The type of the predicate used to map the subject and object entities.
 examples:
 - value: owl:AnnotationProperty
 - value: owl:ObjectProperty
 from_schema: https://w3id.org/sssom/schema/
+see_also:
+- https://github.com/mapping-commons/sssom/issues/143
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv
 rank: 1000
 alias: predicate_type
+domain_of:
+- mapping set
+- mapping
 range: entity_type_enum
 
 </code></pre>
