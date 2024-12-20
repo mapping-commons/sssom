@@ -230,8 +230,13 @@ slots:
       - value: has cross-reference
         description: The label of the oboInOwl:hasDbXref property to represent cross-references.
   predicate_type:
-    description: The type of entity that is being mapped.
+    description: The type of the predicate used to map the subject and object entities.
     range: entity_type_enum
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/143
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv
+    annotations:
+      propagated: true
     examples:
       - value: owl:AnnotationProperty
       - value: owl:ObjectProperty
@@ -721,6 +726,7 @@ classes:
     - object_type
     - object_source
     - object_source_version
+    - predicate_type
     - mapping_provider
     - mapping_tool
     - mapping_tool_version
@@ -761,6 +767,7 @@ classes:
     - object_type
     - object_source
     - object_source_version
+    - predicate_type
     - mapping_provider
     - mapping_source
     - mapping_cardinality

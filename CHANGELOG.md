@@ -3,6 +3,7 @@
 ## Next
 
 - Add `composed entity expression` as a new value in the `EntityType` enumeration ([issue](https://github.com/mapping-commons/sssom/issues/402)).
+- Add `predicate_type` slot (previously defined but unused) to the `Mapping` and `MappingSet` classes ([issue](https://github.com/mapping-commons/sssom/issues/404)).
 - TBD
 
 ## SSSOM version 1.0.0
