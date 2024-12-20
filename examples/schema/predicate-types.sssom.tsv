@@ -1,0 +1,11 @@
+#curie_map:
+#  COMENT: https://example.com/entities/
+#  ORGENT: https://example.org/entities/
+#  ORGPRO: https://example.org/properties/
+#mapping_set_id: https://w3id.org/sssom/commons/examples/predicate-types.sssom.tsv
+#license: https://creativecommons.org/licenses/by/4.0/
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	predicate_type
+ORGENT:0001	alice	ORGPRO:example_annot_property	COMENT:0011	alpha	semapv:ManualMappingCuration	owl annotation property
+ORGENT:0002	bob	ORGPRO:example_object_property	COMENT:0012	beta	semapv:ManualMappingCuration	owl object property
+ORGENT:0004	daphne	ORGPRO:example_data_property	COMENT:0014	delta	semapv:ManualMappingCuration	owl data property
+ORGENT:0005	eve	ORGPRO:example_rdf_property	COMENT:0015	epsilon	semapv:ManualMappingCuration	rdf property
