@@ -1203,7 +1203,7 @@ attributes:
     - mapping
     range: EntityReference
     required: true
-    pattern: ^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$
+    pattern: ^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$
     any_of:
     - equals_string: semapv:LexicalMatching
     - equals_string: semapv:LogicalReasoning
@@ -1214,6 +1214,10 @@ attributes:
     - equals_string: semapv:MappingChaining
     - equals_string: semapv:MappingReview
     - equals_string: semapv:ManualMappingCuration
+    - equals_string: semapv:MappingInversion
+    - equals_string: semapv:StructuralMatching
+    - equals_string: semapv:InstanceBasedMatching
+    - equals_string: semapv:BackgroundKnowledgeBasedMatching
   author_id:
     name: author_id
     description: Identifies the persons or groups responsible for asserting the mappings.

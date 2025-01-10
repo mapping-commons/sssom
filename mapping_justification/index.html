@@ -930,7 +930,7 @@
 <li>
 <p><strong>Required?</strong>: Required (element has to be added to the mapping or mapping set.)</p>
 </li>
-<li><strong>Regex pattern</strong>: <code>^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$</code></li>
+<li><strong>Regex pattern</strong>: <code>^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$</code></li>
 </ul>
 <h2 id="examples">Examples</h2>
 <div class="admonition example">
@@ -960,7 +960,7 @@ domain_of:
 - mapping
 range: EntityReference
 required: true
-pattern: ^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$
+pattern: ^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$
 any_of:
 - equals_string: semapv:LexicalMatching
 - equals_string: semapv:LogicalReasoning
@@ -971,6 +971,10 @@ any_of:
 - equals_string: semapv:MappingChaining
 - equals_string: semapv:MappingReview
 - equals_string: semapv:ManualMappingCuration
+- equals_string: semapv:MappingInversion
+- equals_string: semapv:StructuralMatching
+- equals_string: semapv:InstanceBasedMatching
+- equals_string: semapv:BackgroundKnowledgeBasedMatching
 
 </code></pre>
 
