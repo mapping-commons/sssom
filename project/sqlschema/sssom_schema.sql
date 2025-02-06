@@ -46,7 +46,7 @@
 --     * Slot: mapping_date Description: The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
 --     * Slot: publication_date Description: The date the mapping was published. This is different from the date the mapping was asserted.
 --     * Slot: confidence Description: A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.
---     * Slot: similarity_score Description: A score between 0 and 1 to denote the similarity between two entities, where 1 denotes equivalence, and 0 denotes disjointness. The score is meant to be used in conjunction with the similarity_measure field, to document, for example, the lexical or semantic match of a matching algorithm.
+--     * Slot: similarity_score Description: A score between 0 and 1 to denote the similarity between two entities, where 1 denotes equivalence, and 0 denotes disjointedness. The score is meant to be used in conjunction with the similarity_measure field, to document, for example, the lexical or semantic match of a matching algorithm.
 --     * Slot: similarity_measure Description: The measure used for computing a similarity score. This field is meant to be used in conjunction with the similarity_score field, to document, for example, the lexical or semantic match of a matching algorithm. To make processing this field as unambiguous as possible, we recommend using wikidata CURIEs, but the type of this field is deliberately unspecified.
 --     * Slot: issue_tracker_item Description: The issue tracker item discussing this mapping.
 --     * Slot: other Description: Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data.
@@ -80,7 +80,7 @@
 -- # Class: "Propagatable" Description: "Metamodel extension class to describe slots whose value can be propagated down from the MappingSet class to the Mapping class."
 --     * Slot: id Description: 
 --     * Slot: propagated Description: Indicates whether a slot can be propagated from a mapping down to individual mappings.
--- # Class: "NoTermFound" Description: "sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be found. It SHOULD be used in conjuction with a corresponding subject_source or object_source to signify where the term was not found."
+-- # Class: "NoTermFound" Description: "sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be found. It SHOULD be used in conjunction with a corresponding subject_source or object_source to signify where the term was not found."
 --     * Slot: id Description: 
 -- # Class: "mapping set_mapping_set_source" Description: ""
 --     * Slot: mapping set_id Description: Autocreated FK slot
