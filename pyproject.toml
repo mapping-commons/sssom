@@ -30,5 +30,5 @@ docs = ["linkml", "mkdocs-material"]
 # Ref: https://github.com/codespell-project/codespell#using-a-config-file
 skip = '.git*,*.pdf,*.lock'
 check-hidden = true
-# ignore-regex = ''
+ignore-regex = '\b(COMENT|EHR|LOD)\b'
 # ignore-words-list = ''
