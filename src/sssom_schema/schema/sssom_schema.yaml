@@ -643,6 +643,8 @@ slots:
       To make processing this field as unambiguous as possible, we recommend using 
       wikidata CURIEs, but the type of this field is deliberately unspecified.
     range: string
+    annotations:
+      propagated: true
     examples:
       - value: https://www.wikidata.org/entity/Q865360
         description: the Wikidata IRI for the Jaccard index measure).
@@ -740,6 +742,7 @@ classes:
     - object_match_field
     - subject_preprocessing
     - object_preprocessing
+    - similarity_measure
     - see_also
     - issue_tracker
     - other
