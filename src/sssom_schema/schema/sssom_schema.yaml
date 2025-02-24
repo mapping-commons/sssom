@@ -235,6 +235,7 @@ slots:
     see_also:
       - https://github.com/mapping-commons/sssom/issues/143
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -643,6 +644,7 @@ slots:
       To make processing this field as unambiguous as possible, we recommend using 
       wikidata CURIEs, but the type of this field is deliberately unspecified.
     range: string
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
