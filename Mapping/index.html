@@ -1469,6 +1469,8 @@ attributes:
     range: string
   predicate_type:
     name: predicate_type
+    instantiates:
+    - sssom:Propagatable
     annotations:
       propagated:
         tag: propagated
@@ -1827,6 +1829,12 @@ attributes:
     maximum_value: 1.0
   similarity_measure:
     name: similarity_measure
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
     description: The measure used for computing a similarity score. This field is
       meant to be used in conjunction with the similarity_score field, to document,
       for example, the lexical or semantic match of a matching algorithm. To make
@@ -1848,6 +1856,7 @@ attributes:
     alias: similarity_measure
     owner: mapping
     domain_of:
+    - mapping set
     - mapping
     range: string
   see_also:

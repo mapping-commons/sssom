@@ -506,6 +506,8 @@
 
       MappingSet : see_also
 
+      MappingSet : similarity_measure
+
       MappingSet : subject_match_field
 
       MappingSet : subject_preprocessing
@@ -689,6 +691,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../similarity_measure/">similarity_measure</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The measure used for computing a similarity score</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../see_also/">see_also</a></td>
 <td>* <br/> <a href="../String/">String</a></td>
 <td>A URL specific for the mapping instance</td>
@@ -779,6 +787,7 @@ slots:
 - object_match_field
 - subject_preprocessing
 - object_preprocessing
+- similarity_measure
 - see_also
 - issue_tracker
 - other
@@ -1095,6 +1104,8 @@ attributes:
     range: string
   predicate_type:
     name: predicate_type
+    instantiates:
+    - sssom:Propagatable
     annotations:
       propagated:
         tag: propagated
@@ -1313,6 +1324,38 @@ attributes:
     - mapping
     range: EntityReference
     multivalued: true
+  similarity_measure:
+    name: similarity_measure
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: The measure used for computing a similarity score. This field is
+      meant to be used in conjunction with the similarity_score field, to document,
+      for example, the lexical or semantic match of a matching algorithm. To make
+      processing this field as unambiguous as possible, we recommend using wikidata
+      CURIEs, but the type of this field is deliberately unspecified.
+    examples:
+    - value: https://www.wikidata.org/entity/Q865360
+      description: the Wikidata IRI for the Jaccard index measure).
+    - value: wikidata:Q865360
+      description: the Wikidata CURIE for the Jaccard index measure).
+    - value: Levenshtein distance
+      description: a score to measure the distance between two character sequences).
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/385
+    - https://github.com/mapping-commons/sssom/pull/386
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/similarity_score.sssom.tsv
+    rank: 1000
+    alias: similarity_measure
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
   see_also:
     name: see_also
     description: A URL specific for the mapping instance. E.g. for kboom we have a
