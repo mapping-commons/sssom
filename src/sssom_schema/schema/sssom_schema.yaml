@@ -297,6 +297,9 @@ slots:
     examples:
       - value: semapv:LexicalMatching
       - value: semapv:ManualMappingCuration
+    see_also:
+      - https://mapping-commons.github.io/semantic-mapping-vocabulary/
+      - https://www.ebi.ac.uk/ols4/ontologies/semapv
   object_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
