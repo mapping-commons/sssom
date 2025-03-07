@@ -25,7 +25,7 @@ to help you bring mapping production in your organization to the next level - st
     * **Optional**: record the subject and object labels to make it easier for humans to read the file
 * **Enables**:
     * Direct integration into ETL pipelines
-    * Dropping societal costs by enabling others to re-use mappings
+    * Dropping societal costs by enabling others to reuse mappings
     * Moving data between semantic spaces
 
 ## :star::star: 2-Star Mappings
@@ -38,7 +38,7 @@ uncertainty explicit, add license and select semantic mapping predicate.
     * Record a confidence value for the mapping between 0 and 1, where appropriate
     * Use a standard open license for the use of the mapping set (e.g. Creative Commons)
 * **Enables**:
-    * The worry-free re-use of mappings even if target or source terminologies are “closed”
+    * The worry-free reuse of mappings even if target or source terminologies are “closed”
     * Transparently versioned access to mappings and the opportunity to provide more direct feedback
     * Downstream users can filter for high-confidence mappings
 

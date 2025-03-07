@@ -38,7 +38,7 @@ Whenever a mapping was established by a lexical matching process, track at least
 
 #### Level 2: Track the specific datamodel fields involved in the matching process
 
-Regardless of which specific lexical matching justification you are working on, it is often useful to document the source field of the values used to aquire the match. For example:
+Regardless of which specific lexical matching justification you are working on, it is often useful to document the source field of the values used to acquire the match. For example:
 
 - [subject_match_field](https://mapping-commons.github.io/sssom/subject_match_field/)`: rdfs:label` indicates that the value of the `rdfs:label` property on the subject entity was used to establish the match.
 - [object_match_field](https://mapping-commons.github.io/sssom/object_match_field/)`: skos:prefLabel` indicates that the value of the `skos:prefLabel` property on the object entity was used to establish the match.
@@ -64,7 +64,7 @@ The basic idea behind "Semantic similarity threshold-based matching" is that a p
 1. The jaccard similarity between a set of properties of the subject and object entities is calculated.
 1. The Resnik score is calculated between the subject and object entities.
 
-**Important note on applicability of SSSOM for semantic similarity profiles**: SSSOM is not used for documenting semantic similarity profiles, i.e. cross-tables where some set of terms are compared with another set of terms and the semantic similarity is recorded as a score. SSSOM is used to document mappings, and only if a mapping decision is influenced by a semantic similarity based approach, especially in conjunction with as specific thresshold, SSSOM is applicable. For pure semantic similarity tables use [OAK Semantic Similarity](https://incatools.github.io/ontology-access-kit/datamodels/similarity/index.html).
+**Important note on applicability of SSSOM for semantic similarity profiles**: SSSOM is not used for documenting semantic similarity profiles, i.e. cross-tables where some set of terms are compared with another set of terms and the semantic similarity is recorded as a score. SSSOM is used to document mappings, and only if a mapping decision is influenced by a semantic similarity based approach, especially in conjunction with as specific threshold, SSSOM is applicable. For pure semantic similarity tables use [OAK Semantic Similarity](https://incatools.github.io/ontology-access-kit/datamodels/similarity/index.html).
 
 **Semantic vs lexical similarity?**: Semantic similarity is different from lexical similarity intuitively because the context (the graph structure, the background information) is taken into account and provides an (often crude) model of the actual entity, rather than of the word describing it. However, the distinctions can become a bit hazy. Imagine learning a graph embedding on a graph without edges, or a word embedding purely on a single label - there is definitely a grey zone where lexical similarity finishes and semantic similarity begins. In practice though, it should be mostly clear.
 

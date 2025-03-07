@@ -9,7 +9,7 @@ model_synopsis:  SSSOM     # One liner about the model
 model_description: |-      # Longer description of the model
   SSSOM
 
-# Trove Classifiers (https://pypi.org/classifiers/) -- these can be omitted if the elemens below are sufficient
+# Trove Classifiers (https://pypi.org/classifiers/) -- these can be omitted if the elements below are sufficient
 classifiers:
     - "Development Status :: 4 - Beta"
     - "Environment :: Console"
