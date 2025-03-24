@@ -689,8 +689,10 @@ slots:
     examples:
       - value: https://github.com/mapping-commons/mh_mapping_initiative/pull/41
         description: A URL pointing to the pull request that introduced the mapping.
-    range: string
+    range: uri
     multivalued: true
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/422
   other:
     description: "Pipe separated list of key value pairs for properties not part of
       the SSSOM spec. Can be used to encode additional provenance data. NOTE. This
