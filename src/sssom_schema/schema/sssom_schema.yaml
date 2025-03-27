@@ -541,9 +541,9 @@ slots:
   subject_match_field:
     description:  >
       A list of properties, annotations or attributes related to the subject that was used
-      to establish the match. This property is recommended for use conjunction with 
+      to establish the match. This property is recommended for use in conjunction with 
       mapping justifications related to lexical matching, such as `semapv:LexicalMatching`. 
-      For additional information see below in 'See Also'.
+      For additional information see the 'See Also' section.
     range: EntityReference
     multivalued: true
     instantiates: sssom:Propagatable
@@ -560,9 +560,9 @@ slots:
   object_match_field:
     description: >
       A list of properties, annotations or attributes related to the object that was used
-      to establish the match. This property is recommended for use conjunction with 
+      to establish the match. This property is recommended for use in conjunction with 
       mapping justifications related to lexical matching, such as `semapv:LexicalMatching`. 
-      For additional information see below in 'See Also'.
+      For additional information see the in 'See Also' section.
     range: EntityReference
     multivalued: true
     instantiates: sssom:Propagatable
