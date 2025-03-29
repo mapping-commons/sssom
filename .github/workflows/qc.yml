@@ -22,7 +22,7 @@ jobs:
       - name: Install latest SSSOM
         env:
           DEFAULT_BRANCH: master
-        run: pip install --upgrade pip --break-system-packages && pip install -U sssom sssom-schema --break-system-packages
+        run: pip install -U sssom sssom-schema --break-system-packages
       - uses: actions/checkout@v2
       - name: Run Mapping QC checks
         env:
