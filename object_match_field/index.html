@@ -889,6 +889,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -917,10 +924,11 @@
 
 <h1 id="object_match_field">object_match_field</h1>
 <p><strong>URI</strong>: <a href="https://w3id.org/sssom/object_match_field">sssom:object_match_field</a></p>
-<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>A list of properties (term annotations on the object) that was used for the match.</em></p>
+<p><em>A list of properties, annotations or attributes related to the object that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as <code>semapv:LexicalMatching</code>.  For additional information see the 'See Also' section.</em>
+__</p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
@@ -941,6 +949,13 @@
 <p><code>skos:prefLabel</code></p>
 <p><strong>Description</strong>: The SKOS preferred label property (skos:prefLabel) was used to match the object.</p>
 </div>
+<h2 id="see-also">See Also</h2>
+<p>These are some relevant resources you might find useful to get additional information about the element,
+such as example implementations, issues and pull requests.</p>
+<ul>
+<li><a href="https://mapping-commons.github.io/sssom/mapping-justifications/#lexical-matching">https://mapping-commons.github.io/sssom/mapping-justifications/#lexical-matching</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/issues/413">https://github.com/mapping-commons/sssom/issues/413</a></li>
+</ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
@@ -952,8 +967,12 @@ annotations:
   propagated:
     tag: propagated
     value: true
-description: A list of properties (term annotations on the object) that was used for
-  the match.
+description: 'A list of properties, annotations or attributes related to the object
+  that was used to establish the match. This property is recommended for use in conjunction
+  with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For
+  additional information see the ''See Also'' section.
+
+  '
 examples:
 - value: rdfs:label
   description: The RDFS label property (rdfs:label) was used to match the object.
@@ -961,6 +980,9 @@ examples:
   description: The SKOS preferred label property (skos:prefLabel) was used to match
     the object.
 from_schema: https://w3id.org/sssom/schema/
+see_also:
+- https://mapping-commons.github.io/sssom/mapping-justifications/#lexical-matching
+- https://github.com/mapping-commons/sssom/issues/413
 rank: 1000
 alias: object_match_field
 domain_of:
