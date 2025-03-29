@@ -17,7 +17,7 @@ on:
 jobs:
   sssom_validation:
     runs-on: ubuntu-latest
-    container: obolibrary/odkfull:v1.4
+    container: obolibrary/odkfull:v1.5.4
     steps:
       - name: Install latest SSSOM
         env:
