@@ -698,7 +698,7 @@
 </tr>
 <tr>
 <td><a href="../see_also/">see_also</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../Uri/">Uri</a></td>
 <td>A URL specific for the mapping instance</td>
 <td>direct</td>
 </tr>
@@ -1365,6 +1365,8 @@ attributes:
     - value: https://github.com/mapping-commons/mh_mapping_initiative/pull/41
       description: A URL pointing to the pull request that introduced the mapping.
     from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/422
     rank: 1000
     slot_uri: rdfs:seeAlso
     alias: see_also
@@ -1372,7 +1374,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    range: string
+    range: uri
     multivalued: true
   issue_tracker:
     name: issue_tracker

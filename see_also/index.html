@@ -889,6 +889,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -917,14 +924,14 @@
 
 <h1 id="see_also">see_also</h1>
 <p><strong>URI</strong>: <a href="http://www.w3.org/2000/01/rdf-schema#seeAlso">rdfs:seeAlso</a></p>
-<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
+<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
 <p><em>A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
-<li><strong>Range</strong>: <a href="../String/">String</a>. The range of the element is the type of the value that can be assigned to it.</li>
+<li><strong>Range</strong>: <a href="../Uri/">Uri</a>. The range of the element is the type of the value that can be assigned to it.</li>
 <li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
 <li><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</li>
 </ul>
@@ -935,6 +942,12 @@
 <p><code>https://github.com/mapping-commons/mh_mapping_initiative/pull/41</code></p>
 <p><strong>Description</strong>: A URL pointing to the pull request that introduced the mapping.</p>
 </div>
+<h2 id="see-also">See Also</h2>
+<p>These are some relevant resources you might find useful to get additional information about the element,
+such as example implementations, issues and pull requests.</p>
+<ul>
+<li><a href="https://github.com/mapping-commons/sssom/issues/422">https://github.com/mapping-commons/sssom/issues/422</a></li>
+</ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
@@ -947,13 +960,15 @@ examples:
 - value: https://github.com/mapping-commons/mh_mapping_initiative/pull/41
   description: A URL pointing to the pull request that introduced the mapping.
 from_schema: https://w3id.org/sssom/schema/
+see_also:
+- https://github.com/mapping-commons/sssom/issues/422
 rank: 1000
 slot_uri: rdfs:seeAlso
 alias: see_also
 domain_of:
 - mapping set
 - mapping
-range: string
+range: uri
 multivalued: true
 
 </code></pre>
