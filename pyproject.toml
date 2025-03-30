@@ -31,4 +31,4 @@ docs = ["linkml", "mkdocs-material"]
 skip = '.git*,*.pdf,*.lock'
 check-hidden = true
 ignore-regex = '\b(COMENT|EHR|LOD)\b'
-# ignore-words-list = ''
+ignore-words-list = 'disjointness'
