@@ -43,7 +43,7 @@ facets. In that sense, it should be considered complementary, as it enables the 
 something that goes beyond what most ontologies would offer. However, the concept of ontology mappings can be _perceived_ as antagonistic to Open Ontology
 principles, as its goal is _not the logical integration of knowledge, but the association or linking of terms across controlled semantic spaces_. 
 The OBO vision involves the building of a coherent, non-redundant semantic space of logically interconnected ontologies, which in particular
-wants to avoid the introduction of overlapping concepts. The mapping world specifically embraces heterogenous semantic spaces and overlapping concepts,
+wants to avoid the introduction of overlapping concepts. The mapping world specifically embraces heterogeneous semantic spaces and overlapping concepts,
 and seeks to bridge the semantic gaps using well-defined mapping relations such as "skos:broadMatch" or "owl:equivalentClass".
 
 

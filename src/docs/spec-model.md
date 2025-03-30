@@ -2,7 +2,7 @@
 
 The SSSOM data model (hereafter “the model”) defines the data structure to represent and manipulate SSSOM concepts. The model is formally described as a [LinkML](https://linkml.io/) schema, from which the [documentation](linkml-index.md) is derived.
 
-This section provides an overview of the model and supplementary informations that may not be found in the schema (and its derived documentation) itself. Of note, the schema, not this section, is always the authoritative source of truth for all questions pertaining to the model.
+This section provides an overview of the model and supplementary information that may not be found in the schema (and its derived documentation) itself. Of note, the schema, not this section, is always the authoritative source of truth for all questions pertaining to the model.
 
 ## Overview
 
@@ -36,8 +36,8 @@ By exception, prefix names listed in the table found in the [IRI prefixes](spec-
 
 As mentioned briefly above, there are two different types of slots in the `MappingSet` class:
 
-* slots that provide informations about the set itself;
-* slots that provide informations about all the mappings in the set.
+* slots that provide information about the set itself;
+* slots that provide information about all the mappings in the set.
 
 The latter are called “propagatable slots”. In the LinkML model, they are marked with a `propagated` annotation whose value is set to `true`.
 

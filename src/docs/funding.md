@@ -22,9 +22,9 @@ which included, but was not limited to:
 - Implementation of validation and parsing methods in [sssom-py](https://github.com/mapping-commons/sssom-py)
 - Generating [training materials](../training.md)
 - Organising [workshops](../workshops.md)
-- Outreach activties to clinical communities such as [OHDSI](https://www.ohdsi.org/)
+- Outreach activities to clinical communities such as [OHDSI](https://www.ohdsi.org/)
 
-The grant was awared to members of the Monarch Initiative.
+The grant was awarded to members of the Monarch Initiative.
 
 ### Monarch (NIH / OD #5R24OD011883)
 
@@ -36,7 +36,7 @@ a few new features had to be supported:
 - Various improvements to the SSSOM metadata model, including the introduction of curation rules.
 - The [OxO2 SSSOM mapping browser](https://github.com/EBISPOT/oxo2)
 
-The grant was awared to members of the Monarch Initiative.
+The grant was awarded to members of the Monarch Initiative.
 
 ### Bosch Gift to LBNL
 
@@ -48,4 +48,4 @@ A lot of the work on tooling was supported by a Bosch Gift to the Lawrence Berke
 
 ### DARPA: Young Faculty Award W911NF2010255
 
-A huge amount of refactoring of [sssom-py](https://github.com/mapping-commons/sssom-py) and development best practices, as well as training materials, was provided through this grant (awared to Benjamin M. Gyori). Other contributions include work on the [Semantic mapping reasoner and assembler](https://github.com/biopragmatics/semra)
+A huge amount of refactoring of [sssom-py](https://github.com/mapping-commons/sssom-py) and development best practices, as well as training materials, was provided through this grant (awarded to Benjamin M. Gyori). Other contributions include work on the [Semantic mapping reasoner and assembler](https://github.com/biopragmatics/semra)
