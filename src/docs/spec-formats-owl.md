@@ -89,7 +89,7 @@ The mapping `<S,P,O, meta>` gets translated into an annotated axiom using the fo
 
 | Mapping predicate   | Generated axiom             |
 | ------------------- | --------------------------- |
-| owl:equivalentClass | EauivalentClass(meta, S, O) |
+| owl:equivalentClass | EquivalentClass(meta, S, O) |
 | rdfs:subClassOf     | SubClassOf(meta, S, O)      |
 
 Example:
