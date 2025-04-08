@@ -20,8 +20,8 @@ which included, but was not limited to:
 
 - Creation of a basic metadata model
 - Implementation of validation and parsing methods in [sssom-py](https://github.com/mapping-commons/sssom-py)
-- Generating [training materials](../training.md)
-- Organising [workshops](../workshops.md)
+- Generating [training materials](training.md)
+- Organising [workshops](workshops.md)
 - Outreach activties to clinical communities such as [OHDSI](https://www.ohdsi.org/)
 
 The grant was awared to members of the Monarch Initiative.

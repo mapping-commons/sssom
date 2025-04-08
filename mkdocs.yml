@@ -1,4 +1,5 @@
 site_name: "A Simple Standard for Sharing Ontology Mappings (SSSOM)"
+site_author: "The SSSOM Community"
 theme:
   name: material
   analytics:
@@ -13,6 +14,7 @@ plugins:
   - mermaid2
 markdown_extensions:
   - pymdownx.highlight:
+      use_pygments: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.tabbed:
@@ -23,8 +25,8 @@ markdown_extensions:
   - pymdownx.tilde
   - admonition
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 nav:
   - Home: index.md
   - Introduction: introduction.md
