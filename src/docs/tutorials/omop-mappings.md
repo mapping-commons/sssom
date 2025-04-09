@@ -55,7 +55,7 @@ What do we see here?
 
 What do we see here?
 
-- For matching tools, confidence can be calculated by proxies such as "lexical similarity", "edit distance", "cosine similarity of node embedding" and other metrics. IN the example above, Usagi has determined that the subject and objects match, but it was only 80% sure (we dont know why - this is [more advance SSSOM](../mapping-justifications.md))
+- For matching tools, confidence can be calculated by proxies such as "lexical similarity", "edit distance", "cosine similarity of node embedding" and other metrics. In the example above, Usagi has determined that the subject and objects match, but it was only 80% sure (we dont know why - this is [more advanced SSSOM](../mapping-justifications.md))
 - For case where an external mapping is re-used using ETL, `confidence` describes the level of trust you as an ETL expert have in the fidelty of the mapping provided by the source.
 
 ## Level 4: Document curation rules
