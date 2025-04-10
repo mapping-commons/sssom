@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="The SSSOM Community">
+      
       
         <link rel="canonical" href="https://mapping-commons.github.io/sssom/spec-model/">
       
@@ -1126,7 +1128,7 @@
 
 <h1 id="the-sssom-data-model">The SSSOM data model</h1>
 <p>The SSSOM data model (hereafter “the model”) defines the data structure to represent and manipulate SSSOM concepts. The model is formally described as a <a href="https://linkml.io/">LinkML</a> schema, from which the <a href="../linkml-index/">documentation</a> is derived.</p>
-<p>This section provides an overview of the model and supplementary informations that may not be found in the schema (and its derived documentation) itself. Of note, the schema, not this section, is always the authoritative source of truth for all questions pertaining to the model.</p>
+<p>This section provides an overview of the model and supplementary information that may not be found in the schema (and its derived documentation) itself. Of note, the schema, not this section, is always the authoritative source of truth for all questions pertaining to the model.</p>
 <h2 id="overview">Overview</h2>
 <p>The model consists in a handful of classes, the most important of them being the <a href="../Mapping/"><code>Mapping</code> class</a> and the <a href="../MappingSet/"><code>MappingSet</code> class</a>. Any SSSOM implementation MUST support those two classes and all their slots; support for the other classes is OPTIONAL.</p>
 <p>The <code>Mapping</code> class represents an individual mapping. Fundamental slots in that class are:</p>
@@ -1146,8 +1148,8 @@
 <h2 id="propagation-of-mapping-set-slots">Propagation of mapping set slots</h2>
 <p>As mentioned briefly above, there are two different types of slots in the <code>MappingSet</code> class:</p>
 <ul>
-<li>slots that provide informations about the set itself;</li>
-<li>slots that provide informations about all the mappings in the set.</li>
+<li>slots that provide information about the set itself;</li>
+<li>slots that provide information about all the mappings in the set.</li>
 </ul>
 <p>The latter are called “propagatable slots”. In the LinkML model, they are marked with a <code>propagated</code> annotation whose value is set to <code>true</code>.</p>
 <p>For convenience, here is the current list of propagatable slots:</p>

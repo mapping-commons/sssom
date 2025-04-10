@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="The SSSOM Community">
+      
       
         <link rel="canonical" href="https://mapping-commons.github.io/sssom/explanation/mappings/">
       
@@ -1045,7 +1047,7 @@ the metadata is insufficient to allow for precise analyses and clinical decision
 <li><em>Confidence</em>: Do I trust the mapping? Was is done manually by an expert in my domain, or by an algorithm?</li>
 <li><em>Source version</em>: Which version of the term (or its corresponding ontology) was mapped? Is there a newer mapping which has a more suitable match for my term?</li>
 </ul>
-<p>Whenever you handle mappings (either create, or re-use), make sure you are keenly aware of at least these three metrics, and capture them. You may even want to consider using a proper mapping model like the <a href="https://github.com/mapping-commons/SSSOM/blob/master/SSSOM.md">Simple Shared Standard for Ontology Mappings (SSSOM)</a> which will make your mappings FAIR and reusable.</p>
+<p>Whenever you handle mappings (either create, or reuse), make sure you are keenly aware of at least these three metrics, and capture them. You may even want to consider using a proper mapping model like the <a href="https://github.com/mapping-commons/SSSOM/blob/master/SSSOM.md">Simple Shared Standard for Ontology Mappings (SSSOM)</a> which will make your mappings FAIR and reusable.</p>
 <h3 id="string-string-mappings">String-string mappings</h3>
 <p>String-string mappings are mappings that relate two strings. The task of matching two strings is ubiquitous for example in database search fields (where a user search string needs to be mapped to some strings in a database). Most, if not all effective ontology matching techniques will employ some form of string-string matching. For example, to match simple variations of labels such as "abnormal heart" and "heart abnormality", various techniques such as <a href="https://en.wikipedia.org/wiki/Stemming">Stemming</a> and <a href="https://en.wikipedia.org/wiki/Bag-of-words_model#:~:text=The%20bag%2Dof%2Dwords%20model,word%20order%20but%20keeping%20multiplicity.">bag of words</a> can be employed effectively. Other techniques such as edit-distance or Levenshtein can be used to quantify the similarity of two strings, which can provide useful insights into mapping candidates.</p>
 <h3 id="string-term-mappings-synonyms">String-term mappings / synonyms</h3>

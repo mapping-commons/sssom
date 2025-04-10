@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="The SSSOM Community">
+      
       
         <link rel="canonical" href="https://mapping-commons.github.io/sssom/faq/">
       
@@ -1005,8 +1007,8 @@
 <h2 id="why-should-our-mappings-be-fair-and-carefully-standardised">Why should our mappings be FAIR and carefully standardised?</h2>
 <p>Mappings are frequently created on an ad-hoc basis, using simple two-column spreadsheets where the first column corresponds to the subject of the mapping, and the second column to the object of the mapping. This is insufficient for a variety of reasons:</p>
 <ul>
-<li>non-transparent precision: While the assumption is that the subject "sort of mostly exactly" maps to the object, in practice this is rarely the case. Matches can <code>exact</code>, where the subject corresponds 100% to the object, <code>broad</code>, where the object is broader than the subject, and others. Qualifiers like <code>exact</code>, <code>broad</code>, <code>narrow</code>, <code>related</code> and <code>close</code> qualify the <em>precision</em> of the mapping (not to be mistaken for fuzziness of confidence). Without knowing the precision, we cannot accurately transform our data, nor can we use the mappings to "walk", i.e. move from one mapping to another, see <a href="spec.md#minimum">SSSOM 5-Star recommendation for mappings</a></li>
-<li>non-transparent incompleteness: We don't know when the mapping was created, on the basis of what version of the terminological source of the subject or object. As time passes, we also lose confidence whether there would now be more suitable mappings, or wether there are new terms that are now fully covered by the mappings.</li>
+<li>non-transparent precision: While the assumption is that the subject "sort of mostly exactly" maps to the object, in practice this is rarely the case. Matches can <code>exact</code>, where the subject corresponds 100% to the object, <code>broad</code>, where the object is broader than the subject, and others. Qualifiers like <code>exact</code>, <code>broad</code>, <code>narrow</code>, <code>related</code> and <code>close</code> qualify the <em>precision</em> of the mapping (not to be mistaken for fuzziness of confidence). Without knowing the precision, we cannot accurately transform our data, nor can we use the mappings to "walk", i.e. move from one mapping to another, see <a href="../5star-mappings/">SSSOM 5-Star recommendation for mappings</a></li>
+<li>non-transparent incompleteness: We don't know when the mapping was created, on the basis of what version of the terminological source of the subject or object. As time passes, we also lose confidence whether there would now be more suitable mappings, or whether there are new terms that are now fully covered by the mappings.</li>
 <li>non-transparent confidence: whether a tool or a human propose the mapping, there is always a bit of a risk the mapping call may be wrong. As consumers of the mappings we need to know how confident the mapping authors were (confidence score), and why they confident (curation rules, mapping justification).</li>
 </ul>
 <p>Currently, mappings are created by a variety of systems, manually curated and automatic, and we need a way to efficiently collect and combine them. Mapping sets and mappings with quality provenance metadata allow us to trace faulty mappings to the source and correct them in a way that <em>all</em> users of the mapping set will profit from it.</p>
@@ -1037,7 +1039,7 @@ facets. In that sense, it should be considered complementary, as it enables the 
 something that goes beyond what most ontologies would offer. However, the concept of ontology mappings can be <em>perceived</em> as antagonistic to Open Ontology
 principles, as its goal is <em>not the logical integration of knowledge, but the association or linking of terms across controlled semantic spaces</em>. 
 The OBO vision involves the building of a coherent, non-redundant semantic space of logically interconnected ontologies, which in particular
-wants to avoid the introduction of overlapping concepts. The mapping world specifically embraces heterogenous semantic spaces and overlapping concepts,
+wants to avoid the introduction of overlapping concepts. The mapping world specifically embraces heterogeneous semantic spaces and overlapping concepts,
 and seeks to bridge the semantic gaps using well-defined mapping relations such as "skos:broadMatch" or "owl:equivalentClass".</p>
 
 

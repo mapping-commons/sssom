@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="The SSSOM Community">
+      
       
         <link rel="canonical" href="https://mapping-commons.github.io/sssom/matching-tool-implementation-guide/">
       
@@ -1012,14 +1014,14 @@
 <li>Carefully consider if a piece of metadata should be applied on <a href="https://mapping-commons.github.io/sssom/Mapping/">mapping</a> or <a href="https://mapping-commons.github.io/sssom/MappingSet/">mapping set</a> level. As a rule of thumb, if a piece of metadata applies to absolutely all mappings in the target set, then consider adding it as metadata to the mapping set, to safe space.</li>
 <li>Justifications in the sense of this guide comprise a <em>category</em> (documented in the <a href="https://mapping-commons.github.io/sssom/mapping_justification/">mapping_justification</a> field), which is represented as a specific matching activity such as "lexical matching", "logical matching", "manual mapping curation", etc, a confidence value that represents the amount of confidence the justification contributes to the perceived truthfulness of a mapping, and additional metadata that provide additional provenance.</li>
 <li>The basic vocabulary for the justification category is the <a href="https://github.com/mapping-commons/semantic-mapping-vocabulary">Semantic Mapping Vocabulary</a>. Feel free to use the <a href="https://github.com/mapping-commons/semantic-mapping-vocabulary/issues">issue tracker</a> to request new categories to be added. There is a fast turnaround.</li>
-<li>The goal of providing mapping justifications is to enable cross-purpose re-use of mappings, sharing of mappings and <a href="../glossary/">mapping reconciliation</a>. Mapping justifications make individual mapping decisions transparent.</li>
-<li>Adding justifications is always valueable, even if <strong>not all detailed metadata is provided</strong>.</li>
+<li>The goal of providing mapping justifications is to enable cross-purpose reuse of mappings, sharing of mappings and <a href="../glossary/">mapping reconciliation</a>. Mapping justifications make individual mapping decisions transparent.</li>
+<li>Adding justifications is always valuable, even if <strong>not all detailed metadata is provided</strong>.</li>
 <li>Many justifications are combinations of other justifications. For example, we may decide that a match is justified if (a) there is a lexical match and (b) the surrounding graph-structure is isomorphic or (c) the entities involved share the same properties. In this case, we should add individual justifications for each individual justification. The <a href="https://mapping-commons.github.io/sssom/confidence/">confidence</a> value expresses how <strong>confident the specific justification makes you feel about the truthfulness of the mapping</strong>. If a joint probability is calculated from multiple justifications, add a separate justification for that, e.g. <a href="https://w3id.org/semapv/vocab/CompositeMatching">semapv:CompositeMatching</a>.</li>
 <li>In the SSSOM TSV formats, every row corresponds to a justification, not a mapping. So the same mapping with three justifications will result in three rows in the SSSOM TSV file.</li>
 </ol>
 <h2 id="background">Background</h2>
 <p>Before reading on, please skim through the <a href="../">technical documentation of SSSOM</a> to get a sense of what kind of properties exist, and read our primer on <a href="../mapping-justifications/">mapping justifications</a> first, which explains how to design a number of frequently used mapping justifications.</p>
-<p>As the collection of justifications can impact the performance of he matching process (at least for huge matching tasks), it is adviseable that the process can be switched off by the CLI.</p>
+<p>As the collection of justifications can impact the performance of he matching process (at least for huge matching tasks), it is advisable that the process can be switched off by the CLI.</p>
 <p>For most matching processes, we first construct a candidate mapping set from a combination of sources, for example:</p>
 <ol>
 <li>Mappings provided by user as input to the matching process</li>
@@ -1033,14 +1035,14 @@
 <li>Logical matching (for example by deconstructing complex terms into composites and then using logical reasoning).</li>
 <li>Similarity based matching, including graph-embedding similarity (machine learning), old-school semantic similarity measures like Resnik or even Jaccard (over some part of the ontology/schema structure)</li>
 </ol>
-<p>As a rule of thumb, the more complex the rules by which a match is determined, the harder it is to provide a useful justification. To put it slighly differently: the more complex a justification, the less useful it is if the goal is to make matching decisions <strong>transparent for human users</strong>. A good example of this are decisions based on embedding (e.g. graph, node) similarity: while it is often useful to understand that a match has been determined by a threshold (e.g. &gt;=0.9) of cosine similarity of a node embedding, it is less important to communicate exactly how the embedding space was constructed.</p>
+<p>As a rule of thumb, the more complex the rules by which a match is determined, the harder it is to provide a useful justification. To put it slightly differently: the more complex a justification, the less useful it is if the goal is to make matching decisions <strong>transparent for human users</strong>. A good example of this are decisions based on embedding (e.g. graph, node) similarity: while it is often useful to understand that a match has been determined by a threshold (e.g. &gt;=0.9) of cosine similarity of a node embedding, it is less important to communicate exactly how the embedding space was constructed.</p>
 <p>This insight guides our implementation in two ways:</p>
 <ol>
 <li>We start by focusing on the "easy" cases with clear mapping justifications (like the lexical ones used to construct the <em>candidate mapping set</em>), and incrementally work our way up towards harder ones.</li>
 <li>We have a default justification for "complex" cases which we have not covered yet. This is necessary not only because it may be hard to construct complex justifications from within a matching tool, but also because SSSOM simply does not have a way to express the justification yet (in this case, request clarification on the <a href="https://github.com/mapping-commons/sssom/issues">SSSOM issue tracker</a>).</li>
 </ol>
 <h2 id="basic-thoughts-about-architecture">Basic thoughts about architecture</h2>
-<p>The <a href="https://github.com/dwslab/melt">MELT framework</a> offers a well designed architecture for matchers. While the interested readers is referred to <a href="https://dwslab.github.io/melt/">the MELT documentation</a> for details, we want to use it here as an example on how a tool implementor, from a higher level perspective, could think about collecting SSSOM metadata as part of the matchig process.</p>
+<p>The <a href="https://github.com/dwslab/melt">MELT framework</a> offers a well designed architecture for matchers. While the interested readers is referred to <a href="https://dwslab.github.io/melt/">the MELT documentation</a> for details, we want to use it here as an example on how a tool implementer, from a higher level perspective, could think about collecting SSSOM metadata as part of the matching process.</p>
 <p>Conceptually, a matching process (from the perspective of the MELT developers) has four inputs:</p>
 <ol>
 <li>Source ontology: <code>O_s</code></li>
@@ -1048,7 +1050,7 @@
 <li>(potentially empty) input alignment: <code>Map_in</code></li>
 <li>Configuration (for the matching tool): <code>Cong</code></li>
 </ol>
-<p>and return one outut:</p>
+<p>and return one output:</p>
 <ol>
 <li>Output alignment: <code>Map_out</code></li>
 </ol>
@@ -1059,13 +1061,13 @@ we assume this basic architecture.</p>
 <li>The alignment</li>
 <li>The individual correspondence part of the alignment</li>
 <li>Evidence gathered for towards the truthfullness of the alignment</li>
-<li>A matcher that implements the "matching process" described above in terms of intput/output</li>
+<li>A matcher that implements the "matching process" described above in terms of input/output</li>
 </ol>
 <p>In the MELT reference implementation, for example, there is an <a href="https://github.com/dwslab/melt/blob/master/yet-another-alignment-api/src/main/java/de/uni_mannheim/informatik/dws/melt/yet_another_alignment_api/Alignment.java">Alignment</a> class. 
 During the matching process, the alignment is passed through a series of <a href="https://github.com/dwslab/melt/blob/master/matching-jena/src/main/java/de/uni_mannheim/informatik/dws/melt/matching_jena/MatcherYAAA.java#L16">matchers</a> to be augmented. For example, a <a href="https://github.com/dwslab/melt/blob/master/matching-jena-matchers/src/main/java/de/uni_mannheim/informatik/dws/melt/matching_jena_matchers/structurelevel/BoundedPathMatching.java#L41">bounded path matcher</a>.
 In essence, the matching process is a series of matchings strung together, passing where the alignment produced by the last process is passed through to the next, then augmented, then passed on (potentially for other processes such as filtering, which we consider matching processes as well).</p>
 <p>During an individual matching process like <a href="https://github.com/dwslab/melt/blob/master/matching-jena-matchers/src/main/java/de/uni_mannheim/informatik/dws/melt/matching_jena_matchers/structurelevel/BoundedPathMatching.java#L41">bounded path matcher</a>, correspondences are added and removed from the alignment.</p>
-<p>The key for a meaningful SSSOM integration is this: when a new correspondence (mapping) is added to the alignment (or "mapping set" in SSSOM speach) you <em>add a piece of evidence alongside the correspondence</em>. 
+<p>The key for a meaningful SSSOM integration is this: when a new correspondence (mapping) is added to the alignment (or "mapping set" in SSSOM speech) you <em>add a piece of evidence alongside the correspondence</em>. 
 This is usually done by extending the correspondence data model with a new field: justification, evidence, or similar.
 A piece of evidence includes three major things:</p>
 <ol>

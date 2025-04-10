@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="The SSSOM Community">
+      
       
         <link rel="canonical" href="https://mapping-commons.github.io/sssom/tutorial/">
       
@@ -1430,7 +1432,7 @@
 <p>SSSOM mapping sets can be created as part of automated processes, like ontology matchers, or manually by ontology curators. While there is overlap, it makes sense to look at both cases separately. To remind yourself why you should build SSSOM mapping sets in the first place, please refer to <a href="../faq/#why">the FAQ</a>.</p>
 <p><a id="scratchstart"></a></p>
 <h3 id="manually-curating-mapping-sets">Manually curating mapping sets</h3>
-<p>To gradually improve terminological mapping practices we are proposing a <a href="spec.md#minimum">5-star system for mappings</a>. For the sake of this tutorial, we will focus on producing a <a href="spec.md#minimum">solid 3-Star mapping set</a> with the following metadata:</p>
+<p>To gradually improve terminological mapping practices we are proposing a <a href="../5star-mappings/">5-star system for mappings</a>. For the sake of this tutorial, we will focus on producing a <a href="../5star-mappings/">solid 3-Star mapping set</a> with the following metadata:</p>
 <p><strong>Core mapping metadata</strong>:</p>
 <ul>
 <li><code>subject_id</code>: The ID of the subject of the mapping</li>
@@ -1864,7 +1866,7 @@ SELECT * WHERE {
 <li>describes the purpose for the creation of the mapping set</li>
 <li>is reasonably short, but not too short (3-4 sentences)</li>
 </ul>
-<p><code>license</code>: An identifier for a license description. One of the most serious impediments to re-use on the web is the absence of clear and <strong>standardised</strong> licenses. We recommend the creative commons licenses for open data, either CC-0 (public domain, no license) or CC-BY 4.0. (Some people prefer CC-BY 4.0, because it ensures that attribution is taken more seriously.) Even when using a proprietary license, it is good to be transparent here, so that an "accidentally leaked" data file is not mistakenly assumed to be "open".</p>
+<p><code>license</code>: An identifier for a license description. One of the most serious impediments to reuse on the web is the absence of clear and <strong>standardised</strong> licenses. We recommend the creative commons licenses for open data, either CC-0 (public domain, no license) or CC-BY 4.0. (Some people prefer CC-BY 4.0, because it ensures that attribution is taken more seriously.) Even when using a proprietary license, it is good to be transparent here, so that an "accidentally leaked" data file is not mistakenly assumed to be "open".</p>
 <p><code>subject_source</code>: URI of source the subject. This is one of the most important pieces of metadata: an unambiguous reference to a source. It is notoriously hard to standardise source references (<a href="https://github.com/mapping-commons/sssom/issues/126">see past debate</a>). We recommend to use the standard URIs used in your own domain, for example OBO (<code>obo:mondo</code>) or Wikidata (<code>wikidata:Q7876491</code>).</p>
 <p><code>subject_source_version</code>: The version of the source of the subject. In order to interpret a mapping, it is not enough to know the source. Sources changes all the time, whether they are database and/or ontology: classes are obsoleted, database records are deleted. What counts for an exact mapping may change through the evolution of a source. <em>Always</em> document the source version, if you can. This can be very difficult for database systems that do not have a real notion of versioning.</p>
 <p><code>object_source</code>: URI of source the object. See <code>subject_source</code>.</p>

@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="The SSSOM Community">
+      
       
         <link rel="canonical" href="https://mapping-commons.github.io/sssom/mapping-justifications/">
       
@@ -1171,7 +1173,7 @@
 <li><a href="https://mapping-commons.github.io/sssom/mapping_justification/">mapping_justification</a><code>:</code><a href="https://w3id.org/semapv/vocab/CompositeMatching">semapv:LexicalMatching</a>. This indicates that the mapping was determined through some form of exact lexical matching.</li>
 </ul>
 <h4 id="level-2-track-the-specific-datamodel-fields-involved-in-the-matching-process">Level 2: Track the specific datamodel fields involved in the matching process</h4>
-<p>Regardless of which specific lexical matching justification you are working on, it is often useful to document the source field of the values used to aquire the match. For example:</p>
+<p>Regardless of which specific lexical matching justification you are working on, it is often useful to document the source field of the values used to acquire the match. For example:</p>
 <ul>
 <li><a href="https://mapping-commons.github.io/sssom/subject_match_field/">subject_match_field</a><code>: rdfs:label</code> indicates that the value of the <code>rdfs:label</code> property on the subject entity was used to establish the match.</li>
 <li><a href="https://mapping-commons.github.io/sssom/object_match_field/">object_match_field</a><code>: skos:prefLabel</code> indicates that the value of the <code>skos:prefLabel</code> property on the object entity was used to establish the match.</li>
@@ -1192,7 +1194,7 @@
 <li>The jaccard similarity between a set of properties of the subject and object entities is calculated.</li>
 <li>The Resnik score is calculated between the subject and object entities.</li>
 </ol>
-<p><strong>Important note on applicability of SSSOM for semantic similarity profiles</strong>: SSSOM is not used for documenting semantic similarity profiles, i.e. cross-tables where some set of terms are compared with another set of terms and the semantic similarity is recorded as a score. SSSOM is used to document mappings, and only if a mapping decision is influenced by a semantic similarity based approach, especially in conjunction with as specific thresshold, SSSOM is applicable. For pure semantic similarity tables use <a href="https://incatools.github.io/ontology-access-kit/datamodels/similarity/index.html">OAK Semantic Similarity</a>.</p>
+<p><strong>Important note on applicability of SSSOM for semantic similarity profiles</strong>: SSSOM is not used for documenting semantic similarity profiles, i.e. cross-tables where some set of terms are compared with another set of terms and the semantic similarity is recorded as a score. SSSOM is used to document mappings, and only if a mapping decision is influenced by a semantic similarity based approach, especially in conjunction with as specific threshold, SSSOM is applicable. For pure semantic similarity tables use <a href="https://incatools.github.io/ontology-access-kit/datamodels/similarity/index.html">OAK Semantic Similarity</a>.</p>
 <p><strong>Semantic vs lexical similarity?</strong>: Semantic similarity is different from lexical similarity intuitively because the context (the graph structure, the background information) is taken into account and provides an (often crude) model of the actual entity, rather than of the word describing it. However, the distinctions can become a bit hazy. Imagine learning a graph embedding on a graph without edges, or a word embedding purely on a single label - there is definitely a grey zone where lexical similarity finishes and semantic similarity begins. In practice though, it should be mostly clear.</p>
 <h4 id="level-1-documenting-semantic-similarity-matches">Level 1: Documenting semantic similarity matches</h4>
 <p>The suggested metadata for semantic similarity threshold-based matching approach is:</p>
