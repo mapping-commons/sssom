@@ -16,7 +16,7 @@ linkml-runtime = "*"
 
 [tool.poetry.dev-dependencies]
 linkml = "^1.7.0"
-mkdocs-material = "^8.2.8"
+mkdocs-material = { version = "^8.2.8", extras = ["emojis"] }
 mkdocs-mermaid2-plugin = "^1.1.1"
 
 [build-system]
