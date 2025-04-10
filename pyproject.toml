@@ -13,8 +13,9 @@ license = "MIT"
 python = "^3.8.1"
 jinjanator = "*"
 linkml-runtime = "*"
+mkdocs-material = {version = "<9.0.0", extras = ["emojis"]}
 
-[tool.poetry.dev-dependencies]
+[poetry.group.dev.dependencies]
 linkml = "^1.7.0"
 mkdocs-material = { version = "^8.2.8", extras = ["emojis"] }
 mkdocs-mermaid2-plugin = "^1.1.1"
