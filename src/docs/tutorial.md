@@ -115,7 +115,7 @@ SSSOM mapping sets can be created as part of automated processes, like ontology 
 <a id="scratchstart"></a>
 ### Manually curating mapping sets
 
-To gradually improve terminological mapping practices we are proposing a [5-star system for mappings](spec.md#minimum). For the sake of this tutorial, we will focus on producing a [solid 3-Star mapping set](spec.md#minimum) with the following metadata:
+To gradually improve terminological mapping practices we are proposing a [5-star system for mappings](5star-mappings.md). For the sake of this tutorial, we will focus on producing a [solid 3-Star mapping set](5star-mappings.md) with the following metadata:
 
 **Core mapping metadata**:
 
