@@ -239,7 +239,7 @@ sssom:MappingSet a sh:NodeShape ;
 
 sssom:NoTermFound a sh:NodeShape ;
     sh:closed true ;
-    sh:description "sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be found. It SHOULD be used in conjuction with a corresponding subject_source or object_source to signify where the term was not found." ;
+    sh:description "sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be found. It SHOULD be used in conjunction with a corresponding subject_source or object_source to signify where the term was not found." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass sssom:NoTermFound .
 

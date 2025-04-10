@@ -80,7 +80,7 @@
 -- # Class: "Propagatable" Description: "Metamodel extension class to describe slots whose value can be propagated down from the MappingSet class to the Mapping class."
 --     * Slot: id Description: 
 --     * Slot: propagated Description: Indicates whether a slot can be propagated from a mapping down to individual mappings.
--- # Class: "NoTermFound" Description: "sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be found. It SHOULD be used in conjuction with a corresponding subject_source or object_source to signify where the term was not found."
+-- # Class: "NoTermFound" Description: "sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be found. It SHOULD be used in conjunction with a corresponding subject_source or object_source to signify where the term was not found."
 --     * Slot: id Description: 
 -- # Class: "mapping set_mapping_set_source" Description: ""
 --     * Slot: mapping set_id Description: Autocreated FK slot
