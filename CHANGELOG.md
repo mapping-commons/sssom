@@ -5,6 +5,7 @@
 - Add `composed entity expression` as a new value in the `EntityType` enumeration ([issue](https://github.com/mapping-commons/sssom/issues/402)).
 - Add `predicate_type` slot (previously defined but unused) to the `Mapping` and `MappingSet` classes ([issue](https://github.com/mapping-commons/sssom/issues/404)).
 - Add `similarity_measure` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/411)).
+- Add `sssom_version` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/439)).
 - Change the type of the `see_also` slot to `xsd:anyURI` ([issue](https://github.com/mapping-commons/sssom/issues/422)).
 - TBD
 
