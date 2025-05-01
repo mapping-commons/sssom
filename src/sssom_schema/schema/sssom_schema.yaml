@@ -247,9 +247,12 @@ slots:
     see_also:
       - https://github.com/mapping-commons/sssom/issues/143
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
+      - sssom:Versionable
     annotations:
       propagated: true
+      added_in: "1.1"
     examples:
       - value: owl:AnnotationProperty
       - value: owl:ObjectProperty
