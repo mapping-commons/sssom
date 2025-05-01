@@ -1,0 +1,9 @@
+# sssom_version: "1.1"
+# curie_map:
+#   HP: http://purl.obolibrary.org/obo/FBbt_
+#   MP: http://purl.obolibrary.org/obo/UBERON_
+# license: https://w3id.org/sssom/license/unspecified
+subject_id	predicate_id	object_id	mapping_justification
+HP:0009124	skos:exactMatch	MP:0000003	semapv:LexicalMatching
+HP:0008551	skos:exactMatch	MP:0000018	semapv:LexicalMatching
+

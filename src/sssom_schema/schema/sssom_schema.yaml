@@ -100,6 +100,7 @@ slots:
       added_in: "1.1"
     see_also:
       - https://github.com/mapping-commons/sssom/issues/439
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/version.sssom.tsv
   curie_map:
     description: A dictionary that contains prefixes as keys and their URI expansions as values.
     range: prefix
