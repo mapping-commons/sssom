@@ -199,7 +199,7 @@ Starting from version 1.1 of the specification, the `MappingSet` class has an op
 
 ### Versioning rules
 
-The version number of the SSSOM specification has two components: a _major_ number _X_ and a _minor_ number Y, expressed as `X.Y`.
+The SSSOM specification mostly follows the [Semantic Versioning principles](https://semver.org/), but only version numbers with two components: a _major_ number _X_ and a _minor_ number _Y_, expressed as `X.Y`.
 
 A set that is compliant with a minor version _X.Y_ is also compliant with any minor version _X.Y+n_, for any value of _n_. The opposite is not true: a set compliant with a minor version _X.Y_ may not necessarily be compliant with a minor version _X.Y-n_.
 
