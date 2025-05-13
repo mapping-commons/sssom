@@ -1475,10 +1475,14 @@ attributes:
     name: predicate_type
     instantiates:
     - sssom:Propagatable
+    - sssom:Versionable
     annotations:
       propagated:
         tag: propagated
         value: true
+      added_in:
+        tag: added_in
+        value: '1.1'
     description: The type of the predicate used to map the subject and object entities.
     examples:
     - value: owl:AnnotationProperty

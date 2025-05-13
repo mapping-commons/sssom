@@ -10,14 +10,14 @@
         <meta name="author" content="The SSSOM Community">
       
       
-        <link rel="canonical" href="https://mapping-commons.github.io/sssom/predicate_type/">
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/sssom_version/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
     
     
       
-        <title>predicate_type - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>sssom_version - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#predicate_type" class="md-skip">
+        <a href="#sssom_version" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              predicate_type
+              sssom_version
             
           </span>
         </div>
@@ -884,13 +884,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     See Also
   </a>
@@ -918,75 +911,56 @@
                 
                   
 
-  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/predicate_type.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/sssom_version.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="predicate_type">predicate_type</h1>
-<p><strong>URI</strong>: <a href="https://w3id.org/sssom/predicate_type">sssom:predicate_type</a></p>
-<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
+<h1 id="sssom_version">sssom_version</h1>
+<p><strong>URI</strong>: <a href="https://w3id.org/sssom/sssom_version">sssom:sssom_version</a></p>
+<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>The type of the predicate used to map the subject and object entities.</em></p>
+<p><em>The version of the SSSOM specification a mapping set is compliant with.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p><strong>Range</strong>: <a href="../EntityTypeEnum/">EntityTypeEnum</a>. The range of the element is the type of the value that can be assigned to it.</p>
+<p><strong>Range</strong>: <a href="../SssomVersionEnum/">SssomVersionEnum</a>. The range of the element is the type of the value that can be assigned to it.</p>
 </li>
 <li>
 <p><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</p>
 </li>
 </ul>
-<h2 id="examples">Examples</h2>
-<div class="admonition example">
-<p class="admonition-title">Example: owl:AnnotationProperty</p>
-<p><strong>Example value</strong>:</p>
-<p><code>owl:AnnotationProperty</code></p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example: owl:ObjectProperty</p>
-<p><strong>Example value</strong>:</p>
-<p><code>owl:ObjectProperty</code></p>
-</div>
 <h2 id="see-also">See Also</h2>
 <p>These are some relevant resources you might find useful to get additional information about the element,
 such as example implementations, issues and pull requests.</p>
 <ul>
-<li><a href="https://github.com/mapping-commons/sssom/issues/143">https://github.com/mapping-commons/sssom/issues/143</a></li>
-<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/issues/439">https://github.com/mapping-commons/sssom/issues/439</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/version.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/version.sssom.tsv</a></li>
 </ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
 
-<pre><code class="language-yaml">name: predicate_type
+<pre><code class="language-yaml">name: sssom_version
 instantiates:
-- sssom:Propagatable
 - sssom:Versionable
 annotations:
-  propagated:
-    tag: propagated
-    value: true
   added_in:
     tag: added_in
     value: '1.1'
-description: The type of the predicate used to map the subject and object entities.
-examples:
-- value: owl:AnnotationProperty
-- value: owl:ObjectProperty
+description: The version of the SSSOM specification a mapping set is compliant with.
 from_schema: https://w3id.org/sssom/schema/
 see_also:
-- https://github.com/mapping-commons/sssom/issues/143
-- https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv
+- https://github.com/mapping-commons/sssom/issues/439
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/version.sssom.tsv
 rank: 1000
-alias: predicate_type
+alias: sssom_version
 domain_of:
 - mapping set
-- mapping
-range: entity_type_enum
+range: sssom_version_enum
 
 </code></pre>
 

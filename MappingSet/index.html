@@ -509,6 +509,10 @@
 
       MappingSet : similarity_measure
 
+      MappingSet : sssom_version
+
+          MappingSet --|&gt; sssom_version_enum : sssom_version
+
       MappingSet : subject_match_field
 
       MappingSet : subject_preprocessing
@@ -535,6 +539,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../sssom_version/">sssom_version</a></td>
+<td>0..1 <br/> <a href="../SssomVersionEnum/">SssomVersionEnum</a></td>
+<td>The version of the SSSOM specification a mapping set is compliant with</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../curie_map/">curie_map</a></td>
 <td>* <br/> <a href="../Prefix/">Prefix</a></td>
@@ -762,6 +772,7 @@ description: Represents a set of mappings.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 slots:
+- sssom_version
 - curie_map
 - mappings
 - mapping_set_id
@@ -812,6 +823,26 @@ slot_usage:
     name: license
     required: true
 attributes:
+  sssom_version:
+    name: sssom_version
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: The version of the SSSOM specification a mapping set is compliant
+      with.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/439
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/version.sssom.tsv
+    rank: 1000
+    alias: sssom_version
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: sssom_version_enum
   curie_map:
     name: curie_map
     description: A dictionary that contains prefixes as keys and their URI expansions
@@ -1107,10 +1138,14 @@ attributes:
     name: predicate_type
     instantiates:
     - sssom:Propagatable
+    - sssom:Versionable
     annotations:
       propagated:
         tag: propagated
         value: true
+      added_in:
+        tag: added_in
+        value: '1.1'
     description: The type of the predicate used to map the subject and object entities.
     examples:
     - value: owl:AnnotationProperty

@@ -438,6 +438,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    Versioning
+  </a>
+  
+    <nav class="md-nav" aria-label="Versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versioning-rules" class="md-nav__link">
+    Versioning rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-sssom_version-slot" class="md-nav__link">
+    Using the sssom_version slot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-changes-across-versions" class="md-nav__link">
+    Model changes across versions
+  </a>
+  
+    <nav class="md-nav" aria-label="Model changes across versions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-changes-in-version-11" class="md-nav__link">
+    Model changes in version 1.1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1106,6 +1153,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    Versioning
+  </a>
+  
+    <nav class="md-nav" aria-label="Versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versioning-rules" class="md-nav__link">
+    Versioning rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-sssom_version-slot" class="md-nav__link">
+    Using the sssom_version slot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-changes-across-versions" class="md-nav__link">
+    Model changes across versions
+  </a>
+  
+    <nav class="md-nav" aria-label="Model changes across versions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-changes-in-version-11" class="md-nav__link">
+    Model changes in version 1.1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1323,6 +1417,31 @@
 </tbody>
 </table>
 <p>Implementations MAY decide to recognise more types and to enforce type-specific constraints. For example, an implementation could recognise the type <code>http://www.w3.org/2001/XMLSchema#negativeInteger</code> and check that the value starts with a minus sign.</p>
+<h2 id="versioning">Versioning</h2>
+<p>Starting from version 1.1 of the specification, the <code>MappingSet</code> class has an optional slot named <code>sssom_version</code> which indicates the version of the specification that the set declares itself to be compliant with.</p>
+<h3 id="versioning-rules">Versioning rules</h3>
+<p>The SSSOM specification mostly follows the <a href="https://semver.org/">Semantic Versioning principles</a>, but only version numbers with two components: a <em>major</em> number <em>X</em> and a <em>minor</em> number <em>Y</em>, expressed as <code>X.Y</code>.</p>
+<p>A set that is compliant with a minor version <em>X.Y</em> is also compliant with any minor version <em>X.Y+n</em>, for any value of <em>n</em>. The opposite is not true: a set compliant with a minor version <em>X.Y</em> may not necessarily be compliant with a minor version <em>X.Y-n</em>.</p>
+<p>A set that is compliant with a major version <em>X</em> may not be compliant with any other major version <em>X+n</em> or <em>X-n</em>.</p>
+<p>Therefore, an implementation that is itself compliant with version <em>X.Y</em> SHOULD always accept a set compliant with any version <em>X.Y-n</em>. It MAY reject outright a set compliant with any version <em>X.Y+n</em> (more recent minor version), <em>X-n</em> (older major version), or <em>X+n</em> (more recent major version).</p>
+<p>In other words, the SSSOM specification guarantees backwards compatibility between two versions (in that a set compliant with an older version can be used with an implementation compliant with a newer version) only insofar as only the <em>minor</em> version has changed.</p>
+<h3 id="using-the-sssom_version-slot">Using the <code>sssom_version</code> slot</h3>
+<p>When reading a SSSOM set:</p>
+<p>(A) If the set contains a <code>sssom_version</code> slot, implementations SHOULD check whether they recognize the indicated version as a supported version according to the rules in the previous section; if they don’t, they MAY reject the set outright.</p>
+<p>(B) If the set does not contain a <code>sssom_version</code> slot, it MUST be assumed to be compliant with version 1.0.</p>
+<p>When generating a SSSOM mapping set:</p>
+<p>(A) If the set uses slots or enum values that were added in more recent versions than 1.0, then the <code>sssom_version</code> slot MUST be set to the lowest version that defines all the slots effectively used.</p>
+<p>(B) If the set only uses slots or values that already existed in version 1.0, then the set is effectively compliant with said version 1.0 and the <code>sssom_version</code> slot MAY be omitted entirely.</p>
+<p>Note that, if the <code>sssom_version</code> slot is <em>not</em> omitted, then it MUST be set to <code>1.1</code>, since that slot itself has been added in version 1.1. It follows that a <code>sssom_version=1.0</code> slot (a set that would declare itself to be compliant with version 1.0) is self-contradictory.</p>
+<h3 id="model-changes-across-versions">Model changes across versions</h3>
+<p>For all slots that were added to the specification after version 1.0, the LinkML model contains an <code>added_in</code> annotation that indicates the exact version in which the slot was introduced.</p>
+<p>Not all changes can be annotated thusly in the LinkML model, though. For changes other than the complete addition of a new slot, implementation can refer to the following subsections.</p>
+<h4 id="model-changes-in-version-11">Model changes in version 1.1</h4>
+<ul>
+<li>The <code>similarity_measure</code> slot, which previously only existed on the <code>Mapping</code> class, has been added to the <code>MappingSet</code> class.</li>
+<li>The value <code>composed entity expression</code> has been added to the <code>EntityType</code> enumeration.</li>
+<li>The type of the <code>see_also</code> slot has been changed to <code>xsd:anyURI</code>.</li>
+</ul>
 
 
 
