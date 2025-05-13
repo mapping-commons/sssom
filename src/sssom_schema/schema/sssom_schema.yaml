@@ -25,6 +25,10 @@ default_prefix: sssom
 default_range: string
 
 enums:
+  sssom_version_enum:
+    permissible_values:
+      "1.0": SSSOM specification version 1.0
+      "1.1": SSSOM specification version 1.1
   entity_type_enum:
     permissible_values:
       owl class:
@@ -88,6 +92,15 @@ slots:
     range: ncname
   prefix_url:
     range: uri
+  sssom_version:
+    description: The version of the SSSOM specification a mapping set is compliant with.
+    range: sssom_version_enum
+    instantiates: sssom:Versionable
+    annotations:
+      added_in: "1.1"
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/439
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/version.sssom.tsv
   curie_map:
     description: A dictionary that contains prefixes as keys and their URI expansions as values.
     range: prefix
@@ -235,9 +248,12 @@ slots:
     see_also:
       - https://github.com/mapping-commons/sssom/issues/143
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
+      - sssom:Versionable
     annotations:
       propagated: true
+      added_in: "1.1"
     examples:
       - value: owl:AnnotationProperty
       - value: owl:ObjectProperty
@@ -735,6 +751,7 @@ classes:
       license:
         required: true
     slots:
+    - sssom_version
     - curie_map
     - mappings
     - mapping_set_id
@@ -904,6 +921,15 @@ classes:
         description: Indicates whether a slot can be propagated from a mapping
           down to individual mappings.
         range: boolean
+  Versionable:
+    class_uri: sssom:Versionable
+    description: Metamodel extension class to manage slots that may not exist in
+      all versions of the model.
+    attributes:
+      added_in:
+        description: The version of the specification in which the slot was added.
+          If not specified, the slot must be assumed to have been added in version 1.0.
+        range: sssom_version_enum
   NoTermFound:
     class_uri: sssom:NoTermFound
     description: sssom:NoTermFound can be used in place of a subject_id or object_id
