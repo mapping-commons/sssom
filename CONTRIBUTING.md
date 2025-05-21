@@ -84,6 +84,23 @@ Unsure where to begin contributing to SSSOM? You can start by looking through th
 * [Beginner issues][beginner] - issues which should only require a few lines of code, and a test or two.
 * [Help wanted issues][help-wanted] - issues which should be a bit more involved than `beginner` issues.
 
+### Considerations when proposing changes to the model
+
+Now that SSSOM 1.0 has been released, and until we start working on a hypothetical SSSOM 2.0, any proposed change to the SSSOM model must consider the issue of backwards compatibility.
+
+The key point is that _a set that is compliant with version 1.0 of the specification must be usable “as is” with an implementation compliant with any 1.x version_.
+
+This is automatically achieved if all the proposed changes do is _adding_ new _optional_ slots, or _new_ enumeration values. For that reason, it is strongly recommended that evolution of the 1.x branch be limited to this type of changes only, and that other changes be reserved for a hypothetical version 2.0.
+
+In addition, new slots must be marked with a `added_in` annotation indicating the version in which the slot will be introduced, as in the following example:
+
+```yaml
+my_new_slot:
+  instantiates: sssom:Versionable
+  annotations:
+    added_in: "1.1"
+```
+
 ### Pull Requests
 
 The process described here has several goals:
