@@ -116,6 +116,11 @@ slots:
   registry_confidence:
     description: This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
     range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
+    examples:
+      - value: 0.95
+        description: A confidence score of 0.95, indicating 95% confidence.
   last_updated:
     description: The date this reference was last updated.
     range: date
@@ -356,6 +361,21 @@ slots:
     slot_uri: dcterms:description
     examples:
       - value: "This mapping set was produced to integrate human and mouse phenotype data at the IMPC. It is primarily used for making mouse phenotypes searchable by human synonyms at https://mousephenotype.org/."
+  mapping_set_confidence:
+    description: Mapping-set level confidence is assigned by the creator of the mapping set, 
+      to indicate their overall confidence in the correctness of all mappings in the mapping set. 
+      Mapping set confidence is intended to be used in cases were the creator wants to express an
+      overall confidence into the agent that curated the individual mappings, for example a lexical
+      matching tool, or a group of students.
+    range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
+    examples:
+      - value: 0.95
+        description: A confidence score of 0.95, indicating 95% confidence that the mappings in the mapping set are correct.
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/438
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_set_confidence.sssom.tsv
   creator_id:
     description: Identifies the persons or groups responsible for the creation of
       the mapping. The creator is the agent that put the mapping in its published form, 
@@ -759,6 +779,7 @@ classes:
     - mapping_set_source
     - mapping_set_title
     - mapping_set_description
+    - mapping_set_confidence
     - creator_id
     - creator_label
     - license
