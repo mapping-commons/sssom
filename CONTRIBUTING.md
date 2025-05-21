@@ -40,7 +40,7 @@ We have an official message board with a detailed FAQ and where the community ch
 
 ## What should I know before I get started?
 
-- Read the [overview](https://mapping-commons.github.io/sssom/spec/)
+- Read the [introduction](https://mapping-commons.github.io/sssom/introduction/)
 - Do the [SSSOM tutorial](https://mapping-commons.github.io/sssom/tutorial/)
 - Read about the [SSSOM toolkit](https://mapping-commons.github.io/sssom-py), which is managed [in a different repo](https://github.com/mapping-commons/sssom-py)
 
