@@ -467,6 +467,8 @@
 
       MappingSet : mapping_provider
 
+      MappingSet : mapping_set_confidence
+
       MappingSet : mapping_set_description
 
       MappingSet : mapping_set_id
@@ -585,6 +587,12 @@
 <td><a href="../mapping_set_description/">mapping_set_description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>A description of the mapping set</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_set_confidence/">mapping_set_confidence</a></td>
+<td>0..1 <br/> <a href="../Double/">Double</a></td>
+<td>Mapping-set level confidence is assigned by the creator of the mapping set, t...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -780,6 +788,7 @@ slots:
 - mapping_set_source
 - mapping_set_title
 - mapping_set_description
+- mapping_set_confidence
 - creator_id
 - creator_label
 - license
@@ -953,6 +962,36 @@ attributes:
     domain_of:
     - mapping set
     range: string
+  mapping_set_confidence:
+    name: mapping_set_confidence
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: Mapping-set level confidence is assigned by the creator of the mapping
+      set, to indicate their overall confidence in the correctness of all mappings
+      in the mapping set. Mapping set confidence is intended to be used in cases were
+      the creator wants to express an overall confidence into the agent that curated
+      the individual mappings, for example a lexical matching tool, or a group of
+      students.
+    examples:
+    - value: '0.95'
+      description: A confidence score of 0.95, indicating 95% confidence that the
+        mappings in the mapping set are correct.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/438
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_set_confidence.sssom.tsv
+    rank: 1000
+    alias: mapping_set_confidence
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
   creator_id:
     name: creator_id
     description: Identifies the persons or groups responsible for the creation of

@@ -619,6 +619,9 @@ attributes:
     description: This value is set by the registry that indexes the mapping set. It
       reflects the confidence the registry has in the correctness of the mappings
       in the mapping set.
+    examples:
+    - value: '0.95'
+      description: A confidence score of 0.95, indicating 95% confidence.
     from_schema: https://w3id.org/sssom/schema/
     rank: 1000
     alias: registry_confidence
@@ -626,6 +629,8 @@ attributes:
     domain_of:
     - mapping set reference
     range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
   mapping_set_group:
     name: mapping_set_group
     description: Set by the owners of the mapping registry. A way to group related
