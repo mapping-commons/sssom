@@ -362,6 +362,9 @@ slots:
     examples:
       - value: "This mapping set was produced to integrate human and mouse phenotype data at the IMPC. It is primarily used for making mouse phenotypes searchable by human synonyms at https://mousephenotype.org/."
   mapping_set_confidence:
+    instantiates: sssom:Versionable
+    annotations:
+      added_in: "1.1"
     description: Mapping-set level confidence is assigned by the creator of the mapping set, 
       to indicate their overall confidence in the correctness of all mappings in the mapping set. 
       Mapping set confidence is intended to be used in cases were the creator wants to express an
