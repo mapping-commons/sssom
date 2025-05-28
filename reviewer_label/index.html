@@ -922,7 +922,7 @@
 <p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>A string identifying the reviewer of this mapping. In the spirit of provenance, consider using reviewer_id instead.</em></p>
+<p><em>A string representing the reviewer of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in reviewer_id) for that reviewer. It is not expected that there should be any link between reviewer_id and reviewer_label; in particular, reviewer_label is not intended to provide a human-friendly version of an identifier in reviewer_id.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
@@ -948,8 +948,11 @@
 
 
 <pre><code class="language-yaml">name: reviewer_label
-description: A string identifying the reviewer of this mapping. In the spirit of provenance,
-  consider using reviewer_id instead.
+description: A string representing the reviewer of this mapping. This should only
+  be used in the absence of a proper semantic identifier (which would be stored in
+  reviewer_id) for that reviewer. It is not expected that there should be any link
+  between reviewer_id and reviewer_label; in particular, reviewer_label is not intended
+  to provide a human-friendly version of an identifier in reviewer_id.
 examples:
 - value: Nicolas Matentzoglu|Chris Mungall
   description: The human-readable names of the (multiple) reviewers of the mapping.

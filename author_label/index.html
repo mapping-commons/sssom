@@ -922,7 +922,7 @@
 <p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>A string identifying the author of this mapping. In the spirit of provenance, consider using author_id instead.</em></p>
+<p><em>A string representing the author of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in author_id) for that author. It is not expected that there should be any link between author_id and author_label; in particular, author_label is not intended to provide a human-friendly version of an identifier in author_id.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
@@ -948,8 +948,11 @@
 
 
 <pre><code class="language-yaml">name: author_label
-description: A string identifying the author of this mapping. In the spirit of provenance,
-  consider using author_id instead.
+description: A string representing the author of this mapping. This should only be
+  used in the absence of a proper semantic identifier (which would be stored in author_id)
+  for that author. It is not expected that there should be any link between author_id
+  and author_label; in particular, author_label is not intended to provide a human-friendly
+  version of an identifier in author_id.
 examples:
 - value: Nicolas Matentzoglu|Chris Mungall
   description: The human-readable names of the (multiple) authors of the mapping.

@@ -604,7 +604,7 @@
 <tr>
 <td><a href="../creator_label/">creator_label</a></td>
 <td>* <br/> <a href="../String/">String</a></td>
-<td>A string identifying the creator of this mapping</td>
+<td>A string representing the creator of this mapping</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -1016,8 +1016,11 @@ attributes:
     multivalued: true
   creator_label:
     name: creator_label
-    description: A string identifying the creator of this mapping. In the spirit of
-      provenance, consider using creator_id instead.
+    description: A string representing the creator of this mapping. This should only
+      be used in the absence of a proper semantic identifier (which would be stored
+      in creator_id) for that creator. It is not expected that there should be any
+      link between creator_id and creator_label; in particular, creator_label is not
+      intended to provide a human-friendly version of an identifier in creator_id.
     examples:
     - value: Nicolas Matentzoglu|Chris Mungall
       description: The human-readable names of the (multiple) creators of the mapping.
