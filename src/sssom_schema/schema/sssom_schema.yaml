@@ -395,8 +395,12 @@ slots:
       - value: orcid:0000-0002-7356-1779
         description: The ORCID of the creator of the mapping.
   creator_label:
-    description: A string identifying the creator of this mapping. In the spirit of
-      provenance, consider using creator_id instead.
+    description: >-
+      A string representing the creator of this mapping. This should only be used in the
+      absence of a proper semantic identifier (which would be stored in creator_id) for
+      that creator. It is not expected that there should be any link between creator_id
+      and creator_label; in particular, creator_label is not intended to provide a
+      human-friendly version of an identifier in creator_id.
     range: string
     multivalued: true
     examples:
@@ -417,8 +421,12 @@ slots:
       - value: orcid:0000-0002-7356-1779
         description: The ORCID of the author of the mapping.
   author_label:
-    description: A string identifying the author of this mapping. In the spirit of
-      provenance, consider using author_id instead.
+    description: >-
+      A string representing the author of this mapping. This should only be used in the
+      absence of a proper semantic identifier (which would be stored in author_id) for that
+      author. It is not expected that there should be any link between author_id and
+      author_label; in particular, author_label is not intended to provide a human-friendly
+      version of an identifier in author_id.
     range: string
     multivalued: true
     examples:
@@ -438,8 +446,12 @@ slots:
       - value: orcid:0000-0002-7356-1779
         description: The ORCID of the reviewer of the mapping.
   reviewer_label:
-    description: A string identifying the reviewer of this mapping. In the spirit of
-      provenance, consider using reviewer_id instead.
+    description: >-
+      A string representing the reviewer of this mapping. This should only be used in the
+      absence of a proper semantic identifier (which would be stored in reviewer_id) for
+      that reviewer. It is not expected that there should be any link between reviewer_id
+      and reviewer_label; in particular, reviewer_label is not intended to provide a
+      human-friendly version of an identifier in reviewer_id.
     range: string
     multivalued: true
     examples:
