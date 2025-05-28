@@ -50,7 +50,7 @@ See [here](https://github.com/mapping-commons/sssom/tree/master/examples/schema)
 | Column/Field       | Description                                             | Required    |
 |--------------------|---------------------------------------------------------|-------------|
 {%- for slot in c.slots %}
-{%- set slot_info = schemaview.get_slot(slot) %}
+{%- set slot_info = schemaview.induced_slot(slot, c.name) %}
 | **{{ gen.link(slot) }}**     | {{ slot_info.description | default("No description") }} | {% if slot_info.required | default(false) %}Required{% elif slot_info.recommended | default(false) %}Recommended{% else %}Optional{% endif %} |
 {%- endfor %}
 {%- endif %}
@@ -65,7 +65,7 @@ See [here](https://github.com/mapping-commons/sssom/tree/master/examples/schema)
 | Column/Field       | Description                                             | Required    |
 |--------------------|---------------------------------------------------------|-------------|
 {%- for slot in c.slots %}
-{%- set slot_info = schemaview.get_slot(slot) %}
+{%- set slot_info = schemaview.induced_slot(slot, c.name) %}
 | **{{ gen.link(slot) }}**     | {{ slot_info.description | default("No description") }} | {% if slot_info.required | default(false) %}Required{% elif slot_info.recommended | default(false) %}Recommended{% else %}Optional{% endif %} |
 {%- endfor %}
 {%- endif %}
