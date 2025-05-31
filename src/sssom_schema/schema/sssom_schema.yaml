@@ -779,6 +779,15 @@ slots:
     see_also:
       - https://github.com/mapping-commons/sssom/issues/328
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
+  record_id:
+    description: A unique identifier for a mapping record.
+    range: EntityReference
+    instantiates: sssom:Versionable
+    annotations:
+      added_in: "1.1"
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/359
+      - https://github.com/mapping-commons/blob/master/examples/schema/record-ids.sssom.tsv
 classes:
   mapping set:
     description: Represents a set of mappings.
@@ -823,6 +832,7 @@ classes:
   mapping:
     description: Represents an individual mapping between a pair of entities.
     slots:
+    - record_id
     - subject_id
     - subject_label
     - subject_category
@@ -869,6 +879,17 @@ classes:
     - other
     - comment
     class_uri: owl:Axiom
+    unique_keys:
+      record_identifier:
+        description: >-
+          Each mapping within a mapping set MAY be identified by a unique, opaque record
+          identifier. This slot MUST be used consistently, in that either all mappings in
+          the set have a such a record identifier, or none of them have one. The
+          behaviour when a set contains both mappings with a record identifier and
+          mappings without a record identifier is unspecified. The behaviour when two
+          mappings have the same record identifier is unspecified.
+        unique_key_slots:
+          - record_id
     rules:
       - preconditions:
           slot_conditions:
