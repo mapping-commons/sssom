@@ -85,6 +85,9 @@ types:
     uri: rdfs:Resource
     see_also:
       - https://mapping-commons.github.io/sssom/spec/#tsv
+ AbsoluteURI:
+    typeof: uri
+    description: An absolute URI as per RFC 3986.
 
 slots:
   prefix_name:
@@ -112,7 +115,7 @@ slots:
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curie_map.sssom.tsv
   mirror_from:
     description: A URL location from which to obtain a resource, such as a mapping set.
-    range: uri
+    range: AbsoluteURI
   registry_confidence:
     description: This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
     range: double
@@ -145,13 +148,13 @@ slots:
   imports:
     description: A list of registries that should be imported into this one.
     multivalued: true
-    range: uri
+    range: AbsoluteURI
   documentation:
     description: A URL to the documentation of this mapping commons.
-    range: uri
+    range: AbsoluteURI
   homepage:
     description: A URL to a homepage of this mapping commons.
-    range: uri
+    range: AbsoluteURI
   mappings:
     description: Contains a list of mapping objects.
     range: mapping
@@ -331,9 +334,9 @@ slots:
       - value: owl:Class
   mapping_set_id:
     description: A globally unique identifier for the mapping set (not each individual
-      mapping). Should be IRI, ideally resolvable.
+      mapping). Should ideally be resolvable.
     required: true
-    range: uri
+    range: AbsoluteURI
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
         description: A persistent URI pointing to the latest version of the Mondo - NCIT mapping in the Mondo namespace.
@@ -462,7 +465,7 @@ slots:
   license:
     description: A url to the license of the mapping. In absence of a license we assume
       no license.
-    range: uri
+    range: AbsoluteURI
     slot_uri: dcterms:license
     examples:
       - value: https://creativecommons.org/licenses/by/4.0/
@@ -510,7 +513,7 @@ slots:
   mapping_provider:
     description: URL pointing to the source that provided the mapping, for example
       an ontology that already contains the mappings, or a database from which it was derived.
-    range: uri
+    range: AbsoluteURI
     instantiates: sssom:Propagatable
     annotations:
       propagated: true
@@ -522,7 +525,7 @@ slots:
   mapping_set_source:
     description: A mapping set or set of mapping set that was used to derive the mapping set.
     slot_uri: prov:wasDerivedFrom
-    range: uri
+    range: AbsoluteURI
     multivalued: true
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv
@@ -736,7 +739,7 @@ slots:
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker_item.sssom.tsv
   issue_tracker:
     description: A URL location of the issue tracker for this entity.
-    range: uri
+    range: AbsoluteURI
     examples:
       - value: https://github.com/mapping-commons/mh_mapping_initiative/issues
         description: A URL resolving to the issue tracker of the Mouse-Human mapping initiative
@@ -752,7 +755,7 @@ slots:
     examples:
       - value: https://github.com/mapping-commons/mh_mapping_initiative/pull/41
         description: A URL pointing to the pull request that introduced the mapping.
-    range: uri
+    range: AbsoluteURI
     multivalued: true
     see_also:
       - https://github.com/mapping-commons/sssom/issues/422
