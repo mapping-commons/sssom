@@ -8,7 +8,7 @@
 - Add `sssom_version` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/439)).
 - Change the type of the `see_also` slot to `xsd:anyURI` ([issue](https://github.com/mapping-commons/sssom/issues/422)).
 - Add `mappings_set_confidence` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/438)).
-- Change all URI-typed slots to clarify that they expect _absolute_ URIs as values ([issue](https://github.com/mapping-commons/sssom/issues/448)).
+- Change all URI-typed slots to clarify that they expect _non-relative_ URIs as values ([issue](https://github.com/mapping-commons/sssom/issues/448)).
 - TBD
 
 ## SSSOM version 1.0.0
