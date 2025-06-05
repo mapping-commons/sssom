@@ -780,7 +780,18 @@ slots:
       - https://github.com/mapping-commons/sssom/issues/328
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
   record_id:
-    description: A unique identifier for a mapping record.
+    description: >-
+      A unique identifier for a mapping record, that is for an instance of the Mapping
+      class (in the SSSOM/TSV serialisation, this corresponds to an individual row).
+      This slot is intended to uniquely identify one such record within a mapping set and
+      may for example act as the resource identifier for the record when it is serialised
+      into RDF.
+      This slot MUST NOT be used to “group” several records together to indicate that
+      they pertain to a single mapping (for example, that they represent different
+      versions of the same mapping), by assigning the same ID to several records. When it
+      is used, every record within a set MUST have a unique, non-empty value.
+      The identifier MUST be a URI; beyond that, its format is unconstrained and the
+      identifier MUST be treated as an opaque string.
     range: EntityReference
     instantiates: sssom:Versionable
     annotations:
