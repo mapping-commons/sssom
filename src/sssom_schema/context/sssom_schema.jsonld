@@ -1643,9 +1643,9 @@
       "description": "The date the mapping was published. This is different from the date the mapping was asserted.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "mappings": [
-        "http://purl.org/dc/terms/created"
+        "http://purl.org/dc/terms/issued"
       ],
-      "slot_uri": "http://purl.org/dc/terms/created",
+      "slot_uri": "http://purl.org/dc/terms/issued",
       "owner": "Mapping",
       "domain_of": [
         "MappingSet",

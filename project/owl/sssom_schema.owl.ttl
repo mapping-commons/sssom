@@ -671,7 +671,7 @@ dcterms:created a owl:ObjectProperty,
     rdfs:label "publication_date" ;
     rdfs:range linkml:Date ;
     skos:definition "The date the mapping was published. This is different from the date the mapping was asserted." ;
-    skos:exactMatch dcterms:created .
+    skos:exactMatch dcterms:issued .
 
 dcterms:creator a owl:ObjectProperty,
         linkml:SlotDefinition ;

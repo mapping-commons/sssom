@@ -247,7 +247,7 @@
       },
       "publication_date": {
          "@type": "xsd:date",
-         "@id": "dcterms:created"
+         "@id": "dcterms:issued"
       },
       "registry_confidence": {
          "@type": "xsd:double",
