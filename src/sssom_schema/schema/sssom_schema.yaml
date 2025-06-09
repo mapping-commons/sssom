@@ -75,24 +75,12 @@ enums:
       Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
   mapping_cardinality_enum:
     permissible_values:
-      "1:1":
-        meaning: sssom:Cardinality_1_1
-        description: One-to-one mapping
-      "1:n":
-        meaning: sssom:Cardinality_1_n
-        description: One-to-many mapping
-      "n:1":
-        meaning: sssom:Cardinality_n_1
-        description: Many-to-one mapping
-      "1:0":
-        meaning: sssom:Cardinality_1_0
-        description: One-to-none mapping
-      "0:1":
-        meaning: sssom:Cardinality_0_1
-        description: None-to-one mapping
-      "n:n":
-        meaning: sssom:Cardinality_n_n
-        description: Many-to-many mapping
+      "1:1": One-to-one mapping
+      "1:n": One-to-many mapping
+      "n:1": Many-to-one mapping
+      "1:0": One-to-none mapping
+      "0:1": None-to-one mapping
+      "n:n": Many-to-many mapping
 
 types:
  EntityReference:
