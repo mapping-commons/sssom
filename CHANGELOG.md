@@ -8,6 +8,7 @@
 - Add `sssom_version` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/439)).
 - Change the type of the `see_also` slot to `xsd:anyURI` ([issue](https://github.com/mapping-commons/sssom/issues/422)).
 - Add `mappings_set_confidence` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/438)).
+- Add `record_id` slot to the `Mapping` class ([issue](https://github.com/mapping-commons/sssom/issues/359)).
 - TBD
 
 ## SSSOM version 1.0.0
