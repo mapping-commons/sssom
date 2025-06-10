@@ -782,7 +782,7 @@ slots:
   record_id:
     description: >-
       A unique identifier for a mapping record, that is for an instance of the Mapping
-      class (in the SSSOM/TSV serialisation, this corresponds to an individual row).
+      class (in the SSSOM/TSV serialisation, this corresponds to an individual row after propagation is applied).
       This slot is intended to uniquely identify one such record within a mapping set and
       may for example act as the resource identifier for the record when it is serialised
       into RDF.
