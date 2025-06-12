@@ -7,8 +7,8 @@
 - Add `similarity_measure` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/411)).
 - Add `sssom_version` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/439)).
 - Change the type of the `see_also` slot to `xsd:anyURI` ([issue](https://github.com/mapping-commons/sssom/issues/422)).
-- Add `mappings_set_confidence` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/438)).
-- TBD
+- Add `mapping_set_confidence` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/438)).
+- Add `mapping_tool_id` slot to the `Mapping` and `MappingSet` classes ([issue](https://github.com/mapping-commons/sssom/issues/449)).
 
 ## SSSOM version 1.0.0
 
