@@ -562,7 +562,9 @@ slots:
     description: The ID (entity reference) of the tool or algorithm that was used to generate the
       mapping.
     range: EntityReference
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
+      - sssom:Versionable
     annotations:
       propagated: true
       added_in: "1.1"
