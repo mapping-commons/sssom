@@ -565,6 +565,7 @@ slots:
     instantiates: sssom:Propagatable
     annotations:
       propagated: true
+      added_in: "1.1"
     examples:
       - value: wikidata:Q58057366
         description: A wikidata PURL identifying the AgreementMakerLight project.
