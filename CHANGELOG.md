@@ -8,7 +8,7 @@
 - Add `sssom_version` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/439)).
 - Change the type of the `see_also` slot to `xsd:anyURI` ([issue](https://github.com/mapping-commons/sssom/issues/422)).
 - Add `mappings_set_confidence` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/438)).
-- TBD
+- Updated the RDF binding of sssom:publication_date from dcterms:created to dcterms:issued, which is the more appropriate property to use in this case.
 
 ## SSSOM version 1.0.0
 
