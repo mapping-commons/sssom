@@ -548,6 +548,7 @@ slots:
   mapping_tool:
     description: A reference to the tool or algorithm that was used to generate the
       mapping. Should be a URL pointing to more info about it, but can be free text.
+      Consider using the mapping_tool_id slot for a more standardised reference.
     range: string
     instantiates: sssom:Propagatable
     annotations:
@@ -557,6 +558,22 @@ slots:
         description: A URL pointing to the AgreementMakerLight project.
       - value: AgreementMakerLight
         description: A string (name) denoting the AgreementMakerLight project.
+  mapping_tool_id:
+    description: The ID (entity reference) of the tool or algorithm that was used to generate the
+      mapping.
+    range: EntityReference
+    instantiates:
+      - sssom:Propagatable
+      - sssom:Versionable
+    annotations:
+      propagated: true
+      added_in: "1.1"
+    examples:
+      - value: wikidata:Q58057366
+        description: A wikidata PURL identifying the AgreementMakerLight project.
+    see_also:
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_tool_id.sssom.tsv
+      - https://github.com/mapping-commons/sssom/issues/449
   mapping_tool_version:
     description: Version string that denotes the version of the mapping tool used.
     range: string
@@ -576,7 +593,7 @@ slots:
       propagated: true
   publication_date:
     description: The date the mapping was published. This is different from the date the mapping was asserted.
-    slot_uri: dcterms:created
+    slot_uri: dcterms:issued
     range: date
     examples:
       - value: 2021-01-01
@@ -827,6 +844,7 @@ classes:
     - predicate_type
     - mapping_provider
     - mapping_tool
+    - mapping_tool_id
     - mapping_tool_version
     - mapping_date
     - publication_date
@@ -872,6 +890,7 @@ classes:
     - mapping_source
     - mapping_cardinality
     - mapping_tool
+    - mapping_tool_id
     - mapping_tool_version
     - mapping_date
     - publication_date
