@@ -593,7 +593,7 @@ slots:
       propagated: true
   publication_date:
     description: The date the mapping was published. This is different from the date the mapping was asserted.
-    slot_uri: dcterms:created
+    slot_uri: dcterms:issued
     range: date
     examples:
       - value: 2021-01-01
