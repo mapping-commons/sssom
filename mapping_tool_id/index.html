@@ -10,14 +10,14 @@
         <meta name="author" content="The SSSOM Community">
       
       
-        <link rel="canonical" href="https://mapping-commons.github.io/sssom/mapping_set_id/">
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/mapping_tool_id/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
     
     
       
-        <title>mapping_set_id - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>mapping_tool_id - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mapping_set_id" class="md-skip">
+        <a href="#mapping_tool_id" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              mapping_set_id
+              mapping_tool_id
             
           </span>
         </div>
@@ -891,6 +891,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -911,54 +918,72 @@
                 
                   
 
-  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/mapping_set_id.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/mapping_tool_id.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="mapping_set_id">mapping_set_id</h1>
-<p><strong>URI</strong>: <a href="https://w3id.org/sssom/mapping_set_id">sssom:mapping_set_id</a></p>
-<p><strong>Applicable to</strong>: <a href="../MappingSetReference/">MappingSetReference</a>, <a href="../MappingSet/">MappingSet</a></p>
+<h1 id="mapping_tool_id">mapping_tool_id</h1>
+<p><strong>URI</strong>: <a href="https://w3id.org/sssom/mapping_tool_id">sssom:mapping_tool_id</a></p>
+<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.</em></p>
+<p><em>The ID (entity reference) of the tool or algorithm that was used to generate the mapping.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p><strong>Range</strong>: <a href="../Uri/">Uri</a>. The range of the element is the type of the value that can be assigned to it.</p>
+<p><strong>Range</strong>: <a href="../EntityReference/">EntityReference</a>. The range of the element is the type of the value that can be assigned to it.</p>
 </li>
 <li>
-<p><strong>Required?</strong>: Required (element has to be added to the mapping or mapping set.)</p>
+<p><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</p>
 </li>
 </ul>
 <h2 id="examples">Examples</h2>
 <div class="admonition example">
-<p class="admonition-title">Example: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv</p>
+<p class="admonition-title">Example: wikidata:Q58057366</p>
 <p><strong>Example value</strong>:</p>
-<p><code>http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv</code></p>
-<p><strong>Description</strong>: A persistent URI pointing to the latest version of the Mondo - NCIT mapping in the Mondo namespace.</p>
+<p><code>wikidata:Q58057366</code></p>
+<p><strong>Description</strong>: A wikidata PURL identifying the AgreementMakerLight project.</p>
 </div>
+<h2 id="see-also">See Also</h2>
+<p>These are some relevant resources you might find useful to get additional information about the element,
+such as example implementations, issues and pull requests.</p>
+<ul>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_tool_id.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_tool_id.sssom.tsv</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/issues/449">https://github.com/mapping-commons/sssom/issues/449</a></li>
+</ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
 
-<pre><code class="language-yaml">name: mapping_set_id
-description: A globally unique identifier for the mapping set (not each individual
-  mapping). Should be IRI, ideally resolvable.
+<pre><code class="language-yaml">name: mapping_tool_id
+instantiates:
+- sssom:Propagatable
+- sssom:Versionable
+annotations:
+  propagated:
+    tag: propagated
+    value: true
+  added_in:
+    tag: added_in
+    value: '1.1'
+description: The ID (entity reference) of the tool or algorithm that was used to generate
+  the mapping.
 examples:
-- value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
-  description: A persistent URI pointing to the latest version of the Mondo - NCIT
-    mapping in the Mondo namespace.
+- value: wikidata:Q58057366
+  description: A wikidata PURL identifying the AgreementMakerLight project.
 from_schema: https://w3id.org/sssom/schema/
+see_also:
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_tool_id.sssom.tsv
+- https://github.com/mapping-commons/sssom/issues/449
 rank: 1000
-alias: mapping_set_id
+alias: mapping_tool_id
 domain_of:
 - mapping set
-- mapping set reference
-range: uri
-required: true
+- mapping
+range: EntityReference
 
 </code></pre>
 

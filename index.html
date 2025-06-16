@@ -1406,9 +1406,16 @@ mapping_date: 2022-05-02
 </tr>
 <tr>
 <td><strong><a href="mapping_tool/">mapping_tool</a></strong></td>
-<td>A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text.</td>
+<td>A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text. Consider using the mapping_tool_id slot for a more standardised reference.</td>
 <td>string</td>
 <td>https://github.com/AgreementMakerLight/AML-Project</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong><a href="mapping_tool_id/">mapping_tool_id</a></strong></td>
+<td>The ID (entity reference) of the tool or algorithm that was used to generate the mapping.</td>
+<td>entity reference (e.g. CURIE in TSV)</td>
+<td>wikidata:Q58057366</td>
 <td>Optional</td>
 </tr>
 <tr>

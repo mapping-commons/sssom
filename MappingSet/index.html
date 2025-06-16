@@ -481,6 +481,8 @@
 
       MappingSet : mapping_tool
 
+      MappingSet : mapping_tool_id
+
       MappingSet : mapping_tool_version
 
       MappingSet : mappings
@@ -668,6 +670,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../mapping_tool_id/">mapping_tool_id</a></td>
+<td>0..1 <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>The ID (entity reference) of the tool or algorithm that was used to generate ...</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../mapping_tool_version/">mapping_tool_version</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>Version string that denotes the version of the mapping tool used</td>
@@ -801,6 +809,7 @@ slots:
 - predicate_type
 - mapping_provider
 - mapping_tool
+- mapping_tool_id
 - mapping_tool_version
 - mapping_date
 - publication_date
@@ -1238,6 +1247,7 @@ attributes:
         value: true
     description: A reference to the tool or algorithm that was used to generate the
       mapping. Should be a URL pointing to more info about it, but can be free text.
+      Consider using the mapping_tool_id slot for a more standardised reference.
     examples:
     - value: https://github.com/AgreementMakerLight/AML-Project
       description: A URL pointing to the AgreementMakerLight project.
@@ -1251,6 +1261,34 @@ attributes:
     - mapping set
     - mapping
     range: string
+  mapping_tool_id:
+    name: mapping_tool_id
+    instantiates:
+    - sssom:Propagatable
+    - sssom:Versionable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: The ID (entity reference) of the tool or algorithm that was used
+      to generate the mapping.
+    examples:
+    - value: wikidata:Q58057366
+      description: A wikidata PURL identifying the AgreementMakerLight project.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_tool_id.sssom.tsv
+    - https://github.com/mapping-commons/sssom/issues/449
+    rank: 1000
+    alias: mapping_tool_id
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
   mapping_tool_version:
     name: mapping_tool_version
     instantiates:
