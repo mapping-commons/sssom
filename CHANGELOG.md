@@ -10,6 +10,7 @@
 - Add `mapping_set_confidence` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/438)).
 - Updated the RDF binding of sssom:publication_date from dcterms:created to dcterms:issued, which is the more appropriate property to use in this case.
 - Add `mapping_tool_id` slot to the `Mapping` and `MappingSet` classes ([issue](https://github.com/mapping-commons/sssom/issues/449)).
+- Add `record_id` slot to the `Mapping` class ([issue](https://github.com/mapping-commons/sssom/issues/359)).
 
 ## SSSOM version 1.0.0
 
