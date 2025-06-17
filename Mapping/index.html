@@ -524,6 +524,8 @@
 
       Mapping : publication_date
 
+      Mapping : record_id
+
       Mapping : reviewer_id
 
       Mapping : reviewer_label
@@ -566,6 +568,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../record_id/">record_id</a></td>
+<td>0..1 <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>A unique identifier for a mapping record, that is for an instance of the Mapp...</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../subject_id/">subject_id</a></td>
 <td>0..1 <br/> <a href="../EntityReference/">EntityReference</a></td>
@@ -896,6 +904,7 @@ description: Represents an individual mapping between a pair of entities.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 slots:
+- record_id
 - subject_id
 - subject_label
 - subject_category
@@ -943,6 +952,17 @@ slots:
 - other
 - comment
 class_uri: owl:Axiom
+unique_keys:
+  record_identifier:
+    unique_key_name: record_identifier
+    unique_key_slots:
+    - record_id
+    description: Each mapping within a mapping set MAY be identified by a unique,
+      opaque record identifier. This slot MUST be used consistently, in that either
+      all mappings in the set have a such a record identifier, or none of them have
+      one. The behaviour when a set contains both mappings with a record identifier
+      and mappings without a record identifier is unspecified. The behaviour when
+      two mappings have the same record identifier is unspecified.
 rules:
 - preconditions:
     slot_conditions:
@@ -996,6 +1016,35 @@ description: Represents an individual mapping between a pair of entities.
 from_schema: https://w3id.org/sssom/schema/
 rank: 1000
 attributes:
+  record_id:
+    name: record_id
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: A unique identifier for a mapping record, that is for an instance
+      of the Mapping class (in the SSSOM/TSV serialisation, this corresponds to an
+      individual row after propagation is applied). This slot is intended to uniquely
+      identify one such record within a mapping set and may for example act as the
+      resource identifier for the record when it is serialised into RDF. This slot
+      MUST NOT be used to “group” several records together to indicate that they pertain
+      to a single mapping (for example, that they represent different versions of
+      the same mapping), by assigning the same ID to several records. When it is used,
+      every record within a set MUST have a unique, non-empty value. The identifier
+      MUST be a URI; beyond that, its format is unconstrained and the identifier MUST
+      be treated as an opaque string.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/359
+    - https://github.com/mapping-commons/blob/master/examples/schema/record-ids.sssom.tsv
+    rank: 1000
+    alias: record_id
+    owner: mapping
+    domain_of:
+    - mapping
+    range: EntityReference
   subject_id:
     name: subject_id
     description: The ID of the subject of the mapping.
@@ -1998,6 +2047,17 @@ attributes:
     - mapping
     range: string
 class_uri: owl:Axiom
+unique_keys:
+  record_identifier:
+    unique_key_name: record_identifier
+    unique_key_slots:
+    - record_id
+    description: Each mapping within a mapping set MAY be identified by a unique,
+      opaque record identifier. This slot MUST be used consistently, in that either
+      all mappings in the set have a such a record identifier, or none of them have
+      one. The behaviour when a set contains both mappings with a record identifier
+      and mappings without a record identifier is unspecified. The behaviour when
+      two mappings have the same record identifier is unspecified.
 rules:
 - preconditions:
     slot_conditions:
