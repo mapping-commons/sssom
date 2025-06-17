@@ -11,26 +11,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3.0.2
-
-    - name: Set up Python
-      uses: actions/setup-python@v3.1.2
+    - name: Check out repository
+      uses: actions/checkout@v4.2.2
       with:
-        python-version: 3.9
+        fetch-depth: 0
 
+    #----------------------------------------------
+    #          install & configure poetry
+    #----------------------------------------------
     - name: Install Poetry
-      uses: snok/install-poetry@v1.3.1
-      with:
-        virtualenvs-create: true
-        virtualenvs-in-project: true
+      run: |
+        pipx install poetry
+        pipx inject poetry poetry-dynamic-versioning
 
+    #----------------------------------------------
+    #                setup Python
+    #----------------------------------------------
+    - name: Set up Python
+      uses: actions/setup-python@v5.6.0
+      with:
+        python-version: 3.10
+        cache: 'poetry'
+
+    #----------------------------------------------
+    #             install dependencies
+    #----------------------------------------------
     - name: Install dependencies
       run: poetry install --no-interaction
 
     - name: Build source and wheel archives
-      run: |
-        poetry version $(git describe --tags --abbrev=0)
-        poetry build
+      run: poetry build
 
     - name: Publish distribution 📦 to PyPI
       uses: pypa/gh-action-pypi-publish@v1.5.0

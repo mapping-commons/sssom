@@ -23,7 +23,10 @@ jobs:
         env:
           DEFAULT_BRANCH: master
         run: pip install -U sssom sssom-schema --break-system-packages
-      - uses: actions/checkout@v2
+      - name: Check out repository
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
       - name: Run Mapping QC checks
         env:
           DEFAULT_BRANCH: master
