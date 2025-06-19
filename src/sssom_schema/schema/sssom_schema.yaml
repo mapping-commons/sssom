@@ -71,8 +71,8 @@ enums:
         
   predicate_modifier_enum:
     permissible_values:
-      meaning: sssom:NegatedPredicate
       Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
+        meaning: sssom:NegatedPredicate
   mapping_cardinality_enum:
     permissible_values:
       "1:1": One-to-one mapping
