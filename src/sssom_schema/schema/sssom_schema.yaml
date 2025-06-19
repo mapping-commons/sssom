@@ -27,8 +27,12 @@ default_range: string
 enums:
   sssom_version_enum:
     permissible_values:
-      "1.0": SSSOM specification version 1.0
-      "1.1": SSSOM specification version 1.1
+      "1.0":
+        meaning: sssom:version1.0
+        description: SSSOM specification version 1.0
+      "1.1":
+        meaning: sssom:version1.1
+        description: SSSOM specification version 1.1
   entity_type_enum:
     permissible_values:
       owl class:
@@ -59,6 +63,7 @@ enums:
       rdf property:
         meaning: rdf:Property
       composed entity expression:
+        meaning: sssom:ComposedEntityExpression
         description: This value indicates that the entity ID does not represent a single entity, but a composite involving several individual entities. This value MUST NOT be used in the predicate_type slot. This specifications does not prescribe how an ID representing a composite entity should be interpreted; this is left at the discretion of applications.
         see_also:
         - https://github.com/mapping-commons/sssom/issues/402
@@ -66,7 +71,9 @@ enums:
         
   predicate_modifier_enum:
     permissible_values:
-      Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
+      Not:
+        description: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
+        meaning: sssom:NegatedPredicate
   mapping_cardinality_enum:
     permissible_values:
       "1:1": One-to-one mapping
