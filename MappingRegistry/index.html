@@ -497,7 +497,7 @@
 </tr>
 <tr>
 <td><a href="../imports/">imports</a></td>
-<td>* <br/> <a href="../Uri/">Uri</a></td>
+<td>* <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A list of registries that should be imported into this one</td>
 <td>direct</td>
 </tr>
@@ -509,19 +509,19 @@
 </tr>
 <tr>
 <td><a href="../documentation/">documentation</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>0..1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A URL to the documentation of this mapping commons</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../homepage/">homepage</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>0..1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A URL to a homepage of this mapping commons</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../issue_tracker/">issue_tracker</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>0..1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A URL location of the issue tracker for this entity</td>
 <td>direct</td>
 </tr>
@@ -620,7 +620,7 @@ attributes:
     owner: mapping registry
     domain_of:
     - mapping registry
-    range: uri
+    range: NonRelativeURI
     multivalued: true
   mapping_set_references:
     name: mapping_set_references
@@ -643,7 +643,7 @@ attributes:
     owner: mapping registry
     domain_of:
     - mapping registry
-    range: uri
+    range: NonRelativeURI
   homepage:
     name: homepage
     description: A URL to a homepage of this mapping commons.
@@ -653,7 +653,7 @@ attributes:
     owner: mapping registry
     domain_of:
     - mapping registry
-    range: uri
+    range: NonRelativeURI
   issue_tracker:
     name: issue_tracker
     description: A URL location of the issue tracker for this entity.
@@ -672,7 +672,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping registry
-    range: uri
+    range: NonRelativeURI
 
 </code></pre>
 </details>

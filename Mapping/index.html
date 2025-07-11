@@ -672,7 +672,7 @@
 </tr>
 <tr>
 <td><a href="../license/">license</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>0..1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A url to the license of the mapping</td>
 <td>direct</td>
 </tr>
@@ -720,7 +720,7 @@
 </tr>
 <tr>
 <td><a href="../mapping_provider/">mapping_provider</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>0..1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>URL pointing to the source that provided the mapping, for example an ontology...</td>
 <td>direct</td>
 </tr>
@@ -828,7 +828,7 @@
 </tr>
 <tr>
 <td><a href="../see_also/">see_also</a></td>
-<td>* <br/> <a href="../Uri/">Uri</a></td>
+<td>* <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A URL specific for the mapping instance</td>
 <td>direct</td>
 </tr>
@@ -1413,7 +1413,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    range: uri
+    range: NonRelativeURI
   subject_type:
     name: subject_type
     instantiates:
@@ -1589,7 +1589,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    range: uri
+    range: NonRelativeURI
   mapping_source:
     name: mapping_source
     description: The mapping set this mapping was originally defined in. mapping_source
@@ -1995,7 +1995,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    range: uri
+    range: NonRelativeURI
     multivalued: true
   issue_tracker_item:
     name: issue_tracker_item

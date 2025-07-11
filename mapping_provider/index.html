@@ -919,7 +919,7 @@
 
 <h1 id="mapping_provider">mapping_provider</h1>
 <p><strong>URI</strong>: <a href="https://w3id.org/sssom/mapping_provider">sssom:mapping_provider</a></p>
-<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
 <p><em>URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.</em></p>
@@ -927,7 +927,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p><strong>Range</strong>: <a href="../Uri/">Uri</a>. The range of the element is the type of the value that can be assigned to it.</p>
+<p><strong>Range</strong>: <a href="../NonRelativeURI/">NonRelativeURI</a>. The range of the element is the type of the value that can be assigned to it.</p>
 </li>
 <li>
 <p><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</p>
@@ -971,7 +971,7 @@ alias: mapping_provider
 domain_of:
 - mapping set
 - mapping
-range: uri
+range: NonRelativeURI
 
 </code></pre>
 

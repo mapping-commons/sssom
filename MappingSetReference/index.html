@@ -478,13 +478,13 @@
 <tbody>
 <tr>
 <td><a href="../mapping_set_id/">mapping_set_id</a></td>
-<td>1 <br/> <a href="../Uri/">Uri</a></td>
+<td>1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A globally unique identifier for the mapping set (not each individual mapping...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../mirror_from/">mirror_from</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>0..1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A URL location from which to obtain a resource, such as a mapping set</td>
 <td>direct</td>
 </tr>
@@ -589,7 +589,7 @@ attributes:
   mapping_set_id:
     name: mapping_set_id
     description: A globally unique identifier for the mapping set (not each individual
-      mapping). Should be IRI, ideally resolvable.
+      mapping). Should ideally be resolvable.
     examples:
     - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
       description: A persistent URI pointing to the latest version of the Mondo -
@@ -601,7 +601,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping set reference
-    range: uri
+    range: NonRelativeURI
     required: true
   mirror_from:
     name: mirror_from
@@ -613,7 +613,7 @@ attributes:
     owner: mapping set reference
     domain_of:
     - mapping set reference
-    range: uri
+    range: NonRelativeURI
   registry_confidence:
     name: registry_confidence
     description: This value is set by the registry that indexes the mapping set. It

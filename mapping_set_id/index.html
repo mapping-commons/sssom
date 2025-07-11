@@ -922,12 +922,12 @@
 <p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../MappingSetReference/">MappingSetReference</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>A globally unique identifier for the mapping set (not each individual mapping). Should be IRI, ideally resolvable.</em></p>
+<p><em>A globally unique identifier for the mapping set (not each individual mapping). Should ideally be resolvable.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p><strong>Range</strong>: <a href="../Uri/">Uri</a>. The range of the element is the type of the value that can be assigned to it.</p>
+<p><strong>Range</strong>: <a href="../NonRelativeURI/">NonRelativeURI</a>. The range of the element is the type of the value that can be assigned to it.</p>
 </li>
 <li>
 <p><strong>Required?</strong>: Required (element has to be added to the mapping or mapping set.)</p>
@@ -946,7 +946,7 @@
 
 <pre><code class="language-yaml">name: mapping_set_id
 description: A globally unique identifier for the mapping set (not each individual
-  mapping). Should be IRI, ideally resolvable.
+  mapping). Should ideally be resolvable.
 examples:
 - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
   description: A persistent URI pointing to the latest version of the Mondo - NCIT
@@ -957,7 +957,7 @@ alias: mapping_set_id
 domain_of:
 - mapping set
 - mapping set reference
-range: uri
+range: NonRelativeURI
 required: true
 
 </code></pre>

@@ -1440,7 +1440,8 @@
 <ul>
 <li>The <code>similarity_measure</code> slot, which previously only existed on the <code>Mapping</code> class, has been added to the <code>MappingSet</code> class.</li>
 <li>The value <code>composed entity expression</code> has been added to the <code>EntityType</code> enumeration.</li>
-<li>The type of the <code>see_also</code> slot has been changed to <code>xsd:anyURI</code>.</li>
+<li>The type of the <code>see_also</code> slot has been changed to <code>sssom:NonRelativeURI</code>. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.</li>
+<li>All slots that were typed as <code>xsd:anyURI</code> have been re-typed as <code>sssom:NonRelativeURI</code>. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.</li>
 </ul>
 
 

@@ -563,7 +563,7 @@
 </tr>
 <tr>
 <td><a href="../mapping_set_id/">mapping_set_id</a></td>
-<td>1 <br/> <a href="../Uri/">Uri</a></td>
+<td>1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A globally unique identifier for the mapping set (not each individual mapping...</td>
 <td>direct</td>
 </tr>
@@ -575,7 +575,7 @@
 </tr>
 <tr>
 <td><a href="../mapping_set_source/">mapping_set_source</a></td>
-<td>* <br/> <a href="../Uri/">Uri</a></td>
+<td>* <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A mapping set or set of mapping set that was used to derive the mapping set</td>
 <td>direct</td>
 </tr>
@@ -611,7 +611,7 @@
 </tr>
 <tr>
 <td><a href="../license/">license</a></td>
-<td>1 <br/> <a href="../Uri/">Uri</a></td>
+<td>1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A url to the license of the mapping</td>
 <td>direct</td>
 </tr>
@@ -659,7 +659,7 @@
 </tr>
 <tr>
 <td><a href="../mapping_provider/">mapping_provider</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>0..1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>URL pointing to the source that provided the mapping, for example an ontology...</td>
 <td>direct</td>
 </tr>
@@ -725,13 +725,13 @@
 </tr>
 <tr>
 <td><a href="../see_also/">see_also</a></td>
-<td>* <br/> <a href="../Uri/">Uri</a></td>
+<td>* <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A URL specific for the mapping instance</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../issue_tracker/">issue_tracker</a></td>
-<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>0..1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A URL location of the issue tracker for this entity</td>
 <td>direct</td>
 </tr>
@@ -894,7 +894,7 @@ attributes:
   mapping_set_id:
     name: mapping_set_id
     description: A globally unique identifier for the mapping set (not each individual
-      mapping). Should be IRI, ideally resolvable.
+      mapping). Should ideally be resolvable.
     examples:
     - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
       description: A persistent URI pointing to the latest version of the Mondo -
@@ -906,7 +906,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping set reference
-    range: uri
+    range: NonRelativeURI
     required: true
   mapping_set_version:
     name: mapping_set_version
@@ -941,7 +941,7 @@ attributes:
     owner: mapping set
     domain_of:
     - mapping set
-    range: uri
+    range: NonRelativeURI
     multivalued: true
   mapping_set_title:
     name: mapping_set_title
@@ -1059,7 +1059,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    range: uri
+    range: NonRelativeURI
     required: true
   subject_type:
     name: subject_type
@@ -1236,7 +1236,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    range: uri
+    range: NonRelativeURI
   mapping_tool:
     name: mapping_tool
     instantiates:
@@ -1504,7 +1504,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping
-    range: uri
+    range: NonRelativeURI
     multivalued: true
   issue_tracker:
     name: issue_tracker
@@ -1524,7 +1524,7 @@ attributes:
     domain_of:
     - mapping set
     - mapping registry
-    range: uri
+    range: NonRelativeURI
   other:
     name: other
     description: Pipe separated list of key value pairs for properties not part of
