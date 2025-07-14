@@ -12,6 +12,7 @@
 - Add `mapping_tool_id` slot to the `Mapping` and `MappingSet` classes ([issue](https://github.com/mapping-commons/sssom/issues/449)).
 - Add `record_id` slot to the `Mapping` class ([issue](https://github.com/mapping-commons/sssom/issues/359)).
 - Change all URI-typed slots to clarify that they expect _non-relative_ URIs as values ([issue](https://github.com/mapping-commons/sssom/issues/448)).
+- Add specification for the RDF serialisation ([discussion](https://github.com/mapping-commons/sssom/discussions/454)).
 
 ## SSSOM version 1.0.0
 
