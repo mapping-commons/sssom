@@ -27,8 +27,12 @@ default_range: string
 enums:
   sssom_version_enum:
     permissible_values:
-      "1.0": SSSOM specification version 1.0
-      "1.1": SSSOM specification version 1.1
+      "1.0":
+        meaning: sssom:version1.0
+        description: SSSOM specification version 1.0
+      "1.1":
+        meaning: sssom:version1.1
+        description: SSSOM specification version 1.1
   entity_type_enum:
     permissible_values:
       owl class:
@@ -59,6 +63,7 @@ enums:
       rdf property:
         meaning: rdf:Property
       composed entity expression:
+        meaning: sssom:ComposedEntityExpression
         description: This value indicates that the entity ID does not represent a single entity, but a composite involving several individual entities. This value MUST NOT be used in the predicate_type slot. This specifications does not prescribe how an ID representing a composite entity should be interpreted; this is left at the discretion of applications.
         see_also:
         - https://github.com/mapping-commons/sssom/issues/402
@@ -66,7 +71,9 @@ enums:
         
   predicate_modifier_enum:
     permissible_values:
-      Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
+      Not:
+        description: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
+        meaning: sssom:NegatedPredicate
   mapping_cardinality_enum:
     permissible_values:
       "1:1": One-to-one mapping
@@ -85,6 +92,38 @@ types:
     uri: rdfs:Resource
     see_also:
       - https://mapping-commons.github.io/sssom/spec/#tsv
+ NonRelativeURI:
+    typeof: uri
+    description: >-
+      A URI as per RFC 3986, that is a string that matches the production of the "URI"
+      rule defined in Appendix A of that RFC. Contrary to the underlying LinkML type,
+      this specifically excludes _relative URI references_, which do not start with a
+      scheme component.
+      Relative URI references are forbidden because SSSOM has no built-in mechanism to
+      provide the base URI that would be needed to resolve relative URI references into
+      non-relative ones.
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/448
+    examples:
+      - value: https://example.org/path/to/file.txt#L4
+        description: A URI that is URL to a HTTP resource.
+      - value: urn:oasis:names:tc:entity:xmlns:xml:catalog
+        description: >-
+          A URI that is the URN of the namespace for the OASIS XML Catalogs specification.
+      - value: ldap://example.org/cn=Alice,dc=example,dc=org?mail
+        description: A URI that is a LDAP query URL.
+      - value: mailto:alice@example.org
+        description: A URI that is an email address.
+      - value: file.txt
+        description: An _invalid_ example, as it a relative URI (path only, no scheme).
+      - value: /path/to/file.txt
+        description: >-
+          An _invalid_ example; though it appears to be an _absolute path_, it is a
+          _relative URI_ because of the absence of a scheme.
+      - value: //example.org/path/to/file.txt
+        description: >-
+          An _invalid_ example; though it includes an authority component (example.org),
+          it has no scheme and is therefore a _relative URI_.
 
 slots:
   prefix_name:
@@ -112,7 +151,7 @@ slots:
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curie_map.sssom.tsv
   mirror_from:
     description: A URL location from which to obtain a resource, such as a mapping set.
-    range: uri
+    range: NonRelativeURI
   registry_confidence:
     description: This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
     range: double
@@ -145,13 +184,13 @@ slots:
   imports:
     description: A list of registries that should be imported into this one.
     multivalued: true
-    range: uri
+    range: NonRelativeURI
   documentation:
     description: A URL to the documentation of this mapping commons.
-    range: uri
+    range: NonRelativeURI
   homepage:
     description: A URL to a homepage of this mapping commons.
-    range: uri
+    range: NonRelativeURI
   mappings:
     description: Contains a list of mapping objects.
     range: mapping
@@ -331,9 +370,9 @@ slots:
       - value: owl:Class
   mapping_set_id:
     description: A globally unique identifier for the mapping set (not each individual
-      mapping). Should be IRI, ideally resolvable.
+      mapping). Should ideally be resolvable.
     required: true
-    range: uri
+    range: NonRelativeURI
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
         description: A persistent URI pointing to the latest version of the Mondo - NCIT mapping in the Mondo namespace.
@@ -462,7 +501,7 @@ slots:
   license:
     description: A url to the license of the mapping. In absence of a license we assume
       no license.
-    range: uri
+    range: NonRelativeURI
     slot_uri: dcterms:license
     examples:
       - value: https://creativecommons.org/licenses/by/4.0/
@@ -510,7 +549,7 @@ slots:
   mapping_provider:
     description: URL pointing to the source that provided the mapping, for example
       an ontology that already contains the mappings, or a database from which it was derived.
-    range: uri
+    range: NonRelativeURI
     instantiates: sssom:Propagatable
     annotations:
       propagated: true
@@ -522,7 +561,7 @@ slots:
   mapping_set_source:
     description: A mapping set or set of mapping set that was used to derive the mapping set.
     slot_uri: prov:wasDerivedFrom
-    range: uri
+    range: NonRelativeURI
     multivalued: true
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv
@@ -753,7 +792,7 @@ slots:
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker_item.sssom.tsv
   issue_tracker:
     description: A URL location of the issue tracker for this entity.
-    range: uri
+    range: NonRelativeURI
     examples:
       - value: https://github.com/mapping-commons/mh_mapping_initiative/issues
         description: A URL resolving to the issue tracker of the Mouse-Human mapping initiative
@@ -769,7 +808,7 @@ slots:
     examples:
       - value: https://github.com/mapping-commons/mh_mapping_initiative/pull/41
         description: A URL pointing to the pull request that introduced the mapping.
-    range: uri
+    range: NonRelativeURI
     multivalued: true
     see_also:
       - https://github.com/mapping-commons/sssom/issues/422

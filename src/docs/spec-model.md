@@ -235,4 +235,5 @@ Not all changes can be annotated thusly in the LinkML model, though. For changes
 
 * The `similarity_measure` slot, which previously only existed on the `Mapping` class, has been added to the `MappingSet` class.
 * The value `composed entity expression` has been added to the `EntityType` enumeration.
-* The type of the `see_also` slot has been changed to `xsd:anyURI`.
+* The type of the `see_also` slot has been changed to `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.
+* All slots that were typed as `xsd:anyURI` have been re-typed as `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.
