@@ -623,7 +623,7 @@ slots:
       - value: v3.2
   mapping_date:
     description: The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
-    slot_uri: pav:authoredOn
+    slot_uri: dcterms:created
     range: date
     instantiates: sssom:Propagatable
     examples:

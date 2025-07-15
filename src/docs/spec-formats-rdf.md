@@ -334,7 +334,7 @@ A valid serialisation of that set in RDF/Turtle would be:
     ];
   sssom:mappings [ a owl:Axiom;
       pav:authoredBy ORCID:0000-0002-7356-1779;
-      pav:authoredOn "2025-07-14"^^xsd:date;
+      dcterms:created "2025-07-14"^^xsd:date;
       owl:annotatedProperty skos:exactMatch;
       owl:annotatedSource KF_FOOD:F001;
       owl:annotatedTarget FOODON:00002473;
@@ -345,7 +345,7 @@ A valid serialisation of that set in RDF/Turtle would be:
       sssom:subject_label "apple"
     ], [ a owl:Axiom;
       pav:authoredBy ORCID:0000-0002-7356-1779;
-      pav:authoredOn "2025-07-14"^^xsd:date;
+      dcterms:created "2025-07-14"^^xsd:date;
       owl:annotatedProperty skos:exactMatch;
       owl:annotatedSource KF_FOOD:F002;
       owl:annotatedTarget FOODON:00003348;
