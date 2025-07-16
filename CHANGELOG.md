@@ -4,7 +4,14 @@
 
 - Add `composed entity expression` as a new value in the `EntityType` enumeration ([issue](https://github.com/mapping-commons/sssom/issues/402)).
 - Add `predicate_type` slot (previously defined but unused) to the `Mapping` and `MappingSet` classes ([issue](https://github.com/mapping-commons/sssom/issues/404)).
-- TBD
+- Add `similarity_measure` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/411)).
+- Add `sssom_version` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/439)).
+- Change the type of the `see_also` slot to `xsd:anyURI` ([issue](https://github.com/mapping-commons/sssom/issues/422)).
+- Add `mapping_set_confidence` slot to the `MappingSet` class ([issue](https://github.com/mapping-commons/sssom/issues/438)).
+- Updated the RDF binding of sssom:publication_date from dcterms:created to dcterms:issued, which is the more appropriate property to use in this case.
+- Add `mapping_tool_id` slot to the `Mapping` and `MappingSet` classes ([issue](https://github.com/mapping-commons/sssom/issues/449)).
+- Add `record_id` slot to the `Mapping` class ([issue](https://github.com/mapping-commons/sssom/issues/359)).
+- Change all URI-typed slots to clarify that they expect _non-relative_ URIs as values ([issue](https://github.com/mapping-commons/sssom/issues/448)).
 
 ## SSSOM version 1.0.0
 

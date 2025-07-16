@@ -2,7 +2,7 @@
 
 The SSSOM data model (hereafter “the model”) defines the data structure to represent and manipulate SSSOM concepts. The model is formally described as a [LinkML](https://linkml.io/) schema, from which the [documentation](linkml-index.md) is derived.
 
-This section provides an overview of the model and supplementary informations that may not be found in the schema (and its derived documentation) itself. Of note, the schema, not this section, is always the authoritative source of truth for all questions pertaining to the model.
+This section provides an overview of the model and supplementary information that may not be found in the schema (and its derived documentation) itself. Of note, the schema, not this section, is always the authoritative source of truth for all questions pertaining to the model.
 
 ## Overview
 
@@ -36,8 +36,8 @@ By exception, prefix names listed in the table found in the [IRI prefixes](spec-
 
 As mentioned briefly above, there are two different types of slots in the `MappingSet` class:
 
-* slots that provide informations about the set itself;
-* slots that provide informations about all the mappings in the set.
+* slots that provide information about the set itself;
+* slots that provide information about all the mappings in the set.
 
 The latter are called “propagatable slots”. In the LinkML model, they are marked with a `propagated` annotation whose value is set to `true`.
 
@@ -57,7 +57,8 @@ For convenience, here is the current list of propagatable slots:
 * `subject_source`,
 * `subject_source_version`,
 * `subject_type`,
-* `predicate_type`.
+* `predicate_type`,
+* `similarity_measure`.
 
 When a mapping set object has a value in one of its propagatable slots, this MUST be interpreted as if all mappings within the set had that same value in their corresponding slot. For example, if a set has the value _foo_ in its `mapping_tool` slot, all the mappings in that set MUST be treated as if they had the value _foo_ in their `mapping_tool` slot.
 
@@ -191,3 +192,48 @@ If a defined extension slot has a `type_hint` other than `http://www.w3.org/2001
 | http://www.w3.org/2001/XMLSchema#datetime | Implementations MAY check that the value is a date and time value in the ISO 8601 format (`yyyy-mm-ddThh:mm:ssTZ`) |
 
 Implementations MAY decide to recognise more types and to enforce type-specific constraints. For example, an implementation could recognise the type `http://www.w3.org/2001/XMLSchema#negativeInteger` and check that the value starts with a minus sign.
+
+## Versioning
+
+Starting from version 1.1 of the specification, the `MappingSet` class has an optional slot named `sssom_version` which indicates the version of the specification that the set declares itself to be compliant with.
+
+### Versioning rules
+
+The SSSOM specification mostly follows the [Semantic Versioning principles](https://semver.org/), but only version numbers with two components: a _major_ number _X_ and a _minor_ number _Y_, expressed as `X.Y`.
+
+A set that is compliant with a minor version _X.Y_ is also compliant with any minor version _X.Y+n_, for any value of _n_. The opposite is not true: a set compliant with a minor version _X.Y_ may not necessarily be compliant with a minor version _X.Y-n_.
+
+A set that is compliant with a major version _X_ may not be compliant with any other major version _X+n_ or _X-n_.
+
+Therefore, an implementation that is itself compliant with version _X.Y_ SHOULD always accept a set compliant with any version _X.Y-n_. It MAY reject outright a set compliant with any version _X.Y+n_ (more recent minor version), _X-n_ (older major version), or _X+n_ (more recent major version).
+
+In other words, the SSSOM specification guarantees backwards compatibility between two versions (in that a set compliant with an older version can be used with an implementation compliant with a newer version) only insofar as only the _minor_ version has changed.
+
+### Using the `sssom_version` slot
+
+When reading a SSSOM set:
+
+(A) If the set contains a `sssom_version` slot, implementations SHOULD check whether they recognize the indicated version as a supported version according to the rules in the previous section; if they don’t, they MAY reject the set outright.
+
+(B) If the set does not contain a `sssom_version` slot, it MUST be assumed to be compliant with version 1.0.
+
+When generating a SSSOM mapping set:
+
+(A) If the set uses slots or enum values that were added in more recent versions than 1.0, then the `sssom_version` slot MUST be set to the lowest version that defines all the slots effectively used.
+
+(B) If the set only uses slots or values that already existed in version 1.0, then the set is effectively compliant with said version 1.0 and the `sssom_version` slot MAY be omitted entirely.
+
+Note that, if the `sssom_version` slot is _not_ omitted, then it MUST be set to `1.1`, since that slot itself has been added in version 1.1. It follows that a `sssom_version=1.0` slot (a set that would declare itself to be compliant with version 1.0) is self-contradictory.
+
+### Model changes across versions
+
+For all slots that were added to the specification after version 1.0, the LinkML model contains an `added_in` annotation that indicates the exact version in which the slot was introduced.
+
+Not all changes can be annotated thusly in the LinkML model, though. For changes other than the complete addition of a new slot, implementation can refer to the following subsections.
+
+#### Model changes in version 1.1
+
+* The `similarity_measure` slot, which previously only existed on the `Mapping` class, has been added to the `MappingSet` class.
+* The value `composed entity expression` has been added to the `EntityType` enumeration.
+* The type of the `see_also` slot has been changed to `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.
+* All slots that were typed as `xsd:anyURI` have been re-typed as `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.

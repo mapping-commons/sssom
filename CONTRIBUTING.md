@@ -40,7 +40,7 @@ We have an official message board with a detailed FAQ and where the community ch
 
 ## What should I know before I get started?
 
-- Read the [overview](https://mapping-commons.github.io/sssom/spec/)
+- Read the [introduction](https://mapping-commons.github.io/sssom/introduction/)
 - Do the [SSSOM tutorial](https://mapping-commons.github.io/sssom/tutorial/)
 - Read about the [SSSOM toolkit](https://mapping-commons.github.io/sssom-py), which is managed [in a different repo](https://github.com/mapping-commons/sssom-py)
 
@@ -83,6 +83,23 @@ Unsure where to begin contributing to SSSOM? You can start by looking through th
 
 * [Beginner issues][beginner] - issues which should only require a few lines of code, and a test or two.
 * [Help wanted issues][help-wanted] - issues which should be a bit more involved than `beginner` issues.
+
+### Considerations when proposing changes to the model
+
+Now that SSSOM 1.0 has been released, and until we start working on a hypothetical SSSOM 2.0, any proposed change to the SSSOM model must consider the issue of backwards compatibility.
+
+The key point is that _a set that is compliant with version 1.0 of the specification must be usable “as is” with an implementation compliant with any 1.x version_.
+
+This is automatically achieved if all the proposed changes do is _adding_ new _optional_ slots, or _new_ enumeration values. For that reason, it is strongly recommended that evolution of the 1.x branch be limited to this type of changes only, and that other changes be reserved for a hypothetical version 2.0.
+
+In addition, new slots must be marked with a `added_in` annotation indicating the version in which the slot will be introduced, as in the following example:
+
+```yaml
+my_new_slot:
+  instantiates: sssom:Versionable
+  annotations:
+    added_in: "1.1"
+```
 
 ### Pull Requests
 

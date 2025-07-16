@@ -596,7 +596,7 @@ class Propagatable(YAMLRoot):
 class NoTermFound(YAMLRoot):
     """
     sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be
-    found. It SHOULD be used in conjuction with a corresponding subject_source or object_source to signify where the
+    found. It SHOULD be used in conjunction with a corresponding subject_source or object_source to signify where the
     term was not found.
     """
     _inherited_slots: ClassVar[List[str]] = []

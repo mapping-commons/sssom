@@ -115,7 +115,7 @@ SSSOM mapping sets can be created as part of automated processes, like ontology 
 <a id="scratchstart"></a>
 ### Manually curating mapping sets
 
-To gradually improve terminological mapping practices we are proposing a [5-star system for mappings](spec.md#minimum). For the sake of this tutorial, we will focus on producing a [solid 3-Star mapping set](spec.md#minimum) with the following metadata:
+To gradually improve terminological mapping practices we are proposing a [5-star system for mappings](5star-mappings.md). For the sake of this tutorial, we will focus on producing a [solid 3-Star mapping set](5star-mappings.md) with the following metadata:
 
 **Core mapping metadata**:
 
@@ -318,7 +318,7 @@ The author is a crucial bit of metadata, in particular in conjunction with the m
 - describes the purpose for the creation of the mapping set
 - is reasonably short, but not too short (3-4 sentences)
 
-`license`: An identifier for a license description. One of the most serious impediments to re-use on the web is the absence of clear and **standardised** licenses. We recommend the creative commons licenses for open data, either CC-0 (public domain, no license) or CC-BY 4.0. (Some people prefer CC-BY 4.0, because it ensures that attribution is taken more seriously.) Even when using a proprietary license, it is good to be transparent here, so that an "accidentally leaked" data file is not mistakenly assumed to be "open".
+`license`: An identifier for a license description. One of the most serious impediments to reuse on the web is the absence of clear and **standardised** licenses. We recommend the creative commons licenses for open data, either CC-0 (public domain, no license) or CC-BY 4.0. (Some people prefer CC-BY 4.0, because it ensures that attribution is taken more seriously.) Even when using a proprietary license, it is good to be transparent here, so that an "accidentally leaked" data file is not mistakenly assumed to be "open".
 
 `subject_source`: URI of source the subject. This is one of the most important pieces of metadata: an unambiguous reference to a source. It is notoriously hard to standardise source references ([see past debate](https://github.com/mapping-commons/sssom/issues/126)). We recommend to use the standard URIs used in your own domain, for example OBO (`obo:mondo`) or Wikidata (`wikidata:Q7876491`).
 

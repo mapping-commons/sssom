@@ -1,27 +1,65 @@
-[tool.poetry]
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[project]
 name = "sssom-schema"
-version = "0.0.0"
 description = "SSSOM is a Simple Standard for Sharing Ontology Mappings."
-readme = "README.md"
 authors = [
-    "Nicolas Matentzoglu <nicolas.matentzoglu@gmail.com>",
-    "Harshad Hegde <hhegde@lbl.gov>"
-    ]
+  {name = "Nicolas Matentzoglu", email = "nicolas.matentzoglu@gmail.com"},
+  {name = "Harshad Hegde", email = "hhegde@lbl.gov"},
+]
 license = "MIT"
+license-files = ["LICENSE"]
+readme = "README.md"
+keywords = ["schema", "ontology", "mappings", "sssom"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+requires-python = ">=3.8.1"
+dynamic = ["version"]
+dependencies = [
+    "jinjanator",
+    "linkml-runtime",
+]
+
+[project.optional-dependencies]
+docs = [
+    "linkml >= 1.7.0",
+    "mkdocs-material >= 8.2.8",
+    "mkdocs-mermaid2-plugin >= 1.1.1",
+]
+
+[tool.poetry]
+requires-poetry = ">=2.0"
+version = "0.0.0"
 
 [tool.poetry.dependencies]
 python = "^3.8.1"
-jinjanator = "*"
-linkml-runtime = "*"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.requires-plugins]
+poetry-dynamic-versioning = ">=1.8.2"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "pep440"
+
+[tool.poetry.group.dev.dependencies]
 linkml = "^1.7.0"
 mkdocs-material = "^8.2.8"
 mkdocs-mermaid2-plugin = "^1.1.1"
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.extras]
-docs = ["linkml", "mkdocs-material"]
+[tool.codespell]
+# Ref: https://github.com/codespell-project/codespell#using-a-config-file
+skip = '.git*,*.pdf,*.lock'
+check-hidden = true
+ignore-regex = '\b(COMENT|EHR|LOD)\b'
+ignore-words-list = 'disjointness'

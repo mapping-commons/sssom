@@ -14,47 +14,33 @@ jobs:
       #       check-out repo and set-up python
       #----------------------------------------------
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.2.2
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
 
       #----------------------------------------------
       #          install & configure poetry
       #----------------------------------------------
       - name: Install Poetry
-        uses: snok/install-poetry@v1.3
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
+        run: |
+          pipx install poetry
+          pipx inject poetry poetry-dynamic-versioning
 
       #----------------------------------------------
-      #       load cached venv if cache exists      
+      #                setup Python
       #----------------------------------------------
-      - name: Load cached venv
-        id: cached-poetry-dependencies
-        uses: actions/cache@v2
+      - name: Set up Python
+        uses: actions/setup-python@v5.6.0
         with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+          python-version: 3.10
+          cache: 'poetry'
 
       #----------------------------------------------
-      # install dependencies if cache does not exist 
+      #             install dependencies
       #----------------------------------------------
       - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
-
-      #----------------------------------------------
-      #    install your root project, if required 
-      #----------------------------------------------      
-      - name: Install library
-        run: poetry install --no-interaction
+        run: poetry install --no-interaction --all-extras --no-root
 
       - name: Create local changes
         run: |
