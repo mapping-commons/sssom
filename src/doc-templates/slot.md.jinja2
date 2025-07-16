@@ -40,9 +40,6 @@
 
 * **Range**: {{gen.link(element.range)}}. The range of the element is the type of the value that can be assigned to it.
 {% if element.multivalued %}* **Multivalued**: {{ element.multivalued }}. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are `|` separated.{% endif %}
-* **Required?**: {% if element.required %}Required (element has to be added to the mapping or mapping set.)
-{% elif element.recommended %}Recommended (We suggest adding this element to the mapping or mapping set, but it is not required.
-{% else %}Optional (You can add this element to the mapping or mapping set, but it is not required.){% endif -%}
 {% if element.minimum_value is not none %}* **Minimum Value**: {{ element.minimum_value|int }}{% endif -%}
 {% if element.maximum_value is not none %}* **Maximum Value**: {{ element.maximum_value|int }}{% endif -%}
 {% if element.pattern %}* **Regex pattern**: {{ '`' }}{{  element.pattern }}{{ '`' }}{% endif -%}
