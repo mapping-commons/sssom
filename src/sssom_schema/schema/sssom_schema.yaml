@@ -898,6 +898,8 @@ classes:
     - subject_preprocessing
     - object_preprocessing
     - similarity_measure
+    - curation_rule
+    - curation_rule_text
     - see_also
     - issue_tracker
     - other

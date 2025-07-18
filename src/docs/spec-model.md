@@ -58,7 +58,9 @@ For convenience, here is the current list of propagatable slots:
 * `subject_source_version`,
 * `subject_type`,
 * `predicate_type`,
-* `similarity_measure`.
+* `similarity_measure`,
+* `curation_rule`,
+* `curation_rule_text`.
 
 When a mapping set object has a value in one of its propagatable slots, this MUST be interpreted as if all mappings within the set had that same value in their corresponding slot. For example, if a set has the value _foo_ in its `mapping_tool` slot, all the mappings in that set MUST be treated as if they had the value _foo_ in their `mapping_tool` slot.
 
@@ -237,3 +239,4 @@ Not all changes can be annotated thusly in the LinkML model, though. For changes
 * The value `composed entity expression` has been added to the `EntityType` enumeration.
 * The type of the `see_also` slot has been changed to `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.
 * All slots that were typed as `xsd:anyURI` have been re-typed as `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.
+* The `curation_rule` and `curation_rule_text` slots which previously only existed on the `Mapping` class, have been added to the `MappingSet` class. Both slots have now been typed [propagatable](#propagation-of-mapping-set-slots).
