@@ -646,7 +646,7 @@ slots:
       - value: 0.95
         description: A confidence score of 0.95, indicating 95% confidence.
   subject_match_field:
-    description: >
+    description: >-
       A list of properties, annotations or attributes related to the subject that was used
       to establish the match. This property is recommended for use in conjunction with 
       mapping justifications related to lexical matching, such as `semapv:LexicalMatching`. 
@@ -665,7 +665,7 @@ slots:
       - https://mapping-commons.github.io/sssom/mapping-justifications/#lexical-matching
       - https://github.com/mapping-commons/sssom/issues/413
   object_match_field:
-    description: >
+    description: >-
       A list of properties, annotations or attributes related to the object that was used
       to establish the match. This property is recommended for use in conjunction with 
       mapping justifications related to lexical matching, such as `semapv:LexicalMatching`. 
