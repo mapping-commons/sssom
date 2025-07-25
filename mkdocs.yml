@@ -39,8 +39,9 @@ nav:
     - Serialisations:
       - Introduction: spec-formats.md
       - SSSOM/TSV serialisation: spec-formats-tsv.md
+      - SSSOM/JSON serialisation: spec-formats-json.md
+      - SSSOM/RDF serialisation: spec-formats-rdf.md
       - OWL/RDF serialisation: spec-formats-owl.md
-      - JSON serialisation: spec-formats-json.md
   - Resources for contributors: contributing.md
   - Resources for users:
     - FAQ: faq.md
