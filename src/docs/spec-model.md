@@ -43,6 +43,7 @@ The latter are called “propagatable slots”. In the LinkML model, they are ma
 
 For convenience, here is the current list of propagatable slots:
 
+* `cardinality_scope`,
 * `mapping_date`,
 * `mapping_provider`,
 * `mapping_tool`,
