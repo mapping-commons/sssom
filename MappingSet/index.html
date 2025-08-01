@@ -445,6 +445,8 @@
 <p>URI: <a href="https://w3id.org/sssom/MappingSet">sssom:MappingSet</a></p>
 <div class="mermaid"> classDiagram
     class MappingSet
+      MappingSet : cardinality_scope
+
       MappingSet : comment
 
       MappingSet : creator_id
@@ -664,6 +666,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../cardinality_scope/">cardinality_scope</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>A list of mapping slots that define the scope for the value found in the mapp...</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../mapping_tool/">mapping_tool</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>A reference to the tool or algorithm that was used to generate the mapping</td>
@@ -808,6 +816,7 @@ slots:
 - object_source_version
 - predicate_type
 - mapping_provider
+- cardinality_scope
 - mapping_tool
 - mapping_tool_id
 - mapping_tool_version
@@ -1238,6 +1247,44 @@ attributes:
     - mapping set
     - mapping
     range: NonRelativeURI
+  cardinality_scope:
+    name: cardinality_scope
+    instantiates:
+    - sssom:Propagatable
+    - sssom:Versionable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: A list of mapping slots that define the scope for the value found
+      in the mapping_cardinality slot. Mappings are considered to belong to the same
+      scope if they have the same value for all slots listed in the scope. If no scope
+      is defined, the default scope is empty, meaning that all mappings belong to
+      a single scope that is identical to the entire mapping set. The behaviour if
+      a value in the list does not correspond to a valid slot name is undefined.
+    examples:
+    - value: '[''predicate_id'']'
+      description: Indicates that mapping_cardinality is computed relatively to all
+        mappings that have the same predicate.
+    - value: '[''predicate_id'', ''object_source'']'
+      description: Indicates that mapping_cardinality is computed relatively to all
+        mappings that have the same predicate and the same object source.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/467
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate.sssom.tsv
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate+object_source.sssom.tsv
+    rank: 1000
+    alias: cardinality_scope
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+    multivalued: true
   mapping_tool:
     name: mapping_tool
     instantiates:

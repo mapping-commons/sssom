@@ -1412,6 +1412,13 @@ mapping_date: 2022-05-02
 <td>Optional</td>
 </tr>
 <tr>
+<td><strong><a href="cardinality_scope/">cardinality_scope</a></strong></td>
+<td>A list of mapping slots that define the scope for the value found in the mapping_cardinality slot. Mappings are considered to belong to the same scope if they have the same value for all slots listed in the scope. If no scope is defined, the default scope is empty, meaning that all mappings belong to a single scope that is identical to the entire mapping set. The behaviour if a value in the list does not correspond to a valid slot name is undefined.</td>
+<td>string</td>
+<td>['predicate_id']</td>
+<td>Optional</td>
+</tr>
+<tr>
 <td><strong><a href="mapping_tool/">mapping_tool</a></strong></td>
 <td>A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text. Consider using the mapping_tool_id slot for a more standardised reference.</td>
 <td>string</td>

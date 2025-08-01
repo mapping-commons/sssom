@@ -10,14 +10,14 @@
         <meta name="author" content="The SSSOM Community">
       
       
-        <link rel="canonical" href="https://mapping-commons.github.io/sssom/subject_source_version/">
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/cardinality_scope/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
     
     
       
-        <title>subject_source_version - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>cardinality_scope - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#subject_source_version" class="md-skip">
+        <a href="#cardinality_scope" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              subject_source_version
+              cardinality_scope
             
           </span>
         </div>
@@ -891,6 +891,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     Schema developer documentation
   </a>
@@ -911,52 +918,85 @@
                 
                   
 
-  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/subject_source_version.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/cardinality_scope.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="subject_source_version">subject_source_version</h1>
-<p><strong>URI</strong>: <a href="https://w3id.org/sssom/subject_source_version">sssom:subject_source_version</a></p>
+<h1 id="cardinality_scope">cardinality_scope</h1>
+<p><strong>URI</strong>: <a href="https://w3id.org/sssom/cardinality_scope">sssom:cardinality_scope</a></p>
 <p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>Version IRI or version string of the source of the subject term.</em></p>
+<p><em>A list of mapping slots that define the scope for the value found in the mapping_cardinality slot. Mappings are considered to belong to the same scope if they have the same value for all slots listed in the scope. If no scope is defined, the default scope is empty, meaning that all mappings belong to a single scope that is identical to the entire mapping set. The behaviour if a value in the list does not correspond to a valid slot name is undefined.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
 <li><strong>Range</strong>: <a href="../String/">String</a>. The range of the element is the type of the value that can be assigned to it.</li>
+<li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <div class="admonition example">
-<p class="admonition-title">Example: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl</p>
+<p class="admonition-title">Example: ['predicate_id']</p>
 <p><strong>Example value</strong>:</p>
-<p><code>http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl</code></p>
-<p><strong>Description</strong>: A persistent Version IRI pointing to the Mondo version '2021-01-30'</p>
+<p><code>['predicate_id']</code></p>
+<p><strong>Description</strong>: Indicates that mapping_cardinality is computed relatively to all mappings that have the same predicate.</p>
 </div>
+<div class="admonition example">
+<p class="admonition-title">Example: ['predicate_id', 'object_source']</p>
+<p><strong>Example value</strong>:</p>
+<p><code>['predicate_id', 'object_source']</code></p>
+<p><strong>Description</strong>: Indicates that mapping_cardinality is computed relatively to all mappings that have the same predicate and the same object source.</p>
+</div>
+<h2 id="see-also">See Also</h2>
+<p>These are some relevant resources you might find useful to get additional information about the element,
+such as example implementations, issues and pull requests.</p>
+<ul>
+<li><a href="https://github.com/mapping-commons/sssom/issues/467">https://github.com/mapping-commons/sssom/issues/467</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate.sssom.tsv</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate+object_source.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate+object_source.sssom.tsv</a></li>
+</ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
 
-<pre><code class="language-yaml">name: subject_source_version
+<pre><code class="language-yaml">name: cardinality_scope
 instantiates:
 - sssom:Propagatable
+- sssom:Versionable
 annotations:
   propagated:
     tag: propagated
     value: true
-description: Version IRI or version string of the source of the subject term.
+  added_in:
+    tag: added_in
+    value: '1.1'
+description: A list of mapping slots that define the scope for the value found in
+  the mapping_cardinality slot. Mappings are considered to belong to the same scope
+  if they have the same value for all slots listed in the scope. If no scope is defined,
+  the default scope is empty, meaning that all mappings belong to a single scope that
+  is identical to the entire mapping set. The behaviour if a value in the list does
+  not correspond to a valid slot name is undefined.
 examples:
-- value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
-  description: A persistent Version IRI pointing to the Mondo version '2021-01-30'
+- value: '[''predicate_id'']'
+  description: Indicates that mapping_cardinality is computed relatively to all mappings
+    that have the same predicate.
+- value: '[''predicate_id'', ''object_source'']'
+  description: Indicates that mapping_cardinality is computed relatively to all mappings
+    that have the same predicate and the same object source.
 from_schema: https://w3id.org/sssom/schema/
+see_also:
+- https://github.com/mapping-commons/sssom/issues/467
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate.sssom.tsv
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate+object_source.sssom.tsv
 rank: 1000
-alias: subject_source_version
+alias: cardinality_scope
 domain_of:
 - mapping set
 - mapping
 range: string
+multivalued: true
 
 </code></pre>
 
