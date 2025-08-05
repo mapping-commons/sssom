@@ -43,6 +43,7 @@ The latter are called “propagatable slots”. In the LinkML model, they are ma
 
 For convenience, here is the current list of propagatable slots:
 
+* `cardinality_scope`,
 * `mapping_date`,
 * `mapping_provider`,
 * `mapping_tool`,
@@ -128,6 +129,53 @@ The `sssom:NoTermFound` value MUST NOT be used in any other slot than `subject_i
 The meaning of the NOT predicate modifier in a mapping that refers to `sssom:NoTermFound` is unspecified.
 
 When computing cardinality values (to fill the `mapping_cardinality` slot), mappings that refer to `sssom:NoTermFound` MUST be ignored.
+
+
+## Mapping cardinality and cardinality scope
+
+The `mapping_cardinality` slot is somewhat special in that its value is
+only meaningful within a given context, or “scope”: a mapping record in
+itself does not have any cardinality – it only has one when it is part
+of a larger set of records.
+
+Consider the following three records (set metadata, and in particular
+prefix declarations, have been omitted for brevity):
+
+| `subject_id`   | `predicate_id`   | `object_id`  | `object_source` |
+| -------------- | ---------------- | ------------ | --------------- |
+| UBERON:0000011 | skos:broadMatch  | VHOG:0000755 | obo:VHOG        |
+| UBERON:0000011 | skos:narrowMatch | EHDAA:4655   | obo:EHDAA       |
+| UBERON:0000011 | skos:narrowMatch | NCIT:C12764  | obo:NCIT        |
+
+Within that particular set, all three records have a cardinality of
+`1:n` (one subject, UBERON:0000011, mapped to many objects).
+
+But cardinality can also be computed on smaller subsets. For example:
+
+* if we are only interested in records that have the same predicate,
+  then the first record has a cardinality of `1:1` (UBERON:0000011 is
+  mapped to only one object through a `skos:broadMatch` predicate),
+  while the other two still have a cardinality of `1:n` (UBERON:0000011
+  is mapped to two different objects through a `skos:narrowMatch`
+  predicate);
+* if we are only interested in records where the objects are from the
+  same source, then all three records have a cardinality of `1:1`
+  (UBERON:0000011 is mapped to only one object in each of the three
+  vocabularies VHOG, EHDAA, and NCIT).
+
+It is left to users and downstream applications of SSSOM to decide which
+type of cardinality (relative to the entire set or relative to any of
+the many possible subsets) will be the most useful to them. The
+`cardinality_scope` slot is intended to allow them to specify which
+cardinality they use.
+
+When computing cardinality values:
+
+* if the cardinality is computed on the entire set, the
+  `cardinality_scope` slot MUST be left empty (or absent);
+* if the cardinality is computed on a subset, the `cardinality_scope`
+  slot MUST be filled with the list of slots that are used to define the
+  subset.
 
 
 ## Non-standard slots
