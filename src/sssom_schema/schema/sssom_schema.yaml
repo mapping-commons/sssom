@@ -764,6 +764,7 @@ slots:
       - https://github.com/mapping-commons/sssom/issues/166
       - https://github.com/mapping-commons/sssom/pull/258
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule-propagated.sssom.tsv
   curation_rule_text:
     description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
       Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
