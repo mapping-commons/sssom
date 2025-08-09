@@ -43,6 +43,8 @@ The latter are called “propagatable slots”. In the LinkML model, they are ma
 
 For convenience, here is the current list of propagatable slots:
 
+* `curation_rule`,
+* `curation_rule_text`,
 * `cardinality_scope`,
 * `mapping_date`,
 * `mapping_provider`,
@@ -59,9 +61,7 @@ For convenience, here is the current list of propagatable slots:
 * `subject_source_version`,
 * `subject_type`,
 * `predicate_type`,
-* `similarity_measure`,
-* `curation_rule`,
-* `curation_rule_text`.
+* `similarity_measure`.
 
 When a mapping set object has a value in one of its propagatable slots, this MUST be interpreted as if all mappings within the set had that same value in their corresponding slot. For example, if a set has the value _foo_ in its `mapping_tool` slot, all the mappings in that set MUST be treated as if they had the value _foo_ in their `mapping_tool` slot.
 
