@@ -9,7 +9,8 @@
 #creator_id: orcid:0000-0002-7356-1779
 #mapping_provider: "https://w3id.org/sssom/core_team"
 #curation_rule:
-#  DISEASE_MAPPING_COMMONS_RULES:MPR2
+#  - DISEASE_MAPPING_COMMONS_RULES:MPR2
+
 #comment: This is an example file for the SSSOM for illustration only. Its contents are entirely fabricated.
 subject_id	predicate_id	object_id	mapping_justification
 HP:0009124	skos:exactMatch	MP:0000003	semapv:ManualMappingCuration
