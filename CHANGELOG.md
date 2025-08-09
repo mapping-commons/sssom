@@ -12,6 +12,7 @@
 - Add `mapping_tool_id` slot to the `Mapping` and `MappingSet` classes ([issue](https://github.com/mapping-commons/sssom/issues/449)).
 - Add `record_id` slot to the `Mapping` class ([issue](https://github.com/mapping-commons/sssom/issues/359)).
 - Change all URI-typed slots to clarify that they expect _non-relative_ URIs as values ([issue](https://github.com/mapping-commons/sssom/issues/448)).
+- Add `curation_rule` and `curation_rule_text` to the `MappingSet` class and made propagatable ([issue](https://github.com/mapping-commons/sssom/issues/464)).
 - Add `cardinality_scope` slot ([issue](https://github.com/mapping-commons/sssom/issues/467)).
 
 ## SSSOM version 1.0.0
