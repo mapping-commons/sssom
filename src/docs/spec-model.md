@@ -126,7 +126,7 @@ The `sssom:NoTermFound` value MUST NOT be used in any other slot than `subject_i
 
 The meaning of the NOT predicate modifier in a mapping that refers to `sssom:NoTermFound` is unspecified.
 
-When computing cardinality values (to fill the `mapping_cardinality` slot): (1) a mapping record with a `object_id` (respectively `subject_id` of `sssom:NoTermFound` MUST be assigned a cardinality value of `1:0` (respectively `0:1`), regardless of any other record; (2) a mapping record with both the `subject_id` and the `object_id` set to `sssom:NoTermFound` MUST be assigned a cardinality value of `0:0`, regardless of any other record; (3) such records MUST be ignored when computing the cardinality of other records.
+When computing cardinality values (to fill the `mapping_cardinality` slot): (1) a mapping record with a `object_id` (respectively `subject_id`) of `sssom:NoTermFound` MUST be assigned a cardinality value of `1:0` (respectively `0:1`), regardless of any other record; (2) a mapping record with both the `subject_id` and the `object_id` set to `sssom:NoTermFound` MUST be assigned a cardinality value of `0:0`, regardless of any other record; (3) such records MUST be ignored when computing the cardinality of other records.
 
 
 ## Mapping cardinality and cardinality scope

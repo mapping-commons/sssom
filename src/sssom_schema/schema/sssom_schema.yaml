@@ -88,7 +88,7 @@ enums:
           is, several different subjects are mapped to the same object.
       "n:n":
         description: Indicates the mapping record is about a many-to-many mapping, that
-          is, the subject is maapped to several different objects and the object is
+          is, the subject is mapped to several different objects and the object is
           mapped to several different subjects.
       "1:0":
         description: Indicates that the subject has no match in the object vocabulary.
