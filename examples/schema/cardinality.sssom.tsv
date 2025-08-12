@@ -4,8 +4,8 @@
 #mapping_set_id: https://example.org/sets/cardinality
 #license: https://creativecommons.org/licenses/by/4.0/
 subject_id	predicate_id	object_id	mapping_justification	mapping_cardinality	comment
-SUBJ:0001	skos:exactMatch	OBJ:0001	semapv:LexicalMatching	1:1	S1 and O2 only mapped to each other
-SUBJ:0001	skos:exactMatch	OBJ:0001	semapv:MappingReview	1:1	S1 and O2 only mapped to each other
+SUBJ:0001	skos:exactMatch	OBJ:0001	semapv:LexicalMatching	1:1	S1 and O1 only mapped to each other
+SUBJ:0001	skos:exactMatch	OBJ:0001	semapv:MappingReview	1:1	S1 and O1 only mapped to each other
 SUBJ:0002	skos:exactMatch	OBJ:0002	semapv:LexicalMatching	1:n	S2 mapped to both O2 and O3, O2 mapped only to S2
 SUBJ:0002	skos:exactMatch	OBJ:0003	semapv:LexicalMatching	1:n	S2 mapped to both O2 and O3, O3 mapped only to S2
 SUBJ:0003	skos:exactMatch	OBJ:0004	semapv:LexicalMatching	n:1	S3 and S4 both mapped to only O4
