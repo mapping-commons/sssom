@@ -1,0 +1,16 @@
+#curie_map:
+#  HP: http://purl.obolibrary.org/obo/HP_
+#  MP: http://purl.obolibrary.org/obo/MP_
+#  orcid: https://orcid.org/
+#mapping_set_id: https://w3id.org/sssom/commons/examples/curation_rule.sssom.tsv
+#mapping_set_description: "This example illustrates how to express that all mappings in a mapping set have been curated according to a specific curation rule"
+#license: "https://creativecommons.org/publicdomain/zero/1.0/"
+#creator_id: orcid:0000-0002-7356-1779
+#mapping_provider: "https://w3id.org/sssom/core_team"
+#curation_rule_text:
+#  - Human and mouse phenotypes that inhere in homologous structures and exhibit the same phenotypic quality are considered exact matches.
+#comment: This is an example file for the SSSOM for illustration only. Its contents are entirely fabricated.
+subject_id	predicate_id	object_id	mapping_justification
+HP:0009124	skos:exactMatch	MP:0000003	semapv:ManualMappingCuration
+HP:0008551	skos:exactMatch	MP:0000018	semapv:ManualMappingCuration
+HP:0000411	skos:exactMatch	MP:0000021	semapv:ManualMappingCuration
