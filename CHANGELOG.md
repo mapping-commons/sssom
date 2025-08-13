@@ -14,6 +14,7 @@
 - Change all URI-typed slots to clarify that they expect _non-relative_ URIs as values ([issue](https://github.com/mapping-commons/sssom/issues/448)).
 - Add `curation_rule` and `curation_rule_text` to the `MappingSet` class and made propagatable ([issue](https://github.com/mapping-commons/sssom/issues/464)).
 - Add `cardinality_scope` slot ([issue](https://github.com/mapping-commons/sssom/issues/467)).
+- Add new value `0:0` to the `mapping_cardinality_enum` ([issue](https://github.com/mapping-commons/sssom/issues/477)).
 
 ## SSSOM version 1.0.0
 

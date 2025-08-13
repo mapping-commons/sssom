@@ -1,0 +1,11 @@
+#curie_map:
+#  OBJ: https://example.org/object/
+#  SRC: https://example.org/sources/
+#  SUBJ: https://example.org/subject/
+#mapping_set_id: https://example.org/sets/cardinality-with-unmapped-entities
+#license: https://creativecommons.org/licenses/by/4.0/
+subject_id	predicate_id	object_id	mapping_justification	subject_source	object_source	mapping_cardinality	comment
+SUBJ:0001	skos:exactMatch	sssom:NoTermFound	semapv:ManualMappingCuration	SRC:A	SRC:B	1:0	S1 in vocabulary A has no exact match in vocabulary B
+SUBJ:0001	skos:closeMatch	OBJ:0001	semapv:ManualMappingCuration	SRC:A	SRC:B	1:1	S1 mapped only to O1, O1 mapped only to S1 -- the record involving sssom:NoTermFound does not count, as it is an absence of match rather than an actual mapping
+sssom:NoTermFound	skos:exactMatch	OBJ:0002	semapv:ManualMappingCuration	SRC:C	SRC:D	0:1	O2 in vocabulary D has no exact match in vocabulary C
+sssom:NoTermFound	skos:exactMatch	sssom:NoTermFound	semapv:ManualMappingCuration	SRC:E	SRC:F	0:0	No exact match between any term from vocabulary E and any term for vocabulary F (in other words, the two vocabularies are completely disjoint, at least as far as exact matches are considered)

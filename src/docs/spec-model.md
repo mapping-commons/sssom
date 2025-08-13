@@ -128,7 +128,7 @@ The `sssom:NoTermFound` value MUST NOT be used in any other slot than `subject_i
 
 The meaning of the NOT predicate modifier in a mapping that refers to `sssom:NoTermFound` is unspecified.
 
-When computing cardinality values (to fill the `mapping_cardinality` slot), mappings that refer to `sssom:NoTermFound` MUST be ignored.
+When computing cardinality values (to fill the `mapping_cardinality` slot): (1) a mapping record with a `object_id` (respectively `subject_id`) of `sssom:NoTermFound` MUST be assigned a cardinality value of `1:0` (respectively `0:1`), regardless of any other record; (2) a mapping record with both the `subject_id` and the `object_id` set to `sssom:NoTermFound` MUST be assigned a cardinality value of `0:0`, regardless of any other record; (3) such records MUST be ignored when computing the cardinality of other records.
 
 
 ## Mapping cardinality and cardinality scope
@@ -288,3 +288,4 @@ Not all changes can be annotated thusly in the LinkML model, though. For changes
 * The type of the `see_also` slot has been changed to `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.
 * All slots that were typed as `xsd:anyURI` have been re-typed as `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.
 * The `curation_rule` and `curation_rule_text` slots which previously only existed on the `Mapping` class, have been added to the `MappingSet` class. Both slots have now been typed [propagatable](#propagation-of-mapping-set-slots).
+* A new value `0:0` has been added to the `mapping_cardinality_enum`.
