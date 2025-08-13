@@ -1262,6 +1262,8 @@
 <p>The latter are called “propagatable slots”. In the LinkML model, they are marked with a <code>propagated</code> annotation whose value is set to <code>true</code>.</p>
 <p>For convenience, here is the current list of propagatable slots:</p>
 <ul>
+<li><code>curation_rule</code>,</li>
+<li><code>curation_rule_text</code>,</li>
 <li><code>cardinality_scope</code>,</li>
 <li><code>mapping_date</code>,</li>
 <li><code>mapping_provider</code>,</li>
@@ -1522,6 +1524,7 @@ cardinality they use.</p>
 <li>The value <code>composed entity expression</code> has been added to the <code>EntityType</code> enumeration.</li>
 <li>The type of the <code>see_also</code> slot has been changed to <code>sssom:NonRelativeURI</code>. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.</li>
 <li>All slots that were typed as <code>xsd:anyURI</code> have been re-typed as <code>sssom:NonRelativeURI</code>. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.</li>
+<li>The <code>curation_rule</code> and <code>curation_rule_text</code> slots which previously only existed on the <code>Mapping</code> class, have been added to the <code>MappingSet</code> class. Both slots have now been typed <a href="#propagation-of-mapping-set-slots">propagatable</a>.</li>
 </ul>
 
 

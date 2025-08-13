@@ -926,7 +926,7 @@
 
 <h1 id="curation_rule">curation_rule</h1>
 <p><strong>URI</strong>: <a href="https://w3id.org/sssom/curation_rule">sssom:curation_rule</a></p>
-<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
 <p><em>A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.</em></p>
@@ -950,12 +950,19 @@ such as example implementations, issues and pull requests.</p>
 <li><a href="https://github.com/mapping-commons/sssom/issues/166">https://github.com/mapping-commons/sssom/issues/166</a></li>
 <li><a href="https://github.com/mapping-commons/sssom/pull/258">https://github.com/mapping-commons/sssom/pull/258</a></li>
 <li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule-propagated.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule-propagated.sssom.tsv</a></li>
 </ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
 
 <pre><code class="language-yaml">name: curation_rule
+instantiates:
+- sssom:Propagatable
+annotations:
+  propagated:
+    tag: propagated
+    value: true
 description: A curation rule is a (potentially) complex condition executed by an agent
   that led to the establishment of a mapping. Curation rules often involve complex
   domain-specific considerations, which are hard to capture in an automated fashion.
@@ -971,9 +978,11 @@ see_also:
 - https://github.com/mapping-commons/sssom/issues/166
 - https://github.com/mapping-commons/sssom/pull/258
 - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule-propagated.sssom.tsv
 rank: 1000
 alias: curation_rule
 domain_of:
+- mapping set
 - mapping
 range: EntityReference
 multivalued: true

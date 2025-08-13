@@ -453,6 +453,10 @@
 
       MappingSet : creator_label
 
+      MappingSet : curation_rule
+
+      MappingSet : curation_rule_text
+
       MappingSet : curie_map
 
           MappingSet --|&gt; prefix : curie_map
@@ -732,6 +736,18 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../curation_rule/">curation_rule</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>A curation rule is a (potentially) complex condition executed by an agent tha...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../curation_rule_text/">curation_rule_text</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>A curation rule is a (potentially) complex condition executed by an agent tha...</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../see_also/">see_also</a></td>
 <td>* <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
 <td>A URL specific for the mapping instance</td>
@@ -827,6 +843,8 @@ slots:
 - subject_preprocessing
 - object_preprocessing
 - similarity_measure
+- curation_rule
+- curation_rule_text
 - see_also
 - issue_tracker
 - other
@@ -1530,6 +1548,72 @@ attributes:
     - mapping set
     - mapping
     range: string
+  curation_rule:
+    name: curation_rule
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: A curation rule is a (potentially) complex condition executed by
+      an agent that led to the establishment of a mapping. Curation rules often involve
+      complex domain-specific considerations, which are hard to capture in an automated
+      fashion. The curation rule is captured as a resource rather than a string, which
+      enables higher levels of transparency and sharing across mapping sets. The URI
+      representation of the curation rule is expected to be a resolvable identifier
+      which provides details about the nature of the curation rule.
+    examples:
+    - value: DISEASE_MAPPING_COMMONS_RULES:MPR2
+      description: A reference to the Disease Mapping Commons rule with the ID MPR2.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/166
+    - https://github.com/mapping-commons/sssom/pull/258
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule-propagated.sssom.tsv
+    rank: 1000
+    alias: curation_rule
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
+    multivalued: true
+  curation_rule_text:
+    name: curation_rule_text
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: A curation rule is a (potentially) complex condition executed by
+      an agent that led to the establishment of a mapping. Curation rules often involve
+      complex domain-specific considerations, which are hard to capture in an automated
+      fashion. The curation rule should be captured as a resource (entity reference)
+      rather than a string (see curation_rule element), which enables higher levels
+      of transparency and sharing across mapping sets. The textual representation
+      of curation rule is intended to be used in cases where the creation of a resource
+      is not practical from the perspective of the mapping_provider.
+    examples:
+    - value: The two phenotypes inhere in homologous structures and exhibit the same
+        phenotypic quality.
+    - value: The two diseases are used synonymous in the medical literature.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/166
+    - https://github.com/mapping-commons/sssom/pull/258
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text-propagated.sssom.tsv
+    rank: 1000
+    alias: curation_rule_text
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+    multivalued: true
   see_also:
     name: see_also
     description: A URL specific for the mapping instance. E.g. for kboom we have a
