@@ -95,7 +95,7 @@ enums:
           This value MUST only be used when the object_id is sssom:NoTermFound.
       "0:1":
         description: Indicates that the object has no match in the subject vocabulary.
-          This  value MUST only be used when the subject_id is sssom:NoTermFound.
+          This value MUST only be used when the subject_id is sssom:NoTermFound.
       "0:0":
         description: Indicates that there is no match between the subject vocabulary
           and the object vocabulary. This value MUST only be used when both the
