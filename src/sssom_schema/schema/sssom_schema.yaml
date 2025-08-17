@@ -901,6 +901,18 @@ classes:
     slot_usage:
       license:
         required: true
+      similarity_measure:
+        instantiates: sssom:Versionable
+        annotations:
+          added_in: "1.1"
+      curation_rule:
+        instantiates: sssom:Versionable
+        annotations:
+          added_in: "1.1"
+      curation_rule_text:
+        instantiates: sssom:Versionable
+        annotations:
+          added_in: "1.1"
     slots:
     - sssom_version
     - curie_map
