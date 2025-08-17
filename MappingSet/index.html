@@ -854,6 +854,30 @@ slot_usage:
   license:
     name: license
     required: true
+  similarity_measure:
+    name: similarity_measure
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+  curation_rule:
+    name: curation_rule
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+  curation_rule_text:
+    name: curation_rule_text
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
 
 </code></pre>
 </details>
@@ -867,6 +891,30 @@ slot_usage:
   license:
     name: license
     required: true
+  similarity_measure:
+    name: similarity_measure
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+  curation_rule:
+    name: curation_rule
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+  curation_rule_text:
+    name: curation_rule_text
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
 attributes:
   sssom_version:
     name: sssom_version
@@ -1519,11 +1567,11 @@ attributes:
   similarity_measure:
     name: similarity_measure
     instantiates:
-    - sssom:Propagatable
+    - sssom:Versionable
     annotations:
-      propagated:
-        tag: propagated
-        value: true
+      added_in:
+        tag: added_in
+        value: '1.1'
     description: The measure used for computing a similarity score. This field is
       meant to be used in conjunction with the similarity_score field, to document,
       for example, the lexical or semantic match of a matching algorithm. To make
@@ -1551,11 +1599,11 @@ attributes:
   curation_rule:
     name: curation_rule
     instantiates:
-    - sssom:Propagatable
+    - sssom:Versionable
     annotations:
-      propagated:
-        tag: propagated
-        value: true
+      added_in:
+        tag: added_in
+        value: '1.1'
     description: A curation rule is a (potentially) complex condition executed by
       an agent that led to the establishment of a mapping. Curation rules often involve
       complex domain-specific considerations, which are hard to capture in an automated
@@ -1583,11 +1631,11 @@ attributes:
   curation_rule_text:
     name: curation_rule_text
     instantiates:
-    - sssom:Propagatable
+    - sssom:Versionable
     annotations:
-      propagated:
-        tag: propagated
-        value: true
+      added_in:
+        tag: added_in
+        value: '1.1'
     description: A curation rule is a (potentially) complex condition executed by
       an agent that led to the establishment of a mapping. Curation rules often involve
       complex domain-specific considerations, which are hard to capture in an automated
