@@ -1,0 +1,15 @@
+#curie_map:
+#  OBJ: https://example.org/object/
+#  SUBJ: https://example.org/subject/
+#mapping_set_id: https://example.org/sets/cardinality
+#license: https://creativecommons.org/licenses/by/4.0/
+subject_id	predicate_id	object_id	mapping_justification	mapping_cardinality	comment
+SUBJ:0001	skos:exactMatch	OBJ:0001	semapv:LexicalMatching	1:1	S1 and O1 only mapped to each other
+SUBJ:0001	skos:exactMatch	OBJ:0001	semapv:MappingReview	1:1	S1 and O1 only mapped to each other
+SUBJ:0002	skos:exactMatch	OBJ:0002	semapv:LexicalMatching	1:n	S2 mapped to both O2 and O3, O2 mapped only to S2
+SUBJ:0002	skos:exactMatch	OBJ:0003	semapv:LexicalMatching	1:n	S2 mapped to both O2 and O3, O3 mapped only to S2
+SUBJ:0003	skos:exactMatch	OBJ:0004	semapv:LexicalMatching	n:1	S3 and S4 both mapped to only O4
+SUBJ:0004	skos:exactMatch	OBJ:0004	semapv:LexicalMatching	n:1	S3 and S4 both mapped to only O4
+SUBJ:0005	skos:exactMatch	OBJ:0005	semapv:LexicalMatching	n:n	S5 mapped to O5 and O6, O5 mapped to S5 and S6
+SUBJ:0005	skos:exactMatch	OBJ:0006	semapv:LexicalMatching	1:n	S5 mapped to O5 and O6, O6 mapped only to S5
+SUBJ:0006	skos:exactMatch	OBJ:0005	semapv:LexicalMatching	n:1	S6 mapped only to O5, O5 mapped to both S5 and S6
