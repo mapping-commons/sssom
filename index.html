@@ -1406,8 +1406,8 @@ mapping_date: 2022-05-02
 </tr>
 <tr>
 <td><strong><a href="mapping_cardinality/">mapping_cardinality</a></strong></td>
-<td>A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.</td>
-<td>1:1, 1:n, n:1, 1:0, 0:1, n:n</td>
+<td>A value indicating whether the subject (respectively object) of this mapping record is present in other records involving a different object (respectively subject), within the subset of records defined by the cardinality_scope slot (or within the entire mapping set if cardinality_scope is undefined). Note that this is a convenience field, whose values can always be derived from the mapping set.</td>
+<td>1:1, 1:n, n:1, n:n, 1:0, 0:1, 0:0</td>
 <td>1:1</td>
 <td>Optional</td>
 </tr>

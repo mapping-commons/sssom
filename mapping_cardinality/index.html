@@ -929,7 +929,7 @@
 <p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>A string indicating whether this mapping is from a 1:1 (the subject_id maps to a single object_id), 1:n (the subject maps to more than one object_id), n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable from the mapping set.</em></p>
+<p><em>A value indicating whether the subject (respectively object) of this mapping record is present in other records involving a different object (respectively subject), within the subset of records defined by the cardinality_scope slot (or within the entire mapping set if cardinality_scope is undefined). Note that this is a convenience field, whose values can always be derived from the mapping set.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
@@ -940,18 +940,20 @@
 <p class="admonition-title">Example: 1:1</p>
 <p><strong>Example value</strong>:</p>
 <p><code>1:1</code></p>
-<p><strong>Description</strong>: A one-to-one mapping.</p>
+<p><strong>Description</strong>: A one-to-one mapping. There are no other records in which the same subject is mapped to a different object, and no other records in which the same object is mapped to a different subject.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example: 1:n</p>
 <p><strong>Example value</strong>:</p>
 <p><code>1:n</code></p>
-<p><strong>Description</strong>: A one-to-many mapping.</p>
+<p><strong>Description</strong>: A one-to-many mapping. There are other records in which the same subject is mapped to at least one different object than the object present in this record; there are no other records in which the object is mapped to a different subject.</p>
 </div>
 <h2 id="see-also">See Also</h2>
 <p>These are some relevant resources you might find useful to get additional information about the element,
 such as example implementations, issues and pull requests.</p>
 <ul>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality.sssom.tsv</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-with-unmapped-entities.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-with-unmapped-entities.sssom.tsv</a></li>
 <li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-empty.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-empty.sssom.tsv</a></li>
 </ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
@@ -959,17 +961,24 @@ such as example implementations, issues and pull requests.</p>
 
 
 <pre><code class="language-yaml">name: mapping_cardinality
-description: A string indicating whether this mapping is from a 1:1 (the subject_id
-  maps to a single object_id), 1:n (the subject maps to more than one object_id),
-  n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be
-  derivable from the mapping set.
+description: A value indicating whether the subject (respectively object) of this
+  mapping record is present in other records involving a different object (respectively
+  subject), within the subset of records defined by the cardinality_scope slot (or
+  within the entire mapping set if cardinality_scope is undefined). Note that this
+  is a convenience field, whose values can always be derived from the mapping set.
 examples:
 - value: '1:1'
-  description: A one-to-one mapping.
+  description: A one-to-one mapping. There are no other records in which the same
+    subject is mapped to a different object, and no other records in which the same
+    object is mapped to a different subject.
 - value: 1:n
-  description: A one-to-many mapping.
+  description: A one-to-many mapping. There are other records in which the same subject
+    is mapped to at least one different object than the object present in this record;
+    there are no other records in which the object is mapped to a different subject.
 from_schema: https://w3id.org/sssom/schema/
 see_also:
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality.sssom.tsv
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-with-unmapped-entities.sssom.tsv
 - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-empty.sssom.tsv
 rank: 1000
 alias: mapping_cardinality

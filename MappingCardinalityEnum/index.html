@@ -952,32 +952,37 @@
 <tr>
 <td>1:1</td>
 <td>None</td>
-<td>One-to-one mapping</td>
+<td>Indicates the mapping record is about a one-to-one mapping, that is, the subj...</td>
 </tr>
 <tr>
 <td>1:n</td>
 <td>None</td>
-<td>One-to-many mapping</td>
+<td>Indicates the mapping record is about a one-to-many mapping, that is, the sam...</td>
 </tr>
 <tr>
 <td>n:1</td>
 <td>None</td>
-<td>Many-to-one mapping</td>
-</tr>
-<tr>
-<td>1:0</td>
-<td>None</td>
-<td>One-to-none mapping</td>
-</tr>
-<tr>
-<td>0:1</td>
-<td>None</td>
-<td>None-to-one mapping</td>
+<td>Indicates the mapping record is about a many-to-one mapping, that is, several...</td>
 </tr>
 <tr>
 <td>n:n</td>
 <td>None</td>
-<td>Many-to-many mapping</td>
+<td>Indicates the mapping record is about a many-to-many mapping, that is, the su...</td>
+</tr>
+<tr>
+<td>1:0</td>
+<td>None</td>
+<td>Indicates that the subject has no match in the object vocabulary</td>
+</tr>
+<tr>
+<td>0:1</td>
+<td>None</td>
+<td>Indicates that the object has no match in the subject vocabulary</td>
+</tr>
+<tr>
+<td>0:0</td>
+<td>None</td>
+<td>Indicates that there is no match between the subject vocabulary and the objec...</td>
 </tr>
 </tbody>
 </table>
@@ -992,7 +997,7 @@
 <tbody>
 <tr>
 <td><a href="../mapping_cardinality/">mapping_cardinality</a></td>
-<td>A string indicating whether this mapping is from a 1:1 (the subject_id maps t...</td>
+<td>A value indicating whether the subject (respectively object) of this mapping ...</td>
 </tr>
 </tbody>
 </table>
@@ -1010,22 +1015,35 @@ rank: 1000
 permissible_values:
   '1:1':
     text: '1:1'
-    description: One-to-one mapping
+    description: Indicates the mapping record is about a one-to-one mapping, that
+      is, the subject and the object are only mapped to each other, exclusive of any
+      other subject or object.
   1:n:
     text: 1:n
-    description: One-to-many mapping
+    description: Indicates the mapping record is about a one-to-many mapping, that
+      is, the same subject is mapped to several different objects.
   n:1:
     text: n:1
-    description: Many-to-one mapping
-  '1:0':
-    text: '1:0'
-    description: One-to-none mapping
-  0:1:
-    text: 0:1
-    description: None-to-one mapping
+    description: Indicates the mapping record is about a many-to-one mapping, that
+      is, several different subjects are mapped to the same object.
   n:n:
     text: n:n
-    description: Many-to-many mapping
+    description: Indicates the mapping record is about a many-to-many mapping, that
+      is, the subject is mapped to several different objects and the object is mapped
+      to several different subjects.
+  '1:0':
+    text: '1:0'
+    description: Indicates that the subject has no match in the object vocabulary.
+      This value MUST only be used when the object_id is sssom:NoTermFound.
+  0:1:
+    text: 0:1
+    description: Indicates that the object has no match in the subject vocabulary.
+      This value MUST only be used when the subject_id is sssom:NoTermFound.
+  0:0:
+    text: 0:0
+    description: Indicates that there is no match between the subject vocabulary and
+      the object vocabulary. This value MUST only be used when both the subject_id
+      and the object_id are sssom:NoTermFound.
 
 </code></pre>
 

@@ -735,7 +735,7 @@
 <tr>
 <td><a href="../mapping_cardinality/">mapping_cardinality</a></td>
 <td>0..1 <br/> <a href="../MappingCardinalityEnum/">MappingCardinalityEnum</a></td>
-<td>A string indicating whether this mapping is from a 1:1 (the subject_id maps t...</td>
+<td>A value indicating whether the subject (respectively object) of this mapping ...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -1616,17 +1616,26 @@ attributes:
     range: EntityReference
   mapping_cardinality:
     name: mapping_cardinality
-    description: A string indicating whether this mapping is from a 1:1 (the subject_id
-      maps to a single object_id), 1:n (the subject maps to more than one object_id),
-      n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should
-      be derivable from the mapping set.
+    description: A value indicating whether the subject (respectively object) of this
+      mapping record is present in other records involving a different object (respectively
+      subject), within the subset of records defined by the cardinality_scope slot
+      (or within the entire mapping set if cardinality_scope is undefined). Note that
+      this is a convenience field, whose values can always be derived from the mapping
+      set.
     examples:
     - value: '1:1'
-      description: A one-to-one mapping.
+      description: A one-to-one mapping. There are no other records in which the same
+        subject is mapped to a different object, and no other records in which the
+        same object is mapped to a different subject.
     - value: 1:n
-      description: A one-to-many mapping.
+      description: A one-to-many mapping. There are other records in which the same
+        subject is mapped to at least one different object than the object present
+        in this record; there are no other records in which the object is mapped to
+        a different subject.
     from_schema: https://w3id.org/sssom/schema/
     see_also:
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality.sssom.tsv
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-with-unmapped-entities.sssom.tsv
     - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-empty.sssom.tsv
     rank: 1000
     alias: mapping_cardinality

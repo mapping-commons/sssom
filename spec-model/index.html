@@ -1369,7 +1369,7 @@
 <p>When that special value is used as the <code>subject_id</code> (respectively <code>object_id</code>), the <code>subject_source</code> (respectively <code>object_source</code>) slot SHOULD be defined.</p>
 <p>The <code>sssom:NoTermFound</code> value MUST NOT be used in any other slot than <code>subject_id</code> or <code>object_id</code>.</p>
 <p>The meaning of the NOT predicate modifier in a mapping that refers to <code>sssom:NoTermFound</code> is unspecified.</p>
-<p>When computing cardinality values (to fill the <code>mapping_cardinality</code> slot), mappings that refer to <code>sssom:NoTermFound</code> MUST be ignored.</p>
+<p>When computing cardinality values (to fill the <code>mapping_cardinality</code> slot): (1) a mapping record with a <code>object_id</code> (respectively <code>subject_id</code>) of <code>sssom:NoTermFound</code> MUST be assigned a cardinality value of <code>1:0</code> (respectively <code>0:1</code>), regardless of any other record; (2) a mapping record with both the <code>subject_id</code> and the <code>object_id</code> set to <code>sssom:NoTermFound</code> MUST be assigned a cardinality value of <code>0:0</code>, regardless of any other record; (3) such records MUST be ignored when computing the cardinality of other records.</p>
 <h2 id="mapping-cardinality-and-cardinality-scope">Mapping cardinality and cardinality scope</h2>
 <p>The <code>mapping_cardinality</code> slot is somewhat special in that its value is
 only meaningful within a given context, or “scope”: a mapping record in
@@ -1525,6 +1525,7 @@ cardinality they use.</p>
 <li>The type of the <code>see_also</code> slot has been changed to <code>sssom:NonRelativeURI</code>. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.</li>
 <li>All slots that were typed as <code>xsd:anyURI</code> have been re-typed as <code>sssom:NonRelativeURI</code>. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.</li>
 <li>The <code>curation_rule</code> and <code>curation_rule_text</code> slots which previously only existed on the <code>Mapping</code> class, have been added to the <code>MappingSet</code> class. Both slots have now been typed <a href="#propagation-of-mapping-set-slots">propagatable</a>.</li>
+<li>A new value <code>0:0</code> has been added to the <code>mapping_cardinality_enum</code>.</li>
 </ul>
 
 
