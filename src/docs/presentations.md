@@ -1,5 +1,11 @@
 # Presentations
 
+## RDA FAIR Mappings WG: Highlights from Case Studies and Initial Taxonomy (RDA’s 24th plenary)
+
+- April 7<sup>th</sub>, 2025, virtual
+- Talk at RDA 24th plenary meeting about the progress of the [RDA FAIR Mappings Working Group](https://www.rd-alliance.org/groups/fair-mappings-wg/activity/), which uses SSSOM as the baseline model.
+- [Slides](https://docs.google.com/presentation/d/1A3Fgo9ExUGgrc0VX85tqG-_6_Vu6b-qtcfvLTmW9mIU/edit)
+
 ## A Simple Standard for Ontological Mappings 2024: A quick guide for getting started with publishing better entity mappings (RDA’s 23rd plenary)
 
 - November 13<sup>th</sup>, 2024, hybrid
