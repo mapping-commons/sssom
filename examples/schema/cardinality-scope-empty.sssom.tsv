@@ -1,0 +1,14 @@
+#curie_map:
+#  COMENT: https://example.com/entities/
+#  NETENT: https://example.net/entities/
+#  ORGENT: https://example.org/entities/
+#  SRC: https://example.org/sources/
+#mapping_set_id: https://example.org/sets/cardinality-scope-empty
+#license: https://creativecommons.org/licenses/by/4.0/
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	object_source	mapping_cardinality
+ORGENT:0001	alice	skos:closeMatch	COMENT:0011	alpha	semapv:ManualMappingCuration	SRC:com	1:n
+ORGENT:0001	alice	skos:closeMatch	NETENT:0111	alpha	semapv:ManualMappingCuration	SRC:net	1:n
+ORGENT:0002	bob	skos:closeMatch	COMENT:0012	beta	semapv:ManualMappingCuration	SRC:com	1:n
+ORGENT:0002	bob	skos:closeMatch	NETENT:0112	bravo	semapv:ManualMappingCuration	SRC:net	1:n
+ORGENT:0007	gavin	skos:closeMatch	NETENT:0117	golf	semapv:ManualMappingCuration	SRC:net	1:n
+ORGENT:0007	gavin	skos:exactMatch	COMENT:0013	gamma	semapv:ManualMappingCuration	SRC:com	1:n

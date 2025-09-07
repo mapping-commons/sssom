@@ -76,12 +76,30 @@ enums:
         meaning: sssom:NegatedPredicate
   mapping_cardinality_enum:
     permissible_values:
-      "1:1": One-to-one mapping
-      "1:n": One-to-many mapping
-      "n:1": Many-to-one mapping
-      "1:0": One-to-none mapping
-      "0:1": None-to-one mapping
-      "n:n": Many-to-many mapping
+      "1:1":
+        description: Indicates the mapping record is about a one-to-one mapping, that is,
+          the subject and the object are only mapped to each other, exclusive of any
+          other subject or object.
+      "1:n":
+        description: Indicates the mapping record is about a one-to-many mapping, that
+          is, the same subject is mapped to several different objects.
+      "n:1":
+        description: Indicates the mapping record is about a many-to-one mapping, that
+          is, several different subjects are mapped to the same object.
+      "n:n":
+        description: Indicates the mapping record is about a many-to-many mapping, that
+          is, the subject is mapped to several different objects and the object is
+          mapped to several different subjects.
+      "1:0":
+        description: Indicates that the subject has no match in the object vocabulary.
+          This value MUST only be used when the object_id is sssom:NoTermFound.
+      "0:1":
+        description: Indicates that the object has no match in the subject vocabulary.
+          This value MUST only be used when the subject_id is sssom:NoTermFound.
+      "0:0":
+        description: Indicates that there is no match between the subject vocabulary
+          and the object vocabulary. This value MUST only be used when both the
+          subject_id and the object_id are sssom:NoTermFound.
 
 types:
  EntityReference:
@@ -574,16 +592,58 @@ slots:
       - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
         description: A reference to the mapping set that originally contained this mapping.
   mapping_cardinality:
-    description: A string indicating whether this mapping is from a 1:1 (the subject_id
-      maps to a single object_id), 1:n (the subject maps to more than one object_id), 
-      n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable 
-      from the mapping set.
+    description: A value indicating whether the subject (respectively object) of this
+      mapping record is present in other records involving a different object
+      (respectively subject), within the subset of records defined by the
+      cardinality_scope slot (or within the entire mapping set if cardinality_scope
+      is undefined).
+      Note that this is a convenience field, whose values can always be derived from
+      the mapping set.
     range: mapping_cardinality_enum
     examples:
       - value: "1:1"
-        description: A one-to-one mapping.
+        description: A one-to-one mapping. There are no other records in which the same
+          subject is mapped to a different object, and no other records in which the
+          same object is mapped to a different subject.
       - value: "1:n"
-        description: A one-to-many mapping.
+        description: A one-to-many mapping. There are other records in which the same
+          subject is mapped to at least one different object than the object present in
+          this record; there are no other records in which the object is mapped to a
+          different subject.
+    see_also:
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality.sssom.tsv
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-with-unmapped-entities.sssom.tsv
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-empty.sssom.tsv
+  cardinality_scope:
+    description: A list of mapping slots that define the scope for the value found
+      in the mapping_cardinality slot. Mappings are considered to belong to the same
+      scope if they have the same value for all slots listed in the scope. If no
+      scope is defined, the default scope is empty, meaning that all mappings belong
+      to a single scope that is identical to the entire mapping set.
+      The behaviour if a value in the list does not correspond to a valid slot name
+      is undefined.
+    range: string
+    multivalued: true
+    instantiates:
+      - sssom:Propagatable
+      - sssom:Versionable
+    annotations:
+      propagated: true
+      added_in: "1.1"
+    examples:
+      - value:
+          - "predicate_id"
+        description: Indicates that mapping_cardinality is computed relatively to all
+          mappings that have the same predicate.
+      - value:
+          - "predicate_id"
+          - "object_source"
+        description: Indicates that mapping_cardinality is computed relatively to all
+          mappings that have the same predicate and the same object source.
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/467
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate.sssom.tsv
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate+object_source.sssom.tsv
   mapping_tool:
     description: A reference to the tool or algorithm that was used to generate the
       mapping. Should be a URL pointing to more info about it, but can be free text.
@@ -646,7 +706,7 @@ slots:
       - value: 0.95
         description: A confidence score of 0.95, indicating 95% confidence.
   subject_match_field:
-    description: >
+    description: >-
       A list of properties, annotations or attributes related to the subject that was used
       to establish the match. This property is recommended for use in conjunction with 
       mapping justifications related to lexical matching, such as `semapv:LexicalMatching`. 
@@ -665,7 +725,7 @@ slots:
       - https://mapping-commons.github.io/sssom/mapping-justifications/#lexical-matching
       - https://github.com/mapping-commons/sssom/issues/413
   object_match_field:
-    description: >
+    description: >-
       A list of properties, annotations or attributes related to the object that was used
       to establish the match. This property is recommended for use in conjunction with 
       mapping justifications related to lexical matching, such as `semapv:LexicalMatching`. 
@@ -721,6 +781,9 @@ slots:
       rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets.
       The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.
     range: EntityReference
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     multivalued: true
     examples:
       - value: DISEASE_MAPPING_COMMONS_RULES:MPR2
@@ -729,13 +792,17 @@ slots:
       - https://github.com/mapping-commons/sssom/issues/166
       - https://github.com/mapping-commons/sssom/pull/258
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule-propagated.sssom.tsv
   curation_rule_text:
     description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
       Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
       rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets.
-      The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the
-      perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.
+      The textual representation of curation rule is intended to be used in cases where the creation of a resource is not practical from the
+      perspective of the mapping_provider.
     range: string
+    instantiates: sssom:Propagatable
+    annotations:
+      propagated: true
     multivalued: true
     examples:
       - value: "The two phenotypes inhere in homologous structures and exhibit the same phenotypic quality."
@@ -744,6 +811,7 @@ slots:
       - https://github.com/mapping-commons/sssom/issues/166
       - https://github.com/mapping-commons/sssom/pull/258
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text-propagated.sssom.tsv
   similarity_score:
     description: A score between 0 and 1 to denote the similarity between two entities, where
       1 denotes equivalence, and 0 denotes disjointness. The score is meant to be used in conjunction 
@@ -861,6 +929,18 @@ classes:
     slot_usage:
       license:
         required: true
+      similarity_measure:
+        instantiates: sssom:Versionable
+        annotations:
+          added_in: "1.1"
+      curation_rule:
+        instantiates: sssom:Versionable
+        annotations:
+          added_in: "1.1"
+      curation_rule_text:
+        instantiates: sssom:Versionable
+        annotations:
+          added_in: "1.1"
     slots:
     - sssom_version
     - curie_map
@@ -882,6 +962,7 @@ classes:
     - object_source_version
     - predicate_type
     - mapping_provider
+    - cardinality_scope
     - mapping_tool
     - mapping_tool_id
     - mapping_tool_version
@@ -892,6 +973,8 @@ classes:
     - subject_preprocessing
     - object_preprocessing
     - similarity_measure
+    - curation_rule
+    - curation_rule_text
     - see_also
     - issue_tracker
     - other
@@ -928,6 +1011,7 @@ classes:
     - mapping_provider
     - mapping_source
     - mapping_cardinality
+    - cardinality_scope
     - mapping_tool
     - mapping_tool_id
     - mapping_tool_version
