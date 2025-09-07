@@ -22,13 +22,13 @@ to use.
 <a id="sssom-slots"></a>
 ## Representation of slots
 A metadata slot on any given SSSOM object (such as a `Mapping` or a
-`MappingSet`) is represented as a RDF triple where:
+`MappingSet`) MUST be represented as a RDF triple where:
 
 * the subject is the resource representing the SSSOM object;
 * the predicate is either:
     * the property indicated by the `URI` field in the LinkML
       description of the slot, if such a field is present;
-    * or a property constructed by catenating the
+    * or a property constructed by concatenating the
       `https://w3id.org/sssom/` namespace and the name of the slot;
 * the object is the value of the slot.
 
@@ -39,35 +39,35 @@ the object of a RDF triple.
 #### For slots typed as `sssom:EntityReference`
 (e.g. `subject_id`, `mapping_justification`, `subject_source`…)
 
-The value is rendered as a named RDF resource (IRI).
+The value MUST be represented as a named RDF resource (IRI).
 
 #### For slots typed as `sssom:NonRelativeURI`
 (e.g. `license`, `mapping_provider`, `issue_tracker`…)
 
-The value is rendered as a named RDF resource (IRI).
+The value MUST be represented as a named RDF resource (IRI).
 
 #### For slots typed as `linkml:date`
 (e.g. `mapping_date`, `publication_date`)
 
-The value is represented as a `xsd:date` literal.
+The value MUST be represented as a `xsd:date` literal.
 
 #### For slots typed as `linkml:double`
 (e.g. `mapping_set_confidence`, `confidence`, `similarity_score`)
 
-The value is represented as a `xsd:double` literal.
+The value MUST be represented as a `xsd:double` literal.
 
 #### For slots typed as an enumeration
 (e.g. `sssom_version`, `mapping_cardinality`, `subject_type`…)
 
 If the permissible values for the enumeration are defined in the LinkML
-model as having an associated `meaning` property, then the value is
+model as having an associated `meaning` property, then the value MUST be
 represented as a named RDF resource with the indicated property.
-Otherwise, the value is represented as a string literal.
+Otherwise, the value MUST be represented as a string literal.
 
 #### For slots typed as a SSSOM object
 (e.g. `mappings`, `extension_definitions`)
 
-The value is represented as a RDF resource. Whether the resource is
+The value MUST be represented as a RDF resource. Whether the resource is
 named (IRI) or not (blank node) will depend on the type of the object,
 see the [section on representing SSSOM objects](#sssom-objects) below
 for details.
@@ -76,7 +76,7 @@ for details.
 (e.g. `creator_id`, `see_also`, `object_match_field`…)
 
 As an exception to the general principle that slots are represented by a
-single RDF triple, multi-valued slots are represented by as many
+single RDF triple, multi-valued slots MUST be represented by as many
 triples as there are values, each value being the object of one triple.
 
 > Non-normative notes:
@@ -91,16 +91,28 @@ triples as there are values, each value being the object of one triple.
 The other rules above apply to determine how each single value is to be
 represented.
 
+> Example:
+>
+> A `creator_id` slot with the values `https://example.org/people/0001`
+> and `https://example.org/people/0002` is represented by the following
+> two triples:
+>
+> ```ttl
+> ?object pav:authoredBy <https://example.org/people/0001> .
+> ?object pav:authoredBy <https://example.org/people/0002> .
+> ``` 
+
 <a id="extension-slots"></a>
 ### Representation of extension slots
-An [extension slot](spec-model.md#non-standard-slots) is represented in
-a similar way to a standard slot, with the following specific rules.
+An [extension slot](spec-model.md#non-standard-slots) MUST be
+represented in a similar way to a standard slot, with the following
+specific rules.
 
 The predicate is the property associated to the extension slot, as
 indicated by the `property` slot in the set’s
 [definition](ExtensionDefinition.md) of the extension.
 
-The value of the extension is represented:
+The value of the extension MUST be represented:
 
 * as a named RDF resource, if the `type_hint` of the extension
   definition is `linkml:uriOrCurie`;
@@ -114,7 +126,7 @@ The value of the extension is represented:
 The RDF type of a `Mapping` object is `owl:Axiom`.
 
 If the `Mapping` object has a `record_id` slot, then the value of that
-slot is used as the named RDF resource that represents the object (and
+slot MUST be used as the named RDF resource that represents the object (and
 consequently, that slot MUST NOT be represented using the [general
 rules](#sssom-slots) for the representation of slots as defined above).
 Otherwise, the `Mapping` object is represented as a blank node.
@@ -122,7 +134,7 @@ Otherwise, the `Mapping` object is represented as a blank node.
 ### Representation of a `MappingSet` object
 The RDF type of a `MappingSet` object is `sssom:MappingSet`.
 
-A `MappingSet` object is represented by a named RDF resource
+A `MappingSet` object MUST be represented by a named RDF resource
 corresponding to the value of the `mapping_set_id` slot (which
 consequently MUST NOT be represented using the [general
 rules](#sssom-slots) for the representation slots as defined above).
@@ -167,9 +179,9 @@ subsections.
 
 ### Serialisations of identifiers
 If the serialisation is intended to be convertible back to another SSSOM
-format (especially the SSSOM/TSV format), implementations MUST
-serialise identifiers as CURIEs and include the required prefix
-declarations.
+format (especially the SSSOM/TSV format), implementations MUST declare
+all the prefixes found in the CURIE map and SHOULD serialise all
+identifiers as CURIEs using said declared prefixes.
 
 > Non-normative explanation
 >
@@ -225,6 +237,48 @@ slots in their propagated form.
 > level down to the level of the individual mappings, which will result
 > in the application having an incomplete view of the mappings.
 
+### Representation of mappings as “direct triples”
+For every single mapping record in a set, implementations MAY
+_additionally_ inject a single triple of the form:
+
+```ttl
+?subject_id ?predicate_id ?object_id .
+```
+
+If so, implementations SHOULD NOT inject such triples in the following
+cases:
+
+* when the record represents a literal mapping (that is, `subject_type`
+  or `object_type` – or both – is set to `rdfs literal`);
+* when the record represents a negated mapping (that is,
+  `predicate_modifier` is set to `Not`);
+* when the record represents an absence of match (that is, `subject_id`
+  or `object_id` – or both – is set to `sssom:NoTermFound`).
+
+In any case, a SSSOM/RDF reader MUST NOT expect the presence of such
+triples, and if they are present MUST NOT use them to construct mapping
+records.
+
+> Non-normative explanations
+>
+> Such “direct triples” are merely a convenience for downstream RDF
+> applications, allowing them to find a direct link (as a single triple)
+> between the subject and the object of a mapping, without having to
+> construct such a link by following the `owl:annotatedSource`,
+> `owl:annotatedProperty`, and `owl:annotatedTarget` triples.
+>
+> It is recommended not to inject such direct triples for literal
+> mapping records, even if they do have a `subject_id` and a
+> `object_id`, because by definition the subject and/or the object of
+> such records is not an identifiable semantic entity and has no
+> business being represented in a RDF graph.
+>
+> It is recommended not to inject such direct triples for negated
+> mapping records because they would seem to convey a meaning that is
+> the exact opposite of what the records mean.
+>
+> It is recommended not to inject such direct triples for no-match
+> mapping records since they do not represent a real mapping.
 
 ## Compatibility with pre-standard RDF representations
 The present specification of the SSSOM/RDF format differs slightly from
