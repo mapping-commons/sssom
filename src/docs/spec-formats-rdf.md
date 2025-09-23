@@ -245,8 +245,10 @@ _additionally_ inject a single triple of the form:
 ?subject_id ?predicate_id ?object_id .
 ```
 
-If so, implementations SHOULD NOT inject such triples in the following
-cases:
+If so, that behaviour MUST be optional.
+
+When that behaviour is enabled, implementations SHOULD NOT inject such
+triples in the following cases:
 
 * when the record represents a literal mapping (that is, `subject_type`
   or `object_type` – or both – is set to `rdfs literal`);
