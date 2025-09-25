@@ -62,7 +62,7 @@ The value MUST be represented as a `xsd:double` literal.
 If the permissible values for the enumeration are defined in the LinkML
 model as having an associated `meaning` property, then the value MUST be
 represented as a named RDF resource with the indicated property.
-Otherwise, the value MUST be represented as a string literal.
+Otherwise, the value MUST be represented as a `xsd:string` literal.
 
 #### For slots typed as a SSSOM object
 (e.g. `mappings`, `extension_definitions`)
@@ -98,8 +98,8 @@ represented.
 > two triples:
 >
 > ```ttl
-> ?object pav:authoredBy <https://example.org/people/0001> .
-> ?object pav:authoredBy <https://example.org/people/0002> .
+> ?object dcterms:creator <https://example.org/people/0001> .
+> ?object dcterms:creator <https://example.org/people/0002> .
 > ``` 
 
 <a id="extension-slots"></a>
