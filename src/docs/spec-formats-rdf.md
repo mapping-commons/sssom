@@ -71,6 +71,24 @@ having an associated `meaning` property, then the value MUST be represented as a
 named RDF resource with the indicated property. Otherwise, the value MUST be
 represented as a `xsd:string` literal.
 
+> Examples:
+>
+> A `subject_type` slot with the value `owl class` is represented by:
+>
+> ```ttl
+> ?object sssom:subject_type <http://www.w3.org/2002/07/owl#Class> .
+> ```
+>
+> while a `mapping_cardinality` slot with the value `1:1` is represented by:
+>
+> ```ttl
+> ?object sssom:mapping_cardinality "1:1"^^xsd:string .
+> ```
+>
+> because the `owl class` value of the `EntityTypeEnum` enumeration has a
+> `meaning` property of `http://www.w3.org/2002/07/owl#Class`, while the `1:1`
+> value of the `MappingCardinalityEnum` enumeration has no `meaning` property.
+
 #### For slots typed as a SSSOM object
 
 (e.g. `mappings`, `extension_definitions`)
@@ -303,6 +321,18 @@ Implementations MUST NOT follow these rules when serialising to RDF.
 ### Representation of slots typed as `sssom:NonRelativeURI`
 
 Implementations MAY accept a value represented as a `xsd:anyURI` literal.
+
+For example, implementations MAY accept
+
+```ttl
+?mapping sssom:mapping_provider "https://www.ohdsi.org/"^^xsd:anyURI .
+```
+
+as an alternative to
+
+```ttl
+?mapping sssom:mapping_provider <https://www.ohdsi.org/> .
+```
 
 ### Representation of slots typed as an enumeration
 
