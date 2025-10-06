@@ -4,7 +4,7 @@ name: Publish Python Package
 on:
   release:
     # Run when a release is published or a prerelease is published (not on draft creation)
-    types: [published, prereleased]
+    types: [published]
 
 jobs:
   build:
