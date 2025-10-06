@@ -26,17 +26,6 @@ jobs:
         pipx install poetry
         pipx inject poetry poetry-dynamic-versioning
 
-    - name: Set version for pre-release (PEP 440 compliant)
-      if: github.event.release.prerelease == true
-      shell: bash
-      run: |
-        BASE_VERSION="$(poetry version -s | sed 's/+.*//')"  # strip any local part
-        DATE="$(date -u +%Y%m%d)"
-        RUN="${{ github.run_number }}"
-        SHA="$(git rev-parse --short HEAD)"
-        PRERELEASE_VERSION="${BASE_VERSION}.dev${DATE}${RUN}+g${SHA}"
-        echo "Setting version to ${PRERELEASE_VERSION}"
-        poetry version "${PRERELEASE_VERSION}"
 
     - name: Build sdist & wheel
       run: poetry build
