@@ -15,6 +15,7 @@
 - Add `curation_rule` and `curation_rule_text` to the `MappingSet` class and made propagatable ([issue](https://github.com/mapping-commons/sssom/issues/464)).
 - Add `cardinality_scope` slot ([issue](https://github.com/mapping-commons/sssom/issues/467)).
 - Add new value `0:0` to the `mapping_cardinality_enum` ([issue](https://github.com/mapping-commons/sssom/issues/477)).
+- Development snapshots of SSSOM schema can now be released using GitHubs pre-release feature ([issue](https://github.com/mapping-commons/sssom/issues/490))
 
 ## SSSOM version 1.0.0
 
