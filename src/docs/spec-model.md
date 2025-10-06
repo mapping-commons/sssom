@@ -32,7 +32,7 @@ Whenever the CURIE syntax is used in a mapping set (whether this is by choice of
 By exception, prefix names listed in the table found in the [IRI prefixes](spec-intro.md#iri-prefixes) section are considered “built-in”. As such, they MAY be omitted from the `curie_map`. If they are not omitted, they MUST point to the same IRI prefixes as in the aforementioned table.
 
 
-## Propagation of mapping set slots
+## Propagatable slots
 
 As mentioned briefly above, there are two different types of slots in the `MappingSet` class:
 
@@ -68,6 +68,28 @@ When a mapping set object has a value in one of its propagatable slots, this MUS
 This mechanism is intended as a convenience, so that a slot which has the same value for all mappings in a set can be specified only once at the level of the set rather than for each individual mapping.
 
 Slots that are not in the above list (“non-propagatable slots”) describe the mapping set itself, not the mappings it contains, even if the slot also exists on the `Mapping` class. For example, the `creator_id` slot, when used in the `MappingSet` class, is intended to refer to the creators of the set, _not_ the creators of the individual mappings (which may be different, and which are listed in the `creator_id` slot of every mapping).
+
+### Propagation
+
+“Propagation” is the operation of assigning to individual mapping records in a set the values from the propagatable slots of the set.
+
+For any given propagatable slot, propagation is only allowed if none of the individual mapping records already have their own value in that slot. If any record (even only one record) has a value in that slot, then the slot MUST be considered as non-propagatable. Otherwise, to propagate the slot an implementation MUST (1) copy over the value of the propagatable slot on the mapping set to the corresponding slot of every individual mapping records, and (2) remove the propagated value from the mapping set.
+
+### Condensation
+
+“Condensation” is the opposite of “propagation”. It is the operation of assigning common values to the propagatable slots of the set, based on the values of these slots on individual mapping records.
+
+For any given propagatable slot, condensation is only allowed if (1) all mapping records in the set have the same value for that slot, and (2) the mapping set itself does not already have a value in the slot, unless that value happens to be the same as the value in all records. If those two conditions are met, then to condense the slot an implementation MUST (1) set the value of the slot on the mapping set to the common value of the slot in all mapping records, and (2) remove the condensed value from all the mapping records.
+
+### When to perform propagation and condensation
+
+Implementations SHOULD support propagation and condensation. The two features MUST NOT be dissociated; that is, an implementation that supports propagation MUST also support condensation, and the other way round.
+
+Unless specified otherwise in the specification for the [SSSOM serialisation formats](spec-formats.md), if an implementation supports propagation and condensation, then:
+
+* propagation SHOULD be performed by a SSSOM parser before passing the parsed objects to the application code;
+
+* condensation SHOULD be performed by a SSSOM writer prior to writing the set into a file, however that behaviour MUST be deactivatable.
 
 
 ## Allowed and common mapping predicates
