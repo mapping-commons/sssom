@@ -26,7 +26,6 @@ jobs:
         pipx install poetry
         pipx inject poetry poetry-dynamic-versioning
 
-
     - name: Build source and wheel archives
       run: |
         poetry build
@@ -46,7 +45,7 @@ jobs:
       name: pypi-release
       url: https://pypi.org/p/sssom-schema
     permissions:
-      id-token: write  # required for OIDC trusted publishing
+      id-token: write  # This permission is mandatory for trusted publishing.
     steps:
       - name: Download built distribution
         uses: actions/download-artifact@v4.3.0
