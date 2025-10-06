@@ -3,8 +3,8 @@ name: Publish Python Package
 
 on:
   release:
-    # Trigger the workflow only for real releases but not for draft releases
-    types: [created]
+    # Run when a release is published or a prerelease is published (not on draft creation)
+    types: [published, prereleased]
 
 jobs:
   build:
@@ -54,7 +54,7 @@ jobs:
           path: dist
 
       - name: Publish package 📦 to PyPI
-        if: github.event_name == 'release'
         uses: pypa/gh-action-pypi-publish@v1.12.4
         with:
           verbose: true
+          skip-existing: true
