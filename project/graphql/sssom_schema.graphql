@@ -1,4 +1,42 @@
 # metamodel_version: 1.7.0
+enum EntityTypeEnum
+  {
+    owl_class
+    owl_object_property
+    owl_data_property
+    owl_annotation_property
+    owl_named_individual
+    skos_concept
+    rdfs_resource
+    rdfs_class
+    rdfs_literal
+    rdfs_datatype
+    rdf_property
+    composed_entity_expression
+  }
+
+enum MappingCardinalityEnum
+  {
+    __1__COLON__1
+    __1__COLON__n
+    n__COLON__1
+    n__COLON__n
+    __1__COLON__0
+    __0__COLON__1
+    __0__COLON__0
+  }
+
+enum PredicateModifierEnum
+  {
+    Not
+  }
+
+enum SssomVersionEnum
+  {
+    __1__FULL_STOP__0
+    __1__FULL_STOP__1
+  }
+
 type ExtensionDefinition
   {
     slotName: Ncname!
@@ -8,6 +46,7 @@ type ExtensionDefinition
 
 type Mapping
   {
+    recordId: EntityReference
     subjectId: EntityReference
     subjectLabel: String
     subjectCategory: String
@@ -24,17 +63,20 @@ type Mapping
     reviewerLabel: [String]
     creatorId: [EntityReference]
     creatorLabel: [String]
-    license: Uri
+    license: NonRelativeURI
     subjectType: EntityTypeEnum
     subjectSource: EntityReference
     subjectSourceVersion: String
     objectType: EntityTypeEnum
     objectSource: EntityReference
     objectSourceVersion: String
-    mappingProvider: Uri
+    predicateType: EntityTypeEnum
+    mappingProvider: NonRelativeURI
     mappingSource: EntityReference
     mappingCardinality: MappingCardinalityEnum
+    cardinalityScope: [String]
     mappingTool: String
+    mappingToolId: EntityReference
     mappingToolVersion: String
     mappingDate: Date
     publicationDate: Date
@@ -48,7 +90,7 @@ type Mapping
     objectPreprocessing: [EntityReference]
     similarityScore: Double
     similarityMeasure: String
-    seeAlso: [String]
+    seeAlso: [NonRelativeURI]
     issueTrackerItem: EntityReference
     other: String
     comment: String
@@ -59,33 +101,38 @@ type MappingRegistry
     mappingRegistryId: EntityReference!
     mappingRegistryTitle: String
     mappingRegistryDescription: String
-    imports: [Uri]
+    imports: [NonRelativeURI]
     mappingSetReferences: [MappingSetReference]
-    documentation: Uri
-    homepage: Uri
-    issueTracker: Uri
+    documentation: NonRelativeURI
+    homepage: NonRelativeURI
+    issueTracker: NonRelativeURI
   }
 
 type MappingSet
   {
+    sssomVersion: SssomVersionEnum
     curieMap: [Prefix]
     mappings: [Mapping]
-    mappingSetId: Uri!
+    mappingSetId: NonRelativeURI!
     mappingSetVersion: String
-    mappingSetSource: [Uri]
+    mappingSetSource: [NonRelativeURI]
     mappingSetTitle: String
     mappingSetDescription: String
+    mappingSetConfidence: Double
     creatorId: [EntityReference]
     creatorLabel: [String]
-    license: Uri!
+    license: NonRelativeURI!
     subjectType: EntityTypeEnum
     subjectSource: EntityReference
     subjectSourceVersion: String
     objectType: EntityTypeEnum
     objectSource: EntityReference
     objectSourceVersion: String
-    mappingProvider: Uri
+    predicateType: EntityTypeEnum
+    mappingProvider: NonRelativeURI
+    cardinalityScope: [String]
     mappingTool: String
+    mappingToolId: EntityReference
     mappingToolVersion: String
     mappingDate: Date
     publicationDate: Date
@@ -93,8 +140,11 @@ type MappingSet
     objectMatchField: [EntityReference]
     subjectPreprocessing: [EntityReference]
     objectPreprocessing: [EntityReference]
-    seeAlso: [String]
-    issueTracker: Uri
+    similarityMeasure: String
+    curationRule: [EntityReference]
+    curationRuleText: [String]
+    seeAlso: [NonRelativeURI]
+    issueTracker: NonRelativeURI
     other: String
     comment: String
     extensionDefinitions: [ExtensionDefinition]
@@ -102,8 +152,8 @@ type MappingSet
 
 type MappingSetReference
   {
-    mappingSetId: Uri!
-    mirrorFrom: Uri
+    mappingSetId: NonRelativeURI!
+    mirrorFrom: NonRelativeURI
     registryConfidence: Double
     mappingSetGroup: String
     lastUpdated: Date
@@ -123,5 +173,10 @@ type Prefix
 type Propagatable
   {
     propagated: Boolean
+  }
+
+type Versionable
+  {
+    addedIn: SssomVersionEnum
   }
 

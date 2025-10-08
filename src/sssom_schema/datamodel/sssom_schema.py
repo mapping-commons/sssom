@@ -1,5 +1,5 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-08-09T22:25:39
+# Generation date: 2025-10-07T21:17:01
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
@@ -8,20 +8,55 @@
 
 import dataclasses
 import re
-from jsonasobj2 import JsonObj, as_dict
-from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from datetime import date, datetime
-from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+from datetime import (
+    date,
+    datetime,
+    time
+)
+from typing import (
+    Any,
+    ClassVar,
+    Dict,
+    List,
+    Optional,
+    Union
+)
 
-from linkml_runtime.utils.slot import Slot
-from linkml_runtime.utils.metamodelcore import empty_list, empty_dict, bnode
-from linkml_runtime.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
-from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
-from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
-from linkml_runtime.utils.enumerations import EnumDefinitionImpl
-from rdflib import Namespace, URIRef
+from jsonasobj2 import (
+    JsonObj,
+    as_dict
+)
+from linkml_runtime.linkml_model.meta import (
+    EnumDefinition,
+    PermissibleValue,
+    PvFormulaOptions
+)
 from linkml_runtime.utils.curienamespace import CurieNamespace
+from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
+from linkml_runtime.utils.enumerations import EnumDefinitionImpl
+from linkml_runtime.utils.formatutils import (
+    camelcase,
+    sfx,
+    underscore
+)
+from linkml_runtime.utils.metamodelcore import (
+    bnode,
+    empty_dict,
+    empty_list
+)
+from linkml_runtime.utils.slot import Slot
+from linkml_runtime.utils.yamlutils import (
+    YAMLRoot,
+    extended_float,
+    extended_int,
+    extended_str
+)
+from rdflib import (
+    Namespace,
+    URIRef
+)
+
 from linkml_runtime.linkml_model.types import Boolean, Date, Double, Ncname, String, Uri, Uriorcurie
 from linkml_runtime.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate
 
@@ -57,15 +92,23 @@ class EntityReference(Uriorcurie):
     type_model_uri = SSSOM.EntityReference
 
 
+class NonRelativeURI(Uri):
+    """ A URI as per RFC 3986, that is a string that matches the production of the "URI" rule defined in Appendix A of that RFC. Contrary to the underlying LinkML type, this specifically excludes _relative URI references_, which do not start with a scheme component. Relative URI references are forbidden because SSSOM has no built-in mechanism to provide the base URI that would be needed to resolve relative URI references into non-relative ones. """
+    type_class_uri = XSD["anyURI"]
+    type_class_curie = "xsd:anyURI"
+    type_name = "NonRelativeURI"
+    type_model_uri = SSSOM.NonRelativeURI
+
+
 # Class references
 class PrefixPrefixName(NCName):
     pass
 
 
-@dataclass
+@dataclass(repr=False)
 class MappingSet(YAMLRoot):
     """
-    Represents a set of mappings
+    Represents a set of mappings.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -74,14 +117,16 @@ class MappingSet(YAMLRoot):
     class_name: ClassVar[str] = "mapping set"
     class_model_uri: ClassVar[URIRef] = SSSOM.MappingSet
 
-    mapping_set_id: Union[str, URI] = None
-    license: Union[str, URI] = None
+    mapping_set_id: Union[str, NonRelativeURI] = None
+    license: Union[str, NonRelativeURI] = None
+    sssom_version: Optional[Union[str, "SssomVersionEnum"]] = None
     curie_map: Optional[Union[Dict[Union[str, PrefixPrefixName], Union[dict, "Prefix"]], List[Union[dict, "Prefix"]]]] = empty_dict()
     mappings: Optional[Union[Union[dict, "Mapping"], List[Union[dict, "Mapping"]]]] = empty_list()
     mapping_set_version: Optional[str] = None
-    mapping_set_source: Optional[Union[Union[str, URI], List[Union[str, URI]]]] = empty_list()
+    mapping_set_source: Optional[Union[Union[str, NonRelativeURI], List[Union[str, NonRelativeURI]]]] = empty_list()
     mapping_set_title: Optional[str] = None
     mapping_set_description: Optional[str] = None
+    mapping_set_confidence: Optional[float] = None
     creator_id: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     creator_label: Optional[Union[str, List[str]]] = empty_list()
     subject_type: Optional[Union[str, "EntityTypeEnum"]] = None
@@ -90,8 +135,11 @@ class MappingSet(YAMLRoot):
     object_type: Optional[Union[str, "EntityTypeEnum"]] = None
     object_source: Optional[Union[str, EntityReference]] = None
     object_source_version: Optional[str] = None
-    mapping_provider: Optional[Union[str, URI]] = None
+    predicate_type: Optional[Union[str, "EntityTypeEnum"]] = None
+    mapping_provider: Optional[Union[str, NonRelativeURI]] = None
+    cardinality_scope: Optional[Union[str, List[str]]] = empty_list()
     mapping_tool: Optional[str] = None
+    mapping_tool_id: Optional[Union[str, EntityReference]] = None
     mapping_tool_version: Optional[str] = None
     mapping_date: Optional[Union[str, XSDDate]] = None
     publication_date: Optional[Union[str, XSDDate]] = None
@@ -99,8 +147,11 @@ class MappingSet(YAMLRoot):
     object_match_field: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     subject_preprocessing: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     object_preprocessing: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
-    see_also: Optional[Union[str, List[str]]] = empty_list()
-    issue_tracker: Optional[Union[str, URI]] = None
+    similarity_measure: Optional[str] = None
+    curation_rule: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
+    curation_rule_text: Optional[Union[str, List[str]]] = empty_list()
+    see_also: Optional[Union[Union[str, NonRelativeURI], List[Union[str, NonRelativeURI]]]] = empty_list()
+    issue_tracker: Optional[Union[str, NonRelativeURI]] = None
     other: Optional[str] = None
     comment: Optional[str] = None
     extension_definitions: Optional[Union[Union[dict, "ExtensionDefinition"], List[Union[dict, "ExtensionDefinition"]]]] = empty_list()
@@ -108,13 +159,16 @@ class MappingSet(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.mapping_set_id):
             self.MissingRequiredField("mapping_set_id")
-        if not isinstance(self.mapping_set_id, URI):
-            self.mapping_set_id = URI(self.mapping_set_id)
+        if not isinstance(self.mapping_set_id, NonRelativeURI):
+            self.mapping_set_id = NonRelativeURI(self.mapping_set_id)
 
         if self._is_empty(self.license):
             self.MissingRequiredField("license")
-        if not isinstance(self.license, URI):
-            self.license = URI(self.license)
+        if not isinstance(self.license, NonRelativeURI):
+            self.license = NonRelativeURI(self.license)
+
+        if self.sssom_version is not None and not isinstance(self.sssom_version, SssomVersionEnum):
+            self.sssom_version = SssomVersionEnum(self.sssom_version)
 
         self._normalize_inlined_as_dict(slot_name="curie_map", slot_type=Prefix, key_name="prefix_name", keyed=True)
 
@@ -127,13 +181,16 @@ class MappingSet(YAMLRoot):
 
         if not isinstance(self.mapping_set_source, list):
             self.mapping_set_source = [self.mapping_set_source] if self.mapping_set_source is not None else []
-        self.mapping_set_source = [v if isinstance(v, URI) else URI(v) for v in self.mapping_set_source]
+        self.mapping_set_source = [v if isinstance(v, NonRelativeURI) else NonRelativeURI(v) for v in self.mapping_set_source]
 
         if self.mapping_set_title is not None and not isinstance(self.mapping_set_title, str):
             self.mapping_set_title = str(self.mapping_set_title)
 
         if self.mapping_set_description is not None and not isinstance(self.mapping_set_description, str):
             self.mapping_set_description = str(self.mapping_set_description)
+
+        if self.mapping_set_confidence is not None and not isinstance(self.mapping_set_confidence, float):
+            self.mapping_set_confidence = float(self.mapping_set_confidence)
 
         if not isinstance(self.creator_id, list):
             self.creator_id = [self.creator_id] if self.creator_id is not None else []
@@ -161,11 +218,21 @@ class MappingSet(YAMLRoot):
         if self.object_source_version is not None and not isinstance(self.object_source_version, str):
             self.object_source_version = str(self.object_source_version)
 
-        if self.mapping_provider is not None and not isinstance(self.mapping_provider, URI):
-            self.mapping_provider = URI(self.mapping_provider)
+        if self.predicate_type is not None and not isinstance(self.predicate_type, EntityTypeEnum):
+            self.predicate_type = EntityTypeEnum(self.predicate_type)
+
+        if self.mapping_provider is not None and not isinstance(self.mapping_provider, NonRelativeURI):
+            self.mapping_provider = NonRelativeURI(self.mapping_provider)
+
+        if not isinstance(self.cardinality_scope, list):
+            self.cardinality_scope = [self.cardinality_scope] if self.cardinality_scope is not None else []
+        self.cardinality_scope = [v if isinstance(v, str) else str(v) for v in self.cardinality_scope]
 
         if self.mapping_tool is not None and not isinstance(self.mapping_tool, str):
             self.mapping_tool = str(self.mapping_tool)
+
+        if self.mapping_tool_id is not None and not isinstance(self.mapping_tool_id, EntityReference):
+            self.mapping_tool_id = EntityReference(self.mapping_tool_id)
 
         if self.mapping_tool_version is not None and not isinstance(self.mapping_tool_version, str):
             self.mapping_tool_version = str(self.mapping_tool_version)
@@ -192,12 +259,23 @@ class MappingSet(YAMLRoot):
             self.object_preprocessing = [self.object_preprocessing] if self.object_preprocessing is not None else []
         self.object_preprocessing = [v if isinstance(v, EntityReference) else EntityReference(v) for v in self.object_preprocessing]
 
+        if self.similarity_measure is not None and not isinstance(self.similarity_measure, str):
+            self.similarity_measure = str(self.similarity_measure)
+
+        if not isinstance(self.curation_rule, list):
+            self.curation_rule = [self.curation_rule] if self.curation_rule is not None else []
+        self.curation_rule = [v if isinstance(v, EntityReference) else EntityReference(v) for v in self.curation_rule]
+
+        if not isinstance(self.curation_rule_text, list):
+            self.curation_rule_text = [self.curation_rule_text] if self.curation_rule_text is not None else []
+        self.curation_rule_text = [v if isinstance(v, str) else str(v) for v in self.curation_rule_text]
+
         if not isinstance(self.see_also, list):
             self.see_also = [self.see_also] if self.see_also is not None else []
-        self.see_also = [v if isinstance(v, str) else str(v) for v in self.see_also]
+        self.see_also = [v if isinstance(v, NonRelativeURI) else NonRelativeURI(v) for v in self.see_also]
 
-        if self.issue_tracker is not None and not isinstance(self.issue_tracker, URI):
-            self.issue_tracker = URI(self.issue_tracker)
+        if self.issue_tracker is not None and not isinstance(self.issue_tracker, NonRelativeURI):
+            self.issue_tracker = NonRelativeURI(self.issue_tracker)
 
         if self.other is not None and not isinstance(self.other, str):
             self.other = str(self.other)
@@ -210,10 +288,10 @@ class MappingSet(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Mapping(YAMLRoot):
     """
-    Represents an individual mapping between a pair of entities
+    Represents an individual mapping between a pair of entities.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -224,6 +302,7 @@ class Mapping(YAMLRoot):
 
     predicate_id: Union[str, EntityReference] = None
     mapping_justification: Union[str, EntityReference] = None
+    record_id: Optional[Union[str, EntityReference]] = None
     subject_id: Optional[Union[str, EntityReference]] = None
     subject_label: Optional[str] = None
     subject_category: Optional[str] = None
@@ -238,17 +317,20 @@ class Mapping(YAMLRoot):
     reviewer_label: Optional[Union[str, List[str]]] = empty_list()
     creator_id: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     creator_label: Optional[Union[str, List[str]]] = empty_list()
-    license: Optional[Union[str, URI]] = None
+    license: Optional[Union[str, NonRelativeURI]] = None
     subject_type: Optional[Union[str, "EntityTypeEnum"]] = None
     subject_source: Optional[Union[str, EntityReference]] = None
     subject_source_version: Optional[str] = None
     object_type: Optional[Union[str, "EntityTypeEnum"]] = None
     object_source: Optional[Union[str, EntityReference]] = None
     object_source_version: Optional[str] = None
-    mapping_provider: Optional[Union[str, URI]] = None
+    predicate_type: Optional[Union[str, "EntityTypeEnum"]] = None
+    mapping_provider: Optional[Union[str, NonRelativeURI]] = None
     mapping_source: Optional[Union[str, EntityReference]] = None
     mapping_cardinality: Optional[Union[str, "MappingCardinalityEnum"]] = None
+    cardinality_scope: Optional[Union[str, List[str]]] = empty_list()
     mapping_tool: Optional[str] = None
+    mapping_tool_id: Optional[Union[str, EntityReference]] = None
     mapping_tool_version: Optional[str] = None
     mapping_date: Optional[Union[str, XSDDate]] = None
     publication_date: Optional[Union[str, XSDDate]] = None
@@ -262,7 +344,7 @@ class Mapping(YAMLRoot):
     object_preprocessing: Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]] = empty_list()
     similarity_score: Optional[float] = None
     similarity_measure: Optional[str] = None
-    see_also: Optional[Union[str, List[str]]] = empty_list()
+    see_also: Optional[Union[Union[str, NonRelativeURI], List[Union[str, NonRelativeURI]]]] = empty_list()
     issue_tracker_item: Optional[Union[str, EntityReference]] = None
     other: Optional[str] = None
     comment: Optional[str] = None
@@ -277,6 +359,9 @@ class Mapping(YAMLRoot):
             self.MissingRequiredField("mapping_justification")
         if not isinstance(self.mapping_justification, EntityReference):
             self.mapping_justification = EntityReference(self.mapping_justification)
+
+        if self.record_id is not None and not isinstance(self.record_id, EntityReference):
+            self.record_id = EntityReference(self.record_id)
 
         if self.subject_id is not None and not isinstance(self.subject_id, EntityReference):
             self.subject_id = EntityReference(self.subject_id)
@@ -326,8 +411,8 @@ class Mapping(YAMLRoot):
             self.creator_label = [self.creator_label] if self.creator_label is not None else []
         self.creator_label = [v if isinstance(v, str) else str(v) for v in self.creator_label]
 
-        if self.license is not None and not isinstance(self.license, URI):
-            self.license = URI(self.license)
+        if self.license is not None and not isinstance(self.license, NonRelativeURI):
+            self.license = NonRelativeURI(self.license)
 
         if self.subject_type is not None and not isinstance(self.subject_type, EntityTypeEnum):
             self.subject_type = EntityTypeEnum(self.subject_type)
@@ -347,8 +432,11 @@ class Mapping(YAMLRoot):
         if self.object_source_version is not None and not isinstance(self.object_source_version, str):
             self.object_source_version = str(self.object_source_version)
 
-        if self.mapping_provider is not None and not isinstance(self.mapping_provider, URI):
-            self.mapping_provider = URI(self.mapping_provider)
+        if self.predicate_type is not None and not isinstance(self.predicate_type, EntityTypeEnum):
+            self.predicate_type = EntityTypeEnum(self.predicate_type)
+
+        if self.mapping_provider is not None and not isinstance(self.mapping_provider, NonRelativeURI):
+            self.mapping_provider = NonRelativeURI(self.mapping_provider)
 
         if self.mapping_source is not None and not isinstance(self.mapping_source, EntityReference):
             self.mapping_source = EntityReference(self.mapping_source)
@@ -356,8 +444,15 @@ class Mapping(YAMLRoot):
         if self.mapping_cardinality is not None and not isinstance(self.mapping_cardinality, MappingCardinalityEnum):
             self.mapping_cardinality = MappingCardinalityEnum(self.mapping_cardinality)
 
+        if not isinstance(self.cardinality_scope, list):
+            self.cardinality_scope = [self.cardinality_scope] if self.cardinality_scope is not None else []
+        self.cardinality_scope = [v if isinstance(v, str) else str(v) for v in self.cardinality_scope]
+
         if self.mapping_tool is not None and not isinstance(self.mapping_tool, str):
             self.mapping_tool = str(self.mapping_tool)
+
+        if self.mapping_tool_id is not None and not isinstance(self.mapping_tool_id, EntityReference):
+            self.mapping_tool_id = EntityReference(self.mapping_tool_id)
 
         if self.mapping_tool_version is not None and not isinstance(self.mapping_tool_version, str):
             self.mapping_tool_version = str(self.mapping_tool_version)
@@ -407,7 +502,7 @@ class Mapping(YAMLRoot):
 
         if not isinstance(self.see_also, list):
             self.see_also = [self.see_also] if self.see_also is not None else []
-        self.see_also = [v if isinstance(v, str) else str(v) for v in self.see_also]
+        self.see_also = [v if isinstance(v, NonRelativeURI) else NonRelativeURI(v) for v in self.see_also]
 
         if self.issue_tracker_item is not None and not isinstance(self.issue_tracker_item, EntityReference):
             self.issue_tracker_item = EntityReference(self.issue_tracker_item)
@@ -421,7 +516,7 @@ class Mapping(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class MappingRegistry(YAMLRoot):
     """
     A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries.
@@ -436,11 +531,11 @@ class MappingRegistry(YAMLRoot):
     mapping_registry_id: Union[str, EntityReference] = None
     mapping_registry_title: Optional[str] = None
     mapping_registry_description: Optional[str] = None
-    imports: Optional[Union[Union[str, URI], List[Union[str, URI]]]] = empty_list()
+    imports: Optional[Union[Union[str, NonRelativeURI], List[Union[str, NonRelativeURI]]]] = empty_list()
     mapping_set_references: Optional[Union[Union[dict, "MappingSetReference"], List[Union[dict, "MappingSetReference"]]]] = empty_list()
-    documentation: Optional[Union[str, URI]] = None
-    homepage: Optional[Union[str, URI]] = None
-    issue_tracker: Optional[Union[str, URI]] = None
+    documentation: Optional[Union[str, NonRelativeURI]] = None
+    homepage: Optional[Union[str, NonRelativeURI]] = None
+    issue_tracker: Optional[Union[str, NonRelativeURI]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.mapping_registry_id):
@@ -456,23 +551,23 @@ class MappingRegistry(YAMLRoot):
 
         if not isinstance(self.imports, list):
             self.imports = [self.imports] if self.imports is not None else []
-        self.imports = [v if isinstance(v, URI) else URI(v) for v in self.imports]
+        self.imports = [v if isinstance(v, NonRelativeURI) else NonRelativeURI(v) for v in self.imports]
 
         self._normalize_inlined_as_dict(slot_name="mapping_set_references", slot_type=MappingSetReference, key_name="mapping_set_id", keyed=False)
 
-        if self.documentation is not None and not isinstance(self.documentation, URI):
-            self.documentation = URI(self.documentation)
+        if self.documentation is not None and not isinstance(self.documentation, NonRelativeURI):
+            self.documentation = NonRelativeURI(self.documentation)
 
-        if self.homepage is not None and not isinstance(self.homepage, URI):
-            self.homepage = URI(self.homepage)
+        if self.homepage is not None and not isinstance(self.homepage, NonRelativeURI):
+            self.homepage = NonRelativeURI(self.homepage)
 
-        if self.issue_tracker is not None and not isinstance(self.issue_tracker, URI):
-            self.issue_tracker = URI(self.issue_tracker)
+        if self.issue_tracker is not None and not isinstance(self.issue_tracker, NonRelativeURI):
+            self.issue_tracker = NonRelativeURI(self.issue_tracker)
 
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class MappingSetReference(YAMLRoot):
     """
     A reference to a mapping set. It allows to augment mapping set metadata from the perspective of the registry, for
@@ -485,8 +580,8 @@ class MappingSetReference(YAMLRoot):
     class_name: ClassVar[str] = "mapping set reference"
     class_model_uri: ClassVar[URIRef] = SSSOM.MappingSetReference
 
-    mapping_set_id: Union[str, URI] = None
-    mirror_from: Optional[Union[str, URI]] = None
+    mapping_set_id: Union[str, NonRelativeURI] = None
+    mirror_from: Optional[Union[str, NonRelativeURI]] = None
     registry_confidence: Optional[float] = None
     mapping_set_group: Optional[str] = None
     last_updated: Optional[Union[str, XSDDate]] = None
@@ -495,11 +590,11 @@ class MappingSetReference(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.mapping_set_id):
             self.MissingRequiredField("mapping_set_id")
-        if not isinstance(self.mapping_set_id, URI):
-            self.mapping_set_id = URI(self.mapping_set_id)
+        if not isinstance(self.mapping_set_id, NonRelativeURI):
+            self.mapping_set_id = NonRelativeURI(self.mapping_set_id)
 
-        if self.mirror_from is not None and not isinstance(self.mirror_from, URI):
-            self.mirror_from = URI(self.mirror_from)
+        if self.mirror_from is not None and not isinstance(self.mirror_from, NonRelativeURI):
+            self.mirror_from = NonRelativeURI(self.mirror_from)
 
         if self.registry_confidence is not None and not isinstance(self.registry_confidence, float):
             self.registry_confidence = float(self.registry_confidence)
@@ -516,7 +611,7 @@ class MappingSetReference(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Prefix(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -540,7 +635,7 @@ class Prefix(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class ExtensionDefinition(YAMLRoot):
     """
     A definition of an extension (non-standard) slot.
@@ -571,7 +666,7 @@ class ExtensionDefinition(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Propagatable(YAMLRoot):
     """
     Metamodel extension class to describe slots whose value can be propagated down from the MappingSet class to the
@@ -593,6 +688,27 @@ class Propagatable(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass(repr=False)
+class Versionable(YAMLRoot):
+    """
+    Metamodel extension class to manage slots that may not exist in all versions of the model.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = SSSOM["Versionable"]
+    class_class_curie: ClassVar[str] = "sssom:Versionable"
+    class_name: ClassVar[str] = "Versionable"
+    class_model_uri: ClassVar[URIRef] = SSSOM.Versionable
+
+    added_in: Optional[Union[str, "SssomVersionEnum"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.added_in is not None and not isinstance(self.added_in, SssomVersionEnum):
+            self.added_in = SssomVersionEnum(self.added_in)
+
+        super().__post_init__(**kwargs)
+
+
 class NoTermFound(YAMLRoot):
     """
     sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be
@@ -608,6 +724,25 @@ class NoTermFound(YAMLRoot):
 
 
 # Enumerations
+class SssomVersionEnum(EnumDefinitionImpl):
+
+    _defn = EnumDefinition(
+        name="SssomVersionEnum",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "1.0",
+            PermissibleValue(
+                text="1.0",
+                description="SSSOM specification version 1.0",
+                meaning=SSSOM["version1.0"]))
+        setattr(cls, "1.1",
+            PermissibleValue(
+                text="1.1",
+                description="SSSOM specification version 1.1",
+                meaning=SSSOM["version1.1"]))
+
 class EntityTypeEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
@@ -651,7 +786,7 @@ class EntityTypeEnum(EnumDefinitionImpl):
         setattr(cls, "rdfs literal",
             PermissibleValue(
                 text="rdfs literal",
-                description="""This value indicate that the entity being mapped is not a semantic entity with a distinct identifier, but is instead represented entirely by its literal label. This value MUST NOT be used in the predicate_type slot.""",
+                description="""This value indicates that the entity being mapped is not a semantic entity with a distinct identifier, but is instead represented entirely by its literal label. This value MUST NOT be used in the predicate_type slot.""",
                 meaning=RDFS["Literal"]))
         setattr(cls, "rdfs datatype",
             PermissibleValue(
@@ -661,12 +796,18 @@ class EntityTypeEnum(EnumDefinitionImpl):
             PermissibleValue(
                 text="rdf property",
                 meaning=RDF["Property"]))
+        setattr(cls, "composed entity expression",
+            PermissibleValue(
+                text="composed entity expression",
+                description="""This value indicates that the entity ID does not represent a single entity, but a composite involving several individual entities. This value MUST NOT be used in the predicate_type slot. This specifications does not prescribe how an ID representing a composite entity should be interpreted; this is left at the discretion of applications.""",
+                meaning=SSSOM["ComposedEntityExpression"]))
 
 class PredicateModifierEnum(EnumDefinitionImpl):
 
     Not = PermissibleValue(
         text="Not",
-        description="""Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.""")
+        description="""Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.""",
+        meaning=SSSOM["NegatedPredicate"])
 
     _defn = EnumDefinition(
         name="PredicateModifierEnum",
@@ -683,27 +824,31 @@ class MappingCardinalityEnum(EnumDefinitionImpl):
         setattr(cls, "1:1",
             PermissibleValue(
                 text="1:1",
-                description="One-to-one mapping"))
+                description="""Indicates the mapping record is about a one-to-one mapping, that is, the subject and the object are only mapped to each other, exclusive of any other subject or object."""))
         setattr(cls, "1:n",
             PermissibleValue(
                 text="1:n",
-                description="One-to-many mapping"))
+                description="""Indicates the mapping record is about a one-to-many mapping, that is, the same subject is mapped to several different objects."""))
         setattr(cls, "n:1",
             PermissibleValue(
                 text="n:1",
-                description="Many-to-one mapping"))
-        setattr(cls, "1:0",
-            PermissibleValue(
-                text="1:0",
-                description="One-to-none mapping"))
-        setattr(cls, "0:1",
-            PermissibleValue(
-                text="0:1",
-                description="None-to-one mapping"))
+                description="""Indicates the mapping record is about a many-to-one mapping, that is, several different subjects are mapped to the same object."""))
         setattr(cls, "n:n",
             PermissibleValue(
                 text="n:n",
-                description="Many-to-many mapping"))
+                description="""Indicates the mapping record is about a many-to-many mapping, that is, the subject is mapped to several different objects and the object is mapped to several different subjects."""))
+        setattr(cls, "1:0",
+            PermissibleValue(
+                text="1:0",
+                description="""Indicates that the subject has no match in the object vocabulary. This value MUST only be used when the object_id is sssom:NoTermFound."""))
+        setattr(cls, "0:1",
+            PermissibleValue(
+                text="0:1",
+                description="""Indicates that the object has no match in the subject vocabulary. This value MUST only be used when the subject_id is sssom:NoTermFound."""))
+        setattr(cls, "0:0",
+            PermissibleValue(
+                text="0:0",
+                description="""Indicates that there is no match between the subject vocabulary and the object vocabulary. This value MUST only be used when both the subject_id and the object_id are sssom:NoTermFound."""))
 
 # Slots
 class slots:
@@ -715,11 +860,14 @@ slots.prefix_name = Slot(uri=SSSOM.prefix_name, name="prefix_name", curie=SSSOM.
 slots.prefix_url = Slot(uri=SSSOM.prefix_url, name="prefix_url", curie=SSSOM.curie('prefix_url'),
                    model_uri=SSSOM.prefix_url, domain=None, range=Optional[Union[str, URI]])
 
+slots.sssom_version = Slot(uri=SSSOM.sssom_version, name="sssom_version", curie=SSSOM.curie('sssom_version'),
+                   model_uri=SSSOM.sssom_version, domain=None, range=Optional[Union[str, "SssomVersionEnum"]])
+
 slots.curie_map = Slot(uri=SSSOM.curie_map, name="curie_map", curie=SSSOM.curie('curie_map'),
                    model_uri=SSSOM.curie_map, domain=None, range=Optional[Union[Dict[Union[str, PrefixPrefixName], Union[dict, Prefix]], List[Union[dict, Prefix]]]])
 
 slots.mirror_from = Slot(uri=SSSOM.mirror_from, name="mirror_from", curie=SSSOM.curie('mirror_from'),
-                   model_uri=SSSOM.mirror_from, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=SSSOM.mirror_from, domain=None, range=Optional[Union[str, NonRelativeURI]])
 
 slots.registry_confidence = Slot(uri=SSSOM.registry_confidence, name="registry_confidence", curie=SSSOM.curie('registry_confidence'),
                    model_uri=SSSOM.registry_confidence, domain=None, range=Optional[float])
@@ -743,13 +891,13 @@ slots.mapping_registry_description = Slot(uri=SSSOM.mapping_registry_description
                    model_uri=SSSOM.mapping_registry_description, domain=None, range=Optional[str])
 
 slots.imports = Slot(uri=SSSOM.imports, name="imports", curie=SSSOM.curie('imports'),
-                   model_uri=SSSOM.imports, domain=None, range=Optional[Union[Union[str, URI], List[Union[str, URI]]]])
+                   model_uri=SSSOM.imports, domain=None, range=Optional[Union[Union[str, NonRelativeURI], List[Union[str, NonRelativeURI]]]])
 
 slots.documentation = Slot(uri=SSSOM.documentation, name="documentation", curie=SSSOM.curie('documentation'),
-                   model_uri=SSSOM.documentation, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=SSSOM.documentation, domain=None, range=Optional[Union[str, NonRelativeURI]])
 
 slots.homepage = Slot(uri=SSSOM.homepage, name="homepage", curie=SSSOM.curie('homepage'),
-                   model_uri=SSSOM.homepage, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=SSSOM.homepage, domain=None, range=Optional[Union[str, NonRelativeURI]])
 
 slots.mappings = Slot(uri=SSSOM.mappings, name="mappings", curie=SSSOM.curie('mappings'),
                    model_uri=SSSOM.mappings, domain=None, range=Optional[Union[Union[dict, Mapping], List[Union[dict, Mapping]]]])
@@ -789,13 +937,13 @@ slots.object_category = Slot(uri=SSSOM.object_category, name="object_category", 
 
 slots.mapping_justification = Slot(uri=SSSOM.mapping_justification, name="mapping_justification", curie=SSSOM.curie('mapping_justification'),
                    model_uri=SSSOM.mapping_justification, domain=None, range=Union[str, EntityReference],
-                   pattern=re.compile(r'^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$'))
+                   pattern=re.compile(r'^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$'))
 
 slots.object_type = Slot(uri=SSSOM.object_type, name="object_type", curie=SSSOM.curie('object_type'),
                    model_uri=SSSOM.object_type, domain=None, range=Optional[Union[str, "EntityTypeEnum"]])
 
 slots.mapping_set_id = Slot(uri=SSSOM.mapping_set_id, name="mapping_set_id", curie=SSSOM.curie('mapping_set_id'),
-                   model_uri=SSSOM.mapping_set_id, domain=None, range=Union[str, URI])
+                   model_uri=SSSOM.mapping_set_id, domain=None, range=Union[str, NonRelativeURI])
 
 slots.mapping_set_version = Slot(uri=OWL.versionInfo, name="mapping_set_version", curie=OWL.curie('versionInfo'),
                    model_uri=SSSOM.mapping_set_version, domain=None, range=Optional[str])
@@ -808,6 +956,9 @@ slots.mapping_set_title = Slot(uri=DCTERMS.title, name="mapping_set_title", curi
 
 slots.mapping_set_description = Slot(uri=DCTERMS.description, name="mapping_set_description", curie=DCTERMS.curie('description'),
                    model_uri=SSSOM.mapping_set_description, domain=None, range=Optional[str])
+
+slots.mapping_set_confidence = Slot(uri=SSSOM.mapping_set_confidence, name="mapping_set_confidence", curie=SSSOM.curie('mapping_set_confidence'),
+                   model_uri=SSSOM.mapping_set_confidence, domain=None, range=Optional[float])
 
 slots.creator_id = Slot(uri=DCTERMS.creator, name="creator_id", curie=DCTERMS.curie('creator'),
                    model_uri=SSSOM.creator_id, domain=None, range=Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]])
@@ -828,7 +979,7 @@ slots.reviewer_label = Slot(uri=SSSOM.reviewer_label, name="reviewer_label", cur
                    model_uri=SSSOM.reviewer_label, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.license = Slot(uri=DCTERMS.license, name="license", curie=DCTERMS.curie('license'),
-                   model_uri=SSSOM.license, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=SSSOM.license, domain=None, range=Optional[Union[str, NonRelativeURI]])
 
 slots.subject_source = Slot(uri=SSSOM.subject_source, name="subject_source", curie=SSSOM.curie('subject_source'),
                    model_uri=SSSOM.subject_source, domain=None, range=Optional[Union[str, EntityReference]])
@@ -843,10 +994,10 @@ slots.object_source_version = Slot(uri=SSSOM.object_source_version, name="object
                    model_uri=SSSOM.object_source_version, domain=None, range=Optional[str])
 
 slots.mapping_provider = Slot(uri=SSSOM.mapping_provider, name="mapping_provider", curie=SSSOM.curie('mapping_provider'),
-                   model_uri=SSSOM.mapping_provider, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=SSSOM.mapping_provider, domain=None, range=Optional[Union[str, NonRelativeURI]])
 
 slots.mapping_set_source = Slot(uri=PROV.wasDerivedFrom, name="mapping_set_source", curie=PROV.curie('wasDerivedFrom'),
-                   model_uri=SSSOM.mapping_set_source, domain=None, range=Optional[Union[Union[str, URI], List[Union[str, URI]]]])
+                   model_uri=SSSOM.mapping_set_source, domain=None, range=Optional[Union[Union[str, NonRelativeURI], List[Union[str, NonRelativeURI]]]])
 
 slots.mapping_source = Slot(uri=SSSOM.mapping_source, name="mapping_source", curie=SSSOM.curie('mapping_source'),
                    model_uri=SSSOM.mapping_source, domain=None, range=Optional[Union[str, EntityReference]])
@@ -854,8 +1005,14 @@ slots.mapping_source = Slot(uri=SSSOM.mapping_source, name="mapping_source", cur
 slots.mapping_cardinality = Slot(uri=SSSOM.mapping_cardinality, name="mapping_cardinality", curie=SSSOM.curie('mapping_cardinality'),
                    model_uri=SSSOM.mapping_cardinality, domain=None, range=Optional[Union[str, "MappingCardinalityEnum"]])
 
+slots.cardinality_scope = Slot(uri=SSSOM.cardinality_scope, name="cardinality_scope", curie=SSSOM.curie('cardinality_scope'),
+                   model_uri=SSSOM.cardinality_scope, domain=None, range=Optional[Union[str, List[str]]])
+
 slots.mapping_tool = Slot(uri=SSSOM.mapping_tool, name="mapping_tool", curie=SSSOM.curie('mapping_tool'),
                    model_uri=SSSOM.mapping_tool, domain=None, range=Optional[str])
+
+slots.mapping_tool_id = Slot(uri=SSSOM.mapping_tool_id, name="mapping_tool_id", curie=SSSOM.curie('mapping_tool_id'),
+                   model_uri=SSSOM.mapping_tool_id, domain=None, range=Optional[Union[str, EntityReference]])
 
 slots.mapping_tool_version = Slot(uri=SSSOM.mapping_tool_version, name="mapping_tool_version", curie=SSSOM.curie('mapping_tool_version'),
                    model_uri=SSSOM.mapping_tool_version, domain=None, range=Optional[str])
@@ -863,7 +1020,7 @@ slots.mapping_tool_version = Slot(uri=SSSOM.mapping_tool_version, name="mapping_
 slots.mapping_date = Slot(uri=PAV.authoredOn, name="mapping_date", curie=PAV.curie('authoredOn'),
                    model_uri=SSSOM.mapping_date, domain=None, range=Optional[Union[str, XSDDate]])
 
-slots.publication_date = Slot(uri=DCTERMS.created, name="publication_date", curie=DCTERMS.curie('created'),
+slots.publication_date = Slot(uri=DCTERMS.issued, name="publication_date", curie=DCTERMS.curie('issued'),
                    model_uri=SSSOM.publication_date, domain=None, range=Optional[Union[str, XSDDate]])
 
 slots.confidence = Slot(uri=SSSOM.confidence, name="confidence", curie=SSSOM.curie('confidence'),
@@ -900,10 +1057,10 @@ slots.issue_tracker_item = Slot(uri=SSSOM.issue_tracker_item, name="issue_tracke
                    model_uri=SSSOM.issue_tracker_item, domain=None, range=Optional[Union[str, EntityReference]])
 
 slots.issue_tracker = Slot(uri=SSSOM.issue_tracker, name="issue_tracker", curie=SSSOM.curie('issue_tracker'),
-                   model_uri=SSSOM.issue_tracker, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=SSSOM.issue_tracker, domain=None, range=Optional[Union[str, NonRelativeURI]])
 
 slots.see_also = Slot(uri=RDFS.seeAlso, name="see_also", curie=RDFS.curie('seeAlso'),
-                   model_uri=SSSOM.see_also, domain=None, range=Optional[Union[str, List[str]]])
+                   model_uri=SSSOM.see_also, domain=None, range=Optional[Union[Union[str, NonRelativeURI], List[Union[str, NonRelativeURI]]]])
 
 slots.other = Slot(uri=SSSOM.other, name="other", curie=SSSOM.curie('other'),
                    model_uri=SSSOM.other, domain=None, range=Optional[str])
@@ -913,6 +1070,9 @@ slots.comment = Slot(uri=RDFS.comment, name="comment", curie=RDFS.curie('comment
 
 slots.extension_definitions = Slot(uri=SSSOM.extension_definitions, name="extension_definitions", curie=SSSOM.curie('extension_definitions'),
                    model_uri=SSSOM.extension_definitions, domain=None, range=Optional[Union[Union[dict, ExtensionDefinition], List[Union[dict, ExtensionDefinition]]]])
+
+slots.record_id = Slot(uri=SSSOM.record_id, name="record_id", curie=SSSOM.curie('record_id'),
+                   model_uri=SSSOM.record_id, domain=None, range=Optional[Union[str, EntityReference]])
 
 slots.extensionDefinition__slot_name = Slot(uri=SSSOM.slot_name, name="extensionDefinition__slot_name", curie=SSSOM.curie('slot_name'),
                    model_uri=SSSOM.extensionDefinition__slot_name, domain=None, range=Union[str, NCName])
@@ -926,5 +1086,17 @@ slots.extensionDefinition__type_hint = Slot(uri=SSSOM.type_hint, name="extension
 slots.propagatable__propagated = Slot(uri=SSSOM.propagated, name="propagatable__propagated", curie=SSSOM.curie('propagated'),
                    model_uri=SSSOM.propagatable__propagated, domain=None, range=Optional[Union[bool, Bool]])
 
+slots.versionable__added_in = Slot(uri=SSSOM.added_in, name="versionable__added_in", curie=SSSOM.curie('added_in'),
+                   model_uri=SSSOM.versionable__added_in, domain=None, range=Optional[Union[str, "SssomVersionEnum"]])
+
 slots.mapping_set_license = Slot(uri=DCTERMS.license, name="mapping set_license", curie=DCTERMS.curie('license'),
-                   model_uri=SSSOM.mapping_set_license, domain=MappingSet, range=Union[str, URI])
+                   model_uri=SSSOM.mapping_set_license, domain=MappingSet, range=Union[str, NonRelativeURI])
+
+slots.mapping_set_similarity_measure = Slot(uri=SSSOM.similarity_measure, name="mapping set_similarity_measure", curie=SSSOM.curie('similarity_measure'),
+                   model_uri=SSSOM.mapping_set_similarity_measure, domain=MappingSet, range=Optional[str])
+
+slots.mapping_set_curation_rule = Slot(uri=SSSOM.curation_rule, name="mapping set_curation_rule", curie=SSSOM.curie('curation_rule'),
+                   model_uri=SSSOM.mapping_set_curation_rule, domain=MappingSet, range=Optional[Union[Union[str, EntityReference], List[Union[str, EntityReference]]]])
+
+slots.mapping_set_curation_rule_text = Slot(uri=SSSOM.curation_rule_text, name="mapping set_curation_rule_text", curie=SSSOM.curie('curation_rule_text'),
+                   model_uri=SSSOM.mapping_set_curation_rule_text, domain=MappingSet, range=Optional[Union[str, List[str]]])
