@@ -51,6 +51,7 @@ poetry-dynamic-versioning = ">=1.8.2"
 enable = true
 vcs = "git"
 style = "pep440"
+local_scheme = "no-local-version"
 
 [tool.poetry.group.dev.dependencies]
 linkml = "^1.7.0"
