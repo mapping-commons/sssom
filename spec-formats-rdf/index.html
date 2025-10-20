@@ -1378,11 +1378,13 @@ implementations (or their users) to decide which form to use.</p>
 <code>MappingSet</code>) MUST be represented as a RDF triple where:</p>
 <ul>
 <li>the subject is the resource representing the SSSOM object;</li>
-<li>the predicate is either:</li>
-<li>the property indicated by the <code>URI</code> field in the LinkML description of the
-    slot, if such a field is present;</li>
+<li>the predicate is either:<ul>
+<li>the property indicated by the <code>URI</code> field in the LinkML description of
+  the slot, if such a field is present;</li>
 <li>or a property constructed by concatenating the <code>https://w3id.org/sssom/</code>
-    namespace and the name of the slot;</li>
+  namespace and the name of the slot;</li>
+</ul>
+</li>
 <li>the object is the value of the slot.</li>
 </ul>
 <h3 id="representation-of-slot-values">Representation of slot values</h3>
