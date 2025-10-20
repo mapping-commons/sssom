@@ -15,7 +15,7 @@ etc.).
 
 This specification does not mandate how a concrete RDF syntax is to be used. For
 example, if the RDF syntax allows named resources and predicates to be
-serialised as either IRIs or CURIEs, if is left at the discretion of the
+serialised as either IRIs or CURIEs, it is left to the discretion of the
 implementations (or their users) to decide which form to use.
 
 <a id="sssom-slots"></a>
@@ -182,11 +182,11 @@ using whatever mechanism is provided by the concrete RDF serialisation format
 >    the possibility of omitting the declarations of prefix names that are
 >    considered [built-in](spec-intro.md#iri-prefixes) in the context of SSSOM.
 
-### Representation of a `ExtensionDefinition` object
+### Representation of an `ExtensionDefinition` object
 
-The RDF type of a `ExtensionDefinition` object is `sssom:ExtensionDefinition`.
+The RDF type of an `ExtensionDefinition` object is `sssom:ExtensionDefinition`.
 
-A `ExtensionDefinition` object has no identifier of any kind and is always
+An `ExtensionDefinition` object has no identifier of any kind and is always
 represented by a blank node.
 
 ## Special considerations for serialising to RDF
@@ -234,7 +234,7 @@ back to another SSSOM format.
 > The whole point of an extension definition in SSSOM is to provide (1) a
 > property that confers some meaning to the extension, and (2) the type of the
 > expected values. In RDF, as described [above](#extension-slots), those two
-> bits of information are already contained in the triple that represent the
+> bits of information are already contained in the triple that represents the
 > extension slot, so there is no need for an additional definition.
 >
 > But the extension definition also provides the `slot_name` which is used to
@@ -294,7 +294,7 @@ and if they are present MUST NOT use them to construct mapping records.
 > `owl:annotatedTarget` triples.
 >
 > It is recommended not to inject such direct triples for literal mapping
-> records, even if they do have a `subject_id` and a `object_id`, because by
+> records, even if they do have a `subject_id` and an `object_id`, because by
 > definition the subject and/or the object of such records is not an
 > identifiable semantic entity and has no business being represented in a RDF
 > graph.
