@@ -135,6 +135,15 @@ This only needs to be run once after cloning the repository. After that, the tes
 $ make test
 ```
 
+If you are making a change to the documentation/specification, you should also
+check how your changes are rendered, by running
+
+```sh
+$ make serve
+```
+
+and opening `http://127.0.0.1:8000/sssom/` with your browser.
+
 Furthermore, any change to the LinkML model should also be tested against SSSOM-Py. To do so:
 
 1. In the current `sssom` repository, build the Python files derived from the LinkML:
