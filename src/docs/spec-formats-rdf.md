@@ -27,10 +27,10 @@ A metadata slot on any given SSSOM object (such as a `Mapping` or a
 
 - the subject is the resource representing the SSSOM object;
 - the predicate is either:
-  - the property indicated by the `URI` field in the LinkML description of the
-    slot, if such a field is present;
-  - or a property constructed by concatenating the `https://w3id.org/sssom/`
-    namespace and the name of the slot;
+    - the property indicated by the `URI` field in the LinkML description of
+      the slot, if such a field is present;
+    - or a property constructed by concatenating the `https://w3id.org/sssom/`
+      namespace and the name of the slot;
 - the object is the value of the slot.
 
 ### Representation of slot values
