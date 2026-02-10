@@ -17,6 +17,7 @@
 - Add new value `0:0` to the `mapping_cardinality_enum` ([issue](https://github.com/mapping-commons/sssom/issues/477)).
 - Add specification for the RDF serialisation ([discussion](https://github.com/mapping-commons/sssom/discussions/454)).
 - Development snapshots of SSSOM schema can now be released using GitHub's pre-release feature ([issue](https://github.com/mapping-commons/sssom/issues/490)).
+- Allow encoding pipe characters in multi-valued slots in SSSOM/TSV format ([issue](https://github.com/mapping-commons/sssom/issues/429)).
 
 ## SSSOM version 1.0.0
 
