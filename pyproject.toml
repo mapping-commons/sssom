@@ -19,20 +19,18 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
     "Topic :: Software Development :: Libraries :: Python Modules",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
 ]
-requires-python = ">=3.8.1"
+requires-python = ">=3.10.0"
 dynamic = ["version"]
 dependencies = [
     "jinjanator",
-    "linkml-runtime",
+    "linkml-runtime==1.10.0rc5",
 ]
 
 [project.optional-dependencies]
 docs = [
-    "linkml >= 1.7.0",
+    "linkml==1.10.0rc5",
     "mkdocs-material >= 8.2.8",
     "mkdocs-mermaid2-plugin >= 1.1.1",
 ]
@@ -42,7 +40,7 @@ requires-poetry = ">=2.0"
 version = "0.0.0"
 
 [tool.poetry.dependencies]
-python = "^3.8.1"
+python = "^3.10"
 
 [tool.poetry.requires-plugins]
 poetry-dynamic-versioning = ">=1.8.2"
@@ -51,10 +49,9 @@ poetry-dynamic-versioning = ">=1.8.2"
 enable = true
 vcs = "git"
 style = "pep440"
-local_scheme = "no-local-version"
 
 [tool.poetry.group.dev.dependencies]
-linkml = "^1.7.0"
+linkml = "1.10.0rc5"
 mkdocs-material = "^8.2.8"
 mkdocs-mermaid2-plugin = "^1.1.1"
 
