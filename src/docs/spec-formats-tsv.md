@@ -85,9 +85,9 @@ SSSOM/TSV parsers MUST strip any enclosing double quotes and escaping double quo
 
 Multi-valued slots MUST be serialised as a list of values separated by `|` characters.
 
-If a value within a multi-valued slot contains a `|` (“pipe”) character, that MUST be escaped by prepending a `\` (“backslash”) character in front of it. Likewise, if a value contains a `\` character, it MUST be escaped by prepending another `\` character in front of it if (1) the `\` character is immediately followed by a `|` character, or (2) the `\` character is the last character of the value and the value is not the last value within the slot.
+If a value within a multi-valued slot contains a `|` (“pipe”) character, that MUST be escaped by prepending a `\` (“backslash”) character in front of it. Likewise, if a value contains a `\` character, it MUST be escaped by prepending another `\` character in front of it.
 
-Conversely, SSSOM/TSV parsers MUST interpret a `\|` sequence as a `|` character that is part of the current value, not as a value separator. Likewise, a `\\` sequence MUST be interpreted as a single `\` character. Any other occurrence of a `\` character MUST be interpreted as a normal `\` character.
+Conversely, SSSOM/TSV parsers MUST interpret a `\|` sequence as a `|` character that is part of the current value, not as a value separator. Likewise, a `\\` sequence MUST be interpreted as a single `\` character. Any other occurrence of a `\` character (i.e. an occurence that is not followed by a `|` character or another `\` character) SHOULD be interpreted as a normal `\` character. Both `\|` and `\\` sequences MUST be interpreted in the order in which they appear in the value (for example, a `\\|` MUST be read as an escaped `\` character followed by a non-escaped `|` character).
 
 The quoting rules described in the previous section apply to the entire `|`-separated list of values.
 
