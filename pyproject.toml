@@ -25,7 +25,7 @@ requires-python = ">=3.10.0"
 dynamic = ["version"]
 dependencies = [
     "jinjanator",
-    "linkml-runtime==1.10.0rc5",
+    "linkml-runtime>=1.10.0",
 ]
 
 [project.optional-dependencies]
