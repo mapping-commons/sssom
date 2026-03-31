@@ -25,12 +25,14 @@ requires-python = ">=3.10.0"
 dynamic = ["version"]
 dependencies = [
     "jinjanator",
+    "linkml>=1.10.0",
     "linkml-runtime>=1.10.0",
 ]
 
 [project.optional-dependencies]
 docs = [
-    "linkml==1.10.0rc5",
+    "linkml>=1.10.0",
+    "linkml-runtime>=1.10.0",
     "mkdocs-material >= 8.2.8",
     "mkdocs-mermaid2-plugin >= 1.1.1",
 ]
@@ -51,7 +53,8 @@ vcs = "git"
 style = "pep440"
 
 [tool.poetry.group.dev.dependencies]
-linkml = "1.10.0rc5"
+linkml = ">=1.10.0"
+linkml-runtime = ">=1.10.0"
 mkdocs-material = "^8.2.8"
 mkdocs-mermaid2-plugin = "^1.1.1"
 
