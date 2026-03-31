@@ -186,6 +186,8 @@ slots:
     range: double
     minimum_value: 0.0
     maximum_value: 1.0
+    see_also:
+      - https://mapping-commons.github.io/sssom/confidence-model
     examples:
       - value: 0.95
         description: A confidence score of 0.95, indicating 95% confidence.
@@ -455,6 +457,7 @@ slots:
       - value: 0.95
         description: A confidence score of 0.95, indicating 95% confidence that the mappings in the mapping set are correct.
     see_also:
+      - https://mapping-commons.github.io/sssom/confidence-model
       - https://github.com/mapping-commons/sssom/issues/438
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_set_confidence.sssom.tsv
   creator_id:
@@ -729,6 +732,8 @@ slots:
     range: double
     minimum_value: 0.0
     maximum_value: 1.0
+    see_also:
+      - https://mapping-commons.github.io/sssom/confidence-model
     examples:
       - value: 0.95
         description: A confidence score of 0.95, indicating 95% confidence.
