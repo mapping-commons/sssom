@@ -1,5 +1,7 @@
-comment: We could map to FOODON:00004187 instead which more specifically refers to
-  'raw' Pink apples. Decided against to be consistent with other mapping choices.
+comment:
+  We could map to FOODON:00004187 instead which more specifically refers to
+  'raw' Pink apples. Decided against to be consistent with other mapping
+  choices.
 curie_map:
   FOODON: http://purl.obolibrary.org/obo/FOODON_
   KF_FOOD: https://kewl-foodie.inc/food/
@@ -12,12 +14,13 @@ curie_map:
   sssom: https://w3id.org/sssom/
   wikidata: https://www.wikidata.org/wiki/
 license: https://creativecommons.org/licenses/by/4.0/
-mapping_date: '2022-05-02'
-mapping_set_description: Manually curated alignment of KEWL FOODIE INC internal food
-  and nutrition database with Food Ontology (FOODON). Intended to be used for ontological
+mapping_date: "2022-05-02"
+mapping_set_description:
+  Manually curated alignment of KEWL FOODIE INC internal food and nutrition
+  database with Food Ontology (FOODON). Intended to be used for ontological
   analysis and grouping of KEWL FOODIE INC related data.
 mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
-mapping_set_version: '2022-05-01'
+mapping_set_version: "2022-05-01"
 object_source: wikidata:Q55118395
 object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
 subject_source: KF_FOOD:DB

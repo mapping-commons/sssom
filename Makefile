@@ -116,3 +116,7 @@ clean:
 	rm -rf tmp
 
 include project.Makefile
+
+yaml-lint-all:
+    npx --yes prettier --check --prose-wrap always --write "**/*.yaml" --ignore-path "project/**/*.yaml"
+    npx --yes prettier --check --prose-wrap always --write "**/*.yml" --ignore-path "project/**/*.yml"
