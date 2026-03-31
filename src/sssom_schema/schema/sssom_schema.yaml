@@ -730,6 +730,9 @@ slots:
       is not true. A value of 0.0 still means that the creator is unsure whether
       the mapping is correct or incorrect. If the value is 0.0, then it's
       suggested not to assign the `Not` value, as these would be equivalent.
+
+      When not explicitly specified, confidence estimation algorithms should
+      consider the mapping confidence to be 1.0 by default.
     range: double
     minimum_value: 0.0
     maximum_value: 1.0
