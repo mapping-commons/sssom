@@ -135,7 +135,9 @@ If you are manually curating your mappings, `semapv:ManualMappingCuration` is th
 To check that your SSSOM files are valid, you can use the [SSSOM Toolkit](toolkit.md) (also known as `sssom-py`). After [installing it](https://mapping-commons.github.io/sssom-py/installation.html), you can validate a file like this:
 
 ```bash
-sssom validate my-mappings.sssom.tsv
+$ wget https://w3id.org/biopragmatics/biomappings/sssom/biomappings.sssom.tsv
+$ pip install sssom-py
+$ sssom validate biomappings.sssom.tsv
 ```
 
 This will check that all required fields are present, that the CURIEs are properly declared in the `curie_map`, and that values conform to the expected types.
