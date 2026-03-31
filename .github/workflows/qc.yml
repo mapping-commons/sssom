@@ -28,6 +28,8 @@ jobs:
         run: npx prettier --check --prose-wrap always "**/*.yml"
       - name: Lint YAML
         run: npx prettier --check --prose-wrap always "**/*.yaml"
+      - name: Lint markdown
+        run: npx prettier --check --prose-wrap always "**/*.md"
 
   sssom_validation:
     runs-on: ubuntu-latest
