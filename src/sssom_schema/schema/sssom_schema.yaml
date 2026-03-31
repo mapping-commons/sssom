@@ -696,6 +696,18 @@ slots:
     range: date
     examples:
       - value: 2021-01-01
+  review_date:
+    description: The date the mapping was reviewed. 
+      This is different from the date the mapping was asserted and published.
+      If this field is used in a mapping, reviewer_id and/or reviewer_label must
+      also be be set.
+    range: date
+    examples:
+      - value: 2021-01-01
+    annotations:
+      added_in: "1.1"
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/511
   confidence:
     description: A score between 0 and 1 to denote the confidence or probability that
       the match is correct, where 1 denotes total confidence.
@@ -1017,6 +1029,7 @@ classes:
     - mapping_tool_version
     - mapping_date
     - publication_date
+    - review_date
     - confidence
     - curation_rule
     - curation_rule_text
