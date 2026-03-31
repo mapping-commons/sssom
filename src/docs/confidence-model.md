@@ -18,7 +18,7 @@ mapping, between two disease resources.
 #  skos: http://www.w3.org/2004/02/skos/core#
 #mapping_set_id: https://w3id.org/biopragmatics/biomappings/sssom/positive.sssom.tsv
 subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	confidence
-MONDO:0000455	cone dystrophy	skos:exactMatch	mesh:D000077765	Cone Dystrophy	semapv:ManualMappingCuration	orcid:0000-0001-9439-5346 .99
+MONDO:0000455	cone dystrophy	skos:exactMatch	mesh:D000077765	Cone Dystrophy	semapv:ManualMappingCuration	orcid:0000-0003-4423-4370 .99
 ```
 
 The following example shows a medium-confidence semantic mapping produced
