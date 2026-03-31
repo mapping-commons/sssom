@@ -1212,6 +1212,7 @@ classes:
       - mapping_tool_version
       - mapping_date
       - publication_date
+      - review_date
       - confidence
       - curation_rule
       - curation_rule_text
