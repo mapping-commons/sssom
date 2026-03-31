@@ -37,11 +37,14 @@ subject_id	subject_label	predicate_id	object_id	object_label	mapping_justificati
 DOID:0050052	Rocky Mountain spotted fever	skos:exactMatch	umls:C0035795	Rocky mountain spotted fever vaccine	semapv:LexicalMapping	0.65
 ```
 
+When not explicitly specified, confidence estimation algorithms should consider
+the confidence of a semantic mapping to be 1.0 by default.
+
 ## Confidence with Negated Semantic Mappings
 
-SSSOM has explicit support for curating negative semantic mappings
-(i.e., subject-predicate-object triples known to be false) by using
-the `predicate_modifier` column.
+SSSOM has explicit support for curating negative semantic mappings (i.e.,
+subject-predicate-object triples known to be false) by using the
+`predicate_modifier` column.
 
 The following example shows a highly confident negative semantic mapping,
 because _Rocky Mountain spotted fever_ (a disease curated in DOID) is not the
@@ -66,6 +69,9 @@ knowledge.
 
 Similarly, there are a large number of trivial negative semantic mappings that
 are typically ignored by curators and algorithms that consume semantic mappings.
+
+When not explicitly specified, confidence estimation algorithms should consider
+the confidence of a negative semantic mapping to be 1.0 by default.
 
 ## Estimating Overall Confidence in a Mapping Set
 
