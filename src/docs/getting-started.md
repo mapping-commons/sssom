@@ -8,7 +8,7 @@ Pre-requisites:
 
 SSSOM files are typically created as spreadsheets and shared as TSV files.
 Tools exist to translate SSSOM files in TSV format into other formats such as JSON and RDF.
-In our experience, the ability to curate SSSOM files as spreadsheets vastly improves its uptake, especially in scientific communities, compared to more technical formats such as JSON or RDF.
+The ability to curate SSSOM files as spreadsheets makes them accessible, especially in scientific communities, compared to more technical formats such as JSON or RDF. However, this simplicity comes with trade-offs — spreadsheet-based curation can make it harder to ensure that files are valid (see [this discussion](https://github.com/mapping-commons/sssom/discussions/428)). Using a proper validation tool (see [below](#validating-your-sssom-files)) is therefore strongly recommended.
 
 Let's start with the example we created as part of our [detailed SSSOM curation tutorial](tutorial.md).
 
@@ -69,10 +69,9 @@ Using a `curie_map` serves two purposes (1) it unambiguously identifies the enti
 
 !!! warning "Why can't I use URIs instead of CURIEs in my TSV file?"
 
-    CURIEs have been developed as a much more readable variant of full URIs/URLs. Using them makes your whole mapping file more readable, and more compact.
-    We strongly suggest using CURIEs instead of URIs to ensure that the SSSOM mappings are more easily created and used by humans.
-    If you must, you can use URIs by exploiting a simple hack in the `curie_map`:
-    Simply adding `https: https`, declaring that the `https` prefix expands to the `https` URI prefix.
+    The SSSOM/TSV format requires all identifiers to be in CURIE form. This is enforced by SSSOM validators.
+    CURIEs are much more readable than full URIs/URLs, making your mapping files more compact and easier to work with.
+    All prefixes used in your CURIEs must be declared in the `curie_map`.
 
 #### Mapping predicates
 
@@ -85,8 +84,6 @@ The `predicate_id` specifies the mapping relation between subject and object. An
 | `skos:narrowMatch` | The object is a narrower/more specific concept than the subject. |
 | `skos:closeMatch` | The two are similar enough to be interchangeable in some contexts, but not all. |
 | `skos:relatedMatch` | The two are associated in some way, but not interchangeable. |
-
-For ontology use cases, `owl:equivalentClass` (logical equivalence) and `rdfs:subClassOf` (subsumption) are commonly used as well.
 
 #### Basic SSSOM Metadata
 
@@ -131,6 +128,8 @@ Some common justifications:
 
 If you are manually curating your mappings, `semapv:ManualMappingCuration` is the right choice. For more detail on how to construct more nuanced justifications, see the [Guide to using Mapping Justifications](mapping-justifications.md).
 
+<a id="validating-your-sssom-files"></a>
+
 #### Validating your SSSOM files
 
 To check that your SSSOM files are valid, you can use the [SSSOM Toolkit](toolkit.md) (also known as `sssom-py`). After [installing it](https://mapping-commons.github.io/sssom-py/installation.html), you can validate a file like this:
@@ -141,6 +140,8 @@ sssom validate my-mappings.sssom.tsv
 
 This will check that all required fields are present, that the CURIEs are properly declared in the `curie_map`, and that values conform to the expected types.
 
+Alternatively, if you prefer a Java-based tool, [sssom-java](https://incenp.org/dvlpt/sssom-java/)'s `sssom-cli` can also validate SSSOM files. See the [sssom-cli examples](https://incenp.org/dvlpt/sssom-java/sssom-cli/examples.html) for details.
+
 #### Converting SSSOM files into other formats
 
 The SSSOM Toolkit can convert your TSV mapping sets into other formats:
@@ -149,6 +150,8 @@ The SSSOM Toolkit can convert your TSV mapping sets into other formats:
 sssom convert my-mappings.sssom.tsv --output my-mappings.owl --output-format owl
 sssom convert my-mappings.sssom.tsv --output my-mappings.json --output-format json
 ```
+
+[sssom-java's `sssom-cli`](https://incenp.org/dvlpt/sssom-java/sssom-cli/examples.html) can also convert between formally defined SSSOM serialisation formats (TSV, JSON, and RDF/Turtle).
 
 For detailed information about the different serialisation formats, see [SSSOM/TSV](spec-formats-tsv.md), [OWL/RDF](spec-formats-owl.md), and [JSON](spec-formats-json.md).
 
