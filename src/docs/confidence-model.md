@@ -3,9 +3,7 @@
 SSSOM enables annotating confidence in several ways for individual mappings
 records and for mapping sets.
 
-## Confidence in Manually Curated Semantic Mappings
-
-## Confidence in Predicted Semantic Mappings
+## Confidence in Positive Semantic Mappings
 
 The following example shows a high confidence (0.99) manually curated semantic
 mapping, between two disease resources.
@@ -40,6 +38,10 @@ DOID:0050052	Rocky Mountain spotted fever	skos:exactMatch	umls:C0035795	Rocky mo
 ```
 
 ## Confidence with Negated Semantic Mappings
+
+SSSOM has explicit support for curating negative semantic mappings
+(i.e., subject-predicate-object triples known to be false) by using
+the `predicate_modifier` column.
 
 The following example shows a highly confident negative semantic mapping,
 because _Rocky Mountain spotted fever_ (a disease curated in DOID) is not the
