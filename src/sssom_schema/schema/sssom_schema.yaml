@@ -700,8 +700,7 @@ slots:
     description: The date the mapping was reviewed. 
       This is different from the date the mapping was asserted and published.
       If this field is used in a mapping, reviewer_id and/or reviewer_label MUST
-      also be be set. If review_date is set and both reviewer_id and review_label
-      are unset, SSSOM implementations should throw an error.
+      also be be set.
     range: date
     examples:
       - value: 2021-01-01
