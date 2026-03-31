@@ -1,0 +1,11 @@
+# curie_map:
+#   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+#   mesh: http://id.nlm.nih.gov/mesh/
+#   orcid: https://orcid.org/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   sssom: https://w3id.org/sssom/
+# license: https://w3id.org/sssom/license/unspecified
+# mapping_set_id: https://w3id.org/sssom/mappings/ac9e1878-73f4-4767-8402-a6c40e1b0835
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	reviewer_id	review_date
+CHEBI:10001	Visnadin	skos:exactMatch	mesh:C067604	visnadin	semapv:ManualMappingCuration	orcid:0000-0001-9439-5346	orcid:0000-0003-4423-4370	2026-03-26
