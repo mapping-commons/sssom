@@ -891,6 +891,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#type-properties" class="md-nav__link">
+    Type Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     Examples
   </a>
@@ -954,20 +961,33 @@
 <h1 id="type-nonrelativeuri">Type: NonRelativeURI</h1>
 <p><em>A URI as per RFC 3986, that is a string that matches the production of the "URI" rule defined in Appendix A of that RFC. Contrary to the underlying LinkML type, this specifically excludes _relative URI references</em>, which do not start with a scheme component. Relative URI references are forbidden because SSSOM has no built-in mechanism to provide the base URI that would be needed to resolve relative URI references into non-relative ones._</p>
 <p>URI: <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></p>
-<ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: URI</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: xsd:anyURI</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/repr">repr</a>: str</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/typeof">typeof</a>: uri</p>
-</li>
-</ul>
+<h2 id="type-properties">Type Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type Of</td>
+<td><a href="../Uri/">Uri</a></td>
+</tr>
+<tr>
+<td>Base</td>
+<td><code>URI</code></td>
+</tr>
+<tr>
+<td>Type URI</td>
+<td><a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
+</tr>
+<tr>
+<td>Representation</td>
+<td><code>str</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="examples">Examples</h2>
 <table>
 <thead>

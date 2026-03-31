@@ -891,8 +891,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#type-properties" class="md-nav__link">
+    Type Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comments" class="md-nav__link">
     Comments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
   </a>
   
 </li>
@@ -947,20 +961,36 @@
 <h1 id="type-uri">Type: Uri</h1>
 <p><em>a complete URI</em></p>
 <p>URI: <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></p>
-<ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: URI</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: xsd:anyURI</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/repr">repr</a>: str</p>
-</li>
-</ul>
+<h2 id="type-properties">Type Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base</td>
+<td><code>URI</code></td>
+</tr>
+<tr>
+<td>Type URI</td>
+<td><a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
+</tr>
+<tr>
+<td>Representation</td>
+<td><code>str</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="comments">Comments</h2>
 <ul>
 <li>in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>If you are authoring schemas in LinkML YAML, the type is referenced with the lower case "uri".</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>

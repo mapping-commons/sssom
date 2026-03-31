@@ -891,8 +891,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#type-properties" class="md-nav__link">
+    Type Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comments" class="md-nav__link">
     Comments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
   </a>
   
 </li>
@@ -947,20 +961,36 @@
 <h1 id="type-objectidentifier">Type: Objectidentifier</h1>
 <p><em>A URI or CURIE that represents an object in the model.</em></p>
 <p>URI: <a href="http://www.w3.org/ns/shex#iri">shex:iri</a></p>
-<ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: ElementIdentifier</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: shex:iri</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/repr">repr</a>: str</p>
-</li>
-</ul>
+<h2 id="type-properties">Type Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base</td>
+<td><code>ElementIdentifier</code></td>
+</tr>
+<tr>
+<td>Type URI</td>
+<td><a href="http://www.w3.org/ns/shex#iri">shex:iri</a></td>
+</tr>
+<tr>
+<td>Representation</td>
+<td><code>str</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="comments">Comments</h2>
 <ul>
 <li>Used for inheritance and type checking</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>If you are authoring schemas in LinkML YAML, the type is referenced with the lower case "objectidentifier".</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>

@@ -533,6 +533,8 @@
 
       Mapping : record_id
 
+      Mapping : review_date
+
       Mapping : reviewer_id
 
       Mapping : reviewer_label
@@ -780,6 +782,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../review_date/">review_date</a></td>
+<td>0..1 <br/> <a href="../Date/">Date</a></td>
+<td>The date the mapping was reviewed</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../confidence/">confidence</a></td>
 <td>0..1 <br/> <a href="../Double/">Double</a></td>
 <td>A score between 0 and 1 to denote the confidence or probability that the matc...</td>
@@ -951,6 +959,7 @@ slots:
 - mapping_tool_version
 - mapping_date
 - publication_date
+- review_date
 - confidence
 - curation_rule
 - curation_rule_text
@@ -1791,6 +1800,29 @@ attributes:
     owner: mapping
     domain_of:
     - mapping set
+    - mapping
+    range: date
+  review_date:
+    name: review_date
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: The date the mapping was reviewed. This is different from the date
+      the mapping was asserted and published. If this field is used in a mapping,
+      reviewer_id and/or reviewer_label MUST also be be set.
+    examples:
+    - value: '2021-01-01'
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/511
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/review_date.sssom.tsv
+    rank: 1000
+    alias: review_date
+    owner: mapping
+    domain_of:
     - mapping
     range: date
   confidence:
