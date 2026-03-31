@@ -11,30 +11,30 @@ jobs:
     name: Build Python 🐍 distributions 📦 for publishing to PyPI
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4.2.2
-      with:
-        # Checkout the code including tags required for dynamic versioning
-        fetch-depth: 0
+      - uses: actions/checkout@v4.2.2
+        with:
+          # Checkout the code including tags required for dynamic versioning
+          fetch-depth: 0
 
-    - name: Set up Python
-      uses: actions/setup-python@v5.6.0
-      with:
-        python-version: "3.10"
+      - name: Set up Python
+        uses: actions/setup-python@v5.6.0
+        with:
+          python-version: "3.10"
 
-    - name: Install Poetry
-      run: |
-        pipx install poetry
-        pipx inject poetry poetry-dynamic-versioning
+      - name: Install Poetry
+        run: |
+          pipx install poetry
+          pipx inject poetry poetry-dynamic-versioning
 
-    - name: Build source and wheel archives
-      run: |
-        poetry build
+      - name: Build source and wheel archives
+        run: |
+          poetry build
 
-    - name: Store built distribution
-      uses: actions/upload-artifact@v4.6.2
-      with:
-        name: distribution-files
-        path: dist/
+      - name: Store built distribution
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: distribution-files
+          path: dist/
 
   pypi-publish:
     name: Build and publish Python 🐍 package 📦 to PyPI
@@ -45,7 +45,7 @@ jobs:
       name: pypi-release
       url: https://pypi.org/p/sssom-schema
     permissions:
-      id-token: write  # This permission is mandatory for trusted publishing.
+      id-token: write # This permission is mandatory for trusted publishing.
     steps:
       - name: Download built distribution
         uses: actions/download-artifact@v4.3.0

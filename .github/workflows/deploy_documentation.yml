@@ -8,10 +8,9 @@ on:
       - master
 
     paths:
-    - 'src/docs/*'
-    - 'src/sssom_schema/schema/sssom_schema.yaml'
-    - 'mkdocs.yml'
-
+      - "src/docs/*"
+      - "src/sssom_schema/schema/sssom_schema.yaml"
+      - "mkdocs.yml"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -24,51 +23,51 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    #----------------------------------------------
-    #       check-out repo and set-up python
-    #----------------------------------------------
-    - name: Check out repository
-      uses: actions/checkout@v4.2.2
-      with:
-        # persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+      #----------------------------------------------
+      #       check-out repo and set-up python
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v4.2.2
+        with:
+          # persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
-    #----------------------------------------------
-    #          install & configure poetry
-    #----------------------------------------------
-    - name: Install Poetry
-      run: |
-        pipx install poetry
-        pipx inject poetry poetry-dynamic-versioning
+      #----------------------------------------------
+      #          install & configure poetry
+      #----------------------------------------------
+      - name: Install Poetry
+        run: |
+          pipx install poetry
+          pipx inject poetry poetry-dynamic-versioning
 
-    #----------------------------------------------
-    #                setup Python
-    #----------------------------------------------
-    - name: Set up Python
-      uses: actions/setup-python@v5.6.0
-      id: setup-python
-      with:
-        python-version: '3.10'
-        cache: 'poetry'
+      #----------------------------------------------
+      #                setup Python
+      #----------------------------------------------
+      - name: Set up Python
+        uses: actions/setup-python@v5.6.0
+        id: setup-python
+        with:
+          python-version: "3.10"
+          cache: "poetry"
 
-    #----------------------------------------------
-    #             install dependencies
-    #----------------------------------------------
-    - name: Install dependencies
-      run: poetry install --no-interaction --no-root
+      #----------------------------------------------
+      #             install dependencies
+      #----------------------------------------------
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
 
-    #----------------------------------------------
-    #           generate markdown files
-    #----------------------------------------------
-    - name: Create local docs
-      run: |
-        mkdir -p docs
-        touch docs/.nojekyll
-        make gendoc
+      #----------------------------------------------
+      #           generate markdown files
+      #----------------------------------------------
+      - name: Create local docs
+        run: |
+          mkdir -p docs
+          touch docs/.nojekyll
+          make gendoc
 
-    #----------------------------------------------
-    #           deploy website to gh-pages
-    #----------------------------------------------
-    - name: Deploy web-based documentation to GitHub Pages
-      run: |
-        make mkd-gh-deploy
+      #----------------------------------------------
+      #           deploy website to gh-pages
+      #----------------------------------------------
+      - name: Deploy web-based documentation to GitHub Pages
+        run: |
+          make mkd-gh-deploy

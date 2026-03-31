@@ -132,3 +132,5 @@ dmypy.json
 .pyre/
 .DS_Store
 tmp/
+/node_modules
+package-lock.json
