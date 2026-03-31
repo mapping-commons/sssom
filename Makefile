@@ -119,4 +119,7 @@ yaml-lint-all:
 	npx --yes prettier --check --prose-wrap always --write "**/*.yaml"
 	npx --yes prettier --check --prose-wrap always --write "**/*.yml"
 
+md-lint-all:
+	npx --yes prettier --check --prose-wrap always --write "**/*.md"
+
 include project.Makefile
