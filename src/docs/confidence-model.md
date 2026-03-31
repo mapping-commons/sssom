@@ -3,21 +3,29 @@
 SSSOM enables annotating confidence in several ways for individual mappings
 records and for mapping sets.
 
-## Confidence with Negated Mappings
+## Confidence in Manually Curated Semantic Mappings
 
-In order to express that a subject-predicate-object triple is incorrect, assign
-the `Not` value in the `predicate_modifier` column. If the `Not` value is
-present, then a confidence of 1.0 means that the creator of the mapping is fully
-confidence that the subject-predicate-object triple is not true. A value of 0.0
-still means that the creator is unsure whether the mapping is correct or
-incorrect.
+## Confidence in Predicted Semantic Mappings
 
-The following example shows a highly confident negative mapping, because Rocky
-Mountain spotted fever (a disease curated in DOID) is not the same as Rocky
-mountain spotted fever vaccine (a vaccine curated in UMLS).
+The following example shows a high confidence (0.99) manually curated semantic
+mapping, between two disease resources.
 
-The following example shows a medium confidence mapping produced through a
-lexical
+```tsv
+#curie_map:
+#  mesh: https://meshb.nlm.nih.gov/record/ui?ui=
+#  MONDO: http://purl.obolibrary.org/obo/MONDO_
+#  oboinowl: http://www.geneontology.org/formats/oboInOwl#
+#  orcid: https://orcid.org/
+#  semapv: https://w3id.org/semapv/vocab/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#mapping_set_id: https://w3id.org/biopragmatics/biomappings/sssom/positive.sssom.tsv
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	confidence
+MONDO:0000455	cone dystrophy	skos:exactMatch	mesh:D000077765	Cone Dystrophy	semapv:ManualMappingCuration	orcid:0000-0001-9439-5346 .99
+```
+
+The following example shows a medium-confidence semantic mapping produced
+through a lexical matching process. While this semantic mapping is actually
+incorrect, the lexical matching process assigned it a confidence of 0.65.
 
 ```tsv
 #curie_map:
@@ -31,9 +39,11 @@ subject_id	subject_label	predicate_id	object_id	object_label	mapping_justificati
 DOID:0050052	Rocky Mountain spotted fever	skos:exactMatch	umls:C0035795	Rocky mountain spotted fever vaccine	semapv:LexicalMapping	0.65
 ```
 
-The following example shows a highly confident negative mapping, because Rocky
-Mountain spotted fever (a disease curated in DOID) is not the same as Rocky
-mountain spotted fever vaccine (a vaccine curated in UMLS).
+## Confidence with Negated Semantic Mappings
+
+The following example shows a highly confident negative semantic mapping,
+because _Rocky Mountain spotted fever_ (a disease curated in DOID) is not the
+same as _Rocky mountain spotted fever vaccine_ (a vaccine curated in UMLS).
 
 ```tsv
 #curie_map:
@@ -46,6 +56,14 @@ mountain spotted fever vaccine (a vaccine curated in UMLS).
 subject_id	subject_label	predicate_id	predicate_modifier	object_id	object_label	mapping_justification	author_id   confidence
 DOID:0050052	Rocky Mountain spotted fever	skos:exactMatch	Not	umls:C0035795	Rocky mountain spotted fever vaccine	semapv:ManualMappingCuration	orcid:0000-0003-4423-4370   1.0
 ```
+
+It's also possible to curate a negative semantic mapping with low confidence,
+but this is done less commonly in practice. Both human curators and semantic
+mapping prediction workflows typically focus on the production of _positive_
+knowledge.
+
+Similarly, there are a large number of trivial negative semantic mappings that
+are typically ignored by curators and algorithms that consume semantic mappings.
 
 ## Estimating Overall Confidence in a Mapping Set
 
