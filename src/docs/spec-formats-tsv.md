@@ -111,27 +111,6 @@ As stated in the description of the model ([Identifiers section](spec-model.md#i
 A SSSOM/TSV writer SHOULD refuse to serialise a mapping set that contains IRIs that cannot be contracted into CURIEs because there is no suitable prefix declaration in its CURIE map. The use of a custom, ad-hoc logic to infer a possible prefix name where none has been provided (e.g., “if the IRI ends with a `ZZZ_NNNNNNN` pattern, turn it into a `ZZZ:NNNNNNN` CURIE”) is strongly discouraged.
 
 
-## Propagatable slots
-
-As [explained in another section](spec-model.md#propagation-of-mapping-set-slots), some slots in the `MappingSet` class are intended, not to describe the mapping set itself, but to store values that are shared by all mappings in the set. These slots are called the “propagatable slots”, because their values should be “propagated” from the mapping set down to the individual mappings.
-
-### Propagation
-
-“Propagation” is the operation of assigning to individual mappings in a set the values from the propagatable slots of the set. That operation SHOULD be performed by a SSSOM/TSV parser before passing the parsed objects to the application code.
-
-For any given propagatable slot, propagation is only allowed if none of the individual mappings already have their own value in that slot. If any mapping (even only one mapping) has a value in that slot, then the slot MUST be considered as non-propagatable. Otherwise, a propagating SSSOM/TSV parser MUST (1) copy over the value of the propagatable slot on the `MappingSet` object to the corresponding slot of every individual `Mapping` objects, and (2) remove the propagated value from the `MappingSet` object.
-
-Implementations that support propagation MUST also support condensation.
-
-### Condensation
-
-“Condensation” is the opposite of “propagation”. It is the operation of assigning common values to the propagatable slots of the set, based on the values of these slots on individual mappings. That operation SHOULD be performed by a SSSOM/TSV writer prior to writing a set into a SSSOM/TSV file, but that behaviour, if available, MUST be deactivatable.
-
-For any given propagatable slot, condensation is only allowed if (1) all mappings in the set have the same value, and (2) the mapping set does not already have a value in the slot, unless that value happens to be the same as the value in all mappings. If those two conditions are met, then a condensating SSSOM/TSV writer MUST (1) set the value of the slot on the `MappingSet` object to the common value of the slot in all mappings, and (2) remove the condensed value from the individual `Mapping` object.
-
-Implementations that support condensation MUST also support propagation.
-
-
 ## Non-standard slots
 
 If an implementation does not support [non-standard slots](spec-model.md#non-standard-slots), then:

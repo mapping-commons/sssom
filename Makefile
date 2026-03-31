@@ -55,6 +55,7 @@ test:
 	$(RUN) gen-project \
 		--exclude owl \
 		-d tmp $(SOURCE_SCHEMA_PATH) 
+	$(RUN) python tests/test_added_in_annotations.py
 
 check-config:
 	@(grep my-datamodel about.yaml > /dev/null && printf "\n**Project not configured**:\n\n  - Remember to edit 'about.yaml'\n\n" || exit 0)

@@ -1,5 +1,17 @@
 # Presentations
 
+## Building Bridges with FAIR Mappings: An RDA Perspective (GA4GH 13th Plenary)
+
+- October 6<sup>th</sup>, 2025, hybrid ([information](https://www.ga4gh.org/event/13th-plenary/))
+- [Lightning talk](https://docs.google.com/document/d/1e3X9dzq84B3sX0eaLEjmLcYYDv_INmGUNZ6kbAh5MM8/edit?tab=t.0#heading=h.somgoowwkvaj) at GA4GH Connect session **The future is FAIR beyond genomics: Building bridges to the Research Data Alliance (RDA) and other FAIR research data initiatives**, representing SSSOM and FAIR Mappings WG.
+- [Slides](https://docs.google.com/presentation/d/18vf5gcHtGKzBpkzQRpHUZZyxjQ9GiYG45CYzhzQSNgE/edit)
+
+## RDA FAIR Mappings WG: Highlights from Case Studies and Initial Taxonomy (RDA’s 24th plenary)
+
+- April 7<sup>th</sup>, 2025, virtual
+- Talk at RDA 24th plenary meeting about the progress of the [RDA FAIR Mappings Working Group](https://www.rd-alliance.org/groups/fair-mappings-wg/activity/), which uses SSSOM as the baseline model.
+- [Slides](https://docs.google.com/presentation/d/1A3Fgo9ExUGgrc0VX85tqG-_6_Vu6b-qtcfvLTmW9mIU/edit)
+
 ## A Simple Standard for Ontological Mappings 2024: A quick guide for getting started with publishing better entity mappings (RDA’s 23rd plenary)
 
 - November 13<sup>th</sup>, 2024, hybrid

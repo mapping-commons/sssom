@@ -683,7 +683,7 @@ slots:
       - value: v3.2
   mapping_date:
     description: The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
-    slot_uri: pav:authoredOn
+    slot_uri: dcterms:created
     range: date
     instantiates: sssom:Propagatable
     examples:
@@ -696,6 +696,20 @@ slots:
     range: date
     examples:
       - value: 2021-01-01
+  review_date:
+    description: The date the mapping was reviewed. 
+      This is different from the date the mapping was asserted and published.
+      If this field is used in a mapping, reviewer_id and/or reviewer_label MUST
+      also be be set.
+    range: date
+    examples:
+      - value: 2021-01-01
+    instantiates: sssom:Versionable
+    annotations:
+      added_in: "1.1"
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/511
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/review_date.sssom.tsv
   confidence:
     description: A score between 0 and 1 to denote the confidence or probability that
       the match is correct, where 1 denotes total confidence.
@@ -1017,6 +1031,7 @@ classes:
     - mapping_tool_version
     - mapping_date
     - publication_date
+    - review_date
     - confidence
     - curation_rule
     - curation_rule_text

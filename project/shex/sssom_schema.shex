@@ -13,6 +13,8 @@ PREFIX dc1: <http://purl.org/dc/terms/>
 
 <EntityReference> rdfs:Resource
 
+<NonRelativeURI> IRI
+
 linkml:String xsd:string
 
 linkml:Integer xsd:integer
@@ -61,12 +63,13 @@ linkml:Sparqlpath xsd:string
 }
 
 <Mapping> CLOSED {
-    (  $<Mapping_tes> (  owl:annotatedSource @<EntityReference> ? ;
+    (  $<Mapping_tes> (  <record_id> @<EntityReference> ? ;
+          owl:annotatedSource @<EntityReference> ? ;
           <subject_label> @linkml:String ? ;
           <subject_category> @linkml:String ? ;
           owl:annotatedProperty @<EntityReference> ;
           <predicate_label> @linkml:String ? ;
-          <predicate_modifier> [ <https://w3id.org/sssom/PredicateModifierEnum#Not> ] ? ;
+          <predicate_modifier> [ <NegatedPredicate> ] ? ;
           owl:annotatedTarget @<EntityReference> ? ;
           <object_label> @linkml:String ? ;
           <object_category> @linkml:String ? ;
@@ -77,25 +80,29 @@ linkml:Sparqlpath xsd:string
           <reviewer_label> @linkml:String * ;
           dc1:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
-          dc1:license @linkml:Uri ? ;
+          dc1:license @<NonRelativeURI> ? ;
           <subject_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
-             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property ] ? ;
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property <ComposedEntityExpression> ] ? ;
           <subject_source> @<EntityReference> ? ;
           <subject_source_version> @linkml:String ? ;
           <object_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
-             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property ] ? ;
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property <ComposedEntityExpression> ] ? ;
           <object_source> @<EntityReference> ? ;
           <object_source_version> @linkml:String ? ;
-          <mapping_provider> @linkml:Uri ? ;
+          <predicate_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property <ComposedEntityExpression> ] ? ;
+          <mapping_provider> @<NonRelativeURI> ? ;
           <mapping_source> @<EntityReference> ? ;
           <mapping_cardinality> [ <https://w3id.org/sssom/MappingCardinalityEnum#1%3A1>
              <https://w3id.org/sssom/MappingCardinalityEnum#1%3An> <https://w3id.org/sssom/MappingCardinalityEnum#n%3A1>
-             <https://w3id.org/sssom/MappingCardinalityEnum#1%3A0> <https://w3id.org/sssom/MappingCardinalityEnum#0%3A1>
-             <https://w3id.org/sssom/MappingCardinalityEnum#n%3An> ] ? ;
+             <https://w3id.org/sssom/MappingCardinalityEnum#n%3An> <https://w3id.org/sssom/MappingCardinalityEnum#1%3A0>
+             <https://w3id.org/sssom/MappingCardinalityEnum#0%3A1> <https://w3id.org/sssom/MappingCardinalityEnum#0%3A0> ] ? ;
+          <cardinality_scope> @linkml:String * ;
           <mapping_tool> @linkml:String ? ;
+          <mapping_tool_id> @<EntityReference> ? ;
           <mapping_tool_version> @linkml:String ? ;
           pav:authoredOn @linkml:Date ? ;
-          dc1:created @linkml:Date ? ;
+          dc1:issued @linkml:Date ? ;
           <confidence> @linkml:Double ? ;
           <curation_rule> @<EntityReference> * ;
           <curation_rule_text> @linkml:String * ;
@@ -106,7 +113,7 @@ linkml:Sparqlpath xsd:string
           <object_preprocessing> @<EntityReference> * ;
           <similarity_score> @linkml:Double ? ;
           <similarity_measure> @linkml:String ? ;
-          rdfs:seeAlso @linkml:String * ;
+          rdfs:seeAlso @<NonRelativeURI> * ;
           <issue_tracker_item> @<EntityReference> ? ;
           <other> @linkml:String ? ;
           rdfs:comment @linkml:String ?
@@ -119,46 +126,55 @@ linkml:Sparqlpath xsd:string
     (  $<MappingRegistry_tes> (  <mapping_registry_id> @<EntityReference> ;
           <mapping_registry_title> @linkml:String ? ;
           <mapping_registry_description> @linkml:String ? ;
-          <imports> @linkml:Uri * ;
+          <imports> @<NonRelativeURI> * ;
           <mapping_set_references> @<MappingSetReference> * ;
-          <documentation> @linkml:Uri ? ;
-          <homepage> @linkml:Uri ? ;
-          <issue_tracker> @linkml:Uri ?
+          <documentation> @<NonRelativeURI> ? ;
+          <homepage> @<NonRelativeURI> ? ;
+          <issue_tracker> @<NonRelativeURI> ?
        ) ;
        rdf:type [ <MappingRegistry> ] ?
     )
 }
 
 <MappingSet> CLOSED {
-    (  $<MappingSet_tes> (  <curie_map> @<Prefix> * ;
+    (  $<MappingSet_tes> (  <sssom_version> [ <version1.0> <version1.1> ] ? ;
+          <curie_map> @<Prefix> * ;
           <mappings> @<Mapping> * ;
-          <mapping_set_id> @linkml:Uri ;
+          <mapping_set_id> @<NonRelativeURI> ;
           owl:versionInfo @linkml:String ? ;
-          prov:wasDerivedFrom @linkml:Uri * ;
+          prov:wasDerivedFrom @<NonRelativeURI> * ;
           dc1:title @linkml:String ? ;
           dc1:description @linkml:String ? ;
+          <mapping_set_confidence> @linkml:Double ? ;
           dc1:creator @<EntityReference> * ;
           <creator_label> @linkml:String * ;
-          dc1:license @linkml:Uri ;
+          dc1:license @<NonRelativeURI> ;
           <subject_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
-             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property ] ? ;
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property <ComposedEntityExpression> ] ? ;
           <subject_source> @<EntityReference> ? ;
           <subject_source_version> @linkml:String ? ;
           <object_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
-             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property ] ? ;
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property <ComposedEntityExpression> ] ? ;
           <object_source> @<EntityReference> ? ;
           <object_source_version> @linkml:String ? ;
-          <mapping_provider> @linkml:Uri ? ;
+          <predicate_type> [ owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept
+             rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property <ComposedEntityExpression> ] ? ;
+          <mapping_provider> @<NonRelativeURI> ? ;
+          <cardinality_scope> @linkml:String * ;
           <mapping_tool> @linkml:String ? ;
+          <mapping_tool_id> @<EntityReference> ? ;
           <mapping_tool_version> @linkml:String ? ;
           pav:authoredOn @linkml:Date ? ;
-          dc1:created @linkml:Date ? ;
+          dc1:issued @linkml:Date ? ;
           <subject_match_field> @<EntityReference> * ;
           <object_match_field> @<EntityReference> * ;
           <subject_preprocessing> @<EntityReference> * ;
           <object_preprocessing> @<EntityReference> * ;
-          rdfs:seeAlso @linkml:String * ;
-          <issue_tracker> @linkml:Uri ? ;
+          <similarity_measure> @linkml:String ? ;
+          <curation_rule> @<EntityReference> * ;
+          <curation_rule_text> @linkml:String * ;
+          rdfs:seeAlso @<NonRelativeURI> * ;
+          <issue_tracker> @<NonRelativeURI> ? ;
           <other> @linkml:String ? ;
           rdfs:comment @linkml:String ? ;
           <extension_definitions> @<ExtensionDefinition> *
@@ -168,8 +184,8 @@ linkml:Sparqlpath xsd:string
 }
 
 <MappingSetReference> CLOSED {
-    (  $<MappingSetReference_tes> (  <mapping_set_id> @linkml:Uri ;
-          <mirror_from> @linkml:Uri ? ;
+    (  $<MappingSetReference_tes> (  <mapping_set_id> @<NonRelativeURI> ;
+          <mirror_from> @<NonRelativeURI> ? ;
           <registry_confidence> @linkml:Double ? ;
           <mapping_set_group> @linkml:String ? ;
           <last_updated> @linkml:Date ? ;
@@ -196,6 +212,12 @@ linkml:Sparqlpath xsd:string
 <Propagatable> CLOSED {
     (  $<Propagatable_tes> <propagated> @linkml:Boolean ? ;
        rdf:type [ <Propagatable> ] ?
+    )
+}
+
+<Versionable> CLOSED {
+    (  $<Versionable_tes> <added_in> [ <version1.0> <version1.1> ] ? ;
+       rdf:type [ <Versionable> ] ?
     )
 }
 

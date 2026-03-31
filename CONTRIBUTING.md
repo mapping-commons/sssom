@@ -18,6 +18,7 @@ The following is a set of guidelines for contributing to SSSOM. They are derived
   * [Your First Code Contribution](#your-first-code-contribution)
   * [Pull Requests](#pull-requests)
   * [Local Testing](#local-testing)
+  * [Making a release](#releasing)
 
 [Styleguides](#styleguides)
   * [Git Commit Messages](#git-commit-messages)
@@ -134,6 +135,15 @@ This only needs to be run once after cloning the repository. After that, the tes
 $ make test
 ```
 
+If you are making a change to the documentation/specification, you should also
+check how your changes are rendered, by running
+
+```sh
+$ make serve
+```
+
+and opening `http://127.0.0.1:8000/sssom/` with your browser.
+
 Furthermore, any change to the LinkML model should also be tested against SSSOM-Py. To do so:
 
 1. In the current `sssom` repository, build the Python files derived from the LinkML:
@@ -169,6 +179,34 @@ You may get a warning about “incompatible sssom-schema versions”; this is du
 ```sh
 $ poetry run tox -e py
 ```
+
+### Making a release
+
+<a id="releasing"></a>
+
+Before making a release, check that all the files that are derived from
+the LinkML schema are up-to-date. If they are not:
+
+* re-generate them by running `poetry run make all`;
+* commit all the files that were modified as a result of that
+  command.
+
+Update any other file as needed (e.g. changelog, README, copyright
+notices, etc.), and commit the corresponding changes.
+
+Once the repository is ready for a release, tag the head commit of the
+main branch with a version number tag. If the release is intended to be
+published on the Python Package Index (which it normally should), the
+version tag MUST be of the form `vVERSION` (`v` prefix followed by the
+actual intended version number).
+
+Push all changes to the main GitHub repository (including the tag), and
+create the release from the new tag.
+
+Be careful that any new release that bumps either the major or the minor
+version number, and that is not a _pre_ release, will be interpreted not
+merely as a new version of the `sssom_schema` Python package, but as a
+new version of the SSSOM specification!
 
 
 ## Styleguides
