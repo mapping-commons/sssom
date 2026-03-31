@@ -115,5 +115,5 @@ There are two kinds of mapping reviews in SSSOM:
 
 - Review as an independent justification: [semapv:MappingReview](https://w3id.org/semapv/vocab/MappingReview) is an independent process that determines the validity of a mapping.
 - Review _of_ an existing justification: Instead of evaluating an entire mapping, you can record the fact that someone has looked at a specific justification and deemed it acceptable. In this case, simply record the reviewers identify using the [reviewer_id](https://mapping-commons.github.io/sssom/reviewer_id/) or [reviewer_label](https://mapping-commons.github.io/sssom/reviewer_label/)
- and the [review_date](https://mapping-commons.github.io/sssom/review_date/) fields.
+ and the optional [review_date](https://mapping-commons.github.io/sssom/review_date/) fields.
 
