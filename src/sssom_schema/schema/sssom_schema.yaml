@@ -200,12 +200,6 @@ slots:
       registry and reflects the confidence the mapping registry has in the
       correctness (i.e., precision) of mappings in the mapping set.
 
-      An empirical confidence can be estimated by randomly sampling semantic
-      mappings from the mapping set, manually reviewing them, then reporting the
-      percentage that were correct as a decimal value between zero and one. This
-      estimate becomes more accurate as the size of the sample increases, so
-      it's suggested to sample a minimum 50-100 semantic mappings.
-
       When not explicitly specified, confidence estimation algorithms should
       consider the registry confidence in a mapping set to be 1.0 by default.
     range: double
@@ -533,12 +527,6 @@ slots:
       intended to be used in cases were the creator wants to express an overall
       confidence into the agent that curated the individual mappings, for
       example a lexical matching tool, or a group of students.
-
-      An empirical mapping set confidence can be estimated by randomly sampling
-      semantic mappings from the mapping set, manually reviewing them, then
-      reporting the percentage that were correct as a decimal value between zero
-      and one. This estimate becomes more accurate as the size of the sample
-      increases, so it's suggested to sample a minimum 50-100 semantic mappings.
 
       When not explicitly specified, confidence estimation algorithms should
       consider the mapping set confidence to be 1.0 by default.
