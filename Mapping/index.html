@@ -594,6 +594,18 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../confidence-model/">
+<span class="md-ellipsis">
+    
+  
+    How to assess mapping confidence
+  
+
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1103,7 +1115,7 @@
 <tr>
 <td><a href="../confidence/">confidence</a></td>
 <td>0..1 <br/> <a href="../Double/">Double</a></td>
-<td>A score between 0 and 1 to denote the confidence or probability that the matc...</td>
+<td>A value assigned by the creator of the mapping to denote the creator's confid...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -2140,12 +2152,20 @@ attributes:
     range: date
   confidence:
     name: confidence
-    description: A score between 0 and 1 to denote the confidence or probability that
-      the match is correct, where 1 denotes total confidence.
+    description: 'A value assigned by the creator of the mapping to denote the creator''s
+      confidence or estimated probability that the mapping record is correct. A value
+      of 1.0 means the creator has full confidence in the correctness of the mapping
+      record, while a value of 0.0 means the creator is fully unsure whether the mapping
+      record is correct or not.
+
+      When not explicitly specified, confidence estimation algorithms should consider
+      the mapping confidence to be 1.0 by default.'
     examples:
     - value: '0.95'
       description: A confidence score of 0.95, indicating 95% confidence.
     from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://mapping-commons.github.io/sssom/confidence-model
     rank: 1000
     alias: confidence
     owner: mapping

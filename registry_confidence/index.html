@@ -1278,6 +1278,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../confidence-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to assess mapping confidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1479,6 +1507,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-developer-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1514,7 +1553,8 @@
 <p><strong>Applicable to</strong>: <a href="../MappingSetReference/">MappingSetReference</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.</em></p>
+<p><em>This value is set by the creator/maintainer of the mapping registry and reflects the confidence the mapping registry has in the correctness (i.e., precision) of mappings in the mapping set.</em>
+<em>When not explicitly specified, confidence estimation algorithms should consider the registry confidence in a mapping set to be 1.0 by default.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
@@ -1532,18 +1572,29 @@
 <p><code>0.95</code></p>
 <p><strong>Description</strong>: A confidence score of 0.95, indicating 95% confidence.</p>
 </div>
+<h2 id="see-also">See Also</h2>
+<p>These are some relevant resources you might find useful to get additional information about the element,
+such as example implementations, issues and pull requests.</p>
+<ul>
+<li><a href="https://mapping-commons.github.io/sssom/confidence-model">https://mapping-commons.github.io/sssom/confidence-model</a></li>
+</ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
 
 <pre><code class="language-yaml">name: registry_confidence
-description: This value is set by the registry that indexes the mapping set. It reflects
-  the confidence the registry has in the correctness of the mappings in the mapping
-  set.
+description: 'This value is set by the creator/maintainer of the mapping registry
+  and reflects the confidence the mapping registry has in the correctness (i.e., precision)
+  of mappings in the mapping set.
+
+  When not explicitly specified, confidence estimation algorithms should consider
+  the registry confidence in a mapping set to be 1.0 by default.'
 examples:
 - value: '0.95'
   description: A confidence score of 0.95, indicating 95% confidence.
 from_schema: https://w3id.org/sssom/schema/
+see_also:
+- https://mapping-commons.github.io/sssom/confidence-model
 rank: 1000
 alias: registry_confidence
 domain_of:

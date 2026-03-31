@@ -1462,6 +1462,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="confidence-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to assess mapping confidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2152,10 +2180,17 @@ mapping_date: 2022-05-02
 </tr>
 <tr>
 <td><strong><a href="confidence/">confidence</a></strong></td>
-<td>A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.</td>
+<td>A value assigned by the creator of the mapping to denote the creator's confidence or estimated probability that the mapping record is correct. A value of 1.0 means the creator has full confidence in the correctness of the mapping record, while a value of 0.0 means the creator is fully unsure whether the mapping record is correct or not.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>When not explicitly specified, confidence estimation algorithms should consider the mapping confidence to be 1.0 by default.</td>
 <td>double</td>
 <td>0.95</td>
 <td>Optional</td>
+<td></td>
 </tr>
 <tr>
 <td><strong><a href="curation_rule/">curation_rule</a></strong></td>

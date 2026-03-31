@@ -594,6 +594,18 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../confidence-model/">
+<span class="md-ellipsis">
+    
+  
+    How to assess mapping confidence
+  
+
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -809,7 +821,7 @@
 <tr>
 <td><a href="../registry_confidence/">registry_confidence</a></td>
 <td>0..1 <br/> <a href="../Double/">Double</a></td>
-<td>This value is set by the registry that indexes the mapping set</td>
+<td>This value is set by the creator/maintainer of the mapping registry and refle...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -934,13 +946,18 @@ attributes:
     range: NonRelativeURI
   registry_confidence:
     name: registry_confidence
-    description: This value is set by the registry that indexes the mapping set. It
-      reflects the confidence the registry has in the correctness of the mappings
-      in the mapping set.
+    description: 'This value is set by the creator/maintainer of the mapping registry
+      and reflects the confidence the mapping registry has in the correctness (i.e.,
+      precision) of mappings in the mapping set.
+
+      When not explicitly specified, confidence estimation algorithms should consider
+      the registry confidence in a mapping set to be 1.0 by default.'
     examples:
     - value: '0.95'
       description: A confidence score of 0.95, indicating 95% confidence.
     from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://mapping-commons.github.io/sssom/confidence-model
     rank: 1000
     alias: registry_confidence
     owner: mapping set reference
