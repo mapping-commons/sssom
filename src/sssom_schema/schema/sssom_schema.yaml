@@ -1289,6 +1289,22 @@ classes:
           slot_conditions:
             object_id:
               required: true
+      - description:
+          If a review date is provided, then at at least one of reviewer_id or
+          reviewer_label must also be provided
+        preconditions:
+          slot_conditions:
+            review_date:
+              required: true
+        postconditions:
+          any_of:
+            - slot_conditions:
+                reviewer_id:
+                  required: true
+            - slot_conditions:
+                reviewer_label:
+                  required: true
+
   mapping registry:
     description:
       A registry for managing mapping sets. It holds a set of mapping set
