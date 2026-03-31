@@ -15,19 +15,21 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  lint_yaml:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
+      - name: Install
+        run: npm install prettier
       - name: Lint YML
         run: |
-          npx --yes prettier --check --prose-wrap always "**/*.yml"  --ignore-path "project/**/*.yml"
+          npx prettier --check --prose-wrap always "**/*.yml"  --ignore-path "project/**/*.yml"
       - name: Lint YAML
         run: |
-          npx --yes prettier --check --prose-wrap always "**/*.yaml"  --ignore-path "project/**/*.yaml"
+          npx prettier --check --prose-wrap always "**/*.yaml"  --ignore-path "project/**/*.yaml"
 
   sssom_validation:
     runs-on: ubuntu-latest
