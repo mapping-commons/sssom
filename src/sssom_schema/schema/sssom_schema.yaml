@@ -704,6 +704,7 @@ slots:
     range: date
     examples:
       - value: 2021-01-01
+    instantiates: sssom:Versionable
     annotations:
       added_in: "1.1"
     see_also:
