@@ -4,9 +4,9 @@ theme:
   name: material
   analytics:
     gtag: G-2SYBSJVZ23
-#  palette:
-#    scheme: slate
-#    primary: cyan
+  #  palette:
+  #    scheme: slate
+  #    primary: cyan
   features:
     - content.tabs.link
 plugins:
@@ -31,37 +31,37 @@ nav:
   - Home: index.md
   - Introduction: introduction.md
   - Specification:
-    - Introduction: spec-intro.md
-    - Data model:
-      - Introduction: spec-model.md
-      - Applying Chaining Rules: chaining-rules.md
-      - LinkML documentation: linkml-index.md
-    - Serialisations:
-      - Introduction: spec-formats.md
-      - SSSOM/TSV serialisation: spec-formats-tsv.md
-      - SSSOM/JSON serialisation: spec-formats-json.md
-      - SSSOM/RDF serialisation: spec-formats-rdf.md
-      - OWL/RDF serialisation: spec-formats-owl.md
+      - Introduction: spec-intro.md
+      - Data model:
+          - Introduction: spec-model.md
+          - Applying Chaining Rules: chaining-rules.md
+          - LinkML documentation: linkml-index.md
+      - Serialisations:
+          - Introduction: spec-formats.md
+          - SSSOM/TSV serialisation: spec-formats-tsv.md
+          - SSSOM/JSON serialisation: spec-formats-json.md
+          - SSSOM/RDF serialisation: spec-formats-rdf.md
+          - OWL/RDF serialisation: spec-formats-owl.md
   - Resources for contributors: contributing.md
   - Resources for users:
-    - FAQ: faq.md
-    - Community:
-      - Use Cases: usecases.md
-      - Workshops: workshops.md
-      - Presentations: presentations.md
-    - Training materials:
-      - Overview: training.md
-      - Basic Tutorial: tutorial.md
-    - How to:
-      - Mapping Justifications: mapping-justifications.md
-      - How to use mapping predicates: mapping-predicates.md
-      - Set up a mapping registry/commons: mapping-commons.md
-      - A basic guide for the SSSOM toolkit: toolkit.md
-      - 5-Star Entity Mappings - Cheatsheet: 5star-mappings.md
-      - Matching tool implementation guide: matching-tool-implementation-guide.md
-      - How to gradually enrich OMOP mappings with SSSOM: tutorials/omop-mappings.md
-    - Reference:
-      - Glossary: glossary.md
+      - FAQ: faq.md
+      - Community:
+          - Use Cases: usecases.md
+          - Workshops: workshops.md
+          - Presentations: presentations.md
+      - Training materials:
+          - Overview: training.md
+          - Basic Tutorial: tutorial.md
+      - How to:
+          - Mapping Justifications: mapping-justifications.md
+          - How to use mapping predicates: mapping-predicates.md
+          - Set up a mapping registry/commons: mapping-commons.md
+          - A basic guide for the SSSOM toolkit: toolkit.md
+          - 5-Star Entity Mappings - Cheatsheet: 5star-mappings.md
+          - Matching tool implementation guide: matching-tool-implementation-guide.md
+          - How to gradually enrich OMOP mappings with SSSOM: tutorials/omop-mappings.md
+      - Reference:
+          - Glossary: glossary.md
   - Related documentation: related-documentation.md
   - Funding: funding.md
 

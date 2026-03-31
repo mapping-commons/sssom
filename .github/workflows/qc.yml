@@ -2,19 +2,33 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+      - name: Install
+        run: npm install prettier
+      - name: Lint YML
+        run: npx prettier --check --prose-wrap always "**/*.yml"
+      - name: Lint YAML
+        run: npx prettier --check --prose-wrap always "**/*.yaml"
+
   sssom_validation:
     runs-on: ubuntu-latest
     container: obolibrary/odkfull:v1.5.4
@@ -31,4 +45,3 @@ jobs:
         env:
           DEFAULT_BRANCH: master
         run: make validate_mappings
-
