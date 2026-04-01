@@ -1,0 +1,18 @@
+# curie_map:
+#   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+#   mesh: http://id.nlm.nih.gov/mesh/
+#   orcid: https://orcid.org/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+# license: https://creativecommons.org/publicdomain/zero/1.0/
+# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_confidence.sssom.tsv
+# creator_id:
+#  - orcid:0000-0003-4423-4370
+# see_also:
+#  - https://github.com/mapping-commons/sssom/issues/510
+#  - https://github.com/mapping-commons/sssom/pull/519
+#  - https://mapping-commons.github.io/sssom/confidence-model
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	reviewer_id	reviewer_confidence	comment
+CHEBI:10001	Visnadin	skos:exactMatch	mesh:C067604	visnadin	semapv:ManualMappingCuration	orcid:0000-0001-9439-5346	orcid:0000-0003-4423-4370	0.99	the reviewer confidently agrees with the accuracy of the mapping
+CHEBI:127105	tribromosalicylanilide	skos:exactMatch	mesh:C004361	tribromsalan	semapv:LexicalMatching		orcid:0000-0003-4423-4370	0.5	the reviewer is not sure whether the mapping is correct or incorrect
+CHEBI:10057	9H-xanthene	skos:exactMatch	mesh:C002563	xanthan gum	semapv:ManualMappingCuration		orcid:0000-0003-4423-4370	0.01	the reviewer confidently disagrees with the accuracy of the mapping
