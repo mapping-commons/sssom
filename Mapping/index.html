@@ -1354,6 +1354,23 @@ rules:
       object_id:
         name: object_id
         required: true
+- preconditions:
+    slot_conditions:
+      review_date:
+        name: review_date
+        required: true
+  postconditions:
+    any_of:
+    - slot_conditions:
+        reviewer_id:
+          name: reviewer_id
+          required: true
+    - slot_conditions:
+        reviewer_label:
+          name: reviewer_label
+          required: true
+  description: If a review date is provided, then at at least one of reviewer_id or
+    reviewer_label must also be provided
 
 </code></pre>
 </details>
@@ -2539,6 +2556,23 @@ rules:
       object_id:
         name: object_id
         required: true
+- preconditions:
+    slot_conditions:
+      review_date:
+        name: review_date
+        required: true
+  postconditions:
+    any_of:
+    - slot_conditions:
+        reviewer_id:
+          name: reviewer_id
+          required: true
+    - slot_conditions:
+        reviewer_label:
+          name: reviewer_label
+          required: true
+  description: If a review date is provided, then at at least one of reviewer_id or
+    reviewer_label must also be provided
 
 </code></pre>
 </details>
