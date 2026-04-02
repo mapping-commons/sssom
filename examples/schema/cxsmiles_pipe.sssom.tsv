@@ -1,0 +1,14 @@
+#curie_map:
+#  CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+#  PUBCHEM.COMPOUND: http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID
+#  wikidata: http://www.wikidata.org/entity/
+#  orcid: https://orcid.org/
+#mapping_set_id: https://w3id.org/sssom/commons/examples/cxsmiles_pipe.sssom.tsv
+#mapping_set_description: "Mappings between ChEBI and PubChem Compound established via structural matching. The ferrocene entry uses a CXSMILES match_string whose pipe-delimited extension block must be escaped to avoid being incorrectly split by a parser treating | as a multivalued separator."
+#license: https://creativecommons.org/publicdomain/zero/1.0/
+#creator_id:
+#  - orcid:0000-0002-7356-1779
+#mapping_provider: https://w3id.org/sssom/core_team
+#comment: This is an example file for SSSOM for illustration only.
+subject_id	predicate_id	object_id	mapping_justification	match_string	subject_match_field	object_match_field
+CHEBI:30672	skos:exactMatch	PUBCHEM.COMPOUND:7611	semapv:LexicalMatching	c12c3c4c5c1[Fe]23451234c5c1c2c3c45 \|C:4.5,0.6,1.7,2.8,3.9,7.12,6.10,9.16,10.18,8.14\|	wikidata:P10718	wikidata:P10718
