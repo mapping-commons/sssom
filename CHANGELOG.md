@@ -18,7 +18,7 @@
 - Add specification for the RDF serialisation ([discussion](https://github.com/mapping-commons/sssom/discussions/454)).
 - Development snapshots of SSSOM schema can now be released using GitHub's pre-release feature ([issue](https://github.com/mapping-commons/sssom/issues/490)).
 - Add `review_date` slot ([issue](https://github.com/mapping-commons/sssom/issues/511))
-- Add `reviewer_confidence` slot ([issue](https://github.com/mapping-commons/sssom/issues/510))
+- Add `reviewer_agreement` slot ([issue](https://github.com/mapping-commons/sssom/issues/510))
 
 ## SSSOM version 1.0.0
 

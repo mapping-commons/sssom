@@ -873,17 +873,17 @@ slots:
     examples:
       - value: 0.95
         description: A confidence score of 0.95, indicating 95% confidence.
-  reviewer_confidence:
+  reviewer_agreement:
     description: A value assigned by the reviewer of the mapping to denote their
       confidence that the mapping record is correct. A value of 1.0 means the
-      reviewer fully agrees with the mapping record. A value of 0.0 means the
-      reviewer fully disagrees with the mapping record. A value of 0.5 means the
+      reviewer fully agrees with the mapping record. A value of -1.0 means the
+      reviewer fully disagrees with the mapping record. A value of 0.0 means the
       reviewer is not sure whether the mapping record is correct or not.
 
       When not explicitly specified, confidence estimation algorithms should
-      consider the mapping confidence to be 1.0 by default.
+      consider the reviewer agreement to be 1.0 by default.
     range: double
-    minimum_value: 0.0
+    minimum_value: -1.0
     maximum_value: 1.0
     instantiates: sssom:Versionable
     annotations:
@@ -895,15 +895,15 @@ slots:
     examples:
       - value: 1.0
         description:
-          A reviewer confidence of 0.0 denotes that the reviewer considers the
+          A reviewer confidence of 1.0 denotes that the reviewer considers the
           mapping record to be correct with full confidence
+      - value: -1.0
+        description:
+          A reviewer confidence of -1.0 denotes that the reviewer considers the
+          mapping record to be incorrect with full confidence
       - value: 0.0
         description:
-          A reviewer confidence of 1.0 denotes that the reviewer considers the
-          mapping record to be incorrect with full confidence
-      - value: 0.5
-        description:
-          A reviewer confidence of 0.5 denotes that the reviewer is not sure
+          A reviewer confidence of 0.0 denotes that the reviewer is not sure
           whether the mapping record is correct or not.
   subject_match_field:
     description: >-
@@ -1260,7 +1260,7 @@ classes:
       - publication_date
       - review_date
       - confidence
-      - reviewer_confidence
+      - reviewer_agreement
       - curation_rule
       - curation_rule_text
       - subject_match_field
@@ -1342,7 +1342,7 @@ classes:
           reviewer_id or reviewer_label must also be provided
         preconditions:
           slot_conditions:
-            reviewer_confidence:
+            reviewer_agreement:
               required: true
         postconditions:
           any_of:

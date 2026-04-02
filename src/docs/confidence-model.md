@@ -107,15 +107,15 @@ the mapping that was previously asserted by another curator.
 #   orcid: https://orcid.org/
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
-# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_confidence.sssom.tsv
-subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	reviewer_id	reviewer_confidence
+# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_agreement.sssom.tsv
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	reviewer_id	reviewer_agreement
 CHEBI:10001	Visnadin	skos:exactMatch	mesh:C067604	visnadin	semapv:ManualMappingCuration	orcid:0000-0001-9439-5346	orcid:0000-0003-4423-4370	0.99
 ```
 
 In the following example, a semantic mapping was predicted by the
 [Biomappings](https://www.wikidata.org/wiki/Q111239110) workflow. The reviewer
 confidently disagrees with the accuracy of the mapping, and denotes this by
-adding a low confidence (near 0.0).
+adding a low agreement (near -1.0).
 
 ```tsv
 # curie_map:
@@ -125,17 +125,17 @@ adding a low confidence (near 0.0).
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
 #   wikidata: http://www.wikidata.org/entity/
-# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_confidence.sssom.tsv
-subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	mapping_tool_id	reviewer_id	reviewer_confidence
-CHEBI:10057	9H-xanthene	skos:exactMatch	mesh:C002563	xanthan gum	semapv:ManualMappingCuration	wikidata:Q111239110	orcid:0000-0003-4423-4370	0.01
+# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_agreement.sssom.tsv
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	mapping_tool_id	reviewer_id	reviewer_agreement
+CHEBI:10057	9H-xanthene	skos:exactMatch	mesh:C002563	xanthan gum	semapv:ManualMappingCuration	wikidata:Q111239110	orcid:0000-0003-4423-4370	-0.00
 ```
 
 In the following example, a semantic mapping was predicted by the
 [Biomappings](https://www.wikidata.org/wiki/Q111239110) workflow. Because MeSH
 does not include detailed information about the chemical's structure, it's not
 clear to the reviewer if it should be mapped or not. Therefore, the reviewer
-denotes they are unsure of whether the semantic mapping is correct or not with a
-confidence of 0.5 (halfway between 1.0 for fully agree and 0.0 for fully
+denotes they are unsure of whether the semantic mapping is correct or not with
+an agreement of 0.0 (halfway between 1.0 for fully agree and -1.0 for fully
 disagree).
 
 ```tsv
@@ -145,9 +145,9 @@ disagree).
 #   orcid: https://orcid.org/
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
-# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_confidence.sssom.tsv
-subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	mapping_tool_id	reviewer_id	reviewer_confidence
-CHEBI:127105	tribromosalicylanilide	skos:exactMatch	mesh:C004361	tribromsalan	semapv:LexicalMatching	wikidata:Q111239110	orcid:0000-0003-4423-4370	0.5
+# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_agreement.sssom.tsv
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	mapping_tool_id	reviewer_id	reviewer_agreement
+CHEBI:127105	tribromosalicylanilide	skos:exactMatch	mesh:C004361	tribromsalan	semapv:LexicalMatching	wikidata:Q111239110	orcid:0000-0003-4423-4370	0.0
 ```
 
 ## Aggregating Confidence for a Semantic Mapping Record
@@ -156,31 +156,26 @@ CHEBI:127105	tribromosalicylanilide	skos:exactMatch	mesh:C004361	tribromsalan	se
 model for aggregating confidences on semantic mappings that was implemented in
 the
 [Semantic Mapping Reasoner and Assembler](https://github.com/biopragmatics/semra).
-With the introduction of reviewer confidences, this section proposes an
-additional way of weighting reviews.
+With the introduction of reviewer agreements, this section proposes one
+potential way of using it to weight confidence:
 
-Because reviewer confidences are symmetric around 0.5 instead of 0, we define a
-weight function $w(r) \in [0, 1]$ that rescales the value:
+$$f(c,r)=(1−\left| r \right|)\times c+\left| r \right|\times \frac{r + 1}{2}$$
 
-$$ w(r) = 2 \times \left| r − 0.5 \right| $$
+with creator confidence ($c$) and reviewer agreement ($r$). The
+$\frac{r + 1}{2}$ term reweights the agreement score to work better on the
+$[0,1]$ range.
 
-then, use the weighting function to construct a confidence function over the
-creator confidence ($c$), reviewer confidence ($r$), and weighting function
-$w(r)$:
+This function has the nice properties:
 
-$$f(c,r)=(1−w(r))\times c+w(r)\times r$$
+1. When the reviewer's agreement is closer to 0.0, it doesn't have an effect on
+   the creator's confidence
+2. When the reviewer's agreement is closer to -1.0 or 1.0, it should override
+   the creator's confidence proportionally to how close it is to the extremes
 
-This has the nice properties:
+Here's how it looks over all possible values for the creator confidence and
+reviewer agreement:
 
-1. When the reviewer is closer to 0.5, it doesn't have an effect on the
-   creator's confidence
-2. When the reviewer is closer to 0.0 or 1.0, it should override the creator's
-   confidence proportionally to how close it is to the extremes
-
-Here's how it looks over all possible values for the creator and reviewer
-confidence:
-
-![](images/reviewer-confidence-aggregation.svg)
+![](images/reviewer-agreement-aggregation.svg)
 
 <details>
  <summary>Code that produced this chart</summary>
@@ -190,19 +185,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def aggregate(c: float, r: float) -> float:
-    alpha = 1.0  # higher alpha -> reviewer dominates more quickly
-    w = (2 * np.abs(r - 0.5)) ** alpha
-    return (1 - w) * c + w * r
+    w = np.abs(r)
+    return (1 - w) * c + w * (r + 1) / 2
 
-reviewer, creator = np.meshgrid(np.linspace(0, 1, 100), np.linspace(0, 1, 100))
+reviewer, creator = np.meshgrid(np.linspace(-1, 1, 100), np.linspace(0, 1, 100))
 z = aggregate(creator, reviewer)
 fig, ax = plt.subplots()
-mesh = ax.pcolormesh(creator, reviewer, z, cmap='RdBu')
-ax.set_xlabel('Creator Confidence')
-ax.set_ylabel('Reviewer Confidence')
-ax.axis([0, 1, 0, 1])
+mesh = ax.pcolormesh(creator, reviewer, z, cmap="RdBu")
+ax.set_xlabel("Creator Confidence")
+ax.set_ylabel("Reviewer Agreement")
+ax.set_title("Aggregation of Creator Confidence\nand Reviewer Agreement")
+ax.axis([0, 1, -1, 1])
 fig.colorbar(mesh, ax=ax)
 plt.show()
+plt.savefig("images/reviewer-agreement-aggregation.svg")
 ```
 
 </details>
