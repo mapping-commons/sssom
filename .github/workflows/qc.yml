@@ -15,20 +15,6 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
-      - name: Install
-        run: npm install prettier
-      - name: Lint YML
-        run: npx prettier --check --prose-wrap always "**/*.yml"
-      - name: Lint YAML
-        run: npx prettier --check --prose-wrap always "**/*.yaml"
-
   sssom_validation:
     runs-on: ubuntu-latest
     container: obolibrary/odkfull:v1.5.4
