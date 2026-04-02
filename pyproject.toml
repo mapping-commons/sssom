@@ -60,7 +60,7 @@ mkdocs-mermaid2-plugin = "^1.1.1"
 
 [tool.codespell]
 # Ref: https://github.com/codespell-project/codespell#using-a-config-file
-skip = '.git*,*.pdf,*.lock'
+skip = '.git*,*.pdf,*.lock,*.svg'
 check-hidden = true
 ignore-regex = '\b(COMENT|EHR|LOD)\b'
 ignore-words-list = 'disjointness'
