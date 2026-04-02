@@ -174,7 +174,8 @@ slots:
     description:
       The version of the SSSOM specification a mapping set is compliant with.
     range: sssom_version_enum
-    instantiates: sssom:Versionable
+    instantiates:
+      - sssom:Versionable
     annotations:
       added_in: "1.1"
     see_also:
@@ -293,7 +294,8 @@ slots:
   subject_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -468,7 +470,8 @@ slots:
   object_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -518,7 +521,8 @@ slots:
           data at the IMPC. It is primarily used for making mouse phenotypes
           searchable by human synonyms at https://mousephenotype.org/."
   mapping_set_confidence:
-    instantiates: sssom:Versionable
+    instantiates:
+      - sssom:Versionable
     annotations:
       added_in: "1.1"
     description: Mapping-set level confidence is assigned by the creator of the
@@ -641,7 +645,8 @@ slots:
   subject_source:
     description: URI of vocabulary or identifier source for the subject.
     range: EntityReference
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -655,7 +660,8 @@ slots:
     description:
       Version IRI or version string of the source of the subject term.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -665,7 +671,8 @@ slots:
   object_source:
     description: URI of vocabulary or identifier source for the object.
     range: EntityReference
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -678,7 +685,8 @@ slots:
   object_source_version:
     description: Version IRI or version string of the source of the object term.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -691,7 +699,8 @@ slots:
       ontology that already contains the mappings, or a database from which it
       was derived.
     range: NonRelativeURI
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -788,7 +797,8 @@ slots:
       text. Consider using the mapping_tool_id slot for a more standardised
       reference.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -818,7 +828,8 @@ slots:
     description:
       Version string that denotes the version of the mapping tool used.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -829,7 +840,8 @@ slots:
       mapping was published or compiled in a SSSOM file.
     slot_uri: dcterms:created
     range: date
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     examples:
       - value: 2021-01-01
     annotations:
@@ -850,7 +862,8 @@ slots:
     range: date
     examples:
       - value: 2021-01-01
-    instantiates: sssom:Versionable
+    instantiates:
+      - sssom:Versionable
     annotations:
       added_in: "1.1"
     see_also:
@@ -882,7 +895,8 @@ slots:
       Also' section.
     range: EntityReference
     multivalued: true
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -905,7 +919,8 @@ slots:
       Also' section.
     range: EntityReference
     multivalued: true
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -936,7 +951,8 @@ slots:
       to store the match in separate rows.
     range: EntityReference
     multivalued: true
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -949,7 +965,8 @@ slots:
       to store the match in separate rows.
     range: EntityReference
     multivalued: true
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -966,7 +983,8 @@ slots:
       be a resolvable identifier which provides details about the nature of the
       curation rule.
     range: EntityReference
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     multivalued: true
@@ -991,7 +1009,8 @@ slots:
       where the creation of a resource is not practical from the perspective of
       the mapping_provider.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     multivalued: true
@@ -1030,7 +1049,8 @@ slots:
       processing this field as unambiguous as possible, we recommend using
       wikidata CURIEs, but the type of this field is deliberately unspecified.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -1126,7 +1146,8 @@ slots:
       its format is unconstrained and the identifier MUST be treated as an
       opaque string.
     range: EntityReference
-    instantiates: sssom:Versionable
+    instantiates:
+      - sssom:Versionable
     annotations:
       added_in: "1.1"
     see_also:
@@ -1139,15 +1160,18 @@ classes:
       license:
         required: true
       similarity_measure:
-        instantiates: sssom:Versionable
+        instantiates:
+          - sssom:Versionable
         annotations:
           added_in: "1.1"
       curation_rule:
-        instantiates: sssom:Versionable
+        instantiates:
+          - sssom:Versionable
         annotations:
           added_in: "1.1"
       curation_rule_text:
-        instantiates: sssom:Versionable
+        instantiates:
+          - sssom:Versionable
         annotations:
           added_in: "1.1"
     slots:

@@ -97,7 +97,8 @@ In addition, new slots must be marked with a `added_in` annotation indicating th
 
 ```yaml
 my_new_slot:
-  instantiates: sssom:Versionable
+  instantiates:
+    - sssom:Versionable
   annotations:
     added_in: "1.1"
 ```
