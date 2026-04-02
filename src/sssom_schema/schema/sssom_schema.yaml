@@ -1338,7 +1338,7 @@ classes:
                 reviewer_label:
                   required: true
       - description:
-          If a reviewer confidence is provided, then at at least one of
+          If a reviewer agreement value is provided, then at at least one of
           reviewer_id or reviewer_label must also be provided
         preconditions:
           slot_conditions:
