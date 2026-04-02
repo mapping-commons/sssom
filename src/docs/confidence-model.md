@@ -95,10 +95,15 @@ suggested to sample a minimum 50-100 semantic mappings.
 When not explicitly specified, confidence estimation algorithms should consider
 the registry confidence in a mapping set to be 1.0 by default.
 
-## Confidence in Reviews
+## Reviewer Agreement
+
+In addition to the `confidence` slot which denotes the creator's confidence in
+the accuracy of a mapping record, the `reviewer_agreement` slot allows for the
+reviewer to state if they disagree or agree on a scale of $[-1, 1]$.
 
 In the following example, the reviewer confidently agrees with the accuracy of
-the mapping that was previously asserted by another curator.
+the mapping that was previously asserted by another curator and denotes this
+with a high agreement (near 1.0):
 
 ```tsv
 # curie_map:
@@ -115,7 +120,7 @@ CHEBI:10001	Visnadin	skos:exactMatch	mesh:C067604	visnadin	semapv:ManualMappingC
 In the following example, a semantic mapping was predicted by the
 [Biomappings](https://www.wikidata.org/wiki/Q111239110) workflow. The reviewer
 confidently disagrees with the accuracy of the mapping, and denotes this by
-adding a low agreement (near -1.0).
+adding a low agreement (near -1.0):
 
 ```tsv
 # curie_map:
