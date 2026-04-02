@@ -1291,7 +1291,7 @@ classes:
           slot_conditions:
             subject_type:
               none_of:
-                equals_string: "rdfs literal"
+                - equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
             subject_id:
@@ -1308,7 +1308,7 @@ classes:
           slot_conditions:
             object_type:
               none_of:
-                equals_string: "rdfs literal"
+                - equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
             object_id:
