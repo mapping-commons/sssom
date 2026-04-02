@@ -209,7 +209,7 @@ slots:
     see_also:
       - https://mapping-commons.github.io/sssom/confidence-model
     examples:
-      - value: 0.95
+      - value: "0.95"
         description: A confidence score of 0.95, indicating 95% confidence.
   last_updated:
     description: The date this reference was last updated.
@@ -538,7 +538,7 @@ slots:
     minimum_value: 0.0
     maximum_value: 1.0
     examples:
-      - value: 0.95
+      - value: "0.95"
         description:
           A confidence score of 0.95, indicating 95% confidence that the
           mappings in the mapping set are correct.
@@ -775,17 +775,17 @@ slots:
       propagated: true
       added_in: "1.1"
     examples:
-      - value:
-          - "predicate_id"
-        description:
+      - value: predicate_id
+        description: >-
           Indicates that mapping_cardinality is computed relatively to all
           mappings that have the same predicate.
-      - value:
-          - "predicate_id"
-          - "object_source"
-        description:
+      - value: "predicate_id|object_source"
+        description: >-
           Indicates that mapping_cardinality is computed relatively to all
-          mappings that have the same predicate and the same object source.
+          mappings that have the same predicate and the same object source. Note
+          that this is how the example would look like specifically in the
+          SSSOM/TSV format, where multivalued slots like `cardinality_scope` are
+          represented as a single string containing `|`-separated values.
     see_also:
       - https://github.com/mapping-commons/sssom/issues/467
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate.sssom.tsv
@@ -843,7 +843,7 @@ slots:
     instantiates:
       - sssom:Propagatable
     examples:
-      - value: 2021-01-01
+      - value: "2021-01-01"
     annotations:
       propagated: true
   publication_date:
@@ -853,7 +853,7 @@ slots:
     slot_uri: dcterms:issued
     range: date
     examples:
-      - value: 2021-01-01
+      - value: "2021-01-01"
   review_date:
     description:
       The date the mapping was reviewed. This is different from the date the
@@ -861,7 +861,7 @@ slots:
       reviewer_id and/or reviewer_label MUST also be be set.
     range: date
     examples:
-      - value: 2021-01-01
+      - value: "2021-01-01"
     instantiates:
       - sssom:Versionable
     annotations:
@@ -884,7 +884,7 @@ slots:
     see_also:
       - https://mapping-commons.github.io/sssom/confidence-model
     examples:
-      - value: 0.95
+      - value: "0.95"
         description: A confidence score of 0.95, indicating 95% confidence.
   subject_match_field:
     description: >-
@@ -1035,7 +1035,7 @@ slots:
     minimum_value: 0.0
     maximum_value: 1.0
     examples:
-      - value: 0.95
+      - value: "0.95"
         description: A similarity score of 0.95, indicating 95% similarity.
     see_also:
       - https://github.com/mapping-commons/sssom/issues/385
