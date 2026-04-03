@@ -919,7 +919,8 @@ slots:
     range: double
     minimum_value: -1.0
     maximum_value: 1.0
-    instantiates: sssom:Versionable
+    instantiates:
+      - sssom:Versionable
     annotations:
       added_in: "1.1"
     see_also:
