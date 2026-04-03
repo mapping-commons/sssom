@@ -132,7 +132,7 @@ adding a low agreement (near -1.0):
 #   wikidata: http://www.wikidata.org/entity/
 # mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_agreement.sssom.tsv
 subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	mapping_tool_id	reviewer_id	reviewer_agreement
-CHEBI:10057	9H-xanthene	skos:exactMatch	mesh:C002563	xanthan gum	semapv:ManualMappingCuration	wikidata:Q111239110	orcid:0000-0003-4423-4370	-0.00
+CHEBI:10057	9H-xanthene	skos:exactMatch	mesh:C002563	xanthan gum	semapv:ManualMappingCuration	wikidata:Q111239110	orcid:0000-0003-4423-4370	-0.99
 ```
 
 In the following example, a semantic mapping was predicted by the
