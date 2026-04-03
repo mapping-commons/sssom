@@ -937,7 +937,7 @@ slots:
           mapping record to be incorrect with full confidence
       - value: "0.0"
         description:
-          A reviewer confidence of 0.0 denotes that the reviewer is not sure
+          A reviewer agreement of 0.0 denotes that the reviewer is not sure
           whether the mapping record is correct or not.
   subject_match_field:
     description: >-
