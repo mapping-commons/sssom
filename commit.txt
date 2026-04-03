@@ -1,6 +1,0 @@
-Address review feedback from @gouttegd on getting-started guide
-
-- Tone down spreadsheet praise; acknowledge validation trade-offs and link to discussion #428
-- State that CURIEs are required by the SSSOM/TSV format (not just suggested); remove the `https: https` URI hack
-- Remove recommendation of owl:equivalentClass and rdfs:subClassOf as mapping predicates
-- Add references to sssom-java's sssom-cli tool in validation and conversion sections
