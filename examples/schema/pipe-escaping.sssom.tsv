@@ -1,0 +1,15 @@
+#curie_map:
+#  COMENT: https://example.com/entities/
+#  ORGENT: https://example.org/entities/
+#mapping_set_id: https://example.org/sets/test-escaping-pipe
+#license: https://creativecommons.org/licenses/by/4.0/
+#comment: >-
+#  This mapping set is intended to demonstrate the backslash-based
+#  escaping mechanism for multi-valued slots.
+#  In this set, the author_label slot of the first record has two values:
+#  "Alice|Bob" and "Charlie" (NOT "Alice\", "Bob", and "Charlie").
+#  The author_label slot of the second record has three values:
+#  "Alice\Bob", "Charlie\", and "David\|Eve\".
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_label
+ORGENT:0001	alice	skos:closeMatch	COMENT:0011	alpha	semapv:ManualMappingCuration	Alice\|Bob|Charlie
+ORGENT:0002	alice	skos:closeMatch	COMENT:0011	alpha	semapv:ManualMappingCuration	Alice\\Bob|Charlie\\|David\\\|Eve\\

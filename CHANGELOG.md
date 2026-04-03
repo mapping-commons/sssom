@@ -19,6 +19,7 @@
 - Development snapshots of SSSOM schema can now be released using GitHub's pre-release feature ([issue](https://github.com/mapping-commons/sssom/issues/490)).
 - Add `review_date` slot ([issue](https://github.com/mapping-commons/sssom/issues/511))
 - Add `reviewer_agreement` slot ([issue](https://github.com/mapping-commons/sssom/issues/510))
+- Allow encoding pipe characters in multi-valued slots in SSSOM/TSV format ([issue](https://github.com/mapping-commons/sssom/issues/429)).
 
 ## SSSOM version 1.0.0
 
