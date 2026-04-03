@@ -927,7 +927,7 @@ slots:
       - https://github.com/mapping-commons/sssom/issues/510
       - https://github.com/mapping-commons/sssom/pull/519
     examples:
-      - value: 1.0
+      - value: "1.0"
         description:
           A reviewer confidence of 1.0 denotes that the reviewer considers the
           mapping record to be correct with full confidence
