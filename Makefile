@@ -51,11 +51,14 @@ gen-project: $(PYMODEL)
 		--exclude owl \
 		-d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
 
-test:
+test: validate-schema
 	$(RUN) gen-project \
 		--exclude owl \
 		-d tmp $(SOURCE_SCHEMA_PATH) 
 	$(RUN) python tests/test_added_in_annotations.py
+
+validate-schema: $(SOURCE_SCHEMA_PATH)
+	$(RUN) linkml lint --validate --validate-only $<
 
 check-config:
 	@(grep my-datamodel about.yaml > /dev/null && printf "\n**Project not configured**:\n\n  - Remember to edit 'about.yaml'\n\n" || exit 0)

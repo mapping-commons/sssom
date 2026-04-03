@@ -174,7 +174,8 @@ slots:
     description:
       The version of the SSSOM specification a mapping set is compliant with.
     range: sssom_version_enum
-    instantiates: sssom:Versionable
+    instantiates:
+      - sssom:Versionable
     annotations:
       added_in: "1.1"
     see_also:
@@ -208,7 +209,7 @@ slots:
     see_also:
       - https://mapping-commons.github.io/sssom/confidence-model
     examples:
-      - value: 0.95
+      - value: "0.95"
         description: A confidence score of 0.95, indicating 95% confidence.
   last_updated:
     description: The date this reference was last updated.
@@ -293,7 +294,8 @@ slots:
   subject_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -468,7 +470,8 @@ slots:
   object_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -518,7 +521,8 @@ slots:
           data at the IMPC. It is primarily used for making mouse phenotypes
           searchable by human synonyms at https://mousephenotype.org/."
   mapping_set_confidence:
-    instantiates: sssom:Versionable
+    instantiates:
+      - sssom:Versionable
     annotations:
       added_in: "1.1"
     description: Mapping-set level confidence is assigned by the creator of the
@@ -534,7 +538,7 @@ slots:
     minimum_value: 0.0
     maximum_value: 1.0
     examples:
-      - value: 0.95
+      - value: "0.95"
         description:
           A confidence score of 0.95, indicating 95% confidence that the
           mappings in the mapping set are correct.
@@ -554,7 +558,11 @@ slots:
     multivalued: true
     examples:
       - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
-        description: The ORCID of the (multiple) creators of the mapping.
+        description: >-
+          The ORCID of the (multiple) creators of the mapping. Note that this is
+          how the example would look like specifically in the SSSOM/TSV format,
+          where multivalued slots such as `creator_id` are represented as single
+          strings containing `|`-separated values.
       - value: orcid:0000-0002-7356-1779
         description: The ORCID of the creator of the mapping.
   creator_label:
@@ -569,8 +577,11 @@ slots:
     multivalued: true
     examples:
       - value: Nicolas Matentzoglu|Chris Mungall
-        description:
+        description: >-
           The human-readable names of the (multiple) creators of the mapping.
+          Note that this is how the example would look like specifically in the
+          SSSOM/TSV format, where multivalued slots such as `creator_label` are
+          represented as single strings containing `|`-separated values.
       - value: Nicolas Matentzoglu
         description: The human-readable name of the creator of the mapping.
   author_id:
@@ -582,7 +593,11 @@ slots:
     multivalued: true
     examples:
       - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
-        description: The ORCID of the (multiple) authors of the mapping.
+        description: >-
+          The ORCID of the (multiple) authors of the mapping. Note that this is
+          how the example would look like specifically in the SSSOM/TSV format,
+          where multivalued slots such as `author_id` are represented as single
+          strings containing `|`-separated values.
       - value: orcid:0000-0002-7356-1779
         description: The ORCID of the author of the mapping.
   author_label:
@@ -597,8 +612,11 @@ slots:
     multivalued: true
     examples:
       - value: Nicolas Matentzoglu|Chris Mungall
-        description:
+        description: >-
           The human-readable names of the (multiple) authors of the mapping.
+          Note that this is how the example would look like specifically in the
+          SSSOM/TSV format, where multivalued slots such as `author_label` are
+          represented as single strings containing `|`-separated values.
       - value: Nicolas Matentzoglu
         description: The human-readable name of the author of the mapping.
   reviewer_id:
@@ -609,7 +627,11 @@ slots:
     multivalued: true
     examples:
       - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
-        description: The ORCID of the (multiple) reviewers of the mapping.
+        description: >-
+          The ORCID of the (multiple) reviewers of the mapping. Note that this
+          is how the example would look like specifically in the SSSOM/TSV
+          format, where multivalued slots such as `reviewer_id` are represented
+          as single strings containing `|`-separated values.
       - value: orcid:0000-0002-7356-1779
         description: The ORCID of the reviewer of the mapping.
   reviewer_label:
@@ -624,8 +646,11 @@ slots:
     multivalued: true
     examples:
       - value: Nicolas Matentzoglu|Chris Mungall
-        description:
+        description: >-
           The human-readable names of the (multiple) reviewers of the mapping.
+          Note that this is how the example would look like specifically in the
+          SSSOM/TSV format, where multivalued slots such as `reviewer_label` are
+          represented as single strings containing `|`-separated values.
       - value: Nicolas Matentzoglu
         description: The human-readable name of the reviewer of the mapping.
   license:
@@ -641,7 +666,8 @@ slots:
   subject_source:
     description: URI of vocabulary or identifier source for the subject.
     range: EntityReference
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -655,7 +681,8 @@ slots:
     description:
       Version IRI or version string of the source of the subject term.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -665,7 +692,8 @@ slots:
   object_source:
     description: URI of vocabulary or identifier source for the object.
     range: EntityReference
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -678,7 +706,8 @@ slots:
   object_source_version:
     description: Version IRI or version string of the source of the object term.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -691,7 +720,8 @@ slots:
       ontology that already contains the mappings, or a database from which it
       was derived.
     range: NonRelativeURI
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -766,17 +796,17 @@ slots:
       propagated: true
       added_in: "1.1"
     examples:
-      - value:
-          - "predicate_id"
-        description:
+      - value: predicate_id
+        description: >-
           Indicates that mapping_cardinality is computed relatively to all
           mappings that have the same predicate.
-      - value:
-          - "predicate_id"
-          - "object_source"
-        description:
+      - value: "predicate_id|object_source"
+        description: >-
           Indicates that mapping_cardinality is computed relatively to all
-          mappings that have the same predicate and the same object source.
+          mappings that have the same predicate and the same object source. Note
+          that this is how the example would look like specifically in the
+          SSSOM/TSV format, where multivalued slots like `cardinality_scope` are
+          represented as a single string containing `|`-separated values.
     see_also:
       - https://github.com/mapping-commons/sssom/issues/467
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate.sssom.tsv
@@ -788,7 +818,8 @@ slots:
       text. Consider using the mapping_tool_id slot for a more standardised
       reference.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -818,7 +849,8 @@ slots:
     description:
       Version string that denotes the version of the mapping tool used.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -829,9 +861,10 @@ slots:
       mapping was published or compiled in a SSSOM file.
     slot_uri: dcterms:created
     range: date
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     examples:
-      - value: 2021-01-01
+      - value: "2021-01-01"
     annotations:
       propagated: true
   publication_date:
@@ -841,7 +874,7 @@ slots:
     slot_uri: dcterms:issued
     range: date
     examples:
-      - value: 2021-01-01
+      - value: "2021-01-01"
   review_date:
     description:
       The date the mapping was reviewed. This is different from the date the
@@ -849,8 +882,9 @@ slots:
       reviewer_id and/or reviewer_label MUST also be be set.
     range: date
     examples:
-      - value: 2021-01-01
-    instantiates: sssom:Versionable
+      - value: "2021-01-01"
+    instantiates:
+      - sssom:Versionable
     annotations:
       added_in: "1.1"
     see_also:
@@ -871,7 +905,7 @@ slots:
     see_also:
       - https://mapping-commons.github.io/sssom/confidence-model
     examples:
-      - value: 0.95
+      - value: "0.95"
         description: A confidence score of 0.95, indicating 95% confidence.
   reviewer_agreement:
     description: A value assigned by the reviewer of the mapping to denote their
@@ -914,7 +948,8 @@ slots:
       Also' section.
     range: EntityReference
     multivalued: true
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -937,7 +972,8 @@ slots:
       Also' section.
     range: EntityReference
     multivalued: true
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -968,7 +1004,8 @@ slots:
       to store the match in separate rows.
     range: EntityReference
     multivalued: true
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -981,7 +1018,8 @@ slots:
       to store the match in separate rows.
     range: EntityReference
     multivalued: true
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -998,7 +1036,8 @@ slots:
       be a resolvable identifier which provides details about the nature of the
       curation rule.
     range: EntityReference
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     multivalued: true
@@ -1023,7 +1062,8 @@ slots:
       where the creation of a resource is not practical from the perspective of
       the mapping_provider.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     multivalued: true
@@ -1048,7 +1088,7 @@ slots:
     minimum_value: 0.0
     maximum_value: 1.0
     examples:
-      - value: 0.95
+      - value: "0.95"
         description: A similarity score of 0.95, indicating 95% similarity.
     see_also:
       - https://github.com/mapping-commons/sssom/issues/385
@@ -1062,7 +1102,8 @@ slots:
       processing this field as unambiguous as possible, we recommend using
       wikidata CURIEs, but the type of this field is deliberately unspecified.
     range: string
-    instantiates: sssom:Propagatable
+    instantiates:
+      - sssom:Propagatable
     annotations:
       propagated: true
     examples:
@@ -1158,7 +1199,8 @@ slots:
       its format is unconstrained and the identifier MUST be treated as an
       opaque string.
     range: EntityReference
-    instantiates: sssom:Versionable
+    instantiates:
+      - sssom:Versionable
     annotations:
       added_in: "1.1"
     see_also:
@@ -1171,15 +1213,18 @@ classes:
       license:
         required: true
       similarity_measure:
-        instantiates: sssom:Versionable
+        instantiates:
+          - sssom:Versionable
         annotations:
           added_in: "1.1"
       curation_rule:
-        instantiates: sssom:Versionable
+        instantiates:
+          - sssom:Versionable
         annotations:
           added_in: "1.1"
       curation_rule_text:
-        instantiates: sssom:Versionable
+        instantiates:
+          - sssom:Versionable
         annotations:
           added_in: "1.1"
     slots:
@@ -1300,7 +1345,7 @@ classes:
           slot_conditions:
             subject_type:
               none_of:
-                equals_string: "rdfs literal"
+                - equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
             subject_id:
@@ -1317,7 +1362,7 @@ classes:
           slot_conditions:
             object_type:
               none_of:
-                equals_string: "rdfs literal"
+                - equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
             object_id:

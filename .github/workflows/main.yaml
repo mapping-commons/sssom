@@ -53,3 +53,13 @@ jobs:
       #----------------------------------------------
       - name: Run tests
         run: make test
+
+      #----------------------------------------------
+      #              YAML linting
+      #----------------------------------------------
+      - name: Install
+        run: npm install prettier
+      - name: Lint YML
+        run: npx prettier --check --prose-wrap always "**/*.yml"
+      - name: Lint YAML
+        run: npx prettier --check --prose-wrap always "**/*.yaml"
