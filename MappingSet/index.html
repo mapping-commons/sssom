@@ -1668,12 +1668,15 @@ attributes:
       a single scope that is identical to the entire mapping set. The behaviour if
       a value in the list does not correspond to a valid slot name is undefined.
     examples:
-    - value: '[''predicate_id'']'
+    - value: predicate_id
       description: Indicates that mapping_cardinality is computed relatively to all
         mappings that have the same predicate.
-    - value: '[''predicate_id'', ''object_source'']'
+    - value: predicate_id|object_source
       description: Indicates that mapping_cardinality is computed relatively to all
-        mappings that have the same predicate and the same object source.
+        mappings that have the same predicate and the same object source. Note that
+        this is how the example would look like specifically in the SSSOM/TSV format,
+        where multivalued slots like `cardinality_scope` are represented as a single
+        string containing `|`-separated values.
     from_schema: https://w3id.org/sssom/schema/
     see_also:
     - https://github.com/mapping-commons/sssom/issues/467
