@@ -935,7 +935,7 @@ slots:
         description:
           A reviewer confidence of -1.0 denotes that the reviewer considers the
           mapping record to be incorrect with full confidence
-      - value: 0.0
+      - value: "0.0"
         description:
           A reviewer confidence of 0.0 denotes that the reviewer is not sure
           whether the mapping record is correct or not.
