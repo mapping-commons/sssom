@@ -1554,7 +1554,7 @@
 <p class="admonition-title">Example: Nicolas Matentzoglu|Chris Mungall</p>
 <p><strong>Example value</strong>:</p>
 <p><code>Nicolas Matentzoglu|Chris Mungall</code></p>
-<p><strong>Description</strong>: The human-readable names of the (multiple) authors of the mapping.</p>
+<p><strong>Description</strong>: The human-readable names of the (multiple) authors of the mapping. Note that this is how the example would look like specifically in the SSSOM/TSV format, where multivalued slots such as <code>author_label</code> are represented as single strings containing <code>|</code>-separated values.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example: Nicolas Matentzoglu</p>
@@ -1575,6 +1575,9 @@ description: A string representing the author of this mapping. This should only 
 examples:
 - value: Nicolas Matentzoglu|Chris Mungall
   description: The human-readable names of the (multiple) authors of the mapping.
+    Note that this is how the example would look like specifically in the SSSOM/TSV
+    format, where multivalued slots such as `author_label` are represented as single
+    strings containing `|`-separated values.
 - value: Nicolas Matentzoglu
   description: The human-readable name of the author of the mapping.
 from_schema: https://w3id.org/sssom/schema/

@@ -1539,7 +1539,7 @@
 
 <h1 id="creator_id">creator_id</h1>
 <p><strong>URI</strong>: <a href="http://purl.org/dc/terms/creator">dcterms:creator</a></p>
-<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
+<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
 <p><em>Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.</em></p>
@@ -1554,7 +1554,7 @@
 <p class="admonition-title">Example: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165</p>
 <p><strong>Example value</strong>:</p>
 <p><code>orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165</code></p>
-<p><strong>Description</strong>: The ORCID of the (multiple) creators of the mapping.</p>
+<p><strong>Description</strong>: The ORCID of the (multiple) creators of the mapping. Note that this is how the example would look like specifically in the SSSOM/TSV format, where multivalued slots such as <code>creator_id</code> are represented as single strings containing <code>|</code>-separated values.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example: orcid:0000-0002-7356-1779</p>
@@ -1574,7 +1574,10 @@ description: Identifies the persons or groups responsible for the creation of th
   URIs.
 examples:
 - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
-  description: The ORCID of the (multiple) creators of the mapping.
+  description: The ORCID of the (multiple) creators of the mapping. Note that this
+    is how the example would look like specifically in the SSSOM/TSV format, where
+    multivalued slots such as `creator_id` are represented as single strings containing
+    `|`-separated values.
 - value: orcid:0000-0002-7356-1779
   description: The ORCID of the creator of the mapping.
 from_schema: https://w3id.org/sssom/schema/

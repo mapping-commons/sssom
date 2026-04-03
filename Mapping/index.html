@@ -1651,7 +1651,10 @@ attributes:
       Recommended to be a list of ORCIDs or otherwise identifying URIs.
     examples:
     - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
-      description: The ORCID of the (multiple) authors of the mapping.
+      description: The ORCID of the (multiple) authors of the mapping. Note that this
+        is how the example would look like specifically in the SSSOM/TSV format, where
+        multivalued slots such as `author_id` are represented as single strings containing
+        `|`-separated values.
     - value: orcid:0000-0002-7356-1779
       description: The ORCID of the author of the mapping.
     from_schema: https://w3id.org/sssom/schema/
@@ -1673,6 +1676,9 @@ attributes:
     examples:
     - value: Nicolas Matentzoglu|Chris Mungall
       description: The human-readable names of the (multiple) authors of the mapping.
+        Note that this is how the example would look like specifically in the SSSOM/TSV
+        format, where multivalued slots such as `author_label` are represented as
+        single strings containing `|`-separated values.
     - value: Nicolas Matentzoglu
       description: The human-readable name of the author of the mapping.
     from_schema: https://w3id.org/sssom/schema/
@@ -1689,7 +1695,10 @@ attributes:
       mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.
     examples:
     - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
-      description: The ORCID of the (multiple) reviewers of the mapping.
+      description: The ORCID of the (multiple) reviewers of the mapping. Note that
+        this is how the example would look like specifically in the SSSOM/TSV format,
+        where multivalued slots such as `reviewer_id` are represented as single strings
+        containing `|`-separated values.
     - value: orcid:0000-0002-7356-1779
       description: The ORCID of the reviewer of the mapping.
     from_schema: https://w3id.org/sssom/schema/
@@ -1710,6 +1719,9 @@ attributes:
     examples:
     - value: Nicolas Matentzoglu|Chris Mungall
       description: The human-readable names of the (multiple) reviewers of the mapping.
+        Note that this is how the example would look like specifically in the SSSOM/TSV
+        format, where multivalued slots such as `reviewer_label` are represented as
+        single strings containing `|`-separated values.
     - value: Nicolas Matentzoglu
       description: The human-readable name of the reviewer of the mapping.
     from_schema: https://w3id.org/sssom/schema/
@@ -1729,7 +1741,10 @@ attributes:
       or otherwise identifying URIs.
     examples:
     - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
-      description: The ORCID of the (multiple) creators of the mapping.
+      description: The ORCID of the (multiple) creators of the mapping. Note that
+        this is how the example would look like specifically in the SSSOM/TSV format,
+        where multivalued slots such as `creator_id` are represented as single strings
+        containing `|`-separated values.
     - value: orcid:0000-0002-7356-1779
       description: The ORCID of the creator of the mapping.
     from_schema: https://w3id.org/sssom/schema/
@@ -1752,6 +1767,9 @@ attributes:
     examples:
     - value: Nicolas Matentzoglu|Chris Mungall
       description: The human-readable names of the (multiple) creators of the mapping.
+        Note that this is how the example would look like specifically in the SSSOM/TSV
+        format, where multivalued slots such as `creator_label` are represented as
+        single strings containing `|`-separated values.
     - value: Nicolas Matentzoglu
       description: The human-readable name of the creator of the mapping.
     from_schema: https://w3id.org/sssom/schema/

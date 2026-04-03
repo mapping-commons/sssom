@@ -1539,7 +1539,7 @@
 
 <h1 id="creator_label">creator_label</h1>
 <p><strong>URI</strong>: <a href="https://w3id.org/sssom/creator_label">sssom:creator_label</a></p>
-<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a>, <a href="../MappingSet/">MappingSet</a></p>
+<p><strong>Applicable to</strong>: <a href="../MappingSet/">MappingSet</a>, <a href="../Mapping/">Mapping</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
 <p><em>A string representing the creator of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in creator_id) for that creator. It is not expected that there should be any link between creator_id and creator_label; in particular, creator_label is not intended to provide a human-friendly version of an identifier in creator_id.</em></p>
@@ -1554,7 +1554,7 @@
 <p class="admonition-title">Example: Nicolas Matentzoglu|Chris Mungall</p>
 <p><strong>Example value</strong>:</p>
 <p><code>Nicolas Matentzoglu|Chris Mungall</code></p>
-<p><strong>Description</strong>: The human-readable names of the (multiple) creators of the mapping.</p>
+<p><strong>Description</strong>: The human-readable names of the (multiple) creators of the mapping. Note that this is how the example would look like specifically in the SSSOM/TSV format, where multivalued slots such as <code>creator_label</code> are represented as single strings containing <code>|</code>-separated values.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example: Nicolas Matentzoglu</p>
@@ -1575,6 +1575,9 @@ description: A string representing the creator of this mapping. This should only
 examples:
 - value: Nicolas Matentzoglu|Chris Mungall
   description: The human-readable names of the (multiple) creators of the mapping.
+    Note that this is how the example would look like specifically in the SSSOM/TSV
+    format, where multivalued slots such as `creator_label` are represented as single
+    strings containing `|`-separated values.
 - value: Nicolas Matentzoglu
   description: The human-readable name of the creator of the mapping.
 from_schema: https://w3id.org/sssom/schema/
