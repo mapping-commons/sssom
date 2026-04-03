@@ -1,5 +1,7 @@
 # Introduction
 
+This section overs an overview of SSSOM. If you are looking for a fast way to [get started, see here](getting-started.md).
+
 ## Abstract
 
 Mappings, or cross-references, are used to link terms across different ontologies. However, there is currently little to no standardisation in how such mappings are represented. While properties such as hasDbXref property are widely used in ontologies such as GO and MONDO, the meaning of such mappings is unclear, and cannot be further described with additional metadata or provenance.
