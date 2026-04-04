@@ -4,7 +4,6 @@
 #   orcid: https://orcid.org/
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
-#   sssom: https://w3id.org/sssom/
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 # mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/review_date.sssom.tsv
 # creator_id:
@@ -12,5 +11,6 @@
 # see_also:
 #  - https://github.com/mapping-commons/sssom/issues/511
 #  - https://github.com/mapping-commons/sssom/pull/514
+#  - https://mapping-commons.github.io/sssom/confidence-model
 subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	reviewer_id	review_date
 CHEBI:10001	Visnadin	skos:exactMatch	mesh:C067604	visnadin	semapv:ManualMappingCuration	orcid:0000-0001-9439-5346	orcid:0000-0003-4423-4370	2026-03-26
