@@ -6,7 +6,7 @@ SHELL := bash
 .SUFFIXES:
 .SECONDARY:
 
-RUN = poetry run
+RUN = uv run
 # get values from about.yaml file
 SCHEMA_NAME = sssom_schema
 SOURCE_SCHEMA_PATH = src/sssom_schema/schema/sssom_schema.yaml
@@ -38,7 +38,7 @@ status: check-config
 setup: install gen-project gendoc git-init-add
 
 install:
-	poetry install
+	uv sync
 .PHONY: install
 
 all: gen-project gendoc gen-excel get-context
@@ -55,7 +55,7 @@ test: validate-schema
 	$(RUN) gen-project \
 		--exclude owl \
 		-d tmp $(SOURCE_SCHEMA_PATH) 
-	$(RUN) python tests/test_added_in_annotations.py
+	$(RUN) pytest
 
 validate-schema: $(SOURCE_SCHEMA_PATH)
 	$(RUN) linkml lint --validate --validate-only $<
@@ -78,7 +78,7 @@ examples/%.ttl: src/data/examples/%.yaml
 	$(RUN) linkml-convert -P EXAMPLE=http://example.org/ -s $(SOURCE_SCHEMA_PATH) -C Person $< -o $@
 
 upgrade:
-	poetry add -D linkml@latest
+	uv add linkml --upgrade-package linkml
 
 # Test documentation locally
 serve: mkd-serve
@@ -98,7 +98,7 @@ gendoc: $(DOCDIR)
 
 testdoc: gendoc serve
 
-MKDOCS = $(RUN) mkdocs
+MKDOCS = $(RUN) --all-groups mkdocs
 mkd-%:
 	$(MKDOCS) $*
 
@@ -107,7 +107,7 @@ git-init-add: git-init git-add git-commit git-status
 git-init:
 	git init
 git-add:
-	git add .gitignore .github Makefile LICENSE *.md examples utils about.yaml mkdocs.yml poetry.lock project.Makefile pyproject.toml src/linkml/*yaml src/*/datamodel/*py src/data
+	git add .gitignore .github Makefile LICENSE *.md examples utils about.yaml mkdocs.yml uv.lock project.Makefile pyproject.toml src/linkml/*yaml src/*/datamodel/*py src/data
 	git add $(patsubst %, project/%, $(PROJECT_FOLDERS))
 git-commit:
 	git commit -m 'Initial commit' -a
