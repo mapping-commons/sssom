@@ -1774,7 +1774,7 @@ the registry confidence in a mapping set to be 1.0 by default.</p>
 <h2 id="reviewer-agreement">Reviewer Agreement</h2>
 <p>In addition to the <code>confidence</code> slot which denotes the creator's confidence in
 the accuracy of a mapping record, the <code>reviewer_agreement</code> slot allows for the
-reviewer to state if they disagree or agree on a scale of $[-1, 1]$.</p>
+reviewer to state if they disagree or agree on a scale of <span class="arithmatex">\([-1, 1]\)</span>.</p>
 <p>In the following example, the reviewer confidently agrees with the accuracy of
 the mapping that was previously asserted by another curator and denotes this
 with a high agreement (near 1.0):</p>
@@ -1827,10 +1827,10 @@ the
 <a href="https://github.com/biopragmatics/semra">Semantic Mapping Reasoner and Assembler</a>.
 With the introduction of reviewer agreements, this section proposes one
 potential way of using it to weight confidence:</p>
-<p>$$f(c,r)=(1−\left| r \right|)\times c+\left| r \right|\times \frac{r + 1}{2}$$</p>
-<p>with creator confidence ($c$) and reviewer agreement ($r$). The
-$\frac{r + 1}{2}$ term reweights the agreement score to work better on the
-$[0,1]$ range.</p>
+<div class="arithmatex">\[f(c,r)=(1−\left| r \right|)\times c+\left| r \right|\times \frac{r + 1}{2}\]</div>
+<p>with creator confidence (<span class="arithmatex">\(c\)</span>) and reviewer agreement (<span class="arithmatex">\(r\)</span>). The
+<span class="arithmatex">\(\frac{r + 1}{2}\)</span> term reweights the agreement score to work better on the
+<span class="arithmatex">\([0,1]\)</span> range.</p>
 <p>This function has the nice properties:</p>
 <ol>
 <li>When the reviewer's agreement is closer to 0.0, it doesn't have an effect on
@@ -1922,6 +1922,10 @@ plt.savefig(&quot;images/reviewer-agreement-aggregation.svg&quot;)
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
