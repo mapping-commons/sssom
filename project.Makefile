@@ -7,10 +7,10 @@ gen-excel:
 	$(RUN) gen-excel --output $(EXCEL_DIR)/sssom_schema.xlsx $(SOURCE_SCHEMA_PATH)
 
 build:
-	poetry build
+	uv build
 
 pypi:
-	poetry publish
+	uv publish
 
 #######################################
 ##### Mapping validation  #############

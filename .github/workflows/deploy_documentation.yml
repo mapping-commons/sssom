@@ -32,29 +32,11 @@ jobs:
           # persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
-      #----------------------------------------------
-      #          install & configure poetry
-      #----------------------------------------------
-      - name: Install Poetry
-        run: |
-          pipx install poetry
-          pipx inject poetry poetry-dynamic-versioning
+      - name: Set up Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
 
-      #----------------------------------------------
-      #                setup Python
-      #----------------------------------------------
-      - name: Set up Python
-        uses: actions/setup-python@v5.6.0
-        id: setup-python
-        with:
-          python-version: "3.10"
-          cache: "poetry"
-
-      #----------------------------------------------
-      #             install dependencies
-      #----------------------------------------------
       - name: Install dependencies
-        run: poetry install --no-interaction --no-root
+        run: uv sync --all-groups
 
       #----------------------------------------------
       #           generate markdown files
