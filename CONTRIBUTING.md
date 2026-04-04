@@ -255,7 +255,7 @@ SSSOM-Py. To do so:
 5. Run SSSOM-Py’s test suite:
 
    ```sh
-   $ uv run tox -e py
+   $ uv run pytest
    ```
 
 ### Making a release
