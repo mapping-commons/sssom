@@ -55,7 +55,7 @@ test: validate-schema
 	$(RUN) gen-project \
 		--exclude owl \
 		-d tmp $(SOURCE_SCHEMA_PATH) 
-	$(RUN) python tests/test_added_in_annotations.py
+	$(RUN) pytest
 
 validate-schema: $(SOURCE_SCHEMA_PATH)
 	$(RUN) linkml lint --validate --validate-only $<
