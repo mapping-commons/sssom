@@ -244,7 +244,7 @@ SSSOM-Py. To do so:
    initialized environment:
 
    ```sh
-   $ uv run python -m pip install /path/to/your/sssom/repository
+   $ uv pip install /path/to/your/sssom/repository
    ```
 
    You may get a warning about “incompatible sssom-schema versions”; this is due
