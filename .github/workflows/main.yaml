@@ -36,7 +36,7 @@ jobs:
       #----------------------------------------------
       #              YAML linting
       #----------------------------------------------
-      - name: Install
+      - name: Install Prettier
         run: npm install prettier
       - name: Lint YML
         run: npx prettier --check --prose-wrap always "**/*.yml"
