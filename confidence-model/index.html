@@ -1412,6 +1412,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#reviewer-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewer Agreement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregating-confidence-for-a-semantic-mapping-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aggregating Confidence for a Semantic Mapping Record
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1632,6 +1654,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#reviewer-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewer Agreement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregating-confidence-for-a-semantic-mapping-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aggregating Confidence for a Semantic Mapping Record
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1727,6 +1771,102 @@ estimate becomes more accurate as the size of the sample increases, so it's
 suggested to sample a minimum 50-100 semantic mappings.</p>
 <p>When not explicitly specified, confidence estimation algorithms should consider
 the registry confidence in a mapping set to be 1.0 by default.</p>
+<h2 id="reviewer-agreement">Reviewer Agreement</h2>
+<p>In addition to the <code>confidence</code> slot which denotes the creator's confidence in
+the accuracy of a mapping record, the <code>reviewer_agreement</code> slot allows for the
+reviewer to state if they disagree or agree on a scale of $[-1, 1]$.</p>
+<p>In the following example, the reviewer confidently agrees with the accuracy of
+the mapping that was previously asserted by another curator and denotes this
+with a high agreement (near 1.0):</p>
+<pre><code class="language-tsv"># curie_map:
+#   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+#   mesh: http://id.nlm.nih.gov/mesh/
+#   orcid: https://orcid.org/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_agreement.sssom.tsv
+subject_id  subject_label   predicate_id    object_id   object_label    mapping_justification   author_id   reviewer_id reviewer_agreement
+CHEBI:10001 Visnadin    skos:exactMatch mesh:C067604    visnadin    semapv:ManualMappingCuration    orcid:0000-0001-9439-5346   orcid:0000-0003-4423-4370   0.99
+</code></pre>
+<p>In the following example, a semantic mapping was predicted by the
+<a href="https://www.wikidata.org/wiki/Q111239110">Biomappings</a> workflow. The reviewer
+confidently disagrees with the accuracy of the mapping, and denotes this by
+adding a low agreement (near -1.0):</p>
+<pre><code class="language-tsv"># curie_map:
+#   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+#   mesh: http://id.nlm.nih.gov/mesh/
+#   orcid: https://orcid.org/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   wikidata: http://www.wikidata.org/entity/
+# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_agreement.sssom.tsv
+subject_id  subject_label   predicate_id    object_id   object_label    mapping_justification   mapping_tool_id reviewer_id reviewer_agreement
+CHEBI:10057 9H-xanthene skos:exactMatch mesh:C002563    xanthan gum semapv:ManualMappingCuration    wikidata:Q111239110 orcid:0000-0003-4423-4370   -0.99
+</code></pre>
+<p>In the following example, a semantic mapping was predicted by the
+<a href="https://www.wikidata.org/wiki/Q111239110">Biomappings</a> workflow. Because MeSH
+does not include detailed information about the chemical's structure, it's not
+clear to the reviewer if it should be mapped or not. Therefore, the reviewer
+denotes they are unsure of whether the semantic mapping is correct or not with
+an agreement of 0.0 (halfway between 1.0 for fully agree and -1.0 for fully
+disagree).</p>
+<pre><code class="language-tsv"># curie_map:
+#   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+#   mesh: http://id.nlm.nih.gov/mesh/
+#   orcid: https://orcid.org/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/reviewer_agreement.sssom.tsv
+subject_id  subject_label   predicate_id    object_id   object_label    mapping_justification   mapping_tool_id reviewer_id reviewer_agreement
+CHEBI:127105    tribromosalicylanilide  skos:exactMatch mesh:C004361    tribromsalan    semapv:LexicalMatching  wikidata:Q111239110 orcid:0000-0003-4423-4370   0.0
+</code></pre>
+<h2 id="aggregating-confidence-for-a-semantic-mapping-record">Aggregating Confidence for a Semantic Mapping Record</h2>
+<p><a href="https://doi.org/10.1093/bioinformatics/btaf542">Hoyt et al. (2025)</a> proposed a
+model for aggregating confidences on semantic mappings that was implemented in
+the
+<a href="https://github.com/biopragmatics/semra">Semantic Mapping Reasoner and Assembler</a>.
+With the introduction of reviewer agreements, this section proposes one
+potential way of using it to weight confidence:</p>
+<p>$$f(c,r)=(1−\left| r \right|)\times c+\left| r \right|\times \frac{r + 1}{2}$$</p>
+<p>with creator confidence ($c$) and reviewer agreement ($r$). The
+$\frac{r + 1}{2}$ term reweights the agreement score to work better on the
+$[0,1]$ range.</p>
+<p>This function has the nice properties:</p>
+<ol>
+<li>When the reviewer's agreement is closer to 0.0, it doesn't have an effect on
+   the creator's confidence</li>
+<li>When the reviewer's agreement is closer to -1.0 or 1.0, it should override
+   the creator's confidence proportionally to how close it is to the extremes</li>
+</ol>
+<p>Here's how it looks over all possible values for the creator confidence and
+reviewer agreement:</p>
+<p><img alt="" src="../images/reviewer-agreement-aggregation.svg" /></p>
+<details>
+ <summary>Code that produced this chart</summary>
+
+
+<pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
+
+def aggregate(c: float, r: float) -&gt; float:
+    w = np.abs(r)
+    return (1 - w) * c + w * (r + 1) / 2
+
+reviewer, creator = np.meshgrid(np.linspace(-1, 1, 100), np.linspace(0, 1, 100))
+z = aggregate(creator, reviewer)
+fig, ax = plt.subplots()
+mesh = ax.pcolormesh(creator, reviewer, z, cmap=&quot;RdBu&quot;)
+ax.set_xlabel(&quot;Creator Confidence&quot;)
+ax.set_ylabel(&quot;Reviewer Agreement&quot;)
+ax.set_title(&quot;Aggregation of Creator Confidence\nand Reviewer Agreement&quot;)
+ax.axis([0, 1, -1, 1])
+fig.colorbar(mesh, ax=ax)
+plt.show()
+plt.savefig(&quot;images/reviewer-agreement-aggregation.svg&quot;)
+</code></pre>
+
+
+</details>
 
 
 

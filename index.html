@@ -2220,6 +2220,20 @@ mapping_date: 2022-05-02
 <td></td>
 </tr>
 <tr>
+<td><strong><a href="reviewer_agreement/">reviewer_agreement</a></strong></td>
+<td>A value assigned by the reviewer of the mapping to denote their confidence that the mapping record is correct. A value of 1.0 means the reviewer fully agrees with the mapping record. A value of -1.0 means the reviewer fully disagrees with the mapping record. A value of 0.0 means the reviewer is not sure whether the mapping record is correct or not.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>When not explicitly specified, confidence estimation algorithms should consider the reviewer agreement to be 1.0 by default.</td>
+<td>double</td>
+<td>1.0</td>
+<td>Optional</td>
+<td></td>
+</tr>
+<tr>
 <td><strong><a href="curation_rule/">curation_rule</a></strong></td>
 <td>A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.</td>
 <td>entity reference (e.g. CURIE in TSV)</td>
