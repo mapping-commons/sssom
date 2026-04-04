@@ -48,13 +48,11 @@ deploy: all mkd-gh-deploy
 # generates all project files
 gen-project: $(PYMODEL)
 	$(RUN) gen-project \
-		--exclude owl \
 		-d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
 
 test: validate-schema
 	$(RUN) gen-project \
-		--exclude owl \
-		-d tmp $(SOURCE_SCHEMA_PATH) 
+		-d tmp $(SOURCE_SCHEMA_PATH)
 	$(RUN) python tests/test_added_in_annotations.py
 
 validate-schema: $(SOURCE_SCHEMA_PATH)
