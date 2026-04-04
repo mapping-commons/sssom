@@ -211,7 +211,7 @@ $ make test
 If you are making a change to the documentation/specification, you should also
 check how your changes are rendered, by running
 
-```cosole
+```console
 $ make serve
 ```
 
