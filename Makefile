@@ -98,7 +98,7 @@ gendoc: $(DOCDIR)
 
 testdoc: gendoc serve
 
-MKDOCS = $(RUN) mkdocs
+MKDOCS = $(RUN) --all-groups mkdocs
 mkd-%:
 	$(MKDOCS) $*
 
