@@ -40,7 +40,6 @@ nav:
       - Introduction: spec-intro.md
       - Data model:
           - Introduction: spec-model.md
-          - Applying Chaining Rules: chaining-rules.md
           - LinkML documentation: linkml-index.md
       - Serialisations:
           - Introduction: spec-formats.md
@@ -48,6 +47,10 @@ nav:
           - SSSOM/JSON serialisation: spec-formats-json.md
           - SSSOM/RDF serialisation: spec-formats-rdf.md
           - OWL/RDF serialisation: spec-formats-owl.md
+      - Support functions:
+          - Introduction: spec-support.md
+          - Hashing mapping records: spec-support-hashing.md
+          - Applying Chaining Rules: chaining-rules.md
   - Resources for contributors: contributing.md
   - Resources for users:
       - FAQ: faq.md
