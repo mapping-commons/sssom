@@ -16,11 +16,8 @@ jobs:
           # Checkout the code including tags required for dynamic versioning
           fetch-depth: 0
 
-      - name: Set up Python ${{ matrix.python-version }}
-        run: uv python install ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: uv sync --all-groups
+      - name: Set up Python
+        run: uv python install 3.10
 
       - name: Build source and wheel archives
         run: uv build
