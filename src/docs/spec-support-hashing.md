@@ -103,22 +103,22 @@ ZBase32 encoding ([RFC 6189](https://tools.ietf.org/html/rfc6189#section-5.1.6))
 > This section is not normative. It provides a step-by-step example of
 how to apply the above procedure.
 
-Given the following mapping record (in JSON format):
+Given the following mapping set in SSSOM/TSV format:
 
-```json
-{"subject_id": "http://purl.obolibrary.org/obo/FBbt_00001234",
- "predicate_id": "http://www.w3.org/2004/02/skos/core#exactMatch",
- "object_id": "http://purl.obolibrary.org/obo/UBERON_0005678",
- "mapping_justification": "https://w3id.org/semapv/vocab/ManualMappingCuration",
- "creator_id": [
-    "https://orcid.org/0000-0000-5678-1234",
-    "https://orcid.org/0000-0000-1234-5678"
- ]}
+```
+#curie_map:
+#  FBbt: http://purl.obolibrary.org/obo/FBbt_
+#  UBERON: http://purl.obolibrary.org/obo/UBERON_
+#  orcid: https://orcid.org/
+#  semapv: https://w3id.org/semapv/vocab/
+#  skos: http://www.w3.org/2004/02/skos/core#
+subject_id	predicate_id	object_id	mapping_justification	creator_id
+FBbt:00001234	skos:exactMatch	UBERON:0005678	semapv:ManualMappingCuration	orcid:0000-0000-5678-1234|orcid:0000-0000-1234-5678
 ```
 
-Applying step 1 of the above procedure would yield the following
-canonical S-expression (**whitespaces added for clarity**, they MUST NOT
-appear in the actual S-expression):
+Applying step 1 of the above procedure to the only mapping record of
+that set would yield the following canonical S-expression (**whitespaces
+added for clarity**, they MUST NOT appear in the actual S-expression):
 
 ```
 (7:mapping(
@@ -144,48 +144,99 @@ following final value:
 ## Test vectors
 
 > This section is not normative. It provides examples of SSSOM mapping
-records along with the corresponding hash value.
+sets along with the canonical S-expression and the ZBase32-encoded hash
+value of the set’s only record.
 
-```json
-{"subject_id": "https://kewl-foodie.inc/food/F001",
- "subject_label": "apple",
- "predicate_id": "http://www.w3.org/2004/02/skos/core#exactMatch",
- "object_id": "http://purl.obolibrary.org/obo/FOODON_00002473",
- "object_label": "apple (whole)",
- "mapping_justification": "https://w3id.org/semapv/vocab/ManualMappingCuration",
- "author_id": [
-   "https://orcid.org/0000-0002-7356-1779"
- ],
- "subject_source": "https://kewl-foodie.inc/food/DB",
- "object_source": "https://www.wikidata.org/wiki/Q55118395",
- "object_source_version": "http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl",
- "mapping_date": "2022-05-02",
- "confidence": 0.95
-}
+**Source set:**
+```
+#curie_map:
+#  FOODON: http://purl.obolibrary.org/obo/FOODON_
+#  KF_FOOD: https://kewl-foodie.ince/food/
+#  semapv: https://w3id.org/semapv/vocab/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#  wikidata: https://www.wikidata.org/wiki/
+#subject_source: KF_FOOD:DB
+#object_source: wikidata:Q55118395
+#object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
+subject_id	predicate_id	object_id	mapping_justification	confidence	mapping_date
+KF_FOOD:F001	skos:exactMatch	FOODON:00002473	semapv:ManualMappingCuration	0.95	2022-05-02
 ```
 
-Hash value: `x4m9kcj8yjrrxh8ozwt83bkxcequb3fjqsamu9yyejyqft1gowao`
-
-```json
-{"record_id": "https://example.org/sets/record-id#0000001",
- "subject_id": "http://purl.obolibrary.org/obo/FBbt_0009124",
- "predicate_id": "http://www.w3.org/2004/02/skos/core#exactMatch",
- "object_id": "http://purl.obolibrary.org/obo/UBERON_0000003",
- "mapping_justification": "https://w3id.org/semapv/vocab/LexicalMatching"
-}
+S-expression:
+```
+(7:mapping((10:subject_id34:https://kewl-foodie.ince/food/F001)(12:predicate_id46:http://www.w3.org/2004/02/skos/core#exactMatch)(9:object_id46:http://purl.obolibrary.org/obo/FOODON_00002473)(21:mapping_justification51:https://w3id.org/semapv/vocab/ManualMappingCuration)(14:subject_source32:https://kewl-foodie.ince/food/DB)(13:object_source39:https://www.wikidata.org/wiki/Q55118395)(21:object_source_version68:http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl)(12:mapping_date10:2022-05-02)(10:confidence4:0.95)))
+```
+Hash value:
+```
+cdxs1je5rcwpiqnarmojsqmxmpfe9tj43sbahp8u6txk5rssoduo
 ```
 
-Hash value: `qn1bra45hjtazt664husfgah5ewzo3oamh4swj5gomuka88rrqgo`
-
-```json
-{"subject_id": "http://purl.obolibrary.org/obo/HP_0009124",
- "predicate_id": "http://www.w3.org/2004/02/skos/core#exactMatch",
- "object_id": "http://purl.obolibrary.org/obo/MP_0000003",
- "mapping_justification": "https://w3id.org/semapv/vocab/LexicalSimilarityThresholdMatching",
- "mapping_provider": "https://w3id.org/sssom/core_team",
- "similarity_score": 0.8,
- "similarity_measure": "wikidata:Q865360"
-}
+**Source set:**
+```
+#curie_map:
+#  FBbt: http://purl.obolibrary.org/obo/FBbt_
+#  UBERON: http://purl.obolibrary.org/obo/UBERON_
+#  semapv: https://w3id.org/semapv/vocab/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#  example: https://example.org/sets/record-id#
+record_id	subject_id	predicate_id	object_id	mapping_justification
+example:0000001	FBbt:0009124	skos:exactMatch	UBERON:0000003	semapv:LexicalMatching
 ```
 
-Hash value: `is395b9nwm1rnz3nwkm89nmf563uw48sjspsx7ua8snjqzwz15ty`
+S-expression:
+```
+(7:mapping((10:subject_id43:http://purl.obolibrary.org/obo/FBbt_0009124)(12:predicate_id46:http://www.w3.org/2004/02/skos/core#exactMatch)(9:object_id45:http://purl.obolibrary.org/obo/UBERON_0000003)(21:mapping_justification45:https://w3id.org/semapv/vocab/LexicalMatching)))
+```
+Hash value:
+```
+qn1bra45hjtazt664husfgah5ewzo3oamh4swj5gomuka88rrqgo
+```
+
+**Source set:**
+```
+#curie_map:
+#  HP: http://purl.obolibrary.org/obo/HP_
+#  MP: http://purl.obolibrary.org/obo/MP_
+#  semapv: https://w3id.org/semapv/vocab/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#mapping_provider: https://w3id.org/sssom/core_team
+subject_id	predicate_id	object_id	mapping_justification	similarity_score
+HP:0009124	skos:exactMatch	MP:0000003	semapv:LexicalSimilarityThresholdMatching	0.8
+```
+
+S-expression:
+```
+(7:mapping((10:subject_id41:http://purl.obolibrary.org/obo/HP_0009124)(12:predicate_id46:http://www.w3.org/2004/02/skos/core#exactMatch)(9:object_id41:http://purl.obolibrary.org/obo/MP_0000003)(21:mapping_justification64:https://w3id.org/semapv/vocab/LexicalSimilarityThresholdMatching)(16:mapping_provider32:https://w3id.org/sssom/core_team)(16:similarity_score3:0.8)))
+```
+Hash value:
+```
+bsat1g1mxe564n5rtoy5usdifybheqxgpes53rtbrue5uu3ac19o
+```
+
+**Source set:**
+```
+#curie_map:
+#  COMENT: https://example.com/entities/
+#  EXPROP: https://example.org/properties/
+#  ORGENT: https://example.org/entities/
+#  semapv: https://w3id.org/semapv/vocab/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#extension_definitions:
+#  - slot_name: ext_bar
+#    property: EXPROP:barProperty
+#    type_hint: xsd:integer
+#  - slot_name: ext_baz
+#    property: EXPROP:bazProperty
+#    type_hint: linkml:Uriorcurie
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	ext_bar	ext_baz
+ORGENT:0001	alice	skos:closeMatch	COMENT:0011	alpha	semapv:ManualMappingCuration	111	ORGENT:BAZ_0001
+```
+
+S-expression:
+```
+(7:mapping((10:subject_id33:https://example.org/entities/0001)(13:subject_label5:alice)(12:predicate_id46:http://www.w3.org/2004/02/skos/core#closeMatch)(9:object_id33:https://example.com/entities/0011)(12:object_label5:alpha)(21:mapping_justification51:https://w3id.org/semapv/vocab/ManualMappingCuration)(10:extensions((42:https://example.org/properties/barProperty3:111)(42:https://example.org/properties/bazProperty37:https://example.org/entities/BAZ_0001)))))
+```
+Hash value:
+```
+o5tsbozxxc6i66nezy7rm679waam1f9mxbemqpbyeyiz4q53sqjo
+```
