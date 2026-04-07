@@ -57,9 +57,8 @@ slots:
     4. If the slot is typed as a floating point number (e.g.
     `confidence`), convert the value to a string _V_ by truncating the
     floating point number to up to 3 digits after the decimal point,
-    rounding the last digit to the nearest neighbour (rounding up if
-    both neighbours are equidistant). Then append `N:V`, where _N_ is
-    the length of _V_.
+    rounding the last digit half away from zero. Then append `N:V`,
+    where _N_ is the length of _V_.
     5. If the slot is typed as an enumeration (e.g. `subject_type`),
     append `N:ENUMVALUE`, where _ENUMVALUE_ is the allowed value in the
     enumeration as specified in the LinkML model, and _N_ is the length
@@ -82,10 +81,25 @@ and the mapping record does have such slots:
     3. For each extension value:
         1. Append `(N:PROP`, where _PROP_ is the property identifying
         the extension and _N_ is the length of the property.
-        2. Append `N:V`, where _V_ is the extension value proper and _N_
-        its length.
+        2. Use the table below to transform the extension value into a
+        string _V_ based on the declared type of the extension.
+        3. Append `N:V`, where _N_ is the length of the string value _V_.
     4. Append `))`.
 4. Append `))`.
+
+Converting extension values to string:
+
+| Declared extension type | Conversion to string |
+| ----------------------- | -------------------- |
+| `xsd:string`            | No conversion needed, use the value directly |
+| `xsd:integer`           | Base 10 representation of the integer value |
+| `xsd:double`            | Truncate the number to up to 3 digits after the decimal point, round the last digit half away from zero |
+| `xsd:boolean`           | `true` or `false` |
+| `xsd:date`              | ISO-8601 representation: `YYYY-MM-DD` |
+| `xsd:datetime`          | ISO-8601 representation: `YYYY-MM-DDThh:mm:ssTZ` where `TZ` is the zone offset (e.g. `+01:00` or `-06:30`) |
+| `xsd:anyURI`            | No conversion needed, use the value directly |
+| `linkml:uriOrCurie`     | Expand the value according to the set’s prefix map |
+| any other type          | unspecified |
 
 ### Step 2: Compute the SHA2-256 hash of the S-expression
 Encore the S-expression assembled in step 1 into UTF-8 (if it was not
