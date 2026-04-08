@@ -70,6 +70,7 @@ nav:
           - Matching tool implementation guide: matching-tool-implementation-guide.md
           - How to gradually enrich OMOP mappings with SSSOM: tutorials/omop-mappings.md
           - How to assess mapping confidence: confidence-model.md
+          - Identifying mapping records: record-identifiers.md
       - Reference:
           - Glossary: glossary.md
   - Related documentation: related-documentation.md
