@@ -139,7 +139,7 @@ bad idea
 
 An identifier can be automatically derived from the record by running the record
 through some kind of condensation (“hash”) function that returns a value
-calculcated in such a way that the probability that two different records could
+calculated in such a way that the probability that two different records could
 yield the same value can be considered negligible.
 
 The SSSOM specification defines [such a function](spec-support-hashing.md).
