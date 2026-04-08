@@ -39,9 +39,9 @@ enum SssomVersionEnum
 
 type ExtensionDefinition
   {
-    slotName: Ncname!
-    property: Uriorcurie
-    typeHint: Uriorcurie
+    slotName: String!
+    property: String
+    typeHint: String
   }
 
 type Mapping
@@ -78,9 +78,11 @@ type Mapping
     mappingTool: String
     mappingToolId: EntityReference
     mappingToolVersion: String
-    mappingDate: Date
-    publicationDate: Date
-    confidence: Double
+    mappingDate: String
+    publicationDate: String
+    reviewDate: String
+    confidence: Float
+    reviewerAgreement: Float
     curationRule: [EntityReference]
     curationRuleText: [String]
     subjectMatchField: [EntityReference]
@@ -88,7 +90,7 @@ type Mapping
     matchString: [String]
     subjectPreprocessing: [EntityReference]
     objectPreprocessing: [EntityReference]
-    similarityScore: Double
+    similarityScore: Float
     similarityMeasure: String
     seeAlso: [NonRelativeURI]
     issueTrackerItem: EntityReference
@@ -118,7 +120,7 @@ type MappingSet
     mappingSetSource: [NonRelativeURI]
     mappingSetTitle: String
     mappingSetDescription: String
-    mappingSetConfidence: Double
+    mappingSetConfidence: Float
     creatorId: [EntityReference]
     creatorLabel: [String]
     license: NonRelativeURI!
@@ -134,8 +136,8 @@ type MappingSet
     mappingTool: String
     mappingToolId: EntityReference
     mappingToolVersion: String
-    mappingDate: Date
-    publicationDate: Date
+    mappingDate: String
+    publicationDate: String
     subjectMatchField: [EntityReference]
     objectMatchField: [EntityReference]
     subjectPreprocessing: [EntityReference]
@@ -154,9 +156,9 @@ type MappingSetReference
   {
     mappingSetId: NonRelativeURI!
     mirrorFrom: NonRelativeURI
-    registryConfidence: Double
+    registryConfidence: Float
     mappingSetGroup: String
-    lastUpdated: Date
+    lastUpdated: String
     localName: String
   }
 
@@ -166,8 +168,8 @@ type NoTermFound
 
 type Prefix
   {
-    prefixName: Ncname!
-    prefixUrl: Uri
+    prefixName: String!
+    prefixUrl: String
   }
 
 type Propagatable
@@ -179,4 +181,3 @@ type Versionable
   {
     addedIn: SssomVersionEnum
   }
-
