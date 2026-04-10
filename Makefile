@@ -94,7 +94,7 @@ $(DOCDIR):
 gendoc: $(DOCDIR)
 	cp -rf $(SRC)/docs/* $(DOCDIR) ; \
 	$(RUN) jinjanate $(SRC)/doc-templates/frontpage.md.jinja2 $(SOURCE_SCHEMA_PATH) -o $(DOCDIR)/index.md
-	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH) --template-directory $(TEMPLATE_DIR) --index-name linkml-index
+	$(RUN) gen-doc -d $(DOCDIR)/spec/ $(SOURCE_SCHEMA_PATH) --template-directory $(TEMPLATE_DIR) --index-name linkml-index
 
 testdoc: gendoc serve
 

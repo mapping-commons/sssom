@@ -37,17 +37,18 @@ nav:
   - Introduction: introduction.md
   - Getting started: getting-started.md
   - Specification:
-      - Introduction: spec-intro.md
-      - Data model:
-          - Introduction: spec-model.md
-          - Applying Chaining Rules: chaining-rules.md
-          - LinkML documentation: linkml-index.md
-      - Serialisations:
-          - Introduction: spec-formats.md
-          - SSSOM/TSV serialisation: spec-formats-tsv.md
-          - SSSOM/JSON serialisation: spec-formats-json.md
-          - SSSOM/RDF serialisation: spec-formats-rdf.md
-          - OWL/RDF serialisation: spec-formats-owl.md
+      - Development version:
+          - Introduction: spec/intro.md
+          - Data model:
+              - Introduction: spec/model.md
+              - Applying Chaining Rules: spec/chaining-rules.md
+              - LinkML documentation: spec/linkml-index.md
+          - Serialisations:
+              - Introduction: spec/formats.md
+              - SSSOM/TSV serialisation: spec/formats-tsv.md
+              - SSSOM/JSON serialisation: spec/formats-json.md
+              - SSSOM/RDF serialisation: spec/formats-rdf.md
+              - OWL/RDF serialisation: spec/formats-owl.md
   - Resources for contributors: contributing.md
   - Resources for users:
       - FAQ: faq.md

@@ -25,11 +25,11 @@ Of note, within a set, a mapping may not necessarily be uniquely identified by t
 
 ## Identifiers
 
-Throughout the model, identifiers to external resources are represented using the custom type [`EntityReference`](EntityReference.md) (based on the LinkML type [`uriorcurie`](https://w3id.org/linkml/Uriorcurie)), which accepts both full-length IRIs and [CURIEs](https://www.w3.org/TR/curie/) as possible identifier formats. (Note however that serialisation formats may mandate the use of one identifier format over the other; for example, the [SSSOM/TSV](spec-formats-tsv.md) format requires the systematic use of CURIEs, whereas the [OWL/RDF](spec-formats-owl.md) format conversely requires the systematic use of IRIs).
+Throughout the model, identifiers to external resources are represented using the custom type [`EntityReference`](EntityReference.md) (based on the LinkML type [`uriorcurie`](https://w3id.org/linkml/Uriorcurie)), which accepts both full-length IRIs and [CURIEs](https://www.w3.org/TR/curie/) as possible identifier formats. (Note however that serialisation formats may mandate the use of one identifier format over the other; for example, the [SSSOM/TSV](formats-tsv.md) format requires the systematic use of CURIEs, whereas the [OWL/RDF](spec-formats-owl.md) format conversely requires the systematic use of IRIs).
 
 Whenever the CURIE syntax is used in a mapping set (whether this is by choice of the SSSOM producer, or because it is mandated by the serialisation format), all CURIEs MUST be unambiguously resolvable into corresponding full-length IRIs without requiring any external resources. This means that any prefix name used MUST be properly declared in the set’s `curie_map` slot, which is a dictionary associating a prefix name to an IRI prefix.
 
-By exception, prefix names listed in the table found in the [IRI prefixes](spec-intro.md#iri-prefixes) section are considered “built-in”. As such, they MAY be omitted from the `curie_map`. If they are not omitted, they MUST point to the same IRI prefixes as in the aforementioned table.
+By exception, prefix names listed in the table found in the [IRI prefixes](intro.md#iri-prefixes) section are considered “built-in”. As such, they MAY be omitted from the `curie_map`. If they are not omitted, they MUST point to the same IRI prefixes as in the aforementioned table.
 
 
 ## Propagatable slots
@@ -85,7 +85,7 @@ For any given propagatable slot, condensation is only allowed if (1) all mapping
 
 Implementations SHOULD support propagation and condensation. The two features MUST NOT be dissociated; that is, an implementation that supports propagation MUST also support condensation, and the other way round.
 
-Unless specified otherwise in the specification for the [SSSOM serialisation formats](spec-formats.md), if an implementation supports propagation and condensation, then:
+Unless specified otherwise in the specification for the [SSSOM serialisation formats](formats.md), if an implementation supports propagation and condensation, then:
 
 * propagation SHOULD be performed by a SSSOM parser before passing the parsed objects to the application code;
 

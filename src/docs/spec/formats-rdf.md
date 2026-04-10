@@ -129,7 +129,7 @@ represented.
 
 ### Representation of extension slots
 
-An [extension slot](spec-model.md#non-standard-slots) MUST be represented in a
+An [extension slot](model.md#non-standard-slots) MUST be represented in a
 similar way to a standard slot, with the following specific rules.
 
 The predicate is the property associated to the extension slot, as indicated by
@@ -180,7 +180,7 @@ using whatever mechanism is provided by the concrete RDF serialisation format
 >    the RDF requirement that all used prefix names must be declared (using the
 >    appropriate mechanism for the chosen concrete syntax) takes precedence over
 >    the possibility of omitting the declarations of prefix names that are
->    considered [built-in](spec-intro.md#iri-prefixes) in the context of SSSOM.
+>    considered [built-in](intro.md#iri-prefixes) in the context of SSSOM.
 
 ### Representation of an `ExtensionDefinition` object
 
@@ -246,7 +246,7 @@ back to another SSSOM format.
 
 Propagatable slots can be represented in RDF indifferently in their propagated
 or condensed form, following the
-[normal rules](spec-model.md##propagation-of-mapping-set-slots) for propagation
+[normal rules](model.md##propagation-of-mapping-set-slots) for propagation
 and condensation.
 
 But if the RDF file is intended to be used by generic, non-SSSOM-aware RDF

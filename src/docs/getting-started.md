@@ -93,7 +93,7 @@ we first expand it to `http://purl.obolibrary.org/obo/MP_0000111`.
 The `predicate_id` specifies the mapping relation between subject and object.
 Any predicate identifier may be used, but if you are just getting started, it is
 best to stick to the
-[common predicates](spec-model.md#allowed-and-common-mapping-predicates). The
+[common predicates](spec/dev/model.md#allowed-and-common-mapping-predicates). The
 most frequently used ones are:
 
 | Predicate           | When to use                                                                     |
@@ -109,7 +109,7 @@ most frequently used ones are:
 Every SSSOM mapping set has two levels of metadata: metadata about the _mapping
 set_ as a whole, and metadata about each _individual mapping_.
 
-**Required metadata for the mapping set** (see [MappingSet](MappingSet.md) for
+**Required metadata for the mapping set** (see [MappingSet](spec/MappingSet.md) for
 the full description of all fields):
 
 | Field            | Description                                                                                                         |
@@ -121,7 +121,7 @@ the full description of all fields):
 Other commonly used set-level metadata includes `mapping_set_description`,
 `mapping_set_version`, `subject_source`, `object_source`, and `creator_id`.
 
-**Required metadata for each mapping** (see [Mapping](Mapping.md) for the full
+**Required metadata for each mapping** (see [Mapping]spec/Mapping.md) for the full
 description of all fields):
 
 | Field                   | Description                                                          |
@@ -200,8 +200,8 @@ can also convert between formally defined SSSOM serialisation formats (TSV,
 JSON, and RDF/Turtle).
 
 For detailed information about the different serialisation formats, see
-[SSSOM/TSV](spec-formats-tsv.md), [OWL/RDF](spec-formats-owl.md), and
-[JSON](spec-formats-json.md).
+[SSSOM/TSV](spec/formats-tsv.md), [OWL/RDF](spec/formats-owl.md), and
+[JSON](spec/formats-json.md).
 
 #### Storing and sharing SSSOM files
 
@@ -331,6 +331,6 @@ see the how
   more nuanced mapping justifications.
 - [SSSOM Toolkit guide](toolkit.md) - learn how to use the SSSOM command line
   tools.
-- [SSSOM data model](spec-model.md) - the full specification of the SSSOM data
+- [SSSOM data model](spec/model.md) - the full specification of the SSSOM data
   model.
 - [Training materials](training.md) - video tutorials and external guides.
