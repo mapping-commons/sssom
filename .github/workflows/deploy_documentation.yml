@@ -48,7 +48,7 @@ jobs:
         run: |
           mkdir -p docs
           touch docs/.nojekyll
-          make gendoc
+          make gendoc-full
 
       #----------------------------------------------
       #           deploy website to gh-pages

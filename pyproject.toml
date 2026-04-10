@@ -40,6 +40,7 @@ tests = [
 docs = [
     "mkdocs-material==9.0.0",
     "mkdocs-mermaid2-plugin==1.1.1",
+    "mkdocs-redirects"
 ]
 
 [tool.poetry]
