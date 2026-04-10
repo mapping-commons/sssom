@@ -113,14 +113,14 @@ SSSOM/TSV files MUST be encoded in UTF-8 ([RFC 3629](https://datatracker.ietf.or
 
 All identifiers in a SSSOM/TSV file, that is, all the values of slots typed as [EntityReference](EntityReference.md), MUST be serialised in [CURIE syntax](https://www.w3.org/TR/curie/). SSSOM/TSV parsers SHOULD reject files containing identifiers serialised as IRIs.
 
-As stated in the description of the model ([Identifiers section](spec-model.md#identifiers)), all prefix names used in CURIEs MUST be declared in the `curie_map` slot of the mapping set object, unless the prefix is a “built-in” prefix (in which case it MAY be omitted). SSSOM/TSV parsers MUST reject a file with undeclared, non-built-in prefix names.
+As stated in the description of the model ([Identifiers section](model.md#identifiers)), all prefix names used in CURIEs MUST be declared in the `curie_map` slot of the mapping set object, unless the prefix is a “built-in” prefix (in which case it MAY be omitted). SSSOM/TSV parsers MUST reject a file with undeclared, non-built-in prefix names.
 
 A SSSOM/TSV writer SHOULD refuse to serialise a mapping set that contains IRIs that cannot be contracted into CURIEs because there is no suitable prefix declaration in its CURIE map. The use of a custom, ad-hoc logic to infer a possible prefix name where none has been provided (e.g., “if the IRI ends with a `ZZZ_NNNNNNN` pattern, turn it into a `ZZZ:NNNNNNN` CURIE”) is strongly discouraged.
 
 
 ## Non-standard slots
 
-If an implementation does not support [non-standard slots](spec-model.md#non-standard-slots), then:
+If an implementation does not support [non-standard slots](model.md#non-standard-slots), then:
 
 * a SSSOM/TSV reader MUST discard any unknown top-level YAML key in the metadata block, and any unknown TSV column in the TSV section;
 * a SSSOM/TSV writer MUST NOT write any unknown top-level YAML key in the metadata block, or any unknown TSV column in the TSV section.
@@ -202,7 +202,7 @@ The rules in this section apply to SSSOM/TSV writers only. SSSOM/TSV writers SHO
 A canonical SSSOM/TSV writer:
 
 * MUST use line breaks made of only the U+000A character (no U+000D, and no U+000D + U+000A sequences);
-* MUST condense the slots whenever possible, as described in the [Condensation](#condensation) section.
+* MUST condense the slots whenever possible, as described in the [Condensation](model.md#condensation) section.
 
 
 ### Rules for the metadata block
@@ -218,7 +218,7 @@ When writing the metadata block, a canonical SSSOM/TSV writer:
 * MUST NOT include in the CURIE map any prefix name that is not used anywhere in the set;
 * MUST sort the prefix names in the CURIE map in lexicographical order.
 
-In addition, if [extension slots](spec-model.md#non-standard-slots) are supported, the writer:
+In addition, if [extension slots](model.md#non-standard-slots) are supported, the writer:
 
 * MUST write any extension slot in the mapping set _after_ the standard slots;
 * MUST sort the extension slots lexicographically on the `property` of their corresponding extension definitions;
@@ -235,7 +235,7 @@ When writing the mappings block, a canonical SSSOM/TSV writer:
 * MUST write the columns in the order the slots appear in the [“Slots” table](Mapping.md#slots), in the documentation for the `Mapping` class;
 * MUST sort the mappings in lexicographical order on all their slots, in the order the slots appear in the [“Slots” table](Mapping.md#slots).
 
-In addition, if [extension slots](spec-model.md#non-standard-slots) are supported, the writer:
+In addition, if [extension slots](model.md#non-standard-slots) are supported, the writer:
 
 * MUST write any non-standard column _after_ the standard columns;
 * MUST sort the non-standard column lexicographically on the `property` of their corresponding extension definitions.

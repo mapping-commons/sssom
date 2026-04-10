@@ -18,18 +18,18 @@ Those slots are mandatory (including the `mapping_justification` slot: the SSSOM
 
 Other slots are intended to provide further details about a mapping. Those “further details” are sometimes referred to as “mapping metadata”, though the SSSOM standard makes no formal distinction between “data” and “metadata” – there are only “data about a mapping”.
 
-The `MappingSet` class represents, well, a set of individual mappings, which are contained in the `mappings` slot (a list of `Mapping` instances). Other slots in that class are intended either to provide further details about the set itself (sometimes referred to as “mapping set metadata”, with the same caveat as above regarding the data/metadata distinction), or to provide common details for all the mappings in the set (see the [Propagation of mapping set slots](#propagation-of-mapping-set-slots) section further below for details).
+The `MappingSet` class represents, well, a set of individual mappings, which are contained in the `mappings` slot (a list of `Mapping` instances). Other slots in that class are intended either to provide further details about the set itself (sometimes referred to as “mapping set metadata”, with the same caveat as above regarding the data/metadata distinction), or to provide common details for all the mappings in the set (see the [Propagation of mapping set slots](#propagation) section further below for details).
 
 Of note, within a set, a mapping may not necessarily be uniquely identified by the combination of its four mandatory slots (`subject_id`, `predicate_id`, `object_id`, and `mapping_justification`). A set may very well contain several mappings with the same subject, predicate, object, and justification, but that differ on some of the other, complementary slots.
 
 
 ## Identifiers
 
-Throughout the model, identifiers to external resources are represented using the custom type [`EntityReference`](EntityReference.md) (based on the LinkML type [`uriorcurie`](https://w3id.org/linkml/Uriorcurie)), which accepts both full-length IRIs and [CURIEs](https://www.w3.org/TR/curie/) as possible identifier formats. (Note however that serialisation formats may mandate the use of one identifier format over the other; for example, the [SSSOM/TSV](spec-formats-tsv.md) format requires the systematic use of CURIEs, whereas the [OWL/RDF](spec-formats-owl.md) format conversely requires the systematic use of IRIs).
+Throughout the model, identifiers to external resources are represented using the custom type [`EntityReference`](EntityReference.md) (based on the LinkML type [`uriorcurie`](https://w3id.org/linkml/Uriorcurie)), which accepts both full-length IRIs and [CURIEs](https://www.w3.org/TR/curie/) as possible identifier formats. (Note however that serialisation formats may mandate the use of one identifier format over the other; for example, the [SSSOM/TSV](formats-tsv.md) format requires the systematic use of CURIEs, whereas the [OWL/RDF](spec-formats-owl.md) format conversely requires the systematic use of IRIs).
 
 Whenever the CURIE syntax is used in a mapping set (whether this is by choice of the SSSOM producer, or because it is mandated by the serialisation format), all CURIEs MUST be unambiguously resolvable into corresponding full-length IRIs without requiring any external resources. This means that any prefix name used MUST be properly declared in the set’s `curie_map` slot, which is a dictionary associating a prefix name to an IRI prefix.
 
-By exception, prefix names listed in the table found in the [IRI prefixes](spec-intro.md#iri-prefixes) section are considered “built-in”. As such, they MAY be omitted from the `curie_map`. If they are not omitted, they MUST point to the same IRI prefixes as in the aforementioned table.
+By exception, prefix names listed in the table found in the [IRI prefixes](intro.md#iri-prefixes) section are considered “built-in”. As such, they MAY be omitted from the `curie_map`. If they are not omitted, they MUST point to the same IRI prefixes as in the aforementioned table.
 
 
 ## Propagatable slots
@@ -85,7 +85,7 @@ For any given propagatable slot, condensation is only allowed if (1) all mapping
 
 Implementations SHOULD support propagation and condensation. The two features MUST NOT be dissociated; that is, an implementation that supports propagation MUST also support condensation, and the other way round.
 
-Unless specified otherwise in the specification for the [SSSOM serialisation formats](spec-formats.md), if an implementation supports propagation and condensation, then:
+Unless specified otherwise in the specification for the [SSSOM serialisation formats](formats.md), if an implementation supports propagation and condensation, then:
 
 * propagation SHOULD be performed by a SSSOM parser before passing the parsed objects to the application code;
 
@@ -309,5 +309,5 @@ Not all changes can be annotated thusly in the LinkML model, though. For changes
 * The value `composed entity expression` has been added to the `EntityType` enumeration.
 * The type of the `see_also` slot has been changed to `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.
 * All slots that were typed as `xsd:anyURI` have been re-typed as `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.
-* The `curation_rule` and `curation_rule_text` slots which previously only existed on the `Mapping` class, have been added to the `MappingSet` class. Both slots have now been typed [propagatable](#propagation-of-mapping-set-slots).
+* The `curation_rule` and `curation_rule_text` slots which previously only existed on the `Mapping` class, have been added to the `MappingSet` class. Both slots have now been typed [propagatable](#propagation).
 * A new value `0:0` has been added to the `mapping_cardinality_enum`.

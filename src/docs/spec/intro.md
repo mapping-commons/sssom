@@ -4,8 +4,8 @@ This document is the official specification for the SSSOM standard.
 
 It is divided in two sections covering the two different components of the standard:
 
-* the specification for the [data model](spec-model.md), to manipulate SSSOM mappings and mapping sets in your programs;
-* the specification for the [serialisation formats](spec-formats.md), to read, write, and exchange SSSOM mapping sets.
+* the specification for the [data model](model.md), to manipulate SSSOM mappings and mapping sets in your programs;
+* the specification for the [serialisation formats](formats.md), to read, write, and exchange SSSOM mapping sets.
 
 Both sections are _normative_.
 
