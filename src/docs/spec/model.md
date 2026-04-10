@@ -18,7 +18,7 @@ Those slots are mandatory (including the `mapping_justification` slot: the SSSOM
 
 Other slots are intended to provide further details about a mapping. Those “further details” are sometimes referred to as “mapping metadata”, though the SSSOM standard makes no formal distinction between “data” and “metadata” – there are only “data about a mapping”.
 
-The `MappingSet` class represents, well, a set of individual mappings, which are contained in the `mappings` slot (a list of `Mapping` instances). Other slots in that class are intended either to provide further details about the set itself (sometimes referred to as “mapping set metadata”, with the same caveat as above regarding the data/metadata distinction), or to provide common details for all the mappings in the set (see the [Propagation of mapping set slots](#propagation-of-mapping-set-slots) section further below for details).
+The `MappingSet` class represents, well, a set of individual mappings, which are contained in the `mappings` slot (a list of `Mapping` instances). Other slots in that class are intended either to provide further details about the set itself (sometimes referred to as “mapping set metadata”, with the same caveat as above regarding the data/metadata distinction), or to provide common details for all the mappings in the set (see the [Propagation of mapping set slots](#propagation) section further below for details).
 
 Of note, within a set, a mapping may not necessarily be uniquely identified by the combination of its four mandatory slots (`subject_id`, `predicate_id`, `object_id`, and `mapping_justification`). A set may very well contain several mappings with the same subject, predicate, object, and justification, but that differ on some of the other, complementary slots.
 
@@ -309,5 +309,5 @@ Not all changes can be annotated thusly in the LinkML model, though. For changes
 * The value `composed entity expression` has been added to the `EntityType` enumeration.
 * The type of the `see_also` slot has been changed to `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.
 * All slots that were typed as `xsd:anyURI` have been re-typed as `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.
-* The `curation_rule` and `curation_rule_text` slots which previously only existed on the `Mapping` class, have been added to the `MappingSet` class. Both slots have now been typed [propagatable](#propagation-of-mapping-set-slots).
+* The `curation_rule` and `curation_rule_text` slots which previously only existed on the `Mapping` class, have been added to the `MappingSet` class. Both slots have now been typed [propagatable](#propagation).
 * A new value `0:0` has been added to the `mapping_cardinality_enum`.

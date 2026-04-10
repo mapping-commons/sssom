@@ -246,7 +246,7 @@ back to another SSSOM format.
 
 Propagatable slots can be represented in RDF indifferently in their propagated
 or condensed form, following the
-[normal rules](model.md##propagation-of-mapping-set-slots) for propagation
+[normal rules](model.md#propagation) for propagation
 and condensation.
 
 But if the RDF file is intended to be used by generic, non-SSSOM-aware RDF

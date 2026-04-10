@@ -202,7 +202,7 @@ The rules in this section apply to SSSOM/TSV writers only. SSSOM/TSV writers SHO
 A canonical SSSOM/TSV writer:
 
 * MUST use line breaks made of only the U+000A character (no U+000D, and no U+000D + U+000A sequences);
-* MUST condense the slots whenever possible, as described in the [Condensation](#condensation) section.
+* MUST condense the slots whenever possible, as described in the [Condensation](model.md#condensation) section.
 
 
 ### Rules for the metadata block
