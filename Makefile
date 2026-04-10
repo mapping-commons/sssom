@@ -55,7 +55,7 @@ test: validate-schema
 	$(RUN) gen-project \
 		--exclude owl \
 		-d tmp $(SOURCE_SCHEMA_PATH) 
-	$(RUN) pytest
+	$(RUN) pytest --ignore=releases
 
 validate-schema: $(SOURCE_SCHEMA_PATH)
 	$(RUN) linkml lint --validate --validate-only $<
