@@ -1,0 +1,4 @@
+[submodule "releases/v1.0"]
+	path = releases/v1.0
+	url = https://github.com/mapping-commons/sssom.git
+	branch = MAINTENANCE-1.0-BRANCH

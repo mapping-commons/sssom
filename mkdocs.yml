@@ -60,6 +60,17 @@ nav:
               - SSSOM/JSON serialisation: spec/formats-json.md
               - SSSOM/RDF serialisation: spec/formats-rdf.md
               - OWL/RDF serialisation: spec/formats-owl.md
+      - Version 1.0:
+          - Introduction: spec/v1.0/intro.md
+          - Data model:
+              - Introduction: spec/v1.0/model.md
+              - Applying Chaining Rules: spec/v1.0/chaining-rules.md
+              - LinkML documentation: spec/v1.0/linkml-index.md
+          - Serialisations:
+              - Introduction: spec/v1.0/formats.md
+              - SSSOM/TSV serialisation: spec/v1.0/formats-tsv.md
+              - SSSOM/JSON serialisation: spec/v1.0/formats-json.md
+              - OWL/RDF serialisation: spec/v1.0/formats-owl.md
   - Resources for contributors: contributing.md
   - Resources for users:
       - FAQ: faq.md
