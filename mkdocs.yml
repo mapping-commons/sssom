@@ -14,15 +14,15 @@ plugins:
   - mermaid2
   - redirects:
       redirect_maps:
-        'spec-intro.md': spec/intro.md
-        'spec-model.md': spec/model.md
-        'chaining-rules.md': spec/chaining-rules.md
-        'linkml-index.md': spec/linkml-index.md
-        'spec-formats.md': spec/formats.md
-        'spec-formats-tsv.md': spec/formats-tsv.md
-        'spec-formats-json.md': spec/formats-json.md
-        'spec-formats-rdf.md': spec/formats-rdf.md
-        'spec-formats-owl.md': spec/formats-owl.md
+        "spec-intro.md": spec/intro.md
+        "spec-model.md": spec/model.md
+        "chaining-rules.md": spec/chaining-rules.md
+        "linkml-index.md": spec/linkml-index.md
+        "spec-formats.md": spec/formats.md
+        "spec-formats-tsv.md": spec/formats-tsv.md
+        "spec-formats-json.md": spec/formats-json.md
+        "spec-formats-rdf.md": spec/formats-rdf.md
+        "spec-formats-owl.md": spec/formats-owl.md
 markdown_extensions:
   - pymdownx.highlight:
       use_pygments: true
