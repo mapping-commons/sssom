@@ -1,9 +1,8 @@
 id: https://w3id.org/sssom/schema/
 name: sssom
-description:
-  Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)
+description: Datamodel for Simple Standard for Sharing Ontological Mappings (SSSOM)
 imports:
-  - linkml:types
+- linkml:types
 prefixes:
   dcterms: http://purl.org/dc/terms/
   linkml: https://w3id.org/linkml/
@@ -17,23 +16,15 @@ prefixes:
   xsd: http://www.w3.org/2001/XMLSchema#
   semapv: https://w3id.org/semapv/vocab/
 see_also:
-  - https://github.com/mapping-commons/sssom
-  - https://mapping-commons.github.io/sssom/home/
+- https://github.com/mapping-commons/sssom
+- https://mapping-commons.github.io/sssom/home/
 default_curi_maps:
-  - semweb_context
-  - obo_context
+- semweb_context
+- obo_context
 default_prefix: sssom
 default_range: string
 
 enums:
-  sssom_version_enum:
-    permissible_values:
-      "1.0":
-        meaning: sssom:version1.0
-        description: SSSOM specification version 1.0
-      "1.1":
-        meaning: sssom:version1.1
-        description: SSSOM specification version 1.1
   entity_type_enum:
     permissible_values:
       owl class:
@@ -54,74 +45,30 @@ enums:
         meaning: rdfs:Class
       rdfs literal:
         meaning: rdfs:Literal
-        description:
-          This value indicates that the entity being mapped is not a semantic
-          entity with a distinct identifier, but is instead represented entirely
-          by its literal label. This value MUST NOT be used in the
-          predicate_type slot.
+        description: This value indicate that the entity being mapped is not a semantic entity with a distinct identifier, but is instead represented entirely by its literal label. This value MUST NOT be used in the predicate_type slot.
         see_also:
-          - https://mapping-commons.github.io/sssom/spec-model/#literal-mappings
-          - https://github.com/mapping-commons/sssom/issues/234
-          - https://github.com/mapping-commons/sssom/blob/master/examples/schema/literals.sssom.tsv
+        - https://mapping-commons.github.io/sssom/spec-model/#literal-mappings
+        - https://github.com/mapping-commons/sssom/issues/234
+        - https://github.com/mapping-commons/sssom/blob/master/examples/schema/literals.sssom.tsv
       rdfs datatype:
         meaning: rdfs:Datatype
       rdf property:
         meaning: rdf:Property
-      composed entity expression:
-        meaning: sssom:ComposedEntityExpression
-        description:
-          This value indicates that the entity ID does not represent a single
-          entity, but a composite involving several individual entities. This
-          value MUST NOT be used in the predicate_type slot. This specifications
-          does not prescribe how an ID representing a composite entity should be
-          interpreted; this is left at the discretion of applications.
-        see_also:
-          - https://github.com/mapping-commons/sssom/issues/402
-          - https://github.com/mapping-commons/sssom/blob/master/examples/schema/composite-entities.sssom.tsv
-
+        
   predicate_modifier_enum:
     permissible_values:
-      Not:
-        description:
-          Negating the mapping predicate. The meaning of the triple becomes
-          subject_id is not a predicate_id match to object_id.
-        meaning: sssom:NegatedPredicate
+      Not: Negating the mapping predicate. The meaning of the triple becomes subject_id is not a predicate_id match to object_id.
   mapping_cardinality_enum:
     permissible_values:
-      "1:1":
-        description:
-          Indicates the mapping record is about a one-to-one mapping, that is,
-          the subject and the object are only mapped to each other, exclusive of
-          any other subject or object.
-      "1:n":
-        description:
-          Indicates the mapping record is about a one-to-many mapping, that is,
-          the same subject is mapped to several different objects.
-      "n:1":
-        description:
-          Indicates the mapping record is about a many-to-one mapping, that is,
-          several different subjects are mapped to the same object.
-      "n:n":
-        description:
-          Indicates the mapping record is about a many-to-many mapping, that is,
-          the subject is mapped to several different objects and the object is
-          mapped to several different subjects.
-      "1:0":
-        description:
-          Indicates that the subject has no match in the object vocabulary. This
-          value MUST only be used when the object_id is sssom:NoTermFound.
-      "0:1":
-        description:
-          Indicates that the object has no match in the subject vocabulary. This
-          value MUST only be used when the subject_id is sssom:NoTermFound.
-      "0:0":
-        description:
-          Indicates that there is no match between the subject vocabulary and
-          the object vocabulary. This value MUST only be used when both the
-          subject_id and the object_id are sssom:NoTermFound.
+      "1:1": One-to-one mapping
+      "1:n": One-to-many mapping
+      "n:1": Many-to-one mapping
+      "1:0": One-to-none mapping
+      "0:1": None-to-one mapping
+      "n:n": Many-to-many mapping
 
 types:
-  EntityReference:
+ EntityReference:
     typeof: uriorcurie
     description: |
       A reference to an entity involved in the mapping.
@@ -129,40 +76,6 @@ types:
     uri: rdfs:Resource
     see_also:
       - https://mapping-commons.github.io/sssom/spec/#tsv
-  NonRelativeURI:
-    typeof: uri
-    description: >-
-      A URI as per RFC 3986, that is a string that matches the production of the
-      "URI" rule defined in Appendix A of that RFC. Contrary to the underlying
-      LinkML type, this specifically excludes _relative URI references_, which
-      do not start with a scheme component. Relative URI references are
-      forbidden because SSSOM has no built-in mechanism to provide the base URI
-      that would be needed to resolve relative URI references into non-relative
-      ones.
-    see_also:
-      - https://github.com/mapping-commons/sssom/issues/448
-    examples:
-      - value: https://example.org/path/to/file.txt#L4
-        description: A URI that is URL to a HTTP resource.
-      - value: urn:oasis:names:tc:entity:xmlns:xml:catalog
-        description: >-
-          A URI that is the URN of the namespace for the OASIS XML Catalogs
-          specification.
-      - value: ldap://example.org/cn=Alice,dc=example,dc=org?mail
-        description: A URI that is a LDAP query URL.
-      - value: mailto:alice@example.org
-        description: A URI that is an email address.
-      - value: file.txt
-        description:
-          An _invalid_ example, as it a relative URI (path only, no scheme).
-      - value: /path/to/file.txt
-        description: >-
-          An _invalid_ example; though it appears to be an _absolute path_, it
-          is a _relative URI_ because of the absence of a scheme.
-      - value: //example.org/path/to/file.txt
-        description: >-
-          An _invalid_ example; though it includes an authority component
-          (example.org), it has no scheme and is therefore a _relative URI_.
 
 slots:
   prefix_name:
@@ -170,21 +83,8 @@ slots:
     range: ncname
   prefix_url:
     range: uri
-  sssom_version:
-    description:
-      The version of the SSSOM specification a mapping set is compliant with.
-    range: sssom_version_enum
-    instantiates:
-      - sssom:Versionable
-    annotations:
-      added_in: "1.1"
-    see_also:
-      - https://github.com/mapping-commons/sssom/issues/439
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/version.sssom.tsv
   curie_map:
-    description:
-      A dictionary that contains prefixes as keys and their URI expansions as
-      values.
+    description: A dictionary that contains prefixes as keys and their URI expansions as values.
     range: prefix
     multivalued: true
     inlined: true
@@ -193,31 +93,16 @@ slots:
       - https://github.com/mapping-commons/sssom/pull/349
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curie_map.sssom.tsv
   mirror_from:
-    description:
-      A URL location from which to obtain a resource, such as a mapping set.
-    range: NonRelativeURI
+    description: A URL location from which to obtain a resource, such as a mapping set.
+    range: uri
   registry_confidence:
-    description: This value is set by the creator/maintainer of the mapping
-      registry and reflects the confidence the mapping registry has in the
-      correctness (i.e., precision) of mappings in the mapping set.
-
-      When not explicitly specified, confidence estimation algorithms should
-      consider the registry confidence in a mapping set to be 1.0 by default.
+    description: This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.
     range: double
-    minimum_value: 0.0
-    maximum_value: 1.0
-    see_also:
-      - https://mapping-commons.github.io/sssom/confidence-model
-    examples:
-      - value: "0.95"
-        description: A confidence score of 0.95, indicating 95% confidence.
   last_updated:
     description: The date this reference was last updated.
     range: date
   local_name:
-    description:
-      The local name assigned to file that corresponds to the downloaded mapping
-      set.
+    description: The local name assigned to file that corresponds to the downloaded mapping set.
     range: string
   mapping_set_references:
     description: A list of mapping set references.
@@ -237,15 +122,15 @@ slots:
   imports:
     description: A list of registries that should be imported into this one.
     multivalued: true
-    range: NonRelativeURI
+    range: uri
   documentation:
     description: A URL to the documentation of this mapping commons.
-    range: NonRelativeURI
+    range: uri
   homepage:
     description: A URL to a homepage of this mapping commons.
-    range: NonRelativeURI
+    range: uri
   mappings:
-    description: Contains a list of mapping objects.
+    description: Contains a list of mapping objects
     range: mapping
     multivalued: true
     inlined_as_list: true
@@ -254,198 +139,136 @@ slots:
     description: The ID of the subject of the mapping.
     range: EntityReference
     mappings:
-      - owl:annotatedSource
+    - owl:annotatedSource
     slot_uri: owl:annotatedSource
     examples:
       - value: HP:0009894
-        description:
-          The CURIE denoting the Human Phenotype Ontology concept of 'Thickened
-          ears'
+        description: The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'
   subject_label:
-    description: The label of subject of the mapping.
+    description: The label of subject of the mapping
     range: string
     examples:
       - value: Thickened ears
     recommended: true
   subject_category:
-    description:
-      The conceptual category to which the subject belongs to. This can be a
-      string denoting the category or a term from a controlled vocabulary. This
-      slot is deliberately underspecified. Conceptual categories can range from
-      those that are found in general upper ontologies such as BFO (e.g.
-      process, temporal region, etc) to those that serve as upper ontologies in
-      specific domains, such as COB or BioLink (e.g. gene, disease, chemical
-      entity). The purpose of this optional field is documentation for human
-      reviewers - when a category is known and documented clearly, the cost of
-      interpreting and evaluating the mapping decreases.
+    description: The conceptual category to which the subject belongs to. This can
+      be a string denoting the category or a term from a controlled vocabulary.
+      This slot is deliberately underspecified. Conceptual categories can range from
+      those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve
+      as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this
+      optional field is documentation for human reviewers - when a category is known
+      and documented clearly, the cost of interpreting and evaluating the mapping decreases.
     range: string
     see_also:
       - https://github.com/mapping-commons/sssom/issues/13
       - https://github.com/mapping-commons/sssom/issues/256
     examples:
       - value: UBERON:0001062
-        description: The CURIE of the Uberon term for "anatomical entity".
+        description: (The CURIE of the Uberon term for "anatomical entity".)
       - value: anatomical entity
-        description:
-          A string, rather than ID, describing the "anatomical entity" category.
-          This is possible, but less preferred than using an ID.
+        description: (A string, rather than ID, describing the "anatomical entity" category. This is possible, but less preferred than using an ID.)
       - value: biolink:Gene
-        description: The CURIE of the biolink class for genes.
+        description: (The CURIE of the biolink class for genes.)
   subject_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
       - value: owl:Class
   predicate_id:
-    description:
-      The ID of the predicate or relation that relates the subject and object of
-      this match.
+    description: The ID of the predicate or relation that relates the subject and
+      object of this match.
     mappings:
-      - owl:annotatedProperty
+    - owl:annotatedProperty
     range: EntityReference
     required: true
     slot_uri: owl:annotatedProperty
+    
     examples:
       - value: owl:sameAs
-        description:
-          The subject and the object are instances (owl individuals), and the
-          two instances are the same.
+        description: The subject and the object are instances (owl individuals), and the two instances are the same.
       - value: owl:equivalentClass
-        description:
-          The subject and the object are classes (owl class), and the two
-          classes are the same.
+        description: The subject and the object are classes (owl class), and the two classes are the same.
       - value: owl:equivalentProperty
-        description:
-          The subject and the object are properties (owl object, data,
-          annotation properties), and the two properties are the same.
+        description: The subject and the object are properties (owl object, data, annotation properties), and the two properties are the same.
       - value: rdfs:subClassOf
-        description:
-          The subject and the object are classes (owl class), and the subject is
-          a subclass of the object.
+        description: The subject and the object are classes (owl class), and the subject is a subclass of the object.
       - value: rdfs:subPropertyOf
-        description:
-          The subject and the object are properties (owl object, data,
-          annotation properties), and the subject is a subproperty of the
-          object.
+        description: The subject and the object are properties (owl object, data, annotation properties), and the subject is a subproperty of the object.
       - value: skos:relatedMatch
-        description:
-          The subject and the object are associated in some unspecified way.
+        description: The subject and the object are associated in some unspecified way.
       - value: skos:closeMatch
-        description:
-          The subject and the object are sufficiently similar that they can be
-          used interchangeably in some information retrieval applications.
+        description: The subject and the object are sufficiently similar that they can be used interchangeably in some information retrieval applications.
       - value: skos:exactMatch
-        description:
-          The subject and the object can, with a high degree of confidence, be
-          used interchangeably across a wide range of information retrieval
-          applications.
+        description: The subject and the object can, with a high degree of confidence, be used interchangeably across a wide range of information retrieval applications.
       - value: skos:narrowMatch
-        description:
-          "From the SKOS primer: A triple skos:narrower (and skos:narrowMatch)
-          asserts that , the object of the triple, is a narrower concept than ,
-          the subject of the triple."
+        description: "From the SKOS primer: A triple skos:narrower (and skos:narrowMatch) asserts that , the object of the triple, is a narrower concept than , the subject of the triple."
       - value: skos:broadMatch
-        description:
-          "From the SKOS primer: A triple skos:broader (and skos:broadMatch)
-          asserts that , the object of the triple, is a broader concept than ,
-          the subject of the triple."
+        description: "From the SKOS primer: A triple skos:broader (and skos:broadMatch) asserts that , the object of the triple, is a broader concept than , the subject of the triple."
       - value: oboInOwl:hasDbXref
-        description:
-          Two terms are related in some way. The meaning is frequently
-          consistent across a single set of mappings. Note this property is
-          often overloaded even where the terms are of a different nature (e.g.
-          interpro2go).
+        description: Two terms are related in some way. The meaning is frequently consistent across a single set of mappings. Note this property is often overloaded even where the terms are of a different nature (e.g. interpro2go)
       - value: rdfs:seeAlso
-        description:
-          The subject and the object are associated in some unspecified way. The
-          object IRI often resolves to a resource on the web that provides
-          additional information.
+        description: The subject and the object are associated in some unspecified way. The object IRI often resolves to a resource on the web that provides additional information.
   predicate_modifier:
-    description:
-      A modifier for negating the predicate. See
-      https://github.com/mapping-commons/sssom/issues/40 for discussion
+    description: A modifier for negating the predicate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
     range: predicate_modifier_enum
     see_also:
       - https://github.com/mapping-commons/sssom/issues/107
     examples:
       - value: Not
-        description:
-          Negates the predicate, see documentation of predicate_modifier_enum
+        description: Negates the predicate, see documentation of predicate_modifier_enum
   predicate_label:
-    description: The label of the predicate/relation of the mapping.
+    description: The label of the predicate/relation of the mapping
     range: string
     examples:
       - value: has cross-reference
-        description:
-          The label of the oboInOwl:hasDbXref property to represent
-          cross-references.
+        description: The label of the oboInOwl:hasDbXref property to represent cross-references.
   predicate_type:
-    description:
-      The type of the predicate used to map the subject and object entities.
+    description: The type of entity that is being mapped.
     range: entity_type_enum
-    see_also:
-      - https://github.com/mapping-commons/sssom/issues/143
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv
-    instantiates:
-      - sssom:Propagatable
-      - sssom:Versionable
-    annotations:
-      propagated: true
-      added_in: "1.1"
     examples:
       - value: owl:AnnotationProperty
       - value: owl:ObjectProperty
   object_id:
     description: The ID of the object of the mapping.
     mappings:
-      - owl:annotatedTarget
+    - owl:annotatedTarget
     range: EntityReference
     slot_uri: owl:annotatedTarget
     examples:
       - value: HP:0009894
-        description:
-          The CURIE denoting the Human Phenotype Ontology concept of 'Thickened
-          ears'.
+        description: The CURIE denoting the Human Phenotype Ontology concept of 'Thickened ears'
   object_label:
-    description: The label of object of the mapping.
+    description: The label of object of the mapping
     range: string
     examples:
       - value: Thickened ears
     recommended: true
   object_category:
-    description:
-      The conceptual category to which the subject belongs to. This can be a
-      string denoting the category or a term from a controlled vocabulary. This
-      slot is deliberately underspecified. Conceptual categories can range from
-      those that are found in general upper ontologies such as BFO (e.g.
-      process, temporal region, etc) to those that serve as upper ontologies in
-      specific domains, such as COB or BioLink (e.g. gene, disease, chemical
-      entity). The purpose of this optional field is documentation for human
-      reviewers - when a category is known and documented clearly, the cost of
-      interpreting and evaluating the mapping decreases.
+    description: The conceptual category to which the subject belongs to. This can
+      be a string denoting the category or a term from a controlled vocabulary.
+      This slot is deliberately underspecified. Conceptual categories can range from
+      those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve
+      as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this
+      optional field is documentation for human reviewers - when a category is known
+      and documented clearly, the cost of interpreting and evaluating the mapping decreases.
     range: string
     see_also:
       - https://github.com/mapping-commons/sssom/issues/13
       - https://github.com/mapping-commons/sssom/issues/256
     examples:
       - value: UBERON:0001062
-        description: The CURIE of the Uberon term for "anatomical entity".
+        description: (The CURIE of the Uberon term for "anatomical entity".)
       - value: anatomical entity
-        description:
-          A string, rather than ID, describing the "anatomical entity" category.
-          This is possible, but less preferred than using an ID.
+        description: (A string, rather than ID, describing the "anatomical entity" category. This is possible, but less preferred than using an ID.)
       - value: biolink:Gene
-        description: The CURIE of the biolink class for genes.
+        description: (The CURIE of the biolink class for genes.)
   mapping_justification:
-    description:
-      A mapping justification is an action (or the written representation of
-      that action) of showing a mapping to be right or reasonable.
+    description: A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
     range: EntityReference
-    pattern: "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$"
+    pattern: "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining)$"
     required: true
     any_of:
       - equals_string: semapv:LexicalMatching
@@ -457,53 +280,36 @@ slots:
       - equals_string: semapv:MappingChaining
       - equals_string: semapv:MappingReview
       - equals_string: semapv:ManualMappingCuration
-      - equals_string: semapv:MappingInversion
-      - equals_string: semapv:StructuralMatching
-      - equals_string: semapv:InstanceBasedMatching
-      - equals_string: semapv:BackgroundKnowledgeBasedMatching
     examples:
       - value: semapv:LexicalMatching
       - value: semapv:ManualMappingCuration
-    see_also:
-      - https://mapping-commons.github.io/semantic-mapping-vocabulary/
-      - https://www.ebi.ac.uk/ols4/ontologies/semapv
   object_type:
     description: The type of entity that is being mapped.
     range: entity_type_enum
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
       - value: owl:Class
   mapping_set_id:
-    description:
-      A globally unique identifier for the mapping set (not each individual
-      mapping). Should ideally be resolvable.
+    description: A globally unique identifier for the mapping set (not each individual
+      mapping). Should be IRI, ideally resolvable.
     required: true
-    range: NonRelativeURI
+    range: uri
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
-        description:
-          A persistent URI pointing to the latest version of the Mondo - NCIT
-          mapping in the Mondo namespace.
+        description: (A persistent URI pointing to the latest version of the Mondo - NCIT mapping in the Mondo namespace.)
   mapping_set_version:
     description: A version string for the mapping.
     range: string
     slot_uri: owl:versionInfo
     examples:
       - value: "2020-01-01"
-        description:
-          A date-based version that indicates that the mapping was published on
-          the 1st January in 2021.
+        description: (A date-based version that indicates that the mapping was published on the 1st January in 2021.)
       - value: "1.2.1"
-        description:
-          "(A semantic version tag that indicates that this is the 1st major,
-          2nd minor version, patch 1 (https://semver.org/).)"
+        description: "(A semantic version tag that indicates that this is the 1st major, 2nd minor version, patch 1 (https://semver.org/).)"
   mapping_set_group:
-    description:
-      Set by the owners of the mapping registry. A way to group related mapping
-      sets for example for UI purposes.
+    description: Set by the owners of the mapping registry. A way to group .
     range: string
   mapping_set_title:
     description: The display name of a mapping set.
@@ -516,605 +322,245 @@ slots:
     range: string
     slot_uri: dcterms:description
     examples:
-      - value:
-          "This mapping set was produced to integrate human and mouse phenotype
-          data at the IMPC. It is primarily used for making mouse phenotypes
-          searchable by human synonyms at https://mousephenotype.org/."
-  mapping_set_confidence:
-    instantiates:
-      - sssom:Versionable
-    annotations:
-      added_in: "1.1"
-    description: Mapping-set level confidence is assigned by the creator of the
-      mapping set to indicate their overall confidence in the correctness (i.e.,
-      precision) of mappings in the mapping set. Mapping set confidence is
-      intended to be used in cases were the creator wants to express an overall
-      confidence into the agent that curated the individual mappings, for
-      example a lexical matching tool, or a group of students.
-
-      When not explicitly specified, confidence estimation algorithms should
-      consider the mapping set confidence to be 1.0 by default.
-    range: double
-    minimum_value: 0.0
-    maximum_value: 1.0
-    examples:
-      - value: "0.95"
-        description:
-          A confidence score of 0.95, indicating 95% confidence that the
-          mappings in the mapping set are correct.
-    see_also:
-      - https://mapping-commons.github.io/sssom/confidence-model
-      - https://github.com/mapping-commons/sssom/issues/438
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_set_confidence.sssom.tsv
+      - value: "This mapping set was produced to integrate human and mouse phenotype data at the IMPC. It is primarily used for making mouse phenotypes searchable by human synonyms at https://mousephenotype.org/."
   creator_id:
-    description:
-      Identifies the persons or groups responsible for the creation of the
-      mapping. The creator is the agent that put the mapping in its published
-      form, which may be different from the author, which is a person that was
-      actively involved in the assertion of the mapping. Recommended to be a
-      list of ORCIDs or otherwise identifying URIs.
+    description: Identifies the persons or groups responsible for the creation of
+      the mapping. The creator is the agent that put the mapping in its published form, 
+      which may be different from the author, which is a person that was actively involved
+      in the assertion of the mapping.
+      Recommended to be a list of ORCIDs or otherwise
+      identifying URIs.
     slot_uri: dcterms:creator
     range: EntityReference
     multivalued: true
-    examples:
-      - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
-        description: >-
-          The ORCID of the (multiple) creators of the mapping. Note that this is
-          how the example would look like specifically in the SSSOM/TSV format,
-          where multivalued slots such as `creator_id` are represented as single
-          strings containing `|`-separated values.
-      - value: orcid:0000-0002-7356-1779
-        description: The ORCID of the creator of the mapping.
   creator_label:
-    description: >-
-      A string representing the creator of this mapping. This should only be
-      used in the absence of a proper semantic identifier (which would be stored
-      in creator_id) for that creator. It is not expected that there should be
-      any link between creator_id and creator_label; in particular,
-      creator_label is not intended to provide a human-friendly version of an
-      identifier in creator_id.
+    description: A string identifying the creator of this mapping. In the spirit of
+      provenance, consider using creator_id instead.
     range: string
     multivalued: true
-    examples:
-      - value: Nicolas Matentzoglu|Chris Mungall
-        description: >-
-          The human-readable names of the (multiple) creators of the mapping.
-          Note that this is how the example would look like specifically in the
-          SSSOM/TSV format, where multivalued slots such as `creator_label` are
-          represented as single strings containing `|`-separated values.
-      - value: Nicolas Matentzoglu
-        description: The human-readable name of the creator of the mapping.
   author_id:
-    description:
-      Identifies the persons or groups responsible for asserting the mappings.
-      Recommended to be a list of ORCIDs or otherwise identifying URIs.
+    description: Identifies the persons or groups responsible for asserting the mappings.
+      Recommended to be a list of ORCIDs or otherwise
+      identifying URIs.
     slot_uri: pav:authoredBy
     range: EntityReference
     multivalued: true
-    examples:
-      - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
-        description: >-
-          The ORCID of the (multiple) authors of the mapping. Note that this is
-          how the example would look like specifically in the SSSOM/TSV format,
-          where multivalued slots such as `author_id` are represented as single
-          strings containing `|`-separated values.
-      - value: orcid:0000-0002-7356-1779
-        description: The ORCID of the author of the mapping.
   author_label:
-    description: >-
-      A string representing the author of this mapping. This should only be used
-      in the absence of a proper semantic identifier (which would be stored in
-      author_id) for that author. It is not expected that there should be any
-      link between author_id and author_label; in particular, author_label is
-      not intended to provide a human-friendly version of an identifier in
-      author_id.
+    description: A string identifying the author of this mapping. In the spirit of
+      provenance, consider using author_id instead.
     range: string
     multivalued: true
-    examples:
-      - value: Nicolas Matentzoglu|Chris Mungall
-        description: >-
-          The human-readable names of the (multiple) authors of the mapping.
-          Note that this is how the example would look like specifically in the
-          SSSOM/TSV format, where multivalued slots such as `author_label` are
-          represented as single strings containing `|`-separated values.
-      - value: Nicolas Matentzoglu
-        description: The human-readable name of the author of the mapping.
   reviewer_id:
-    description:
-      Identifies the persons or groups that reviewed and confirmed the mapping.
-      Recommended to be a list of ORCIDs or otherwise identifying URIs.
+    description: Identifies the persons or groups that reviewed and confirmed the mapping.
+      Recommended to be a list of ORCIDs or otherwise
+      identifying URIs.
     range: EntityReference
     multivalued: true
-    examples:
-      - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
-        description: >-
-          The ORCID of the (multiple) reviewers of the mapping. Note that this
-          is how the example would look like specifically in the SSSOM/TSV
-          format, where multivalued slots such as `reviewer_id` are represented
-          as single strings containing `|`-separated values.
-      - value: orcid:0000-0002-7356-1779
-        description: The ORCID of the reviewer of the mapping.
   reviewer_label:
-    description: >-
-      A string representing the reviewer of this mapping. This should only be
-      used in the absence of a proper semantic identifier (which would be stored
-      in reviewer_id) for that reviewer. It is not expected that there should be
-      any link between reviewer_id and reviewer_label; in particular,
-      reviewer_label is not intended to provide a human-friendly version of an
-      identifier in reviewer_id.
+    description: A string identifying the reviewer of this mapping. In the spirit of
+      provenance, consider using reviewer_id instead.
     range: string
     multivalued: true
-    examples:
-      - value: Nicolas Matentzoglu|Chris Mungall
-        description: >-
-          The human-readable names of the (multiple) reviewers of the mapping.
-          Note that this is how the example would look like specifically in the
-          SSSOM/TSV format, where multivalued slots such as `reviewer_label` are
-          represented as single strings containing `|`-separated values.
-      - value: Nicolas Matentzoglu
-        description: The human-readable name of the reviewer of the mapping.
   license:
-    description:
-      A url to the license of the mapping. In absence of a license we assume no
-      license.
-    range: NonRelativeURI
+    description: A url to the license of the mapping. In absence of a license we assume
+      no license.
+    range: uri
     slot_uri: dcterms:license
-    examples:
-      - value: https://creativecommons.org/licenses/by/4.0/
-        description:
-          The URI of the Creative Commons Attribution 4.0 International license.
   subject_source:
     description: URI of vocabulary or identifier source for the subject.
     range: EntityReference
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
       - value: obo:mondo.owl
-        description:
-          A persistent OBO CURIE pointing to the latest version of the Mondo
-          ontology.
+        description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
       - value: wikidata:Q7876491
         description: A Wikidata identifier for the Uberon ontology resource.
   subject_source_version:
-    description:
-      Version IRI or version string of the source of the subject term.
+    description: Version IRI or version string of the source of the subject term.
     range: string
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
-        description:
-          A persistent Version IRI pointing to the Mondo version '2021-01-30'
+        description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   object_source:
     description: URI of vocabulary or identifier source for the object.
     range: EntityReference
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
       - value: obo:mondo.owl
-        description:
-          A persistent OBO CURIE pointing to the latest version of the Mondo
-          ontology.
+        description: A persistent OBO CURIE pointing to the latest version of the Mondo ontology.
       - value: wikidata:Q7876491
         description: A Wikidata identifier for the Uberon ontology resource.
   object_source_version:
     description: Version IRI or version string of the source of the object term.
     range: string
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
-        description:
-          A persistent Version IRI pointing to the Mondo version '2021-01-30'
+        description: (A persistent Version IRI pointing to the Mondo version '2021-01-30')
   mapping_provider:
-    description:
-      URL pointing to the source that provided the mapping, for example an
-      ontology that already contains the mappings, or a database from which it
-      was derived.
-    range: NonRelativeURI
-    instantiates:
-      - sssom:Propagatable
+    description: URL pointing to the source that provided the mapping, for example
+      an ontology that already contains the mappings, or a database from which it was derived.
+    range: uri
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
-    examples:
-      - value: https://www.ohdsi.org/
-        description:
-          A URL pointing to the Observational Health Data Sciences and
-          Informatics initiative.
-      - value: https://monarchinitiative.org/
-        description: A URL pointing to the Monarch Initiative Resource.
   mapping_set_source:
-    description:
-      A mapping set or set of mapping set that was used to derive the mapping
-      set.
+    description: A mapping set or set of mapping set that was used to derive the mapping set.
     slot_uri: prov:wasDerivedFrom
-    range: NonRelativeURI
+    range: uri
     multivalued: true
     examples:
       - value: http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv
-        description:
-          A persistent, ideally versioned, link to the mapping set from which
-          the current mapping set is derived.
+        description: A persistent, ideally versioned, link to the mapping set from which the current mapping set is derived.
   mapping_source:
-    description:
-      The mapping set this mapping was originally defined in. mapping_source is
-      used for example when merging multiple mapping sets or deriving one
-      mapping set from another.
+    description: The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple
+      mapping sets or deriving one mapping set from another.
     range: EntityReference
     examples:
       - value: MONDO_MAPPINGS:mondo_exactmatch_ncit.sssom.tsv
-        description:
-          A reference to the mapping set that originally contained this mapping.
   mapping_cardinality:
-    description:
-      A value indicating whether the subject (respectively object) of this
-      mapping record is present in other records involving a different object
-      (respectively subject), within the subset of records defined by the
-      cardinality_scope slot (or within the entire mapping set if
-      cardinality_scope is undefined). Note that this is a convenience field,
-      whose values can always be derived from the mapping set.
+    description: A string indicating whether this mapping is from a 1:1 (the subject_id
+      maps to a single object_id), 1:n (the subject maps to more than one object_id), 
+      n:1, 1:0, 0:1 or n:n group. Note that this is a convenience field that should be derivable 
+      from the mapping set.
     range: mapping_cardinality_enum
-    examples:
-      - value: "1:1"
-        description:
-          A one-to-one mapping. There are no other records in which the same
-          subject is mapped to a different object, and no other records in which
-          the same object is mapped to a different subject.
-      - value: "1:n"
-        description:
-          A one-to-many mapping. There are other records in which the same
-          subject is mapped to at least one different object than the object
-          present in this record; there are no other records in which the object
-          is mapped to a different subject.
-    see_also:
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality.sssom.tsv
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-with-unmapped-entities.sssom.tsv
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-empty.sssom.tsv
-  cardinality_scope:
-    description:
-      A list of mapping slots that define the scope for the value found in the
-      mapping_cardinality slot. Mappings are considered to belong to the same
-      scope if they have the same value for all slots listed in the scope. If no
-      scope is defined, the default scope is empty, meaning that all mappings
-      belong to a single scope that is identical to the entire mapping set. The
-      behaviour if a value in the list does not correspond to a valid slot name
-      is undefined.
-    range: string
-    multivalued: true
-    instantiates:
-      - sssom:Propagatable
-      - sssom:Versionable
-    annotations:
-      propagated: true
-      added_in: "1.1"
-    examples:
-      - value: predicate_id
-        description: >-
-          Indicates that mapping_cardinality is computed relatively to all
-          mappings that have the same predicate.
-      - value: "predicate_id|object_source"
-        description: >-
-          Indicates that mapping_cardinality is computed relatively to all
-          mappings that have the same predicate and the same object source. Note
-          that this is how the example would look like specifically in the
-          SSSOM/TSV format, where multivalued slots like `cardinality_scope` are
-          represented as a single string containing `|`-separated values.
-    see_also:
-      - https://github.com/mapping-commons/sssom/issues/467
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate.sssom.tsv
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate+object_source.sssom.tsv
   mapping_tool:
-    description:
-      A reference to the tool or algorithm that was used to generate the
-      mapping. Should be a URL pointing to more info about it, but can be free
-      text. Consider using the mapping_tool_id slot for a more standardised
-      reference.
+    description: A reference to the tool or algorithm that was used to generate the
+      mapping. Should be a URL pointing to more info about it, but can be free text.
     range: string
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
       - value: https://github.com/AgreementMakerLight/AML-Project
-        description: A URL pointing to the AgreementMakerLight project.
-      - value: AgreementMakerLight
-        description: A string (name) denoting the AgreementMakerLight project.
-  mapping_tool_id:
-    description:
-      The ID (entity reference) of the tool or algorithm that was used to
-      generate the mapping.
-    range: EntityReference
-    instantiates:
-      - sssom:Propagatable
-      - sssom:Versionable
-    annotations:
-      propagated: true
-      added_in: "1.1"
-    examples:
-      - value: wikidata:Q58057366
-        description:
-          A wikidata PURL identifying the AgreementMakerLight project.
-    see_also:
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_tool_id.sssom.tsv
-      - https://github.com/mapping-commons/sssom/issues/449
   mapping_tool_version:
-    description:
-      Version string that denotes the version of the mapping tool used.
+    description: Version string that denotes the version of the mapping tool used.
     range: string
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
       - value: v3.2
   mapping_date:
-    description:
-      The date the mapping was asserted. This is different from the date the
-      mapping was published or compiled in a SSSOM file.
-    slot_uri: dcterms:created
+    description: The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
+    slot_uri: pav:authoredOn
     range: date
-    instantiates:
-      - sssom:Propagatable
-    examples:
-      - value: "2021-01-01"
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
   publication_date:
-    description:
-      The date the mapping was published. This is different from the date the
-      mapping was asserted.
-    slot_uri: dcterms:issued
+    description: The date the mapping was published. This is different from the date the mapping was asserted.
+    slot_uri: dcterms:created
     range: date
-    examples:
-      - value: "2021-01-01"
-  review_date:
-    description:
-      The date the mapping was reviewed. This is different from the date the
-      mapping was asserted and published. If this field is used in a mapping,
-      reviewer_id and/or reviewer_label MUST also be be set.
-    range: date
-    examples:
-      - value: "2021-01-01"
-    instantiates:
-      - sssom:Versionable
-    annotations:
-      added_in: "1.1"
-    see_also:
-      - https://github.com/mapping-commons/sssom/issues/511
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/review_date.sssom.tsv
   confidence:
-    description: A value assigned by the creator of the mapping to denote the
-      creator's confidence or estimated probability that the mapping record is
-      correct. A value of 1.0 means the creator has full confidence in the
-      correctness of the mapping record, while a value of 0.0 means the creator
-      is fully unsure whether the mapping record is correct or not.
-
-      When not explicitly specified, confidence estimation algorithms should
-      consider the mapping confidence to be 1.0 by default.
+    description: A score between 0 and 1 to denote the confidence or probability that
+      the match is correct, where 1 denotes total confidence.
     range: double
     minimum_value: 0.0
     maximum_value: 1.0
-    see_also:
-      - https://mapping-commons.github.io/sssom/confidence-model
-    examples:
-      - value: "0.95"
-        description: A confidence score of 0.95, indicating 95% confidence.
-  reviewer_agreement:
-    description: A value assigned by the reviewer of the mapping to denote their
-      confidence that the mapping record is correct. A value of 1.0 means the
-      reviewer fully agrees with the mapping record. A value of -1.0 means the
-      reviewer fully disagrees with the mapping record. A value of 0.0 means the
-      reviewer is not sure whether the mapping record is correct or not.
-
-      When not explicitly specified, confidence estimation algorithms should
-      consider the reviewer agreement to be 1.0 by default.
-    range: double
-    minimum_value: -1.0
-    maximum_value: 1.0
-    instantiates:
-      - sssom:Versionable
-    annotations:
-      added_in: "1.1"
-    see_also:
-      - https://mapping-commons.github.io/sssom/confidence-model
-      - https://github.com/mapping-commons/sssom/issues/510
-      - https://github.com/mapping-commons/sssom/pull/519
-    examples:
-      - value: "1.0"
-        description:
-          A reviewer agreement of 1.0 denotes that the reviewer considers the
-          mapping record to be correct with full confidence
-      - value: "-1.0"
-        description:
-          A reviewer agreement of -1.0 denotes that the reviewer considers the
-          mapping record to be incorrect with full confidence
-      - value: "0.0"
-        description:
-          A reviewer agreement of 0.0 denotes that the reviewer is not sure
-          whether the mapping record is correct or not.
   subject_match_field:
-    description: >-
-      A list of properties, annotations or attributes related to the subject
-      that was used to establish the match. This property is recommended for use
-      in conjunction with  mapping justifications related to lexical matching,
-      such as `semapv:LexicalMatching`.  For additional information see the 'See
-      Also' section.
+    description: A list of properties (term annotations on the subject) that was used
+      for the match.
     range: EntityReference
     multivalued: true
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
-    examples:
-      - value: rdfs:label
-        description:
-          "The RDFS label property (rdfs:label) was used to match the subject."
-      - value: skos:prefLabel
-        description:
-          "The SKOS preferred label property (skos:prefLabel) was used to match
-          the subject."
-    see_also:
-      - https://mapping-commons.github.io/sssom/mapping-justifications/#lexical-matching
-      - https://github.com/mapping-commons/sssom/issues/413
   object_match_field:
-    description: >-
-      A list of properties, annotations or attributes related to the object that
-      was used to establish the match. This property is recommended for use in
-      conjunction with  mapping justifications related to lexical matching, such
-      as `semapv:LexicalMatching`.  For additional information see the 'See
-      Also' section.
+    description: A list of properties (term annotations on the object) that was used
+      for the match.
     range: EntityReference
     multivalued: true
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
-    examples:
-      - value: rdfs:label
-        description:
-          "The RDFS label property (rdfs:label) was used to match the object."
-      - value: skos:prefLabel
-        description:
-          "The SKOS preferred label property (skos:prefLabel) was used to match
-          the object."
-    see_also:
-      - https://mapping-commons.github.io/sssom/mapping-justifications/#lexical-matching
-      - https://github.com/mapping-commons/sssom/issues/413
   match_string:
-    description:
-      String that is shared by subj/obj. It is recommended to indicate the
+    description: String that is shared by subj/obj. It is recommended to indicate the 
       fields for the match using the object and subject_match_field slots.
     range: string
     multivalued: true
-    examples:
-      - value: "gala"
-        description:
-          "The 'gala' string was matched for both subject and object."
   subject_preprocessing:
-    description:
-      Method of preprocessing applied to the fields of the subject. If different
-      preprocessing steps were performed on different fields, it is recommended
-      to store the match in separate rows.
+    description: Method of preprocessing applied to the fields of the subject. 
+      If different preprocessing steps were performed on different fields, it is
+      recommended to store the match in separate rows.
     range: EntityReference
     multivalued: true
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
       - value: semapv:Stemming
       - value: semapv:StopWordRemoval
   object_preprocessing:
-    description:
-      Method of preprocessing applied to the fields of the object. If different
-      preprocessing steps were performed on different fields, it is recommended
-      to store the match in separate rows.
+    description: Method of preprocessing applied to the fields of the object. 
+      If different preprocessing steps were performed on different fields, it is
+      recommended to store the match in separate rows.
     range: EntityReference
     multivalued: true
-    instantiates:
-      - sssom:Propagatable
+    instantiates: sssom:Propagatable
     annotations:
       propagated: true
     examples:
       - value: semapv:Stemming
       - value: semapv:StopWordRemoval
   curation_rule:
-    description:
-      A curation rule is a (potentially) complex condition executed by an agent
-      that led to the establishment of a mapping. Curation rules often involve
-      complex domain-specific considerations, which are hard to capture in an
-      automated fashion. The curation rule is captured as a resource rather than
-      a string, which enables higher levels of transparency and sharing across
-      mapping sets. The URI representation of the curation rule is expected to
-      be a resolvable identifier which provides details about the nature of the
-      curation rule.
+    description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
+      Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
+      rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets.
+      The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.
     range: EntityReference
-    instantiates:
-      - sssom:Propagatable
-    annotations:
-      propagated: true
     multivalued: true
-    examples:
-      - value: DISEASE_MAPPING_COMMONS_RULES:MPR2
-        description:
-          A reference to the Disease Mapping Commons rule with the ID MPR2.
-    see_also:
+    see_also: 
       - https://github.com/mapping-commons/sssom/issues/166
       - https://github.com/mapping-commons/sssom/pull/258
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule-propagated.sssom.tsv
   curation_rule_text:
-    description:
-      A curation rule is a (potentially) complex condition executed by an agent
-      that led to the establishment of a mapping. Curation rules often involve
-      complex domain-specific considerations, which are hard to capture in an
-      automated fashion. The curation rule should be captured as a resource
-      (entity reference) rather than a string (see curation_rule element), which
-      enables higher levels of transparency and sharing across mapping sets. The
-      textual representation of curation rule is intended to be used in cases
-      where the creation of a resource is not practical from the perspective of
-      the mapping_provider.
+    description: A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. 
+      Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation
+      rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets.
+      The textual representation of curation rule is intended to be used in cases where (1) the creation of a resource is not practical from the
+      perspective of the mapping_provider and (2) as an additional piece of metadata to augment the curation_rule element with a human readable text.
     range: string
-    instantiates:
-      - sssom:Propagatable
-    annotations:
-      propagated: true
     multivalued: true
-    examples:
-      - value:
-          "The two phenotypes inhere in homologous structures and exhibit the
-          same phenotypic quality."
-      - value: "The two diseases are used synonymous in the medical literature."
     see_also:
       - https://github.com/mapping-commons/sssom/issues/166
       - https://github.com/mapping-commons/sssom/pull/258
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv
-      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text-propagated.sssom.tsv
   similarity_score:
-    description:
-      A score between 0 and 1 to denote the similarity between two entities,
-      where 1 denotes equivalence, and 0 denotes disjointness. The score is
-      meant to be used in conjunction with the similarity_measure field, to
-      document, for example, the lexical or semantic match of a matching
-      algorithm.
+    description: A score between 0 and 1 to denote the similarity between two entities, where
+      1 denotes equivalence, and 0 denotes disjointness. The score is meant to be used in conjunction 
+      with the similarity_measure field, to document, for example, the lexical or semantic match
+      of a matching algorithm.
     range: double
     minimum_value: 0.0
     maximum_value: 1.0
-    examples:
-      - value: "0.95"
-        description: A similarity score of 0.95, indicating 95% similarity.
     see_also:
       - https://github.com/mapping-commons/sssom/issues/385
       - https://github.com/mapping-commons/sssom/pull/386
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/similarity_score.sssom.tsv
   similarity_measure:
-    description:
-      The measure used for computing a similarity score. This field is meant to
-      be used in conjunction with the similarity_score field, to document, for
-      example, the lexical or semantic match of a matching algorithm. To make
-      processing this field as unambiguous as possible, we recommend using
+    description: The measure used for computing a similarity score.
+      This field is meant to be used in conjunction with the similarity_score field, to document,
+      for example, the lexical or semantic match of a matching algorithm.
+      To make processing this field as unambiguous as possible, we recommend using 
       wikidata CURIEs, but the type of this field is deliberately unspecified.
     range: string
-    instantiates:
-      - sssom:Propagatable
-    annotations:
-      propagated: true
     examples:
       - value: https://www.wikidata.org/entity/Q865360
-        description: the Wikidata IRI for the Jaccard index measure).
+        description: (the Wikidata IRI for the Jaccard index measure).
       - value: wikidata:Q865360
-        description: the Wikidata CURIE for the Jaccard index measure).
+        description: (the Wikidata CURIE for the Jaccard index measure).
       - value: Levenshtein distance
-        description:
-          a score to measure the distance between two character sequences).
+        description: (a score to measure the distance between two character sequences).
     see_also:
       - https://github.com/mapping-commons/sssom/issues/385
       - https://github.com/mapping-commons/sssom/pull/386
@@ -1124,219 +570,133 @@ slots:
     range: EntityReference
     examples:
       - value: SSSOM_GITHUB_ISSUE:166
-        description:
-          A URL resolving to an issue discussing a new SSSOM element request
-    see_also:
+        description: (A URL resolving to an issue discussing a new SSSOM element request)
+    see_also: 
       - https://github.com/mapping-commons/sssom/issues/78
       - https://github.com/mapping-commons/sssom/pull/259
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker_item.sssom.tsv
   issue_tracker:
     description: A URL location of the issue tracker for this entity.
-    range: NonRelativeURI
+    range: uri
     examples:
       - value: https://github.com/mapping-commons/mh_mapping_initiative/issues
-        description:
-          A URL resolving to the issue tracker of the Mouse-Human mapping
-          initiative
-    see_also:
+        description: (A URL resolving to the issue tracker of the Mouse-Human mapping initiative)
+    see_also: 
       - https://github.com/mapping-commons/sssom/issues/78
       - https://github.com/mapping-commons/sssom/pull/259
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker.sssom.tsv
   see_also:
-    description:
-      A URL specific for the mapping instance. E.g. for kboom we have a
-      per-mapping image that shows surrounding axioms that drive probability.
-      Could also be a github issue URL that discussed a complicated alignment
+    description: A URL specific for the mapping instance. E.g. for kboom we have a
+      per-mapping image that shows surrounding axioms that drive probability. Could
+      also be a github issue URL that discussed a complicated alignment
     slot_uri: rdfs:seeAlso
-    examples:
-      - value: https://github.com/mapping-commons/mh_mapping_initiative/pull/41
-        description:
-          A URL pointing to the pull request that introduced the mapping.
-    range: NonRelativeURI
+    range: string
     multivalued: true
-    see_also:
-      - https://github.com/mapping-commons/sssom/issues/422
   other:
-    description:
-      "Pipe separated list of key value pairs for properties not part of the
-      SSSOM spec. Can be used to encode additional provenance data. NOTE. This
-      field is not recommended for general use, and should be used sparingly.
-      See
-      https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
-      for an alternative approach based on extension slots."
+    description: Pipe separated list of key value pairs for properties not part of
+      the SSSOM spec. Can be used to encode additional provenance data.
     range: string
   comment:
-    description:
-      Free text field containing either curator notes or text generated by tool
-      providing additional informative information.
+    description: Free text field containing either curator notes or text generated
+      by tool providing additional informative information.
     slot_uri: rdfs:comment
     range: string
-    examples:
-      - value:
-          This mapping is weird in that the hierarchical position of the two
-          terms is very different.
-        description:
-          A comment explaining a mapping authors reservation on a mapping.
   extension_definitions:
-    description:
-      A list that defines the extension slots used in the mapping set.
+    description: A list that defines the extension slots used in the mapping set.
     range: extension definition
     multivalued: true
     see_also:
       - https://github.com/mapping-commons/sssom/issues/328
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
-  record_id:
-    description: >-
-      A unique identifier for a mapping record, that is for an instance of the
-      Mapping class (in the SSSOM/TSV serialisation, this corresponds to an
-      individual row after propagation is applied). This slot is intended to
-      uniquely identify one such record within a mapping set and may for example
-      act as the resource identifier for the record when it is serialised into
-      RDF. This slot MUST NOT be used to “group” several records together to
-      indicate that they pertain to a single mapping (for example, that they
-      represent different versions of the same mapping), by assigning the same
-      ID to several records. When it is used, every record within a set MUST
-      have a unique, non-empty value. The identifier MUST be a URI; beyond that,
-      its format is unconstrained and the identifier MUST be treated as an
-      opaque string.
-    range: EntityReference
-    instantiates:
-      - sssom:Versionable
-    annotations:
-      added_in: "1.1"
-    see_also:
-      - https://github.com/mapping-commons/sssom/issues/359
-      - https://github.com/mapping-commons/blob/master/examples/schema/record-ids.sssom.tsv
 classes:
   mapping set:
-    description: Represents a set of mappings.
+    description: Represents a set of mappings
     slot_usage:
       license:
         required: true
-      similarity_measure:
-        instantiates:
-          - sssom:Versionable
-        annotations:
-          added_in: "1.1"
-      curation_rule:
-        instantiates:
-          - sssom:Versionable
-        annotations:
-          added_in: "1.1"
-      curation_rule_text:
-        instantiates:
-          - sssom:Versionable
-        annotations:
-          added_in: "1.1"
     slots:
-      - sssom_version
-      - curie_map
-      - mappings
-      - mapping_set_id
-      - mapping_set_version
-      - mapping_set_source
-      - mapping_set_title
-      - mapping_set_description
-      - mapping_set_confidence
-      - creator_id
-      - creator_label
-      - license
-      - subject_type
-      - subject_source
-      - subject_source_version
-      - object_type
-      - object_source
-      - object_source_version
-      - predicate_type
-      - mapping_provider
-      - cardinality_scope
-      - mapping_tool
-      - mapping_tool_id
-      - mapping_tool_version
-      - mapping_date
-      - publication_date
-      - subject_match_field
-      - object_match_field
-      - subject_preprocessing
-      - object_preprocessing
-      - similarity_measure
-      - curation_rule
-      - curation_rule_text
-      - see_also
-      - issue_tracker
-      - other
-      - comment
-      - extension_definitions
+    - curie_map
+    - mappings
+    - mapping_set_id
+    - mapping_set_version
+    - mapping_set_source
+    - mapping_set_title
+    - mapping_set_description
+    - creator_id
+    - creator_label
+    - license
+    - subject_type
+    - subject_source
+    - subject_source_version
+    - object_type
+    - object_source
+    - object_source_version
+    - mapping_provider
+    - mapping_tool
+    - mapping_tool_version
+    - mapping_date
+    - publication_date
+    - subject_match_field
+    - object_match_field
+    - subject_preprocessing
+    - object_preprocessing
+    - see_also
+    - issue_tracker
+    - other
+    - comment
+    - extension_definitions
   mapping:
-    description: Represents an individual mapping between a pair of entities.
+    description: Represents an individual mapping between a pair of entities
     slots:
-      - record_id
-      - subject_id
-      - subject_label
-      - subject_category
-      - predicate_id
-      - predicate_label
-      - predicate_modifier
-      - object_id
-      - object_label
-      - object_category
-      - mapping_justification
-      - author_id
-      - author_label
-      - reviewer_id
-      - reviewer_label
-      - creator_id
-      - creator_label
-      - license
-      - subject_type
-      - subject_source
-      - subject_source_version
-      - object_type
-      - object_source
-      - object_source_version
-      - predicate_type
-      - mapping_provider
-      - mapping_source
-      - mapping_cardinality
-      - cardinality_scope
-      - mapping_tool
-      - mapping_tool_id
-      - mapping_tool_version
-      - mapping_date
-      - publication_date
-      - review_date
-      - confidence
-      - reviewer_agreement
-      - curation_rule
-      - curation_rule_text
-      - subject_match_field
-      - object_match_field
-      - match_string
-      - subject_preprocessing
-      - object_preprocessing
-      - similarity_score
-      - similarity_measure
-      - see_also
-      - issue_tracker_item
-      - other
-      - comment
+    - subject_id
+    - subject_label
+    - subject_category
+    - predicate_id
+    - predicate_label
+    - predicate_modifier
+    - object_id
+    - object_label
+    - object_category
+    - mapping_justification
+    - author_id
+    - author_label
+    - reviewer_id
+    - reviewer_label
+    - creator_id
+    - creator_label
+    - license
+    - subject_type
+    - subject_source
+    - subject_source_version
+    - object_type
+    - object_source
+    - object_source_version
+    - mapping_provider
+    - mapping_source
+    - mapping_cardinality
+    - mapping_tool
+    - mapping_tool_version
+    - mapping_date
+    - publication_date
+    - confidence
+    - curation_rule
+    - curation_rule_text
+    - subject_match_field
+    - object_match_field
+    - match_string
+    - subject_preprocessing
+    - object_preprocessing
+    - similarity_score
+    - similarity_measure
+    - see_also
+    - issue_tracker_item
+    - other
+    - comment
     class_uri: owl:Axiom
-    unique_keys:
-      record_identifier:
-        description: >-
-          Each mapping within a mapping set MAY be identified by a unique,
-          opaque record identifier. This slot MUST be used consistently, in that
-          either all mappings in the set have a such a record identifier, or
-          none of them have one. The behaviour when a set contains both mappings
-          with a record identifier and mappings without a record identifier is
-          unspecified. The behaviour when two mappings have the same record
-          identifier is unspecified.
-        unique_key_slots:
-          - record_id
     rules:
       - preconditions:
           slot_conditions:
-            subject_type:
+            subject_type: 
               equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
@@ -1346,14 +706,14 @@ classes:
           slot_conditions:
             subject_type:
               none_of:
-                - equals_string: "rdfs literal"
+                equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
             subject_id:
               required: true
       - preconditions:
           slot_conditions:
-            object_type:
+            object_type: 
               equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
@@ -1363,46 +723,14 @@ classes:
           slot_conditions:
             object_type:
               none_of:
-                - equals_string: "rdfs literal"
+                equals_string: "rdfs literal"
         postconditions:
           slot_conditions:
             object_id:
               required: true
-      - description:
-          If a review date is provided, then at at least one of reviewer_id or
-          reviewer_label must also be provided
-        preconditions:
-          slot_conditions:
-            review_date:
-              required: true
-        postconditions:
-          any_of:
-            - slot_conditions:
-                reviewer_id:
-                  required: true
-            - slot_conditions:
-                reviewer_label:
-                  required: true
-      - description:
-          If a reviewer agreement value is provided, then at at least one of
-          reviewer_id or reviewer_label must also be provided
-        preconditions:
-          slot_conditions:
-            reviewer_agreement:
-              required: true
-        postconditions:
-          any_of:
-            - slot_conditions:
-                reviewer_id:
-                  required: true
-            - slot_conditions:
-                reviewer_label:
-                  required: true
-
   mapping registry:
-    description:
-      A registry for managing mapping sets. It holds a set of mapping set
-      references, and can import other registries.
+    description: A registry for managing mapping sets. It holds a set of 
+      mapping set references, and can import other registries.
     slots:
       - mapping_registry_id
       - mapping_registry_title
@@ -1413,10 +741,9 @@ classes:
       - homepage
       - issue_tracker
   mapping set reference:
-    description:
-      A reference to a mapping set. It allows to augment mapping set metadata
-      from the perspective of the registry, for example, providing confidence,
-      or a local filename or a grouping.
+    description: A reference to a mapping set. It allows to augment mapping 
+      set metadata from the perspective of the registry, for example, providing 
+      confidence, or a local filename or a grouping.
     slots:
       - mapping_set_id
       - mirror_from
@@ -1436,45 +763,30 @@ classes:
         range: ncname
         required: true
       property:
-        description:
-          The property associated with the extension slot. It is intended to
-          provide a non-ambiguous meaning to the slot (contrary to the
-          slot_name, which for brevity reasons may be ambiguous).
+        description: The property associated with the extension slot. It is
+          intended to provide a non-ambiguous meaning to the slot (contrary
+          to the slot_name, which for brevity reasons may be ambiguous).
         range: uriorcurie
       type_hint:
         description: Expected type of the values of the extension slot.
         range: uriorcurie
   Propagatable:
     class_uri: sssom:Propagatable
-    description:
-      Metamodel extension class to describe slots whose value can be propagated
-      down from the MappingSet class to the Mapping class.
+    description: Metamodel extension class to describe slots whose value can be
+      propagated down from the MappingSet class to the Mapping class.
     see_also:
       - https://github.com/mapping-commons/sssom/issues/305
     attributes:
       propagated:
-        description:
-          Indicates whether a slot can be propagated from a mapping down to
-          individual mappings.
+        description: Indicates whether a slot can be propagated from a mapping
+          down to individual mappings.
         range: boolean
-  Versionable:
-    class_uri: sssom:Versionable
-    description:
-      Metamodel extension class to manage slots that may not exist in all
-      versions of the model.
-    attributes:
-      added_in:
-        description:
-          The version of the specification in which the slot was added. If not
-          specified, the slot must be assumed to have been added in version 1.0.
-        range: sssom_version_enum
   NoTermFound:
     class_uri: sssom:NoTermFound
-    description:
-      sssom:NoTermFound can be used in place of a subject_id or object_id when
-      the corresponding entity could not be found. It SHOULD be used in
-      conjunction with a corresponding subject_source or object_source to
-      signify where the term was not found.
+    description: sssom:NoTermFound can be used in place of a subject_id or object_id
+      when the corresponding entity could not be found. It SHOULD be used in conjuction with
+      a corresponding subject_source or object_source to signify where the term was not found.
     see_also:
       - https://github.com/mapping-commons/sssom/issues/28
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/no_term_found.sssom.tsv
+
