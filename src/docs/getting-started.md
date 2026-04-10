@@ -121,7 +121,7 @@ the full description of all fields):
 Other commonly used set-level metadata includes `mapping_set_description`,
 `mapping_set_version`, `subject_source`, `object_source`, and `creator_id`.
 
-**Required metadata for each mapping** (see [Mapping]spec/Mapping.md) for the full
+**Required metadata for each mapping** (see [Mapping](spec/Mapping.md) for the full
 description of all fields):
 
 | Field                   | Description                                                          |
