@@ -22,7 +22,7 @@ function.
 ## Hashing procedure
 
 The general principle of the SSSOM hashing function is to compute a
-ZBase32-encoded SHA2-256 hash of a canonical S-expression representing the
+hexadecimal-encoded FNV64 hash of a canonical S-expression representing the
 mapping record.
 
 ### Step 0: Propagate all condensed slots
@@ -99,17 +99,18 @@ Converting extension values to string:
 | `linkml:uriOrCurie`     | Expand the value according to the set’s prefix map                                                         |
 | any other type          | unspecified                                                                                                |
 
-### Step 2: Compute the SHA2-256 hash of the S-expression
+### Step 2: Compute the FNV64 hash of the S-expression
 
-Encore the S-expression assembled in step 1 into UTF-8 (if it was not already
+Encode the S-expression assembled in step 1 into UTF-8 (if it was not already
 assembled directly in UTF-8). Then hash the array of bytes containing the UTF-8
-representation of the S-expression using the standard SHA2-256 hash function as
-defined in [NIST FIPS-180-4](https://doi.org/10.6028/NIST.FIPS.180-4).
+representation of the S-expression using the 64-bit variant of the FNV-1a hash
+function as defined in [RFC 9923](https://www.rfc-editor.org/rfc/rfc9923.html).
 
-### Step 3: Encode the hash into a ZBase32 string
+### Step 3: Encode the hash into a hexadecimal string
 
-Encode the hash computed in step 2 into its representation in the ZBase32
-encoding ([RFC 6189](https://tools.ietf.org/html/rfc6189#section-5.1.6)).
+Encode the hash computed in step 2 into uppercase hexadecimal, also known as
+Base16 encoding as defined in
+[RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648#section-8).
 
 ## Example
 
@@ -146,12 +147,9 @@ clarity**, they MUST NOT appear in the actual S-expression):
 ))
 ```
 
-Applying the SHA2-256 hash function to the above S-expression would yield the
-following hash (in hexadecimal):
-`e3bc1b4b586c6e86d0caf369d49c161163e255c4a779821f448a8e4fbd616522`.
-
-Finally, encoding the binary SHA2-256 hash in ZBase32 would yield the following
-final value: `hq6bs14aptzepwgk6pw7j8ysnft6riqrw7har84rtk8r9xmbcwty`.
+Applying the FNV64 hash function to the above S-expression and encoding the
+resulting bytes in hexadecimal would yield the following final value:
+`0A442FB005783031`.
 
 ## Test vectors
 
@@ -184,7 +182,7 @@ S-expression:
 Hash value:
 
 ```
-cdxs1je5rcwpiqnarmojsqmxmpfe9tj43sbahp8u6txk5rssoduo
+97170EB542E9AE8F
 ```
 
 **Source set:**
@@ -209,7 +207,7 @@ S-expression:
 Hash value:
 
 ```
-qn1bra45hjtazt664husfgah5ewzo3oamh4swj5gomuka88rrqgo
+18F3436E89AA1AA2
 ```
 
 **Source set:**
@@ -234,7 +232,7 @@ S-expression:
 Hash value:
 
 ```
-bsat1g1mxe564n5rtoy5usdifybheqxgpes53rtbrue5uu3ac19o
+0D45A2E8C64EBD65
 ```
 
 **Source set:**
@@ -266,5 +264,5 @@ S-expression:
 Hash value:
 
 ```
-o5tsbozxxc6i66nezy7rm679waam1f9mxbemqpbyeyiz4q53sqjo
+66BD0A57A976A109
 ```
