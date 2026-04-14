@@ -16,13 +16,15 @@ plugins:
       redirect_maps:
         "spec-intro.md": spec/intro.md
         "spec-model.md": spec/model.md
-        "chaining-rules.md": spec/chaining-rules.md
         "linkml-index.md": spec/linkml-index.md
         "spec-formats.md": spec/formats.md
         "spec-formats-tsv.md": spec/formats-tsv.md
         "spec-formats-json.md": spec/formats-json.md
         "spec-formats-rdf.md": spec/formats-rdf.md
         "spec-formats-owl.md": spec/formats-owl.md
+        "spec-support.md": spec/support.md
+        "spec-support-hashing.md": spec/support-hashing.md
+        "chaining-rules.md": spec/chaining-rules.md
 markdown_extensions:
   - pymdownx.highlight:
       use_pygments: true
@@ -52,7 +54,6 @@ nav:
           - Introduction: spec/intro.md
           - Data model:
               - Introduction: spec/model.md
-              - Applying Chaining Rules: spec/chaining-rules.md
               - LinkML documentation: spec/linkml-index.md
           - Serialisations:
               - Introduction: spec/formats.md
@@ -60,6 +61,10 @@ nav:
               - SSSOM/JSON serialisation: spec/formats-json.md
               - SSSOM/RDF serialisation: spec/formats-rdf.md
               - OWL/RDF serialisation: spec/formats-owl.md
+          - Support functions:
+              - Introduction: spec/support.md
+              - Hashing mapping records: spec/support-hashing.md
+              - Applying Chaining Rules: spec/chaining-rules.md
       - Version 1.0:
           - Introduction: spec/v1.0/intro.md
           - Data model:
@@ -90,6 +95,7 @@ nav:
           - Matching tool implementation guide: matching-tool-implementation-guide.md
           - How to gradually enrich OMOP mappings with SSSOM: tutorials/omop-mappings.md
           - How to assess mapping confidence: confidence-model.md
+          - Identifying mapping records: record-identifiers.md
       - Reference:
           - Glossary: glossary.md
   - Related documentation: related-documentation.md
