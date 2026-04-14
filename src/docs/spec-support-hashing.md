@@ -46,7 +46,7 @@ The S-expression MUST be assembled as follows:
        slot.
     2. Append to the S-expression `(N:SLOTNAME`, where _SLOTNAME_ is the LinkML
        name for the slot and _N_ is the length of the slot name (so, for
-       rxample, `(10:subject_id`, `(9:author_id`, `(10:confidence`, etc.).
+       example, `(10:subject_id`, `(9:author_id`, `(10:confidence`, etc.).
     3. If the slot is defined as a multi-valued slot (and even if it has only
        one value in the mapping record to hash):
         1. Append `(`.
@@ -55,9 +55,10 @@ The S-expression MUST be assembled as follows:
            length of _V_.
         3. Append `)`.
     4. If the slot is typed as a floating point number (e.g. `confidence`),
-       convert the value to a string _V_ by truncating the floating point number
-       to up to 3 digits after the decimal point, rounding the last digit half
-       away from zero. Then append `N:V`, where _N_ is the length of _V_.
+       convert the value into a string _V_ according to the rules set forth in
+       the section
+       [Formatting floating-point values](#formatting-floating-point-values).
+       Then append `N:V`, where _N_ is the length of _V_.
     5. If the slot is typed as an enumeration (e.g. `subject_type`), append
        `N:ENUMVALUE`, where _ENUMVALUE_ is the allowed value in the enumeration
        as specified in the LinkML model, and _N_ is the length of _ENUMVALUE_
@@ -90,7 +91,7 @@ Converting extension values to string:
 | ----------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `xsd:string`            | No conversion needed, use the value directly                                                               |
 | `xsd:integer`           | Base 10 representation of the integer value                                                                |
-| `xsd:double`            | Truncate the number to up to 3 digits after the decimal point, round the last digit half away from zero    |
+| `xsd:double`            | Apply the rules from the section [Formatting floating-point values](#formatting-floating-point-values)     |
 | `xsd:boolean`           | `true` or `false`                                                                                          |
 | `xsd:date`              | ISO-8601 representation: `YYYY-MM-DD`                                                                      |
 | `xsd:datetime`          | ISO-8601 representation: `YYYY-MM-DDThh:mm:ssTZ` where `TZ` is the zone offset (e.g. `+01:00` or `-06:30`) |
@@ -110,6 +111,34 @@ function as defined in [RFC 9923](https://www.rfc-editor.org/rfc/rfc9923.html).
 Encode the hash computed in step 2 into uppercase hexadecimal, also known as
 Base16 encoding as defined in
 [RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648#section-8).
+
+<a id="formatting-floats"></a>
+
+### Formatting floating-point values
+
+Whenever a floating-point number needs to be appended to the canonical
+S-expression built in Step 2 above, the following specific rules apply:
+
+1. The non-fractional part MUST NOT be omitted, even it is zero. For example,
+   `0.7` MUST NOT be written as `.7`.
+2. The fractional part MUST be truncated to _up to_ 3 digits _as needed_. If the
+   fractional part can be written in less than 3 digits, then it MUST NOT be
+   right-padded with zeros. For example, `0.7` MUST NOT be written as `0.700`.
+3. If the fractional part needs to be truncated, the value MUST be rounded to
+   the nearest value representable with 3 digits, rounding half away from zero.
+   This corresponds to the _roundTiesToAway_ mode as defined by [IEEE 754-2019
+   §4.3.1](https://doi.org/ 10.1109/IEEESTD.2019.8766229).
+
+The following table gives some examples of rounding after truncation:
+
+| Original value | Canonical representation |
+| -------------- | ------------------------ |
+| 0.7832...      | 0.783                    |
+| 0.7835...      | 0.784                    |
+| 0.7836...      | 0.784                    |
+| -0.7832...     | -0.783                   |
+| -0.7836...     | -0.784                   |
+| -0.7835...     | -0.784                   |
 
 ## Example
 

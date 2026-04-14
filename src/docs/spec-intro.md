@@ -8,7 +8,7 @@ It is divided in three sections covering the three different components of the s
 * the specification for the [serialisation formats](spec-formats.md), to read, write, and exchange SSSOM mapping sets;
 * the specification for [supporting functions](spec-support.md) to help manipulating SSSOM mappings and mapping sets.
 
-Both sections are _normative_.
+All three sections are _normative_.
 
 ## Conventions used in this document
 
