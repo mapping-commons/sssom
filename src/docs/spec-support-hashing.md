@@ -127,7 +127,7 @@ S-expression built in Step 2 above, the following specific rules apply:
 3. If the fractional part needs to be truncated, the value MUST be rounded to
    the nearest value representable with 3 digits, rounding half away from zero.
    This corresponds to the _roundTiesToAway_ mode as defined by [IEEE 754-2019
-   §4.3.1](https://doi.org/ 10.1109/IEEESTD.2019.8766229).
+   §4.3.1](https://doi.org/10.1109/IEEESTD.2019.8766229).
 
 The following table gives some examples of rounding after truncation:
 
