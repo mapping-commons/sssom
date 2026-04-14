@@ -319,10 +319,10 @@ CREATE TABLE prefix (
 	UNIQUE ("mapping set_id", prefix_name),
 	FOREIGN KEY("mapping set_id") REFERENCES "mapping set" (id)
 );
-CREATE INDEX ix_prefix_prefix_name ON prefix (prefix_name);
-CREATE INDEX ix_prefix_prefix_url ON prefix (prefix_url);
-CREATE INDEX "ix_prefix_mapping set_id" ON prefix ("mapping set_id");
 CREATE INDEX "prefix_mapping set_id_prefix_name_idx" ON prefix ("mapping set_id", prefix_name);
+CREATE INDEX "ix_prefix_mapping set_id" ON prefix ("mapping set_id");
+CREATE INDEX ix_prefix_prefix_url ON prefix (prefix_url);
+CREATE INDEX ix_prefix_prefix_name ON prefix (prefix_name);
 
 CREATE TABLE "mapping set_mapping_set_source" (
 	"mapping set_id" INTEGER,
