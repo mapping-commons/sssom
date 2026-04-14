@@ -45,7 +45,9 @@ message Mapping
   string mappingToolVersion = 0
   date mappingDate = 0
   date publicationDate = 0
+  date reviewDate = 0
   double confidence = 0
+  double reviewerAgreement = 0
  repeated  entityReference curationRule = 0
  repeated  string curationRuleText = 0
  repeated  entityReference subjectMatchField = 0

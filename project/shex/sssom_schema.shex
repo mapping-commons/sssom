@@ -101,9 +101,11 @@ linkml:Sparqlpath xsd:string
           <mapping_tool> @linkml:String ? ;
           <mapping_tool_id> @<EntityReference> ? ;
           <mapping_tool_version> @linkml:String ? ;
-          pav:authoredOn @linkml:Date ? ;
+          dc1:created @linkml:Date ? ;
           dc1:issued @linkml:Date ? ;
+          <review_date> @linkml:Date ? ;
           <confidence> @linkml:Double ? ;
+          <reviewer_agreement> @linkml:Double ? ;
           <curation_rule> @<EntityReference> * ;
           <curation_rule_text> @linkml:String * ;
           <subject_match_field> @<EntityReference> * ;
@@ -164,7 +166,7 @@ linkml:Sparqlpath xsd:string
           <mapping_tool> @linkml:String ? ;
           <mapping_tool_id> @<EntityReference> ? ;
           <mapping_tool_version> @linkml:String ? ;
-          pav:authoredOn @linkml:Date ? ;
+          dc1:created @linkml:Date ? ;
           dc1:issued @linkml:Date ? ;
           <subject_match_field> @<EntityReference> * ;
           <object_match_field> @<EntityReference> * ;
@@ -220,4 +222,3 @@ linkml:Sparqlpath xsd:string
        rdf:type [ <Versionable> ] ?
     )
 }
-
