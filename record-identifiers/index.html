@@ -1347,6 +1347,13 @@ yield the same value can be considered negligible.</p>
 <p>While the resulting value may appear meaningless, and not different from a
 randomly picked number, it represents a non-opaque identifier nonetheless
 because the value is still directly dependent on the content of the record.</p>
+<p>Of note, the
+<a href="https://ts4nfdi.github.io/mapping-sameness-identifier/">Mapping Sameness Identifier</a>,
+a proposed SSSOM-independent standard to compute an unique identifier for a
+mapping, is <em>not</em> suitable as a SSSOM record identifier, because it may not be
+unique for any given record (on the contrary, it is explicitly designed to be
+identical for all records that have the same subject, the same predicate (incl. possible negation modifier), and
+the same object, regardless of all other metadata).</p>
 <h5 id="content-derived-identifiers-considered-harmful">Content-derived identifiers considered harmful</h5>
 <p>As noted at the very beginning of this page, the SSSOM specification is
 non-prescriptive about how identifiers should be minted. It neither mandates nor
