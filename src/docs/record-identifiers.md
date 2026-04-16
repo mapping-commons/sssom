@@ -148,6 +148,14 @@ While the resulting value may appear meaningless, and not different from a
 randomly picked number, it represents a non-opaque identifier nonetheless
 because the value is still directly dependent on the content of the record.
 
+Of note, the
+[Mapping Sameness Identifier](https://ts4nfdi.github.io/mapping-sameness-identifier/),
+a proposed SSSOM-independent standard to compute an unique identifier for a
+mapping, is _not_ suitable as a SSSOM record identifier, because it may not be
+unique for any given record (on the contrary, it is explicitly designed to be
+identical for all records that have the same subject, the same predicate, and
+the same object, regardless of all other metadata).
+
 ##### Content-derived identifiers considered harmful
 
 As noted at the very beginning of this page, the SSSOM specification is
