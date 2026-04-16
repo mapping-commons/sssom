@@ -659,7 +659,7 @@
     {
       "name": "registry_confidence",
       "definition_uri": "https://w3id.org/sssom/registry_confidence",
-      "description": "This value is set by the registry that indexes the mapping set. It reflects the confidence the registry has in the correctness of the mappings in the mapping set.",
+      "description": "This value is set by the creator/maintainer of the mapping registry and reflects the confidence the mapping registry has in the correctness (i.e., precision) of mappings in the mapping set.\nWhen not explicitly specified, confidence estimation algorithms should consider the registry confidence in a mapping set to be 1.0 by default.",
       "examples": [
         {
           "value": "0.95",
@@ -668,6 +668,9 @@
         }
       ],
       "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://mapping-commons.github.io/sssom/confidence-model"
+      ],
       "slot_uri": "https://w3id.org/sssom/registry_confidence",
       "owner": "MappingSetReference",
       "domain_of": [
@@ -718,6 +721,7 @@
       "recommended": true,
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1403,7 +1407,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "Mapping-set level confidence is assigned by the creator of the mapping set, to indicate their overall confidence in the correctness of all mappings in the mapping set. Mapping set confidence is intended to be used in cases were the creator wants to express an overall confidence into the agent that curated the individual mappings, for example a lexical matching tool, or a group of students.",
+      "description": "Mapping-set level confidence is assigned by the creator of the mapping set to indicate their overall confidence in the correctness (i.e., precision) of mappings in the mapping set. Mapping set confidence is intended to be used in cases were the creator wants to express an overall confidence into the agent that curated the individual mappings, for example a lexical matching tool, or a group of students.\nWhen not explicitly specified, confidence estimation algorithms should consider the mapping set confidence to be 1.0 by default.",
       "examples": [
         {
           "value": "0.95",
@@ -1413,6 +1417,7 @@
       ],
       "from_schema": "https://w3id.org/sssom/schema/",
       "see_also": [
+        "https://mapping-commons.github.io/sssom/confidence-model",
         "https://github.com/mapping-commons/sssom/issues/438",
         "https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_set_confidence.sssom.tsv"
       ],
@@ -1433,7 +1438,7 @@
       "examples": [
         {
           "value": "orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165",
-          "description": "The ORCID of the (multiple) creators of the mapping.",
+          "description": "The ORCID of the (multiple) creators of the mapping. Note that this is how the example would look like specifically in the SSSOM/TSV format, where multivalued slots such as `creator_id` are represented as single strings containing `|`-separated values.",
           "@type": "Example"
         },
         {
@@ -1463,7 +1468,7 @@
       "examples": [
         {
           "value": "Nicolas Matentzoglu|Chris Mungall",
-          "description": "The human-readable names of the (multiple) creators of the mapping.",
+          "description": "The human-readable names of the (multiple) creators of the mapping. Note that this is how the example would look like specifically in the SSSOM/TSV format, where multivalued slots such as `creator_label` are represented as single strings containing `|`-separated values.",
           "@type": "Example"
         },
         {
@@ -1490,7 +1495,7 @@
       "examples": [
         {
           "value": "orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165",
-          "description": "The ORCID of the (multiple) authors of the mapping.",
+          "description": "The ORCID of the (multiple) authors of the mapping. Note that this is how the example would look like specifically in the SSSOM/TSV format, where multivalued slots such as `author_id` are represented as single strings containing `|`-separated values.",
           "@type": "Example"
         },
         {
@@ -1519,7 +1524,7 @@
       "examples": [
         {
           "value": "Nicolas Matentzoglu|Chris Mungall",
-          "description": "The human-readable names of the (multiple) authors of the mapping.",
+          "description": "The human-readable names of the (multiple) authors of the mapping. Note that this is how the example would look like specifically in the SSSOM/TSV format, where multivalued slots such as `author_label` are represented as single strings containing `|`-separated values.",
           "@type": "Example"
         },
         {
@@ -1545,7 +1550,7 @@
       "examples": [
         {
           "value": "orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165",
-          "description": "The ORCID of the (multiple) reviewers of the mapping.",
+          "description": "The ORCID of the (multiple) reviewers of the mapping. Note that this is how the example would look like specifically in the SSSOM/TSV format, where multivalued slots such as `reviewer_id` are represented as single strings containing `|`-separated values.",
           "@type": "Example"
         },
         {
@@ -1571,7 +1576,7 @@
       "examples": [
         {
           "value": "Nicolas Matentzoglu|Chris Mungall",
-          "description": "The human-readable names of the (multiple) reviewers of the mapping.",
+          "description": "The human-readable names of the (multiple) reviewers of the mapping. Note that this is how the example would look like specifically in the SSSOM/TSV format, where multivalued slots such as `reviewer_label` are represented as single strings containing `|`-separated values.",
           "@type": "Example"
         },
         {
@@ -1880,13 +1885,13 @@
       "description": "A list of mapping slots that define the scope for the value found in the mapping_cardinality slot. Mappings are considered to belong to the same scope if they have the same value for all slots listed in the scope. If no scope is defined, the default scope is empty, meaning that all mappings belong to a single scope that is identical to the entire mapping set. The behaviour if a value in the list does not correspond to a valid slot name is undefined.",
       "examples": [
         {
-          "value": "['predicate_id']",
+          "value": "predicate_id",
           "description": "Indicates that mapping_cardinality is computed relatively to all mappings that have the same predicate.",
           "@type": "Example"
         },
         {
-          "value": "['predicate_id', 'object_source']",
-          "description": "Indicates that mapping_cardinality is computed relatively to all mappings that have the same predicate and the same object source.",
+          "value": "predicate_id|object_source",
+          "description": "Indicates that mapping_cardinality is computed relatively to all mappings that have the same predicate and the same object source. Note that this is how the example would look like specifically in the SSSOM/TSV format, where multivalued slots like `cardinality_scope` are represented as a single string containing `|`-separated values.",
           "@type": "Example"
         }
       ],
@@ -2035,9 +2040,9 @@
       ],
       "from_schema": "https://w3id.org/sssom/schema/",
       "mappings": [
-        "http://purl.org/pav/authoredOn"
+        "http://purl.org/dc/terms/created"
       ],
-      "slot_uri": "http://purl.org/pav/authoredOn",
+      "slot_uri": "http://purl.org/dc/terms/created",
       "owner": "Mapping",
       "domain_of": [
         "MappingSet",
@@ -2070,9 +2075,42 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "review_date",
+      "definition_uri": "https://w3id.org/sssom/review_date",
+      "instantiates": [
+        "sssom:Versionable"
+      ],
+      "annotations": [
+        {
+          "tag": "added_in",
+          "value": "1.1",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "The date the mapping was reviewed. This is different from the date the mapping was asserted and published. If this field is used in a mapping, reviewer_id and/or reviewer_label MUST also be be set.",
+      "examples": [
+        {
+          "value": "2021-01-01",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://github.com/mapping-commons/sssom/issues/511",
+        "https://github.com/mapping-commons/sssom/blob/master/examples/schema/review_date.sssom.tsv"
+      ],
+      "slot_uri": "https://w3id.org/sssom/review_date",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "confidence",
       "definition_uri": "https://w3id.org/sssom/confidence",
-      "description": "A score between 0 and 1 to denote the confidence or probability that the match is correct, where 1 denotes total confidence.",
+      "description": "A value assigned by the creator of the mapping to denote the creator's confidence or estimated probability that the mapping record is correct. A value of 1.0 means the creator has full confidence in the correctness of the mapping record, while a value of 0.0 means the creator is fully unsure whether the mapping record is correct or not.\nWhen not explicitly specified, confidence estimation algorithms should consider the mapping confidence to be 1.0 by default.",
       "examples": [
         {
           "value": "0.95",
@@ -2081,6 +2119,9 @@
         }
       ],
       "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://mapping-commons.github.io/sssom/confidence-model"
+      ],
       "slot_uri": "https://w3id.org/sssom/confidence",
       "owner": "Mapping",
       "domain_of": [
@@ -2088,6 +2129,53 @@
       ],
       "range": "double",
       "minimum_value": 0.0,
+      "maximum_value": 1.0,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "reviewer_agreement",
+      "definition_uri": "https://w3id.org/sssom/reviewer_agreement",
+      "instantiates": [
+        "sssom:Versionable"
+      ],
+      "annotations": [
+        {
+          "tag": "added_in",
+          "value": "1.1",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "A value assigned by the reviewer of the mapping to denote their confidence that the mapping record is correct. A value of 1.0 means the reviewer fully agrees with the mapping record. A value of -1.0 means the reviewer fully disagrees with the mapping record. A value of 0.0 means the reviewer is not sure whether the mapping record is correct or not.\nWhen not explicitly specified, confidence estimation algorithms should consider the reviewer agreement to be 1.0 by default.",
+      "examples": [
+        {
+          "value": "1.0",
+          "description": "A reviewer agreement of 1.0 denotes that the reviewer considers the mapping record to be correct with full confidence",
+          "@type": "Example"
+        },
+        {
+          "value": "-1.0",
+          "description": "A reviewer agreement of -1.0 denotes that the reviewer considers the mapping record to be incorrect with full confidence",
+          "@type": "Example"
+        },
+        {
+          "value": "0.0",
+          "description": "A reviewer agreement of 0.0 denotes that the reviewer is not sure whether the mapping record is correct or not.",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://mapping-commons.github.io/sssom/confidence-model",
+        "https://github.com/mapping-commons/sssom/issues/510",
+        "https://github.com/mapping-commons/sssom/pull/519"
+      ],
+      "slot_uri": "https://w3id.org/sssom/reviewer_agreement",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "double",
+      "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
@@ -2550,6 +2638,7 @@
       "range": "ExtensionDefinition",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2905,7 +2994,9 @@
         "mapping_tool_version",
         "mapping_date",
         "publication_date",
+        "review_date",
         "confidence",
+        "reviewer_agreement",
         "curation_rule",
         "curation_rule_text",
         "subject_match_field",
@@ -3033,6 +3124,84 @@
             ],
             "@type": "AnonymousClassExpression"
           },
+          "@type": "ClassRule"
+        },
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "review_date",
+                "required": true,
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "any_of": [
+              {
+                "slot_conditions": [
+                  {
+                    "name": "reviewer_id",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "reviewer_label",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "description": "If a review date is provided, then at at least one of reviewer_id or reviewer_label must also be provided",
+          "@type": "ClassRule"
+        },
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "reviewer_agreement",
+                "required": true,
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "any_of": [
+              {
+                "slot_conditions": [
+                  {
+                    "name": "reviewer_id",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              },
+              {
+                "slot_conditions": [
+                  {
+                    "name": "reviewer_label",
+                    "required": true,
+                    "@type": "SlotDefinition"
+                  }
+                ],
+                "@type": "AnonymousClassExpression"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "description": "If a reviewer agreement value is provided, then at at least one of reviewer_id or reviewer_label must also be provided",
           "@type": "ClassRule"
         }
       ],
@@ -3189,9 +3358,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2025-10-06T23:42:36",
-  "source_file_size": 51356,
-  "generation_date": "2025-10-07T21:17:00",
+  "source_file_date": "2026-04-04T08:06:51",
+  "source_file_size": 58930,
+  "generation_date": "2026-04-14T16:00:32",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom_schema.context.jsonld",
