@@ -1142,6 +1142,11 @@ slots:
       - https://github.com/mapping-commons/sssom/issues/78
       - https://github.com/mapping-commons/sssom/pull/259
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker.sssom.tsv
+  derived_from:
+    multivalued: true
+    slot_uri: prov:wasDerivedFrom
+    description: A set of [mapping sameness identifiers](https://github.com/ts4nfdi/mapping-sameness-identifier)
+      for mappings that were used to derive this mapping, e.g., through mapping chaining or inversion
   see_also:
     description:
       A URL specific for the mapping instance. E.g. for kboom we have a
@@ -1318,6 +1323,7 @@ classes:
       - similarity_measure
       - see_also
       - issue_tracker_item
+      - derived_from
       - other
       - comment
     class_uri: owl:Axiom
