@@ -1,5 +1,5 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-04-14T16:00:32
+# Generation date: 2026-04-21T15:37:52
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
@@ -342,6 +342,7 @@ class Mapping(YAMLRoot):
     similarity_measure: Optional[str] = None
     see_also: Optional[Union[Union[str, NonRelativeURI], list[Union[str, NonRelativeURI]]]] = empty_list()
     issue_tracker_item: Optional[Union[str, EntityReference]] = None
+    derived_from: Optional[Union[Union[str, EntityReference], list[Union[str, EntityReference]]]] = empty_list()
     other: Optional[str] = None
     comment: Optional[str] = None
 
@@ -508,6 +509,10 @@ class Mapping(YAMLRoot):
 
         if self.issue_tracker_item is not None and not isinstance(self.issue_tracker_item, EntityReference):
             self.issue_tracker_item = EntityReference(self.issue_tracker_item)
+
+        if not isinstance(self.derived_from, list):
+            self.derived_from = [self.derived_from] if self.derived_from is not None else []
+        self.derived_from = [v if isinstance(v, EntityReference) else EntityReference(v) for v in self.derived_from]
 
         if self.other is not None and not isinstance(self.other, str):
             self.other = str(self.other)
@@ -1066,6 +1071,9 @@ slots.issue_tracker_item = Slot(uri=SSSOM.issue_tracker_item, name="issue_tracke
 
 slots.issue_tracker = Slot(uri=SSSOM.issue_tracker, name="issue_tracker", curie=SSSOM.curie('issue_tracker'),
                    model_uri=SSSOM.issue_tracker, domain=None, range=Optional[Union[str, NonRelativeURI]])
+
+slots.derived_from = Slot(uri=PROV.wasDerivedFrom, name="derived_from", curie=PROV.curie('wasDerivedFrom'),
+                   model_uri=SSSOM.derived_from, domain=None, range=Optional[Union[Union[str, EntityReference], list[Union[str, EntityReference]]]])
 
 slots.see_also = Slot(uri=RDFS.seeAlso, name="see_also", curie=RDFS.curie('seeAlso'),
                    model_uri=SSSOM.see_also, domain=None, range=Optional[Union[Union[str, NonRelativeURI], list[Union[str, NonRelativeURI]]]])
