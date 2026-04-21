@@ -1156,7 +1156,7 @@ slots:
     annotations:
       added_in: "1.1"
     see_also:
-      - https://obo-communitygroup.slack.com/archives/C0281J34Z6J/p1776689973840819
+      - https://github.com/mapping-commons/sssom/issues/537
     examples:
       - value: mapping:9D59EF306286DC1A
         description:
