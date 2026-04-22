@@ -9,6 +9,9 @@ theme:
   #    primary: cyan
   features:
     - content.tabs.link
+extra:
+  version:
+    provider: mike
 plugins:
   - search
   - mermaid2

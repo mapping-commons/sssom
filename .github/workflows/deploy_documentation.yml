@@ -55,4 +55,4 @@ jobs:
       #----------------------------------------------
       - name: Deploy web-based documentation to GitHub Pages
         run: |
-          make mkd-gh-deploy
+          make deploy-doc
