@@ -15,5 +15,5 @@
 subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	derived_from	comment
 mesh:C000089	ammeline	skos:exactMatch	CHEBI:28646	ammeline	semapv:ManualMappingCuration
 CHEBI:28646	ammeline	skos:exactMatch	cas:645-92-1	Ammeline	semapv:ManualMappingCuration
-mesh:C000089	ammeline	skos:exactMatch	cas:645-92-1	Ammeline	 semapv:MappingChaining	mapping:9D59EF306286DC1A|mapping:63C5D4FA232E1188	this example needs to refer to both the mappings on row 18 and 19 by mapping sameness identifier
-CHEBI:28646	ammeline	skos:exactMatch	mesh:C000089	Ammeline	 semapv:MappingInversion	mapping:9D59EF306286DC1A	this example just needs to refer to the mapping on row 18 by the mapping sameness identifier
+mesh:C000089	ammeline	skos:exactMatch	cas:645-92-1	Ammeline	 semapv:MappingChaining	mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e	this example needs to refer to both the mappings on row 18 and 19 by mapping sameness identifier
+CHEBI:28646	ammeline	skos:exactMatch	mesh:C000089	Ammeline	 semapv:MappingInversion	mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a	this example just needs to refer to the mapping on row 18 by the mapping sameness identifier

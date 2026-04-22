@@ -1158,19 +1158,22 @@ slots:
     see_also:
       - https://github.com/mapping-commons/sssom/issues/537
     examples:
-      - value: mapping:9D59EF306286DC1A
+      - value: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a
         description:
           A single value can be used when inverting the mapping
           mesh:C000089-skos:exactMatch-CHEBI:28646, whose mapping sameness
-          identifier is 9D59EF306286DC1A, to get mapping
-          CHEBI:28646-skos:exactMatch-mesh:C000089
-      - value: mapping:9D59EF306286DC1A|mapping:63C5D4FA232E1188
+          identifier is
+          36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a, to
+          get mapping CHEBI:28646-skos:exactMatch-mesh:C000089
+      - value: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e
         description:
           The mappings mesh:C000089-skos:exactMatch-CHEBI:28646 and
           CHEBI:28646-skos:exactMatch-cas:645-92-1 (whose mapping sameness
-          identifiers are respectively mapping:9D59EF306286DC1A and
-          mapping:63C5D4FA232E1188) can be used to infer
-          mesh:C000089-skos:exactMatch-cas:645-92-1.
+          identifiers are respectively
+          mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a
+          and
+          mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e)
+          can be used to infer mesh:C000089-skos:exactMatch-cas:645-92-1.
   see_also:
     description:
       A URL specific for the mapping instance. E.g. for kboom we have a
