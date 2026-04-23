@@ -1,0 +1,1441 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="The SSSOM Community">
+      
+      
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/dev/mapping-justifications/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Mapping Justifications - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#guide-to-using-mapping-justifications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-header__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A Simple Standard for Sharing Ontology Mappings (SSSOM)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mapping Justifications
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-nav__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    A Simple Standard for Sharing Ontology Mappings (SSSOM)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Specification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Specification" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Specification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Data model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data model" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Data model
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-model/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linkml-index/" class="md-nav__link">
+        LinkML documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Serialisations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Serialisations" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Serialisations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats-tsv/" class="md-nav__link">
+        SSSOM/TSV serialisation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats-json/" class="md-nav__link">
+        SSSOM/JSON serialisation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats-rdf/" class="md-nav__link">
+        SSSOM/RDF serialisation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats-owl/" class="md-nav__link">
+        OWL/RDF serialisation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Support functions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Support functions" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Support functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-support/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-support-hashing/" class="md-nav__link">
+        Hashing mapping records
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chaining-rules/" class="md-nav__link">
+        Applying Chaining Rules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        Resources for contributors
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Resources for users
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources for users" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Resources for users
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Community
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Community" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/" class="md-nav__link">
+        Use Cases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshops/" class="md-nav__link">
+        Workshops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../presentations/" class="md-nav__link">
+        Presentations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Training materials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Training materials" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Training materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        Basic Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          How to
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How to" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          How to
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Mapping Justifications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Mapping Justifications
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lexical-matching" class="md-nav__link">
+    Lexical matching
+  </a>
+  
+    <nav class="md-nav" aria-label="Lexical matching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-track-the-fact-that-the-match-was-based-on-a-lexical-process" class="md-nav__link">
+    Level 1: Track the fact that the match was based on a lexical process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-track-the-specific-datamodel-fields-involved-in-the-matching-process" class="md-nav__link">
+    Level 2: Track the specific datamodel fields involved in the matching process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-pre-processing" class="md-nav__link">
+    Level 3: Pre-processing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semantic-similarity-threshold-based-matching" class="md-nav__link">
+    Semantic similarity threshold-based matching
+  </a>
+  
+    <nav class="md-nav" aria-label="Semantic similarity threshold-based matching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-documenting-semantic-similarity-matches" class="md-nav__link">
+    Level 1: Documenting semantic similarity matches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-mapping-curation" class="md-nav__link">
+    Manual mapping curation
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual mapping curation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-documenting-manual-mapping-curation" class="md-nav__link">
+    Level 1: Documenting manual mapping curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-documenting-the-confidence-of-expert-curation" class="md-nav__link">
+    Level 2: Documenting the confidence of expert curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-documenting-curation-rules" class="md-nav__link">
+    Level 3: Documenting curation rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping-review" class="md-nav__link">
+    Mapping review
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-predicates/" class="md-nav__link">
+        How to use mapping predicates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-commons/" class="md-nav__link">
+        Set up a mapping registry/commons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toolkit/" class="md-nav__link">
+        A basic guide for the SSSOM toolkit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5star-mappings/" class="md-nav__link">
+        5-Star Entity Mappings - Cheatsheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matching-tool-implementation-guide/" class="md-nav__link">
+        Matching tool implementation guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/omop-mappings/" class="md-nav__link">
+        How to gradually enrich OMOP mappings with SSSOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../confidence-model/" class="md-nav__link">
+        How to assess mapping confidence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../record-identifiers/" class="md-nav__link">
+        Identifying mapping records
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../related-documentation/" class="md-nav__link">
+        Related documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../funding/" class="md-nav__link">
+        Funding
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lexical-matching" class="md-nav__link">
+    Lexical matching
+  </a>
+  
+    <nav class="md-nav" aria-label="Lexical matching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-track-the-fact-that-the-match-was-based-on-a-lexical-process" class="md-nav__link">
+    Level 1: Track the fact that the match was based on a lexical process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-track-the-specific-datamodel-fields-involved-in-the-matching-process" class="md-nav__link">
+    Level 2: Track the specific datamodel fields involved in the matching process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-pre-processing" class="md-nav__link">
+    Level 3: Pre-processing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semantic-similarity-threshold-based-matching" class="md-nav__link">
+    Semantic similarity threshold-based matching
+  </a>
+  
+    <nav class="md-nav" aria-label="Semantic similarity threshold-based matching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-documenting-semantic-similarity-matches" class="md-nav__link">
+    Level 1: Documenting semantic similarity matches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-mapping-curation" class="md-nav__link">
+    Manual mapping curation
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual mapping curation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-documenting-manual-mapping-curation" class="md-nav__link">
+    Level 1: Documenting manual mapping curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-documenting-the-confidence-of-expert-curation" class="md-nav__link">
+    Level 2: Documenting the confidence of expert curation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-documenting-curation-rules" class="md-nav__link">
+    Level 3: Documenting curation rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping-review" class="md-nav__link">
+    Mapping review
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/mapping-justifications.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="guide-to-using-mapping-justifications">Guide to using Mapping Justifications</h1>
+<p>The goal of this document is to provide the user with a few pointers into the art of mapping justification construction. As of Summer 2023, the SSSOM justification system is still evolving, and will likely benefit from yoru input. Where informative metadata properties or values are missing from the <a href="https://mapping-commons.github.io/sssom/">SSSOM datamodel</a> or <a href="https://mapping-commons.github.io/semantic-mapping-vocabulary/">SEMAPV</a>, request them on the <a href="https://github.com/mapping-commons/sssom/issues">SSSOM</a> or <a href="https://github.com/mapping-commons/semantic-mapping-vocabulary/issues">SEMAPV issue tracker</a> respectively.</p>
+<h2 id="table-of-contents">Table of contents</h2>
+<ol>
+<li><a href="#lexical-matching">lexical matching</a></li>
+<li><a href="#semantic-matching">semantic similarity threshold-based matching</a></li>
+<li><a href="#manual-mapping-curation">manual mapping curation</a></li>
+<li><a href="#mapping-review">mapping review</a></li>
+<li>Other justifications<ol>
+<li>background knowledge-based matching</li>
+<li>composite matching</li>
+<li>instance-based matching</li>
+<li>lexical similarity threshold-based matching</li>
+<li>logical reasoning</li>
+<li>mapping chaining-based matching</li>
+<li>mapping inversion-based matching</li>
+<li>semantic similarity threshold-based matching</li>
+<li>structural matching</li>
+<li>unspecified matching</li>
+</ol>
+</li>
+</ol>
+<p><a id="lexical-matching"></a></p>
+<h2 id="lexical-matching">Lexical matching</h2>
+<p>There are two kinds of lexical matching justifications we try to distinguish:</p>
+<ul>
+<li><a href="https://w3id.org/semapv/vocab/LexicalMatching">semapv:LexicalMatching</a>: The match is exact (potentially after pre-processing)</li>
+<li><a href="https://w3id.org/semapv/vocab/LexicalSimilarityThresholdMatching">semapv:LexicalSimilarityThresholdMatching</a>: The match is fuzzy (for example, Levenshtein distance). Note: embedding similarity, even if constructed purely of a word embedding, is considered a form of <em>semantic</em> similarity.</li>
+</ul>
+<h4 id="level-1-track-the-fact-that-the-match-was-based-on-a-lexical-process">Level 1: Track the fact that the match was based on a lexical process</h4>
+<p>Whenever a mapping was established by a lexical matching process, track at least that fact:</p>
+<ul>
+<li><a href="https://mapping-commons.github.io/sssom/mapping_justification/">mapping_justification</a><code>:</code><a href="https://w3id.org/semapv/vocab/CompositeMatching">semapv:LexicalMatching</a>. This indicates that the mapping was determined through some form of exact lexical matching.</li>
+</ul>
+<h4 id="level-2-track-the-specific-datamodel-fields-involved-in-the-matching-process">Level 2: Track the specific datamodel fields involved in the matching process</h4>
+<p>Regardless of which specific lexical matching justification you are working on, it is often useful to document the source field of the values used to acquire the match. For example:</p>
+<ul>
+<li><a href="https://mapping-commons.github.io/sssom/subject_match_field/">subject_match_field</a><code>: rdfs:label</code> indicates that the value of the <code>rdfs:label</code> property on the subject entity was used to establish the match.</li>
+<li><a href="https://mapping-commons.github.io/sssom/object_match_field/">object_match_field</a><code>: skos:prefLabel</code> indicates that the value of the <code>skos:prefLabel</code> property on the object entity was used to establish the match.</li>
+<li><a href="https://mapping-commons.github.io/sssom/match_string/">match_string</a><code>: somestring</code> the exact string that was used to establish the match. This is especially useful if preprocessing methods are applied, see below (Level 3).</li>
+</ul>
+<h4 id="level-3-pre-processing">Level 3: Pre-processing</h4>
+<p>There are many pre-processing techniques for text in the NLP literature, such as lower-casing or lemmatisation. To judge the fidelity of a match, it is often useful to document the exact techniques used.</p>
+<ul>
+<li><a href="https://mapping-commons.github.io/sssom/match_string/">subject_preprocessing</a><code>: semapv:BlankNormalisation</code> indicates that before determining the match, blank characters (spaces etc) where standardised in some way. There are plenty of preprocessing techniques already recorded in <a href="https://mapping-commons.github.io/semantic-mapping-vocabulary/">SEMAPV</a>, including semapv:BlankNormalisation, semapv:CaseNormalization, semapv:DiacriticsSuppression, semapv:DigitSuppression, semapv:Lemmatization, semapv:LinkStripping, semapv:PunctuationElemination, semapv:RegexRemoval, semapv:RegexReplacement, semapv:Stemming, semapv:StopWordRemoval, semapv:TermExtraction, semapv:Tokenization, but feel free to add more.</li>
+</ul>
+<p>However, there is one aspect that makes this process quite difficult to implement: Most matchers will blindly apply a set of normalisation techniques prior to processing, but not document which exact technique <strong>had an effect</strong>. It is obviously less useful to say: we applied all these 20 techniques, if only one of them was actually effectual (i.e. caused the string to change).</p>
+<p>If there is no (easy) way to keep track of which technique was effectual for any given match, we believe that it is still better to document all techniques, but doing so on <code>mapping set</code> level rather than for each individual mappings (to keep the mapping sets smaller).</p>
+<p><a id="semantic-matching"></a></p>
+<h2 id="semantic-similarity-threshold-based-matching">Semantic similarity threshold-based matching</h2>
+<p>The basic idea behind "Semantic similarity threshold-based matching" is that a process that is "semantics aware" (in the loose sense, either by being cognisant about the graph structure, the logical structure, or a contextual textual knowledge such as an embedded Wikipedia article) enabled computing a score between the subject and object entity that to some degree reflects the "similarity" between the two entities. There are many examples of this:</p>
+<ol>
+<li>The (graph-)structure around the subject and object entities are projected into a common embedding space, and the similarity between the subject and object entities are expressed as cosine similarity between the two embeddings.</li>
+<li>The jaccard similarity between a set of properties of the subject and object entities is calculated.</li>
+<li>The Resnik score is calculated between the subject and object entities.</li>
+</ol>
+<p><strong>Important note on applicability of SSSOM for semantic similarity profiles</strong>: SSSOM is not used for documenting semantic similarity profiles, i.e. cross-tables where some set of terms are compared with another set of terms and the semantic similarity is recorded as a score. SSSOM is used to document mappings, and only if a mapping decision is influenced by a semantic similarity based approach, especially in conjunction with as specific threshold, SSSOM is applicable. For pure semantic similarity tables use <a href="https://incatools.github.io/ontology-access-kit/datamodels/similarity/index.html">OAK Semantic Similarity</a>.</p>
+<p><strong>Semantic vs lexical similarity?</strong>: Semantic similarity is different from lexical similarity intuitively because the context (the graph structure, the background information) is taken into account and provides an (often crude) model of the actual entity, rather than of the word describing it. However, the distinctions can become a bit hazy. Imagine learning a graph embedding on a graph without edges, or a word embedding purely on a single label - there is definitely a grey zone where lexical similarity finishes and semantic similarity begins. In practice though, it should be mostly clear.</p>
+<h4 id="level-1-documenting-semantic-similarity-matches">Level 1: Documenting semantic similarity matches</h4>
+<p>The suggested metadata for semantic similarity threshold-based matching approach is:</p>
+<ul>
+<li><a href="https://mapping-commons.github.io/sssom/semantic_similarity_measure/">semantic_similarity_measure</a></li>
+<li><a href="https://mapping-commons.github.io/sssom/semantic_similarity_score/">semantic_similarity_score</a></li>
+<li>((authors note: Maybe we need a <a href="https://github.com/mapping-commons/sssom/issues/296">value for similarity threshold</a>?))</li>
+</ul>
+<p><a id="manual-mapping-curation"></a></p>
+<h2 id="manual-mapping-curation">Manual mapping curation</h2>
+<p><a href="https://w3id.org/semapv/vocab/ManualMappingCuration">semapv:ManualMappingCuration</a> is a process conducted by a (usually human) agent to determine a mapping by virtue of domain expertise. The task usually involves the agent determining, for a given <code>subject_id</code>, a suitable <code>obect_id</code> in the <code>object_source</code>.</p>
+<h4 id="level-1-documenting-manual-mapping-curation">Level 1: Documenting manual mapping curation</h4>
+<p>The suggested minimal metadata for manual mapping curation is:</p>
+<ul>
+<li><a href="https://mapping-commons.github.io/sssom/author_id/">author_id</a>: Documenting, using a unique identifier such as an ORCID, the identity of the author performing the expert curation.</li>
+<li><a href="https://mapping-commons.github.io/sssom/comment/">comment</a>: When no formal <a href="https://mapping-commons.github.io/sssom/curation_rule/">curation_rule</a> is provided (see below), it is recommended to provide a short comment with the mapping justification, especially if there is some uncertainty or ambiguity about the mapping decision.</li>
+</ul>
+<h4 id="level-2-documenting-the-confidence-of-expert-curation">Level 2: Documenting the confidence of expert curation</h4>
+<p><a href="https://mapping-commons.github.io/sssom/confidence/">confidence</a> is an incredibly useful metric for downstream users, including ETL engineers and data analysts. In an ideal world, all mappings have some kind of confidence associated with them. <code>confidence</code> scores should be read as "the strength of evidence provided in this record/table row (i.e mapping justification) leads us to believe the mapping (e.g. OMOP:44499396 --[skos:broadMatch]--&gt; OMOP:4028717) is correct with 90% confidence.</p>
+<p>In manual curation, confidence expresses the domain expertise degree of conviction that the asserted mapping holds true. While manual mapping curation is still considered a gold standard, in practice human agents have (a) varying levels of expertise on the subject domain, (b) varying levels of understanding of the intuitions behind "semantic spaces" and associated concepts and (c) varying levels of metadata associated with a concept to be able to determine a match (definitions, labels, papers, synonyms, etc). Documenting confidence can be very useful both to increase the transparency of data science pipelines that involve entity mappings, and as a means to increase curation speed: rather than trying to achieve 100% confidence for a mapping, which can be extremely time-consuming, it is often better to first "wave through" a mapping with lower confidence to reach coverage, and later revisit low confidence mappings iteratively.</p>
+<h4 id="level-3-documenting-curation-rules">Level 3: Documenting curation rules</h4>
+<p>For manual matches, it is often unclear by what criteria a match was established. Documenting the <code>curation rule</code>s can help increase consistency for manual curation, and transparency for downstream users.</p>
+<p>For example <code>OHDSI_CURATION_RULE:19</code> could correspond to the following rule:</p>
+<p>OHDSI_CURATION_RULE:19 = If the subject concept does not have an exact match in the object source vocabulary, we select the nearest broad ("up-hill") concept applicable. Conceptually, if both terms would exist in the same terminology, the subject concept can be defined as a subconcept of the object concept. The determination for both criteria (nearest broad, conceptally subconcept) is performed through medical expert judgement.</p>
+<p>Curation rules are often very use case-specific and difficult to standardise. As of August 2023, SSSOM does not provide any standardised curation rules, but encourages the community to define them locally.</p>
+<p><a id="mapping-review"></a></p>
+<h2 id="mapping-review">Mapping review</h2>
+<p><a href="https://w3id.org/semapv/vocab/MappingReview">semapv:MappingReview</a> is a process conducted by a (usually human) agent to determine the validity of a specific given mapping. It differs from <a href="https://w3id.org/semapv/vocab/ManualMappingCuration">semapv:ManualMappingCuration</a> in that it does not involve looking for alternative mappings or indeed, necessarily determining if a mapping is the best possible mapping. It should be considered cheaper, less trustworthy evidence compared to <a href="https://w3id.org/semapv/vocab/ManualMappingCuration">semapv:ManualMappingCuration</a>.</p>
+<p>There are two kinds of mapping reviews in SSSOM:</p>
+<ul>
+<li>Review as an independent justification: <a href="https://w3id.org/semapv/vocab/MappingReview">semapv:MappingReview</a> is an independent process that determines the validity of a mapping.</li>
+<li>Review <em>of</em> an existing justification: Instead of evaluating an entire mapping, you can record the fact that someone has looked at a specific justification and deemed it acceptable. In this case, simply record the reviewers identify using the <a href="https://mapping-commons.github.io/sssom/reviewer_id/">reviewer_id</a> or <a href="https://mapping-commons.github.io/sssom/reviewer_label/">reviewer_label</a>
+ and the optional <a href="https://mapping-commons.github.io/sssom/review_date/">review_date</a> and <a href="https://mapping-commons.github.io/sssom/reviewer_agreement/">reviewer_agreement</a> fields.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../tutorial/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Basic Tutorial" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Basic Tutorial
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../mapping-predicates/" class="md-footer__link md-footer__link--next" aria-label="Next: How to use mapping predicates" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              How to use mapping predicates
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

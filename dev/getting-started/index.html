@@ -1,0 +1,1791 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="The SSSOM Community">
+      
+      
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/dev/getting-started/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Getting started - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started-with-sssom" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-header__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A Simple Standard for Sharing Ontology Mappings (SSSOM)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-nav__button md-logo" aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    A Simple Standard for Sharing Ontology Mappings (SSSOM)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mapping-commons/sssom/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Getting started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Getting started
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-sssom" class="md-nav__link">
+    Getting Started with SSSOM
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started with SSSOM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-sssom-files" class="md-nav__link">
+    Creating SSSOM files
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating SSSOM files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-anatomy-of-a-mapping" class="md-nav__link">
+    Basic anatomy of a mapping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifiers-in-sssom" class="md-nav__link">
+    Identifiers in SSSOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-predicates" class="md-nav__link">
+    Mapping predicates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-sssom-metadata" class="md-nav__link">
+    Basic SSSOM Metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-justifications" class="md-nav__link">
+    Mapping justifications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validating-your-sssom-files" class="md-nav__link">
+    Validating your SSSOM files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#converting-sssom-files-into-other-formats" class="md-nav__link">
+    Converting SSSOM files into other formats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storing-and-sharing-sssom-files" class="md-nav__link">
+    Storing and sharing SSSOM files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-sssom-files" class="md-nav__link">
+    Using SSSOM files
+  </a>
+  
+    <nav class="md-nav" aria-label="Using SSSOM files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-access-with-sssom-py" class="md-nav__link">
+    Programmatic access with sssom-py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-operations-with-the-sssom-toolkit" class="md-nav__link">
+    Common operations with the SSSOM Toolkit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-sssom-in-java-with-sssom-java" class="md-nav__link">
+    Using SSSOM in Java with sssom-java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-sssom-in-the-ontology-development-kit-odk" class="md-nav__link">
+    Using SSSOM in the Ontology Development Kit (ODK)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-to-go-from-here" class="md-nav__link">
+    Where to go from here
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Specification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Specification" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Specification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Data model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data model" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Data model
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-model/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linkml-index/" class="md-nav__link">
+        LinkML documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Serialisations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Serialisations" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Serialisations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats-tsv/" class="md-nav__link">
+        SSSOM/TSV serialisation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats-json/" class="md-nav__link">
+        SSSOM/JSON serialisation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats-rdf/" class="md-nav__link">
+        SSSOM/RDF serialisation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-formats-owl/" class="md-nav__link">
+        OWL/RDF serialisation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Support functions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Support functions" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Support functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-support/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-support-hashing/" class="md-nav__link">
+        Hashing mapping records
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chaining-rules/" class="md-nav__link">
+        Applying Chaining Rules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        Resources for contributors
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Resources for users
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources for users" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Resources for users
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Community
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Community" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/" class="md-nav__link">
+        Use Cases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshops/" class="md-nav__link">
+        Workshops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../presentations/" class="md-nav__link">
+        Presentations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Training materials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Training materials" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Training materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        Basic Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          How to
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How to" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          How to
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-justifications/" class="md-nav__link">
+        Mapping Justifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-predicates/" class="md-nav__link">
+        How to use mapping predicates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping-commons/" class="md-nav__link">
+        Set up a mapping registry/commons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toolkit/" class="md-nav__link">
+        A basic guide for the SSSOM toolkit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5star-mappings/" class="md-nav__link">
+        5-Star Entity Mappings - Cheatsheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matching-tool-implementation-guide/" class="md-nav__link">
+        Matching tool implementation guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/omop-mappings/" class="md-nav__link">
+        How to gradually enrich OMOP mappings with SSSOM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../confidence-model/" class="md-nav__link">
+        How to assess mapping confidence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../record-identifiers/" class="md-nav__link">
+        Identifying mapping records
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../related-documentation/" class="md-nav__link">
+        Related documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../funding/" class="md-nav__link">
+        Funding
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-sssom" class="md-nav__link">
+    Getting Started with SSSOM
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started with SSSOM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-sssom-files" class="md-nav__link">
+    Creating SSSOM files
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating SSSOM files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-anatomy-of-a-mapping" class="md-nav__link">
+    Basic anatomy of a mapping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifiers-in-sssom" class="md-nav__link">
+    Identifiers in SSSOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-predicates" class="md-nav__link">
+    Mapping predicates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-sssom-metadata" class="md-nav__link">
+    Basic SSSOM Metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-justifications" class="md-nav__link">
+    Mapping justifications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validating-your-sssom-files" class="md-nav__link">
+    Validating your SSSOM files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#converting-sssom-files-into-other-formats" class="md-nav__link">
+    Converting SSSOM files into other formats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storing-and-sharing-sssom-files" class="md-nav__link">
+    Storing and sharing SSSOM files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-sssom-files" class="md-nav__link">
+    Using SSSOM files
+  </a>
+  
+    <nav class="md-nav" aria-label="Using SSSOM files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-access-with-sssom-py" class="md-nav__link">
+    Programmatic access with sssom-py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-operations-with-the-sssom-toolkit" class="md-nav__link">
+    Common operations with the SSSOM Toolkit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-sssom-in-java-with-sssom-java" class="md-nav__link">
+    Using SSSOM in Java with sssom-java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-sssom-in-the-ontology-development-kit-odk" class="md-nav__link">
+    Using SSSOM in the Ontology Development Kit (ODK)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-to-go-from-here" class="md-nav__link">
+    Where to go from here
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/mapping-commons/sssom/edit/master/src/docs/getting-started.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  <h1>Getting started</h1>
+
+<h2 id="getting-started-with-sssom">Getting Started with SSSOM</h2>
+<p>Pre-requisites:</p>
+<ul>
+<li>You know <a href="../explanation/mappings/">what a mapping is</a>.</li>
+</ul>
+<h3 id="creating-sssom-files">Creating SSSOM files</h3>
+<p>SSSOM files are typically created as spreadsheets and shared as TSV files. Tools
+exist to translate SSSOM files in TSV format into other formats such as JSON and
+RDF. The ability to curate SSSOM files as spreadsheets makes them accessible,
+especially in scientific communities, compared to more technical formats such as
+JSON or RDF. However, this simplicity comes with trade-offs — spreadsheet-based
+curation can make it harder to ensure that files are valid (see
+<a href="https://github.com/mapping-commons/sssom/discussions/428">this discussion</a>).
+Using a proper validation tool (see <a href="#validating-your-sssom-files">below</a>) is
+therefore strongly recommended.</p>
+<p>Let's look at a real-world example: mappings between the
+<a href="https://hpo.jax.org/">Human Phenotype Ontology (HP)</a> and the
+<a href="http://www.informatics.jax.org/vocab/mp_ontology">Mammalian Phenotype Ontology (MP)</a>,
+derived from the <a href="https://github.com/obophenotype/upheno">uPheno</a> project.</p>
+<table>
+<thead>
+<tr>
+<th>subject_id</th>
+<th>subject_label</th>
+<th>predicate_id</th>
+<th>object_id</th>
+<th>object_label</th>
+<th>mapping_justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HP:0000175</td>
+<td>Cleft palate</td>
+<td>skos:exactMatch</td>
+<td>MP:0000111</td>
+<td>cleft palate</td>
+<td>semapv:LexicalMatching</td>
+</tr>
+<tr>
+<td>HP:0000252</td>
+<td>Microcephaly</td>
+<td>skos:exactMatch</td>
+<td>MP:0000433</td>
+<td>microcephaly</td>
+<td>semapv:LexicalMatching</td>
+</tr>
+<tr>
+<td>HP:0000822</td>
+<td>Hypertension</td>
+<td>skos:exactMatch</td>
+<td>MP:0000231</td>
+<td>hypertension</td>
+<td>semapv:LexicalMatching</td>
+</tr>
+<tr>
+<td>HP:0001596</td>
+<td>Alopecia</td>
+<td>skos:exactMatch</td>
+<td>MP:0000414</td>
+<td>alopecia</td>
+<td>semapv:LexicalMatching</td>
+</tr>
+<tr>
+<td>HP:0001627</td>
+<td>Abnormal heart morphology</td>
+<td>skos:exactMatch</td>
+<td>MP:0000266</td>
+<td>abnormal heart morphology</td>
+<td>semapv:LexicalMatching</td>
+</tr>
+</tbody>
+</table>
+<p>A SSSOM file contains two main sections:</p>
+<ol>
+<li>A header</li>
+<li>The mappings</li>
+</ol>
+<p>The header contains additional metadata about the mapping set, such as the
+license or description:</p>
+<pre><code class="language-yaml"># curie_map:
+#   HP: http://purl.obolibrary.org/obo/HP_
+#   MP: http://purl.obolibrary.org/obo/MP_
+#   owl: http://www.w3.org/2002/07/owl#
+#   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+#   rdfs: http://www.w3.org/2000/01/rdf-schema#
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   sssom: https://w3id.org/sssom/
+# license: https://creativecommons.org/publicdomain/zero/1.0/
+# mapping_provider: http://purl.obolibrary.org/obo/upheno.owl
+# mapping_set_id: https://w3id.org/sssom/mappings/27f85fe9-8a72-4e76-909b-7ba4244d9ede
+</code></pre>
+<p>You can look at an example TSV file
+<a href="https://github.com/mapping-commons/sssom/blob/master/examples/embedded/mp-hp-exact-0.0.1.sssom.tsv">on GitHub</a>.</p>
+<h4 id="basic-anatomy-of-a-mapping">Basic anatomy of a mapping</h4>
+<p><img alt="SSSOM basic architecture" src="../images/sssom-mapping.png" /></p>
+<p>You should think of a mapping in the SSSOM-sense as a triple between a subject
+(the "mapping source") and an object (the "mapping target") via a predicate
+(such as "exact match"). In SSSOM, every mapping can have a lot of metadata
+associated with it, like who created it (creator_id), and when, and how
+confident we are in its truthfulness.</p>
+<p>Conceptually, we consider the sum total of all metadata collected for a mapping
+its "justification" - essentially the "evidence" provided towards the mapping.</p>
+<h4 id="identifiers-in-sssom">Identifiers in SSSOM</h4>
+<p>SSSOM files use so-called CURIEs (Compact URIs) to identify the subject and
+object of a mapping. As you can see in the example in the previous section, the
+object of the first mapping is <code>MP:0000111</code>, a term from the Mammalian Phenotype
+Ontology. As you can see in the mandatory <code>curie_map</code>, the <code>MP</code> prefix
+represents the <code>http://purl.obolibrary.org/obo/MP_</code> namespace. Using a
+<code>curie_map</code> serves two purposes (1) it unambiguously identifies the entity being
+mapped. Prefixes can clash easily: the prefix <code>ICD</code> all by itself can refer to
+ICD-10 Clinical Modification, ICD-10 WHO Edition, ICD-11 Foundation, ICD-11 MMS
+Linearisation, ICD-9, etc. (2) they serve as the prefix expansion instruction
+for RDF serialisations. To convert for example <code>MP:0000111</code> into an RDF entity,
+we first expand it to <code>http://purl.obolibrary.org/obo/MP_0000111</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Why can't I use URIs instead of CURIEs in my TSV file?</p>
+<p>The SSSOM/TSV format requires all identifiers to be in CURIE form. This is enforced by SSSOM validators.
+CURIEs are much more readable than full URIs/URLs, making your mapping files more compact and easier to work with.
+All prefixes used in your CURIEs must be declared in the <code>curie_map</code>.</p>
+</div>
+<h4 id="mapping-predicates">Mapping predicates</h4>
+<p>The <code>predicate_id</code> specifies the mapping relation between subject and object.
+Any predicate identifier may be used, but if you are just getting started, it is
+best to stick to the
+<a href="../spec-model/#allowed-and-common-mapping-predicates">common predicates</a>. The
+most frequently used ones are:</p>
+<table>
+<thead>
+<tr>
+<th>Predicate</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>skos:exactMatch</code></td>
+<td>The subject and object can be used interchangeably in most contexts.</td>
+</tr>
+<tr>
+<td><code>skos:broadMatch</code></td>
+<td>The object is a broader/more general concept than the subject.</td>
+</tr>
+<tr>
+<td><code>skos:narrowMatch</code></td>
+<td>The object is a narrower/more specific concept than the subject.</td>
+</tr>
+<tr>
+<td><code>skos:closeMatch</code></td>
+<td>The two are similar enough to be interchangeable in some contexts, but not all.</td>
+</tr>
+<tr>
+<td><code>skos:relatedMatch</code></td>
+<td>The two are associated in some way, but not interchangeable.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="basic-sssom-metadata">Basic SSSOM Metadata</h4>
+<p>Every SSSOM mapping set has two levels of metadata: metadata about the <em>mapping
+set</em> as a whole, and metadata about each <em>individual mapping</em>.</p>
+<p><strong>Required metadata for the mapping set</strong> (see <a href="../MappingSet/">MappingSet</a> for
+the full description of all fields):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mapping_set_id</code></td>
+<td>A globally unique identifier (URI) for this mapping set, e.g. <code>https://w3id.org/sssom/tutorial/example1.sssom.tsv</code>.</td>
+</tr>
+<tr>
+<td><code>license</code></td>
+<td>A URL to the license, e.g. <code>https://creativecommons.org/licenses/by/4.0/</code>.</td>
+</tr>
+<tr>
+<td><code>curie_map</code></td>
+<td>A dictionary that maps CURIE prefixes to their IRI expansions.</td>
+</tr>
+</tbody>
+</table>
+<p>Other commonly used set-level metadata includes <code>mapping_set_description</code>,
+<code>mapping_set_version</code>, <code>subject_source</code>, <code>object_source</code>, and <code>creator_id</code>.</p>
+<p><strong>Required metadata for each mapping</strong> (see <a href="../Mapping/">Mapping</a> for the full
+description of all fields):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>subject_id</code></td>
+<td>The CURIE of the entity being mapped (the "source").</td>
+</tr>
+<tr>
+<td><code>predicate_id</code></td>
+<td>The mapping relation (e.g. <code>skos:exactMatch</code>).</td>
+</tr>
+<tr>
+<td><code>object_id</code></td>
+<td>The CURIE of the entity being mapped to (the "target").</td>
+</tr>
+<tr>
+<td><code>mapping_justification</code></td>
+<td>How the mapping was determined, e.g. <code>semapv:ManualMappingCuration</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Other commonly used mapping-level metadata includes <code>subject_label</code>,
+<code>object_label</code>, <code>confidence</code>, <code>author_id</code>, <code>mapping_date</code>, and <code>comment</code>.</p>
+<p>For a comprehensive list, see the
+<a href="../#quick-reference-for-mapping-metadata">Quick reference for mapping metadata</a>.</p>
+<h4 id="mapping-justifications">Mapping justifications</h4>
+<p>Every mapping in SSSOM must come with a justification - an indication of <em>how</em>
+the mapping was established. You can think of it as the "evidence type" for the
+mapping. Justifications are terms from the
+<a href="https://mapping-commons.github.io/semantic-mapping-vocabulary/">Semantic Mapping Vocabulary (SEMAPV)</a>,
+specifically the terms under
+<a href="https://www.ebi.ac.uk/ols4/ontologies/semapv/classes/https%253A%252F%252Fw3id.org%252Fsemapv%252Fvocab%252FMatching?lang=en"><code>MatchingProcess</code></a>.</p>
+<p>Some common justifications:</p>
+<table>
+<thead>
+<tr>
+<th>Justification</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>semapv:ManualMappingCuration</code></td>
+<td>A human curator determined that the mapping is correct.</td>
+</tr>
+<tr>
+<td><code>semapv:LexicalMatching</code></td>
+<td>The mapping was established by matching labels or synonyms.</td>
+</tr>
+<tr>
+<td><code>semapv:LogicalReasoning</code></td>
+<td>The mapping was inferred through logical reasoning.</td>
+</tr>
+<tr>
+<td><code>semapv:SemanticSimilarityThresholdMatching</code></td>
+<td>The mapping was established by computing semantic similarity above a threshold.</td>
+</tr>
+<tr>
+<td><code>semapv:MappingReview</code></td>
+<td>The mapping was determined through a formal review process.</td>
+</tr>
+</tbody>
+</table>
+<p>If you are manually curating your mappings, <code>semapv:ManualMappingCuration</code> is
+the right choice. For more detail on how to construct more nuanced
+justifications, see the
+<a href="../mapping-justifications/">Guide to using Mapping Justifications</a>.</p>
+<p><a id="validating-your-sssom-files"></a></p>
+<h4 id="validating-your-sssom-files">Validating your SSSOM files</h4>
+<p>To check that your SSSOM files are valid, you can use the
+<a href="../toolkit/">SSSOM Toolkit</a> (also known as <code>sssom-py</code>). After
+<a href="https://mapping-commons.github.io/sssom-py/installation.html">installing it</a>,
+you can validate a file like this:</p>
+<pre><code class="language-bash">$ wget https://w3id.org/biopragmatics/biomappings/sssom/biomappings.sssom.tsv
+$ pip install sssom-py
+$ sssom validate biomappings.sssom.tsv
+</code></pre>
+<p>This will check that all required fields are present, that the CURIEs are
+properly declared in the <code>curie_map</code>, and that values conform to the expected
+types.</p>
+<p>Alternatively, if you prefer a Java-based tool,
+<a href="https://incenp.org/dvlpt/sssom-java/">sssom-java</a>'s <code>sssom-cli</code> can also
+validate SSSOM files. See the
+<a href="https://incenp.org/dvlpt/sssom-java/sssom-cli/examples.html">sssom-cli examples</a>
+for details.</p>
+<h4 id="converting-sssom-files-into-other-formats">Converting SSSOM files into other formats</h4>
+<p>The SSSOM Toolkit can convert your TSV mapping sets into other formats:</p>
+<pre><code class="language-bash">sssom convert my-mappings.sssom.tsv --output my-mappings.owl --output-format owl
+sssom convert my-mappings.sssom.tsv --output my-mappings.json --output-format json
+</code></pre>
+<p><a href="https://incenp.org/dvlpt/sssom-java/sssom-cli/examples.html">sssom-java's <code>sssom-cli</code></a>
+can also convert between formally defined SSSOM serialisation formats (TSV,
+JSON, and RDF/Turtle).</p>
+<p>For detailed information about the different serialisation formats, see
+<a href="../spec-formats-tsv/">SSSOM/TSV</a>, <a href="../spec-formats-owl/">OWL/RDF</a>, and
+<a href="../spec-formats-json/">JSON</a>.</p>
+<h4 id="storing-and-sharing-sssom-files">Storing and sharing SSSOM files</h4>
+<p>SSSOM files are plain text (TSV), so they can be stored and version-controlled
+just like any other text file, for example in a GitHub repository. If your
+mappings are converted to RDF, they can also be loaded into a triple store or
+ontology repository.</p>
+<p>You may also choose to develop your mapping file in a columnar format like Excel
+or Google Sheets, and then convert to TSV. For many people this will be the
+easiest way to work with mapping files. Those with GitHub Actions experience can
+automate the conversion whenever source files change.</p>
+<h3 id="using-sssom-files">Using SSSOM files</h3>
+<p>So far we have focused on how to <em>create</em> SSSOM files. But what can you actually
+<em>do</em> with them?</p>
+<h4 id="programmatic-access-with-sssom-py">Programmatic access with sssom-py</h4>
+<p>The <a href="https://mapping-commons.github.io/sssom-py">SSSOM Toolkit</a> provides a
+Python API for loading, manipulating, and querying mapping sets:</p>
+<pre><code class="language-python">from sssom.parsers import parse_sssom_table
+
+# Load an SSSOM TSV file
+msdf = parse_sssom_table(&quot;my-mappings.sssom.tsv&quot;)
+
+# Access the mapping set metadata
+print(msdf.metadata)
+
+# Access the mappings as a pandas DataFrame
+df = msdf.df
+print(df.head())
+</code></pre>
+<h4 id="common-operations-with-the-sssom-toolkit">Common operations with the SSSOM Toolkit</h4>
+<p>The SSSOM Toolkit CLI supports a range of useful operations. Here are some of
+the most common ones:</p>
+<ul>
+<li><strong>Merging</strong> mapping sets from different sources into one:</li>
+</ul>
+<p><code>bash
+  sssom merge mappings1.sssom.tsv mappings2.sssom.tsv --output merged.sssom.tsv</code></p>
+<ul>
+<li><strong>Filtering</strong> mappings, for example by predicate:</li>
+</ul>
+<p><code>bash
+  sssom filter my-mappings.sssom.tsv --predicate_id skos:exactMatch -o exact-only.sssom.tsv</code></p>
+<ul>
+<li><strong>Diffing</strong> two mapping sets to see what changed:</li>
+</ul>
+<p><code>bash
+  sssom diff mappings-v1.sssom.tsv mappings-v2.sssom.tsv --output diff.tsv</code></p>
+<p>For a more detailed walkthrough, see the <a href="../toolkit/">SSSOM Toolkit guide</a> and
+the <a href="https://mapping-commons.github.io/sssom-py">sssom-py documentation</a>.</p>
+<h4 id="using-sssom-in-java-with-sssom-java">Using SSSOM in Java with sssom-java</h4>
+<p><a href="https://github.com/gouttegd/sssom-java">sssom-java</a> is a Java implementation of
+SSSOM developed by Damien Goutte-Gattat. It provides reading and writing support
+for SSSOM/TSV and JSON formats, and can be used as a library in your own Java
+applications or as a <a href="http://robot.obolibrary.org/">ROBOT</a> plugin.</p>
+<p>To add sssom-java to your Maven project:</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.incenp&lt;/groupId&gt;
+    &lt;artifactId&gt;sssom-core&lt;/artifactId&gt;
+    &lt;version&gt;1.10.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>Reading and iterating over mappings:</p>
+<pre><code class="language-java">import org.incenp.obofoundry.sssom.TSVReader;
+import org.incenp.obofoundry.sssom.model.MappingSet;
+import org.incenp.obofoundry.sssom.model.Mapping;
+
+TSVReader reader = new TSVReader(&quot;my-mappings.sssom.tsv&quot;);
+MappingSet ms = reader.read();
+
+for (Mapping m : ms.getMappings()) {
+    System.out.printf(&quot;%s -[%s]-&gt; %s%n&quot;,
+        m.getSubjectId(), m.getPredicateId(), m.getObjectId());
+}
+</code></pre>
+<p>Writing a mapping set back to TSV:</p>
+<pre><code class="language-java">import org.incenp.obofoundry.sssom.TSVWriter;
+
+TSVWriter writer = new TSVWriter(&quot;output.sssom.tsv&quot;);
+writer.write(ms);
+</code></pre>
+<p>sssom-java also ships with a
+<a href="https://github.com/gouttegd/sssom-java">ROBOT plugin</a> that can extract
+cross-references from OWL ontologies into SSSOM format, inject mapping-derived
+axioms into ontologies, and more. For the full documentation, see the
+<a href="https://incenp.org/dvlpt/sssom-java/">sssom-java homepage</a>.</p>
+<h4 id="using-sssom-in-the-ontology-development-kit-odk">Using SSSOM in the Ontology Development Kit (ODK)</h4>
+<p>The
+<a href="https://github.com/INCATools/ontology-development-kit">Ontology Development Kit (ODK)</a>
+comes with built-in support for SSSOM. If you are maintaining an ontology using
+the ODK, you can manage your mappings alongside your ontology source files and
+have them automatically validated as part of your build process. For an example,
+see the how
+<a href="https://github.com/obophenotype/uberon/blob/master/src/ontology/uberon-odk.yaml">Uberon manages its mappings</a>.</p>
+<h3 id="where-to-go-from-here">Where to go from here</h3>
+<ul>
+<li><a href="../tutorial/">Detailed SSSOM curation tutorial</a> - a step-by-step guide on how
+  to curate SSSOM mapping sets from scratch.</li>
+<li><a href="../mapping-justifications/">Mapping justifications</a> - learn how to construct
+  more nuanced mapping justifications.</li>
+<li><a href="../toolkit/">SSSOM Toolkit guide</a> - learn how to use the SSSOM command line
+  tools.</li>
+<li><a href="../spec-model/">SSSOM data model</a> - the full specification of the SSSOM data
+  model.</li>
+<li><a href="../training/">Training materials</a> - video tutorials and external guides.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introduction
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../spec-intro/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Introduction
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>

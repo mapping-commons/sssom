@@ -1,0 +1,1842 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="The SSSOM Community" name="author"/>
+<link href="https://mapping-commons.github.io/sssom/dev/MappingSet/" rel="canonical"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<title>Class: MappingSet - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+<link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="None" data-md-color-primary="None" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#class-mappingset">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-header__button md-logo" data-md-component="logo" href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            A Simple Standard for Sharing Ontology Mappings (SSSOM)
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Class: MappingSet
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mapping-commons/sssom/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="A Simple Standard for Sharing Ontology Mappings (SSSOM)" class="md-nav__button md-logo" data-md-component="logo" href=".." title="A Simple Standard for Sharing Ontology Mappings (SSSOM)">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    A Simple Standard for Sharing Ontology Mappings (SSSOM)
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mapping-commons/sssom/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Home
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../introduction/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../getting-started/">
+        Getting started
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Specification
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Specification" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Specification
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../spec-intro/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+          Data model
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Data model" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Data model
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../spec-model/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../linkml-index/">
+        LinkML documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3">
+          Serialisations
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Serialisations" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Serialisations
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../spec-formats/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../spec-formats-tsv/">
+        SSSOM/TSV serialisation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../spec-formats-json/">
+        SSSOM/JSON serialisation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../spec-formats-rdf/">
+        SSSOM/RDF serialisation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../spec-formats-owl/">
+        OWL/RDF serialisation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4">
+          Support functions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Support functions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+          Support functions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../spec-support/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../spec-support-hashing/">
+        Hashing mapping records
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chaining-rules/">
+        Applying Chaining Rules
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../contributing/">
+        Resources for contributors
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          Resources for users
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Resources for users" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Resources for users
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../faq/">
+        FAQ
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" id="__nav_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_2">
+          Community
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Community" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_2">
+<span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../usecases/">
+        Use Cases
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../workshops/">
+        Workshops
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../presentations/">
+        Presentations
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+          Training materials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Training materials" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Training materials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../training/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorial/">
+        Basic Tutorial
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" id="__nav_6_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_4">
+          How to
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="How to" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_4">
+<span class="md-nav__icon md-icon"></span>
+          How to
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mapping-justifications/">
+        Mapping Justifications
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mapping-predicates/">
+        How to use mapping predicates
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mapping-commons/">
+        Set up a mapping registry/commons
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../toolkit/">
+        A basic guide for the SSSOM toolkit
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../5star-mappings/">
+        5-Star Entity Mappings - Cheatsheet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../matching-tool-implementation-guide/">
+        Matching tool implementation guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/omop-mappings/">
+        How to gradually enrich OMOP mappings with SSSOM
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../confidence-model/">
+        How to assess mapping confidence
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../record-identifiers/">
+        Identifying mapping records
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" id="__nav_6_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Reference" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_5">
+<span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../glossary/">
+        Glossary
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../related-documentation/">
+        Related documentation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../funding/">
+        Funding
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots">
+    Slots
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#identifier-and-mapping-information">
+    Identifier and Mapping Information
+  </a>
+<nav aria-label="Identifier and Mapping Information" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#schema-source">
+    Schema Source
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mappings">
+    Mappings
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linkml-source">
+    LinkML Source
+  </a>
+<nav aria-label="LinkML Source" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#direct">
+    Direct
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#induced">
+    Induced
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/mapping-commons/sssom/edit/master/src/docs/MappingSet.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="class-mappingset">Class: MappingSet</h1>
+<p><em>Represents a set of mappings.</em></p>
+<p>URI: <a href="https://w3id.org/sssom/MappingSet">sssom:MappingSet</a></p>
+<div class="mermaid"> classDiagram
+    class MappingSet
+      MappingSet : cardinality_scope
+
+      MappingSet : comment
+
+      MappingSet : creator_id
+
+      MappingSet : creator_label
+
+      MappingSet : curation_rule
+
+      MappingSet : curation_rule_text
+
+      MappingSet : curie_map
+
+          MappingSet --|&gt; prefix : curie_map
+
+      MappingSet : extension_definitions
+
+          MappingSet --|&gt; extension definition : extension_definitions
+
+      MappingSet : issue_tracker
+
+      MappingSet : license
+
+      MappingSet : mapping_date
+
+      MappingSet : mapping_provider
+
+      MappingSet : mapping_set_confidence
+
+      MappingSet : mapping_set_description
+
+      MappingSet : mapping_set_id
+
+      MappingSet : mapping_set_source
+
+      MappingSet : mapping_set_title
+
+      MappingSet : mapping_set_version
+
+      MappingSet : mapping_tool
+
+      MappingSet : mapping_tool_id
+
+      MappingSet : mapping_tool_version
+
+      MappingSet : mappings
+
+          MappingSet --|&gt; mapping : mappings
+
+      MappingSet : object_match_field
+
+      MappingSet : object_preprocessing
+
+      MappingSet : object_source
+
+      MappingSet : object_source_version
+
+      MappingSet : object_type
+
+          MappingSet --|&gt; entity_type_enum : object_type
+
+      MappingSet : other
+
+      MappingSet : predicate_type
+
+          MappingSet --|&gt; entity_type_enum : predicate_type
+
+      MappingSet : publication_date
+
+      MappingSet : see_also
+
+      MappingSet : similarity_measure
+
+      MappingSet : sssom_version
+
+          MappingSet --|&gt; sssom_version_enum : sssom_version
+
+      MappingSet : subject_match_field
+
+      MappingSet : subject_preprocessing
+
+      MappingSet : subject_source
+
+      MappingSet : subject_source_version
+
+      MappingSet : subject_type
+
+          MappingSet --|&gt; entity_type_enum : subject_type
+
+
+</div>
+<!-- no inheritance hierarchy -->
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../sssom_version/">sssom_version</a></td>
+<td>0..1 <br/> <a href="../SssomVersionEnum/">SssomVersionEnum</a></td>
+<td>The version of the SSSOM specification a mapping set is compliant with</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../curie_map/">curie_map</a></td>
+<td>* <br/> <a href="../Prefix/">Prefix</a></td>
+<td>A dictionary that contains prefixes as keys and their URI expansions as value...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mappings/">mappings</a></td>
+<td>* <em>recommended</em> <br/> <a href="../Mapping/">Mapping</a></td>
+<td>Contains a list of mapping objects</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_set_id/">mapping_set_id</a></td>
+<td>1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
+<td>A globally unique identifier for the mapping set (not each individual mapping...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_set_version/">mapping_set_version</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A version string for the mapping</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_set_source/">mapping_set_source</a></td>
+<td>* <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
+<td>A mapping set or set of mapping set that was used to derive the mapping set</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_set_title/">mapping_set_title</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The display name of a mapping set</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_set_description/">mapping_set_description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A description of the mapping set</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_set_confidence/">mapping_set_confidence</a></td>
+<td>0..1 <br/> <a href="../Double/">Double</a></td>
+<td>Mapping-set level confidence is assigned by the creator of the mapping set to...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../creator_id/">creator_id</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>Identifies the persons or groups responsible for the creation of the mapping</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../creator_label/">creator_label</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>A string representing the creator of this mapping</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../license/">license</a></td>
+<td>1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
+<td>A url to the license of the mapping</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../subject_type/">subject_type</a></td>
+<td>0..1 <br/> <a href="../EntityTypeEnum/">EntityTypeEnum</a></td>
+<td>The type of entity that is being mapped</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../subject_source/">subject_source</a></td>
+<td>0..1 <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>URI of vocabulary or identifier source for the subject</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../subject_source_version/">subject_source_version</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Version IRI or version string of the source of the subject term</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../object_type/">object_type</a></td>
+<td>0..1 <br/> <a href="../EntityTypeEnum/">EntityTypeEnum</a></td>
+<td>The type of entity that is being mapped</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../object_source/">object_source</a></td>
+<td>0..1 <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>URI of vocabulary or identifier source for the object</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../object_source_version/">object_source_version</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Version IRI or version string of the source of the object term</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../predicate_type/">predicate_type</a></td>
+<td>0..1 <br/> <a href="../EntityTypeEnum/">EntityTypeEnum</a></td>
+<td>The type of the predicate used to map the subject and object entities</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_provider/">mapping_provider</a></td>
+<td>0..1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
+<td>URL pointing to the source that provided the mapping, for example an ontology...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../cardinality_scope/">cardinality_scope</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>A list of mapping slots that define the scope for the value found in the mapp...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_tool/">mapping_tool</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A reference to the tool or algorithm that was used to generate the mapping</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_tool_id/">mapping_tool_id</a></td>
+<td>0..1 <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>The ID (entity reference) of the tool or algorithm that was used to generate ...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_tool_version/">mapping_tool_version</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Version string that denotes the version of the mapping tool used</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mapping_date/">mapping_date</a></td>
+<td>0..1 <br/> <a href="../Date/">Date</a></td>
+<td>The date the mapping was asserted</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../publication_date/">publication_date</a></td>
+<td>0..1 <br/> <a href="../Date/">Date</a></td>
+<td>The date the mapping was published</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../subject_match_field/">subject_match_field</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>A list of properties, annotations or attributes related to the subject that w...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../object_match_field/">object_match_field</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>A list of properties, annotations or attributes related to the object that wa...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../subject_preprocessing/">subject_preprocessing</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>Method of preprocessing applied to the fields of the subject</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../object_preprocessing/">object_preprocessing</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>Method of preprocessing applied to the fields of the object</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../similarity_measure/">similarity_measure</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The measure used for computing a similarity score</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../curation_rule/">curation_rule</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>A curation rule is a (potentially) complex condition executed by an agent tha...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../curation_rule_text/">curation_rule_text</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>A curation rule is a (potentially) complex condition executed by an agent tha...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../see_also/">see_also</a></td>
+<td>* <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
+<td>A URL specific for the mapping instance</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../issue_tracker/">issue_tracker</a></td>
+<td>0..1 <br/> <a href="../NonRelativeURI/">NonRelativeURI</a></td>
+<td>A URL location of the issue tracker for this entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../other/">other</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Pipe separated list of key value pairs for properties not part of the SSSOM s...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../comment/">comment</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Free text field containing either curator notes or text generated by tool pro...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../extension_definitions/">extension_definitions</a></td>
+<td>* <br/> <a href="../ExtensionDefinition/">ExtensionDefinition</a></td>
+<td>A list that defines the extension slots used in the mapping set</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://w3id.org/sssom/schema/</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>sssom:MappingSet</td>
+</tr>
+<tr>
+<td>native</td>
+<td>sssom:MappingSet</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+<h3 id="direct">Direct</h3>
+<details>
+<pre><code class="language-yaml">name: mapping set
+description: Represents a set of mappings.
+from_schema: https://w3id.org/sssom/schema/
+rank: 1000
+slots:
+- sssom_version
+- curie_map
+- mappings
+- mapping_set_id
+- mapping_set_version
+- mapping_set_source
+- mapping_set_title
+- mapping_set_description
+- mapping_set_confidence
+- creator_id
+- creator_label
+- license
+- subject_type
+- subject_source
+- subject_source_version
+- object_type
+- object_source
+- object_source_version
+- predicate_type
+- mapping_provider
+- cardinality_scope
+- mapping_tool
+- mapping_tool_id
+- mapping_tool_version
+- mapping_date
+- publication_date
+- subject_match_field
+- object_match_field
+- subject_preprocessing
+- object_preprocessing
+- similarity_measure
+- curation_rule
+- curation_rule_text
+- see_also
+- issue_tracker
+- other
+- comment
+- extension_definitions
+slot_usage:
+  license:
+    name: license
+    required: true
+  similarity_measure:
+    name: similarity_measure
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+  curation_rule:
+    name: curation_rule
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+  curation_rule_text:
+    name: curation_rule_text
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+
+</code></pre>
+</details>
+<h3 id="induced">Induced</h3>
+<details>
+<pre><code class="language-yaml">name: mapping set
+description: Represents a set of mappings.
+from_schema: https://w3id.org/sssom/schema/
+rank: 1000
+slot_usage:
+  license:
+    name: license
+    required: true
+  similarity_measure:
+    name: similarity_measure
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+  curation_rule:
+    name: curation_rule
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+  curation_rule_text:
+    name: curation_rule_text
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+attributes:
+  sssom_version:
+    name: sssom_version
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: The version of the SSSOM specification a mapping set is compliant
+      with.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/439
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/version.sssom.tsv
+    rank: 1000
+    alias: sssom_version
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: sssom_version_enum
+  curie_map:
+    name: curie_map
+    description: A dictionary that contains prefixes as keys and their URI expansions
+      as values.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/225
+    - https://github.com/mapping-commons/sssom/pull/349
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curie_map.sssom.tsv
+    rank: 1000
+    alias: curie_map
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: prefix
+    multivalued: true
+    inlined: true
+  mappings:
+    name: mappings
+    description: Contains a list of mapping objects.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: mappings
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: mapping
+    recommended: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  mapping_set_id:
+    name: mapping_set_id
+    description: A globally unique identifier for the mapping set (not each individual
+      mapping). Should ideally be resolvable.
+    examples:
+    - value: http://purl.obolibrary.org/obo/mondo/mappings/mondo_exactmatch_ncit.sssom.tsv
+      description: A persistent URI pointing to the latest version of the Mondo -
+        NCIT mapping in the Mondo namespace.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: mapping_set_id
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping set reference
+    range: NonRelativeURI
+    required: true
+  mapping_set_version:
+    name: mapping_set_version
+    description: A version string for the mapping.
+    examples:
+    - value: '2020-01-01'
+      description: A date-based version that indicates that the mapping was published
+        on the 1st January in 2021.
+    - value: 1.2.1
+      description: (A semantic version tag that indicates that this is the 1st major,
+        2nd minor version, patch 1 (https://semver.org/).)
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    slot_uri: owl:versionInfo
+    alias: mapping_set_version
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: string
+  mapping_set_source:
+    name: mapping_set_source
+    description: A mapping set or set of mapping set that was used to derive the mapping
+      set.
+    examples:
+    - value: http://purl.obolibrary.org/obo/mondo/mappings/2022-05-20/mondo_exactmatch_ncit.sssom.tsv
+      description: A persistent, ideally versioned, link to the mapping set from which
+        the current mapping set is derived.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    slot_uri: prov:wasDerivedFrom
+    alias: mapping_set_source
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: NonRelativeURI
+    multivalued: true
+  mapping_set_title:
+    name: mapping_set_title
+    description: The display name of a mapping set.
+    examples:
+    - value: The Mondo-OMIM mappings by Monarch Initiative.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    slot_uri: dcterms:title
+    alias: mapping_set_title
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: string
+  mapping_set_description:
+    name: mapping_set_description
+    description: A description of the mapping set.
+    examples:
+    - value: This mapping set was produced to integrate human and mouse phenotype
+        data at the IMPC. It is primarily used for making mouse phenotypes searchable
+        by human synonyms at https://mousephenotype.org/.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    slot_uri: dcterms:description
+    alias: mapping_set_description
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: string
+  mapping_set_confidence:
+    name: mapping_set_confidence
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: 'Mapping-set level confidence is assigned by the creator of the mapping
+      set to indicate their overall confidence in the correctness (i.e., precision)
+      of mappings in the mapping set. Mapping set confidence is intended to be used
+      in cases were the creator wants to express an overall confidence into the agent
+      that curated the individual mappings, for example a lexical matching tool, or
+      a group of students.
+
+      When not explicitly specified, confidence estimation algorithms should consider
+      the mapping set confidence to be 1.0 by default.'
+    examples:
+    - value: '0.95'
+      description: A confidence score of 0.95, indicating 95% confidence that the
+        mappings in the mapping set are correct.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://mapping-commons.github.io/sssom/confidence-model
+    - https://github.com/mapping-commons/sssom/issues/438
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_set_confidence.sssom.tsv
+    rank: 1000
+    alias: mapping_set_confidence
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: double
+    minimum_value: 0.0
+    maximum_value: 1.0
+  creator_id:
+    name: creator_id
+    description: Identifies the persons or groups responsible for the creation of
+      the mapping. The creator is the agent that put the mapping in its published
+      form, which may be different from the author, which is a person that was actively
+      involved in the assertion of the mapping. Recommended to be a list of ORCIDs
+      or otherwise identifying URIs.
+    examples:
+    - value: orcid:0000-0002-7356-1779|orcid:0000-0002-6601-2165
+      description: The ORCID of the (multiple) creators of the mapping. Note that
+        this is how the example would look like specifically in the SSSOM/TSV format,
+        where multivalued slots such as `creator_id` are represented as single strings
+        containing `|`-separated values.
+    - value: orcid:0000-0002-7356-1779
+      description: The ORCID of the creator of the mapping.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    slot_uri: dcterms:creator
+    alias: creator_id
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
+    multivalued: true
+  creator_label:
+    name: creator_label
+    description: A string representing the creator of this mapping. This should only
+      be used in the absence of a proper semantic identifier (which would be stored
+      in creator_id) for that creator. It is not expected that there should be any
+      link between creator_id and creator_label; in particular, creator_label is not
+      intended to provide a human-friendly version of an identifier in creator_id.
+    examples:
+    - value: Nicolas Matentzoglu|Chris Mungall
+      description: The human-readable names of the (multiple) creators of the mapping.
+        Note that this is how the example would look like specifically in the SSSOM/TSV
+        format, where multivalued slots such as `creator_label` are represented as
+        single strings containing `|`-separated values.
+    - value: Nicolas Matentzoglu
+      description: The human-readable name of the creator of the mapping.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: creator_label
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+    multivalued: true
+  license:
+    name: license
+    description: A url to the license of the mapping. In absence of a license we assume
+      no license.
+    examples:
+    - value: https://creativecommons.org/licenses/by/4.0/
+      description: The URI of the Creative Commons Attribution 4.0 International license.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    slot_uri: dcterms:license
+    alias: license
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: NonRelativeURI
+    required: true
+  subject_type:
+    name: subject_type
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: The type of entity that is being mapped.
+    examples:
+    - value: owl:Class
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: subject_type
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: entity_type_enum
+  subject_source:
+    name: subject_source
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: URI of vocabulary or identifier source for the subject.
+    examples:
+    - value: obo:mondo.owl
+      description: A persistent OBO CURIE pointing to the latest version of the Mondo
+        ontology.
+    - value: wikidata:Q7876491
+      description: A Wikidata identifier for the Uberon ontology resource.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: subject_source
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
+  subject_source_version:
+    name: subject_source_version
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: Version IRI or version string of the source of the subject term.
+    examples:
+    - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
+      description: A persistent Version IRI pointing to the Mondo version '2021-01-30'
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: subject_source_version
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+  object_type:
+    name: object_type
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: The type of entity that is being mapped.
+    examples:
+    - value: owl:Class
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: object_type
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: entity_type_enum
+  object_source:
+    name: object_source
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: URI of vocabulary or identifier source for the object.
+    examples:
+    - value: obo:mondo.owl
+      description: A persistent OBO CURIE pointing to the latest version of the Mondo
+        ontology.
+    - value: wikidata:Q7876491
+      description: A Wikidata identifier for the Uberon ontology resource.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: object_source
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
+  object_source_version:
+    name: object_source_version
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: Version IRI or version string of the source of the object term.
+    examples:
+    - value: http://purl.obolibrary.org/obo/mondo/releases/2021-01-30/mondo.owl
+      description: A persistent Version IRI pointing to the Mondo version '2021-01-30'
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: object_source_version
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+  predicate_type:
+    name: predicate_type
+    instantiates:
+    - sssom:Propagatable
+    - sssom:Versionable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: The type of the predicate used to map the subject and object entities.
+    examples:
+    - value: owl:AnnotationProperty
+    - value: owl:ObjectProperty
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/143
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/predicate-types.sssom.tsv
+    rank: 1000
+    alias: predicate_type
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: entity_type_enum
+  mapping_provider:
+    name: mapping_provider
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: URL pointing to the source that provided the mapping, for example
+      an ontology that already contains the mappings, or a database from which it
+      was derived.
+    examples:
+    - value: https://www.ohdsi.org/
+      description: A URL pointing to the Observational Health Data Sciences and Informatics
+        initiative.
+    - value: https://monarchinitiative.org/
+      description: A URL pointing to the Monarch Initiative Resource.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: mapping_provider
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: NonRelativeURI
+  cardinality_scope:
+    name: cardinality_scope
+    instantiates:
+    - sssom:Propagatable
+    - sssom:Versionable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: A list of mapping slots that define the scope for the value found
+      in the mapping_cardinality slot. Mappings are considered to belong to the same
+      scope if they have the same value for all slots listed in the scope. If no scope
+      is defined, the default scope is empty, meaning that all mappings belong to
+      a single scope that is identical to the entire mapping set. The behaviour if
+      a value in the list does not correspond to a valid slot name is undefined.
+    examples:
+    - value: predicate_id
+      description: Indicates that mapping_cardinality is computed relatively to all
+        mappings that have the same predicate.
+    - value: predicate_id|object_source
+      description: Indicates that mapping_cardinality is computed relatively to all
+        mappings that have the same predicate and the same object source. Note that
+        this is how the example would look like specifically in the SSSOM/TSV format,
+        where multivalued slots like `cardinality_scope` are represented as a single
+        string containing `|`-separated values.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/467
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate.sssom.tsv
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/cardinality-scope-predicate+object_source.sssom.tsv
+    rank: 1000
+    alias: cardinality_scope
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+    multivalued: true
+  mapping_tool:
+    name: mapping_tool
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: A reference to the tool or algorithm that was used to generate the
+      mapping. Should be a URL pointing to more info about it, but can be free text.
+      Consider using the mapping_tool_id slot for a more standardised reference.
+    examples:
+    - value: https://github.com/AgreementMakerLight/AML-Project
+      description: A URL pointing to the AgreementMakerLight project.
+    - value: AgreementMakerLight
+      description: A string (name) denoting the AgreementMakerLight project.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: mapping_tool
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+  mapping_tool_id:
+    name: mapping_tool_id
+    instantiates:
+    - sssom:Propagatable
+    - sssom:Versionable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: The ID (entity reference) of the tool or algorithm that was used
+      to generate the mapping.
+    examples:
+    - value: wikidata:Q58057366
+      description: A wikidata PURL identifying the AgreementMakerLight project.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/mapping_tool_id.sssom.tsv
+    - https://github.com/mapping-commons/sssom/issues/449
+    rank: 1000
+    alias: mapping_tool_id
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
+  mapping_tool_version:
+    name: mapping_tool_version
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: Version string that denotes the version of the mapping tool used.
+    examples:
+    - value: v3.2
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: mapping_tool_version
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+  mapping_date:
+    name: mapping_date
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: The date the mapping was asserted. This is different from the date
+      the mapping was published or compiled in a SSSOM file.
+    examples:
+    - value: '2021-01-01'
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    slot_uri: dcterms:created
+    alias: mapping_date
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: date
+  publication_date:
+    name: publication_date
+    description: The date the mapping was published. This is different from the date
+      the mapping was asserted.
+    examples:
+    - value: '2021-01-01'
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    slot_uri: dcterms:issued
+    alias: publication_date
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: date
+  subject_match_field:
+    name: subject_match_field
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: A list of properties, annotations or attributes related to the subject
+      that was used to establish the match. This property is recommended for use in
+      conjunction with  mapping justifications related to lexical matching, such as
+      `semapv:LexicalMatching`.  For additional information see the 'See Also' section.
+    examples:
+    - value: rdfs:label
+      description: The RDFS label property (rdfs:label) was used to match the subject.
+    - value: skos:prefLabel
+      description: The SKOS preferred label property (skos:prefLabel) was used to
+        match the subject.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://mapping-commons.github.io/sssom/mapping-justifications/#lexical-matching
+    - https://github.com/mapping-commons/sssom/issues/413
+    rank: 1000
+    alias: subject_match_field
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
+    multivalued: true
+  object_match_field:
+    name: object_match_field
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: A list of properties, annotations or attributes related to the object
+      that was used to establish the match. This property is recommended for use in
+      conjunction with  mapping justifications related to lexical matching, such as
+      `semapv:LexicalMatching`.  For additional information see the 'See Also' section.
+    examples:
+    - value: rdfs:label
+      description: The RDFS label property (rdfs:label) was used to match the object.
+    - value: skos:prefLabel
+      description: The SKOS preferred label property (skos:prefLabel) was used to
+        match the object.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://mapping-commons.github.io/sssom/mapping-justifications/#lexical-matching
+    - https://github.com/mapping-commons/sssom/issues/413
+    rank: 1000
+    alias: object_match_field
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
+    multivalued: true
+  subject_preprocessing:
+    name: subject_preprocessing
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: Method of preprocessing applied to the fields of the subject. If
+      different preprocessing steps were performed on different fields, it is recommended
+      to store the match in separate rows.
+    examples:
+    - value: semapv:Stemming
+    - value: semapv:StopWordRemoval
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: subject_preprocessing
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
+    multivalued: true
+  object_preprocessing:
+    name: object_preprocessing
+    instantiates:
+    - sssom:Propagatable
+    annotations:
+      propagated:
+        tag: propagated
+        value: true
+    description: Method of preprocessing applied to the fields of the object. If different
+      preprocessing steps were performed on different fields, it is recommended to
+      store the match in separate rows.
+    examples:
+    - value: semapv:Stemming
+    - value: semapv:StopWordRemoval
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: object_preprocessing
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
+    multivalued: true
+  similarity_measure:
+    name: similarity_measure
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: The measure used for computing a similarity score. This field is
+      meant to be used in conjunction with the similarity_score field, to document,
+      for example, the lexical or semantic match of a matching algorithm. To make
+      processing this field as unambiguous as possible, we recommend using wikidata
+      CURIEs, but the type of this field is deliberately unspecified.
+    examples:
+    - value: https://www.wikidata.org/entity/Q865360
+      description: the Wikidata IRI for the Jaccard index measure).
+    - value: wikidata:Q865360
+      description: the Wikidata CURIE for the Jaccard index measure).
+    - value: Levenshtein distance
+      description: a score to measure the distance between two character sequences).
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/385
+    - https://github.com/mapping-commons/sssom/pull/386
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/similarity_score.sssom.tsv
+    rank: 1000
+    alias: similarity_measure
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+  curation_rule:
+    name: curation_rule
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: A curation rule is a (potentially) complex condition executed by
+      an agent that led to the establishment of a mapping. Curation rules often involve
+      complex domain-specific considerations, which are hard to capture in an automated
+      fashion. The curation rule is captured as a resource rather than a string, which
+      enables higher levels of transparency and sharing across mapping sets. The URI
+      representation of the curation rule is expected to be a resolvable identifier
+      which provides details about the nature of the curation rule.
+    examples:
+    - value: DISEASE_MAPPING_COMMONS_RULES:MPR2
+      description: A reference to the Disease Mapping Commons rule with the ID MPR2.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/166
+    - https://github.com/mapping-commons/sssom/pull/258
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule.sssom.tsv
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule-propagated.sssom.tsv
+    rank: 1000
+    alias: curation_rule
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: EntityReference
+    multivalued: true
+  curation_rule_text:
+    name: curation_rule_text
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: A curation rule is a (potentially) complex condition executed by
+      an agent that led to the establishment of a mapping. Curation rules often involve
+      complex domain-specific considerations, which are hard to capture in an automated
+      fashion. The curation rule should be captured as a resource (entity reference)
+      rather than a string (see curation_rule element), which enables higher levels
+      of transparency and sharing across mapping sets. The textual representation
+      of curation rule is intended to be used in cases where the creation of a resource
+      is not practical from the perspective of the mapping_provider.
+    examples:
+    - value: The two phenotypes inhere in homologous structures and exhibit the same
+        phenotypic quality.
+    - value: The two diseases are used synonymous in the medical literature.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/166
+    - https://github.com/mapping-commons/sssom/pull/258
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text.sssom.tsv
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/curation_rule_text-propagated.sssom.tsv
+    rank: 1000
+    alias: curation_rule_text
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+    multivalued: true
+  see_also:
+    name: see_also
+    description: A URL specific for the mapping instance. E.g. for kboom we have a
+      per-mapping image that shows surrounding axioms that drive probability. Could
+      also be a github issue URL that discussed a complicated alignment
+    examples:
+    - value: https://github.com/mapping-commons/mh_mapping_initiative/pull/41
+      description: A URL pointing to the pull request that introduced the mapping.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/422
+    rank: 1000
+    slot_uri: rdfs:seeAlso
+    alias: see_also
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: NonRelativeURI
+    multivalued: true
+  issue_tracker:
+    name: issue_tracker
+    description: A URL location of the issue tracker for this entity.
+    examples:
+    - value: https://github.com/mapping-commons/mh_mapping_initiative/issues
+      description: A URL resolving to the issue tracker of the Mouse-Human mapping
+        initiative
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/78
+    - https://github.com/mapping-commons/sssom/pull/259
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker.sssom.tsv
+    rank: 1000
+    alias: issue_tracker
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping registry
+    range: NonRelativeURI
+  other:
+    name: other
+    description: Pipe separated list of key value pairs for properties not part of
+      the SSSOM spec. Can be used to encode additional provenance data. NOTE. This
+      field is not recommended for general use, and should be used sparingly. See
+      https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
+      for an alternative approach based on extension slots.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    alias: other
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+  comment:
+    name: comment
+    description: Free text field containing either curator notes or text generated
+      by tool providing additional informative information.
+    examples:
+    - value: This mapping is weird in that the hierarchical position of the two terms
+        is very different.
+      description: A comment explaining a mapping authors reservation on a mapping.
+    from_schema: https://w3id.org/sssom/schema/
+    rank: 1000
+    slot_uri: rdfs:comment
+    alias: comment
+    owner: mapping set
+    domain_of:
+    - mapping set
+    - mapping
+    range: string
+  extension_definitions:
+    name: extension_definitions
+    description: A list that defines the extension slots used in the mapping set.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/328
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv
+    rank: 1000
+    alias: extension_definitions
+    owner: mapping set
+    domain_of:
+    - mapping set
+    range: extension definition
+    multivalued: true
+
+</code></pre>
+</details>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="../javascripts/mathjax.js"></script>
+<script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>
