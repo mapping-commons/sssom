@@ -55,4 +55,6 @@ jobs:
       #----------------------------------------------
       - name: Deploy web-based documentation to GitHub Pages
         run: |
+          git config user.name mike-bot
+          git config user.email mike-bot@sssom.invalid
           make deploy-doc
