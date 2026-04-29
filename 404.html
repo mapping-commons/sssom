@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SSSOM &mdash; redirecting</title>
+<meta name="robots" content="noindex">
+<script>
+(function () {
+  // Catches legacy URLs from before the site was versioned with `mike`
+  // (e.g. /sssom/mapping_source/) and forwards them to the default
+  // version. Real 404s inside a known version directory fall through.
+  var basePath = '/sssom/';
+  var defaultVersion = 'dev';
+  // Update this list when a new version is published with `mike deploy`.
+  // 1.1 and 1.2 are listed pre-emptively so they 404 cleanly once published.
+  var knownVersions = ['dev', '1.0', '1.1', '1.2'];
+
+  var loc = window.location;
+  if (loc.pathname.indexOf(basePath) !== 0) return;
+  var rest = loc.pathname.slice(basePath.length);
+
+  for (var i = 0; i < knownVersions.length; i++) {
+    var v = knownVersions[i];
+    if (rest === v || rest.indexOf(v + '/') === 0) return;
+  }
+
+  loc.replace(basePath + defaultVersion + '/' + rest + loc.search + loc.hash);
+})();
+</script>
+<meta http-equiv="refresh" content="3; url=/sssom/dev/">
+</head>
+<body>
+<p>This page has moved. Redirecting to the
+<a href="/sssom/dev/">latest SSSOM documentation</a>&hellip;</p>
+</body>
+</html>
