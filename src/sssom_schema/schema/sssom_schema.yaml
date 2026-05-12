@@ -131,6 +131,8 @@ types:
       - https://mapping-commons.github.io/sssom/spec/#tsv
   NonRelativeURI:
     typeof: uri
+    base: URI
+    uri: xsd:anyURI
     description: >-
       A URI as per RFC 3986, that is a string that matches the production of the
       "URI" rule defined in Appendix A of that RFC. Contrary to the underlying
