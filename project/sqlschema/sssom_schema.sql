@@ -308,8 +308,8 @@ CREATE TABLE mapping (
 	UNIQUE (record_id),
 	FOREIGN KEY("mapping set_id") REFERENCES "mapping set" (id)
 );
-CREATE INDEX mapping_record_id_idx ON mapping (record_id);
 CREATE INDEX ix_mapping_id ON mapping (id);
+CREATE INDEX mapping_record_id_idx ON mapping (record_id);
 
 CREATE TABLE prefix (
 	prefix_name TEXT NOT NULL,
@@ -320,8 +320,8 @@ CREATE TABLE prefix (
 	FOREIGN KEY("mapping set_id") REFERENCES "mapping set" (id)
 );
 CREATE INDEX "prefix_mapping set_id_prefix_name_idx" ON prefix ("mapping set_id", prefix_name);
-CREATE INDEX "ix_prefix_mapping set_id" ON prefix ("mapping set_id");
 CREATE INDEX ix_prefix_prefix_url ON prefix (prefix_url);
+CREATE INDEX "ix_prefix_mapping set_id" ON prefix ("mapping set_id");
 CREATE INDEX ix_prefix_prefix_name ON prefix (prefix_name);
 
 CREATE TABLE "mapping set_mapping_set_source" (
@@ -339,8 +339,8 @@ CREATE TABLE "mapping set_creator_id" (
 	PRIMARY KEY ("mapping set_id", creator_id),
 	FOREIGN KEY("mapping set_id") REFERENCES "mapping set" (id)
 );
-CREATE INDEX "ix_mapping set_creator_id_creator_id" ON "mapping set_creator_id" (creator_id);
 CREATE INDEX "ix_mapping set_creator_id_mapping set_id" ON "mapping set_creator_id" ("mapping set_id");
+CREATE INDEX "ix_mapping set_creator_id_creator_id" ON "mapping set_creator_id" (creator_id);
 
 CREATE TABLE "mapping set_creator_label" (
 	"mapping set_id" INTEGER,
@@ -348,8 +348,8 @@ CREATE TABLE "mapping set_creator_label" (
 	PRIMARY KEY ("mapping set_id", creator_label),
 	FOREIGN KEY("mapping set_id") REFERENCES "mapping set" (id)
 );
-CREATE INDEX "ix_mapping set_creator_label_mapping set_id" ON "mapping set_creator_label" ("mapping set_id");
 CREATE INDEX "ix_mapping set_creator_label_creator_label" ON "mapping set_creator_label" (creator_label);
+CREATE INDEX "ix_mapping set_creator_label_mapping set_id" ON "mapping set_creator_label" ("mapping set_id");
 
 CREATE TABLE "mapping set_cardinality_scope" (
 	"mapping set_id" INTEGER,
@@ -402,8 +402,8 @@ CREATE TABLE "mapping set_curation_rule" (
 	PRIMARY KEY ("mapping set_id", curation_rule),
 	FOREIGN KEY("mapping set_id") REFERENCES "mapping set" (id)
 );
-CREATE INDEX "ix_mapping set_curation_rule_mapping set_id" ON "mapping set_curation_rule" ("mapping set_id");
 CREATE INDEX "ix_mapping set_curation_rule_curation_rule" ON "mapping set_curation_rule" (curation_rule);
+CREATE INDEX "ix_mapping set_curation_rule_mapping set_id" ON "mapping set_curation_rule" ("mapping set_id");
 
 CREATE TABLE "mapping set_curation_rule_text" (
 	"mapping set_id" INTEGER,
@@ -420,8 +420,8 @@ CREATE TABLE "mapping set_see_also" (
 	PRIMARY KEY ("mapping set_id", see_also),
 	FOREIGN KEY("mapping set_id") REFERENCES "mapping set" (id)
 );
-CREATE INDEX "ix_mapping set_see_also_mapping set_id" ON "mapping set_see_also" ("mapping set_id");
 CREATE INDEX "ix_mapping set_see_also_see_also" ON "mapping set_see_also" (see_also);
+CREATE INDEX "ix_mapping set_see_also_mapping set_id" ON "mapping set_see_also" ("mapping set_id");
 
 CREATE TABLE "mapping set_extension_definitions" (
 	"mapping set_id" INTEGER,
@@ -430,8 +430,8 @@ CREATE TABLE "mapping set_extension_definitions" (
 	FOREIGN KEY("mapping set_id") REFERENCES "mapping set" (id),
 	FOREIGN KEY(extension_definitions_id) REFERENCES "extension definition" (id)
 );
-CREATE INDEX "ix_mapping set_extension_definitions_mapping set_id" ON "mapping set_extension_definitions" ("mapping set_id");
 CREATE INDEX "ix_mapping set_extension_definitions_extension_definitions_id" ON "mapping set_extension_definitions" (extension_definitions_id);
+CREATE INDEX "ix_mapping set_extension_definitions_mapping set_id" ON "mapping set_extension_definitions" ("mapping set_id");
 
 CREATE TABLE "mapping registry_imports" (
 	"mapping registry_id" INTEGER,
@@ -439,8 +439,8 @@ CREATE TABLE "mapping registry_imports" (
 	PRIMARY KEY ("mapping registry_id", imports),
 	FOREIGN KEY("mapping registry_id") REFERENCES "mapping registry" (id)
 );
-CREATE INDEX "ix_mapping registry_imports_mapping registry_id" ON "mapping registry_imports" ("mapping registry_id");
 CREATE INDEX "ix_mapping registry_imports_imports" ON "mapping registry_imports" (imports);
+CREATE INDEX "ix_mapping registry_imports_mapping registry_id" ON "mapping registry_imports" ("mapping registry_id");
 
 CREATE TABLE "mapping registry_mapping_set_references" (
 	"mapping registry_id" INTEGER,
@@ -449,8 +449,8 @@ CREATE TABLE "mapping registry_mapping_set_references" (
 	FOREIGN KEY("mapping registry_id") REFERENCES "mapping registry" (id),
 	FOREIGN KEY(mapping_set_references_id) REFERENCES "mapping set reference" (id)
 );
-CREATE INDEX "ix_mapping registry_mapping_set_references_mapping_set_references_id" ON "mapping registry_mapping_set_references" (mapping_set_references_id);
 CREATE INDEX "ix_mapping registry_mapping_set_references_mapping registry_id" ON "mapping registry_mapping_set_references" ("mapping registry_id");
+CREATE INDEX "ix_mapping registry_mapping_set_references_mapping_set_references_id" ON "mapping registry_mapping_set_references" (mapping_set_references_id);
 
 CREATE TABLE mapping_author_id (
 	mapping_id INTEGER,
@@ -458,8 +458,8 @@ CREATE TABLE mapping_author_id (
 	PRIMARY KEY (mapping_id, author_id),
 	FOREIGN KEY(mapping_id) REFERENCES mapping (id)
 );
-CREATE INDEX ix_mapping_author_id_author_id ON mapping_author_id (author_id);
 CREATE INDEX ix_mapping_author_id_mapping_id ON mapping_author_id (mapping_id);
+CREATE INDEX ix_mapping_author_id_author_id ON mapping_author_id (author_id);
 
 CREATE TABLE mapping_author_label (
 	mapping_id INTEGER,
@@ -467,8 +467,8 @@ CREATE TABLE mapping_author_label (
 	PRIMARY KEY (mapping_id, author_label),
 	FOREIGN KEY(mapping_id) REFERENCES mapping (id)
 );
-CREATE INDEX ix_mapping_author_label_author_label ON mapping_author_label (author_label);
 CREATE INDEX ix_mapping_author_label_mapping_id ON mapping_author_label (mapping_id);
+CREATE INDEX ix_mapping_author_label_author_label ON mapping_author_label (author_label);
 
 CREATE TABLE mapping_reviewer_id (
 	mapping_id INTEGER,
@@ -476,8 +476,8 @@ CREATE TABLE mapping_reviewer_id (
 	PRIMARY KEY (mapping_id, reviewer_id),
 	FOREIGN KEY(mapping_id) REFERENCES mapping (id)
 );
-CREATE INDEX ix_mapping_reviewer_id_reviewer_id ON mapping_reviewer_id (reviewer_id);
 CREATE INDEX ix_mapping_reviewer_id_mapping_id ON mapping_reviewer_id (mapping_id);
+CREATE INDEX ix_mapping_reviewer_id_reviewer_id ON mapping_reviewer_id (reviewer_id);
 
 CREATE TABLE mapping_reviewer_label (
 	mapping_id INTEGER,
@@ -503,8 +503,8 @@ CREATE TABLE mapping_creator_label (
 	PRIMARY KEY (mapping_id, creator_label),
 	FOREIGN KEY(mapping_id) REFERENCES mapping (id)
 );
-CREATE INDEX ix_mapping_creator_label_creator_label ON mapping_creator_label (creator_label);
 CREATE INDEX ix_mapping_creator_label_mapping_id ON mapping_creator_label (mapping_id);
+CREATE INDEX ix_mapping_creator_label_creator_label ON mapping_creator_label (creator_label);
 
 CREATE TABLE mapping_cardinality_scope (
 	mapping_id INTEGER,
@@ -512,8 +512,8 @@ CREATE TABLE mapping_cardinality_scope (
 	PRIMARY KEY (mapping_id, cardinality_scope),
 	FOREIGN KEY(mapping_id) REFERENCES mapping (id)
 );
-CREATE INDEX ix_mapping_cardinality_scope_cardinality_scope ON mapping_cardinality_scope (cardinality_scope);
 CREATE INDEX ix_mapping_cardinality_scope_mapping_id ON mapping_cardinality_scope (mapping_id);
+CREATE INDEX ix_mapping_cardinality_scope_cardinality_scope ON mapping_cardinality_scope (cardinality_scope);
 
 CREATE TABLE mapping_curation_rule (
 	mapping_id INTEGER,
@@ -530,8 +530,8 @@ CREATE TABLE mapping_curation_rule_text (
 	PRIMARY KEY (mapping_id, curation_rule_text),
 	FOREIGN KEY(mapping_id) REFERENCES mapping (id)
 );
-CREATE INDEX ix_mapping_curation_rule_text_curation_rule_text ON mapping_curation_rule_text (curation_rule_text);
 CREATE INDEX ix_mapping_curation_rule_text_mapping_id ON mapping_curation_rule_text (mapping_id);
+CREATE INDEX ix_mapping_curation_rule_text_curation_rule_text ON mapping_curation_rule_text (curation_rule_text);
 
 CREATE TABLE mapping_subject_match_field (
 	mapping_id INTEGER,
@@ -566,8 +566,8 @@ CREATE TABLE mapping_subject_preprocessing (
 	PRIMARY KEY (mapping_id, subject_preprocessing),
 	FOREIGN KEY(mapping_id) REFERENCES mapping (id)
 );
-CREATE INDEX ix_mapping_subject_preprocessing_subject_preprocessing ON mapping_subject_preprocessing (subject_preprocessing);
 CREATE INDEX ix_mapping_subject_preprocessing_mapping_id ON mapping_subject_preprocessing (mapping_id);
+CREATE INDEX ix_mapping_subject_preprocessing_subject_preprocessing ON mapping_subject_preprocessing (subject_preprocessing);
 
 CREATE TABLE mapping_object_preprocessing (
 	mapping_id INTEGER,
@@ -584,5 +584,5 @@ CREATE TABLE mapping_see_also (
 	PRIMARY KEY (mapping_id, see_also),
 	FOREIGN KEY(mapping_id) REFERENCES mapping (id)
 );
-CREATE INDEX ix_mapping_see_also_see_also ON mapping_see_also (see_also);
 CREATE INDEX ix_mapping_see_also_mapping_id ON mapping_see_also (mapping_id);
+CREATE INDEX ix_mapping_see_also_see_also ON mapping_see_also (see_also);
