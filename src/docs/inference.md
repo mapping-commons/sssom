@@ -28,7 +28,7 @@ be referenced in the `derived_from` field when doing both mapping chaining
 #   orcid: https://orcid.org/
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
-#   mapping: http://w3id.org/mapping/
+#   mapping: https://example.com/mapping/
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 # mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/derived_from.sssom.tsv
 # creator_id:
