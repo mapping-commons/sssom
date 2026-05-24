@@ -1149,10 +1149,7 @@ slots:
       A set of [mapping sameness identifiers
       (MSIs)](https://github.com/ts4nfdi/mapping-sameness-identifier) for
       mappings that were used to derive this mapping, e.g., through mapping
-      chaining or inversion, represented as CURIEs. It's left to the curator to
-      decide on the appropriate CURIE/URI prefix for encoding MSIs as CURIEs,
-      but suggested at minimum to use `mapping` as the CURIE prefix (as in the
-      examples)
+      chaining or inversion, represented as CURIEs.
     range: EntityReference
     multivalued: true
     slot_uri: prov:wasDerivedFrom
