@@ -1146,9 +1146,10 @@ slots:
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker.sssom.tsv
   derived_from:
     description:
-      A set of CURIEs referring to mappings (i.e., subject-predicate-object
-      triples) that were used to derive this mapping, e.g., through mapping
-      chaining or inversion, represented as CURIEs.
+      A set of CURIEs referring to mappings (i.e.,
+      subject-predicate-object-predicate-modifier quadruple) that were used to
+      derive this mapping, e.g., through mapping chaining or inversion,
+      represented as CURIEs.
     range: EntityReference
     multivalued: true
     slot_uri: prov:wasDerivedFrom
