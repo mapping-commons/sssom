@@ -54,6 +54,7 @@ nav:
           - Introduction: spec-support.md
           - Hashing mapping records: spec-support-hashing.md
           - Applying Chaining Rules: chaining-rules.md
+          - Inference: inference.md
   - Resources for contributors: contributing.md
   - Resources for users:
       - FAQ: faq.md

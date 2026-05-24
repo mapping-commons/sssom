@@ -21,6 +21,7 @@
 - Add `reviewer_agreement` slot ([issue](https://github.com/mapping-commons/sssom/issues/510))
 - Allow encoding pipe characters in multi-valued slots in SSSOM/TSV format ([issue](https://github.com/mapping-commons/sssom/issues/429)).
 - Specify a standard SSSOM hashing function ([issue](https://github.com/mapping-commons/sssom/issues/436)).
+- Add `derived_from` slot ([issue](https://github.com/mapping-commons/sssom/issues/537))
 
 ## SSSOM version 1.0.0
 

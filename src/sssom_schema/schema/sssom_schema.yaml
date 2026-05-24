@@ -1144,6 +1144,43 @@ slots:
       - https://github.com/mapping-commons/sssom/issues/78
       - https://github.com/mapping-commons/sssom/pull/259
       - https://github.com/mapping-commons/sssom/blob/master/examples/schema/issue_tracker.sssom.tsv
+  derived_from:
+    description:
+      A set of [mapping sameness identifiers
+      (MSIs)](https://github.com/ts4nfdi/mapping-sameness-identifier) for
+      mappings that were used to derive this mapping, e.g., through mapping
+      chaining or inversion, represented as CURIEs. It's left to the curator to
+      decide on the appropriate CURIE/URI prefix for encoding MSIs as CURIEs,
+      but suggested at minimum to use `mapping` as the CURIE prefix (as in the
+      examples)
+    range: EntityReference
+    multivalued: true
+    slot_uri: prov:wasDerivedFrom
+    instantiates:
+      - sssom:Versionable
+    annotations:
+      added_in: "1.1"
+    see_also:
+      - https://github.com/mapping-commons/sssom/issues/537
+      - https://github.com/mapping-commons/sssom/pull/548
+      - https://github.com/mapping-commons/sssom/blob/master/examples/schema/derived_from.sssom.tsv
+    examples:
+      - value: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a
+        description:
+          A single value can be used when inverting the mapping
+          mesh:C000089-skos:exactMatch-CHEBI:28646, whose mapping sameness
+          identifier is
+          36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a, to
+          get mapping CHEBI:28646-skos:exactMatch-mesh:C000089
+      - value: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e
+        description:
+          The mappings mesh:C000089-skos:exactMatch-CHEBI:28646 and
+          CHEBI:28646-skos:exactMatch-cas:645-92-1 (whose mapping sameness
+          identifiers are respectively
+          mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a
+          and
+          mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e)
+          can be used to infer mesh:C000089-skos:exactMatch-cas:645-92-1.
   see_also:
     description:
       A URL specific for the mapping instance. E.g. for kboom we have a
@@ -1320,6 +1357,7 @@ classes:
       - similarity_measure
       - see_also
       - issue_tracker_item
+      - derived_from
       - other
       - comment
     class_uri: owl:Axiom

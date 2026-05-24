@@ -1,0 +1,20 @@
+# curie_map:
+#   cas: https://commonchemistry.cas.org/detail?cas_rn=
+#   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+#   mesh: http://id.nlm.nih.gov/mesh/
+#   orcid: https://orcid.org/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   mapping: http://www.w3.org/2004/02/skos/core#
+# license: https://creativecommons.org/publicdomain/zero/1.0/
+# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/derived_from.sssom.tsv
+# creator_id:
+#  - orcid:0000-0003-4423-4370
+# see_also:
+#  - https://github.com/mapping-commons/sssom/issues/537
+# sssom_version: 1.1
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	derived_from	comment
+mesh:C000089	ammeline	skos:exactMatch	CHEBI:28646	ammeline	semapv:ManualMappingCuration
+CHEBI:28646	ammeline	skos:exactMatch	cas:645-92-1	Ammeline	semapv:ManualMappingCuration
+mesh:C000089	ammeline	skos:exactMatch	cas:645-92-1	Ammeline	 semapv:MappingChaining	mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e	this example needs to refer to both the mappings on row 18 and 19 by mapping sameness identifier
+CHEBI:28646	ammeline	skos:exactMatch	mesh:C000089	Ammeline	 semapv:MappingInversion	mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a	this example just needs to refer to the mapping on row 18 by the mapping sameness identifier
