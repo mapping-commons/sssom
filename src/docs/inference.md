@@ -21,7 +21,7 @@ mapping chaining (i.e., using multiple mappings to infer a new one) and mapping
 inversion. The local unique identifiers used for mappings in this example are
 related to the proposal in
 https://github.com/ts4nfdi/mapping-sameness-identifier (which currently is under
-finalization). For now, the SSSOM specification isn't currently prescribing how
+review). For now, the SSSOM specification isn't currently prescribing how
 to assign CURIEs to mapping quads.
 
 ```
