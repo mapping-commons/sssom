@@ -1167,7 +1167,7 @@ slots:
           A single value can be used when inverting the mapping
           mesh:C000089-skos:exactMatch-CHEBI:28646, represented with the
           [mapping sameness identifier
-          (MSI)](https://github.com/ts4nfdi/mapping-sameness-identifier) for is
+          (MSI)](https://github.com/ts4nfdi/mapping-sameness-identifier)
           `36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a`, to
           get mapping CHEBI:28646-skos:exactMatch-mesh:C000089
       - value: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e
