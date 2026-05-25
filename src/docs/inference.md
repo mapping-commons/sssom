@@ -16,7 +16,7 @@ The `derived_from` field was introduced in
 reference the original subject-predicate-object-predicate modifier quadruple
 from which new mappings are inferred/derived.
 
-The following example demonstrates how the `derived_from` field when doing both
+The following example demonstrates how the `derived_from` field can be leveraged when doing both
 mapping chaining (i.e., using multiple mappings to infer a new one) and mapping
 inversion. The local unique identifiers used for mappings in this example are
 related to the proposal in
