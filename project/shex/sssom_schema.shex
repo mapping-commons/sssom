@@ -117,6 +117,7 @@ linkml:Sparqlpath xsd:string
           <similarity_measure> @linkml:String ? ;
           rdfs:seeAlso @<NonRelativeURI> * ;
           <issue_tracker_item> @<EntityReference> ? ;
+          prov:wasDerivedFrom @<EntityReference> * ;
           <other> @linkml:String ? ;
           rdfs:comment @linkml:String ?
        ) ;
