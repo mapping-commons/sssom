@@ -1148,8 +1148,7 @@ slots:
     description:
       A set of identifiers referring to mappings (i.e.,
       subject-predicate-object-predicate modifier quadruple) that were used to
-      derive this mapping, e.g., through mapping chaining or inversion,
-      represented as CURIEs.
+      derive this mapping, e.g., through mapping chaining or inversion.
     range: EntityReference
     multivalued: true
     slot_uri: prov:wasDerivedFrom
