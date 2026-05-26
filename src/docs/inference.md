@@ -25,7 +25,8 @@ denote the judgment on whether a triple is true or false. For example,
 that the above subject, predicate, object triple is true, while (`CHEBI:10057`,
 `skos:exactMatch`, `mesh:C002563`, False) is false because `CHEBI:10057` refers
 to 9H-xanthene, a small molecule, and `mesh:C002563` refers to xanthan gum, a
-polysaccharide.
+polysaccharide. By convention, mapping triples are implicitly considered to
+refer to the "true" mapping quadruple.
 
 A mapping record refers to the subject, predicate, object, predicate modifier,
 and all other fields in the SSSOM data model (except where otherwise stated in
@@ -47,12 +48,14 @@ in two scenarios:
    the table contains a SKOS exact match from `mesh:C000089` to `cas:645-92-1`
    produced through mapping chaining. The `derived_from` column in this row
    contains CURIEs referring to the
-   `mesh:C000089`-`skos:exactMatch`-`CHEBI:28646` and
-   `CHEBI:28646`-`skos:exactMatch`-`cas:645-92-1` concatenated with a pipe
+   `mesh:C000089`-`skos:exactMatch`-`CHEBI:28646`-True and
+   `CHEBI:28646`-`skos:exactMatch`-`cas:645-92-1`-True mapping quadruples,
+   concatenated with a pipe
 2. mapping inversion. the fourth row of the table contains a SKOS exact match
    from `CHEBI:28646` to `mesh:C000089` produced through mapping inversion of
    the first row of the table. The `derived_from` column in this row contains
-   the CURIE referring to the `mesh:C000089`-`skos:exactMatch`-`CHEBI:28646`
+   the CURIE referring to the
+   `mesh:C000089`-`skos:exactMatch`-`CHEBI:28646`-True quad.
 
 ```
 # curie_map:
