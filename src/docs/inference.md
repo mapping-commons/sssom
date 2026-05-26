@@ -99,7 +99,7 @@ how to assign identifiers to mapping quadruples.
 
 ### Example with Negative Mappings
 
-The following example uses mapping chaining combine with negated mappings to
+The following example uses mapping chaining combined with negated mappings to
 infer a non-trivial negative mapping. This illustrates why mapping quadruples
 (i.e., subject-predicate-object-predicate modifier) are required over mapping
 triples (i.e., subject-predicate-object).
