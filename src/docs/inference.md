@@ -88,7 +88,7 @@ For the purposes of inference, the mapping quadruple should be used:
 2. Full mapping records are inflexible: the SSSOM data should be flexible so if
    additional evidence (i.e., records) for a given mapping quadruple are found,
    then the confidence in the inferred/derived mapping (e.g., chained or
-   inverted)can be adjusted accordingly. This is possible because most chaining
+   inverted) can be adjusted accordingly. This is possible because most chaining
    and inversion algorithms logically operate on mapping quadruples, and not on
    records.
 
