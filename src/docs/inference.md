@@ -51,7 +51,7 @@ in two scenarios:
    `mesh:C000089`-`skos:exactMatch`-`CHEBI:28646`-True and
    `CHEBI:28646`-`skos:exactMatch`-`cas:645-92-1`-True mapping quadruples,
    concatenated with a pipe
-2. mapping inversion. the fourth row of the table contains a SKOS exact match
+2. mapping inversion. The fourth row of the table contains a SKOS exact match
    from `CHEBI:28646` to `mesh:C000089` produced through mapping inversion of
    the first row of the table. The `derived_from` column in this row contains
    the CURIE referring to the
