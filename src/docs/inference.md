@@ -43,7 +43,7 @@ from which new mappings are inferred/derived.
 The following example demonstrates how the `derived_from` field can be leveraged
 in two scenarios:
 
-1. mapping chaining. the table contains a SKOS exact match from `mesh:C000089`
+1. mapping chaining. The table contains a SKOS exact match from `mesh:C000089`
    to `CHEBI:28646` and from `CHEBI:28646` to `cas:645-92-1`. The third row of
    the table contains a SKOS exact match from `mesh:C000089` to `cas:645-92-1`
    produced through mapping chaining. The `derived_from` column in this row
