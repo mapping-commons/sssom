@@ -94,6 +94,7 @@ type Mapping
     similarityMeasure: String
     seeAlso: [NonRelativeURI]
     issueTrackerItem: EntityReference
+    derivedFrom: [EntityReference]
     other: String
     comment: String
   }

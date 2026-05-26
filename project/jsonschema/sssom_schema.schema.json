@@ -292,6 +292,16 @@
                         "null"
                     ]
                 },
+                "derived_from": {
+                    "description": "A set of identifiers referring to mappings (i.e., subject-predicate-object-predicate modifier quadruple) that were used to derive this mapping, e.g., through mapping chaining or inversion.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "issue_tracker_item": {
                     "description": "The issue tracker item discussing this mapping.",
                     "type": [

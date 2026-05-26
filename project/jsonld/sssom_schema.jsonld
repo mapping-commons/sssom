@@ -2556,6 +2556,50 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "derived_from",
+      "definition_uri": "https://w3id.org/sssom/derived_from",
+      "instantiates": [
+        "sssom:Versionable"
+      ],
+      "annotations": [
+        {
+          "tag": "added_in",
+          "value": "1.1",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "A set of identifiers referring to mappings (i.e., subject-predicate-object-predicate modifier quadruple) that were used to derive this mapping, e.g., through mapping chaining or inversion.",
+      "examples": [
+        {
+          "value": "mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a",
+          "description": "A single value can be used when inverting the mapping mesh:C000089-skos:exactMatch-CHEBI:28646, represented with the [mapping sameness identifier (MSI)](https://github.com/ts4nfdi/mapping-sameness-identifier) `36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a`, to get mapping CHEBI:28646-skos:exactMatch-mesh:C000089",
+          "@type": "Example"
+        },
+        {
+          "value": "mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e",
+          "description": "The mappings mesh:C000089-skos:exactMatch-CHEBI:28646 and CHEBI:28646-skos:exactMatch-cas:645-92-1, whose [mapping sameness identifiers (MSIs)](https://github.com/ts4nfdi/mapping-sameness-identifier) are respectively `mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a` and `mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e`, can be used to infer mesh:C000089-skos:exactMatch-cas:645-92-1.",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/sssom/schema/",
+      "see_also": [
+        "https://github.com/mapping-commons/sssom/issues/537",
+        "https://github.com/mapping-commons/sssom/pull/548",
+        "https://github.com/mapping-commons/sssom/blob/master/examples/schema/derived_from.sssom.tsv"
+      ],
+      "mappings": [
+        "http://www.w3.org/ns/prov#wasDerivedFrom"
+      ],
+      "slot_uri": "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "owner": "Mapping",
+      "domain_of": [
+        "Mapping"
+      ],
+      "range": "EntityReference",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "see_also",
       "definition_uri": "https://w3id.org/sssom/see_also",
       "description": "A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment",
@@ -3008,6 +3052,7 @@
         "similarity_measure",
         "see_also",
         "issue_tracker_item",
+        "derived_from",
         "other",
         "comment"
       ],
@@ -3358,9 +3403,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2026-05-22T10:41:37",
-  "source_file_size": 58964,
-  "generation_date": "2026-05-22T11:31:44",
+  "source_file_date": "2026-05-26T11:53:00",
+  "source_file_size": 60847,
+  "generation_date": "2026-05-26T15:25:40",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom_schema.context.jsonld",

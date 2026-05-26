@@ -59,6 +59,7 @@ message Mapping
   string similarityMeasure = 0
  repeated  nonRelativeURI seeAlso = 0
   entityReference issueTrackerItem = 0
+ repeated  entityReference derivedFrom = 0
   string other = 0
   string comment = 0
  }
