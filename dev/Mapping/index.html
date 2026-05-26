@@ -244,6 +244,11 @@
         Applying Chaining Rules
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../inference/">
+        Inference
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -511,6 +516,8 @@
       Mapping : curation_rule
 
       Mapping : curation_rule_text
+
+      Mapping : derived_from
 
       Mapping : issue_tracker_item
 
@@ -907,6 +914,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../derived_from/">derived_from</a></td>
+<td>* <br/> <a href="../EntityReference/">EntityReference</a></td>
+<td>A set of identifiers referring to mappings (i</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../other/">other</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>Pipe separated list of key value pairs for properties not part of the SSSOM s...</td>
@@ -1020,6 +1033,7 @@ slots:
 - similarity_measure
 - see_also
 - issue_tracker_item
+- derived_from
 - other
 - comment
 class_uri: owl:Axiom
@@ -2269,6 +2283,42 @@ attributes:
     domain_of:
     - mapping
     range: EntityReference
+  derived_from:
+    name: derived_from
+    instantiates:
+    - sssom:Versionable
+    annotations:
+      added_in:
+        tag: added_in
+        value: '1.1'
+    description: A set of identifiers referring to mappings (i.e., subject-predicate-object-predicate
+      modifier quadruple) that were used to derive this mapping, e.g., through mapping
+      chaining or inversion.
+    examples:
+    - value: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a
+      description: A single value can be used when inverting the mapping mesh:C000089-skos:exactMatch-CHEBI:28646,
+        represented with the [mapping sameness identifier (MSI)](https://github.com/ts4nfdi/mapping-sameness-identifier)
+        `36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a`, to get
+        mapping CHEBI:28646-skos:exactMatch-mesh:C000089
+    - value: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e
+      description: The mappings mesh:C000089-skos:exactMatch-CHEBI:28646 and CHEBI:28646-skos:exactMatch-cas:645-92-1,
+        whose [mapping sameness identifiers (MSIs)](https://github.com/ts4nfdi/mapping-sameness-identifier)
+        are respectively `mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a`
+        and `mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e`,
+        can be used to infer mesh:C000089-skos:exactMatch-cas:645-92-1.
+    from_schema: https://w3id.org/sssom/schema/
+    see_also:
+    - https://github.com/mapping-commons/sssom/issues/537
+    - https://github.com/mapping-commons/sssom/pull/548
+    - https://github.com/mapping-commons/sssom/blob/master/examples/schema/derived_from.sssom.tsv
+    rank: 1000
+    slot_uri: prov:wasDerivedFrom
+    alias: derived_from
+    owner: mapping
+    domain_of:
+    - mapping
+    range: EntityReference
+    multivalued: true
   other:
     name: other
     description: Pipe separated list of key value pairs for properties not part of

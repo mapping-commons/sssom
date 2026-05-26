@@ -10,20 +10,16 @@
         <meta name="author" content="The SSSOM Community">
       
       
-        <link rel="canonical" href="https://mapping-commons.github.io/sssom/dev/contributing/">
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/dev/derived_from/">
       
       
-        <link rel="prev" href="../inference/">
-      
-      
-        <link rel="next" href="../faq/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.0.0">
     
     
       
-        <title>Resources for contributors - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>derived_from - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -71,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing-to-sssom" class="md-skip">
+        <a href="#derived_from" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Resources for contributors
+              derived_from
             
           </span>
         </div>
@@ -562,21 +558,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
         Resources for contributors
       </a>
-      
     </li>
   
 
@@ -1021,6 +1007,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-developer-documentation" class="md-nav__link">
+    Schema developer documentation
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1038,11 +1060,81 @@
 
 
 
-<h1 id="contributing-to-sssom">Contributing to SSSOM</h1>
+<h1 id="derived_from">derived_from</h1>
+<p><strong>URI</strong>: <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a></p>
+<p><strong>Applicable to</strong>: <a href="../Mapping/">Mapping</a></p>
+<div class="admonition info">
+<p class="admonition-title">Description</p>
+<p><em>A set of identifiers referring to mappings (i.e., subject-predicate-object-predicate modifier quadruple) that were used to derive this mapping, e.g., through mapping chaining or inversion.</em></p>
+</div>
+<h2 id="properties">Properties</h2>
 <ul>
-<li><a href="https://github.com/mapping-commons/sssom/blob/master/CONTRIBUTING.md">Contribution guidelines</a></li>
-<li><a href="https://github.com/mapping-commons/sssom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li><strong>Range</strong>: <a href="../EntityReference/">EntityReference</a>. The range of the element is the type of the value that can be assigned to it.</li>
+<li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a</p>
+<p><strong>Example value</strong>:</p>
+<p><code>mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a</code></p>
+<p><strong>Description</strong>: A single value can be used when inverting the mapping mesh:C000089-skos:exactMatch-CHEBI:28646, represented with the <a href="https://github.com/ts4nfdi/mapping-sameness-identifier">mapping sameness identifier (MSI)</a> <code>36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a</code>, to get mapping CHEBI:28646-skos:exactMatch-mesh:C000089</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e</p>
+<p><strong>Example value</strong>:</p>
+<p><code>mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e</code></p>
+<p><strong>Description</strong>: The mappings mesh:C000089-skos:exactMatch-CHEBI:28646 and CHEBI:28646-skos:exactMatch-cas:645-92-1, whose <a href="https://github.com/ts4nfdi/mapping-sameness-identifier">mapping sameness identifiers (MSIs)</a> are respectively <code>mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a</code> and <code>mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e</code>, can be used to infer mesh:C000089-skos:exactMatch-cas:645-92-1.</p>
+</div>
+<h2 id="see-also">See Also</h2>
+<p>These are some relevant resources you might find useful to get additional information about the element,
+such as example implementations, issues and pull requests.</p>
+<ul>
+<li><a href="https://github.com/mapping-commons/sssom/issues/537">https://github.com/mapping-commons/sssom/issues/537</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/pull/548">https://github.com/mapping-commons/sssom/pull/548</a></li>
+<li><a href="https://github.com/mapping-commons/sssom/blob/master/examples/schema/derived_from.sssom.tsv">https://github.com/mapping-commons/sssom/blob/master/examples/schema/derived_from.sssom.tsv</a></li>
+</ul>
+<h2 id="schema-developer-documentation">Schema developer documentation</h2>
+<details><summary>LinkML source</summary>
+
+
+<pre><code class="language-yaml">name: derived_from
+instantiates:
+- sssom:Versionable
+annotations:
+  added_in:
+    tag: added_in
+    value: '1.1'
+description: A set of identifiers referring to mappings (i.e., subject-predicate-object-predicate
+  modifier quadruple) that were used to derive this mapping, e.g., through mapping
+  chaining or inversion.
+examples:
+- value: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a
+  description: A single value can be used when inverting the mapping mesh:C000089-skos:exactMatch-CHEBI:28646,
+    represented with the [mapping sameness identifier (MSI)](https://github.com/ts4nfdi/mapping-sameness-identifier)
+    `36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a`, to get mapping
+    CHEBI:28646-skos:exactMatch-mesh:C000089
+- value: mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e
+  description: The mappings mesh:C000089-skos:exactMatch-CHEBI:28646 and CHEBI:28646-skos:exactMatch-cas:645-92-1,
+    whose [mapping sameness identifiers (MSIs)](https://github.com/ts4nfdi/mapping-sameness-identifier)
+    are respectively `mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a`
+    and `mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e`,
+    can be used to infer mesh:C000089-skos:exactMatch-cas:645-92-1.
+from_schema: https://w3id.org/sssom/schema/
+see_also:
+- https://github.com/mapping-commons/sssom/issues/537
+- https://github.com/mapping-commons/sssom/pull/548
+- https://github.com/mapping-commons/sssom/blob/master/examples/schema/derived_from.sssom.tsv
+rank: 1000
+slot_uri: prov:wasDerivedFrom
+alias: derived_from
+domain_of:
+- mapping
+range: EntityReference
+multivalued: true
+
+</code></pre>
+
+</details>
 
 
 

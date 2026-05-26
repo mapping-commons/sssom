@@ -10,20 +10,20 @@
         <meta name="author" content="The SSSOM Community">
       
       
-        <link rel="canonical" href="https://mapping-commons.github.io/sssom/dev/contributing/">
+        <link rel="canonical" href="https://mapping-commons.github.io/sssom/dev/inference/">
       
       
-        <link rel="prev" href="../inference/">
+        <link rel="prev" href="../chaining-rules/">
       
       
-        <link rel="next" href="../faq/">
+        <link rel="next" href="../contributing/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.0.0">
     
     
       
-        <title>Resources for contributors - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
+        <title>Inference - A Simple Standard for Sharing Ontology Mappings (SSSOM)</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing-to-sssom" class="md-skip">
+        <a href="#inference" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Resources for contributors
+              Inference
             
           </span>
         </div>
@@ -261,12 +261,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -465,12 +467,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
       
       
       
@@ -533,35 +537,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../inference/" class="md-nav__link">
-        Inference
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -573,10 +548,90 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Inference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Resources for contributors
+        Inference
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background-on-mapping-triples-quadruples-and-records" class="md-nav__link">
+    Background on Mapping Triples, Quadruples, and Records
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referring-to-evidence" class="md-nav__link">
+    Referring to Evidence
+  </a>
+  
+    <nav class="md-nav" aria-label="Referring to Evidence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-with-negative-mappings" class="md-nav__link">
+    Example with Negative Mappings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        Resources for contributors
+      </a>
     </li>
   
 
@@ -1021,6 +1076,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background-on-mapping-triples-quadruples-and-records" class="md-nav__link">
+    Background on Mapping Triples, Quadruples, and Records
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referring-to-evidence" class="md-nav__link">
+    Referring to Evidence
+  </a>
+  
+    <nav class="md-nav" aria-label="Referring to Evidence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-with-negative-mappings" class="md-nav__link">
+    Example with Negative Mappings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1038,11 +1128,210 @@
 
 
 
-<h1 id="contributing-to-sssom">Contributing to SSSOM</h1>
+<h1 id="inference">Inference</h1>
+<p>There are several mechanisms for inference:</p>
 <ul>
-<li><a href="https://github.com/mapping-commons/sssom/blob/master/CONTRIBUTING.md">Contribution guidelines</a></li>
-<li><a href="https://github.com/mapping-commons/sssom/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li>Inference via chaining (see <a href="../chaining-rules/">chaining rules</a>), which should
+  be tagged with <code>semapv:MappingChaining</code> as a justification</li>
+<li>Inference via mapping inversion, which should be tagged with
+  <code>semapv:MappingInversion</code> as a justification</li>
+<li>Inference via prior knowledge, which should be tagged with
+  <code>semapv:BackgroundKnowledgeBasedMatching</code> as a justification</li>
 </ul>
+<h2 id="background-on-mapping-triples-quadruples-and-records">Background on Mapping Triples, Quadruples, and Records</h2>
+<p>This section provides a brief background on different ways of referencing a
+mapping appearing in SSSOM.</p>
+<p>A mapping triple has a subject, predicate, and object as in (<code>mesh:C000089</code>,
+<code>skos:exactMatch</code>, <code>CHEBI:28646</code>). A mapping triple does not clarify the
+judgment on whether a triple is true or false, nor how the mapping was created.</p>
+<p>A mapping quadruple has a subject, predicate, object, and predicate modifier.
+The addition of the predicate modifier allows a mapping quadruple to explicitly
+denote the judgment on whether a triple is true or false. For example,
+(<code>mesh:C000089</code>, <code>skos:exactMatch</code>, <code>CHEBI:28646</code>, True) explicitly represents
+that the above subject, predicate, object triple is true, while (<code>CHEBI:10057</code>,
+<code>skos:exactMatch</code>, <code>mesh:C002563</code>, False) is false because <code>CHEBI:10057</code> refers
+to 9H-xanthene, a small molecule, and <code>mesh:C002563</code> refers to xanthan gum, a
+polysaccharide. By convention, mapping triples are implicitly considered to
+refer to the "true" mapping quadruple.</p>
+<p>A mapping record refers to the subject, predicate, object, predicate modifier,
+and all other fields in the SSSOM data model (except where otherwise stated in
+<a href="../spec-support-hashing/">"Hashing a SSSOM mapping record"</a>, such as the
+<code>record_id</code>).</p>
+<h2 id="referring-to-evidence">Referring to Evidence</h2>
+<p>The <code>derived_from</code> field was introduced in
+<a href="https://github.com/mapping-commons/sssom/issues/537">#537</a> in order to
+reference the original subject-predicate-object-predicate modifier quadruple
+from which new mappings are inferred/derived.</p>
+<p>The following example demonstrates how the <code>derived_from</code> field can be leveraged
+in two scenarios:</p>
+<ol>
+<li>mapping chaining. The table contains a SKOS exact match from <code>mesh:C000089</code>
+   to <code>CHEBI:28646</code> and from <code>CHEBI:28646</code> to <code>cas:645-92-1</code>. The third row of
+   the table contains a SKOS exact match from <code>mesh:C000089</code> to <code>cas:645-92-1</code>
+   produced through mapping chaining. The <code>derived_from</code> column in this row
+   contains CURIEs referring to the
+   <code>mesh:C000089</code>-<code>skos:exactMatch</code>-<code>CHEBI:28646</code>-True and
+   <code>CHEBI:28646</code>-<code>skos:exactMatch</code>-<code>cas:645-92-1</code>-True mapping quadruples,
+   concatenated with a pipe</li>
+<li>mapping inversion. The fourth row of the table contains a SKOS exact match
+   from <code>CHEBI:28646</code> to <code>mesh:C000089</code> produced through mapping inversion of
+   the first row of the table. The <code>derived_from</code> column in this row contains
+   the CURIE referring to the
+   <code>mesh:C000089</code>-<code>skos:exactMatch</code>-<code>CHEBI:28646</code>-True quad.</li>
+</ol>
+<pre><code># curie_map:
+#   cas:    https://commonchemistry.cas.org/detail?cas_rn=
+#   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+#   mesh: http://id.nlm.nih.gov/mesh/
+#   orcid: https://orcid.org/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   mapping: https://example.com/mapping/
+# license: https://creativecommons.org/publicdomain/zero/1.0/
+# mapping_set_id: https://github.com/mapping-commons/sssom/blob/master/examples/schema/derived_from.sssom.tsv
+# creator_id:
+#  - orcid:0000-0003-4423-4370
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>subject_id</th>
+<th>subject_label</th>
+<th>predicate_id</th>
+<th>object_id</th>
+<th>object_label</th>
+<th>mapping_justification</th>
+<th>derived_from</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mesh:C000089</td>
+<td>ammeline</td>
+<td>skos:exactMatch</td>
+<td>CHEBI:28646</td>
+<td>ammeline</td>
+<td>semapv:ManualMappingCuration</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CHEBI:28646</td>
+<td>ammeline</td>
+<td>skos:exactMatch</td>
+<td>cas:645-92-1</td>
+<td>Ammeline</td>
+<td>semapv:ManualMappingCuration</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>mesh:C000089</td>
+<td>ammeline</td>
+<td>skos:exactMatch</td>
+<td>cas:645-92-1</td>
+<td>Ammeline</td>
+<td>semapv:MappingChaining</td>
+<td>mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a|mapping:bb768f0b1e1643298f4df1a381001f6ed68fcc8fff49b371f0235b51dbab9e1e</td>
+<td>this example needs to refer to the first two mappings in this table by mapping sameness identifier</td>
+</tr>
+<tr>
+<td>CHEBI:28646</td>
+<td>ammeline</td>
+<td>skos:exactMatch</td>
+<td>mesh:C000089</td>
+<td>Ammeline</td>
+<td>semapv:MappingInversion</td>
+<td>mapping:36a1f9244ea7641a90987c82f33c25c0c13712ee8f48207b2a0825f8a4e4e26a</td>
+<td>this example just needs to refer to the first mapping in this table by the mapping sameness identifier</td>
+</tr>
+</tbody>
+</table>
+<p>For the purposes of inference, the mapping quadruple should be used:</p>
+<ol>
+<li>Mapping triples are insufficient: without the judgment of whether a mapping
+   is true or false, then an algorithm could accidentally conclude from
+   <code>A skos:exactMatch B</code> and <code>B (not) skos:exactMatch C</code> that
+   <code>A skos:exactMatch C</code>. This is why mapping triples are insufficient</li>
+<li>Full mapping records are inflexible: the SSSOM data should be flexible so if
+   additional evidence (i.e., records) for a given mapping quadruple are found,
+   then the confidence in the inferred/derived mapping (e.g., chained or
+   inverted) can be adjusted accordingly. This is possible because most chaining
+   and inversion algorithms logically operate on mapping quadruples, and not on
+   records.</li>
+</ol>
+<p>Note: the local unique identifiers used for mappings in this example are related
+to the proposal in https://github.com/ts4nfdi/mapping-sameness-identifier (which
+currently is under review). For now, the SSSOM specification isn't prescribing
+how to assign identifiers to mapping quadruples.</p>
+<h3 id="example-with-negative-mappings">Example with Negative Mappings</h3>
+<p>The following example uses mapping chaining combined with negated mappings to
+infer a non-trivial negative mapping. This illustrates why mapping quadruples
+(i.e., subject-predicate-object-predicate modifier) are required over mapping
+triples (i.e., subject-predicate-object).</p>
+<pre><code># curie_map:
+#   cas:    https://commonchemistry.cas.org/detail?cas_rn=
+#   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+#   mesh: http://id.nlm.nih.gov/mesh/
+#   orcid: https://orcid.org/
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   mapping: https://example.com/mapping/
+# license: https://creativecommons.org/publicdomain/zero/1.0/
+# creator_id:
+#  - orcid:0000-0003-4423-4370
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>subject_id</th>
+<th>subject_label</th>
+<th>predicate_id</th>
+<th>predicate_modifier</th>
+<th>object_id</th>
+<th>object_label</th>
+<th>mapping_justification</th>
+<th>derived_from</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHEBI:10057</td>
+<td>9H-xanthene</td>
+<td>skos:exactMatch</td>
+<td>Not</td>
+<td>mesh:C002563</td>
+<td>xanthan gum</td>
+<td>semapv:ManualMappingCuration</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cas:92-83-1</td>
+<td>Xanthene</td>
+<td>skos:exactMatch</td>
+<td></td>
+<td>CHEBI:10057</td>
+<td>9H-xanthene</td>
+<td>semapv:ManualMappingCuration</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cas:92-83-1</td>
+<td>Xanthene</td>
+<td>skos:exactMatch</td>
+<td>Not</td>
+<td>mesh:C002563</td>
+<td>xanthan gum</td>
+<td>semapv:MappingChaining</td>
+<td>mapping:58f24ccfaf71431276da873c9e7b77ea61a2425e4e8b283b943542290deb292b~|mapping:bb1162fb2afb1c519c0aa8be98c352061720af220e2d052c571a1fecabff9800</td>
+<td>this example uses the first two mappings in the table, importantly, incorporating the negative modifier in the identifiers</td>
+</tr>
+</tbody>
+</table>
 
 
 
