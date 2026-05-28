@@ -15,8 +15,15 @@
 ### Tutorials and Guides
 
 - [Mapping curation with SSSOM](https://oboacademy.github.io/obook/tutorial/sssom-tutorial/)
-- [Are these two entities the same? A guide.](https://oboacademy.github.io/obook/howto/are-two-entities-the-same/). An important tutorial that explains that it is not directly possible to determine if two things are the same across ontologies, but its still worth doing when explicitly recording the rationale.
-- [Linking across vocabularies: Semantic Entity Matching](https://oboacademy.github.io/obook/lesson/entity-matching/): Entity matching is the process of establishing a link between an identifier in one semantic space to an identifier in another. There are many cultures of thought around entity matching, including Ontology Matching, Entity Resolution and Entity Linking.
+- [Are these two entities the same? A guide.](https://oboacademy.github.io/obook/howto/are-two-entities-the-same/).
+  An important tutorial that explains that it is not directly possible to
+  determine if two things are the same across ontologies, but its still worth
+  doing when explicitly recording the rationale.
+- [Linking across vocabularies: Semantic Entity Matching](https://oboacademy.github.io/obook/lesson/entity-matching/):
+  Entity matching is the process of establishing a link between an identifier in
+  one semantic space to an identifier in another. There are many cultures of
+  thought around entity matching, including Ontology Matching, Entity Resolution
+  and Entity Linking.
 
 <a id="related"></a>
 

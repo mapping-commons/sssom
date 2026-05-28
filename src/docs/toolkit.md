@@ -1,32 +1,52 @@
 # The SSSOM Toolkit
 
-In the following we will give a brief introduction into the SSSOM toolkit. For more detailed documentation please refer to https://mapping-commons.github.io/sssom-py.
+In the following we will give a brief introduction into the SSSOM toolkit. For
+more detailed documentation please refer to
+https://mapping-commons.github.io/sssom-py.
 
 ## Pre-requisites
 
 - Complete the [basic SSSOM tutorial](tutorial.md)
-- [Install SSSOM toolkit](https://mapping-commons.github.io/sssom-py/installation.html). Alternatively, you can install the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit) and follow the tutorial using its [docker image](https://oboacademy.github.io/obook/howto/odk-setup/).
-- We are assuming a Unix shell for this tutorial, but most of the principles should apply to the Windows CMD as well. Windows users may prefer to install the ODK (see above).
+- [Install SSSOM toolkit](https://mapping-commons.github.io/sssom-py/installation.html).
+  Alternatively, you can install the
+  [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit)
+  and follow the tutorial using its
+  [docker image](https://oboacademy.github.io/obook/howto/odk-setup/).
+- We are assuming a Unix shell for this tutorial, but most of the principles
+  should apply to the Windows CMD as well. Windows users may prefer to install
+  the ODK (see above).
 
 ## Overview
 
-SSSOM toolkit (STK), previously known as `sssom-py`, is a set of utility methods for processing SSSOM files, packaged as a Command Line Client (CLI) and a [python package](https://pypi.org/project/sssom/). In the following, we will extract mappings from an ontology an process them with the CLI. The goal is to give a sense of the functionality of the toolkit. Additional and more up-to-date information on usage can be found [here](https://mapping-commons.github.io/sssom-py).
+SSSOM toolkit (STK), previously known as `sssom-py`, is a set of utility methods
+for processing SSSOM files, packaged as a Command Line Client (CLI) and a
+[python package](https://pypi.org/project/sssom/). In the following, we will
+extract mappings from an ontology an process them with the CLI. The goal is to
+give a sense of the functionality of the toolkit. Additional and more up-to-date
+information on usage can be found
+[here](https://mapping-commons.github.io/sssom-py).
 
 ## Table of Contents
 
 1. `parse`: [Extracting mappings from an external source](#parse)
 2. `merge`: [Combining mappings from several sources](#merge)
-3. `convert`: [Converting an SSSOM mapping table into different formats](#convert)
+3. `convert`:
+   [Converting an SSSOM mapping table into different formats](#convert)
 
 <a id="parse"></a>
 
 ## Extracting mappings from an external source
 
-One key issue developers are faced with is to convert various different mapping formats into a common representation (e.g. SSSOM). The SSSOM toolkit (STK) already implements a number of commonly use mapping formats:
+One key issue developers are faced with is to convert various different mapping
+formats into a common representation (e.g. SSSOM). The SSSOM toolkit (STK)
+already implements a number of commonly use mapping formats:
 
 1. [OWL Ontologies](https://en.wikipedia.org/wiki/Web_Ontology_Language)
-2. [Alignment API](https://moex.gitlabpages.inria.fr/alignapi/) Format (format used by the Ontology Alignment Evaluation Initiative, OAEI)
-3. Parsers for SNOMED mapping format and FHIR Concept Map are [in the making](https://github.com/mapping-commons/sssom-py/pull/207), June 2022.
+2. [Alignment API](https://moex.gitlabpages.inria.fr/alignapi/) Format (format
+   used by the Ontology Alignment Evaluation Initiative, OAEI)
+3. Parsers for SNOMED mapping format and FHIR Concept Map are
+   [in the making](https://github.com/mapping-commons/sssom-py/pull/207),
+   June 2022.
 
 Here we use Uberon, an anatomy ontology in the biomedical domain.
 
@@ -36,7 +56,9 @@ wget http://purl.obolibrary.org/obo/uberon/uberon-base.json -O uberon-base.json
 
 Feel free to download the file manually if you do not have `wget` installed.
 
-Now use `sssom parse` to extract all the mappings provided by the ontology. As there are multiple json based formats that can be parsed, you have to tell `sssom` which format you are using: `--input-format obographs-json`.
+Now use `sssom parse` to extract all the mappings provided by the ontology. As
+there are multiple json based formats that can be parsed, you have to tell
+`sssom` which format you are using: `--input-format obographs-json`.
 
 ```
 sssom parse uberon-base.json --input-format obographs-json --output uberon.sssom.tsv
@@ -44,8 +66,11 @@ sssom parse uberon-base.json --input-format obographs-json --output uberon.sssom
 
 From a CLI design perspective we already notice a few things:
 
-- `uberon-base.json` is passed to the STK _as an argument_ (without an option like `-i`). This is the case for most _primary inputs_ (mapping tables, source files) throughout the SSSOM client.
-- The output generated by the above command is large. There seem to be a lot of messages where some URL `does not follow any known prefixes`:
+- `uberon-base.json` is passed to the STK _as an argument_ (without an option
+  like `-i`). This is the case for most _primary inputs_ (mapping tables, source
+  files) throughout the SSSOM client.
+- The output generated by the above command is large. There seem to be a lot of
+  messages where some URL `does not follow any known prefixes`:
 
 ```
 WARNING:root:http://dbpedia.org/ontology/AnatomicalStructure does not follow any known prefixes
@@ -59,24 +84,37 @@ WARNING:root:http://uri.neuinfo.org/nif/nifstd/nifext_14 does not follow any kno
 ....
 ```
 
-Understanding this is important to understand a lot about how SSSOM treats entities in general.
+Understanding this is important to understand a lot about how SSSOM treats
+entities in general.
 
 ### Why are there so many `does not follow any known prefixes` warnings?
 
-CURIEs are a key concept for the representation of SSSOM documents, in particular its table. All fields that constitute a reference to some entity, such as ids (`subject_id`, `object_id`, `predicate_id`), and other fields such as `mapping_justification` are represented in CURIE syntax.
+CURIEs are a key concept for the representation of SSSOM documents, in
+particular its table. All fields that constitute a reference to some entity,
+such as ids (`subject_id`, `object_id`, `predicate_id`), and other fields such
+as `mapping_justification` are represented in CURIE syntax.
 
-The [Semantic Web](https://www.w3.org/standards/semanticweb/) uses URIs (which look more like URLs rather than CURIEs) to refer to entities - there is, however, no standard protocol to translate a URI into a _Compact_ URI (or CURIE).
+The [Semantic Web](https://www.w3.org/standards/semanticweb/) uses URIs (which
+look more like URLs rather than CURIEs) to refer to entities - there is,
+however, no standard protocol to translate a URI into a _Compact_ URI (or
+CURIE).
 
-Efforts such as https://bioregistry.io/, https://github.com/prefixcommons or https://identifiers.org/ try to bring a bit of an organisation to prefixes. In particular the former two curate maps between prefixes and URIs.
+Efforts such as https://bioregistry.io/, https://github.com/prefixcommons or
+https://identifiers.org/ try to bring a bit of an organisation to prefixes. In
+particular the former two curate maps between prefixes and URIs.
 
 - URI: `http://purl.obolibrary.org/obo/MONDO_0000001`
 - CURIE: `MONDO:0000001`
 - PREFIX: `MONDO`
 - URI expansion: `http://purl.obolibrary.org/obo/MONDO_`
 
-Now the problem is that over the years, many very idiosyncratic URIs where used to denote entities in ontologies. While the STK tries to figure out the correct prefixes using https://bioregistry.io/, many times it fails - in these cases, the user _must provide its own prefix map_.
+Now the problem is that over the years, many very idiosyncratic URIs where used
+to denote entities in ontologies. While the STK tries to figure out the correct
+prefixes using https://bioregistry.io/, many times it fails - in these cases,
+the user _must provide its own prefix map_.
 
-Lets create a simple one, and save it as `metadata.yml` (we call it "metadata", because we will add more metadata to it in this tutorial):
+Lets create a simple one, and save it as `metadata.yml` (we call it "metadata",
+because we will add more metadata to it in this tutorial):
 
 ```
 curie_map:
@@ -96,8 +134,6 @@ sssom parse uberon-base.json --input-format obographs-json --metadata metadata.y
 <a id="convert"></a>
 
 ## Converting an SSSOM mapping table into different formats
-
-
 
 ## Other methods:
 

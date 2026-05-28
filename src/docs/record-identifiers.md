@@ -153,8 +153,9 @@ Of note, the
 a proposed SSSOM-independent standard to compute an unique identifier for a
 mapping, is _not_ suitable as a SSSOM record identifier, because it may not be
 unique for any given record (on the contrary, it is explicitly designed to be
-identical for all records that have the same subject, the same predicate (incl. possible negation modifier), and
-the same object, regardless of all other metadata).
+identical for all records that have the same subject, the same predicate (incl.
+possible negation modifier), and the same object, regardless of all other
+metadata).
 
 ##### Content-derived identifiers considered harmful
 

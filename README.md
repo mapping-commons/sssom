@@ -4,43 +4,68 @@
 
 <img src="src/docs/images/sssom-banner.png" />
 
-
-SSSOM is a Simple Standard for Sharing Ontological Mappings, providing 
+SSSOM is a Simple Standard for Sharing Ontological Mappings, providing
 
 1. a TSV-based representation for ontology term mappings
-1. a comprehensive set of standard metadata elements to describe mappings and 
-1. a standard translation between the TSV and the Web Ontology Language (OWL). 
+1. a comprehensive set of standard metadata elements to describe mappings and
+1. a standard translation between the TSV and the Web Ontology Language (OWL).
 
-The SSSOM TSV format in particular is geared towards the needs of the wider bioinformatics community as a way to safely exchange mappings in an easily readable yet semantically well-specified manner. Consider this example of a simple mapping file:
+The SSSOM TSV format in particular is geared towards the needs of the wider
+bioinformatics community as a way to safely exchange mappings in an easily
+readable yet semantically well-specified manner. Consider this example of a
+simple mapping file:
 
-| subject_id	| predicate_id	| object_id	| mapping_justification | subject_label	| object_label |
-| --- | --- | --- | --- | --- | --- |
-| HP:0009124	| skos:exactMatch	| MP:0000003	| semapv:LexicalMatching	| Abnormal adipose tissue morphology	| abnormal adipose tissue morphology |
-| HP:0008551	| skos:exactMatch	| MP:0000018	| semapv:LexicalMatching	| Microtia	| small ears |
-| HP:0000411	| skos:exactMatch	| MP:0000021	| semapv:LexicalMatching	| Protruding ear	| prominent ears |
+| subject_id | predicate_id    | object_id  | mapping_justification  | subject_label                      | object_label                       |
+| ---------- | --------------- | ---------- | ---------------------- | ---------------------------------- | ---------------------------------- |
+| HP:0009124 | skos:exactMatch | MP:0000003 | semapv:LexicalMatching | Abnormal adipose tissue morphology | abnormal adipose tissue morphology |
+| HP:0008551 | skos:exactMatch | MP:0000018 | semapv:LexicalMatching | Microtia                           | small ears                         |
+| HP:0000411 | skos:exactMatch | MP:0000021 | semapv:LexicalMatching | Protruding ear                     | prominent ears                     |
 
 SSSOM specifies all its metadata elements:
 
 - subject_id
 - predicate_id
 - object_id
-- mapping_justification (*NOTE: Since June 2022* `match_type` is being replaced by `mapping_justification` see [here](https://github.com/mapping-commons/sssom/issues/150))
+- mapping_justification (_NOTE: Since June 2022_ `match_type` is being replaced
+  by `mapping_justification` see
+  [here](https://github.com/mapping-commons/sssom/issues/150))
 - subject_label
 - object_label
 
-including clear definitions, examples of use and controlled vocabulary where necessary, along with 30 other optional metadata elements to provide additional provenance.
+including clear definitions, examples of use and controlled vocabulary where
+necessary, along with 30 other optional metadata elements to provide additional
+provenance.
 
-SSSOM further provides a standard way to 
-- augment the TSV file with mapping set - level metadata, such as creator_id, mapping_date or license and
-- translate a SSSOM compliant TSV files into _OWL reified axioms_. This will allow the easy loading, and merging of SSSOM mapping tables into existing ontologies using standard tools such as ROBOT (under development).
+SSSOM further provides a standard way to
 
-Note that SSSOM is currently under development and subject to change. Please leave us a comment on the [issue tracker](https://github.com/OBOFoundry/SSSOM/issues) if you want to be involved. The full specification can be found [here](https://w3id.org/sssom/spec).
+- augment the TSV file with mapping set - level metadata, such as creator_id,
+  mapping_date or license and
+- translate a SSSOM compliant TSV files into _OWL reified axioms_. This will
+  allow the easy loading, and merging of SSSOM mapping tables into existing
+  ontologies using standard tools such as ROBOT (under development).
+
+Note that SSSOM is currently under development and subject to change. Please
+leave us a comment on the
+[issue tracker](https://github.com/OBOFoundry/SSSOM/issues) if you want to be
+involved. The full specification can be found
+[here](https://w3id.org/sssom/spec).
 
 ## Citation
 
 If you have found SSSOM to be helpful in your work, please consider citing:
 
-Nicolas Matentzoglu, James P Balhoff, Susan M Bello, Chris Bizon, Matthew Brush, Tiffany J Callahan, Christopher G Chute, William D Duncan, Chris T Evelo, Davera Gabriel, John Graybeal, Alasdair Gray, Benjamin M Gyori, Melissa Haendel, Henriette Harmse, Nomi L Harris, Ian Harrow, Harshad B Hegde, Amelia L Hoyt, Charles T Hoyt, Dazhi Jiao, Ernesto Jiménez-Ruiz, Simon Jupp, Hyeongsik Kim, Sebastian Koehler, Thomas Liener, Qinqin Long, James Malone, James A McLaughlin, Julie A McMurry, Sierra Moxon, Monica C Munoz-Torres, David Osumi-Sutherland, James A Overton, Bjoern Peters, Tim Putman, Núria Queralt-Rosinach, Kent Shefchek, Harold Solbrig, Anne Thessen, Tania Tudorache, Nicole Vasilevsky, Alex H Wagner, Christopher J Mungall, A Simple Standard for Sharing Ontological Mappings (SSSOM), Database, Volume 2022, 2022, baac035, https://doi.org/10.1093/database/baac035
+Nicolas Matentzoglu, James P Balhoff, Susan M Bello, Chris Bizon, Matthew Brush,
+Tiffany J Callahan, Christopher G Chute, William D Duncan, Chris T Evelo, Davera
+Gabriel, John Graybeal, Alasdair Gray, Benjamin M Gyori, Melissa Haendel,
+Henriette Harmse, Nomi L Harris, Ian Harrow, Harshad B Hegde, Amelia L Hoyt,
+Charles T Hoyt, Dazhi Jiao, Ernesto Jiménez-Ruiz, Simon Jupp, Hyeongsik Kim,
+Sebastian Koehler, Thomas Liener, Qinqin Long, James Malone, James A McLaughlin,
+Julie A McMurry, Sierra Moxon, Monica C Munoz-Torres, David Osumi-Sutherland,
+James A Overton, Bjoern Peters, Tim Putman, Núria Queralt-Rosinach, Kent
+Shefchek, Harold Solbrig, Anne Thessen, Tania Tudorache, Nicole Vasilevsky, Alex
+H Wagner, Christopher J Mungall, A Simple Standard for Sharing Ontological
+Mappings (SSSOM), Database, Volume 2022, 2022, baac035,
+https://doi.org/10.1093/database/baac035
 
 ```bibtex
 @article{10.1093/database/baac035,
@@ -59,18 +84,25 @@ Nicolas Matentzoglu, James P Balhoff, Susan M Bello, Chris Bizon, Matthew Brush,
 }
 ```
 
-A [second report with updates since the primary SSSOM publication](https://ceur-ws.org/Vol-3324/om2022_LTpaper6.pdf) above was published as part of the proceedings of the Ontology Matching Workshop 2022.
+A
+[second report with updates since the primary SSSOM publication](https://ceur-ws.org/Vol-3324/om2022_LTpaper6.pdf)
+above was published as part of the proceedings of the Ontology Matching
+Workshop 2022.
 
 ## Copying
 
-SSSOM is distributed under the terms of the 3-clause BSD license, as included in the [LICENSE](LICENSE) file of the source distribution.
+SSSOM is distributed under the terms of the 3-clause BSD license, as included in
+the [LICENSE](LICENSE) file of the source distribution.
 
 By exception, the following files are _not_ covered by the 3-clause BSD license:
 
-* [sssom-banner.png](src/docs/images/sssom-banner.png): That file may only be used by members of the internal Monarch team and collaborators on Monarch flagship products.
+- [sssom-banner.png](src/docs/images/sssom-banner.png): That file may only be
+  used by members of the internal Monarch team and collaborators on Monarch
+  flagship products.
 
 ## Pronunciation
 
-The acronym SSSOM is pronounced as _sessom_. As a lighthearted joke, our community has also
-compiled [alternate pronunciations](https://incenp.org/notes/2025/sssom-pronunciation-alignment-chart.html)
+The acronym SSSOM is pronounced as _sessom_. As a lighthearted joke, our
+community has also compiled
+[alternate pronunciations](https://incenp.org/notes/2025/sssom-pronunciation-alignment-chart.html)
 that have been heard in the wild.
