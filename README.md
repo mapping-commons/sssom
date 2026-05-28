@@ -5,7 +5,7 @@
 <img src="src/docs/images/sssom-banner.png" />
 
 
-SSSOM is a Simple Standard for Sharing Ontological Mappings (pronounced _sessom_), providing 
+SSSOM is a Simple Standard for Sharing Ontological Mappings, providing 
 
 1. a TSV-based representation for ontology term mappings
 1. a comprehensive set of standard metadata elements to describe mappings and 
@@ -69,3 +69,8 @@ By exception, the following files are _not_ covered by the 3-clause BSD license:
 
 * [sssom-banner.png](src/docs/images/sssom-banner.png): That file may only be used by members of the internal Monarch team and collaborators on Monarch flagship products.
 
+## Pronunciation
+
+The acronym SSSOM is pronounced as _sessom_. As a lighthearted joke, our community has also
+compiled [alternate pronunciations](https://incenp.org/notes/2025/sssom-pronunciation-alignment-chart.html)
+that have been heard in the wild.

@@ -46,4 +46,8 @@ The OBO vision involves the building of a coherent, non-redundant semantic space
 wants to avoid the introduction of overlapping concepts. The mapping world specifically embraces heterogeneous semantic spaces and overlapping concepts,
 and seeks to bridge the semantic gaps using well-defined mapping relations such as "skos:broadMatch" or "owl:equivalentClass".
 
+## Pronunciation
 
+The acronym SSSOM is pronounced as _sessom_. As a lighthearted joke, our community has also
+compiled [alternate pronunciations](https://incenp.org/notes/2025/sssom-pronunciation-alignment-chart.html)
+that have been heard in the wild.
