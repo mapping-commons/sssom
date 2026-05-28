@@ -153,8 +153,9 @@ Of note, the
 a proposed SSSOM-independent standard to compute an unique identifier for a
 mapping, is _not_ suitable as a SSSOM record identifier, because it may not be
 unique for any given record (on the contrary, it is explicitly designed to be
-identical for all records that have the same subject, the same predicate (incl. possible negation modifier), and
-the same object, regardless of all other metadata).
+identical for all records that have the same subject, the same predicate (incl.
+possible negation modifier), and the same object, regardless of all other
+metadata).
 
 ##### Content-derived identifiers considered harmful
 
@@ -170,7 +171,7 @@ identifiers are a particularly bad idea, for the reasons given in this section.
 entirely by hand. The hash of a mapping record cannot be realistically computed
 in someone’s head, whoever is editing the mapping will have to use a dedicated
 tool to produce it. This breaks an important promise of SSSOM, which is that one
-can always manually craft a SSSOM set with no specialised tooling at all – just
+can always manually craft a SSSOM set with no specialised tooling at all – just
 a plain old spreadsheet software.
 
 **(B)** Content-derived identifiers are at risk of becoming “out-of-sync” with
@@ -181,7 +182,7 @@ identifiers that are no longer really derived from the content of the record.
 **(C)** Content-derived identifiers deprive the set’s creators of the freedom to
 decide the difference between “updating an existing record” and “creating a new
 record”, because in fact there is no such thing as “updating a record” when
-using content-derived identifiers – any change to a record would cause the
+using content-derived identifiers – any change to a record would cause the
 identifier to change, in effect always creating a _new_ independent record.
 
 **(D)** As a direct consequence of **C**, content-derived identifiers are not

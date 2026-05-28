@@ -38,52 +38,53 @@ S-expression as per
 
 The S-expression MUST be assembled as follows:
 
-1.  Start with `(7:mapping(`.
-2.  Iterate over all slots of the `Mapping` class, in the order in which they
-    are [listed](../Mapping/#slots) in the LinkML model. Exclude the `record_id`
-    slot and the `mapping_cardinality` slot. For all other slots:
-    1. If the slot has no value for the mapping record to hash, skip to next
-       slot.
-    2. Append to the S-expression `(N:SLOTNAME`, where _SLOTNAME_ is the LinkML
-       name for the slot and _N_ is the length of the slot name (so, for
-       example, `(10:subject_id`, `(9:author_id`, `(10:confidence`, etc.).
-    3. If the slot is defined as a multi-valued slot (and even if it has only
-       one value in the mapping record to hash):
-        1. Append `(`.
-        2. Sort the list of values in lexicographical order and iterate over the
-           sorted values. For each value _V_, append `N:V`, where _N_ is the
-           length of _V_.
-        3. Append `)`.
-    4. If the slot is typed as a floating point number (e.g. `confidence`),
-       convert the value into a string _V_ according to the rules set forth in
-       the section
-       [Formatting floating-point values](#formatting-floating-point-values).
-       Then append `N:V`, where _N_ is the length of _V_.
-    5. If the slot is typed as an enumeration (e.g. `subject_type`), append
-       `N:ENUMVALUE`, where _ENUMVALUE_ is the allowed value in the enumeration
-       as specified in the LinkML model, and _N_ is the length of _ENUMVALUE_
-       (e.g. `9:owl class` for a possible value for the `subject_type` slot).
-    6. If the slot is typed as a date, append `10:YYYY-MM-DD`, where
-       _YYYY-MM-DD_ is the representation of the value in ISO-8601 format.
-    7. If the slot is typed as an entity reference, ensure the value is expanded
-       according to the mapping set’s prefix map and append `N:V`, where _V_ is
-       the expanded reference and _N_ is the length of the expanded reference.
-    8. If the slot is of any other type, append `N:V`, where _V_ is the string
-       value of the slot and _N_ is the length of the string value.
-    9. Append `)`.
-3.  If the implementation support
-    [extension slots](spec-model.md#non-standard-slots) and the mapping record
-    does have such slots:
-    1. Append `(10:extensions(`.
-    2. Sort extension values by their properties in lexicographical order.
-    3. For each extension value:
-        1. Append `(N:PROP`, where _PROP_ is the property identifying the
-           extension and _N_ is the length of the property.
-        2. Use the table below to transform the extension value into a string
-           _V_ based on the declared type of the extension.
-        3. Append `N:V)`, where _N_ is the length of the string value _V_.
-    4. Append `))`.
-4.  Append `))`.
+1. Start with `(7:mapping(`.
+2. Iterate over all slots of the `Mapping` class, in the order in which they are
+   [listed](../Mapping/#slots) in the LinkML model. Exclude the `record_id` slot
+   and the `mapping_cardinality` slot. For all other slots:
+   1. If the slot has no value for the mapping record to hash, skip to next
+      slot.
+   2. Append to the S-expression `(N:SLOTNAME`, where _SLOTNAME_ is the LinkML
+      name for the slot and _N_ is the length of the slot name (so, for example,
+      `(10:subject_id`, `(9:author_id`, `(10:confidence`, etc.).
+   3. If the slot is defined as a multi-valued slot (and even if it has only one
+      value in the mapping record to hash):
+      1. Append `(`.
+      2. Sort the list of values in lexicographical order and iterate over the
+         sorted values. For each value _V_, append `N:V`, where _N_ is the
+         length of _V_.
+      3. Append `)`.
+   4. If the slot is typed as a floating point number (e.g. `confidence`),
+      convert the value into a string _V_ according to the rules set forth in
+      the section
+      [Formatting floating-point values](#formatting-floating-point-values).
+      Then append `N:V`, where _N_ is the length of _V_.
+   5. If the slot is typed as an enumeration (e.g. `subject_type`), append
+      `N:ENUMVALUE`, where _ENUMVALUE_ is the allowed value in the enumeration
+      as specified in the LinkML model, and _N_ is the length of _ENUMVALUE_
+      (e.g. `9:owl class` for a possible value for the `subject_type` slot).
+   6. If the slot is typed as a date, append `10:YYYY-MM-DD`, where _YYYY-MM-DD_
+      is the representation of the value in ISO-8601 format.
+      1. If the slot is typed as an entity reference, ensure the value is
+         expanded according to the mapping set’s prefix map and append `N:V`,
+         where _V_ is the expanded reference and _N_ is the length of the
+         expanded reference.
+      2. If the slot is of any other type, append `N:V`, where _V_ is the string
+         value of the slot and _N_ is the length of the string value.
+      3. Append `)`.
+3. If the implementation support
+   [extension slots](spec-model.md#non-standard-slots) and the mapping record
+   does have such slots:
+   1. Append `(10:extensions(`.
+   2. Sort extension values by their properties in lexicographical order.
+   3. For each extension value:
+      1. Append `(N:PROP`, where _PROP_ is the property identifying the
+         extension and _N_ is the length of the property.
+      2. Use the table below to transform the extension value into a string _V_
+         based on the declared type of the extension.
+      3. Append `N:V)`, where _N_ is the length of the string value _V_.
+   4. Append `))`.
+4. Append `))`.
 
 Converting extension values to string:
 
@@ -126,8 +127,8 @@ S-expression built in Step 2 above, the following specific rules apply:
    right-padded with zeros. For example, `0.7` MUST NOT be written as `0.700`.
 3. If the fractional part needs to be truncated, the value MUST be rounded to
    the nearest value representable with 3 digits, rounding half away from zero.
-   This corresponds to the _roundTiesToAway_ mode as defined by [IEEE 754-2019
-   §4.3.1](https://doi.org/10.1109/IEEESTD.2019.8766229).
+   This corresponds to the _roundTiesToAway_ mode as defined by
+   [IEEE 754-2019 §4.3.1](https://doi.org/10.1109/IEEESTD.2019.8766229).
 
 The following table gives some examples of rounding after truncation:
 

@@ -2,38 +2,53 @@
 
 ## Building Bridges with FAIR Mappings: An RDA Perspective (GA4GH 13th Plenary)
 
-- October 6<sup>th</sup>, 2025, hybrid ([information](https://www.ga4gh.org/event/13th-plenary/))
-- [Lightning talk](https://docs.google.com/document/d/1e3X9dzq84B3sX0eaLEjmLcYYDv_INmGUNZ6kbAh5MM8/edit?tab=t.0#heading=h.somgoowwkvaj) at GA4GH Connect session **The future is FAIR beyond genomics: Building bridges to the Research Data Alliance (RDA) and other FAIR research data initiatives**, representing SSSOM and FAIR Mappings WG.
+- October 6<sup>th</sup>, 2025, hybrid
+  ([information](https://www.ga4gh.org/event/13th-plenary/))
+- [Lightning talk](https://docs.google.com/document/d/1e3X9dzq84B3sX0eaLEjmLcYYDv_INmGUNZ6kbAh5MM8/edit?tab=t.0#heading=h.somgoowwkvaj)
+  at GA4GH Connect session **The future is FAIR beyond genomics: Building
+  bridges to the Research Data Alliance (RDA) and other FAIR research data
+  initiatives**, representing SSSOM and FAIR Mappings WG.
 - [Slides](https://docs.google.com/presentation/d/18vf5gcHtGKzBpkzQRpHUZZyxjQ9GiYG45CYzhzQSNgE/edit)
 
 ## RDA FAIR Mappings WG: Highlights from Case Studies and Initial Taxonomy (RDA’s 24th plenary)
 
 - April 7<sup>th</sup>, 2025, virtual
-- Talk at RDA 24th plenary meeting about the progress of the [RDA FAIR Mappings Working Group](https://www.rd-alliance.org/groups/fair-mappings-wg/activity/), which uses SSSOM as the baseline model.
+- Talk at RDA 24th plenary meeting about the progress of the
+  [RDA FAIR Mappings Working Group](https://www.rd-alliance.org/groups/fair-mappings-wg/activity/),
+  which uses SSSOM as the baseline model.
 - [Slides](https://docs.google.com/presentation/d/1A3Fgo9ExUGgrc0VX85tqG-_6_Vu6b-qtcfvLTmW9mIU/edit)
 
 ## A Simple Standard for Ontological Mappings 2024: A quick guide for getting started with publishing better entity mappings (RDA’s 23rd plenary)
 
 - November 13<sup>th</sup>, 2024, hybrid
-- Talk at [RDA plenary](https://www.rd-alliance.org/rdas-23rd-plenary-programme/), in particular [VSSIG WG](https://www.rd-alliance.org/session_entry/group-session-applications-03-07-2024-john-graybeal/) giving a brief update and encouraging SSSOM uptake.
+- Talk at
+  [RDA plenary](https://www.rd-alliance.org/rdas-23rd-plenary-programme/), in
+  particular
+  [VSSIG WG](https://www.rd-alliance.org/session_entry/group-session-applications-03-07-2024-john-graybeal/)
+  giving a brief update and encouraging SSSOM uptake.
 - [Slides](https://docs.google.com/presentation/d/1TKdXO-THSUf5PHZp2sYrzaTQhtunoB78A6_Yt8VEyoc/edit?usp=sharing)
 
-## A Simple Standard for Ontological Mappings 2024: The case for prioritising 5-Star mappings (Every Cure, internal seminar) 
+## A Simple Standard for Ontological Mappings 2024: The case for prioritising 5-Star mappings (Every Cure, internal seminar)
 
 - August 1<sup>st</sup>, 2024, virtual
-- Talk to [Every Cure](https://everycure.org/) technical team (Knowledge Sharing Series) to make the case for prioritising the collection of mapping provenance.
+- Talk to [Every Cure](https://everycure.org/) technical team (Knowledge Sharing
+  Series) to make the case for prioritising the collection of mapping
+  provenance.
 - [Slides](https://docs.google.com/presentation/d/1_KkSeZcKyzsQVlZe8qkl7iEvii3HX0QKR58uvbirTDM/edit)
 
 ## (Re-)bridging the anatomy ontologies with SSSOM
 
 - July 19<sup>th</sup>, 2024
 - [15<sup>th</sup> International Conference on Biomedical Ontologies (ICBO)](https://icbo-conference.github.io/icbo2024/)
-- [Slides](https://github.com/gouttegd/sssomt-uberon/releases/download/v2-icbo-2024/screen.pdf), [paper](https://github.com/gouttegd/sssomt-uberon/releases/download/v2-icbo-2024/paper.pdf), [sources](https://github.com/gouttegd/sssomt-uberon)
+- [Slides](https://github.com/gouttegd/sssomt-uberon/releases/download/v2-icbo-2024/screen.pdf),
+  [paper](https://github.com/gouttegd/sssomt-uberon/releases/download/v2-icbo-2024/paper.pdf),
+  [sources](https://github.com/gouttegd/sssomt-uberon)
 
 ## Workshop on Prefixes, CURIEs, and IRIs 2023
 
 - November 27<sup>th</sup>, 2023, virtual
-- Lightning talk on the deeper integration of the Bioregistry and `curies` toolkit with the SSSOM Python package
+- Lightning talk on the deeper integration of the Bioregistry and `curies`
+  toolkit with the SSSOM Python package
 - [Workshop info](https://biopragmatics.github.io/workshops/WPCI2023)
 
 ## OM2023: A Simple Standard for Sharing Ontological Mappings 2023: Updates on data model, collaborations and tooling
@@ -52,7 +67,7 @@
 - 3rd July 2023, https://www.ohdsi-europe.org/index.php/symposium-2023
 - [Seminar info](events/ohdsi2023.md)
 
-## Elixir Data Interoperability Meeting: Introduction to SSSOM 
+## Elixir Data Interoperability Meeting: Introduction to SSSOM
 
 - 6th March 2023
 - This talk is a variant of the CCB Seminar Series talk below
@@ -75,11 +90,12 @@
 
 ## OHDSI Symposium 2022: There are no "good" mappings.
 
-- October 2022, hybrid symposium (https://www.ohdsi.org/ohdsi2022-workgroup-activities/)
+- October 2022, hybrid symposium
+  (https://www.ohdsi.org/ohdsi2022-workgroup-activities/)
 - [Seminar info](events/ohdsi2022.md)
 - [Slides](https://docs.google.com/presentation/d/1sGPh1b0keghxF4o7vMOQAlZ6QyBf97ZpaTXjmMY3UP0/edit#slide=id.SLIDES_API69505745_0)
 
-## OM 2022: A Simple Standard for Ontological Mappings 2022 - Updates of data model and outlook 
+## OM 2022: A Simple Standard for Ontological Mappings 2022 - Updates of data model and outlook
 
 - 23rd October 2022, Workshop for Ontology Matching, ISWC 2022, virtual
 - [Seminar info](events/om2022.md)
@@ -108,7 +124,7 @@
 
 - 14th July 2021, Workshop
 - [Workshop info](events/wsbo2021.md)
-- [Slides](https://docs.google.com/presentation/d/1TlROX-JNeWvgrX57-CBa2qxTrRp92VGGZnrhJv3rLPM/edit#slide=id.p) 
+- [Slides](https://docs.google.com/presentation/d/1TlROX-JNeWvgrX57-CBa2qxTrRp92VGGZnrhJv3rLPM/edit#slide=id.p)
 
 ## MC-2021: 1st Mapping Commons Workshop on Simple Standard for Sharing Ontology Mappings
 

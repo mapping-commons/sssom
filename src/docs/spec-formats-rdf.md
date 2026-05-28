@@ -27,10 +27,10 @@ A metadata slot on any given SSSOM object (such as a `Mapping` or a
 
 - the subject is the resource representing the SSSOM object;
 - the predicate is either:
-    - the property indicated by the `URI` field in the LinkML description of
-      the slot, if such a field is present;
-    - or a property constructed by concatenating the `https://w3id.org/sssom/`
-      namespace and the name of the slot;
+  - the property indicated by the `URI` field in the LinkML description of the
+    slot, if such a field is present;
+  - or a property constructed by concatenating the `https://w3id.org/sssom/`
+    namespace and the name of the slot;
 - the object is the value of the slot.
 
 ### Representation of slot values
@@ -276,11 +276,11 @@ When that behaviour is enabled, implementations SHOULD NOT inject such triples
 in the following cases:
 
 - when the record represents a literal mapping (that is, `subject_type` or
-  `object_type` – or both – is set to `rdfs literal`);
+  `object_type` – or both – is set to `rdfs literal`);
 - when the record represents a negated mapping (that is, `predicate_modifier` is
   set to `Not`);
 - when the record represents an absence of match (that is, `subject_id` or
-  `object_id` – or both – is set to `sssom:NoTermFound`).
+  `object_id` – or both – is set to `sssom:NoTermFound`).
 
 In any case, a SSSOM/RDF reader MUST NOT expect the presence of such triples,
 and if they are present MUST NOT use them to construct mapping records.
