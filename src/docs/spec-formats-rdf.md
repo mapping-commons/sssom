@@ -276,11 +276,11 @@ When that behaviour is enabled, implementations SHOULD NOT inject such triples
 in the following cases:
 
 - when the record represents a literal mapping (that is, `subject_type` or
-  `object_type` – or both – is set to `rdfs literal`);
+  `object_type` – or both – is set to `rdfs literal`);
 - when the record represents a negated mapping (that is, `predicate_modifier` is
   set to `Not`);
 - when the record represents an absence of match (that is, `subject_id` or
-  `object_id` – or both – is set to `sssom:NoTermFound`).
+  `object_id` – or both – is set to `sssom:NoTermFound`).
 
 In any case, a SSSOM/RDF reader MUST NOT expect the presence of such triples,
 and if they are present MUST NOT use them to construct mapping records.

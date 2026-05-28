@@ -89,24 +89,23 @@ critical problems in the sections that follow.
 
 ### Non-transparent imprecision
 
-Mapping precision describes, usually
-qualitatively, whether a mapping between a subject and an object is exact,
-broad, narrow, close or related. An exact mapping means that the subject term
-can be replaced with the object term and vice versa, i.e. they refer to the
-exact same real-world entity. A broad mapping links a subject term to a more
-general term, for example, the term "leg" to the term "hindlimb" (if the
-ontology defines leg as the parts of the hindlimb that exclude the foot). A
-narrow mapping links a subject term to a more specific term. For example, "long
-QT syndrome" in the Mondo Disease Ontology is a narrow match to "Romano-Ward
-long QT syndrome" in Orphanet. A close mapping relates two terms that are
-neither exact, broad or narrow, but belong to the same category of things and
-are semantically similar, such as "apple" to "pear", or "paw" to "hand". Due to
-its subjective nature ("what is close?"), this is a problematic category of
-mapping, but it is widely used, for example for relating similar anatomical
-terms across species. Related mappings are mappings across categories of things,
-such as the mapping between a phenotype "enlarged liver" and the anatomical
-entity "liver". In practice, it is rare that mapping tables such as the one
-presented in Table 1 constitute a set of purely "exact" matches.
+Mapping precision describes, usually qualitatively, whether a mapping between a
+subject and an object is exact, broad, narrow, close or related. An exact
+mapping means that the subject term can be replaced with the object term and
+vice versa, i.e. they refer to the exact same real-world entity. A broad mapping
+links a subject term to a more general term, for example, the term "leg" to the
+term "hindlimb" (if the ontology defines leg as the parts of the hindlimb that
+exclude the foot). A narrow mapping links a subject term to a more specific
+term. For example, "long QT syndrome" in the Mondo Disease Ontology is a narrow
+match to "Romano-Ward long QT syndrome" in Orphanet. A close mapping relates two
+terms that are neither exact, broad or narrow, but belong to the same category
+of things and are semantically similar, such as "apple" to "pear", or "paw" to
+"hand". Due to its subjective nature ("what is close?"), this is a problematic
+category of mapping, but it is widely used, for example for relating similar
+anatomical terms across species. Related mappings are mappings across categories
+of things, such as the mapping between a phenotype "enlarged liver" and the
+anatomical entity "liver". In practice, it is rare that mapping tables such as
+the one presented in Table 1 constitute a set of purely "exact" matches.
 
 Different use cases may require different levels of mapping precision. For
 example, for entity merging (defined as the process of merging two entities from
@@ -122,18 +121,17 @@ apply them to use cases such as entity merging or data translation.
 
 ### Non-transparent accuracy, confidence, and provenance
 
-To scale to real-world
-use cases, automated tools are critical for matching terms across databases,
-terminologies and ontologies. Such tools typically implement mapping rules that
-determine whether a given pair of terms constitutes a match. For example, label
-matching rules might include "match if subject and object labels match", "match
-if subject label matches with an exact synonym of the object" and "match if
-subject and object exhibit a very high degree of semantic similarity". Depending
-on the rules, tools will have more or less confidence that a match constitutes a
-mapping. Even human curators often have different levels of confidence about the
-accuracy of any given mapping, especially if the process of determining whether
-a mapping is accurate involves the review of (often complex) descriptions and
-term definitions.
+To scale to real-world use cases, automated tools are critical for matching
+terms across databases, terminologies and ontologies. Such tools typically
+implement mapping rules that determine whether a given pair of terms constitutes
+a match. For example, label matching rules might include "match if subject and
+object labels match", "match if subject label matches with an exact synonym of
+the object" and "match if subject and object exhibit a very high degree of
+semantic similarity". Depending on the rules, tools will have more or less
+confidence that a match constitutes a mapping. Even human curators often have
+different levels of confidence about the accuracy of any given mapping,
+especially if the process of determining whether a mapping is accurate involves
+the review of (often complex) descriptions and term definitions.
 
 Different use cases will profit from different degrees of accuracy. For example,
 if we seek to integrate data from various medical terminologies to inform
@@ -153,39 +151,39 @@ inaccuracy will not be transparent.
 
 ### Non-transparent incompleteness
 
-Mapping sets can be incomplete for (at least)
-three major reasons: (1) they are out of date, i.e. a term in one ontology was
-removed (deprecated) in a later version of the ontology or a term with a more
-precise mapping was introduced; (2) they are deliberately partial, i.e. covering
-only a subset of terms, which were mapped for a specific purpose (for example a
-manual effort to map all COVID-19-relevant phenotypes from the Human Phenotype
-Ontology to the Mammalian Phenotype Ontology); or (3) they accidentally omit
-certain correct mappings, as the automated approaches that were used did not
-detect them (false negatives). We cannot determine whether a mapping set such as
-the one given in Table X1 is up-to-date, deliberately partial or accidentally
-incomplete without sufficient metadata about the purpose of the mappings, the
-tools used and the version of the source data used for the matching process.
+Mapping sets can be incomplete for (at least) three major reasons: (1) they are
+out of date, i.e. a term in one ontology was removed (deprecated) in a later
+version of the ontology or a term with a more precise mapping was introduced;
+(2) they are deliberately partial, i.e. covering only a subset of terms, which
+were mapped for a specific purpose (for example a manual effort to map all
+COVID-19-relevant phenotypes from the Human Phenotype Ontology to the Mammalian
+Phenotype Ontology); or (3) they accidentally omit certain correct mappings, as
+the automated approaches that were used did not detect them (false negatives).
+We cannot determine whether a mapping set such as the one given in Table X1 is
+up-to-date, deliberately partial or accidentally incomplete without sufficient
+metadata about the purpose of the mappings, the tools used and the version of
+the source data used for the matching process.
 
 ### UnFAIRness
 
-The FAIR principles are a set of community-developed guidelines to
-ensure that data or any digital object are Findable, Accessible, Interoperable
-and Reusable. Unlike many of the widely used controlled vocabularies, ontologies
-and data schemas, mappings are rarely published using standard formats and
-metadata vocabularies and can therefore be considered second class citizens in
-the world of FAIR semantics. While some tools exist to browse mappings (the F
-and A in FAIR, findable and accessible), such as OxO and BioPortal, they lack
-access to at least some of the metadata required to determine their
-applicability for a use case: Are mappings likely to be correct? Are they
-precise enough? Have they been updated recently? Can I trust the authority that
-generated the mappings? While some minimum level of interoperability (the I in
-FAIR) is achieved simply by publishing the mappings as RDF triples (which rarely
-happens in practice), most mappings are best captured in the form of simple
-tables (in our experience the preferred format for both mapping curators and
-data engineers). Furthermore, the predicates or relations used in the mappings
-are far from standardized. Different relations have different semantics, ranging
-from strong logical relations such as owl:sameAs or owl:equivalentClass to
-predicates with no formally specified semantics such as oboInOwl:hasDbXref.
+The FAIR principles are a set of community-developed guidelines to ensure that
+data or any digital object are Findable, Accessible, Interoperable and Reusable.
+Unlike many of the widely used controlled vocabularies, ontologies and data
+schemas, mappings are rarely published using standard formats and metadata
+vocabularies and can therefore be considered second class citizens in the world
+of FAIR semantics. While some tools exist to browse mappings (the F and A in
+FAIR, findable and accessible), such as OxO and BioPortal, they lack access to
+at least some of the metadata required to determine their applicability for a
+use case: Are mappings likely to be correct? Are they precise enough? Have they
+been updated recently? Can I trust the authority that generated the mappings?
+While some minimum level of interoperability (the I in FAIR) is achieved simply
+by publishing the mappings as RDF triples (which rarely happens in practice),
+most mappings are best captured in the form of simple tables (in our experience
+the preferred format for both mapping curators and data engineers). Furthermore,
+the predicates or relations used in the mappings are far from standardized.
+Different relations have different semantics, ranging from strong logical
+relations such as owl:sameAs or owl:equivalentClass to predicates with no
+formally specified semantics such as oboInOwl:hasDbXref.
 
 In our experience, reusability (the R in FAIR) is a significant obstacle to
 FAIRness. It is infeasible to simply reuse existing mappings without the
@@ -259,16 +257,16 @@ different terminologies.
 
 ### Approaches to mapping
 
-There are many different techniques that can be
-employed to generate term mappings. Automated matching techniques include
-ontology matching, entity resolution (the task of determining whether two
-database records correspond to the same entity), semantic similarity or
-automated reasoning. Recent approaches based on machine learning and graph
-embeddings show promise for working with messier inputs. No single tool will
-perform equally well on all inputs: some of the semantics-aware tools like
-LogMap and Agreement Maker Light (AML) can exploit the ontology structure to
-determine high-quality matches but will have problems with the large-scale data
-linking tasks required by modern big-data applications.
+There are many different techniques that can be employed to generate term
+mappings. Automated matching techniques include ontology matching, entity
+resolution (the task of determining whether two database records correspond to
+the same entity), semantic similarity or automated reasoning. Recent approaches
+based on machine learning and graph embeddings show promise for working with
+messier inputs. No single tool will perform equally well on all inputs: some of
+the semantics-aware tools like LogMap and Agreement Maker Light (AML) can
+exploit the ontology structure to determine high-quality matches but will have
+problems with the large-scale data linking tasks required by modern big-data
+applications.
 
 Purely automated approaches to mapping are often insufficient for real world use
 cases that require a high degree of accuracy, such as medical diagnostics. They

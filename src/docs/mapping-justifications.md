@@ -46,11 +46,12 @@ There are two kinds of lexical matching justifications we try to distinguish:
 Whenever a mapping was established by a lexical matching process, track at least
 that fact:
 
-- [mapping_justification](https://mapping-commons.github.io/sssom/mapping_justification/)`: `[semapv:LexicalMatching](https://w3id.org/semapv/vocab/CompositeMatching).
+- [mapping_justification](https://mapping-commons.github.io/sssom/mapping_justification/)
+  : [semapv:LexicalMatching](https://w3id.org/semapv/vocab/CompositeMatching).
   This indicates that the mapping was determined through some form of exact
   lexical matching.
 
-#### Level 2: Track the specific datamodel fields involved in the matching process
+#### Level 2: Track the specific data model fields involved in the matching process
 
 Regardless of which specific lexical matching justification you are working on,
 it is often useful to document the source field of the values used to acquire

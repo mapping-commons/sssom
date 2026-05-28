@@ -23,14 +23,14 @@ simple mapping file:
 
 SSSOM specifies all its metadata elements:
 
-- subject_id
-- predicate_id
-- object_id
-- mapping_justification (_NOTE: Since June 2022_ `match_type` is being replaced
-  by `mapping_justification` see
+- `subject_id`
+- `predicate_id`
+- `object_id`
+- `mapping_justification` (_NOTE_: In June 2022, `match_type` was replaced by
+  `mapping_justification` see
   [here](https://github.com/mapping-commons/sssom/issues/150))
-- subject_label
-- object_label
+- `subject_label`
+- `object_label`
 
 including clear definitions, examples of use and controlled vocabulary where
 necessary, along with 30 other optional metadata elements to provide additional
