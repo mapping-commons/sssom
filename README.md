@@ -5,7 +5,7 @@
 <img src="src/docs/images/sssom-banner.png" />
 
 
-SSSOM is a Simple Standard for Sharing Ontological Mappings, providing 
+SSSOM is a Simple Standard for Sharing Ontological Mappings (pronounced _sessom_), providing 
 
 1. a TSV-based representation for ontology term mappings
 1. a comprehensive set of standard metadata elements to describe mappings and 
