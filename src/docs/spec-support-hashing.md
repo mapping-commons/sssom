@@ -269,6 +269,7 @@ Hash value:
 #curie_map:
 #  COMENT: https://example.com/entities/
 #  EXPROP: https://example.org/properties/
+#  linkml: https://w3id.org/linkml/
 #  ORGENT: https://example.org/entities/
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
