@@ -278,7 +278,7 @@ Hash value:
 #    type_hint: xsd:integer
 #  - slot_name: ext_baz
 #    property: EXPROP:bazProperty
-#    type_hint: linkml:Uriorcurie
+#    type_hint: linkml:uriOrCurie
 subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	ext_bar	ext_baz
 ORGENT:0001	alice	skos:closeMatch	COMENT:0011	alpha	semapv:ManualMappingCuration	111	ORGENT:BAZ_0001
 ```
