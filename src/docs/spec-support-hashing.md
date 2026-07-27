@@ -272,6 +272,7 @@ Hash value:
 #  ORGENT: https://example.org/entities/
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#  xsd: http://www.w3.org/2001/XMLSchema#
 #extension_definitions:
 #  - slot_name: ext_bar
 #    property: EXPROP:barProperty
