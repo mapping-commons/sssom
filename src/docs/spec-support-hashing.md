@@ -94,7 +94,7 @@ Converting extension values to string:
 | `xsd:double`            | Apply the rules from the section [Formatting floating-point values](#formatting-floating-point-values)     |
 | `xsd:boolean`           | `true` or `false`                                                                                          |
 | `xsd:date`              | ISO-8601 representation: `YYYY-MM-DD`                                                                      |
-| `xsd:datetime`          | ISO-8601 representation: `YYYY-MM-DDThh:mm:ssTZ` where `TZ` is the zone offset (e.g. `+01:00` or `-06:30`) |
+| `xsd:dateTime`          | ISO-8601 representation: `YYYY-MM-DDThh:mm:ssTZ` where `TZ` is the zone offset (e.g. `+01:00` or `-06:30`) |
 | `xsd:anyURI`            | No conversion needed, use the value directly                                                               |
 | `linkml:Uriorcurie`     | Expand the value according to the set’s prefix map                                                         |
 | any other type          | unspecified                                                                                                |
@@ -317,7 +317,7 @@ Hash value:
 #    type_hint: xsd:date
 #  - slot_name: ext_timestamp
 #    property: EXPROP:timestamp
-#    type_hint: xsd:datetime
+#    type_hint: xsd:dateTime
 #  - slot_name: ext_see_also
 #    property: rdfs:seeAlso
 #    type_hint: xsd:anyURI

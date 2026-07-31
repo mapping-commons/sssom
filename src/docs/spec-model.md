@@ -261,7 +261,7 @@ If a defined extension slot has a `type_hint` other than `http://www.w3.org/2001
 | http://www.w3.org/2001/XMLSchema#double   | Implementations MAY check that the value is a floating number |
 | http://www.w3.org/2001/XMLSchema#boolean  | Implementations MAY check that the value is either `true` or `false` |
 | http://www.w3.org/2001/XMLSchema#date     | Implementations MAY check that the value is a date in the ISO 8601 format (`yyyy-mm-dd`) |
-| http://www.w3.org/2001/XMLSchema#datetime | Implementations MAY check that the value is a date and time value in the ISO 8601 format (`yyyy-mm-ddThh:mm:ssTZ`) |
+| http://www.w3.org/2001/XMLSchema#dateTime | Implementations MAY check that the value is a date and time value in the ISO 8601 format (`yyyy-mm-ddThh:mm:ssTZ`) |
 
 Implementations MAY decide to recognise more types and to enforce type-specific constraints. For example, an implementation could recognise the type `http://www.w3.org/2001/XMLSchema#negativeInteger` and check that the value starts with a minus sign.
 
