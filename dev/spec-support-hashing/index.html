@@ -1333,7 +1333,7 @@ S-expression as per
 <td>No conversion needed, use the value directly</td>
 </tr>
 <tr>
-<td><code>linkml:uriOrCurie</code></td>
+<td><code>linkml:Uriorcurie</code></td>
 <td>Expand the value according to the set’s prefix map</td>
 </tr>
 <tr>
@@ -1494,9 +1494,11 @@ HP:0009124  skos:exactMatch MP:0000003  semapv:LexicalSimilarityThresholdMatchin
 <pre><code>#curie_map:
 #  COMENT: https://example.com/entities/
 #  EXPROP: https://example.org/properties/
+#  linkml: https://w3id.org/linkml/
 #  ORGENT: https://example.org/entities/
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#  xsd: http://www.w3.org/2001/XMLSchema#
 #extension_definitions:
 #  - slot_name: ext_bar
 #    property: EXPROP:barProperty
