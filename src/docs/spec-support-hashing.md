@@ -314,8 +314,10 @@ Hash value:
 #  COMENT: https://example.com/entities/
 #  EXPROP: https://example.org/properties/
 #  ORGENT: https://example.org/entities/
+#  rdfs: http://www.w3.org/2000/01/rdf-schema#
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#  xsd: http://www.w3.org/2001/XMLSchema#
 #mapping_set_id: https://example.org/sets/411166A0-A68F-49D2-8AEE-35EA31AC9725
 #license: https://creativecommons.org/licenses/by/4.0/
 #extension_definitions:
