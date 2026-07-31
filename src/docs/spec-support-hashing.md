@@ -96,7 +96,7 @@ Converting extension values to string:
 | `xsd:date`              | ISO-8601 representation: `YYYY-MM-DD`                                                                      |
 | `xsd:datetime`          | ISO-8601 representation: `YYYY-MM-DDThh:mm:ssTZ` where `TZ` is the zone offset (e.g. `+01:00` or `-06:30`) |
 | `xsd:anyURI`            | No conversion needed, use the value directly                                                               |
-| `linkml:uriOrCurie`     | Expand the value according to the set’s prefix map                                                         |
+| `linkml:Uriorcurie`     | Expand the value according to the set’s prefix map                                                         |
 | any other type          | unspecified                                                                                                |
 
 ### Step 2: Compute the FNV64 hash of the S-expression
@@ -280,7 +280,7 @@ Hash value:
 #    type_hint: xsd:integer
 #  - slot_name: ext_baz
 #    property: EXPROP:bazProperty
-#    type_hint: linkml:uriOrCurie
+#    type_hint: linkml:Uriorcurie
 subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	ext_bar	ext_baz
 ORGENT:0001	alice	skos:closeMatch	COMENT:0011	alpha	semapv:ManualMappingCuration	111	ORGENT:BAZ_0001
 ```
