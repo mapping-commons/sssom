@@ -96,7 +96,7 @@ Converting extension values to string:
 | `xsd:date`              | ISO-8601 representation: `YYYY-MM-DD`                                                                      |
 | `xsd:datetime`          | ISO-8601 representation: `YYYY-MM-DDThh:mm:ssTZ` where `TZ` is the zone offset (e.g. `+01:00` or `-06:30`) |
 | `xsd:anyURI`            | No conversion needed, use the value directly                                                               |
-| `linkml:uriOrCurie`     | Expand the value according to the set’s prefix map                                                         |
+| `linkml:Uriorcurie`     | Expand the value according to the set’s prefix map                                                         |
 | any other type          | unspecified                                                                                                |
 
 ### Step 2: Compute the FNV64 hash of the S-expression
@@ -269,9 +269,11 @@ Hash value:
 #curie_map:
 #  COMENT: https://example.com/entities/
 #  EXPROP: https://example.org/properties/
+#  linkml: https://w3id.org/linkml/
 #  ORGENT: https://example.org/entities/
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#  xsd: http://www.w3.org/2001/XMLSchema#
 #extension_definitions:
 #  - slot_name: ext_bar
 #    property: EXPROP:barProperty

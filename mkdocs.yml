@@ -71,8 +71,10 @@ nav:
           - Set up a mapping registry/commons: mapping-commons.md
           - A basic guide for the SSSOM toolkit: toolkit.md
           - 5-Star Entity Mappings - Cheatsheet: 5star-mappings.md
-          - Matching tool implementation guide: matching-tool-implementation-guide.md
-          - How to gradually enrich OMOP mappings with SSSOM: tutorials/omop-mappings.md
+          - Matching tool implementation guide:
+              matching-tool-implementation-guide.md
+          - How to gradually enrich OMOP mappings with SSSOM:
+              tutorials/omop-mappings.md
           - How to assess mapping confidence: confidence-model.md
           - Identifying mapping records: record-identifiers.md
       - Reference:

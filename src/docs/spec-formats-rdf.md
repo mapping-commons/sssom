@@ -139,7 +139,7 @@ extension.
 The value of the extension MUST be represented:
 
 - as a named RDF resource, if the `type_hint` of the extension definition is
-  `linkml:uriOrCurie`;
+  `linkml:Uriorcurie`;
 - otherwise, as a literal of the type indicated by the `type_hint`.
 
 <a id="sssom-objects"></a>
