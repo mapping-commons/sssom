@@ -154,6 +154,8 @@ Given the following mapping set in SSSOM/TSV format:
 #  orcid: https://orcid.org/
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#mapping_set_id: https://example.org/sets/4FC65A74-A75A-4CCC-8679-907D235C9FAC
+#license: https://creativecommons.org/licenses/by/4.0/
 subject_id	predicate_id	object_id	mapping_justification	creator_id
 FBbt:00001234	skos:exactMatch	UBERON:0005678	semapv:ManualMappingCuration	orcid:0000-0000-5678-1234|orcid:0000-0000-1234-5678
 ```
@@ -194,6 +196,8 @@ resulting bytes in hexadecimal would yield the following final value:
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  wikidata: https://www.wikidata.org/wiki/
+#mapping_set_id: https://example.org/sets/94AC84D6-A64D-4C96-BFDA-3487F5C1E242
+#license: https://creativecommons.org/licenses/by/4.0/
 #subject_source: KF_FOOD:DB
 #object_source: wikidata:Q55118395
 #object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
@@ -222,6 +226,8 @@ Hash value:
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  example: https://example.org/sets/record-id#
+#mapping_set_id: https://example.org/sets/49C94FAF-0D26-4E29-AF9B-192793BDBD08
+#license: https://creativecommons.org/licenses/by/4.0/
 record_id	subject_id	predicate_id	object_id	mapping_justification
 example:0000001	FBbt:0009124	skos:exactMatch	UBERON:0000003	semapv:LexicalMatching
 ```
@@ -246,6 +252,8 @@ Hash value:
 #  MP: http://purl.obolibrary.org/obo/MP_
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#mapping_set_id: https://example.org/sets/E9BAA638-E4A8-4EA1-A90A-E492F27FDDDC
+#license: https://creativecommons.org/licenses/by/4.0/
 #mapping_provider: https://w3id.org/sssom/core_team
 subject_id	predicate_id	object_id	mapping_justification	similarity_score
 HP:0009124	skos:exactMatch	MP:0000003	semapv:LexicalSimilarityThresholdMatching	0.8
@@ -274,6 +282,8 @@ Hash value:
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  xsd: http://www.w3.org/2001/XMLSchema#
+#mapping_set_id: https://example.org/sets/E0FE2493-6A67-4F2E-B61A-C36E2AEA22CD
+#license: https://creativecommons.org/licenses/by/4.0/
 #extension_definitions:
 #  - slot_name: ext_bar
 #    property: EXPROP:barProperty
@@ -306,6 +316,8 @@ Hash value:
 #  ORGENT: https://example.org/entities/
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#mapping_set_id: https://example.org/sets/411166A0-A68F-49D2-8AEE-35EA31AC9725
+#license: https://creativecommons.org/licenses/by/4.0/
 #extension_definitions:
 #  - slot_name: ext_accuracy
 #    property: EXPROP:accuracy
