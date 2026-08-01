@@ -94,7 +94,7 @@ Converting extension values to string:
 | `xsd:double`            | Apply the rules from the section [Formatting floating-point values](#formatting-floating-point-values)     |
 | `xsd:boolean`           | `true` or `false`                                                                                          |
 | `xsd:date`              | ISO-8601 representation: `YYYY-MM-DD`                                                                      |
-| `xsd:datetime`          | ISO-8601 representation: `YYYY-MM-DDThh:mm:ssTZ` where `TZ` is the zone offset (e.g. `+01:00` or `-06:30`) |
+| `xsd:dateTime`          | ISO-8601 representation: `YYYY-MM-DDThh:mm:ssTZ` where `TZ` is the zone offset (e.g. `+01:00` or `-06:30`) |
 | `xsd:anyURI`            | No conversion needed, use the value directly                                                               |
 | `linkml:Uriorcurie`     | Expand the value according to the set’s prefix map                                                         |
 | any other type          | unspecified                                                                                                |
@@ -154,6 +154,8 @@ Given the following mapping set in SSSOM/TSV format:
 #  orcid: https://orcid.org/
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#mapping_set_id: https://example.org/sets/4FC65A74-A75A-4CCC-8679-907D235C9FAC
+#license: https://creativecommons.org/licenses/by/4.0/
 subject_id	predicate_id	object_id	mapping_justification	creator_id
 FBbt:00001234	skos:exactMatch	UBERON:0005678	semapv:ManualMappingCuration	orcid:0000-0000-5678-1234|orcid:0000-0000-1234-5678
 ```
@@ -194,6 +196,8 @@ resulting bytes in hexadecimal would yield the following final value:
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  wikidata: https://www.wikidata.org/wiki/
+#mapping_set_id: https://example.org/sets/94AC84D6-A64D-4C96-BFDA-3487F5C1E242
+#license: https://creativecommons.org/licenses/by/4.0/
 #subject_source: KF_FOOD:DB
 #object_source: wikidata:Q55118395
 #object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
@@ -222,6 +226,8 @@ Hash value:
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  example: https://example.org/sets/record-id#
+#mapping_set_id: https://example.org/sets/49C94FAF-0D26-4E29-AF9B-192793BDBD08
+#license: https://creativecommons.org/licenses/by/4.0/
 record_id	subject_id	predicate_id	object_id	mapping_justification
 example:0000001	FBbt:0009124	skos:exactMatch	UBERON:0000003	semapv:LexicalMatching
 ```
@@ -246,6 +252,8 @@ Hash value:
 #  MP: http://purl.obolibrary.org/obo/MP_
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#mapping_set_id: https://example.org/sets/E9BAA638-E4A8-4EA1-A90A-E492F27FDDDC
+#license: https://creativecommons.org/licenses/by/4.0/
 #mapping_provider: https://w3id.org/sssom/core_team
 subject_id	predicate_id	object_id	mapping_justification	similarity_score
 HP:0009124	skos:exactMatch	MP:0000003	semapv:LexicalSimilarityThresholdMatching	0.8
@@ -274,6 +282,8 @@ Hash value:
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  xsd: http://www.w3.org/2001/XMLSchema#
+#mapping_set_id: https://example.org/sets/E0FE2493-6A67-4F2E-B61A-C36E2AEA22CD
+#license: https://creativecommons.org/licenses/by/4.0/
 #extension_definitions:
 #  - slot_name: ext_bar
 #    property: EXPROP:barProperty
@@ -295,4 +305,48 @@ Hash value:
 
 ```
 66BD0A57A976A109
+```
+
+**Source set:**
+
+```
+#curie_map:
+#  COMENT: https://example.com/entities/
+#  EXPROP: https://example.org/properties/
+#  ORGENT: https://example.org/entities/
+#  rdfs: http://www.w3.org/2000/01/rdf-schema#
+#  semapv: https://w3id.org/semapv/vocab/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#  xsd: http://www.w3.org/2001/XMLSchema#
+#mapping_set_id: https://example.org/sets/411166A0-A68F-49D2-8AEE-35EA31AC9725
+#license: https://creativecommons.org/licenses/by/4.0/
+#extension_definitions:
+#  - slot_name: ext_accuracy
+#    property: EXPROP:accuracy
+#    type_hint: xsd:float
+#  - slot_name: ext_verified
+#    property: EXPROP:verified
+#    type_hint: xsd:boolean
+#  - slot_name: ext_verification_date
+#    type_hint: xsd:date
+#  - slot_name: ext_timestamp
+#    property: EXPROP:timestamp
+#    type_hint: xsd:dateTime
+#  - slot_name: ext_see_also
+#    property: rdfs:seeAlso
+#    type_hint: xsd:anyURI
+subject_id	predicate_id	object_id	mapping_justification	ext_accuracy	ext_verified	ext_verification_date	ext_timestamp	ext_see_also
+ORGENT:0002	skos:exactMatch	COMENT:0022	semapv:ManualMappingCuration	99.1234	true	2026-07-31	2026-07-31T11:11:11+01:00	https://example.org/
+```
+
+S-expression:
+
+```
+(7:mapping((10:subject_id33:https://example.org/entities/0002)(12:predicate_id46:http://www.w3.org/2004/02/skos/core#exactMatch)(9:object_id33:https://example.com/entities/0022)(21:mapping_justification51:https://w3id.org/semapv/vocab/ManualMappingCuration)(10:extensions((42:http://sssom.invalid/ext_verification_date10:2026-07-31)(44:http://www.w3.org/2000/01/rdf-schema#seeAlso20:https://example.org/)(39:https://example.org/properties/accuracy6:99.123)(40:https://example.org/properties/timestamp25:2026-07-31T11:11:11+01:00)(39:https://example.org/properties/verified4:true)))))
+```
+
+Hash value:
+
+```
+1058491DA22C623E
 ```
