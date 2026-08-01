@@ -1325,7 +1325,7 @@ S-expression as per
 <td>ISO-8601 representation: <code>YYYY-MM-DD</code></td>
 </tr>
 <tr>
-<td><code>xsd:datetime</code></td>
+<td><code>xsd:dateTime</code></td>
 <td>ISO-8601 representation: <code>YYYY-MM-DDThh:mm:ssTZ</code> where <code>TZ</code> is the zone offset (e.g. <code>+01:00</code> or <code>-06:30</code>)</td>
 </tr>
 <tr>
@@ -1413,6 +1413,8 @@ apply the above procedure.</p>
 #  orcid: https://orcid.org/
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#mapping_set_id: https://example.org/sets/4FC65A74-A75A-4CCC-8679-907D235C9FAC
+#license: https://creativecommons.org/licenses/by/4.0/
 subject_id  predicate_id    object_id   mapping_justification   creator_id
 FBbt:00001234   skos:exactMatch UBERON:0005678  semapv:ManualMappingCuration    orcid:0000-0000-5678-1234|orcid:0000-0000-1234-5678
 </code></pre>
@@ -1446,6 +1448,8 @@ set’s only record.</p>
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  wikidata: https://www.wikidata.org/wiki/
+#mapping_set_id: https://example.org/sets/94AC84D6-A64D-4C96-BFDA-3487F5C1E242
+#license: https://creativecommons.org/licenses/by/4.0/
 #subject_source: KF_FOOD:DB
 #object_source: wikidata:Q55118395
 #object_source_version: http://purl.obolibrary.org/obo/foodon/releases/2022-02-01/foodon.owl
@@ -1465,6 +1469,8 @@ KF_FOOD:F001    skos:exactMatch FOODON:00002473 semapv:ManualMappingCuration    
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  example: https://example.org/sets/record-id#
+#mapping_set_id: https://example.org/sets/49C94FAF-0D26-4E29-AF9B-192793BDBD08
+#license: https://creativecommons.org/licenses/by/4.0/
 record_id   subject_id  predicate_id    object_id   mapping_justification
 example:0000001 FBbt:0009124    skos:exactMatch UBERON:0000003  semapv:LexicalMatching
 </code></pre>
@@ -1480,6 +1486,8 @@ example:0000001 FBbt:0009124    skos:exactMatch UBERON:0000003  semapv:LexicalMa
 #  MP: http://purl.obolibrary.org/obo/MP_
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
+#mapping_set_id: https://example.org/sets/E9BAA638-E4A8-4EA1-A90A-E492F27FDDDC
+#license: https://creativecommons.org/licenses/by/4.0/
 #mapping_provider: https://w3id.org/sssom/core_team
 subject_id  predicate_id    object_id   mapping_justification   similarity_score
 HP:0009124  skos:exactMatch MP:0000003  semapv:LexicalSimilarityThresholdMatching   0.8
@@ -1499,6 +1507,8 @@ HP:0009124  skos:exactMatch MP:0000003  semapv:LexicalSimilarityThresholdMatchin
 #  semapv: https://w3id.org/semapv/vocab/
 #  skos: http://www.w3.org/2004/02/skos/core#
 #  xsd: http://www.w3.org/2001/XMLSchema#
+#mapping_set_id: https://example.org/sets/E0FE2493-6A67-4F2E-B61A-C36E2AEA22CD
+#license: https://creativecommons.org/licenses/by/4.0/
 #extension_definitions:
 #  - slot_name: ext_bar
 #    property: EXPROP:barProperty
@@ -1514,6 +1524,41 @@ ORGENT:0001 alice   skos:closeMatch COMENT:0011 alpha   semapv:ManualMappingCura
 </code></pre>
 <p>Hash value:</p>
 <pre><code>66BD0A57A976A109
+</code></pre>
+<p><strong>Source set:</strong></p>
+<pre><code>#curie_map:
+#  COMENT: https://example.com/entities/
+#  EXPROP: https://example.org/properties/
+#  ORGENT: https://example.org/entities/
+#  rdfs: http://www.w3.org/2000/01/rdf-schema#
+#  semapv: https://w3id.org/semapv/vocab/
+#  skos: http://www.w3.org/2004/02/skos/core#
+#  xsd: http://www.w3.org/2001/XMLSchema#
+#mapping_set_id: https://example.org/sets/411166A0-A68F-49D2-8AEE-35EA31AC9725
+#license: https://creativecommons.org/licenses/by/4.0/
+#extension_definitions:
+#  - slot_name: ext_accuracy
+#    property: EXPROP:accuracy
+#    type_hint: xsd:float
+#  - slot_name: ext_verified
+#    property: EXPROP:verified
+#    type_hint: xsd:boolean
+#  - slot_name: ext_verification_date
+#    type_hint: xsd:date
+#  - slot_name: ext_timestamp
+#    property: EXPROP:timestamp
+#    type_hint: xsd:dateTime
+#  - slot_name: ext_see_also
+#    property: rdfs:seeAlso
+#    type_hint: xsd:anyURI
+subject_id  predicate_id    object_id   mapping_justification   ext_accuracy    ext_verified    ext_verification_date   ext_timestamp   ext_see_also
+ORGENT:0002 skos:exactMatch COMENT:0022 semapv:ManualMappingCuration    99.1234 true    2026-07-31  2026-07-31T11:11:11+01:00   https://example.org/
+</code></pre>
+<p>S-expression:</p>
+<pre><code>(7:mapping((10:subject_id33:https://example.org/entities/0002)(12:predicate_id46:http://www.w3.org/2004/02/skos/core#exactMatch)(9:object_id33:https://example.com/entities/0022)(21:mapping_justification51:https://w3id.org/semapv/vocab/ManualMappingCuration)(10:extensions((42:http://sssom.invalid/ext_verification_date10:2026-07-31)(44:http://www.w3.org/2000/01/rdf-schema#seeAlso20:https://example.org/)(39:https://example.org/properties/accuracy6:99.123)(40:https://example.org/properties/timestamp25:2026-07-31T11:11:11+01:00)(39:https://example.org/properties/verified4:true)))))
+</code></pre>
+<p>Hash value:</p>
+<pre><code>1058491DA22C623E
 </code></pre>
 
 
