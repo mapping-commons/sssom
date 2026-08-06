@@ -29,9 +29,11 @@ enums:
   sssom_version_enum:
     permissible_values:
       "1.0":
+        title: Version 1 0
         meaning: sssom:version1.0
         description: SSSOM specification version 1.0
       "1.1":
+        title: Version 1 1
         meaning: sssom:version1.1
         description: SSSOM specification version 1.1
   entity_type_enum:
@@ -89,32 +91,39 @@ enums:
   mapping_cardinality_enum:
     permissible_values:
       "1:1":
+        title: one to one
         description:
           Indicates the mapping record is about a one-to-one mapping, that is,
           the subject and the object are only mapped to each other, exclusive of
           any other subject or object.
       "1:n":
+        title: one to many
         description:
           Indicates the mapping record is about a one-to-many mapping, that is,
           the same subject is mapped to several different objects.
       "n:1":
+        title: many to one
         description:
           Indicates the mapping record is about a many-to-one mapping, that is,
           several different subjects are mapped to the same object.
       "n:n":
+        title: many to many
         description:
           Indicates the mapping record is about a many-to-many mapping, that is,
           the subject is mapped to several different objects and the object is
           mapped to several different subjects.
       "1:0":
+        title: one to none
         description:
           Indicates that the subject has no match in the object vocabulary. This
           value MUST only be used when the object_id is sssom:NoTermFound.
       "0:1":
+        title: none to one
         description:
           Indicates that the object has no match in the subject vocabulary. This
           value MUST only be used when the subject_id is sssom:NoTermFound.
       "0:0":
+        title: none to none
         description:
           Indicates that there is no match between the subject vocabulary and
           the object vocabulary. This value MUST only be used when both the
