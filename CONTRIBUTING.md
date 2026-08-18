@@ -45,7 +45,7 @@ to uphold this code. Please report unacceptable behavior to
 We have an official message board with a detailed FAQ and where the community
 chimes in with helpful advice if you have questions.
 
-- [GitGub Discussions](https://github.com/mapping-commons/sssom/discussions)
+- [GitHub Discussions](https://github.com/mapping-commons/sssom/discussions)
 - [SSSOM FAQ](https://mapping-commons.github.io/sssom/faq/)
 
 ## What should I know before I get started?
