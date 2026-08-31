@@ -429,7 +429,7 @@ slots:
     recommended: true
   object_category:
     description:
-      The conceptual category to which the subject belongs to. This can be a
+      The conceptual category to which the object belongs to. This can be a
       string denoting the category or a term from a controlled vocabulary. This
       slot is deliberately underspecified. Conceptual categories can range from
       those that are found in general upper ontologies such as BFO (e.g.
