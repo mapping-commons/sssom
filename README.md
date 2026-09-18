@@ -6,7 +6,8 @@
 
 SSSOM is a Simple Standard for Sharing Ontological Mappings, providing:
 
-1. a TSV-based representation for entity mappings (applicable to classes, instances, and properties)
+1. a TSV-based representation for entity mappings (applicable to classes,
+   instances, and properties)
 1. a comprehensive set of standard metadata elements to describe mappings
 1. a standard translation between the TSV and the Web Ontology Language (OWL).
 
@@ -29,7 +30,10 @@ SSSOM specifies all its metadata elements:
 
 including clear definitions, examples of use and controlled vocabulary where necessary, along with 30 other optional metadata elements to provide additional provenance.
 
-SSSOM enables entity mappings bewteen several entity types, including classes, instances, and properties. These can be made explicit with the [`subject_type`](https://w3id.org/sssom/subject_type) and [`object_type`](https://w3id.org/sssom/object_type) columns:
+SSSOM enables entity mappings bewteen several entity types, including classes,
+instances, and properties. These can be made explicit with the
+[`subject_type`](https://w3id.org/sssom/subject_type) and
+[`object_type`](https://w3id.org/sssom/object_type) columns:
 
 | subject_id                                                 | subject_type            | predicate_id    | object_id                                            | mapping_justification        | subject_label          | object_label           |
 | ---------------------------------------------------------- | ----------------------- | --------------- | ---------------------------------------------------- | ---------------------------- | ---------------------- | ---------------------- |
