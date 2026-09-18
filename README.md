@@ -4,20 +4,19 @@
 
 <img src="src/docs/images/sssom-banner.png" />
 
-
 SSSOM is a Simple Standard for Sharing Ontological Mappings, providing:
 
 1. a TSV-based representation for entity mappings (applicable to classes, instances, and properties)
-1. a comprehensive set of standard metadata elements to describe mappings 
-1. a standard translation between the TSV and the Web Ontology Language (OWL). 
+1. a comprehensive set of standard metadata elements to describe mappings
+1. a standard translation between the TSV and the Web Ontology Language (OWL).
 
 The SSSOM TSV format enables the exchange mappings in an easily readable yet semantically well-specified manner. Consider this example of a simple mapping file:
 
-| subject_id	| predicate_id	| object_id	| mapping_justification | subject_label	| object_label |
-| --- | --- | --- | --- | --- | --- |
-| HP:0009124	| skos:exactMatch	| MP:0000003	| semapv:LexicalMatching	| Abnormal adipose tissue morphology	| abnormal adipose tissue morphology |
-| HP:0008551	| skos:exactMatch	| MP:0000018	| semapv:LexicalMatching	| Microtia	| small ears |
-| HP:0000411	| skos:exactMatch	| MP:0000021	| semapv:LexicalMatching	| Protruding ear	| prominent ears |
+| subject_id | predicate_id    | object_id  | mapping_justification  | subject_label                      | object_label                       |
+| ---------- | --------------- | ---------- | ---------------------- | ---------------------------------- | ---------------------------------- |
+| HP:0009124 | skos:exactMatch | MP:0000003 | semapv:LexicalMatching | Abnormal adipose tissue morphology | abnormal adipose tissue morphology |
+| HP:0008551 | skos:exactMatch | MP:0000018 | semapv:LexicalMatching | Microtia                           | small ears                         |
+| HP:0000411 | skos:exactMatch | MP:0000021 | semapv:LexicalMatching | Protruding ear                     | prominent ears                     |
 
 SSSOM specifies all its metadata elements:
 
@@ -32,11 +31,11 @@ including clear definitions, examples of use and controlled vocabulary where nec
 
 SSSOM enables entity mappings bewteen several entity types, including classes, instances, and properties. These can be made explicit with the [`subject_type`](https://w3id.org/sssom/subject_type) and [`object_type`](https://w3id.org/sssom/object_type) columns:
 
-| subject_id	| subject_type | predicate_id	| object_id	| mapping_justification | subject_label	| object_label |
-| --- | --- | --- | --- | --- | --- |
-| wikidata:Q273263 | owl named individual | skos:exactMatch | ror:04xfq0f34 | semapv:ManualMappingCuration | RWTH Aachen University | RWTH Aachen University |
-| dcterms:title | owl annotation property | skos:exactMatch | schema:title | semapv:ManualMappingCuration | title | title |
-| RO:0018034 | owl object property | skos:exactMatch | obo:chebi#is_conjugate_acid_of | semapv:ManualMappingCuration | is protonated form of | is conjugate acid of |
+| subject_id       | subject_type            | predicate_id    | object_id                      | mapping_justification        | subject_label          | object_label           |
+| ---------------- | ----------------------- | --------------- | ------------------------------ | ---------------------------- | ---------------------- | ---------------------- |
+| wikidata:Q273263 | owl named individual    | skos:exactMatch | ror:04xfq0f34                  | semapv:ManualMappingCuration | RWTH Aachen University | RWTH Aachen University |
+| dcterms:title    | owl annotation property | skos:exactMatch | schema:title                   | semapv:ManualMappingCuration | title                  | title                  |
+| RO:0018034       | owl object property     | skos:exactMatch | obo:chebi#is_conjugate_acid_of | semapv:ManualMappingCuration | is protonated form of  | is conjugate acid of   |
 
 SSSOM further provides a standard way to:
 
@@ -76,7 +75,7 @@ SSSOM is distributed under the terms of the 3-clause BSD license, as included in
 
 By exception, the following files are _not_ covered by the 3-clause BSD license:
 
-* [sssom-banner.png](src/docs/images/sssom-banner.png): That file may only be used by members of the internal Monarch team and collaborators on Monarch flagship products.
+- [sssom-banner.png](src/docs/images/sssom-banner.png): That file may only be used by members of the internal Monarch team and collaborators on Monarch flagship products.
 
 ## Pronunciation
 
