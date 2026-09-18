@@ -11,7 +11,9 @@ SSSOM is a Simple Standard for Sharing Ontological Mappings, providing:
 1. a comprehensive set of standard metadata elements to describe mappings
 1. a standard translation between the TSV and the Web Ontology Language (OWL).
 
-The SSSOM TSV format enables the exchange mappings in an easily readable yet semantically well-specified manner. Consider this example of a simple mapping file:
+The SSSOM TSV format enables the exchange mappings in an easily readable yet
+semantically well-specified manner. Consider this example of a simple mapping
+file:
 
 | subject_id | predicate_id    | object_id  | mapping_justification  | subject_label                      | object_label                       |
 | ---------- | --------------- | ---------- | ---------------------- | ---------------------------------- | ---------------------------------- |
