@@ -37,11 +37,11 @@ instances, and properties. These can be made explicit with the
 [`subject_type`](https://w3id.org/sssom/subject_type) and
 [`object_type`](https://w3id.org/sssom/object_type) columns:
 
-| subject_id                                                 | subject_type            | predicate_id    | object_id                                            | mapping_justification        | subject_label          | object_label           |
-| ---------------------------------------------------------- | ----------------------- | --------------- | ---------------------------------------------------- | ---------------------------- | ---------------------- | ---------------------- |
-| [wikidata:Q273263](https://semantic.farm/wikidata:Q273263) | owl named individual    | skos:exactMatch | [ror:04xfq0f34](https://semantic.farm/ror:04xfq0f34) | semapv:ManualMappingCuration | RWTH Aachen University | RWTH Aachen University |
-| [dcterms:title](https://semantic.farm/dcterms:title)       | owl annotation property | skos:exactMatch | [schema:title](https://semantic.farm/schema:title)   | semapv:ManualMappingCuration | title                  | title                  |
-| [RO:0018034](https://semantic.farm/RO:0018034)             | owl object property     | skos:exactMatch | obo:chebi#is_conjugate_acid_of                       | semapv:ManualMappingCuration | is protonated form of  | is conjugate acid of   |
+| subject_id       | subject_type            | predicate_id    | object_id                      | mapping_justification        | subject_label          | object_label           |
+| ---------------- | ----------------------- | --------------- | ------------------------------ | ---------------------------- | ---------------------- | ---------------------- |
+| wikidata:Q273263 | owl named individual    | skos:exactMatch | ror:04xfq0f34                  | semapv:ManualMappingCuration | RWTH Aachen University | RWTH Aachen University |
+| dcterms:title    | owl annotation property | skos:exactMatch | schema:title                   | semapv:ManualMappingCuration | title                  | title                  |
+| RO:0018034       | owl object property     | skos:exactMatch | obo:chebi#is_conjugate_acid_of | semapv:ManualMappingCuration | is protonated form of  | is conjugate acid of   |
 
 SSSOM further provides a standard way to:
 
