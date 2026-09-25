@@ -4,33 +4,47 @@
 
 <img src="src/docs/images/sssom-banner.png" />
 
+SSSOM is a Simple Standard for Sharing Ontological Mappings, providing:
 
-SSSOM is a Simple Standard for Sharing Ontological Mappings, providing 
+1. a TSV-based representation for entity mappings (applicable to classes,
+   instances, and properties)
+1. a comprehensive set of standard metadata elements to describe mappings
+1. a standard translation between the TSV and the Web Ontology Language (OWL).
 
-1. a TSV-based representation for ontology term mappings
-1. a comprehensive set of standard metadata elements to describe mappings and 
-1. a standard translation between the TSV and the Web Ontology Language (OWL). 
+The SSSOM TSV format enables the exchange of mappings in an easily readable yet
+semantically well-specified manner. Consider this example of a simple mapping
+file:
 
-The SSSOM TSV format in particular is geared towards the needs of the wider bioinformatics community as a way to safely exchange mappings in an easily readable yet semantically well-specified manner. Consider this example of a simple mapping file:
-
-| subject_id	| predicate_id	| object_id	| mapping_justification | subject_label	| object_label |
-| --- | --- | --- | --- | --- | --- |
-| HP:0009124	| skos:exactMatch	| MP:0000003	| semapv:LexicalMatching	| Abnormal adipose tissue morphology	| abnormal adipose tissue morphology |
-| HP:0008551	| skos:exactMatch	| MP:0000018	| semapv:LexicalMatching	| Microtia	| small ears |
-| HP:0000411	| skos:exactMatch	| MP:0000021	| semapv:LexicalMatching	| Protruding ear	| prominent ears |
+| subject_id | predicate_id    | object_id  | mapping_justification  | subject_label                      | object_label                       |
+| ---------- | --------------- | ---------- | ---------------------- | ---------------------------------- | ---------------------------------- |
+| HP:0009124 | skos:exactMatch | MP:0000003 | semapv:LexicalMatching | Abnormal adipose tissue morphology | abnormal adipose tissue morphology |
+| HP:0008551 | skos:exactMatch | MP:0000018 | semapv:LexicalMatching | Microtia                           | small ears                         |
+| HP:0000411 | skos:exactMatch | MP:0000021 | semapv:LexicalMatching | Protruding ear                     | prominent ears                     |
 
 SSSOM specifies all its metadata elements:
 
-- subject_id
-- predicate_id
-- object_id
-- mapping_justification (*NOTE: Since June 2022* `match_type` is being replaced by `mapping_justification` see [here](https://github.com/mapping-commons/sssom/issues/150))
-- subject_label
-- object_label
+- [`subject_id`](https://w3id.org/sssom/subject_id)
+- [`predicate_id`](https://w3id.org/sssom/predicate_id)
+- [`object_id`](https://w3id.org/sssom/object_id)
+- [`mapping_justification`](https://w3id.org/sssom/mapping_justification)
+- [`subject_label`](https://w3id.org/sssom/subject_label)
+- [`object_label`](https://w3id.org/sssom/object_label)
 
 including clear definitions, examples of use and controlled vocabulary where necessary, along with 30 other optional metadata elements to provide additional provenance.
 
-SSSOM further provides a standard way to 
+SSSOM enables entity mappings between several entity types, including classes,
+instances, and properties. These can be made explicit with the
+[`subject_type`](https://w3id.org/sssom/subject_type) and
+[`object_type`](https://w3id.org/sssom/object_type) columns:
+
+| subject_id       | subject_type            | predicate_id    | object_id                      | object_type             | mapping_justification        | subject_label          | object_label           |
+| ---------------- | ----------------------- | --------------- | ------------------------------ | ----------------------- | ---------------------------- | ---------------------- | ---------------------- |
+| wikidata:Q273263 | owl named individual    | skos:exactMatch | ror:04xfq0f34                  | owl named individual    | semapv:ManualMappingCuration | RWTH Aachen University | RWTH Aachen University |
+| dcterms:title    | owl annotation property | skos:exactMatch | schema:title                   | owl annotation property | semapv:ManualMappingCuration | title                  | title                  |
+| RO:0018034       | owl object property     | skos:exactMatch | obo:chebi#is_conjugate_acid_of | owl object property     | semapv:ManualMappingCuration | is protonated form of  | is conjugate acid of   |
+
+SSSOM further provides a standard way to:
+
 - augment the TSV file with mapping set - level metadata, such as creator_id, mapping_date or license and
 - translate a SSSOM compliant TSV files into _OWL reified axioms_. This will allow the easy loading, and merging of SSSOM mapping tables into existing ontologies using standard tools such as ROBOT (under development).
 
@@ -67,7 +81,7 @@ SSSOM is distributed under the terms of the 3-clause BSD license, as included in
 
 By exception, the following files are _not_ covered by the 3-clause BSD license:
 
-* [sssom-banner.png](src/docs/images/sssom-banner.png): That file may only be used by members of the internal Monarch team and collaborators on Monarch flagship products.
+- [sssom-banner.png](src/docs/images/sssom-banner.png): That file may only be used by members of the internal Monarch team and collaborators on Monarch flagship products.
 
 ## Pronunciation
 
