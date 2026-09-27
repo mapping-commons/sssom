@@ -44,7 +44,7 @@ terms in the fourth row below. These can be made explicit with the
 | wikidata:Q273263     | owl named individual    | skos:exactMatch | ror:04xfq0f34                  | owl named individual    | semapv:ManualMappingCuration | RWTH Aachen University | RWTH Aachen University |
 | dcterms:title        | owl annotation property | skos:exactMatch | schema:title                   | owl annotation property | semapv:ManualMappingCuration | title                  | title                  |
 | RO:0018034           | owl object property     | skos:exactMatch | obo:chebi#is_conjugate_acid_of | owl object property     | semapv:ManualMappingCuration | is protonated form of  | is conjugate acid of   |
-| kim.educationlevel:A | skos concept            | skos:exactMatch | vivo:University                | owl clss                | semapv:ManualMappingCuration | University             | University             |
+| kim.educationlevel:A | skos concept            | skos:exactMatch | vivo:University                | owl class               | semapv:ManualMappingCuration | University             | University             |
 
 SSSOM further provides a standard way to:
 
