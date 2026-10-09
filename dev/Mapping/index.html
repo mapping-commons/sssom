@@ -1384,7 +1384,7 @@ attributes:
     - mapping
     range: EntityReference
     required: true
-    pattern: ^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$
+    pattern: ^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching|MachineLearningBasedMatching|EmbeddingBasedMatching|TransformerBasedMatching|GraphRepresentationLearningBasedMatching|LLMBasedMatching|AgentBasedMatching|BoundedPathMatching)$
     any_of:
     - equals_string: semapv:LexicalMatching
     - equals_string: semapv:LogicalReasoning
@@ -1399,6 +1399,13 @@ attributes:
     - equals_string: semapv:StructuralMatching
     - equals_string: semapv:InstanceBasedMatching
     - equals_string: semapv:BackgroundKnowledgeBasedMatching
+    - equals_string: semapv:MachineLearningBasedMatching
+    - equals_string: semapv:EmbeddingBasedMatching
+    - equals_string: semapv:TransformerBasedMatching
+    - equals_string: semapv:GraphRepresentationLearningBasedMatching
+    - equals_string: semapv:LLMBasedMatching
+    - equals_string: semapv:AgentBasedMatching
+    - equals_string: semapv:BoundedPathMatching
   author_id:
     name: author_id
     description: Identifies the persons or groups responsible for asserting the mappings.

@@ -1073,7 +1073,7 @@
 <p><strong>Range</strong>: <a href="../EntityReference/">EntityReference</a>. The range of the element is the type of the value that can be assigned to it.</p>
 </li>
 <li>
-<p><strong>Regex pattern</strong>: <code>^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$</code></p>
+<p><strong>Regex pattern</strong>: <code>^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching|MachineLearningBasedMatching|EmbeddingBasedMatching|TransformerBasedMatching|GraphRepresentationLearningBasedMatching|LLMBasedMatching|AgentBasedMatching|BoundedPathMatching)$</code></p>
 </li>
 </ul>
 <h2 id="examples">Examples</h2>
@@ -1114,7 +1114,7 @@ domain_of:
 - mapping
 range: EntityReference
 required: true
-pattern: ^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$
+pattern: ^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching|MachineLearningBasedMatching|EmbeddingBasedMatching|TransformerBasedMatching|GraphRepresentationLearningBasedMatching|LLMBasedMatching|AgentBasedMatching|BoundedPathMatching)$
 any_of:
 - equals_string: semapv:LexicalMatching
 - equals_string: semapv:LogicalReasoning
@@ -1129,6 +1129,13 @@ any_of:
 - equals_string: semapv:StructuralMatching
 - equals_string: semapv:InstanceBasedMatching
 - equals_string: semapv:BackgroundKnowledgeBasedMatching
+- equals_string: semapv:MachineLearningBasedMatching
+- equals_string: semapv:EmbeddingBasedMatching
+- equals_string: semapv:TransformerBasedMatching
+- equals_string: semapv:GraphRepresentationLearningBasedMatching
+- equals_string: semapv:LLMBasedMatching
+- equals_string: semapv:AgentBasedMatching
+- equals_string: semapv:BoundedPathMatching
 
 </code></pre>
 
