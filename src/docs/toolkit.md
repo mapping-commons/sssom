@@ -5,7 +5,7 @@ In the following we will give a brief introduction into the SSSOM toolkit. For m
 ## Pre-requisites
 
 - Complete the [basic SSSOM tutorial](tutorial.md)
-- [Install SSSOM toolkit](https://mapping-commons.github.io/sssom-py/installation.html). Alternatively, you can install the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit) and follow the tutorial using its [docker image](https://oboacademy.github.io/obook/howto/odk-setup/).
+- [Install SSSOM toolkit](https://mapping-commons.github.io/sssom-py/installation/). Alternatively, you can install the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit) and follow the tutorial using its [docker image](https://oboacademy.github.io/obook/howto/odk-setup/).
 - We are assuming a Unix shell for this tutorial, but most of the principles should apply to the Windows CMD as well. Windows users may prefer to install the ODK (see above).
 
 ## Overview
