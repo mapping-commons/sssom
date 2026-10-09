@@ -391,7 +391,7 @@ In SSSOM, we opted for option 2 as the default, which we call "embedded mode" (t
 
 #### Converting an SSSOM file from from external to embedded mode
 
-If you do not have the SSSOM toolkit installed, [do so now](https://mapping-commons.github.io/sssom-py/installation.html).
+If you do not have the SSSOM toolkit installed, [do so now](https://mapping-commons.github.io/sssom-py/installation/).
 
 Download the food mappings created before. If you feel confident with your own mappings, feel free to use these instead.
 

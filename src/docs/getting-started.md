@@ -167,12 +167,12 @@ justifications, see the
 
 To check that your SSSOM files are valid, you can use the
 [SSSOM Toolkit](toolkit.md) (also known as `sssom-py`). After
-[installing it](https://mapping-commons.github.io/sssom-py/installation.html),
+[installing it](https://mapping-commons.github.io/sssom-py/installation/),
 you can validate a file like this:
 
 ```bash
 $ wget https://w3id.org/biopragmatics/biomappings/sssom/biomappings.sssom.tsv
-$ pip install sssom-py
+$ pip install sssom
 $ sssom validate biomappings.sssom.tsv
 ```
 
