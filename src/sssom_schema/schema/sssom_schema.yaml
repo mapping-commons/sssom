@@ -456,7 +456,7 @@ slots:
       A mapping justification is an action (or the written representation of
       that action) of showing a mapping to be right or reasonable.
     range: EntityReference
-    pattern: "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$"
+    pattern: "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching|MachineLearningBasedMatching|EmbeddingBasedMatching|TransformerBasedMatching|GraphRepresentationLearningBasedMatching|LLMBasedMatching|AgentBasedMatching|BoundedPathMatching)$"
     required: true
     any_of:
       - equals_string: semapv:LexicalMatching
@@ -472,6 +472,13 @@ slots:
       - equals_string: semapv:StructuralMatching
       - equals_string: semapv:InstanceBasedMatching
       - equals_string: semapv:BackgroundKnowledgeBasedMatching
+      - equals_string: semapv:MachineLearningBasedMatching
+      - equals_string: semapv:EmbeddingBasedMatching
+      - equals_string: semapv:TransformerBasedMatching
+      - equals_string: semapv:GraphRepresentationLearningBasedMatching
+      - equals_string: semapv:LLMBasedMatching
+      - equals_string: semapv:AgentBasedMatching
+      - equals_string: semapv:BoundedPathMatching
     examples:
       - value: semapv:LexicalMatching
       - value: semapv:ManualMappingCuration
