@@ -172,7 +172,7 @@ you can validate a file like this:
 
 ```bash
 $ wget https://w3id.org/biopragmatics/biomappings/sssom/biomappings.sssom.tsv
-$ pip install sssom-py
+$ pip install sssom
 $ sssom validate biomappings.sssom.tsv
 ```
 
