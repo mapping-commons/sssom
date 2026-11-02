@@ -48,17 +48,17 @@ deploy: all mkd-gh-deploy
 # generates all project files
 gen-project: $(PYMODEL)
 	$(RUN) gen-project \
-		--exclude owl \
+		--exclude owl --exclude java \
 		-d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
 
 test: validate-schema
 	$(RUN) gen-project \
-		--exclude owl \
+		--exclude owl --exclude java \
 		-d tmp $(SOURCE_SCHEMA_PATH) 
 	$(RUN) pytest
 
 validate-schema: $(SOURCE_SCHEMA_PATH)
-	$(RUN) linkml lint --validate --validate-only $<
+	$(RUN) linkml validate $<
 
 check-config:
 	@(grep my-datamodel about.yaml > /dev/null && printf "\n**Project not configured**:\n\n  - Remember to edit 'about.yaml'\n\n" || exit 0)
