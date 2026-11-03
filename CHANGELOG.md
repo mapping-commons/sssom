@@ -17,11 +17,12 @@
 - Add new value `0:0` to the `mapping_cardinality_enum` ([issue](https://github.com/mapping-commons/sssom/issues/477)).
 - Add specification for the RDF serialisation ([discussion](https://github.com/mapping-commons/sssom/discussions/454)).
 - Development snapshots of SSSOM schema can now be released using GitHub's pre-release feature ([issue](https://github.com/mapping-commons/sssom/issues/490)).
-- Add `review_date` slot ([issue](https://github.com/mapping-commons/sssom/issues/511))
-- Add `reviewer_agreement` slot ([issue](https://github.com/mapping-commons/sssom/issues/510))
+- Add `review_date` slot ([issue](https://github.com/mapping-commons/sssom/issues/511)).
+- Add `reviewer_agreement` slot ([issue](https://github.com/mapping-commons/sssom/issues/510)).
 - Allow encoding pipe characters in multi-valued slots in SSSOM/TSV format ([issue](https://github.com/mapping-commons/sssom/issues/429)).
 - Specify a standard SSSOM hashing function ([issue](https://github.com/mapping-commons/sssom/issues/436)).
-- Add `derived_from` slot ([issue](https://github.com/mapping-commons/sssom/issues/537))
+- Add `derived_from` slot ([issue](https://github.com/mapping-commons/sssom/issues/537)).
+- Clarify that 1:n and n:1 mapping records are always to be interpreted as independent records ([issue](https://github.com/mapping-commons/sssom/issues/540)).
 
 ## SSSOM version 1.0.0
 
