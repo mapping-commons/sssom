@@ -1,5 +1,11 @@
 # Presentations
 
+## Ontology Mapping and SSSOM Updates at Ontologies4Chem 2026
+
+- November 3<sup>rd</sup>, 2026, hybrid
+- [Workshop Info](https://nfdi4chem.de/event/5th-ontologies4chem-workshop/)
+- [Slides](https://zenodo.org/records/23892214)
+
 ## Building Bridges with FAIR Mappings: An RDA Perspective (GA4GH 13th Plenary)
 
 - October 6<sup>th</sup>, 2025, hybrid ([information](https://www.ga4gh.org/event/13th-plenary/))
