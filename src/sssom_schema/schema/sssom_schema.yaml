@@ -100,18 +100,27 @@ enums:
         title: one to many
         description:
           Indicates the mapping record is about a one-to-many mapping, that is,
-          the same subject is mapped to several different objects.
+          the same subject is mapped to several different objects in several
+          independent mapping records.
+        see_also:
+          - sssom:mappings
       "n:1":
         title: many to one
         description:
           Indicates the mapping record is about a many-to-one mapping, that is,
-          several different subjects are mapped to the same object.
+          several different subjects are mapped to the same object in several
+          independent mapping records.
+        see_also:
+          - sssom:mappings
       "n:n":
         title: many to many
         description:
           Indicates the mapping record is about a many-to-many mapping, that is,
           the subject is mapped to several different objects and the object is
-          mapped to several different subjects.
+          mapped to several different subjects in several independent mapping
+          records.
+        see_also:
+          - sssom:mappings
       "1:0":
         title: one to none
         description:
