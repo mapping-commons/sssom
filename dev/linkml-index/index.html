@@ -1586,8 +1586,18 @@ mapping_date: 2022-05-02
 </tr>
 <tr>
 <td><strong><a href="../mappings/">mappings</a></strong></td>
-<td>Contains a list of mapping objects.</td>
+<td>A list of mapping objects (also known as “mapping records”).</td>
+<td></td>
+</tr>
+<tr>
+<td>Mapping objects within such a list are always independent of each other and, therefore, MUST be interpreted in isolation. This means, for example, that if a list contains a mapping between A and B, and a mapping between A and C, the only possible interpretation is that A is mapped independently to B and to C – NOT that A is mapped to some combination of B and C.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>That mappings must be interpreted in isolation does not preclude drawing inferences from several mappings, as long as each mapping is always interpreted on its own.</td>
 <td>Recommended</td>
+<td></td>
 </tr>
 <tr>
 <td><strong><a href="../mapping_set_id/">mapping_set_id</a></strong></td>
@@ -1943,7 +1953,7 @@ mapping_date: 2022-05-02
 </tr>
 <tr>
 <td><a href="../mappings/">mappings</a></td>
-<td>Contains a list of mapping objects</td>
+<td>A list of mapping objects (also known as “mapping records”)</td>
 </tr>
 <tr>
 <td><a href="../match_string/">match_string</a></td>

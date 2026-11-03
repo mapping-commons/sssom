@@ -1166,19 +1166,27 @@ permissible_values:
   1:n:
     text: 1:n
     description: Indicates the mapping record is about a one-to-many mapping, that
-      is, the same subject is mapped to several different objects.
+      is, the same subject is mapped to several different objects in several independent
+      mapping records.
     title: one to many
+    see_also:
+    - sssom:mappings
   n:1:
     text: n:1
     description: Indicates the mapping record is about a many-to-one mapping, that
-      is, several different subjects are mapped to the same object.
+      is, several different subjects are mapped to the same object in several independent
+      mapping records.
     title: many to one
+    see_also:
+    - sssom:mappings
   n:n:
     text: n:n
     description: Indicates the mapping record is about a many-to-many mapping, that
       is, the subject is mapped to several different objects and the object is mapped
-      to several different subjects.
+      to several different subjects in several independent mapping records.
     title: many to many
+    see_also:
+    - sssom:mappings
   '1:0':
     text: '1:0'
     description: Indicates that the subject has no match in the object vocabulary.
