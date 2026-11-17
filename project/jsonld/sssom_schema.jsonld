@@ -133,7 +133,7 @@
       "definition_uri": "https://w3id.org/linkml/String",
       "description": "A character string",
       "notes": [
-        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
       ],
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
@@ -446,12 +446,14 @@
         {
           "text": "1.0",
           "description": "SSSOM specification version 1.0",
-          "meaning": "sssom:version1.0"
+          "meaning": "sssom:version1.0",
+          "title": "Version 1 0"
         },
         {
           "text": "1.1",
           "description": "SSSOM specification version 1.1",
-          "meaning": "sssom:version1.1"
+          "meaning": "sssom:version1.1",
+          "title": "Version 1 1"
         }
       ]
     },
@@ -540,31 +542,47 @@
       "permissible_values": [
         {
           "text": "1:1",
-          "description": "Indicates the mapping record is about a one-to-one mapping, that is, the subject and the object are only mapped to each other, exclusive of any other subject or object."
+          "description": "Indicates the mapping record is about a one-to-one mapping, that is, the subject and the object are only mapped to each other, exclusive of any other subject or object.",
+          "title": "one to one"
         },
         {
           "text": "1:n",
-          "description": "Indicates the mapping record is about a one-to-many mapping, that is, the same subject is mapped to several different objects."
+          "description": "Indicates the mapping record is about a one-to-many mapping, that is, the same subject is mapped to several different objects in several independent mapping records.",
+          "title": "one to many",
+          "see_also": [
+            "sssom:mappings"
+          ]
         },
         {
           "text": "n:1",
-          "description": "Indicates the mapping record is about a many-to-one mapping, that is, several different subjects are mapped to the same object."
+          "description": "Indicates the mapping record is about a many-to-one mapping, that is, several different subjects are mapped to the same object in several independent mapping records.",
+          "title": "many to one",
+          "see_also": [
+            "sssom:mappings"
+          ]
         },
         {
           "text": "n:n",
-          "description": "Indicates the mapping record is about a many-to-many mapping, that is, the subject is mapped to several different objects and the object is mapped to several different subjects."
+          "description": "Indicates the mapping record is about a many-to-many mapping, that is, the subject is mapped to several different objects and the object is mapped to several different subjects in several independent mapping records.",
+          "title": "many to many",
+          "see_also": [
+            "sssom:mappings"
+          ]
         },
         {
           "text": "1:0",
-          "description": "Indicates that the subject has no match in the object vocabulary. This value MUST only be used when the object_id is sssom:NoTermFound."
+          "description": "Indicates that the subject has no match in the object vocabulary. This value MUST only be used when the object_id is sssom:NoTermFound.",
+          "title": "one to none"
         },
         {
           "text": "0:1",
-          "description": "Indicates that the object has no match in the subject vocabulary. This value MUST only be used when the subject_id is sssom:NoTermFound."
+          "description": "Indicates that the object has no match in the subject vocabulary. This value MUST only be used when the subject_id is sssom:NoTermFound.",
+          "title": "none to one"
         },
         {
           "text": "0:0",
-          "description": "Indicates that there is no match between the subject vocabulary and the object vocabulary. This value MUST only be used when both the subject_id and the object_id are sssom:NoTermFound."
+          "description": "Indicates that there is no match between the subject vocabulary and the object vocabulary. This value MUST only be used when both the subject_id and the object_id are sssom:NoTermFound.",
+          "title": "none to none"
         }
       ]
     }
@@ -807,7 +825,7 @@
     {
       "name": "mappings",
       "definition_uri": "https://w3id.org/sssom/mappings",
-      "description": "Contains a list of mapping objects.",
+      "description": "A list of mapping objects (also known as \u201cmapping records\u201d).\nMapping objects within such a list are always independent of each other and, therefore, MUST be interpreted in isolation. This means, for example, that if a list contains a mapping between A and B, and a mapping between A and C, the only possible interpretation is that A is mapped independently to B and to C \u2013\u00a0NOT that A is mapped to some combination of B and C.\nThat mappings must be interpreted in isolation does not preclude drawing inferences from several mappings, as long as each mapping is always interpreted on its own.",
       "from_schema": "https://w3id.org/sssom/schema/",
       "slot_uri": "https://w3id.org/sssom/mappings",
       "owner": "MappingSet",
@@ -1143,7 +1161,7 @@
     {
       "name": "object_category",
       "definition_uri": "https://w3id.org/sssom/object_category",
-      "description": "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.",
+      "description": "The conceptual category to which the object belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.",
       "examples": [
         {
           "value": "UBERON:0001062",
@@ -1200,7 +1218,7 @@
       ],
       "range": "EntityReference",
       "required": true,
-      "pattern": "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$",
+      "pattern": "^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching|MachineLearningBasedMatching|EmbeddingBasedMatching|TransformerBasedMatching|GraphRepresentationLearningBasedMatching|LLMBasedMatching|AgentBasedMatching|BoundedPathMatching)$",
       "any_of": [
         {
           "equals_string": "semapv:LexicalMatching",
@@ -1252,6 +1270,34 @@
         },
         {
           "equals_string": "semapv:BackgroundKnowledgeBasedMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:MachineLearningBasedMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:EmbeddingBasedMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:TransformerBasedMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:GraphRepresentationLearningBasedMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:LLMBasedMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:AgentBasedMatching",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "equals_string": "semapv:BoundedPathMatching",
           "@type": "AnonymousSlotExpression"
         }
       ],
@@ -3000,7 +3046,7 @@
       "definition_uri": "https://w3id.org/sssom/Mapping",
       "description": "Represents an individual mapping between a pair of entities.",
       "from_schema": "https://w3id.org/sssom/schema/",
-      "mappings": [
+      "exact_mappings": [
         "owl:Axiom"
       ],
       "slots": [
@@ -3343,7 +3389,7 @@
       "see_also": [
         "https://github.com/mapping-commons/sssom/issues/305"
       ],
-      "mappings": [
+      "exact_mappings": [
         "sssom:Propagatable"
       ],
       "slots": [
@@ -3366,7 +3412,7 @@
       "definition_uri": "https://w3id.org/sssom/Versionable",
       "description": "Metamodel extension class to manage slots that may not exist in all versions of the model.",
       "from_schema": "https://w3id.org/sssom/schema/",
-      "mappings": [
+      "exact_mappings": [
         "sssom:Versionable"
       ],
       "slots": [
@@ -3393,7 +3439,7 @@
         "https://github.com/mapping-commons/sssom/issues/28",
         "https://github.com/mapping-commons/sssom/blob/master/examples/schema/no_term_found.sssom.tsv"
       ],
-      "mappings": [
+      "exact_mappings": [
         "sssom:NoTermFound"
       ],
       "slot_usage": {},
@@ -3401,11 +3447,10 @@
       "@type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.7.0",
+  "metamodel_version": "1.12.0",
   "source_file": "sssom_schema.yaml",
-  "source_file_date": "2026-05-26T11:53:00",
-  "source_file_size": 60847,
-  "generation_date": "2026-05-26T15:25:40",
+  "source_file_date": "2026-11-17T16:07:55",
+  "source_file_size": 62542,
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/sssom_schema.context.jsonld",

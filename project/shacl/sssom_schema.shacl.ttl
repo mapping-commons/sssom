@@ -1,700 +1,903 @@
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix pav: <http://purl.org/pav/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix sssom: <https://w3id.org/sssom/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-sssom:MappingRegistry a sh:NodeShape ;
-    rdfs:comment "A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class sssom:MappingSetReference ;
-            sh:description "A list of mapping set references." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path sssom:mapping_set_references ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A URL location of the issue tracker for this entity." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path sssom:issue_tracker ],
-        [ sh:datatype xsd:string ;
-            sh:description "The title of a mapping registry." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path sssom:mapping_registry_title ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A URL to a homepage of this mapping commons." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path sssom:homepage ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A URL to the documentation of this mapping commons." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path sssom:documentation ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "The unique identifier of a mapping registry." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path sssom:mapping_registry_id ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description of a mapping registry." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path sssom:mapping_registry_description ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A list of registries that should be imported into this one." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path sssom:imports ] ;
-    sh:targetClass sssom:MappingRegistry .
-
-sssom:MappingSet a sh:NodeShape ;
-    rdfs:comment "Represents a set of mappings." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A string representing the creator of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in creator_id) for that creator. It is not expected that there should be any link between creator_id and creator_label; in particular, creator_label is not intended to provide a human-friendly version of an identifier in creator_id." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path sssom:creator_label ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 19 ;
-            sh:path sssom:mapping_provider ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 33 ;
-            sh:path rdfs:seeAlso ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "URI of vocabulary or identifier source for the subject." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path sssom:subject_source ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A url to the license of the mapping. In absence of a license we assume no license." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path dcterms:license ],
-        [ sh:datatype xsd:string ;
-            sh:description "Version IRI or version string of the source of the subject term." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path sssom:subject_source_version ],
-        [ sh:datatype xsd:string ;
-            sh:description "Version IRI or version string of the source of the object term." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 17 ;
-            sh:path sssom:object_source_version ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 29 ;
-            sh:path sssom:object_preprocessing ],
-        [ sh:class sssom:ExtensionDefinition ;
-            sh:description "A list that defines the extension slots used in the mapping set." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 37 ;
-            sh:path sssom:extension_definitions ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "A list of properties, annotations or attributes related to the subject that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 26 ;
-            sh:path sssom:subject_match_field ],
-        [ sh:datatype xsd:date ;
-            sh:description "The date the mapping was published. This is different from the date the mapping was asserted." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 25 ;
-            sh:path dcterms:issued ],
-        [ sh:description "The type of entity that is being mapped." ;
-            sh:in ( owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property sssom:ComposedEntityExpression ) ;
-            sh:maxCount 1 ;
-            sh:order 15 ;
-            sh:path sssom:object_type ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "A list of properties, annotations or attributes related to the object that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 27 ;
-            sh:path sssom:object_match_field ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "The ID (entity reference) of the tool or algorithm that was used to generate the mapping." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 22 ;
-            sh:path sssom:mapping_tool_id ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A globally unique identifier for the mapping set (not each individual mapping). Should ideally be resolvable." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path sssom:mapping_set_id ],
-        [ sh:datatype xsd:string ;
-            sh:description "A description of the mapping set." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path dcterms:description ],
-        [ sh:class sssom:Prefix ;
-            sh:description "A dictionary that contains prefixes as keys and their URI expansions as values." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path sssom:curie_map ],
-        [ sh:datatype xsd:double ;
-            sh:description """Mapping-set level confidence is assigned by the creator of the mapping set to indicate their overall confidence in the correctness (i.e., precision) of mappings in the mapping set. Mapping set confidence is intended to be used in cases were the creator wants to express an overall confidence into the agent that curated the individual mappings, for example a lexical matching tool, or a group of students.
-When not explicitly specified, confidence estimation algorithms should consider the mapping set confidence to be 1.0 by default.""" ;
-            sh:maxCount 1 ;
-            sh:maxInclusive 1e+00 ;
-            sh:minInclusive 0e+00 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path sssom:mapping_set_confidence ],
-        [ sh:datatype xsd:string ;
-            sh:description "The measure used for computing a similarity score. This field is meant to be used in conjunction with the similarity_score field, to document, for example, the lexical or semantic match of a matching algorithm. To make processing this field as unambiguous as possible, we recommend using wikidata CURIEs, but the type of this field is deliberately unspecified." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 30 ;
-            sh:path sssom:similarity_measure ],
-        [ sh:datatype xsd:string ;
-            sh:description "A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text. Consider using the mapping_tool_id slot for a more standardised reference." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 21 ;
-            sh:path sssom:mapping_tool ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "URI of vocabulary or identifier source for the object." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path sssom:object_source ],
-        [ sh:datatype xsd:string ;
-            sh:description "Free text field containing either curator notes or text generated by tool providing additional informative information." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 36 ;
-            sh:path rdfs:comment ],
-        [ sh:datatype xsd:date ;
-            sh:description "The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 24 ;
-            sh:path dcterms:created ],
-        [ sh:datatype xsd:string ;
-            sh:description "A list of mapping slots that define the scope for the value found in the mapping_cardinality slot. Mappings are considered to belong to the same scope if they have the same value for all slots listed in the scope. If no scope is defined, the default scope is empty, meaning that all mappings belong to a single scope that is identical to the entire mapping set. The behaviour if a value in the list does not correspond to a valid slot name is undefined." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 20 ;
-            sh:path sssom:cardinality_scope ],
-        [ sh:description "The version of the SSSOM specification a mapping set is compliant with." ;
-            sh:in ( sssom:version1.0 sssom:version1.1 ) ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path sssom:sssom_version ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 31 ;
-            sh:path sssom:curation_rule ],
-        [ sh:description "The type of the predicate used to map the subject and object entities." ;
-            sh:in ( owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property sssom:ComposedEntityExpression ) ;
-            sh:maxCount 1 ;
-            sh:order 18 ;
-            sh:path sssom:predicate_type ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A URL location of the issue tracker for this entity." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 34 ;
-            sh:path sssom:issue_tracker ],
-        [ sh:description "The type of entity that is being mapped." ;
-            sh:in ( owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property sssom:ComposedEntityExpression ) ;
-            sh:maxCount 1 ;
-            sh:order 12 ;
-            sh:path sssom:subject_type ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 28 ;
-            sh:path sssom:subject_preprocessing ],
-        [ sh:datatype xsd:string ;
-            sh:description "Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data. NOTE. This field is not recommended for general use, and should be used sparingly. See https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv for an alternative approach based on extension slots." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 35 ;
-            sh:path sssom:other ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path dcterms:creator ],
-        [ sh:datatype xsd:string ;
-            sh:description "The display name of a mapping set." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dcterms:title ],
-        [ sh:class owl:Axiom ;
-            sh:description "Contains a list of mapping objects." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 2 ;
-            sh:path sssom:mappings ],
-        [ sh:datatype xsd:string ;
-            sh:description "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where the creation of a resource is not practical from the perspective of the mapping_provider." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 32 ;
-            sh:path sssom:curation_rule_text ],
-        [ sh:datatype xsd:string ;
-            sh:description "Version string that denotes the version of the mapping tool used." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 23 ;
-            sh:path sssom:mapping_tool_version ],
-        [ sh:datatype xsd:string ;
-            sh:description "A version string for the mapping." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path owl:versionInfo ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A mapping set or set of mapping set that was used to derive the mapping set." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path prov:wasDerivedFrom ] ;
-    sh:targetClass sssom:MappingSet .
-
-sssom:NoTermFound a sh:NodeShape ;
-    rdfs:comment "sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be found. It SHOULD be used in conjunction with a corresponding subject_source or object_source to signify where the term was not found." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass sssom:NoTermFound .
-
-sssom:Propagatable a sh:NodeShape ;
-    rdfs:comment "Metamodel extension class to describe slots whose value can be propagated down from the MappingSet class to the Mapping class." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "Indicates whether a slot can be propagated from a mapping down to individual mappings." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path sssom:propagated ] ;
-    sh:targetClass sssom:Propagatable .
-
-sssom:Versionable a sh:NodeShape ;
-    rdfs:comment "Metamodel extension class to manage slots that may not exist in all versions of the model." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The version of the specification in which the slot was added. If not specified, the slot must be assumed to have been added in version 1.0." ;
-            sh:in ( sssom:version1.0 sssom:version1.1 ) ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path sssom:added_in ] ;
-    sh:targetClass sssom:Versionable .
-
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sssom: <https://w3id.org/sssom/> .
+@prefix pav: <http://purl.org/pav/> .
 owl:Axiom a sh:NodeShape ;
-    rdfs:comment "Represents an individual mapping between a pair of entities." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A modifier for negating the predicate. See https://github.com/mapping-commons/sssom/issues/40 for discussion" ;
-            sh:in ( sssom:NegatedPredicate ) ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path sssom:predicate_modifier ],
-        [ sh:datatype xsd:date ;
-            sh:description "The date the mapping was reviewed. This is different from the date the mapping was asserted and published. If this field is used in a mapping, reviewer_id and/or reviewer_label MUST also be be set." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 34 ;
-            sh:path sssom:review_date ],
-        [ sh:datatype xsd:string ;
-            sh:description "The label of object of the mapping." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path sssom:object_label ],
-        [ sh:description "The type of entity that is being mapped." ;
-            sh:in ( owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property sssom:ComposedEntityExpression ) ;
-            sh:maxCount 1 ;
-            sh:order 18 ;
-            sh:path sssom:subject_type ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 42 ;
-            sh:path sssom:subject_preprocessing ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "The ID of the object of the mapping." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path owl:annotatedTarget ],
-        [ sh:datatype xsd:string ;
-            sh:description "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path sssom:subject_category ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path sssom:reviewer_id ],
-        [ sh:datatype xsd:string ;
-            sh:description "Version IRI or version string of the source of the object term." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 23 ;
-            sh:path sssom:object_source_version ],
-        [ sh:datatype xsd:string ;
-            sh:description "Free text field containing either curator notes or text generated by tool providing additional informative information." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 50 ;
-            sh:path rdfs:comment ],
-        [ sh:datatype xsd:string ;
-            sh:description "The label of the predicate/relation of the mapping." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path sssom:predicate_label ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "The ID of the predicate or relation that relates the subject and object of this match." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path owl:annotatedProperty ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "The ID of the subject of the mapping." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path owl:annotatedSource ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "A list of properties, annotations or attributes related to the subject that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 39 ;
-            sh:path sssom:subject_match_field ],
-        [ sh:datatype xsd:string ;
-            sh:description "The label of subject of the mapping." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path sssom:subject_label ],
-        [ sh:datatype xsd:double ;
-            sh:description """A value assigned by the creator of the mapping to denote the creator's confidence or estimated probability that the mapping record is correct. A value of 1.0 means the creator has full confidence in the correctness of the mapping record, while a value of 0.0 means the creator is fully unsure whether the mapping record is correct or not.
-When not explicitly specified, confidence estimation algorithms should consider the mapping confidence to be 1.0 by default.""" ;
-            sh:maxCount 1 ;
-            sh:maxInclusive 1e+00 ;
-            sh:minInclusive 0e+00 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 35 ;
-            sh:path sssom:confidence ],
-        [ sh:datatype xsd:string ;
-            sh:description "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where the creation of a resource is not practical from the perspective of the mapping_provider." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 38 ;
-            sh:path sssom:curation_rule_text ],
-        [ sh:description "A value indicating whether the subject (respectively object) of this mapping record is present in other records involving a different object (respectively subject), within the subset of records defined by the cardinality_scope slot (or within the entire mapping set if cardinality_scope is undefined). Note that this is a convenience field, whose values can always be derived from the mapping set." ;
-            sh:in ( "1:1" "1:n" "n:1" "n:n" "1:0" "0:1" "0:0" ) ;
-            sh:maxCount 1 ;
-            sh:order 27 ;
-            sh:path sssom:mapping_cardinality ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "A unique identifier for a mapping record, that is for an instance of the Mapping class (in the SSSOM/TSV serialisation, this corresponds to an individual row after propagation is applied). This slot is intended to uniquely identify one such record within a mapping set and may for example act as the resource identifier for the record when it is serialised into RDF. This slot MUST NOT be used to “group” several records together to indicate that they pertain to a single mapping (for example, that they represent different versions of the same mapping), by assigning the same ID to several records. When it is used, every record within a set MUST have a unique, non-empty value. The identifier MUST be a URI; beyond that, its format is unconstrained and the identifier MUST be treated as an opaque string." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path sssom:record_id ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 46 ;
-            sh:path rdfs:seeAlso ],
-        [ sh:datatype xsd:date ;
-            sh:description "The date the mapping was published. This is different from the date the mapping was asserted." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 33 ;
-            sh:path dcterms:issued ],
-        [ sh:datatype xsd:string ;
-            sh:description "Version string that denotes the version of the mapping tool used." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 31 ;
-            sh:path sssom:mapping_tool_version ],
-        [ sh:datatype xsd:string ;
-            sh:description "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path sssom:object_category ],
-        [ sh:datatype xsd:string ;
-            sh:description "A string representing the creator of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in creator_id) for that creator. It is not expected that there should be any link between creator_id and creator_label; in particular, creator_label is not intended to provide a human-friendly version of an identifier in creator_id." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path sssom:creator_label ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "The ID (entity reference) of the tool or algorithm that was used to generate the mapping." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 30 ;
-            sh:path sssom:mapping_tool_id ],
-        [ sh:description "The type of the predicate used to map the subject and object entities." ;
-            sh:in ( owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property sssom:ComposedEntityExpression ) ;
-            sh:maxCount 1 ;
-            sh:order 24 ;
-            sh:path sssom:predicate_type ],
-        [ sh:description "A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:or ( [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] ) ;
-            sh:order 10 ;
-            sh:path sssom:mapping_justification ],
-        [ sh:datatype xsd:string ;
-            sh:description "Version IRI or version string of the source of the subject term." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 20 ;
-            sh:path sssom:subject_source_version ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "The issue tracker item discussing this mapping." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 47 ;
-            sh:path sssom:issue_tracker_item ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "A list of properties, annotations or attributes related to the object that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 40 ;
-            sh:path sssom:object_match_field ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 25 ;
-            sh:path sssom:mapping_provider ],
-        [ sh:datatype xsd:string ;
-            sh:description "A list of mapping slots that define the scope for the value found in the mapping_cardinality slot. Mappings are considered to belong to the same scope if they have the same value for all slots listed in the scope. If no scope is defined, the default scope is empty, meaning that all mappings belong to a single scope that is identical to the entire mapping set. The behaviour if a value in the list does not correspond to a valid slot name is undefined." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 28 ;
-            sh:path sssom:cardinality_scope ],
-        [ sh:datatype xsd:double ;
-            sh:description """A value assigned by the reviewer of the mapping to denote their confidence that the mapping record is correct. A value of 1.0 means the reviewer fully agrees with the mapping record. A value of -1.0 means the reviewer fully disagrees with the mapping record. A value of 0.0 means the reviewer is not sure whether the mapping record is correct or not.
-When not explicitly specified, confidence estimation algorithms should consider the reviewer agreement to be 1.0 by default.""" ;
-            sh:maxCount 1 ;
-            sh:maxInclusive 1e+00 ;
-            sh:minInclusive -1e+00 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 36 ;
-            sh:path sssom:reviewer_agreement ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 37 ;
-            sh:path sssom:curation_rule ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "Identifies the persons or groups responsible for asserting the mappings. Recommended to be a list of ORCIDs or otherwise identifying URIs." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path pav:authoredBy ],
-        [ sh:datatype xsd:double ;
-            sh:description "A score between 0 and 1 to denote the similarity between two entities, where 1 denotes equivalence, and 0 denotes disjointness. The score is meant to be used in conjunction with the similarity_measure field, to document, for example, the lexical or semantic match of a matching algorithm." ;
-            sh:maxCount 1 ;
-            sh:maxInclusive 1e+00 ;
-            sh:minInclusive 0e+00 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 44 ;
-            sh:path sssom:similarity_score ],
-        [ sh:datatype xsd:string ;
-            sh:description "A string representing the reviewer of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in reviewer_id) for that reviewer. It is not expected that there should be any link between reviewer_id and reviewer_label; in particular, reviewer_label is not intended to provide a human-friendly version of an identifier in reviewer_id." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path sssom:reviewer_label ],
-        [ sh:datatype xsd:string ;
-            sh:description "String that is shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 41 ;
-            sh:path sssom:match_string ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path dcterms:creator ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "A set of identifiers referring to mappings (i.e., subject-predicate-object-predicate modifier quadruple) that were used to derive this mapping, e.g., through mapping chaining or inversion." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 48 ;
-            sh:path prov:wasDerivedFrom ],
-        [ sh:datatype xsd:string ;
-            sh:description "A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text. Consider using the mapping_tool_id slot for a more standardised reference." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 29 ;
-            sh:path sssom:mapping_tool ],
-        [ sh:datatype xsd:date ;
-            sh:description "The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 32 ;
-            sh:path dcterms:created ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "URI of vocabulary or identifier source for the object." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 22 ;
-            sh:path sssom:object_source ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 26 ;
-            sh:path sssom:mapping_source ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 43 ;
-            sh:path sssom:object_preprocessing ],
-        [ sh:datatype rdfs:Resource ;
-            sh:description "URI of vocabulary or identifier source for the subject." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 19 ;
-            sh:path sssom:subject_source ],
-        [ sh:datatype xsd:string ;
-            sh:description "The measure used for computing a similarity score. This field is meant to be used in conjunction with the similarity_score field, to document, for example, the lexical or semantic match of a matching algorithm. To make processing this field as unambiguous as possible, we recommend using wikidata CURIEs, but the type of this field is deliberately unspecified." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 45 ;
-            sh:path sssom:similarity_measure ],
-        [ sh:description "The type of entity that is being mapped." ;
-            sh:in ( owl:Class owl:ObjectProperty owl:DataProperty owl:AnnotationProperty owl:NamedIndividual skos:Concept rdfs:Resource rdfs:Class rdfs:Literal rdfs:Datatype rdf:Property sssom:ComposedEntityExpression ) ;
-            sh:maxCount 1 ;
-            sh:order 21 ;
-            sh:path sssom:object_type ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A url to the license of the mapping. In absence of a license we assume no license." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 17 ;
-            sh:path dcterms:license ],
-        [ sh:datatype xsd:string ;
-            sh:description "Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data. NOTE. This field is not recommended for general use, and should be used sparingly. See https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv for an alternative approach based on extension slots." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 49 ;
-            sh:path sssom:other ],
-        [ sh:datatype xsd:string ;
-            sh:description "A string representing the author of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in author_id) for that author. It is not expected that there should be any link between author_id and author_label; in particular, author_label is not intended to provide a human-friendly version of an identifier in author_id." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path sssom:author_label ] ;
-    sh:targetClass owl:Axiom .
-
+	rdfs:comment "Represents an individual mapping between a pair of entities." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n79 ;
+	sh:property _:c14n0 , _:c14n1 , _:c14n101 , _:c14n106 , _:c14n107 , _:c14n11 , _:c14n112 , _:c14n117 , _:c14n12 , _:c14n122 , _:c14n123 , _:c14n124 , _:c14n126 , _:c14n127 , _:c14n128 , _:c14n13 , _:c14n14 , _:c14n16 , _:c14n17 , _:c14n19 , _:c14n21 , _:c14n22 , _:c14n34 , _:c14n38 , _:c14n39 , _:c14n40 , _:c14n42 , _:c14n43 , _:c14n44 , _:c14n49 , _:c14n52 , _:c14n54 , _:c14n55 , _:c14n57 , _:c14n6 , _:c14n60 , _:c14n62 , _:c14n71 , _:c14n73 , _:c14n75 , _:c14n76 , _:c14n77 , _:c14n78 , _:c14n84 , _:c14n85 , _:c14n86 , _:c14n87 , _:c14n88 , _:c14n9 , _:c14n92 , _:c14n94 ;
+	sh:targetClass owl:Axiom .
 sssom:ExtensionDefinition a sh:NodeShape ;
-    rdfs:comment "A definition of an extension (non-standard) slot." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "The property associated with the extension slot. It is intended to provide a non-ambiguous meaning to the slot (contrary to the slot_name, which for brevity reasons may be ambiguous)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path sssom:property ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Expected type of the values of the extension slot." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path sssom:type_hint ],
-        [ sh:datatype xsd:string ;
-            sh:description "The name of the extension slot." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path sssom:slot_name ] ;
-    sh:targetClass sssom:ExtensionDefinition .
-
+	rdfs:comment "A definition of an extension (non-standard) slot." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n28 ;
+	sh:property _:c14n109 , _:c14n32 , _:c14n68 ;
+	sh:targetClass sssom:ExtensionDefinition .
+sssom:MappingRegistry a sh:NodeShape ;
+	rdfs:comment "A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n30 ;
+	sh:property _:c14n103 , _:c14n108 , _:c14n113 , _:c14n115 , _:c14n33 , _:c14n74 , _:c14n89 , _:c14n97 ;
+	sh:targetClass sssom:MappingRegistry .
+sssom:MappingSet a sh:NodeShape ;
+	rdfs:comment "Represents a set of mappings." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n51 ;
+	sh:property _:c14n10 , _:c14n105 , _:c14n111 , _:c14n116 , _:c14n119 , _:c14n121 , _:c14n125 , _:c14n15 , _:c14n18 , _:c14n2 , _:c14n20 , _:c14n23 , _:c14n27 , _:c14n29 , _:c14n3 , _:c14n31 , _:c14n35 , _:c14n36 , _:c14n4 , _:c14n45 , _:c14n47 , _:c14n50 , _:c14n56 , _:c14n58 , _:c14n59 , _:c14n61 , _:c14n64 , _:c14n65 , _:c14n7 , _:c14n70 , _:c14n72 , _:c14n81 , _:c14n90 , _:c14n91 , _:c14n93 , _:c14n95 , _:c14n96 , _:c14n99 ;
+	sh:targetClass sssom:MappingSet .
 sssom:MappingSetReference a sh:NodeShape ;
-    rdfs:comment "A reference to a mapping set. It allows to augment mapping set metadata from the perspective of the registry, for example, providing confidence, or a local filename or a grouping." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:double ;
-            sh:description """This value is set by the creator/maintainer of the mapping registry and reflects the confidence the mapping registry has in the correctness (i.e., precision) of mappings in the mapping set.
-When not explicitly specified, confidence estimation algorithms should consider the registry confidence in a mapping set to be 1.0 by default.""" ;
-            sh:maxCount 1 ;
-            sh:maxInclusive 1e+00 ;
-            sh:minInclusive 0e+00 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path sssom:registry_confidence ],
-        [ sh:datatype xsd:string ;
-            sh:description "The local name assigned to file that corresponds to the downloaded mapping set." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path sssom:local_name ],
-        [ sh:datatype xsd:string ;
-            sh:description "Set by the owners of the mapping registry. A way to group related mapping sets for example for UI purposes." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path sssom:mapping_set_group ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A URL location from which to obtain a resource, such as a mapping set." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path sssom:mirror_from ],
-        [ sh:datatype xsd:date ;
-            sh:description "The date this reference was last updated." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path sssom:last_updated ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A globally unique identifier for the mapping set (not each individual mapping). Should ideally be resolvable." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path sssom:mapping_set_id ] ;
-    sh:targetClass sssom:MappingSetReference .
-
+	rdfs:comment "A reference to a mapping set. It allows to augment mapping set metadata from the perspective of the registry, for example, providing confidence, or a local filename or a grouping." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n5 ;
+	sh:property _:c14n118 , _:c14n25 , _:c14n46 , _:c14n63 , _:c14n66 , _:c14n82 ;
+	sh:targetClass sssom:MappingSetReference .
+sssom:NoTermFound a sh:NodeShape ;
+	rdfs:comment "sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be found. It SHOULD be used in conjunction with a corresponding subject_source or object_source to signify where the term was not found." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n80 ;
+	sh:targetClass sssom:NoTermFound .
 sssom:Prefix a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path sssom:prefix_name ],
-        [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path sssom:prefix_url ] ;
-    sh:targetClass sssom:Prefix .
-
+	sh:closed true ;
+	sh:ignoredProperties _:c14n26 ;
+	sh:property _:c14n104 , _:c14n110 ;
+	sh:targetClass sssom:Prefix .
+sssom:Propagatable a sh:NodeShape ;
+	rdfs:comment "Metamodel extension class to describe slots whose value can be propagated down from the MappingSet class to the Mapping class." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n8 ;
+	sh:property _:c14n120 ;
+	sh:targetClass sssom:Propagatable .
+sssom:Versionable a sh:NodeShape ;
+	rdfs:comment "Metamodel extension class to manage slots that may not exist in all versions of the model." ;
+	sh:closed true ;
+	sh:ignoredProperties _:c14n100 ;
+	sh:property _:c14n83 ;
+	sh:targetClass sssom:Versionable .
+_:c14n0 sh:datatype rdfs:Resource ;
+	sh:description "URI of vocabulary or identifier source for the subject." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 19 ;
+	sh:path sssom:subject_source .
+_:c14n1 sh:datatype xsd:string ;
+	sh:description "Version IRI or version string of the source of the subject term." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 20 ;
+	sh:path sssom:subject_source_version .
+_:c14n10 sh:datatype rdfs:Resource ;
+	sh:description "Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 28 ;
+	sh:path sssom:subject_preprocessing .
+_:c14n100 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n101 sh:datatype xsd:string ;
+	sh:description "Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data. NOTE. This field is not recommended for general use, and should be used sparingly. See https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv for an alternative approach based on extension slots." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 49 ;
+	sh:path sssom:other .
+_:c14n102 rdf:first "1:1" ;
+	rdf:rest _:c14n48 .
+_:c14n103 sh:datatype rdfs:Resource ;
+	sh:description "The unique identifier of a mapping registry." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path sssom:mapping_registry_id .
+_:c14n104 sh:datatype xsd:string ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path sssom:prefix_name .
+_:c14n105 sh:datatype xsd:string ;
+	sh:description "The display name of a mapping set." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 6 ;
+	sh:path dcterms:title .
+_:c14n106 sh:datatype xsd:double ;
+	sh:description "A value assigned by the reviewer of the mapping to denote their confidence that the mapping record is correct. A value of 1.0 means the reviewer fully agrees with the mapping record. A value of -1.0 means the reviewer fully disagrees with the mapping record. A value of 0.0 means the reviewer is not sure whether the mapping record is correct or not.\nWhen not explicitly specified, confidence estimation algorithms should consider the reviewer agreement to be 1.0 by default." ;
+	sh:maxCount 1 ;
+	sh:maxInclusive "1.0"^^xsd:double ;
+	sh:minInclusive "-1.0"^^xsd:double ;
+	sh:nodeKind sh:Literal ;
+	sh:order 36 ;
+	sh:path sssom:reviewer_agreement .
+_:c14n107 sh:datatype xsd:string ;
+	sh:description "The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path sssom:subject_category .
+_:c14n108 sh:description "A URL location of the issue tracker for this entity." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 7 ;
+	sh:path sssom:issue_tracker .
+_:c14n109 sh:datatype xsd:string ;
+	sh:description "The name of the extension slot." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path sssom:slot_name .
+_:c14n11 sh:datatype xsd:date ;
+	sh:description "The date the mapping was published. This is different from the date the mapping was asserted." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 33 ;
+	sh:path dcterms:issued .
+_:c14n110 sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 1 ;
+	sh:path sssom:prefix_url .
+_:c14n111 sh:datatype xsd:double ;
+	sh:description "Mapping-set level confidence is assigned by the creator of the mapping set to indicate their overall confidence in the correctness (i.e., precision) of mappings in the mapping set. Mapping set confidence is intended to be used in cases were the creator wants to express an overall confidence into the agent that curated the individual mappings, for example a lexical matching tool, or a group of students.\nWhen not explicitly specified, confidence estimation algorithms should consider the mapping set confidence to be 1.0 by default." ;
+	sh:maxCount 1 ;
+	sh:maxInclusive "1.0"^^xsd:double ;
+	sh:minInclusive "0.0"^^xsd:double ;
+	sh:nodeKind sh:Literal ;
+	sh:order 8 ;
+	sh:path sssom:mapping_set_confidence .
+_:c14n112 sh:datatype rdfs:Resource ;
+	sh:description "The ID of the object of the mapping." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 7 ;
+	sh:path owl:annotatedTarget .
+_:c14n113 sh:description "A URL to the documentation of this mapping commons." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 5 ;
+	sh:path sssom:documentation .
+_:c14n114 rdf:first "n:1" ;
+	rdf:rest _:c14n98 .
+_:c14n115 sh:datatype xsd:string ;
+	sh:description "The description of a mapping registry." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path sssom:mapping_registry_description .
+_:c14n116 sh:description "A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment" ;
+	sh:nodeKind sh:IRI ;
+	sh:order 33 ;
+	sh:path rdfs:seeAlso .
+_:c14n117 sh:datatype rdfs:Resource ;
+	sh:description "A unique identifier for a mapping record, that is for an instance of the Mapping class (in the SSSOM/TSV serialisation, this corresponds to an individual row after propagation is applied). This slot is intended to uniquely identify one such record within a mapping set and may for example act as the resource identifier for the record when it is serialised into RDF. This slot MUST NOT be used to “group” several records together to indicate that they pertain to a single mapping (for example, that they represent different versions of the same mapping), by assigning the same ID to several records. When it is used, every record within a set MUST have a unique, non-empty value. The identifier MUST be a URI; beyond that, its format is unconstrained and the identifier MUST be treated as an opaque string." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path sssom:record_id .
+_:c14n118 sh:description "A URL location from which to obtain a resource, such as a mapping set." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 1 ;
+	sh:path sssom:mirror_from .
+_:c14n119 sh:description "A globally unique identifier for the mapping set (not each individual mapping). Should ideally be resolvable." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 3 ;
+	sh:path sssom:mapping_set_id .
+_:c14n12 sh:datatype xsd:string ;
+	sh:description "Version string that denotes the version of the mapping tool used." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 31 ;
+	sh:path sssom:mapping_tool_version .
+_:c14n120 sh:datatype xsd:boolean ;
+	sh:description "Indicates whether a slot can be propagated from a mapping down to individual mappings." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path sssom:propagated .
+_:c14n121 sh:datatype xsd:string ;
+	sh:description "A list of mapping slots that define the scope for the value found in the mapping_cardinality slot. Mappings are considered to belong to the same scope if they have the same value for all slots listed in the scope. If no scope is defined, the default scope is empty, meaning that all mappings belong to a single scope that is identical to the entire mapping set. The behaviour if a value in the list does not correspond to a valid slot name is undefined." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 20 ;
+	sh:path sssom:cardinality_scope .
+_:c14n122 sh:datatype xsd:string ;
+	sh:description "The conceptual category to which the object belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 9 ;
+	sh:path sssom:object_category .
+_:c14n123 sh:description "A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment" ;
+	sh:nodeKind sh:IRI ;
+	sh:order 46 ;
+	sh:path rdfs:seeAlso .
+_:c14n124 sh:datatype rdfs:Resource ;
+	sh:description "A list of properties, annotations or attributes related to the object that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 40 ;
+	sh:path sssom:object_match_field .
+_:c14n125 sh:description "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 19 ;
+	sh:path sssom:mapping_provider .
+_:c14n126 sh:datatype xsd:string ;
+	sh:description "Version IRI or version string of the source of the object term." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 23 ;
+	sh:path sssom:object_source_version .
+_:c14n127 sh:datatype xsd:string ;
+	sh:description "The label of object of the mapping." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 8 ;
+	sh:path sssom:object_label .
+_:c14n128 sh:datatype xsd:string ;
+	sh:description "String that is shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 41 ;
+	sh:path sssom:match_string .
+_:c14n13 sh:description "A modifier for negating the predicate. See https://github.com/mapping-commons/sssom/issues/40 for discussion" ;
+	sh:in _:c14n53 ;
+	sh:maxCount 1 ;
+	sh:order 6 ;
+	sh:path sssom:predicate_modifier .
+_:c14n130 rdf:first _:c14n129 ;
+	rdf:rest _:c14n131 .
+_:c14n131 rdf:first _:c14n164 ;
+	rdf:rest _:c14n132 .
+_:c14n132 rdf:first _:c14n163 ;
+	rdf:rest _:c14n133 .
+_:c14n133 rdf:first _:c14n162 ;
+	rdf:rest _:c14n134 .
+_:c14n134 rdf:first _:c14n161 ;
+	rdf:rest _:c14n135 .
+_:c14n135 rdf:first _:c14n160 ;
+	rdf:rest _:c14n136 .
+_:c14n136 rdf:first _:c14n159 ;
+	rdf:rest _:c14n137 .
+_:c14n137 rdf:first _:c14n158 ;
+	rdf:rest _:c14n138 .
+_:c14n138 rdf:first _:c14n157 ;
+	rdf:rest _:c14n139 .
+_:c14n139 rdf:first _:c14n156 ;
+	rdf:rest _:c14n140 .
+_:c14n14 sh:datatype xsd:double ;
+	sh:description "A score between 0 and 1 to denote the similarity between two entities, where 1 denotes equivalence, and 0 denotes disjointness. The score is meant to be used in conjunction with the similarity_measure field, to document, for example, the lexical or semantic match of a matching algorithm." ;
+	sh:maxCount 1 ;
+	sh:maxInclusive "1.0"^^xsd:double ;
+	sh:minInclusive "0.0"^^xsd:double ;
+	sh:nodeKind sh:Literal ;
+	sh:order 44 ;
+	sh:path sssom:similarity_score .
+_:c14n140 rdf:first _:c14n155 ;
+	rdf:rest _:c14n141 .
+_:c14n141 rdf:first _:c14n154 ;
+	rdf:rest _:c14n142 .
+_:c14n142 rdf:first _:c14n153 ;
+	rdf:rest _:c14n143 .
+_:c14n143 rdf:first _:c14n152 ;
+	rdf:rest _:c14n144 .
+_:c14n144 rdf:first _:c14n151 ;
+	rdf:rest _:c14n145 .
+_:c14n145 rdf:first _:c14n150 ;
+	rdf:rest _:c14n146 .
+_:c14n146 rdf:first _:c14n149 ;
+	rdf:rest _:c14n147 .
+_:c14n147 rdf:first _:c14n148 ;
+	rdf:rest _:c14n69 .
+_:c14n15 sh:datatype rdfs:Resource ;
+	sh:description "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 31 ;
+	sh:path sssom:curation_rule .
+_:c14n16 sh:datatype rdfs:Resource ;
+	sh:description "URI of vocabulary or identifier source for the object." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 22 ;
+	sh:path sssom:object_source .
+_:c14n167 rdf:first owl:Class ;
+	rdf:rest _:c14n168 .
+_:c14n168 rdf:first owl:ObjectProperty ;
+	rdf:rest _:c14n169 .
+_:c14n169 rdf:first owl:DataProperty ;
+	rdf:rest _:c14n170 .
+_:c14n17 sh:description "The type of the predicate used to map the subject and object entities." ;
+	sh:in _:c14n215 ;
+	sh:maxCount 1 ;
+	sh:order 24 ;
+	sh:path sssom:predicate_type .
+_:c14n170 rdf:first owl:AnnotationProperty ;
+	rdf:rest _:c14n171 .
+_:c14n171 rdf:first owl:NamedIndividual ;
+	rdf:rest _:c14n172 .
+_:c14n172 rdf:first skos:Concept ;
+	rdf:rest _:c14n173 .
+_:c14n173 rdf:first rdfs:Resource ;
+	rdf:rest _:c14n174 .
+_:c14n174 rdf:first rdfs:Class ;
+	rdf:rest _:c14n175 .
+_:c14n175 rdf:first rdfs:Literal ;
+	rdf:rest _:c14n176 .
+_:c14n176 rdf:first rdfs:Datatype ;
+	rdf:rest _:c14n177 .
+_:c14n177 rdf:first rdf:Property ;
+	rdf:rest _:c14n178 .
+_:c14n178 rdf:first sssom:ComposedEntityExpression ;
+	rdf:rest rdf:nil .
+_:c14n179 rdf:first owl:Class ;
+	rdf:rest _:c14n180 .
+_:c14n18 sh:datatype rdfs:Resource ;
+	sh:description "A list of properties, annotations or attributes related to the object that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 27 ;
+	sh:path sssom:object_match_field .
+_:c14n180 rdf:first owl:ObjectProperty ;
+	rdf:rest _:c14n181 .
+_:c14n181 rdf:first owl:DataProperty ;
+	rdf:rest _:c14n182 .
+_:c14n182 rdf:first owl:AnnotationProperty ;
+	rdf:rest _:c14n183 .
+_:c14n183 rdf:first owl:NamedIndividual ;
+	rdf:rest _:c14n184 .
+_:c14n184 rdf:first skos:Concept ;
+	rdf:rest _:c14n185 .
+_:c14n185 rdf:first rdfs:Resource ;
+	rdf:rest _:c14n186 .
+_:c14n186 rdf:first rdfs:Class ;
+	rdf:rest _:c14n187 .
+_:c14n187 rdf:first rdfs:Literal ;
+	rdf:rest _:c14n188 .
+_:c14n188 rdf:first rdfs:Datatype ;
+	rdf:rest _:c14n189 .
+_:c14n189 rdf:first rdf:Property ;
+	rdf:rest _:c14n190 .
+_:c14n19 sh:datatype xsd:string ;
+	sh:description "The measure used for computing a similarity score. This field is meant to be used in conjunction with the similarity_score field, to document, for example, the lexical or semantic match of a matching algorithm. To make processing this field as unambiguous as possible, we recommend using wikidata CURIEs, but the type of this field is deliberately unspecified." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 45 ;
+	sh:path sssom:similarity_measure .
+_:c14n190 rdf:first sssom:ComposedEntityExpression ;
+	rdf:rest rdf:nil .
+_:c14n191 rdf:first owl:Class ;
+	rdf:rest _:c14n192 .
+_:c14n192 rdf:first owl:ObjectProperty ;
+	rdf:rest _:c14n193 .
+_:c14n193 rdf:first owl:DataProperty ;
+	rdf:rest _:c14n194 .
+_:c14n194 rdf:first owl:AnnotationProperty ;
+	rdf:rest _:c14n195 .
+_:c14n195 rdf:first owl:NamedIndividual ;
+	rdf:rest _:c14n196 .
+_:c14n196 rdf:first skos:Concept ;
+	rdf:rest _:c14n197 .
+_:c14n197 rdf:first rdfs:Resource ;
+	rdf:rest _:c14n198 .
+_:c14n198 rdf:first rdfs:Class ;
+	rdf:rest _:c14n199 .
+_:c14n199 rdf:first rdfs:Literal ;
+	rdf:rest _:c14n200 .
+_:c14n2 sh:description "A URL location of the issue tracker for this entity." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 34 ;
+	sh:path sssom:issue_tracker .
+_:c14n20 sh:class owl:Axiom ;
+	sh:description "A list of mapping objects (also known as “mapping records”).\nMapping objects within such a list are always independent of each other and, therefore, MUST be interpreted in isolation. This means, for example, that if a list contains a mapping between A and B, and a mapping between A and C, the only possible interpretation is that A is mapped independently to B and to C – NOT that A is mapped to some combination of B and C.\nThat mappings must be interpreted in isolation does not preclude drawing inferences from several mappings, as long as each mapping is always interpreted on its own." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 2 ;
+	sh:path sssom:mappings .
+_:c14n200 rdf:first rdfs:Datatype ;
+	rdf:rest _:c14n201 .
+_:c14n201 rdf:first rdf:Property ;
+	rdf:rest _:c14n202 .
+_:c14n202 rdf:first sssom:ComposedEntityExpression ;
+	rdf:rest rdf:nil .
+_:c14n203 rdf:first owl:Class ;
+	rdf:rest _:c14n204 .
+_:c14n204 rdf:first owl:ObjectProperty ;
+	rdf:rest _:c14n205 .
+_:c14n205 rdf:first owl:DataProperty ;
+	rdf:rest _:c14n206 .
+_:c14n206 rdf:first owl:AnnotationProperty ;
+	rdf:rest _:c14n207 .
+_:c14n207 rdf:first owl:NamedIndividual ;
+	rdf:rest _:c14n208 .
+_:c14n208 rdf:first skos:Concept ;
+	rdf:rest _:c14n209 .
+_:c14n209 rdf:first rdfs:Resource ;
+	rdf:rest _:c14n210 .
+_:c14n21 sh:description "A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:or _:c14n41 ;
+	sh:order 10 ;
+	sh:path sssom:mapping_justification .
+_:c14n210 rdf:first rdfs:Class ;
+	rdf:rest _:c14n211 .
+_:c14n211 rdf:first rdfs:Literal ;
+	rdf:rest _:c14n212 .
+_:c14n212 rdf:first rdfs:Datatype ;
+	rdf:rest _:c14n213 .
+_:c14n213 rdf:first rdf:Property ;
+	rdf:rest _:c14n214 .
+_:c14n214 rdf:first sssom:ComposedEntityExpression ;
+	rdf:rest rdf:nil .
+_:c14n215 rdf:first owl:Class ;
+	rdf:rest _:c14n216 .
+_:c14n216 rdf:first owl:ObjectProperty ;
+	rdf:rest _:c14n217 .
+_:c14n217 rdf:first owl:DataProperty ;
+	rdf:rest _:c14n218 .
+_:c14n218 rdf:first owl:AnnotationProperty ;
+	rdf:rest _:c14n219 .
+_:c14n219 rdf:first owl:NamedIndividual ;
+	rdf:rest _:c14n220 .
+_:c14n22 sh:datatype rdfs:Resource ;
+	sh:description "Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 15 ;
+	sh:path dcterms:creator .
+_:c14n220 rdf:first skos:Concept ;
+	rdf:rest _:c14n221 .
+_:c14n221 rdf:first rdfs:Resource ;
+	rdf:rest _:c14n222 .
+_:c14n222 rdf:first rdfs:Class ;
+	rdf:rest _:c14n223 .
+_:c14n223 rdf:first rdfs:Literal ;
+	rdf:rest _:c14n224 .
+_:c14n224 rdf:first rdfs:Datatype ;
+	rdf:rest _:c14n225 .
+_:c14n225 rdf:first rdf:Property ;
+	rdf:rest _:c14n226 .
+_:c14n226 rdf:first sssom:ComposedEntityExpression ;
+	rdf:rest rdf:nil .
+_:c14n227 rdf:first owl:Class ;
+	rdf:rest _:c14n228 .
+_:c14n228 rdf:first owl:ObjectProperty ;
+	rdf:rest _:c14n229 .
+_:c14n229 rdf:first owl:DataProperty ;
+	rdf:rest _:c14n230 .
+_:c14n23 sh:description "The version of the SSSOM specification a mapping set is compliant with." ;
+	sh:in _:c14n239 ;
+	sh:maxCount 1 ;
+	sh:order 0 ;
+	sh:path sssom:sssom_version .
+_:c14n230 rdf:first owl:AnnotationProperty ;
+	rdf:rest _:c14n231 .
+_:c14n231 rdf:first owl:NamedIndividual ;
+	rdf:rest _:c14n232 .
+_:c14n232 rdf:first skos:Concept ;
+	rdf:rest _:c14n233 .
+_:c14n233 rdf:first rdfs:Resource ;
+	rdf:rest _:c14n234 .
+_:c14n234 rdf:first rdfs:Class ;
+	rdf:rest _:c14n235 .
+_:c14n235 rdf:first rdfs:Literal ;
+	rdf:rest _:c14n236 .
+_:c14n236 rdf:first rdfs:Datatype ;
+	rdf:rest _:c14n237 .
+_:c14n237 rdf:first rdf:Property ;
+	rdf:rest _:c14n238 .
+_:c14n238 rdf:first sssom:ComposedEntityExpression ;
+	rdf:rest rdf:nil .
+_:c14n239 rdf:first sssom:version1.0 ;
+	rdf:rest _:c14n240 .
+_:c14n24 rdf:first "0:1" ;
+	rdf:rest _:c14n67 .
+_:c14n240 rdf:first sssom:version1.1 ;
+	rdf:rest rdf:nil .
+_:c14n241 rdf:first sssom:version1.0 ;
+	rdf:rest _:c14n242 .
+_:c14n242 rdf:first sssom:version1.1 ;
+	rdf:rest rdf:nil .
+_:c14n25 sh:datatype xsd:double ;
+	sh:description "This value is set by the creator/maintainer of the mapping registry and reflects the confidence the mapping registry has in the correctness (i.e., precision) of mappings in the mapping set.\nWhen not explicitly specified, confidence estimation algorithms should consider the registry confidence in a mapping set to be 1.0 by default." ;
+	sh:maxCount 1 ;
+	sh:maxInclusive "1.0"^^xsd:double ;
+	sh:minInclusive "0.0"^^xsd:double ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path sssom:registry_confidence .
+_:c14n26 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n27 sh:description "The type of entity that is being mapped." ;
+	sh:in _:c14n203 ;
+	sh:maxCount 1 ;
+	sh:order 15 ;
+	sh:path sssom:object_type .
+_:c14n28 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n29 sh:datatype rdfs:Resource ;
+	sh:description "Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 9 ;
+	sh:path dcterms:creator .
+_:c14n3 sh:datatype rdfs:Resource ;
+	sh:description "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 29 ;
+	sh:path sssom:object_preprocessing .
+_:c14n30 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n31 sh:description "The type of the predicate used to map the subject and object entities." ;
+	sh:in _:c14n191 ;
+	sh:maxCount 1 ;
+	sh:order 18 ;
+	sh:path sssom:predicate_type .
+_:c14n32 sh:description "The property associated with the extension slot. It is intended to provide a non-ambiguous meaning to the slot (contrary to the slot_name, which for brevity reasons may be ambiguous)." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 1 ;
+	sh:path sssom:property .
+_:c14n33 sh:datatype xsd:string ;
+	sh:description "The title of a mapping registry." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path sssom:mapping_registry_title .
+_:c14n34 sh:datatype rdfs:Resource ;
+	sh:description "The ID of the subject of the mapping." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path owl:annotatedSource .
+_:c14n35 sh:datatype xsd:string ;
+	sh:description "The measure used for computing a similarity score. This field is meant to be used in conjunction with the similarity_score field, to document, for example, the lexical or semantic match of a matching algorithm. To make processing this field as unambiguous as possible, we recommend using wikidata CURIEs, but the type of this field is deliberately unspecified." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 30 ;
+	sh:path sssom:similarity_measure .
+_:c14n36 sh:datatype xsd:date ;
+	sh:description "The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 24 ;
+	sh:path dcterms:created .
+_:c14n37 rdf:first "1:0" ;
+	rdf:rest _:c14n24 .
+_:c14n38 sh:datatype rdfs:Resource ;
+	sh:description "The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 26 ;
+	sh:path sssom:mapping_source .
+_:c14n39 sh:datatype xsd:string ;
+	sh:description "Free text field containing either curator notes or text generated by tool providing additional informative information." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 50 ;
+	sh:path rdfs:comment .
+_:c14n4 sh:datatype rdfs:Resource ;
+	sh:description "URI of vocabulary or identifier source for the subject." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 13 ;
+	sh:path sssom:subject_source .
+_:c14n40 sh:datatype xsd:string ;
+	sh:description "A string representing the creator of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in creator_id) for that creator. It is not expected that there should be any link between creator_id and creator_label; in particular, creator_label is not intended to provide a human-friendly version of an identifier in creator_id." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 16 ;
+	sh:path sssom:creator_label .
+_:c14n41 rdf:first _:c14n166 ;
+	rdf:rest _:c14n130 .
+_:c14n42 sh:datatype rdfs:Resource ;
+	sh:description "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 37 ;
+	sh:path sssom:curation_rule .
+_:c14n43 sh:datatype xsd:double ;
+	sh:description "A value assigned by the creator of the mapping to denote the creator's confidence or estimated probability that the mapping record is correct. A value of 1.0 means the creator has full confidence in the correctness of the mapping record, while a value of 0.0 means the creator is fully unsure whether the mapping record is correct or not.\nWhen not explicitly specified, confidence estimation algorithms should consider the mapping confidence to be 1.0 by default." ;
+	sh:maxCount 1 ;
+	sh:maxInclusive "1.0"^^xsd:double ;
+	sh:minInclusive "0.0"^^xsd:double ;
+	sh:nodeKind sh:Literal ;
+	sh:order 35 ;
+	sh:path sssom:confidence .
+_:c14n44 sh:datatype xsd:string ;
+	sh:description "A string representing the author of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in author_id) for that author. It is not expected that there should be any link between author_id and author_label; in particular, author_label is not intended to provide a human-friendly version of an identifier in author_id." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 12 ;
+	sh:path sssom:author_label .
+_:c14n45 sh:datatype xsd:string ;
+	sh:description "Free text field containing either curator notes or text generated by tool providing additional informative information." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 36 ;
+	sh:path rdfs:comment .
+_:c14n46 sh:datatype xsd:date ;
+	sh:description "The date this reference was last updated." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path sssom:last_updated .
+_:c14n47 sh:datatype rdfs:Resource ;
+	sh:description "URI of vocabulary or identifier source for the object." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 16 ;
+	sh:path sssom:object_source .
+_:c14n48 rdf:first "1:n" ;
+	rdf:rest _:c14n114 .
+_:c14n49 sh:datatype xsd:string ;
+	sh:description "The label of the predicate/relation of the mapping." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 5 ;
+	sh:path sssom:predicate_label .
+_:c14n5 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n50 sh:datatype rdfs:Resource ;
+	sh:description "A list of properties, annotations or attributes related to the subject that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 26 ;
+	sh:path sssom:subject_match_field .
+_:c14n51 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n52 sh:datatype rdfs:Resource ;
+	sh:description "Identifies the persons or groups responsible for asserting the mappings. Recommended to be a list of ORCIDs or otherwise identifying URIs." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 11 ;
+	sh:path pav:authoredBy .
+_:c14n53 rdf:first sssom:NegatedPredicate ;
+	rdf:rest rdf:nil .
+_:c14n54 sh:description "The type of entity that is being mapped." ;
+	sh:in _:c14n227 ;
+	sh:maxCount 1 ;
+	sh:order 18 ;
+	sh:path sssom:subject_type .
+_:c14n55 sh:datatype rdfs:Resource ;
+	sh:description "Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 13 ;
+	sh:path sssom:reviewer_id .
+_:c14n56 sh:datatype xsd:string ;
+	sh:description "A description of the mapping set." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 7 ;
+	sh:path dcterms:description .
+_:c14n57 sh:datatype rdfs:Resource ;
+	sh:description "Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 43 ;
+	sh:path sssom:object_preprocessing .
+_:c14n58 sh:datatype xsd:string ;
+	sh:description "Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data. NOTE. This field is not recommended for general use, and should be used sparingly. See https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv for an alternative approach based on extension slots." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 35 ;
+	sh:path sssom:other .
+_:c14n59 sh:datatype xsd:string ;
+	sh:description "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where the creation of a resource is not practical from the perspective of the mapping_provider." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 32 ;
+	sh:path sssom:curation_rule_text .
+_:c14n6 sh:datatype xsd:string ;
+	sh:description "A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text. Consider using the mapping_tool_id slot for a more standardised reference." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 29 ;
+	sh:path sssom:mapping_tool .
+_:c14n60 sh:datatype xsd:date ;
+	sh:description "The date the mapping was reviewed. This is different from the date the mapping was asserted and published. If this field is used in a mapping, reviewer_id and/or reviewer_label MUST also be be set." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 34 ;
+	sh:path sssom:review_date .
+_:c14n61 sh:datatype xsd:string ;
+	sh:description "A string representing the creator of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in creator_id) for that creator. It is not expected that there should be any link between creator_id and creator_label; in particular, creator_label is not intended to provide a human-friendly version of an identifier in creator_id." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 10 ;
+	sh:path sssom:creator_label .
+_:c14n62 sh:datatype rdfs:Resource ;
+	sh:description "Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 42 ;
+	sh:path sssom:subject_preprocessing .
+_:c14n63 sh:datatype xsd:string ;
+	sh:description "Set by the owners of the mapping registry. A way to group related mapping sets for example for UI purposes." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path sssom:mapping_set_group .
+_:c14n64 sh:datatype xsd:date ;
+	sh:description "The date the mapping was published. This is different from the date the mapping was asserted." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 25 ;
+	sh:path dcterms:issued .
+_:c14n65 sh:datatype rdfs:Resource ;
+	sh:description "The ID (entity reference) of the tool or algorithm that was used to generate the mapping." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 22 ;
+	sh:path sssom:mapping_tool_id .
+_:c14n66 sh:datatype xsd:string ;
+	sh:description "The local name assigned to file that corresponds to the downloaded mapping set." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 5 ;
+	sh:path sssom:local_name .
+_:c14n67 rdf:first "0:0" ;
+	rdf:rest rdf:nil .
+_:c14n68 sh:description "Expected type of the values of the extension slot." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 2 ;
+	sh:path sssom:type_hint .
+_:c14n69 rdf:first _:c14n165 ;
+	rdf:rest rdf:nil .
+_:c14n7 sh:description "A mapping set or set of mapping set that was used to derive the mapping set." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 5 ;
+	sh:path prov:wasDerivedFrom .
+_:c14n70 sh:datatype xsd:string ;
+	sh:description "Version IRI or version string of the source of the object term." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 17 ;
+	sh:path sssom:object_source_version .
+_:c14n71 sh:datatype rdfs:Resource ;
+	sh:description "The ID of the predicate or relation that relates the subject and object of this match." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path owl:annotatedProperty .
+_:c14n72 sh:description "The type of entity that is being mapped." ;
+	sh:in _:c14n167 ;
+	sh:maxCount 1 ;
+	sh:order 12 ;
+	sh:path sssom:subject_type .
+_:c14n73 sh:datatype rdfs:Resource ;
+	sh:description "The ID (entity reference) of the tool or algorithm that was used to generate the mapping." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 30 ;
+	sh:path sssom:mapping_tool_id .
+_:c14n74 sh:class sssom:MappingSetReference ;
+	sh:description "A list of mapping set references." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 4 ;
+	sh:path sssom:mapping_set_references .
+_:c14n75 sh:datatype rdfs:Resource ;
+	sh:description "The issue tracker item discussing this mapping." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 47 ;
+	sh:path sssom:issue_tracker_item .
+_:c14n76 sh:datatype xsd:string ;
+	sh:description "The label of subject of the mapping." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path sssom:subject_label .
+_:c14n77 sh:description "URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 25 ;
+	sh:path sssom:mapping_provider .
+_:c14n78 sh:description "A value indicating whether the subject (respectively object) of this mapping record is present in other records involving a different object (respectively subject), within the subset of records defined by the cardinality_scope slot (or within the entire mapping set if cardinality_scope is undefined). Note that this is a convenience field, whose values can always be derived from the mapping set." ;
+	sh:in _:c14n102 ;
+	sh:maxCount 1 ;
+	sh:order 27 ;
+	sh:path sssom:mapping_cardinality .
+_:c14n79 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n8 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n80 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n81 sh:class sssom:Prefix ;
+	sh:description "A dictionary that contains prefixes as keys and their URI expansions as values." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 1 ;
+	sh:path sssom:curie_map .
+_:c14n82 sh:description "A globally unique identifier for the mapping set (not each individual mapping). Should ideally be resolvable." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 0 ;
+	sh:path sssom:mapping_set_id .
+_:c14n83 sh:description "The version of the specification in which the slot was added. If not specified, the slot must be assumed to have been added in version 1.0." ;
+	sh:in _:c14n241 ;
+	sh:maxCount 1 ;
+	sh:order 0 ;
+	sh:path sssom:added_in .
+_:c14n84 sh:description "A url to the license of the mapping. In absence of a license we assume no license." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 17 ;
+	sh:path dcterms:license .
+_:c14n85 sh:datatype xsd:string ;
+	sh:description "A list of mapping slots that define the scope for the value found in the mapping_cardinality slot. Mappings are considered to belong to the same scope if they have the same value for all slots listed in the scope. If no scope is defined, the default scope is empty, meaning that all mappings belong to a single scope that is identical to the entire mapping set. The behaviour if a value in the list does not correspond to a valid slot name is undefined." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 28 ;
+	sh:path sssom:cardinality_scope .
+_:c14n86 sh:datatype xsd:string ;
+	sh:description "A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where the creation of a resource is not practical from the perspective of the mapping_provider." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 38 ;
+	sh:path sssom:curation_rule_text .
+_:c14n87 sh:description "The type of entity that is being mapped." ;
+	sh:in _:c14n179 ;
+	sh:maxCount 1 ;
+	sh:order 21 ;
+	sh:path sssom:object_type .
+_:c14n88 sh:datatype xsd:string ;
+	sh:description "A string representing the reviewer of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in reviewer_id) for that reviewer. It is not expected that there should be any link between reviewer_id and reviewer_label; in particular, reviewer_label is not intended to provide a human-friendly version of an identifier in reviewer_id." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 14 ;
+	sh:path sssom:reviewer_label .
+_:c14n89 sh:description "A list of registries that should be imported into this one." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 3 ;
+	sh:path sssom:imports .
+_:c14n9 sh:datatype rdfs:Resource ;
+	sh:description "A list of properties, annotations or attributes related to the subject that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 39 ;
+	sh:path sssom:subject_match_field .
+_:c14n90 sh:datatype xsd:string ;
+	sh:description "A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text. Consider using the mapping_tool_id slot for a more standardised reference." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 21 ;
+	sh:path sssom:mapping_tool .
+_:c14n91 sh:class sssom:ExtensionDefinition ;
+	sh:description "A list that defines the extension slots used in the mapping set." ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:order 37 ;
+	sh:path sssom:extension_definitions .
+_:c14n92 sh:datatype xsd:date ;
+	sh:description "The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 32 ;
+	sh:path dcterms:created .
+_:c14n93 sh:description "A url to the license of the mapping. In absence of a license we assume no license." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 11 ;
+	sh:path dcterms:license .
+_:c14n94 sh:datatype rdfs:Resource ;
+	sh:description "A set of identifiers referring to mappings (i.e., subject-predicate-object-predicate modifier quadruple) that were used to derive this mapping, e.g., through mapping chaining or inversion." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 48 ;
+	sh:path prov:wasDerivedFrom .
+_:c14n95 sh:datatype xsd:string ;
+	sh:description "Version IRI or version string of the source of the subject term." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 14 ;
+	sh:path sssom:subject_source_version .
+_:c14n96 sh:datatype xsd:string ;
+	sh:description "A version string for the mapping." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path owl:versionInfo .
+_:c14n97 sh:description "A URL to a homepage of this mapping commons." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 6 ;
+	sh:path sssom:homepage .
+_:c14n98 rdf:first "n:n" ;
+	rdf:rest _:c14n37 .
+_:c14n99 sh:datatype xsd:string ;
+	sh:description "Version string that denotes the version of the mapping tool used." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 23 ;
+	sh:path sssom:mapping_tool_version .

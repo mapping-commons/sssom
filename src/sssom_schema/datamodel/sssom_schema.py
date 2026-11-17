@@ -1,5 +1,4 @@
 # Auto generated from sssom_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-26T15:25:40
 # Schema: sssom
 #
 # id: https://w3id.org/sssom/schema/
@@ -59,7 +58,7 @@ from rdflib import (
 from linkml_runtime.linkml_model.types import Boolean, Date, Double, Ncname, String, Uri, Uriorcurie
 from linkml_runtime.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate
 
-metamodel_version = "1.7.0"
+metamodel_version = "1.12.0"
 version = None
 
 # Namespaces
@@ -354,8 +353,16 @@ class Mapping(YAMLRoot):
 
         if self._is_empty(self.mapping_justification):
             self.MissingRequiredField("mapping_justification")
-        if not isinstance(self.mapping_justification, EntityReference):
-            self.mapping_justification = EntityReference(self.mapping_justification)
+        if not isinstance(self.mapping_justification, (EntityReference,)):
+            value = self.mapping_justification
+            for _coerce in (lambda: EntityReference(value),):
+                try:
+                    self.mapping_justification = _coerce()
+                    break
+                except (ValueError, TypeError):
+                    continue
+            else:
+                raise ValueError(f"None of the candidate types EntityReference could be constructed from {value!r} for slot mapping_justification")
 
         if self.record_id is not None and not isinstance(self.record_id, EntityReference):
             self.record_id = EntityReference(self.record_id)
@@ -742,11 +749,13 @@ class SssomVersionEnum(EnumDefinitionImpl):
         setattr(cls, "1.0",
             PermissibleValue(
                 text="1.0",
+                title="Version 1 0",
                 description="SSSOM specification version 1.0",
                 meaning=SSSOM["version1.0"]))
         setattr(cls, "1.1",
             PermissibleValue(
                 text="1.1",
+                title="Version 1 1",
                 description="SSSOM specification version 1.1",
                 meaning=SSSOM["version1.1"]))
 
@@ -831,30 +840,37 @@ class MappingCardinalityEnum(EnumDefinitionImpl):
         setattr(cls, "1:1",
             PermissibleValue(
                 text="1:1",
+                title="one to one",
                 description="""Indicates the mapping record is about a one-to-one mapping, that is, the subject and the object are only mapped to each other, exclusive of any other subject or object."""))
         setattr(cls, "1:n",
             PermissibleValue(
                 text="1:n",
-                description="""Indicates the mapping record is about a one-to-many mapping, that is, the same subject is mapped to several different objects."""))
+                title="one to many",
+                description="""Indicates the mapping record is about a one-to-many mapping, that is, the same subject is mapped to several different objects in several independent mapping records."""))
         setattr(cls, "n:1",
             PermissibleValue(
                 text="n:1",
-                description="""Indicates the mapping record is about a many-to-one mapping, that is, several different subjects are mapped to the same object."""))
+                title="many to one",
+                description="""Indicates the mapping record is about a many-to-one mapping, that is, several different subjects are mapped to the same object in several independent mapping records."""))
         setattr(cls, "n:n",
             PermissibleValue(
                 text="n:n",
-                description="""Indicates the mapping record is about a many-to-many mapping, that is, the subject is mapped to several different objects and the object is mapped to several different subjects."""))
+                title="many to many",
+                description="""Indicates the mapping record is about a many-to-many mapping, that is, the subject is mapped to several different objects and the object is mapped to several different subjects in several independent mapping records."""))
         setattr(cls, "1:0",
             PermissibleValue(
                 text="1:0",
+                title="one to none",
                 description="""Indicates that the subject has no match in the object vocabulary. This value MUST only be used when the object_id is sssom:NoTermFound."""))
         setattr(cls, "0:1",
             PermissibleValue(
                 text="0:1",
+                title="none to one",
                 description="""Indicates that the object has no match in the subject vocabulary. This value MUST only be used when the subject_id is sssom:NoTermFound."""))
         setattr(cls, "0:0",
             PermissibleValue(
                 text="0:0",
+                title="none to none",
                 description="""Indicates that there is no match between the subject vocabulary and the object vocabulary. This value MUST only be used when both the subject_id and the object_id are sssom:NoTermFound."""))
 
 # Slots
@@ -944,7 +960,7 @@ slots.object_category = Slot(uri=SSSOM.object_category, name="object_category", 
 
 slots.mapping_justification = Slot(uri=SSSOM.mapping_justification, name="mapping_justification", curie=SSSOM.curie('mapping_justification'),
                    model_uri=SSSOM.mapping_justification, domain=None, range=Union[str, EntityReference],
-                   pattern=re.compile(r'^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching)$'))
+                   pattern=re.compile(r'^semapv:(MappingReview|ManualMappingCuration|LogicalReasoning|LexicalMatching|CompositeMatching|UnspecifiedMatching|SemanticSimilarityThresholdMatching|LexicalSimilarityThresholdMatching|MappingChaining|MappingInversion|StructuralMatching|InstanceBasedMatching|BackgroundKnowledgeBasedMatching|MachineLearningBasedMatching|EmbeddingBasedMatching|TransformerBasedMatching|GraphRepresentationLearningBasedMatching|LLMBasedMatching|AgentBasedMatching|BoundedPathMatching)$'))
 
 slots.object_type = Slot(uri=SSSOM.object_type, name="object_type", curie=SSSOM.curie('object_type'),
                    model_uri=SSSOM.object_type, domain=None, range=Optional[Union[str, "EntityTypeEnum"]])
