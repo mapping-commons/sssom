@@ -100,18 +100,27 @@ enums:
         title: one to many
         description:
           Indicates the mapping record is about a one-to-many mapping, that is,
-          the same subject is mapped to several different objects.
+          the same subject is mapped to several different objects in several
+          independent mapping records.
+        see_also:
+          - sssom:mappings
       "n:1":
         title: many to one
         description:
           Indicates the mapping record is about a many-to-one mapping, that is,
-          several different subjects are mapped to the same object.
+          several different subjects are mapped to the same object in several
+          independent mapping records.
+        see_also:
+          - sssom:mappings
       "n:n":
         title: many to many
         description:
           Indicates the mapping record is about a many-to-many mapping, that is,
           the subject is mapped to several different objects and the object is
-          mapped to several different subjects.
+          mapped to several different subjects in several independent mapping
+          records.
+        see_also:
+          - sssom:mappings
       "1:0":
         title: one to none
         description:
@@ -256,7 +265,17 @@ slots:
     description: A URL to a homepage of this mapping commons.
     range: NonRelativeURI
   mappings:
-    description: Contains a list of mapping objects.
+    description: A list of mapping objects (also known as “mapping records”).
+
+      Mapping objects within such a list are always independent of each other
+      and, therefore, MUST be interpreted in isolation. This means, for example,
+      that if a list contains a mapping between A and B, and a mapping between A
+      and C, the only possible interpretation is that A is mapped independently
+      to B and to C – NOT that A is mapped to some combination of B and C.
+
+      That mappings must be interpreted in isolation does not preclude drawing
+      inferences from several mappings, as long as each mapping is always
+      interpreted on its own.
     range: mapping
     multivalued: true
     inlined_as_list: true
