@@ -1,144 +1,288 @@
- syntax="proto3";
- package
-// metamodel_version: 1.7.0
+syntax = "proto3";
+package sssom;
+// metamodel_version: 1.12.0
 // A definition of an extension (non-standard) slot.
-message ExtensionDefinition
- {
-  ncname slotName = 0
-  uriorcurie property = 0
-  uriorcurie typeHint = 0
- }
+message ExtensionDefinition {
+  // The name of the extension slot.
+  string slot_name = 1;
+  // The property associated with the extension slot. It is intended to provide a non-ambiguous meaning to the slot (contrary to the slot_name, which for brevity reasons may be ambiguous).
+  string property = 2;
+  // Expected type of the values of the extension slot.
+  string type_hint = 3;
+}
 // Represents an individual mapping between a pair of entities.
-message Mapping
- {
-  entityReference recordId = 0
-  entityReference subjectId = 0
-  string subjectLabel = 0
-  string subjectCategory = 0
-  entityReference predicateId = 0
-  string predicateLabel = 0
-  predicateModifierEnum predicateModifier = 0
-  entityReference objectId = 0
-  string objectLabel = 0
-  string objectCategory = 0
-  entityReference mappingJustification = 0
- repeated  entityReference authorId = 0
- repeated  string authorLabel = 0
- repeated  entityReference reviewerId = 0
- repeated  string reviewerLabel = 0
- repeated  entityReference creatorId = 0
- repeated  string creatorLabel = 0
-  nonRelativeURI license = 0
-  entityTypeEnum subjectType = 0
-  entityReference subjectSource = 0
-  string subjectSourceVersion = 0
-  entityTypeEnum objectType = 0
-  entityReference objectSource = 0
-  string objectSourceVersion = 0
-  entityTypeEnum predicateType = 0
-  nonRelativeURI mappingProvider = 0
-  entityReference mappingSource = 0
-  mappingCardinalityEnum mappingCardinality = 0
- repeated  string cardinalityScope = 0
-  string mappingTool = 0
-  entityReference mappingToolId = 0
-  string mappingToolVersion = 0
-  date mappingDate = 0
-  date publicationDate = 0
-  date reviewDate = 0
-  double confidence = 0
-  double reviewerAgreement = 0
- repeated  entityReference curationRule = 0
- repeated  string curationRuleText = 0
- repeated  entityReference subjectMatchField = 0
- repeated  entityReference objectMatchField = 0
- repeated  string matchString = 0
- repeated  entityReference subjectPreprocessing = 0
- repeated  entityReference objectPreprocessing = 0
-  double similarityScore = 0
-  string similarityMeasure = 0
- repeated  nonRelativeURI seeAlso = 0
-  entityReference issueTrackerItem = 0
- repeated  entityReference derivedFrom = 0
-  string other = 0
-  string comment = 0
- }
+message Mapping {
+  // A unique identifier for a mapping record, that is for an instance of the Mapping class (in the SSSOM/TSV serialisation, this corresponds to an individual row after propagation is applied). This slot is intended to uniquely identify one such record within a mapping set and may for example act as the resource identifier for the record when it is serialised into RDF. This slot MUST NOT be used to “group” several records together to indicate that they pertain to a single mapping (for example, that they represent different versions of the same mapping), by assigning the same ID to several records. When it is used, every record within a set MUST have a unique, non-empty value. The identifier MUST be a URI; beyond that, its format is unconstrained and the identifier MUST be treated as an opaque string.
+  string record_id = 1;
+  // The ID of the subject of the mapping.
+  string subject_id = 2;
+  // The label of subject of the mapping.
+  string subject_label = 3;
+  // The conceptual category to which the subject belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.
+  string subject_category = 4;
+  // The ID of the predicate or relation that relates the subject and object of this match.
+  string predicate_id = 5;
+  // The label of the predicate/relation of the mapping.
+  string predicate_label = 6;
+  // A modifier for negating the predicate. See https://github.com/mapping-commons/sssom/issues/40 for discussion
+  PredicateModifierEnum predicate_modifier = 7;
+  // The ID of the object of the mapping.
+  string object_id = 8;
+  // The label of object of the mapping.
+  string object_label = 9;
+  // The conceptual category to which the object belongs to. This can be a string denoting the category or a term from a controlled vocabulary. This slot is deliberately underspecified. Conceptual categories can range from those that are found in general upper ontologies such as BFO (e.g. process, temporal region, etc) to those that serve as upper ontologies in specific domains, such as COB or BioLink (e.g. gene, disease, chemical entity). The purpose of this optional field is documentation for human reviewers - when a category is known and documented clearly, the cost of interpreting and evaluating the mapping decreases.
+  string object_category = 10;
+  // A mapping justification is an action (or the written representation of that action) of showing a mapping to be right or reasonable.
+  string mapping_justification = 11;
+  // Identifies the persons or groups responsible for asserting the mappings. Recommended to be a list of ORCIDs or otherwise identifying URIs.
+  repeated string author_id = 12;
+  // A string representing the author of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in author_id) for that author. It is not expected that there should be any link between author_id and author_label; in particular, author_label is not intended to provide a human-friendly version of an identifier in author_id.
+  repeated string author_label = 13;
+  // Identifies the persons or groups that reviewed and confirmed the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.
+  repeated string reviewer_id = 14;
+  // A string representing the reviewer of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in reviewer_id) for that reviewer. It is not expected that there should be any link between reviewer_id and reviewer_label; in particular, reviewer_label is not intended to provide a human-friendly version of an identifier in reviewer_id.
+  repeated string reviewer_label = 15;
+  // Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.
+  repeated string creator_id = 16;
+  // A string representing the creator of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in creator_id) for that creator. It is not expected that there should be any link between creator_id and creator_label; in particular, creator_label is not intended to provide a human-friendly version of an identifier in creator_id.
+  repeated string creator_label = 17;
+  // A url to the license of the mapping. In absence of a license we assume no license.
+  string license = 18;
+  // The type of entity that is being mapped.
+  EntityTypeEnum subject_type = 19;
+  // URI of vocabulary or identifier source for the subject.
+  string subject_source = 20;
+  // Version IRI or version string of the source of the subject term.
+  string subject_source_version = 21;
+  // The type of entity that is being mapped.
+  EntityTypeEnum object_type = 22;
+  // URI of vocabulary or identifier source for the object.
+  string object_source = 23;
+  // Version IRI or version string of the source of the object term.
+  string object_source_version = 24;
+  // The type of the predicate used to map the subject and object entities.
+  EntityTypeEnum predicate_type = 25;
+  // URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.
+  string mapping_provider = 26;
+  // The mapping set this mapping was originally defined in. mapping_source is used for example when merging multiple mapping sets or deriving one mapping set from another.
+  string mapping_source = 27;
+  // A value indicating whether the subject (respectively object) of this mapping record is present in other records involving a different object (respectively subject), within the subset of records defined by the cardinality_scope slot (or within the entire mapping set if cardinality_scope is undefined). Note that this is a convenience field, whose values can always be derived from the mapping set.
+  MappingCardinalityEnum mapping_cardinality = 28;
+  // A list of mapping slots that define the scope for the value found in the mapping_cardinality slot. Mappings are considered to belong to the same scope if they have the same value for all slots listed in the scope. If no scope is defined, the default scope is empty, meaning that all mappings belong to a single scope that is identical to the entire mapping set. The behaviour if a value in the list does not correspond to a valid slot name is undefined.
+  repeated string cardinality_scope = 29;
+  // A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text. Consider using the mapping_tool_id slot for a more standardised reference.
+  string mapping_tool = 30;
+  // The ID (entity reference) of the tool or algorithm that was used to generate the mapping.
+  string mapping_tool_id = 31;
+  // Version string that denotes the version of the mapping tool used.
+  string mapping_tool_version = 32;
+  // The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
+  string mapping_date = 33;
+  // The date the mapping was published. This is different from the date the mapping was asserted.
+  string publication_date = 34;
+  // The date the mapping was reviewed. This is different from the date the mapping was asserted and published. If this field is used in a mapping, reviewer_id and/or reviewer_label MUST also be be set.
+  string review_date = 35;
+  // A value assigned by the creator of the mapping to denote the creator's confidence or estimated probability that the mapping record is correct. A value of 1.0 means the creator has full confidence in the correctness of the mapping record, while a value of 0.0 means the creator is fully unsure whether the mapping record is correct or not.
+  // When not explicitly specified, confidence estimation algorithms should consider the mapping confidence to be 1.0 by default.
+  double confidence = 36;
+  // A value assigned by the reviewer of the mapping to denote their confidence that the mapping record is correct. A value of 1.0 means the reviewer fully agrees with the mapping record. A value of -1.0 means the reviewer fully disagrees with the mapping record. A value of 0.0 means the reviewer is not sure whether the mapping record is correct or not.
+  // When not explicitly specified, confidence estimation algorithms should consider the reviewer agreement to be 1.0 by default.
+  double reviewer_agreement = 37;
+  // A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.
+  repeated string curation_rule = 38;
+  // A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where the creation of a resource is not practical from the perspective of the mapping_provider.
+  repeated string curation_rule_text = 39;
+  // A list of properties, annotations or attributes related to the subject that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section.
+  repeated string subject_match_field = 40;
+  // A list of properties, annotations or attributes related to the object that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section.
+  repeated string object_match_field = 41;
+  // String that is shared by subj/obj. It is recommended to indicate the fields for the match using the object and subject_match_field slots.
+  repeated string match_string = 42;
+  // Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.
+  repeated string subject_preprocessing = 43;
+  // Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.
+  repeated string object_preprocessing = 44;
+  // A score between 0 and 1 to denote the similarity between two entities, where 1 denotes equivalence, and 0 denotes disjointness. The score is meant to be used in conjunction with the similarity_measure field, to document, for example, the lexical or semantic match of a matching algorithm.
+  double similarity_score = 45;
+  // The measure used for computing a similarity score. This field is meant to be used in conjunction with the similarity_score field, to document, for example, the lexical or semantic match of a matching algorithm. To make processing this field as unambiguous as possible, we recommend using wikidata CURIEs, but the type of this field is deliberately unspecified.
+  string similarity_measure = 46;
+  // A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment
+  repeated string see_also = 47;
+  // The issue tracker item discussing this mapping.
+  string issue_tracker_item = 48;
+  // A set of identifiers referring to mappings (i.e., subject-predicate-object-predicate modifier quadruple) that were used to derive this mapping, e.g., through mapping chaining or inversion.
+  repeated string derived_from = 49;
+  // Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data. NOTE. This field is not recommended for general use, and should be used sparingly. See https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv for an alternative approach based on extension slots.
+  string other = 50;
+  // Free text field containing either curator notes or text generated by tool providing additional informative information.
+  string comment = 51;
+}
 // A registry for managing mapping sets. It holds a set of mapping set references, and can import other registries.
-message MappingRegistry
- {
-  entityReference mappingRegistryId = 0
-  string mappingRegistryTitle = 0
-  string mappingRegistryDescription = 0
- repeated  nonRelativeURI imports = 0
- repeated  mappingSetReference mappingSetReferences = 0
-  nonRelativeURI documentation = 0
-  nonRelativeURI homepage = 0
-  nonRelativeURI issueTracker = 0
- }
+message MappingRegistry {
+  // The unique identifier of a mapping registry.
+  string mapping_registry_id = 1;
+  // The title of a mapping registry.
+  string mapping_registry_title = 2;
+  // The description of a mapping registry.
+  string mapping_registry_description = 3;
+  // A list of registries that should be imported into this one.
+  repeated string imports = 4;
+  // A list of mapping set references.
+  repeated MappingSetReference mapping_set_references = 5;
+  // A URL to the documentation of this mapping commons.
+  string documentation = 6;
+  // A URL to a homepage of this mapping commons.
+  string homepage = 7;
+  // A URL location of the issue tracker for this entity.
+  string issue_tracker = 8;
+}
 // Represents a set of mappings.
-message MappingSet
- {
-  sssomVersionEnum sssomVersion = 0
- repeated  prefix curieMap = 0
- repeated  mapping mappings = 0
-  nonRelativeURI mappingSetId = 0
-  string mappingSetVersion = 0
- repeated  nonRelativeURI mappingSetSource = 0
-  string mappingSetTitle = 0
-  string mappingSetDescription = 0
-  double mappingSetConfidence = 0
- repeated  entityReference creatorId = 0
- repeated  string creatorLabel = 0
-  nonRelativeURI license = 0
-  entityTypeEnum subjectType = 0
-  entityReference subjectSource = 0
-  string subjectSourceVersion = 0
-  entityTypeEnum objectType = 0
-  entityReference objectSource = 0
-  string objectSourceVersion = 0
-  entityTypeEnum predicateType = 0
-  nonRelativeURI mappingProvider = 0
- repeated  string cardinalityScope = 0
-  string mappingTool = 0
-  entityReference mappingToolId = 0
-  string mappingToolVersion = 0
-  date mappingDate = 0
-  date publicationDate = 0
- repeated  entityReference subjectMatchField = 0
- repeated  entityReference objectMatchField = 0
- repeated  entityReference subjectPreprocessing = 0
- repeated  entityReference objectPreprocessing = 0
-  string similarityMeasure = 0
- repeated  entityReference curationRule = 0
- repeated  string curationRuleText = 0
- repeated  nonRelativeURI seeAlso = 0
-  nonRelativeURI issueTracker = 0
-  string other = 0
-  string comment = 0
- repeated  extensionDefinition extensionDefinitions = 0
- }
+message MappingSet {
+  // The version of the SSSOM specification a mapping set is compliant with.
+  SssomVersionEnum sssom_version = 1;
+  // A dictionary that contains prefixes as keys and their URI expansions as values.
+  repeated Prefix curie_map = 2;
+  // A list of mapping objects (also known as “mapping records”).
+  // Mapping objects within such a list are always independent of each other and, therefore, MUST be interpreted in isolation. This means, for example, that if a list contains a mapping between A and B, and a mapping between A and C, the only possible interpretation is that A is mapped independently to B and to C – NOT that A is mapped to some combination of B and C.
+  // That mappings must be interpreted in isolation does not preclude drawing inferences from several mappings, as long as each mapping is always interpreted on its own.
+  repeated Mapping mappings = 3;
+  // A globally unique identifier for the mapping set (not each individual mapping). Should ideally be resolvable.
+  string mapping_set_id = 4;
+  // A version string for the mapping.
+  string mapping_set_version = 5;
+  // A mapping set or set of mapping set that was used to derive the mapping set.
+  repeated string mapping_set_source = 6;
+  // The display name of a mapping set.
+  string mapping_set_title = 7;
+  // A description of the mapping set.
+  string mapping_set_description = 8;
+  // Mapping-set level confidence is assigned by the creator of the mapping set to indicate their overall confidence in the correctness (i.e., precision) of mappings in the mapping set. Mapping set confidence is intended to be used in cases were the creator wants to express an overall confidence into the agent that curated the individual mappings, for example a lexical matching tool, or a group of students.
+  // When not explicitly specified, confidence estimation algorithms should consider the mapping set confidence to be 1.0 by default.
+  double mapping_set_confidence = 9;
+  // Identifies the persons or groups responsible for the creation of the mapping. The creator is the agent that put the mapping in its published form, which may be different from the author, which is a person that was actively involved in the assertion of the mapping. Recommended to be a list of ORCIDs or otherwise identifying URIs.
+  repeated string creator_id = 10;
+  // A string representing the creator of this mapping. This should only be used in the absence of a proper semantic identifier (which would be stored in creator_id) for that creator. It is not expected that there should be any link between creator_id and creator_label; in particular, creator_label is not intended to provide a human-friendly version of an identifier in creator_id.
+  repeated string creator_label = 11;
+  // A url to the license of the mapping. In absence of a license we assume no license.
+  string license = 12;
+  // The type of entity that is being mapped.
+  EntityTypeEnum subject_type = 13;
+  // URI of vocabulary or identifier source for the subject.
+  string subject_source = 14;
+  // Version IRI or version string of the source of the subject term.
+  string subject_source_version = 15;
+  // The type of entity that is being mapped.
+  EntityTypeEnum object_type = 16;
+  // URI of vocabulary or identifier source for the object.
+  string object_source = 17;
+  // Version IRI or version string of the source of the object term.
+  string object_source_version = 18;
+  // The type of the predicate used to map the subject and object entities.
+  EntityTypeEnum predicate_type = 19;
+  // URL pointing to the source that provided the mapping, for example an ontology that already contains the mappings, or a database from which it was derived.
+  string mapping_provider = 20;
+  // A list of mapping slots that define the scope for the value found in the mapping_cardinality slot. Mappings are considered to belong to the same scope if they have the same value for all slots listed in the scope. If no scope is defined, the default scope is empty, meaning that all mappings belong to a single scope that is identical to the entire mapping set. The behaviour if a value in the list does not correspond to a valid slot name is undefined.
+  repeated string cardinality_scope = 21;
+  // A reference to the tool or algorithm that was used to generate the mapping. Should be a URL pointing to more info about it, but can be free text. Consider using the mapping_tool_id slot for a more standardised reference.
+  string mapping_tool = 22;
+  // The ID (entity reference) of the tool or algorithm that was used to generate the mapping.
+  string mapping_tool_id = 23;
+  // Version string that denotes the version of the mapping tool used.
+  string mapping_tool_version = 24;
+  // The date the mapping was asserted. This is different from the date the mapping was published or compiled in a SSSOM file.
+  string mapping_date = 25;
+  // The date the mapping was published. This is different from the date the mapping was asserted.
+  string publication_date = 26;
+  // A list of properties, annotations or attributes related to the subject that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section.
+  repeated string subject_match_field = 27;
+  // A list of properties, annotations or attributes related to the object that was used to establish the match. This property is recommended for use in conjunction with  mapping justifications related to lexical matching, such as `semapv:LexicalMatching`.  For additional information see the 'See Also' section.
+  repeated string object_match_field = 28;
+  // Method of preprocessing applied to the fields of the subject. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.
+  repeated string subject_preprocessing = 29;
+  // Method of preprocessing applied to the fields of the object. If different preprocessing steps were performed on different fields, it is recommended to store the match in separate rows.
+  repeated string object_preprocessing = 30;
+  // The measure used for computing a similarity score. This field is meant to be used in conjunction with the similarity_score field, to document, for example, the lexical or semantic match of a matching algorithm. To make processing this field as unambiguous as possible, we recommend using wikidata CURIEs, but the type of this field is deliberately unspecified.
+  string similarity_measure = 31;
+  // A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule is captured as a resource rather than a string, which enables higher levels of transparency and sharing across mapping sets. The URI representation of the curation rule is expected to be a resolvable identifier which provides details about the nature of the curation rule.
+  repeated string curation_rule = 32;
+  // A curation rule is a (potentially) complex condition executed by an agent that led to the establishment of a mapping. Curation rules often involve complex domain-specific considerations, which are hard to capture in an automated fashion. The curation rule should be captured as a resource (entity reference) rather than a string (see curation_rule element), which enables higher levels of transparency and sharing across mapping sets. The textual representation of curation rule is intended to be used in cases where the creation of a resource is not practical from the perspective of the mapping_provider.
+  repeated string curation_rule_text = 33;
+  // A URL specific for the mapping instance. E.g. for kboom we have a per-mapping image that shows surrounding axioms that drive probability. Could also be a github issue URL that discussed a complicated alignment
+  repeated string see_also = 34;
+  // A URL location of the issue tracker for this entity.
+  string issue_tracker = 35;
+  // Pipe separated list of key value pairs for properties not part of the SSSOM spec. Can be used to encode additional provenance data. NOTE. This field is not recommended for general use, and should be used sparingly. See https://github.com/mapping-commons/sssom/blob/master/examples/schema/extension-slots.sssom.tsv for an alternative approach based on extension slots.
+  string other = 36;
+  // Free text field containing either curator notes or text generated by tool providing additional informative information.
+  string comment = 37;
+  // A list that defines the extension slots used in the mapping set.
+  repeated ExtensionDefinition extension_definitions = 38;
+}
 // A reference to a mapping set. It allows to augment mapping set metadata from the perspective of the registry, for example, providing confidence, or a local filename or a grouping.
-message MappingSetReference
- {
-  nonRelativeURI mappingSetId = 0
-  nonRelativeURI mirrorFrom = 0
-  double registryConfidence = 0
-  string mappingSetGroup = 0
-  date lastUpdated = 0
-  string localName = 0
- }
-message Prefix
- {
-  ncname prefixName = 0
-  uri prefixUrl = 0
- }
+message MappingSetReference {
+  // A globally unique identifier for the mapping set (not each individual mapping). Should ideally be resolvable.
+  string mapping_set_id = 1;
+  // A URL location from which to obtain a resource, such as a mapping set.
+  string mirror_from = 2;
+  // This value is set by the creator/maintainer of the mapping registry and reflects the confidence the mapping registry has in the correctness (i.e., precision) of mappings in the mapping set.
+  // When not explicitly specified, confidence estimation algorithms should consider the registry confidence in a mapping set to be 1.0 by default.
+  double registry_confidence = 3;
+  // Set by the owners of the mapping registry. A way to group related mapping sets for example for UI purposes.
+  string mapping_set_group = 4;
+  // The date this reference was last updated.
+  string last_updated = 5;
+  // The local name assigned to file that corresponds to the downloaded mapping set.
+  string local_name = 6;
+}
+// sssom:NoTermFound can be used in place of a subject_id or object_id when the corresponding entity could not be found. It SHOULD be used in conjunction with a corresponding subject_source or object_source to signify where the term was not found.
+message NoTermFound {
+}
+message Prefix {
+  string prefix_name = 1;
+  string prefix_url = 2;
+}
 // Metamodel extension class to describe slots whose value can be propagated down from the MappingSet class to the Mapping class.
-message Propagatable
- {
-  boolean propagated = 0
- }
+message Propagatable {
+  // Indicates whether a slot can be propagated from a mapping down to individual mappings.
+  bool propagated = 1;
+}
 // Metamodel extension class to manage slots that may not exist in all versions of the model.
-message Versionable
- {
-  sssomVersionEnum addedIn = 0
- }
+message Versionable {
+  // The version of the specification in which the slot was added. If not specified, the slot must be assumed to have been added in version 1.0.
+  SssomVersionEnum added_in = 1;
+}
+
+enum EntityTypeEnum {
+  ENTITY_TYPE_ENUM_UNSPECIFIED = 0;
+  ENTITY_TYPE_ENUM_OWL_CLASS = 1;
+  ENTITY_TYPE_ENUM_OWL_OBJECT_PROPERTY = 2;
+  ENTITY_TYPE_ENUM_OWL_DATA_PROPERTY = 3;
+  ENTITY_TYPE_ENUM_OWL_ANNOTATION_PROPERTY = 4;
+  ENTITY_TYPE_ENUM_OWL_NAMED_INDIVIDUAL = 5;
+  ENTITY_TYPE_ENUM_SKOS_CONCEPT = 6;
+  ENTITY_TYPE_ENUM_RDFS_RESOURCE = 7;
+  ENTITY_TYPE_ENUM_RDFS_CLASS = 8;
+  ENTITY_TYPE_ENUM_RDFS_LITERAL = 9;
+  ENTITY_TYPE_ENUM_RDFS_DATATYPE = 10;
+  ENTITY_TYPE_ENUM_RDF_PROPERTY = 11;
+  ENTITY_TYPE_ENUM_COMPOSED_ENTITY_EXPRESSION = 12;
+}
+enum MappingCardinalityEnum {
+  MAPPING_CARDINALITY_ENUM_UNSPECIFIED = 0;
+  MAPPING_CARDINALITY_ENUM_N1_N1 = 1;
+  MAPPING_CARDINALITY_ENUM_N1_N = 2;
+  MAPPING_CARDINALITY_ENUM_N_N1 = 3;
+  MAPPING_CARDINALITY_ENUM_N_N = 4;
+  MAPPING_CARDINALITY_ENUM_N1_N0 = 5;
+  MAPPING_CARDINALITY_ENUM_N0_N1 = 6;
+  MAPPING_CARDINALITY_ENUM_N0_N0 = 7;
+}
+enum PredicateModifierEnum {
+  PREDICATE_MODIFIER_ENUM_UNSPECIFIED = 0;
+  PREDICATE_MODIFIER_ENUM_NOT = 1;
+}
+enum SssomVersionEnum {
+  SSSOM_VERSION_ENUM_UNSPECIFIED = 0;
+  SSSOM_VERSION_ENUM_N1_N0 = 1;
+  SSSOM_VERSION_ENUM_N1_N1 = 2;
+}
