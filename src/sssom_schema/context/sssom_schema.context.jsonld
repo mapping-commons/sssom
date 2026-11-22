@@ -48,6 +48,10 @@
          "@type": "@id",
          "@id": "curie_map"
       },
+      "derived_from": {
+         "@type": "rdfs:Resource",
+         "@id": "prov:wasDerivedFrom"
+      },
       "documentation": {
          "@type": "xsd:anyURI",
          "@id": "documentation"
