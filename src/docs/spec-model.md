@@ -299,15 +299,13 @@ Note that, if the `sssom_version` slot is _not_ omitted, then it MUST be set to 
 
 ### Model changes across versions
 
-For all slots that were added to the specification after version 1.0, the LinkML model contains an `added_in` annotation that indicates the exact version in which the slot was introduced.
+For all slots and enumeration values that were added to the specification after version 1.0, the LinkML model contains an `added_in` annotation that indicates the exact version in which the slot or enumeration value was introduced.
 
-Not all changes can be annotated thusly in the LinkML model, though. For changes other than the complete addition of a new slot, implementation can refer to the following subsections.
+Not all changes can be annotated thusly in the LinkML model, though. For changes other than the complete addition of a new slot or a new enumeration value, implementation can refer to the following subsections.
 
 #### Model changes in version 1.1
 
 * The `similarity_measure` slot, which previously only existed on the `Mapping` class, has been added to the `MappingSet` class.
-* The value `composed entity expression` has been added to the `EntityType` enumeration.
 * The type of the `see_also` slot has been changed to `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.
 * All slots that were typed as `xsd:anyURI` have been re-typed as `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.
 * The `curation_rule` and `curation_rule_text` slots which previously only existed on the `Mapping` class, have been added to the `MappingSet` class. Both slots have now been typed [propagatable](#propagation-of-mapping-set-slots).
-* A new value `0:0` has been added to the `mapping_cardinality_enum`.

@@ -149,8 +149,9 @@ _optional_ slots, or _new_ enumeration values. For that reason, it is strongly
 recommended that evolution of the 1.x branch be limited to this type of changes
 only, and that other changes be reserved for a hypothetical version 2.0.
 
-In addition, new slots must be marked with a `added_in` annotation indicating
-the version in which the slot will be introduced, as in the following example:
+In addition, new slots and new enumeration values must be marked with a
+`added_in` annotation indicating the version in which the slot will be
+introduced, as in the following example:
 
 ```yaml
 my_new_slot:
