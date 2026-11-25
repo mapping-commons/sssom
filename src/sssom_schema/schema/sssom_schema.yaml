@@ -77,6 +77,10 @@ enums:
           value MUST NOT be used in the predicate_type slot. This specifications
           does not prescribe how an ID representing a composite entity should be
           interpreted; this is left at the discretion of applications.
+        instantiates:
+          - sssom:Versionable
+        annotations:
+          added_in: "1.1"
         see_also:
           - https://github.com/mapping-commons/sssom/issues/402
           - https://github.com/mapping-commons/sssom/blob/master/examples/schema/composite-entities.sssom.tsv
@@ -88,6 +92,7 @@ enums:
           Negating the mapping predicate. The meaning of the triple becomes
           subject_id is not a predicate_id match to object_id.
         meaning: sssom:NegatedPredicate
+
   mapping_cardinality_enum:
     permissible_values:
       "1:1":
@@ -137,6 +142,10 @@ enums:
           Indicates that there is no match between the subject vocabulary and
           the object vocabulary. This value MUST only be used when both the
           subject_id and the object_id are sssom:NoTermFound.
+        instantiates:
+          - sssom:Versionable
+        annotations:
+          added_in: "1.1"
 
 types:
   EntityReference:
