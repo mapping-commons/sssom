@@ -1,13 +1,13 @@
 import unittest
-from jsonasobj2 import as_dict
 
+from jsonasobj2 import as_dict
 from linkml_runtime.utils.schemaview import SchemaView, load_schema_wrap
 
 CURRENT_VERSION = "1.1"
 
 
 class TestAddedInAnnotationTestCase(unittest.TestCase):
-    """Checks that all newly added slots are annotated as such."""
+    """Checks that all newly added slots and PVs are annotated as such."""
 
     def test_new_slots(self):
         # For all the classes we care about, we list the pre-existing
@@ -121,6 +121,58 @@ class TestAddedInAnnotationTestCase(unittest.TestCase):
                     if version != CURRENT_VERSION:
                         annotated_with_wrong_version.append(
                             f"Slot {slot_name} in class {class_name} is annotated with a wrong version ({version})"
+                        )
+
+        self.assertListEqual([], unannotated)
+        self.assertListEqual([], annotated_with_wrong_version)
+
+    def test_new_permissible_values(self):
+        # List the pre-existing PVs in the last version. That list
+        # should be updated after every release corresponding to a new
+        # version of the spec (e.g. after ther 1.1 release, add all the
+        # 1.1 PVs).
+        basevalues = {
+            "entity_type_enum": [
+                "owl class",
+                "owl object property",
+                "owl data property",
+                "owl annotation property",
+                "owl named individual",
+                "skos concept",
+                "rdfs resource",
+                "rdfs class",
+                "rdfs literal",
+                "rdfs datatype",
+                "rdf property",
+            ],
+            "predicate_modifier_enum": ["Not"],
+            "mapping_cardinality_enum": ["1:1", "1:n", "n:1", "n:n", "1:0", "0:1"],
+        }
+        unannotated = []
+        annotated_with_wrong_version = []
+
+        sv = SchemaView(load_schema_wrap("src/sssom_schema/schema/sssom_schema.yaml"))
+        for enum_name, enum_view in sv.all_enums().items():
+            basevalues_for_enum = basevalues.get(enum_name)
+            if basevalues_for_enum is None:
+                continue
+
+            for pv_name, pv in enum_view.permissible_values.items():
+                if pv_name in basevalues_for_enum:
+                    # This is a pre-existing value
+                    continue
+
+                # New value, check for added_in annotation
+                added_in = pv.annotations.get("added_in", None)
+                if added_in is None:
+                    unannotated.append(
+                        f"Value {pv_name} in enum {enum_name} is not annotated"
+                    )
+                else:
+                    version = added_in.value
+                    if version != CURRENT_VERSION:
+                        annotated_with_wrong_version.append(
+                            f"Value {pv_name} in enum {enum_name} is annotated with wrong version ({version})"
                         )
 
         self.assertListEqual([], unannotated)
