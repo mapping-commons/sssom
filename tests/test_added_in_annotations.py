@@ -129,7 +129,7 @@ class TestAddedInAnnotationTestCase(unittest.TestCase):
     def test_new_permissible_values(self):
         # List the pre-existing PVs in the last version. That list
         # should be updated after every release corresponding to a new
-        # version of the spec (e.g. after ther 1.1 release, add all the
+        # version of the spec (e.g. after the 1.1 release, add all the
         # 1.1 PVs).
         basevalues = {
             "entity_type_enum": [
