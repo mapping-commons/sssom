@@ -317,3 +317,17 @@ Not all changes can be annotated thusly in the LinkML model, though. For changes
     * `semapv:LLMBasedMatching`,
     * `semapv:AgentBasedMatching`,
     * `semapv:BoundedPathMatching`.
+
+### Making a set compliant to a previous version of this specification
+
+SSSOM implementations MAY support transforming a mapping set compliant with the latest version of this specification into a mapping set compliant with a previous version. This is hereafter referred to as _downgrading_ a set, and may be useful for example if a set is to be used with a downstream application that does not support the latest version of the specification.
+
+When supported, downgrading SHOULD only ever be performed at the explicit request of the user, as it is a lossy operation.
+
+An implementation SHOULD NOT allow to downgrade a set to any version prior to version 1.0.
+
+To downgrade a set to version 1.X of the specification, an implementation:
+
+* MUST remove any slot (both from the mapping set and from the individual mapping records) introduced in any version after 1.X, as indicated by the `added_in` annotations in the normative LinkML schema;
+* MUST remove any `entity_type_enum`, `mapping_cardinality_enum`, and `predicate_modifier_enum` value introduced in any version after 1.X, as indicated by the `added_in` annotations in the normative LinkML schema;
+* MUST replace any value from the `mapping_justification` slot introduced in any version after 1.X, as indicated in the [“Model changes across versions” section](#model-changes-across-versions), by the value `semapv:UnspecifiedMatching`.
