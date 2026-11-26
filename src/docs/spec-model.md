@@ -309,3 +309,11 @@ Not all changes can be annotated thusly in the LinkML model, though. For changes
 * The type of the `see_also` slot has been changed to `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.
 * All slots that were typed as `xsd:anyURI` have been re-typed as `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.
 * The `curation_rule` and `curation_rule_text` slots which previously only existed on the `Mapping` class, have been added to the `MappingSet` class. Both slots have now been typed [propagatable](#propagation-of-mapping-set-slots).
+* The following values have been added to the allowed values for the `mapping_justification` slot:
+    * `semapv:MachineLearningBasedMatching`,
+    * `semapv:EmbeddingBasedMatching`,
+    * `semapv:TransformerBasedMatching`,
+    * `semapv:GraphRepresentationLearningBasedMatching`,
+    * `semapv:LLMBasedMatching`,
+    * `semapv:AgentBasedMatching`,
+    * `semapv:BoundedPathMatching`.
