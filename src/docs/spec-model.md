@@ -309,3 +309,25 @@ Not all changes can be annotated thusly in the LinkML model, though. For changes
 * The type of the `see_also` slot has been changed to `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept arbitrary string values in that slot.
 * All slots that were typed as `xsd:anyURI` have been re-typed as `sssom:NonRelativeURI`. When parsing a SSSOM 1.0 set, implementations SHOULD accept relative URI values in those slots.
 * The `curation_rule` and `curation_rule_text` slots which previously only existed on the `Mapping` class, have been added to the `MappingSet` class. Both slots have now been typed [propagatable](#propagation-of-mapping-set-slots).
+* The following values have been added to the allowed values for the `mapping_justification` slot:
+    * `semapv:MachineLearningBasedMatching`,
+    * `semapv:EmbeddingBasedMatching`,
+    * `semapv:TransformerBasedMatching`,
+    * `semapv:GraphRepresentationLearningBasedMatching`,
+    * `semapv:LLMBasedMatching`,
+    * `semapv:AgentBasedMatching`,
+    * `semapv:BoundedPathMatching`.
+
+### Making a set compliant to a previous version of this specification
+
+SSSOM implementations MAY support transforming a mapping set compliant with the latest version of this specification into a mapping set compliant with a previous version. This is hereafter referred to as _downgrading_ a set, and may be useful for example if a set is to be used with a downstream application that does not support the latest version of the specification.
+
+When supported, downgrading SHOULD only ever be performed at the explicit request of the user, as it is a lossy operation.
+
+An implementation SHOULD NOT allow to downgrade a set to any version prior to version 1.0.
+
+To downgrade a set to version 1.X of the specification, an implementation:
+
+* MUST remove any slot (both from the mapping set and from the individual mapping records) introduced in any version after 1.X, as indicated by the `added_in` annotations in the normative LinkML schema;
+* MUST remove any `entity_type_enum`, `mapping_cardinality_enum`, and `predicate_modifier_enum` value introduced in any version after 1.X, as indicated by the `added_in` annotations in the normative LinkML schema;
+* MUST replace any value from the `mapping_justification` slot introduced in any version after 1.X, as indicated in the [“Model changes across versions” section](#model-changes-across-versions), by the value `semapv:UnspecifiedMatching`.
