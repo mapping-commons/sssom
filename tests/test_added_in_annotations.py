@@ -7,7 +7,7 @@ CURRENT_VERSION = "1.1"
 
 
 class TestAddedInAnnotationTestCase(unittest.TestCase):
-    """Checks that all newly added slots and PVs are annotated as such."""
+    """Checks that all newly added slots and enumeration values are annotated as such."""
 
     def test_new_slots(self):
         # For all the classes we care about, we list the pre-existing
