@@ -1543,13 +1543,14 @@ classes:
   Versionable:
     class_uri: sssom:Versionable
     description:
-      Metamodel extension class to manage slots that may not exist in all
-      versions of the model.
+      Metamodel extension class to manage schema elements that may not exist in
+      all versions of the model.
     attributes:
       added_in:
         description:
-          The version of the specification in which the slot was added. If not
-          specified, the slot must be assumed to have been added in version 1.0.
+          The version of the specification in which the element was added. If
+          not specified, the element must be assumed to have been present since
+          version 1.0.
         range: sssom_version_enum
   NoTermFound:
     class_uri: sssom:NoTermFound
