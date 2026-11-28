@@ -187,7 +187,7 @@ class in version 1.1:
 classes:
   mapping set:
     slots:
-      # Add the license slot to the class
+      # Add the slot to the class
       - similarity_measure
       # Other slots...
 
